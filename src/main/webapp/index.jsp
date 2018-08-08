@@ -37,13 +37,60 @@
 
 
 
-
-
-
-
-
-
   <div class="row">
+    <div class="Column">
+      
+      <img class="center-block img-responsive" alt="TEAMMATES - Praised by Users" src="images/overview_praise.png">
+      <h2 align="center" class="media-heading">Praised by Users:</h2><br><br>
+    </div>
+    
+      <div class="row">
+    <div class="Column">
+      
+      <img class="center-block img-responsive" alt="TEAMMATES - Award winning, mature, field-tested and improving all the time" src="images/award_winning.png">
+      <h2 align="center" class="media-heading">Award Winning, Mature, Field-tested:</h2><br><br>
+    </div>
+    
+      <div class="row">
+    <div class="Column">
+      
+      <img class="center-block img-responsive" alt="TEAMMATES - Designed for simplicity, flexibility, power" src="images/overview_peerfeedback.png">
+      <h2 align="center" class="media-heading">Designed for Simplicity, Flexibility, and Power:</h2><br><br>
+    </div>
+    
+      <div class="row">
+    <div class="Column">
+      
+      <img class="center-block img-responsive" alt="TEAMMATES - Powered by Google Infrastructure" src="images/overview_google.png">
+      <h2 align="center" class="media-heading">Powered by Google Infrastructure:</h2><br><br>
+    </div>
+    
+      <div class="row">
+    <div class="Column">
+      
+      <img class="center-block img-responsive" alt="TEAMMATES - Growing global community" src="images/overview_countries.png">
+      <h2 align="center" class="media-heading">Growing Global Community:</h2><br><br>
+    </div>
+    
+          <div class="row">
+    <div class="Column">
+      
+      <img class="center-block img-responsive" alt="TEAMMATES - Not for Profit" src="images/overview_funding.png">
+      <h2 align="center" class="media-heading">Not for Profit:</h2><br><br>
+    </div>
+    
+          <div class="row">
+    <div class="Column">
+      
+      <img class="center-block img-responsive" alt="TEAMMATES - Well received by Academic community" src="images/overview_conference.png">
+      <h2 align="center" class="media-heading">Well Received by the Academic Community:</h2><br><br>
+    </div>
+
+
+
+
+
+  <!-- <div class="row">
     <div class="col-xs-12 col-sm-3">
       <img class="center-block img-responsive" alt="TEAMMATES - Praised by Users" src="images/overview_praise.png">
     </div>
@@ -135,5 +182,5 @@
         and the <a href="http://cdtl.nus.edu.sg/tel2013/" target="_blank" rel="noopener noreferrer">Tel2013 Symposium (Singapore)</a>.
       </p>
     </div>
-  </div>
+  </div> -->
 </t:staticPage>
