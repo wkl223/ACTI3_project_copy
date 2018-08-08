@@ -1,3 +1,24 @@
+/* grid view style 
+ */
+* {
+    box-sizing: border-box;
+}
+
+.column {
+    float: right;
+    width: 33.33%;
+    padding: 5px;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+
+
 /* /////////////////////////////////////////////////////////
 /////////////////// Atomic Classes /////////////////////////
 ///////////////////////////////////////////////////////// */
@@ -14,6 +35,8 @@ code {
 .edit-uncommon-settings-button:hover {
     cursor: pointer;
 }
+
+
 
 /*
 Apply to alert to override Bootstrap's default 3d alerts
