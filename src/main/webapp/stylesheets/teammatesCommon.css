@@ -120,7 +120,8 @@ Apply to alert to override Bootstrap's default 3d alerts
 }
 
 .color-orange {
-    color: #E46D0B;
+    /*color: #E46D0B;*/
+    color: #ff0000;
 }
 
 .color-blue {
