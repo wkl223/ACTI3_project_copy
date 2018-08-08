@@ -167,7 +167,6 @@
       </p>
     </div>
   </div>
-
   <div class="row">
     <div class="col-xs-12 col-sm-3">
       <img class="center-block img-responsive" alt="TEAMMATES - Well received by Academic community" src="images/overview_conference.png">
@@ -182,5 +181,20 @@
         and the <a href="http://cdtl.nus.edu.sg/tel2013/" target="_blank" rel="noopener noreferrer">Tel2013 Symposium (Singapore)</a>.
       </p>
     </div>
+<<<<<<< HEAD
   </div> -->
+=======
+  </div>
+   <div class="row">
+   <div class="col-xs-12 col-sm-3">
+      <img class="center-block img-responsive" alt="TEAMMATES - Well received by Academic community" src="images/smile_face.jpg">
+    </div>
+    <div class="col-xs-12 col-sm-8">
+      <h2 class="media-heading">UNDER DEVELOPMENT FOR COSC2299</h2>
+      <p>
+        Here is just a simple modification! :)
+      </p>
+    </div>
+  </div>
+>>>>>>> 510178e52238a87ede7458006717b732cc95691f
 </t:staticPage>
