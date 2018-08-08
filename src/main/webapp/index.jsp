@@ -181,9 +181,7 @@
         and the <a href="http://cdtl.nus.edu.sg/tel2013/" target="_blank" rel="noopener noreferrer">Tel2013 Symposium (Singapore)</a>.
       </p>
     </div>
-<<<<<<< HEAD
   </div> -->
-=======
   </div>
    <div class="row">
    <div class="col-xs-12 col-sm-3">
@@ -196,5 +194,4 @@
       </p>
     </div>
   </div>
->>>>>>> 510178e52238a87ede7458006717b732cc95691f
 </t:staticPage>
