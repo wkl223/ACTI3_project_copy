@@ -32,6 +32,17 @@
 
   <img class="center-block img-responsive" id="raisedEdge" src="images/raised-edge.png">
 
+
+
+
+
+
+
+
+
+
+
+
   <div class="row">
     <div class="col-xs-12 col-sm-3">
       <img class="center-block img-responsive" alt="TEAMMATES - Praised by Users" src="images/overview_praise.png">
