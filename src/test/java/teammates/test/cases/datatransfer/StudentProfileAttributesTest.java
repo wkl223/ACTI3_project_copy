@@ -74,7 +74,7 @@ public class StudentProfileAttributesTest extends BaseAttributesTest {
     public void testValueOf() {
         StudentProfile studentProfile = new StudentProfile("id", "Joe", "joe@gmail.com",
                 "Teammates Institute", "American", "male",
-                new Text("hello"), new BlobKey("key"));
+                new Text("hello"), new BlobKey("key"),0);
         StudentProfileAttributes profileAttributes = StudentProfileAttributes.valueOf(studentProfile);
 
         assertEquals(studentProfile.getGoogleId(), profileAttributes.googleId);
@@ -207,7 +207,7 @@ public class StudentProfileAttributesTest extends BaseAttributesTest {
             StudentProfileAttributes profile) {
         return new StudentProfile(profile.googleId, profile.shortName, profile.email,
                                   profile.institute, profile.nationality, profile.gender,
-                                  new Text(profile.moreInfo), new BlobKey(profile.pictureKey));
+                                  new Text(profile.moreInfo), new BlobKey(profile.pictureKey),profile.like);
     }
 
     private List<String> generatedExpectedErrorMessages(StudentProfileAttributes profile) throws Exception {

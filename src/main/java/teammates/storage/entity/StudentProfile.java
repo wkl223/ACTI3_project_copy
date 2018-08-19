@@ -86,6 +86,7 @@ public class StudentProfile extends BaseEntity {
         this.setMoreInfo(moreInfo);
         this.setModifiedDate(Instant.now());
         this.setPictureKey(pictureKey);
+        this.setLike(like);
     }
 
     public StudentProfile(String googleId) {
