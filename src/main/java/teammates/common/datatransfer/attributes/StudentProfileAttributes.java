@@ -32,6 +32,7 @@ public class StudentProfileAttributes extends EntityAttributes<StudentProfile> {
     public String moreInfo;
     public String pictureKey;
     public Instant modifiedDate;
+    public int like;
 
     StudentProfileAttributes(String googleId) {
         this.googleId = googleId;
@@ -43,6 +44,7 @@ public class StudentProfileAttributes extends EntityAttributes<StudentProfile> {
         this.moreInfo = "";
         this.pictureKey = "";
         this.modifiedDate = Instant.now();
+        this.like=0;
     }
 
     public static StudentProfileAttributes valueOf(StudentProfile sp) {
@@ -55,6 +57,7 @@ public class StudentProfileAttributes extends EntityAttributes<StudentProfile> {
                 .withMoreInfo(sp.getMoreInfo().getValue())
                 .withPictureKey(sp.getPictureKey().getKeyString())
                 .withModifiedDate(sp.getModifiedDate())
+                .withLike(sp.getLike())
                 .build();
     }
 
@@ -76,6 +79,7 @@ public class StudentProfileAttributes extends EntityAttributes<StudentProfile> {
                 .withMoreInfo(moreInfo)
                 .withPictureKey(pictureKey)
                 .withModifiedDate(modifiedDate)
+                .withLike(like)
                 .build();
     }
 
@@ -145,7 +149,7 @@ public class StudentProfileAttributes extends EntityAttributes<StudentProfile> {
     @Override
     public StudentProfile toEntity() {
         return new StudentProfile(googleId, shortName, email, institute, nationality, gender,
-                                  new Text(moreInfo), new BlobKey(this.pictureKey));
+                                  new Text(moreInfo), new BlobKey(this.pictureKey),like);
     }
 
     @Override
@@ -237,7 +241,10 @@ public class StudentProfileAttributes extends EntityAttributes<StudentProfile> {
             profileAttributes.modifiedDate = modifiedDate == null ? Instant.now() : modifiedDate;
             return this;
         }
-
+        public Builder withLike(int like){
+            profileAttributes.like=like;
+            return this;
+        }
         public StudentProfileAttributes build() {
             return profileAttributes;
         }

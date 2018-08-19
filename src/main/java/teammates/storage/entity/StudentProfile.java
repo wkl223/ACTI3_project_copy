@@ -46,6 +46,7 @@ public class StudentProfile extends BaseEntity {
 
     @Index
     private Date modifiedDate;
+    private int like;
 
     @SuppressWarnings("unused")
     private StudentProfile() {
@@ -71,9 +72,11 @@ public class StudentProfile extends BaseEntity {
      *            The student's gender. Allows "other"
      * @param moreInfo
      *            Miscellaneous information, including external profile
+     * @param like
+     *            The 'like' number of a student.
      */
     public StudentProfile(String googleId, String shortName, String email, String institute,
-                          String nationality, String gender, Text moreInfo, BlobKey pictureKey) {
+                          String nationality, String gender, Text moreInfo, BlobKey pictureKey, int like) {
         this.setGoogleId(googleId);
         this.setShortName(shortName);
         this.setEmail(email);
@@ -169,5 +172,7 @@ public class StudentProfile extends BaseEntity {
     public void setModifiedDate(Instant modifiedDate) {
         this.modifiedDate = TimeHelper.convertInstantToDate(modifiedDate);
     }
+    public void setLike(int like){this.like=like;}
+    public int getLike(){return this.like;}
 
 }
