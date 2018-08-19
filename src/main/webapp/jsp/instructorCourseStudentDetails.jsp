@@ -12,6 +12,7 @@
   <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
   <c:if test="${not empty data.studentProfile}">
     <csd:studentProfile student="${data.studentProfile}"/>
+
   </c:if>
   <csd:studentInformationTable studentInfoTable="${data.studentInfoTable}" />
   <c:if test="${not empty data.studentProfile}">

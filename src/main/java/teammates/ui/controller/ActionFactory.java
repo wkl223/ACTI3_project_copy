@@ -171,7 +171,6 @@ public class ActionFactory {
             Assumption.fail("Could not create the action for " + uri + ": "
                             + TeammatesException.toStringWithStackTrace(e));
             return null;
-
         }
 
     }
