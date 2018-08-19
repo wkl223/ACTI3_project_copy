@@ -11,6 +11,7 @@ public class StudentInfoTable {
     private String courseId;
     private String courseDetailsLink;
     private boolean hasSection;
+    private int like;
 
     public StudentInfoTable(StudentAttributes student, String courseDetailsLink, boolean hasSection) {
         this.name = student.name;

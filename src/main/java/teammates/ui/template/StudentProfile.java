@@ -11,6 +11,7 @@ public class StudentProfile {
     private String institute;
     private String nationality;
     private String moreInfo;
+    private int like;
 
     public StudentProfile(String fullName, StudentProfileAttributes student, String pictureUrl) {
         this.pictureUrl = pictureUrl;
@@ -20,6 +21,7 @@ public class StudentProfile {
         this.email = student.email;
         this.institute = student.institute;
         this.nationality = student.nationality;
+        this.like=student.like;
         this.moreInfo = student.moreInfo;
     }
 
@@ -51,7 +53,6 @@ public class StudentProfile {
         return nationality;
     }
 
-    public String getMoreInfo() {
-        return moreInfo;
-    }
+    public String getMoreInfo() { return moreInfo; }
+    public int getLike(){return like;}
 }
