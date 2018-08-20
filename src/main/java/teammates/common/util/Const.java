@@ -173,6 +173,7 @@ public final class Const {
                         ActionURIs.INSTRUCTOR_COURSE_STUDENT_DELETE,
                         ActionURIs.INSTRUCTOR_COURSE_STUDENT_DELETE_ALL,
                         ActionURIs.INSTRUCTOR_COURSE_STUDENT_DETAILS_EDIT_SAVE,
+                        ActionURIs.INSTRUCTOR_COURSE_STUDENT_DETAILS_LIKE,
                         ActionURIs.INSTRUCTOR_EDIT_INSTRUCTOR_FEEDBACK_SAVE,
                         ActionURIs.INSTRUCTOR_EDIT_STUDENT_FEEDBACK_SAVE,
                         ActionURIs.INSTRUCTOR_FEEDBACK_ADD,
@@ -975,6 +976,7 @@ public final class Const {
                 "/page/instructorCourseStudentDetailsEditSave";
         public static final String INSTRUCTOR_COURSE_STUDENT_DELETE = "/page/instructorCourseStudentDelete";
         public static final String INSTRUCTOR_COURSE_STUDENT_DELETE_ALL = "/page/instructorCourseStudentDeleteAll";
+        public static final String INSTRUCTOR_COURSE_STUDENT_DETAILS_LIKE="/page/instructorCourseStudentLike";
         public static final String INSTRUCTOR_COURSE_STUDENT_LIST_DOWNLOAD = "/page/instructorCourseStudentListDownload";
         public static final String INSTRUCTOR_COURSE_ENROLL_PAGE = "/page/instructorCourseEnrollPage";
         public static final String INSTRUCTOR_COURSE_ENROLL_SAVE = "/page/instructorCourseEnrollSave";

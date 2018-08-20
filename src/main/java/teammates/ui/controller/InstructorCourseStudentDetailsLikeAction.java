@@ -10,10 +10,10 @@ import teammates.common.util.StatusMessage;
 import teammates.common.util.StatusMessageColor;
 import teammates.ui.pagedata.InstructorCourseStudentDetailsPageData;
 
-public class InstructorCourseStudentDetailsLikeAction {
-    @Override
+public class InstructorCourseStudentDetailsLikeAction extends Action{
+
     public ActionResult execute() throws EntityDoesNotExistException {
-/*
+
         String courseId = getRequestParamValue(Const.ParamsNames.COURSE_ID);
         Assumption.assertPostParamNotNull(Const.ParamsNames.COURSE_ID, courseId);
 
@@ -34,21 +34,18 @@ public class InstructorCourseStudentDetailsLikeAction {
         boolean hasSection = logic.hasIndicatedSections(courseId);
 
         StudentProfileAttributes studentProfile = loadStudentProfile(student, instructor);
-
         InstructorCourseStudentDetailsPageData data =
                 new InstructorCourseStudentDetailsPageData(account, sessionToken, student, studentProfile,
                         hasSection);
-
         statusToAdmin = "instructorCourseStudentDetails Page Load<br>"
                 + "Viewing details for Student <span class=\"bold\">" + studentEmail
                 + "</span> in Course <span class=\"bold\">[" + courseId + "]</span>";
-
         return createShowPageResult(Const.ViewURIs.INSTRUCTOR_COURSE_STUDENT_DETAILS, data);
-*/
+
     }
 
     private StudentProfileAttributes loadStudentProfile(StudentAttributes student, InstructorAttributes currentInstructor) {
-  /*      StudentProfileAttributes studentProfile = null;
+        StudentProfileAttributes studentProfile = null;
         boolean isInstructorAllowedToViewStudent = currentInstructor.isAllowedForPrivilege(student.section,
                 Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_STUDENT_IN_SECTIONS);
         boolean isStudentWithProfile = !student.googleId.isEmpty();
@@ -71,6 +68,6 @@ public class InstructorCourseStudentDetailsLikeAction {
                     StatusMessageColor.WARNING));
         }
         return null;
-    */
+
     }
 }
