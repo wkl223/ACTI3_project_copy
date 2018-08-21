@@ -44,8 +44,11 @@
             </tr>
             <tr>
               <td class="text-bold">Like</td>
-              <td>${empty student.like ? none : fn:escapeXml(student.like)}</td>
+              <td>${empty student.like ? none : fn:escapeXml(student.like)} <form action="${pageContext.request.contextPath}/servlet/ControllerServlet" method="post">
+                <input type="submit"  method="post" name="Like" value="Like">
+              </form></td>
             </tr>
+
           </tbody>
         </table>
       </div>

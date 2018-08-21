@@ -16,6 +16,7 @@ public class InstructorCourseStudentDetailsLikeAction extends Action{
 
         String courseId = getRequestParamValue(Const.ParamsNames.COURSE_ID);
         Assumption.assertPostParamNotNull(Const.ParamsNames.COURSE_ID, courseId);
+        int like =Integer.parseInt(getRequestParamValue("Like"));
 
         String studentEmail = getRequestParamValue(Const.ParamsNames.STUDENT_EMAIL);
         Assumption.assertPostParamNotNull(Const.ParamsNames.STUDENT_EMAIL, studentEmail);
@@ -34,6 +35,7 @@ public class InstructorCourseStudentDetailsLikeAction extends Action{
         boolean hasSection = logic.hasIndicatedSections(courseId);
 
         StudentProfileAttributes studentProfile = loadStudentProfile(student, instructor);
+        studentProfile.like++;
         InstructorCourseStudentDetailsPageData data =
                 new InstructorCourseStudentDetailsPageData(account, sessionToken, student, studentProfile,
                         hasSection);
