@@ -169,6 +169,7 @@ public abstract class Action {
         }
 
         String sessionToken = getRequestParamValue(Const.ParamsNames.SESSION_TOKEN);
+
         if (sessionToken == null) {
             throw new InvalidOriginException("Missing session token");
         }
