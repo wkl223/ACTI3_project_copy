@@ -44,7 +44,7 @@
             </tr>
             <tr>
               <td class="text-bold">Like</td>
-              <td>${empty student.like ? none : fn:escapeXml(student.like)} <form action="${pageContext.request.contextPath}/servlet/ControllerServlet" method="post">
+              <td>${empty student.like ? none : fn:escapeXml(student.like)} <form action="$Const.ActionURIs.INSTRUCTOR_COURSE_STUDENT_DETAILS_LIKE" method="post">
                 <input type="submit"  method="post" name="Like" value="Like">
               </form></td>
             </tr>
