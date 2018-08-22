@@ -328,8 +328,9 @@ public class StudentsDb extends EntitiesDb<CourseStudent, StudentAttributes> {
             String lastName = StringHelper.splitName(newName)[1];
 
             if (isEmailChanged) {
+                int like =getStudentForEmail(courseId,email).like;
                 CourseStudent newCourseStudent = new CourseStudent(newEmail, newName, newGoogleId, newComments,
-                                                                   courseId, newTeamName, newSectionName);
+                                                                   courseId, newTeamName, newSectionName,like);
                 recreateStudentWithNewEmail(newCourseStudent, lastName, courseStudent, hasDocument,
                                             keepUpdateTimestamp, courseId, email);
             } else {

@@ -11,6 +11,7 @@ public class StudentProfile {
     private String institute;
     private String nationality;
     private String moreInfo;
+    private String googleId;
     private int like;
 
     public StudentProfile(String fullName, StudentProfileAttributes student, String pictureUrl) {
@@ -23,6 +24,7 @@ public class StudentProfile {
         this.nationality = student.nationality;
         this.like=student.like;
         this.moreInfo = student.moreInfo;
+        this.googleId=student.googleId;
     }
 
     public String getPictureUrl() {
@@ -55,4 +57,5 @@ public class StudentProfile {
 
     public String getMoreInfo() { return moreInfo; }
     public int getLike(){return like;}
+    public String getGoogleId(){return googleId;}
 }

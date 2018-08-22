@@ -21,6 +21,7 @@ public class StudentProfileEditBox {
     private String moreInfo;
     private String googleId;
     private String pictureUrl;
+    private int like;
 
     public StudentProfileEditBox(String name, String isEditingPhoto, StudentProfileAttributes profile,
                                  String googleId, String pictureUrl) {
@@ -36,6 +37,7 @@ public class StudentProfileEditBox {
         this.moreInfo = StringHelper.convertToEmptyStringIfNull(profile.moreInfo);
         this.googleId = googleId;
         this.pictureUrl = pictureUrl;
+        this.like=profile.like;
     }
 
     public String getName() {
@@ -86,4 +88,5 @@ public class StudentProfileEditBox {
         return legacyNationalityInstructions;
     }
 
+    public int getLike(){return like;}
 }

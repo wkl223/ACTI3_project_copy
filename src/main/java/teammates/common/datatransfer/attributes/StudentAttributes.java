@@ -30,6 +30,7 @@ public class StudentAttributes extends EntityAttributes<CourseStudent> {
     public String team;
     public String section;
     public String key;
+    public int like;
 
     public transient StudentUpdateStatus updateStatus;
 
@@ -58,6 +59,7 @@ public class StudentAttributes extends EntityAttributes<CourseStudent> {
                 .withKey(student.getRegistrationKey())
                 .withCreatedAt(student.getCreatedAt())
                 .withUpdatedAt(student.getUpdatedAt())
+                .withLike(student.getLike())
                 .build();
     }
 
@@ -132,6 +134,7 @@ public class StudentAttributes extends EntityAttributes<CourseStudent> {
     public String getKey() {
         return key;
     }
+    public int getLike(){return like;}
 
     /**
      * Format: email%courseId e.g., adam@gmail.com%cs1101.
@@ -233,7 +236,7 @@ public class StudentAttributes extends EntityAttributes<CourseStudent> {
 
     @Override
     public CourseStudent toEntity() {
-        return new CourseStudent(email, name, googleId, comments, course, team, section);
+        return new CourseStudent(email, name, googleId, comments, course, team, section,like);
     }
 
     @Override
@@ -349,6 +352,11 @@ public class StudentAttributes extends EntityAttributes<CourseStudent> {
 
         public Builder withLastName(String lastName) {
             studentAttributes.lastName = processLastName(lastName);
+            return this;
+        }
+
+        public Builder withLike(int like){
+            studentAttributes.like=like;
             return this;
         }
 

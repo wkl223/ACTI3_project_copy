@@ -178,6 +178,9 @@ public final class StudentsLogic {
             EntityDoesNotExistException {
         updateStudentCascade(originalEmail, student, true);
     }
+    public void updateStudentLike(StudentAttributes student){
+            student.like++;
+    }
 
     public void updateStudentCascadeWithoutDocument(String originalEmail,
             StudentAttributes student) throws InvalidParametersException,

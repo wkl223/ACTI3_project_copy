@@ -90,7 +90,7 @@ public class StudentAttributesTest extends BaseTestCaseWithMinimalGaeEnvironment
     @Test
     public void testValueOf() {
         CourseStudent originalStudent = new CourseStudent("email@email.com", "name 1", "googleId.1",
-                "comment 1", "courseId1", "team 1", "sect 1");
+                "comment 1", "courseId1", "team 1", "sect 1",0);
         StudentAttributes copyStudent = StudentAttributes.valueOf(originalStudent);
 
         assertEquals(originalStudent.getCourseId(), copyStudent.course);
@@ -479,11 +479,11 @@ public class StudentAttributesTest extends BaseTestCaseWithMinimalGaeEnvironment
     }
 
     private CourseStudent generateTypicalStudentObject() {
-        return new CourseStudent("email@email.com", "name 1", "googleId.1", "comment 1", "courseId1", "team 1", "sect 1");
+        return new CourseStudent("email@email.com", "name 1", "googleId.1", "comment 1", "courseId1", "team 1", "sect 1",0);
     }
 
     private CourseStudent generateStudentWithoutSectionObject() {
-        return new CourseStudent("email@email.com", "name 1", "googleId.1", "comment 1", "courseId1", "team 1", null);
+        return new CourseStudent("email@email.com", "name 1", "googleId.1", "comment 1", "courseId1", "team 1", null,0);
     }
 
     private List<StudentAttributes> generateTypicalStudentAttributesList() {

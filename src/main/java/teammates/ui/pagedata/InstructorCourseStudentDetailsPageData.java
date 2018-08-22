@@ -22,12 +22,6 @@ public class InstructorCourseStudentDetailsPageData extends PageData {
             this.studentProfile = new StudentProfile(student.name, studentProfile, pictureUrl);
         }
         this.studentInfoTable = new StudentInfoTable(student, getInstructorCourseDetailsLink(student.course), hasSection);
-        /*
-        ElementTag likeButton = createButton("Like", "btn btn-default btn-xs"
-                , "","/page/instructorCourseStudentDetailsPage?", "Like",
-                false);//String content, String buttonClass, String id, String href, String title, boolean isDisabled
-        //likeButton.setAttribute("data-course-id", course.getId());
-        likeButton.setAttribute("style", "color: red");*/
 
     }
 
@@ -38,30 +32,5 @@ public class InstructorCourseStudentDetailsPageData extends PageData {
     public StudentInfoTable getStudentInfoTable() {
         return studentInfoTable;
     }
-/*
-    private ElementTag createButton(String content, String buttonClass, String id, String href, String title,
-                                    boolean isDisabled) {
-        ElementTag button = new ElementTag(content);
 
-        button.setAttribute("class", buttonClass);
-
-        if (id != null && !id.isEmpty()) {
-            button.setAttribute("id", id);
-        }
-
-        if (href != null && !href.isEmpty()) {
-            button.setAttribute("href", href);
-        }
-
-        if (title != null && !title.isEmpty()) {
-            button.setAttribute("title", title);
-            button.setAttribute("data-toggle", "tooltip");
-            button.setAttribute("data-placement", "top");
-        }
-
-        if (isDisabled) {
-            button.setAttribute("disabled", null);
-        }
-        return button;
-    }*/
 }

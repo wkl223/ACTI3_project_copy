@@ -23,6 +23,7 @@
           data-toggle="modal"
           data-target="#studentPhotoUploader"
           data-edit="${profile.editingPhoto}">
+      <br>Popularity: <%=profile.getLike()%>
     </div>
     <div class="">
       <button id="uploadEditPhoto"

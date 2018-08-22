@@ -79,13 +79,16 @@ public class CourseStudent extends BaseEntity {
     @SerializedName("sectionname")
     private String sectionName;
 
+    @SerializedName("like")
+    private int like;
+
     @SuppressWarnings("unused")
     private CourseStudent() {
         // required by Objectify
     }
 
     public CourseStudent(String email, String name, String googleId, String comments, String courseId,
-                         String teamName, String sectionName) {
+                         String teamName, String sectionName,int like) {
         setEmail(email);
         setName(name);
         setGoogleId(googleId);
@@ -93,7 +96,7 @@ public class CourseStudent extends BaseEntity {
         setCourseId(courseId);
         setTeamName(teamName);
         setSectionName(sectionName);
-
+        setLike(like);
         setCreatedAt(Instant.now());
 
         this.id = makeId();
@@ -134,6 +137,12 @@ public class CourseStudent extends BaseEntity {
     public void setEmail(String email) {
         this.email = email.trim();
     }
+
+    public void setLike(int like) {
+        this.like = like;
+    }
+
+    public int getLike(){return like;}
 
     public String getGoogleId() {
         return googleId;

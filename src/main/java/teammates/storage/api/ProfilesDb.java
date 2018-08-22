@@ -86,6 +86,7 @@ public class ProfilesDb extends EntitiesDb<StudentProfile, StudentProfileAttribu
         profileToUpdate.setGender(newSpa.gender);
         profileToUpdate.setMoreInfo(new Text(newSpa.moreInfo));
         profileToUpdate.setModifiedDate(Instant.now());
+        profileToUpdate.setLike(newSpa.like);
 
         boolean hasNewNonEmptyPictureKey = !newSpa.pictureKey.isEmpty()
                 && !newSpa.pictureKey.equals(profileToUpdate.getPictureKey().getKeyString());

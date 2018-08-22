@@ -44,9 +44,15 @@
             </tr>
             <tr>
               <td class="text-bold">Like</td>
-              <td>${empty student.like ? none : fn:escapeXml(student.like)} <form action="<%=Const.ActionURIs.INSTRUCTOR_COURSE_STUDENT_DETAILS_LIKE%>" method = "post">
-                <input type="submit"  method="post" name="Like" value="Like">
-                <input type="hidden" name="<%= Const.ParamsNames.USER_ID %>" value="${profile.googleId}">
+              <td>${empty student.like ? none : fn:escapeXml(student.like)}
+                <form action="<%=Const.ActionURIs.INSTRUCTOR_COURSE_STUDENT_DETAILS_LIKE%>" method = "get">
+                <input type="submit"  name="Like" value="Like">
+                <input type="hidden" name="<%= Const.ParamsNames.STUDENT_SHORT_NAME %>" data-actual-value="<c:out value="${student.shortName}"/>" value="<c:out value="${student.shortName}"/>">
+                <input type="hidden" name="<%= Const.ParamsNames.STUDENT_EMAIL %>" value="${student.email}">
+                <input type="hidden" name="<%= Const.ParamsNames.STUDENT_PROFILE_INSTITUTION %>" data-actual-value="<c:out value="${student.institute}"/>" value="<c:out value="${student.institute}"/>">
+                <input type="hidden" name="<%=Const.ParamsNames.STUDENT_NATIONALITY%>" value="${student.nationality}">
+                <input type="hidden" name="<%=Const.ParamsNames.STUDENT_GENDER%>" value="${student.gender}">
+                <input type="hidden" name="<%= Const.ParamsNames.USER_ID %>" value="${student.googleId}">
                 <input type="hidden" name="<%= Const.ParamsNames.SESSION_TOKEN %>" value="${sessionToken}">
               </form></td>
             </tr>
