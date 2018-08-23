@@ -2,6 +2,7 @@ package teammates.test.pageobjects;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import teammates.common.util.Logger;
 
 public class DevServerLoginPage extends LoginPage {
 
@@ -58,7 +59,16 @@ public class DevServerLoginPage extends LoginPage {
 
     @Override
     public StudentHomePage loginAsStudent(String username, String password) {
-        return loginAsStudent(username, password, StudentHomePage.class);
+        StudentHomePage stdpage = null;
+        Logger log = Logger.getLogger();
+        if(username.contains("student.rmit.edu.au")){
+            stdpage = loginAsStudent(username, password, StudentHomePage.class);
+        }else{
+            stdpage = null;
+            log.info("Not an RMIT EMail");
+            emailTextBox.sendKeys("Only RMIT email here");
+        }
+        return stdpage;
     }
 
     @Override

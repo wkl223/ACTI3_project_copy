@@ -122,10 +122,17 @@ public class StudentsDb extends EntitiesDb<CourseStudent, StudentAttributes> {
      *         there is no such student.
      */
     public StudentAttributes getStudentForEmail(String courseId, String email) {
-        Assumption.assertNotNull(Const.StatusCodes.DBLEVEL_NULL_INPUT, courseId);
-        Assumption.assertNotNull(Const.StatusCodes.DBLEVEL_NULL_INPUT, email);
+        String rmitlogin = "Only RMIT login allowed.";
+        StudentAttributes test = null;
+        if(email.contains("student.rmit.edu.au")){
+            Assumption.assertNotNull(Const.StatusCodes.DBLEVEL_NULL_INPUT, courseId);
+            Assumption.assertNotNull(Const.StatusCodes.DBLEVEL_NULL_INPUT, email);
 
-        return makeAttributesOrNull(getCourseStudentEntityForEmail(courseId, email));
+            test = makeAttributesOrNull(getCourseStudentEntityForEmail(courseId, email));
+        }else{
+            throw new IllegalArgumentException(rmitlogin);
+        }
+        return test;
     }
 
     /**
