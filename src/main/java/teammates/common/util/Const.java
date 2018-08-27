@@ -173,7 +173,6 @@ public final class Const {
                         ActionURIs.INSTRUCTOR_COURSE_STUDENT_DELETE,
                         ActionURIs.INSTRUCTOR_COURSE_STUDENT_DELETE_ALL,
                         ActionURIs.INSTRUCTOR_COURSE_STUDENT_DETAILS_EDIT_SAVE,
-                        ActionURIs.INSTRUCTOR_COURSE_STUDENT_DETAILS_LIKE,
                         ActionURIs.INSTRUCTOR_EDIT_INSTRUCTOR_FEEDBACK_SAVE,
                         ActionURIs.INSTRUCTOR_EDIT_STUDENT_FEEDBACK_SAVE,
                         ActionURIs.INSTRUCTOR_FEEDBACK_ADD,
@@ -206,6 +205,7 @@ public final class Const {
                         ActionURIs.STUDENT_FEEDBACK_RESULTS_PAGE,
                         ActionURIs.STUDENT_FEEDBACK_SUBMISSION_EDIT_PAGE,
                         ActionURIs.STUDENT_FEEDBACK_SUBMISSION_EDIT_SAVE,
+                        ActionURIs.INSTRUCTOR_COURSE_STUDENT_DETAILS_LIKE,
                         ActionURIs.ERROR_FEEDBACK_SUBMIT));
 
         public static final List<String> PAGES_ACCESSIBLE_WITHOUT_REGISTRATION = Collections.unmodifiableList(

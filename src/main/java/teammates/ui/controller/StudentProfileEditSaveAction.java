@@ -17,9 +17,11 @@ import teammates.common.util.StringHelper;
  */
 public class StudentProfileEditSaveAction extends Action {
 
+    static int like;
     @Override
     protected ActionResult execute() throws EntityDoesNotExistException {
         try {
+            this.like=Integer.parseInt(getRequestParamValue("like"));
             account.studentProfile = extractProfileData();
             logic.updateStudentProfile(account.studentProfile);
             statusToUser.add(new StatusMessage(Const.StatusMessages.STUDENT_PROFILE_EDITED, StatusMessageColor.SUCCESS));
@@ -54,7 +56,7 @@ public class StudentProfileEditSaveAction extends Action {
         editedProfile.gender = getRequestParamValue(Const.ParamsNames.STUDENT_GENDER);
         editedProfile.moreInfo = getRequestParamValue(Const.ParamsNames.STUDENT_PROFILE_MOREINFO);
         editedProfile.pictureKey = "";
-
+        editedProfile.like=this.like;
         preprocessParameters(editedProfile);
         validatePostParameters(editedProfile);
 

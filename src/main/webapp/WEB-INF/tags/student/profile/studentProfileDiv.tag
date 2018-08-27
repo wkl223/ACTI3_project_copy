@@ -162,5 +162,6 @@
     </p>
     <input type="hidden" name="<%= Const.ParamsNames.USER_ID %>" value="${profile.googleId}">
     <input type="hidden" name="<%= Const.ParamsNames.SESSION_TOKEN %>" value="${sessionToken}">
+    <input type="hidden" name="like" value="${profile.like}">
   </form>
 </div>
