@@ -16,6 +16,10 @@ public class InstructorFeedbackResultsDownloadAction extends Action {
         String courseId = getRequestParamValue(Const.ParamsNames.COURSE_ID);
         String feedbackSessionName = getRequestParamValue(Const.ParamsNames.FEEDBACK_SESSION_NAME);
         String section = getRequestParamValue(Const.ParamsNames.SECTION_NAME);
+        String reqName= getRequestParamValue(Const.ParamsNames.FEEDBACK_RESULTS_UPLOADDOWNLOADBUTTON);
+        boolean isPDF = false;
+        if (reqName.equals("Download Results in PDF"))
+            isPDF=true;
         boolean isMissingResponsesShown = getRequestParamAsBoolean(
                 Const.ParamsNames.FEEDBACK_RESULTS_INDICATE_MISSING_RESPONSES);
         boolean isStatsShown = getRequestParamAsBoolean(Const.ParamsNames.FEEDBACK_RESULTS_SHOWSTATS);
