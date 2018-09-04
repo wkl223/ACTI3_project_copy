@@ -54,10 +54,17 @@
         <div class="form-group">
           <div class="col-md-12">
             <form method="post" action="<%=Const.ActionURIs.INSTRUCTOR_FEEDBACK_RESULTS_DOWNLOAD%>">
-              <div id="feedbackDataButtons">
+              <div class="feedbackDataButtons">
                 <input id="button_download" type="submit" class="btn btn-primary btn-block"
                     name="<%=Const.ParamsNames.FEEDBACK_RESULTS_UPLOADDOWNLOADBUTTON%>"
-                    value="Download Results">
+                    value="Download Results in CSV">
+              </div>
+              <br>
+              <br>
+              <div class="feedbackDataButtons">
+                <input id="button_downloadPDF" type="submit" class="btn btn-primary btn-block"
+                       name="<%=Const.ParamsNames.FEEDBACK_RESULTS_UPLOADDOWNLOADBUTTON%>"
+                       value="Download Results in PDF">
               </div>
               <input type="hidden" name="<%=Const.ParamsNames.USER_ID%>" value="${data.account.googleId}">
               <input type="hidden" name="<%=Const.ParamsNames.FEEDBACK_SESSION_NAME%>" value="${sessionPanel.feedbackSessionName}">

@@ -80,8 +80,10 @@ public class InstructorFeedbackResultsDownloadAction extends Action {
             result.addResponseParam(Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackSessionName);
             return result;
         }
-
-        return createFileDownloadResult(fileName, fileContent);
+        if(isPDF)
+            return createFileDownloadResult(fileName, fileContent);
+        else
+            return createFileDownloadResult(fileName, fileContent);
     }
 
 }
