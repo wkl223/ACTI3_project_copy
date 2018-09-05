@@ -64,7 +64,14 @@
               <div class="feedbackDataButtons">
                 <input id="button_downloadPDF" type="submit" class="btn btn-primary btn-block"
                        name="<%=Const.ParamsNames.FEEDBACK_RESULTS_UPLOADDOWNLOADBUTTON%>"
-                       value="Download Results in PDF">
+                       value="Download Feedbacks in PDF">
+              </div>
+              <br>
+              <br>
+              <div class="feedbackDataButtons">
+                <input id="button_uploadPDF" type="submit" class="btn btn-primary btn-block"
+                       name="<%=Const.ParamsNames.FEEDBACK_RESULTS_UPLOADDOWNLOADBUTTON%>"
+                       value="Upload Feedbacks in PDF">
               </div>
               <input type="hidden" name="<%=Const.ParamsNames.USER_ID%>" value="${data.account.googleId}">
               <input type="hidden" name="<%=Const.ParamsNames.FEEDBACK_SESSION_NAME%>" value="${sessionPanel.feedbackSessionName}">
