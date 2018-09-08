@@ -46,6 +46,7 @@ public class StudentProfile extends BaseEntity {
 
     @Index
     private Date modifiedDate;
+
     private int like;
 
     @SuppressWarnings("unused")
