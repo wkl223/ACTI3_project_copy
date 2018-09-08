@@ -1,13 +1,16 @@
 package teammates.ui.pagedata;
 
 import teammates.common.datatransfer.attributes.AccountAttributes;
+import teammates.common.datatransfer.attributes.StudentAttributes;
 import teammates.common.datatransfer.attributes.StudentProfileAttributes;
 import teammates.common.util.Const;
+import teammates.ui.template.StudentInfoTable;
+import teammates.ui.template.StudentProfile;
 import teammates.ui.template.StudentProfileEditBox;
 import teammates.ui.template.StudentProfileUploadPhotoModal;
 
 public class StudentProfilePageData extends PageData {
-
+/*
     private StudentProfileEditBox profileEditBox;
     private StudentProfileUploadPhotoModal uploadPhotoModal;
 
@@ -35,5 +38,18 @@ public class StudentProfilePageData extends PageData {
     public StudentProfileUploadPhotoModal getUploadPhotoModal() {
         return uploadPhotoModal;
     }
+*/
+private StudentProfile studentProfile;
 
+    public StudentProfilePageData(AccountAttributes account, String sessionToken, StudentProfileAttributes student) {
+        super(account, sessionToken);
+        StudentProfileAttributes studentProfile = student;
+        if (studentProfile != null) {
+            String pictureUrl = getPictureUrl(studentProfile.pictureKey);
+            this.studentProfile = new StudentProfile(account.name, studentProfile, pictureUrl);
+        }
+    }
+    public StudentProfile getStudentProfile() {
+        return studentProfile;
+    }
 }

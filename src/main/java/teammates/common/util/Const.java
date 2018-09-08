@@ -1226,6 +1226,7 @@ public final class Const {
                 "/jsp/studentFeedbackQuestionSubmissionEdit.jsp";
         public static final String STUDENT_FEEDBACK_RESULTS = "/jsp/studentFeedbackResults.jsp";
         public static final String STUDENT_PROFILE_PAGE = "/jsp/studentProfilePage.jsp";
+        public static final String STUDENT_PROFILE_EDIT_PAGE = "/jsp/studentProfileEditPage.jsp";//keep in here
 
         public static final String ADMIN_HOME = "/jsp/adminHome.jsp";
         public static final String ADMIN_ACCOUNT_MANAGEMENT = "/jsp/adminAccountManagement.jsp";

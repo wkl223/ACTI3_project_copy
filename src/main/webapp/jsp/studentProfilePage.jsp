@@ -10,11 +10,10 @@
 </c:set>
 <c:set var="jsIncludes">
   <script type="text/javascript" src="<%= FrontEndLibrary.JQUERY_GUILLOTINE %>"></script>
-  <script type="text/javascript" src="/js/studentProfile.js"></script>
+
 </c:set>
 <ts:studentPage title="Student Profile" cssIncludes="${cssIncludes}" jsIncludes="${jsIncludes}">
   <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
-  <br>
-  <tsp:uploadPhotoModal modal="${data.uploadPhotoModal}" sessionToken="${data.sessionToken}" />
-  <tsp:studentProfileDiv profile="${data.profileEditBox}" sessionToken="${data.sessionToken}" />
+    <tsp:studentProfile student="${data.studentProfile}"/>
 </ts:studentPage>
+
