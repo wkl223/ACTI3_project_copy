@@ -13,7 +13,7 @@ public class StudentProfileEditPageAction extends Action {
 
     @Override
     protected ActionResult execute() {
-        log.warning("IN EDIT PAGE ACTION");
+        //log.warning("IN EDIT PAGE ACTION");
         account.studentProfile = logic.getStudentProfile(account.googleId);
         String isEditingPhoto = getRequestParamValue(Const.ParamsNames.STUDENT_PROFILE_PHOTOEDIT);
         if (isEditingPhoto == null) {

@@ -6,17 +6,17 @@ import teammates.common.datatransfer.attributes.AccountAttributes;
 import teammates.common.util.Const;
 import teammates.test.driver.AssertHelper;
 import teammates.ui.controller.ShowPageResult;
-import teammates.ui.controller.StudentProfilePageAction;
+import teammates.ui.controller.StudentProfileEditPageAction;
 import teammates.ui.pagedata.PageData;
 
 /**
- * SUT: {@link StudentProfilePageAction}.
+ * SUT: {@link StudentProfileEditPageAction}.
  */
 public class StudentProfilePageActionTest extends BaseActionTest {
 
     @Override
     protected String getActionUri() {
-        return Const.ActionURIs.STUDENT_PROFILE_PAGE;
+        return Const.ActionURIs.STUDENT_PROFILE_EDIT_PAGE;
     }
 
     @Override
@@ -35,11 +35,11 @@ public class StudentProfilePageActionTest extends BaseActionTest {
         gaeSimulation.loginAsStudent(student.googleId);
         ______TS(caseDescription);
         String[] submissionParams = new String[] {};
-        StudentProfilePageAction action = getAction(submissionParams);
+        StudentProfileEditPageAction action = getAction(submissionParams);
         ShowPageResult result = getShowPageResult(action);
 
         AssertHelper.assertContains(
-                getPageResultDestination(Const.ViewURIs.STUDENT_PROFILE_PAGE, false, student.googleId),
+                getPageResultDestination(Const.ViewURIs.STUDENT_PROFILE_EDIT_PAGE, false, student.googleId),
                 result.getDestinationWithParams());
         assertFalse(result.isError);
         assertEquals("", result.getStatusMessage());
@@ -56,12 +56,12 @@ public class StudentProfilePageActionTest extends BaseActionTest {
                 Const.ParamsNames.USER_ID, student.googleId
         };
 
-        StudentProfilePageAction action = getAction(addUserIdToParams(
+        StudentProfileEditPageAction action = getAction(addUserIdToParams(
                 student.googleId, submissionParams));
         ShowPageResult result = getShowPageResult(action);
 
         AssertHelper.assertContains(
-                getPageResultDestination(Const.ViewURIs.STUDENT_PROFILE_PAGE, false, student.googleId),
+                getPageResultDestination(Const.ViewURIs.STUDENT_PROFILE_EDIT_PAGE, false, student.googleId),
                 result.getDestinationWithParams());
         assertFalse(result.isError);
         assertEquals("", result.getStatusMessage());
@@ -84,19 +84,19 @@ public class StudentProfilePageActionTest extends BaseActionTest {
     }
 
     private void verifyLogMessage(AccountAttributes student,
-            StudentProfilePageAction action, boolean isMasquerade) {
-        String expectedLogMessage = "TEAMMATESLOG|||studentProfilePage|||studentProfilePage"
+            StudentProfileEditPageAction action, boolean isMasquerade) {
+        String expectedLogMessage = "TEAMMATESLOG|||studentProfileEditPage|||studentProfileEditPage"
                                   + "|||true|||Student" + (isMasquerade ? "(M)" : "") + "|||"
                                   + student.name + "|||" + student.googleId + "|||" + student.email
                                   + "|||studentProfile Page Load <br> Profile: "
                                   + student.googleId
-                                  + "|||/page/studentProfilePage";
+                                  + "|||/page/studentProfileEditPage";
         AssertHelper.assertLogMessageEqualsIgnoreLogId(expectedLogMessage, action.getLogMessage());
     }
 
     @Override
-    protected StudentProfilePageAction getAction(String... params) {
-        return (StudentProfilePageAction) gaeSimulation.getActionObject(getActionUri(), params);
+    protected StudentProfileEditPageAction getAction(String... params) {
+        return (StudentProfileEditPageAction) gaeSimulation.getActionObject(getActionUri(), params);
     }
 
     @Override
