@@ -175,7 +175,7 @@ _LOGIN_TEMPLATE = """<html>
     <p style="margin: .5em 0 0 3em; font-size:12px">
       <input name="admin" type="checkbox" value="True"
        %(admin_checked)s id="admin"/>
-        <label for="admin">Sign in as Administrator</label>
+        <label for="admin">Sign in as Administrator now</label>
     </p>
     <p style="margin-left: 3em">
       <input name="action" value="Login" type="submit"

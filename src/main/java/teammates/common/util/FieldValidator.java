@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 import com.google.appengine.api.datastore.Text;
 
@@ -158,7 +159,7 @@ public class FieldValidator {
 
     // field-specific error messages
     public static final String HINT_FOR_CORRECT_EMAIL =
-            "An email address contains some text followed by one '@' sign followed by some more text. "
+            "An email address contains some text followed by one '@' sign followed by the RMIT domain. "
             + HINT_FOR_CORRECT_FORMAT_FOR_SIZE_CAPPED_NON_EMPTY_NO_SPACES;
     public static final String EMAIL_ERROR_MESSAGE =
             ERROR_INFO + " " + HINT_FOR_CORRECT_EMAIL;
@@ -242,8 +243,8 @@ public class FieldValidator {
      * Domain part:
      * <li>Only allow letters, digits, hyphen and dot; Must end with letters
      */
-    public static final String REGEX_EMAIL = "^[\\w+-][\\w+!#$%&'*/=?^_`{}~-]*+(\\.[\\w+!#$%&'*/=?^_`{}~-]+)*+"
-                                            + "@([A-Za-z0-9-]+\\.)*[A-Za-z]+$";
+    public static final String REGEX_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" +
+            "(student.rmit.edu.au|rmit.edu.au)$";
 
     /**
      * Allows English alphabet, numbers, underscore,  dot and hyphen.
@@ -356,6 +357,7 @@ public class FieldValidator {
         String sanitizedValue = SanitizationHelper.sanitizeForHtml(googleId);
 
         boolean isValidFullEmail = StringHelper.isMatching(googleId, REGEX_EMAIL);
+
         boolean isValidEmailWithoutDomain = StringHelper.isMatching(googleId, REGEX_GOOGLE_ID_NON_EMAIL);
 
         if (googleId.isEmpty()) {
