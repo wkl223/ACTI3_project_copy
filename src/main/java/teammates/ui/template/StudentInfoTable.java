@@ -11,6 +11,7 @@ public class StudentInfoTable {
     private String courseId;
     private String courseDetailsLink;
     private boolean hasSection;
+    private int like;
 
     public StudentInfoTable(StudentAttributes student, String courseDetailsLink, boolean hasSection) {
         this.name = student.name;
@@ -21,6 +22,7 @@ public class StudentInfoTable {
         this.courseId = student.course;
         this.courseDetailsLink = courseDetailsLink;
         this.hasSection = hasSection;
+        this.like=student.like;
     }
 
     public String getName() {
@@ -54,4 +56,6 @@ public class StudentInfoTable {
     public boolean getHasSection() {
         return hasSection;
     }
+
+    public int getLike(){return like;}
 }
