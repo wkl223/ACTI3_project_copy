@@ -357,6 +357,7 @@ public class FieldValidator {
         String sanitizedValue = SanitizationHelper.sanitizeForHtml(googleId);
 
         boolean isValidFullEmail = StringHelper.isMatching(googleId, REGEX_EMAIL);
+
         boolean isValidEmailWithoutDomain = StringHelper.isMatching(googleId, REGEX_GOOGLE_ID_NON_EMAIL);
 
         if (googleId.isEmpty()) {
