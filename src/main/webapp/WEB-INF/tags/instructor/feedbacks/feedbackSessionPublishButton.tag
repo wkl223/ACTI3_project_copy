@@ -4,7 +4,7 @@
 <%@ attribute name="publishButton" type="teammates.ui.template.FeedbackSessionPublishButton" required="true" %>
 <%@ attribute name="showTooltip" type="java.lang.Boolean" required="true" %>
 <%@ attribute name="buttonType" %>
-<a> href="${publishButton.actionAllowed ? publishButton.actionLink : 'javascript:;'}"
+<a> type="submit" href="${publishButton.actionAllowed ? publishButton.actionLink : 'javascript:;'}"
     class="<c:if test="${not empty buttonType}">
     ${buttonType}
     ${" "}
