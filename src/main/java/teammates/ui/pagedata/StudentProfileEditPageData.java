@@ -3,25 +3,14 @@ package teammates.ui.pagedata;
 import teammates.common.datatransfer.attributes.AccountAttributes;
 import teammates.common.datatransfer.attributes.StudentProfileAttributes;
 import teammates.common.util.Const;
-import teammates.ui.template.StudentProfile;
 import teammates.ui.template.StudentProfileEditBox;
 import teammates.ui.template.StudentProfileUploadPhotoModal;
 
-public class StudentProfilePageData extends PageData {
-
-private StudentProfile studentProfile;
+public class StudentProfileEditPageData extends PageData{
     private StudentProfileEditBox profileEditBox;
     private StudentProfileUploadPhotoModal uploadPhotoModal;
 
-    public StudentProfilePageData(AccountAttributes account, String sessionToken, StudentProfileAttributes student) {
-        super(account, sessionToken);
-        StudentProfileAttributes studentProfile = student;
-        if (studentProfile != null) {
-            String pictureUrl = getPictureUrl(studentProfile.pictureKey);
-            this.studentProfile = new StudentProfile(account.name, studentProfile, pictureUrl);
-        }
-    }
-    public StudentProfilePageData(AccountAttributes account, String sessionToken, String isEditingPhoto) {
+    public StudentProfileEditPageData(AccountAttributes account, String sessionToken, String isEditingPhoto) {
         super(account, sessionToken);
         StudentProfileAttributes profile = account.studentProfile;
         String pictureUrl;
@@ -44,9 +33,5 @@ private StudentProfile studentProfile;
 
     public StudentProfileUploadPhotoModal getUploadPhotoModal() {
         return uploadPhotoModal;
-    }
-
-    public StudentProfile getStudentProfile() {
-        return studentProfile;
     }
 }

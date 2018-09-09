@@ -128,6 +128,7 @@ public class ActionFactory {
         map(FEEDBACK_PARTICIPANT_FEEDBACK_RESPONSE_COMMENT_DELETE,
                 FeedbackParticipantFeedbackResponseCommentDeleteAction.class);
         map(STUDENT_PROFILE_PAGE, StudentProfilePageAction.class);
+        map(STUDENT_PROFILE_EDIT_PAGE, StudentProfileEditPageAction.class);
         map(STUDENT_PROFILE_PICTURE, StudentProfilePictureAction.class);
         map(STUDENT_PROFILE_PICTURE_UPLOAD, StudentProfilePictureUploadAction.class);
         map(STUDENT_PROFILE_PICTURE_EDIT, StudentProfilePictureEditAction.class);

@@ -54,9 +54,12 @@
                 <input type="hidden" name="<%=Const.ParamsNames.STUDENT_GENDER%>" value="${student.gender}">
                 <input type="hidden" name="<%= Const.ParamsNames.USER_ID %>" value="${student.googleId}">
                 <input type="hidden" name="<%= Const.ParamsNames.SESSION_TOKEN %>" value="${sessionToken}">
-              </form></td>
+              </form>
+                </td>
+              <a class="text-bold" id="studentProfileNavLink" href="studentProfileEditPage">
+              Profile edit
+            </a>
             </tr>
-
           </tbody>
         </table>
       </div>

@@ -232,6 +232,12 @@ public class PageData {
         return link;
     }
 
+    public String getStudentProfileEditLink() {
+        String link = Const.ActionURIs.STUDENT_PROFILE_EDIT_PAGE;
+        link = addUserIdToUrl(link);
+        return link;
+    }
+
     public String getStudentCourseDetailsLink(String courseId) {
         String link = Const.ActionURIs.STUDENT_COURSE_DETAILS_PAGE;
         link = addUserIdToUrl(link);

@@ -1056,6 +1056,7 @@ public final class Const {
 
         public static final String STUDENT_FEEDBACK_RESULTS_PAGE = "/page/studentFeedbackResultsPage";
         public static final String STUDENT_PROFILE_PAGE = "/page/studentProfilePage";
+        public static final String STUDENT_PROFILE_EDIT_PAGE = "/page/studentProfileEditPage";//keep in here
         public static final String STUDENT_PROFILE_EDIT_SAVE = "/page/studentProfileEditSave";
         public static final String STUDENT_PROFILE_PICTURE = "/page/studentProfilePic";
         public static final String STUDENT_PROFILE_PICTURE_UPLOAD = "/page/studentProfilePictureUpload";
