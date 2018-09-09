@@ -72,7 +72,7 @@ public class GateKeeper {
     }
 
     /**
-     * These methods ensures the logged in user is of a particular type.p
+     * These methods ensures the logged in user is of a particular type.
      */
 
     /**

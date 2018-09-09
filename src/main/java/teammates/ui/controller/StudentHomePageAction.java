@@ -9,10 +9,11 @@ import teammates.common.datatransfer.CourseDetailsBundle;
 import teammates.common.datatransfer.FeedbackSessionDetailsBundle;
 import teammates.common.datatransfer.attributes.FeedbackSessionAttributes;
 import teammates.common.datatransfer.attributes.StudentAttributes;
-import teammates.common.exception.EmailSendingException;
 import teammates.common.exception.EntityDoesNotExistException;
-import teammates.common.util.*;
-import teammates.logic.api.EmailSender;
+import teammates.common.util.Assumption;
+import teammates.common.util.Const;
+import teammates.common.util.StatusMessage;
+import teammates.common.util.StatusMessageColor;
 import teammates.ui.pagedata.StudentHomePageData;
 
 public class StudentHomePageAction extends Action {
@@ -20,19 +21,13 @@ public class StudentHomePageAction extends Action {
     @Override
     public ActionResult execute() {
         gateKeeper.verifyLoggedInUserPrivileges();
-        EmailWrapper confirmation = new EmailWrapper();
-        confirmation.setRecipient(account.email);
-        confirmation.setSubject("User: " +  account.name + " logged in.");
-        confirmation.setContent("Hey " + account.name + " you have just been logged in to TEAMMATES. Welcome");
 
-        EmailSender sendConfirm = new EmailSender();
         String recentlyJoinedCourseId = getRequestParamValue(Const.ParamsNames.CHECK_PERSISTENCE_COURSE);
 
         List<CourseDetailsBundle> courses = new ArrayList<>();
         Map<FeedbackSessionAttributes, Boolean> sessionSubmissionStatusMap = new HashMap<>();
 
         try {
-            sendConfirm.sendEmail(confirmation);
             courses = logic.getCourseDetailsListForStudent(account.googleId);
             sessionSubmissionStatusMap = generateFeedbackSessionSubmissionStatusMap(courses, account.googleId);
 
@@ -56,8 +51,6 @@ public class StudentHomePageAction extends Action {
             } else {
                 addPlaceholderCourse(courses, recentlyJoinedCourseId, sessionSubmissionStatusMap);
             }
-        } catch (EmailSendingException e) {
-            System.out.println("Unable to send email.");
         }
 
         StudentHomePageData data = new StudentHomePageData(account, sessionToken, courses, sessionSubmissionStatusMap);
