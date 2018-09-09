@@ -18,6 +18,16 @@
     <link type="text/css" href="stylesheets/teammatesCommon.css" rel="stylesheet">
     <link rel="shortcut icon" href="/favicon.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <style>
+      .dropbtn {
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        background-color: limegreen;
+        color: white;
+      }
+
+    </style>
     <title>TEAMMATES - Online Peer Feedback/Evaluation System for Student Team Projects</title>
   </head>
   <body>
@@ -42,8 +52,17 @@
               <li class="${currentPage == 'terms' ? 'active' : ''}"><a href="terms.jsp">Terms of Use</a></li>
             </ul>
              <form class="navbar-form navbar-right" action="/login" name="login">
-              <input type="submit" name="student" class="btn btn-login " id="btnStudentLogin" value="Student Login" label="studentLogin">
-              <input type="submit" name="instructor" class="btn btn-login" id="btnInstructorLogin" value="Instructor Login" label="instructorLogin">
+               <%--<input type="submit" name="student" class="btn btn-login " id="btnStudentLogin" value="Login" label="studentLogin">--%>
+
+                 <div class="dropdown">
+                   <button type="button" class="dropbtn">Login Now</button>
+                   <div class="dropdown-content">
+                     <input type="submit" name="student" class="btn btn-login " id="btnStudentLogin" value="Student Login" label="studentLogin">
+                     <input type="submit" name="instructor" class="btn btn-login" id="btnInstructorLogin" value="Instructor Login" label="instructorLogin">
+                   </div>
+                 </div>
+
+
             </form>
           </div>
         </div>
