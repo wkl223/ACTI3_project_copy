@@ -74,6 +74,7 @@ public class InstructorCourseStudentDetailsPageActionTest extends BaseActionTest
         assertEquals(student1InCourse1.team, pageData.getStudentInfoTable().getTeam());
         assertEquals(student1InCourse1.comments, pageData.getStudentInfoTable().getComments());
         assertEquals(student1InCourse1.course, pageData.getStudentInfoTable().getCourseId());
+        assertEquals(student1InCourse1.like,pageData.getStudentInfoTable().getLike());
 
         String expectedLogMessage = "TEAMMATESLOG|||instructorCourseStudentDetailsPage|||instructorCourseStudentDetailsPage"
                 + "|||true|||Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1"
