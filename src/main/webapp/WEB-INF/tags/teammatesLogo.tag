@@ -5,5 +5,5 @@
   <img height="100%" src="/images/unihelperlogo.png" alt="unihelper[Logo] - Online Peer Feedback/Evaluation System for Student Team Projects" >
 <!--  
   <img height="100%" src="/images/Acti3.png" alt="TEAMMATES[Logo] - Online Peer Feedback/Evaluation System for Student Team Projects">
--->>
+-->
 </a>
