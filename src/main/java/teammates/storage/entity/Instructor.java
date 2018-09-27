@@ -2,6 +2,27 @@ package teammates.storage.entity;
 
 import java.security.SecureRandom;
 
+//Beginning of added imports
+package com.example.getstarted.util;
+import com.google.cloud.storage.Acl;
+import com.google.cloud.storage.Acl.Role;
+import com.google.cloud.storage.Acl.User;
+import com.google.cloud.storage.BlobInfo;
+import com.google.cloud.storage.Storage;
+import com.google.cloud.storage.StorageOptions;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+//End of added imports
+
 import com.google.appengine.api.datastore.Text;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
@@ -52,7 +73,34 @@ public class Instructor extends BaseEntity {
     private String displayedName;
 
     private Text instructorPrivilegesAsText;
+    
+    //Beginning of lines added
+    
+    final String bucketName = "acti3-216912.appspot.com";
+    
+    /* Name of the PDF file to be uploaded*/
+    private String PDFFileName;
+    
+    public void setPDFFileame(String name) {
+        this.PDFFileName = name;
+    }
+    
+    private static Storage storage = null;
+    
+    static {
+        storage = StorageOptions.getDefaultInstance().getService();
+      }
 
+    /* File upload method */
+    public String uploadFile(String filename, final String bucketName) throws IOException {
+        BlobInfo blobInfo =
+            storage.create(BlobInfo.newBuilder(bucketName, filename).setAcl(new ArrayList<>(Arrays.asList(Acl.of(User.ofAllUsers(), Role.READER)))).build(),filePart.getInputStream());
+        // return the public download link
+        return blobInfo.getMediaLink();
+      }
+    
+    //End of lines added
+    
     @SuppressWarnings("unused")
     private Instructor() {
         // required by Objectify
@@ -214,4 +262,5 @@ public class Instructor extends BaseEntity {
     public void setInstructorPrivilegeAsText(String instructorPrivilegesAsText) {
         this.instructorPrivilegesAsText = new Text(instructorPrivilegesAsText);
     }
+    
 }
