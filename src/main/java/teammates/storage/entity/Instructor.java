@@ -3,24 +3,26 @@ package teammates.storage.entity;
 import java.security.SecureRandom;
 
 //Beginning of added imports
-package com.example.getstarted.util;
-import com.google.cloud.storage.Acl;
-import com.google.cloud.storage.Acl.Role;
-import com.google.cloud.storage.Acl.User;
-import com.google.cloud.storage.BlobInfo;
-import com.google.cloud.storage.Storage;
-import com.google.cloud.storage.StorageOptions;
+
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.channels.Channels;
 import java.util.ArrayList;
 import java.util.Arrays;
-import javax.servlet.ServletException;
+
+import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
-import org.joda.time.DateTime;
-import org.joda.time.DateTimeZone;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
+
+import com.google.appengine.tools.cloudstorage.GcsFileOptions;
+import com.google.appengine.tools.cloudstorage.GcsFilename;
+import com.google.appengine.tools.cloudstorage.GcsInputChannel;
+import com.google.appengine.tools.cloudstorage.GcsOutputChannel;
+import com.google.appengine.tools.cloudstorage.GcsService;
+import com.google.appengine.tools.cloudstorage.GcsServiceFactory;
+import com.google.appengine.tools.cloudstorage.RetryParams;
+
 //End of added imports
 
 import com.google.appengine.api.datastore.Text;
@@ -36,6 +38,8 @@ import com.googlecode.objectify.annotation.Unindex;
 @Entity
 @Index
 public class Instructor extends BaseEntity {
+
+    private static final int BUFFER_SIZE = 2 * 1024 * 1024;
 
     /**
      * The primary key. Format: email%courseId e.g., adam@gmail.com%cs1101
@@ -76,6 +80,39 @@ public class Instructor extends BaseEntity {
     
     //Beginning of lines added
     
+    public final GcsService gcsService = GcsServiceFactory.createGcsService(new RetryParams.Builder()
+            .initialRetryDelayMillis(10)
+            .retryMaxAttempts(10)
+            .totalRetryPeriodMillis(15000)
+            .build());
+    
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        GcsFileOptions instance = GcsFileOptions.getDefaultInstance();
+        GcsFilename fileName = getFileName(req);
+        GcsOutputChannel outputChannel;
+        outputChannel = gcsService.createOrReplace(fileName, instance);
+        copy(req.getInputStream(), Channels.newOutputStream(outputChannel));
+      }
+    
+    private void copy(InputStream input, OutputStream output) throws IOException {
+        try {
+          byte[] buffer = new byte[BUFFER_SIZE];
+          int bytesRead = input.read(buffer);
+          while (bytesRead != -1) {
+            output.write(buffer, 0, bytesRead);
+            bytesRead = input.read(buffer);
+          }
+        } finally {
+          input.close();
+          output.close();
+        }    
+    }        
+    
+    private GcsFilename getFileName(HttpServletRequest req) {
+        GcsFilename fileName = new GcsFilename(this.bucketName, this.PDFFileName);
+        return fileName;
+    }
+
     final String bucketName = "acti3-216912.appspot.com";
     
     /* Name of the PDF file to be uploaded*/
@@ -85,20 +122,20 @@ public class Instructor extends BaseEntity {
         this.PDFFileName = name;
     }
     
-    private static Storage storage = null;
+/*    private static Storage storage = null;
     
     static {
         storage = StorageOptions.getDefaultInstance().getService();
-      }
+      }*/
 
     /* File upload method */
-    public String uploadFile(String filename, final String bucketName) throws IOException {
+/*    public String uploadFile(String filename, final String bucketName) throws IOException {
         BlobInfo blobInfo =
-            storage.create(BlobInfo.newBuilder(bucketName, filename).setAcl(new ArrayList<>(Arrays.asList(Acl.of(User.ofAllUsers(), Role.READER)))).build(),filePart.getInputStream());
+            storage.create(BlobInfo.newBuilder(this.bucketName, filename).setAcl(new ArrayList<>(Arrays.asList(Acl.of(User.ofAllUsers(), Role.READER)))).build(),filePart.getInputStream());
         // return the public download link
         return blobInfo.getMediaLink();
       }
-    
+    */
     //End of lines added
     
     @SuppressWarnings("unused")
