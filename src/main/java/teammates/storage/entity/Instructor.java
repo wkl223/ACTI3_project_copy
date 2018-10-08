@@ -8,8 +8,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.channels.Channels;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -79,6 +77,9 @@ public class Instructor extends BaseEntity {
     private Text instructorPrivilegesAsText;
     
     //Beginning of lines added
+    /* Code referred to Google Cloud appengine documentation:
+     * https://cloud.google.com/appengine/docs/standard/java/googlecloudstorageclient/read-write-to-cloud-storage
+     * */
     
     public final GcsService gcsService = GcsServiceFactory.createGcsService(new RetryParams.Builder()
             .initialRetryDelayMillis(10)
@@ -112,7 +113,8 @@ public class Instructor extends BaseEntity {
         GcsFilename fileName = new GcsFilename(this.bucketName, this.PDFFileName);
         return fileName;
     }
-
+    
+    // Revise here for test purposes
     final String bucketName = "acti3-216912.appspot.com";
     
     /* Name of the PDF file to be uploaded*/
@@ -122,20 +124,6 @@ public class Instructor extends BaseEntity {
         this.PDFFileName = name;
     }
     
-/*    private static Storage storage = null;
-    
-    static {
-        storage = StorageOptions.getDefaultInstance().getService();
-      }*/
-
-    /* File upload method */
-/*    public String uploadFile(String filename, final String bucketName) throws IOException {
-        BlobInfo blobInfo =
-            storage.create(BlobInfo.newBuilder(this.bucketName, filename).setAcl(new ArrayList<>(Arrays.asList(Acl.of(User.ofAllUsers(), Role.READER)))).build(),filePart.getInputStream());
-        // return the public download link
-        return blobInfo.getMediaLink();
-      }
-    */
     //End of lines added
     
     @SuppressWarnings("unused")
