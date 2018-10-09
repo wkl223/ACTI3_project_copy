@@ -35,6 +35,9 @@
         <li>
           <a class="nav help" href="/instructorHelp.jsp" target="_blank" rel="noopener noreferrer">Help</a>
         </li>
+        <li>
+          <a class="nav forum" href="/forum.jsp" target="_blank" rel="noopener noreferrer">Forum</a>
+        </li>
       </ul>
       <ul class="nav navbar-nav pull-right">
         <li>

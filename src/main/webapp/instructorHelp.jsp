@@ -1,11 +1,4 @@
-<%@ page trimDirectiveWhitespaces="true" %>
-<%@ page pageEncoding="UTF-8" %>
-<%@ taglib tagdir="/WEB-INF/tags" prefix="t" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="jsIncludes">
-  <script type="text/javascript" src="/js/instructorHelp.js"></script>
-</c:set>
-<t:helpPage jsIncludes="${jsIncludes}">
+
   <h1>Help for Instructors</h1>
   <a name="#top"></a>
   <div class="contentHolder">
@@ -62,10 +55,3 @@
       <div class="btn-group btn-group-sm" id="pagingControls"></div>
     </div>
   </div>
-  <div id="allQuestions" style="display: block;">
-    <jsp:include page="partials/instructorHelpStudents.jsp"/>
-    <jsp:include page="partials/instructorHelpCourses.jsp"/>
-    <jsp:include page="partials/instructorHelpSessions.jsp"/>
-    <jsp:include page="partials/instructorHelpQuestions.jsp"/>
-  </div>
-</t:helpPage>
