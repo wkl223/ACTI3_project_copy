@@ -34,14 +34,14 @@ public class InstructorFeedbackResultsQuestionTable {
     private Map<String, Boolean> isColumnSortable;
 
     public InstructorFeedbackResultsQuestionTable(
-                                          boolean isHasResponses,
-                                          String questionStatisticsHtml,
-                                          List<InstructorFeedbackResultsResponseRow> responseRows,
-                                          FeedbackQuestionAttributes question,
-                                          String questionText,
-                                          String additionalInfoText,
-                                          List<ElementTag> columns,
-                                          Map<String, Boolean> isColumnSortable) {
+            boolean isHasResponses,
+            String questionStatisticsHtml,
+            List<InstructorFeedbackResultsResponseRow> responseRows,
+            FeedbackQuestionAttributes question,
+            String questionText,
+            String additionalInfoText,
+            List<ElementTag> columns,
+            Map<String, Boolean> isColumnSortable) {
         this.courseId = question.courseId;
         this.feedbackSessionName = question.feedbackSessionName;
 

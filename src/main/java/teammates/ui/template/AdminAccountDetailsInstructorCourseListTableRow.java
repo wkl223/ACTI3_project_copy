@@ -11,7 +11,7 @@ public class AdminAccountDetailsInstructorCourseListTableRow {
     private String sessionToken;
 
     public AdminAccountDetailsInstructorCourseListTableRow(String instructorId, CourseDetailsBundle courseDetails,
-            String sessionToken) {
+                                                           String sessionToken) {
         this.instructorId = instructorId;
         this.courseDetails = courseDetails;
         this.sessionToken = sessionToken;
@@ -30,7 +30,7 @@ public class AdminAccountDetailsInstructorCourseListTableRow {
         String content = "<span class=\"glyphicon glyphicon-trash\"></span>Remove From Course";
         String href = getAdminDeleteInstructorFromCourseLink();
         return new ElementTag(content, "id", "instructor_" + courseDetails.course.getId(), "class",
-                              "btn btn-danger btn-sm", "href", href);
+                "btn btn-danger btn-sm", "href", href);
     }
 
     private String getAdminDeleteInstructorFromCourseLink() {

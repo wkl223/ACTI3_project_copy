@@ -38,7 +38,7 @@ public class InstructorFeedbackSessionsPageDataTest extends BaseTestCase {
         ______TS("typical success case");
 
         InstructorFeedbackSessionsPageData data = new InstructorFeedbackSessionsPageData(instructorAccount,
-                                                                                         dummySessionToken);
+                dummySessionToken);
 
         HashMap<String, InstructorAttributes> courseInstructorMap = new HashMap<>();
         List<InstructorAttributes> instructors = getInstructorsForGoogleId(instructorAccount.googleId, true);
@@ -75,11 +75,11 @@ public class InstructorFeedbackSessionsPageDataTest extends BaseTestCase {
 
         int expectedDefaultGracePeriodOptionsIndex = 3;
         assertNull(formModel.getGracePeriodOptions()
-                            .get(expectedDefaultGracePeriodOptionsIndex)
-                            .getAttributes().get("selected"));
+                .get(expectedDefaultGracePeriodOptionsIndex)
+                .getAttributes().get("selected"));
         assertTrue(formModel.getGracePeriodOptions()
-                            .get(expectedDefaultGracePeriodOptionsIndex)
-                            .getAttributes().containsKey("selected"));
+                .get(expectedDefaultGracePeriodOptionsIndex)
+                .getAttributes().containsKey("selected"));
 
         assertEquals("Please answer all the given questions.", formModel.getInstructions());
         assertEquals("", formModel.getAdditionalSettings().getResponseVisibleDateValue());
@@ -130,7 +130,7 @@ public class InstructorFeedbackSessionsPageDataTest extends BaseTestCase {
         List<CourseAttributes> archivedCourses = getCoursesForInstructor(instructorsForArchivedCourse);
         List<FeedbackSessionAttributes> archivedFsList = getFeedbackSessionsListForInstructor(instructorsForArchivedCourse);
         instructorArchivedCourseData.initWithoutDefaultFormValues(archivedCourses, null, archivedFsList,
-                                                                  archivedCourseInstructorMap, null);
+                archivedCourseInstructorMap, null);
 
         ______TS("case with instructor with only archived course: test new fs form");
         // Test new fs form model
@@ -139,7 +139,7 @@ public class InstructorFeedbackSessionsPageDataTest extends BaseTestCase {
         assertNull(formModel.getCourseId());
         assertEquals(1, formModel.getCoursesSelectField().size());
         assertEquals(Const.StatusMessages.INSTRUCTOR_NO_ACTIVE_COURSES,
-                     formModel.getCoursesSelectField().get(0).getContent());
+                formModel.getCoursesSelectField().get(0).getContent());
 
         assertTrue(formModel.isSubmitButtonDisabled());
 
@@ -147,7 +147,7 @@ public class InstructorFeedbackSessionsPageDataTest extends BaseTestCase {
         AccountAttributes helperAccount = dataBundle.accounts.get("helperOfCourse1");
 
         InstructorFeedbackSessionsPageData helperData = new InstructorFeedbackSessionsPageData(helperAccount,
-                                                                                               dummySessionToken);
+                dummySessionToken);
 
         Map<String, InstructorAttributes> helperCourseInstructorMap = new HashMap<>();
         instructors = getInstructorsForGoogleId(helperAccount.googleId, true);
@@ -169,7 +169,7 @@ public class InstructorFeedbackSessionsPageDataTest extends BaseTestCase {
         assertNull(formModel.getCourseId());
         assertEquals(1, formModel.getCoursesSelectField().size());
         assertEquals(Const.StatusMessages.INSTRUCTOR_NO_MODIFY_PERMISSION_FOR_ACTIVE_COURSES_SESSIONS,
-                     formModel.getCoursesSelectField().get(0).getContent());
+                formModel.getCoursesSelectField().get(0).getContent());
 
         assertTrue(formModel.isSubmitButtonDisabled());
 
@@ -204,7 +204,7 @@ public class InstructorFeedbackSessionsPageDataTest extends BaseTestCase {
         fsList = getFeedbackSessionsListForInstructor(instructorsForUser);
 
         data.initWithoutDefaultFormValues(courses, "idOfTypicalCourse1", fsList, courseInstructorMap,
-                                          "First feedback session");
+                "First feedback session");
 
         List<FeedbackSessionsTableRow> sessionRows = data.getFsList().getExistingFeedbackSessions();
         boolean isFirstFeedbackSessionHighlighted = false;
@@ -232,7 +232,7 @@ public class InstructorFeedbackSessionsPageDataTest extends BaseTestCase {
         ______TS("typical success case with existing fs passed in");
 
         InstructorFeedbackSessionsPageData data = new InstructorFeedbackSessionsPageData(instructorAccount,
-                                                                                         dummySessionToken);
+                dummySessionToken);
 
         Map<String, InstructorAttributes> courseInstructorMap = new HashMap<>();
         List<InstructorAttributes> instructors = getInstructorsForGoogleId(instructorAccount.googleId, true);
@@ -272,11 +272,11 @@ public class InstructorFeedbackSessionsPageDataTest extends BaseTestCase {
 
         int expectedDefaultGracePeriodOptionsIndex = 2;
         assertNull(formModel.getGracePeriodOptions()
-                            .get(expectedDefaultGracePeriodOptionsIndex)
-                            .getAttributes().get("selected"));
+                .get(expectedDefaultGracePeriodOptionsIndex)
+                .getAttributes().get("selected"));
         assertTrue(formModel.getGracePeriodOptions()
-                            .get(expectedDefaultGracePeriodOptionsIndex)
-                            .getAttributes().containsKey("selected"));
+                .get(expectedDefaultGracePeriodOptionsIndex)
+                .getAttributes().containsKey("selected"));
 
         assertEquals("Please please fill in the following questions.", formModel.getInstructions());
         assertEquals("Sat, 01 May, 2027", formModel.getAdditionalSettings().getResponseVisibleDateValue());
@@ -320,7 +320,7 @@ public class InstructorFeedbackSessionsPageDataTest extends BaseTestCase {
         ______TS("typical success case with existing fs passed in");
 
         InstructorFeedbackSessionsPageData data = new InstructorFeedbackSessionsPageData(instructorAccount,
-                                                                                         dummySessionToken);
+                dummySessionToken);
 
         Map<String, InstructorAttributes> courseInstructorMap = new HashMap<>();
         List<InstructorAttributes> instructors = getInstructorsForGoogleId(instructorAccount.googleId, true);
@@ -377,7 +377,7 @@ public class InstructorFeedbackSessionsPageDataTest extends BaseTestCase {
     }
 
     private List<FeedbackSessionAttributes>
-            getFeedbackSessionsListForInstructor(List<InstructorAttributes> instructorsForUser) {
+    getFeedbackSessionsListForInstructor(List<InstructorAttributes> instructorsForUser) {
         Set<String> courseIdsOfUser = getSetOfCourseIdsFromInstructorAttributes(instructorsForUser);
 
         List<FeedbackSessionAttributes> feedbackSessions = new ArrayList<>(dataBundle.feedbackSessions.values());
@@ -388,7 +388,7 @@ public class InstructorFeedbackSessionsPageDataTest extends BaseTestCase {
     }
 
     private Set<String> getSetOfCourseIdsFromInstructorAttributes(
-                                    List<InstructorAttributes> instructorsForUser) {
+            List<InstructorAttributes> instructorsForUser) {
         Set<String> courseIdsOfUser = new HashSet<>();
         for (InstructorAttributes instructor : instructorsForUser) {
             courseIdsOfUser.add(instructor.courseId);

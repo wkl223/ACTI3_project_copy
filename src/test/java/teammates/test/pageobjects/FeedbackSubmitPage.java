@@ -57,7 +57,7 @@ public class FeedbackSubmitPage extends AppPage {
     public void fillResponseTextBox(int qnNumber, int responseNumber, int responseSubNumber, String text) {
         WebElement element = browser.driver.findElement(
                 By.id(Const.ParamsNames.FEEDBACK_RESPONSE_TEXT
-                      + "-" + qnNumber + "-" + responseNumber + "-" + responseSubNumber));
+                        + "-" + qnNumber + "-" + responseNumber + "-" + responseSubNumber));
         fillTextBox(element, text);
     }
 
@@ -70,21 +70,21 @@ public class FeedbackSubmitPage extends AppPage {
     public String getResponseTextBoxValue(int qnNumber, int responseNumber, int responseSubNumber) {
         WebElement element = browser.driver.findElement(
                 By.id(Const.ParamsNames.FEEDBACK_RESPONSE_TEXT
-                    + "-" + qnNumber + "-" + responseNumber + "-" + responseSubNumber));
+                        + "-" + qnNumber + "-" + responseNumber + "-" + responseSubNumber));
         return element.getAttribute("value");
     }
 
     public void clearResponseTextBoxValue(int qnNumber, int responseNumber, int responseSubNumber) {
         WebElement element = browser.driver.findElement(
                 By.id(Const.ParamsNames.FEEDBACK_RESPONSE_TEXT
-                    + "-" + qnNumber + "-" + responseNumber + "-" + responseSubNumber));
+                        + "-" + qnNumber + "-" + responseNumber + "-" + responseSubNumber));
         element.clear();
     }
 
     public boolean isTextBoxValueEmpty(int qnNumber, int responseNumber, int responseSubNumber) {
         WebElement element = browser.driver.findElement(
                 By.id(Const.ParamsNames.FEEDBACK_RESPONSE_TEXT
-                    + "-" + qnNumber + "-" + responseNumber + "-" + responseSubNumber));
+                        + "-" + qnNumber + "-" + responseNumber + "-" + responseSubNumber));
         return checkEmptyTextBoxValue(element);
     }
 
@@ -97,8 +97,8 @@ public class FeedbackSubmitPage extends AppPage {
     public void selectResponseTextDropdown(int qnNumber, int responseNumber, int responseSubNumber, String text) {
         WebElement element = browser.driver.findElement(
                 By.id(Const.ParamsNames.FEEDBACK_RESPONSE_TEXT + "-"
-                      + qnNumber + "-" + responseNumber
-                      + "-" + responseSubNumber));
+                        + qnNumber + "-" + responseNumber
+                        + "-" + responseSubNumber));
         Select dropdown = new Select(element);
         dropdown.selectByVisibleText(text);
     }
@@ -168,21 +168,21 @@ public class FeedbackSubmitPage extends AppPage {
     public void clickRubricRadio(int qnIndex, int respIndex, int row, int col) {
         WebElement radio = browser.driver.findElement(
                 By.id(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE
-                      + "-" + qnIndex + "-" + respIndex + "-" + row + "-" + col));
+                        + "-" + qnIndex + "-" + respIndex + "-" + row + "-" + col));
         click(radio);
     }
 
     public void clickRubricRadioMobile(int qnIndex, int respIndex, int row, int col) {
         WebElement radio = browser.driver.findElement(
                 By.id("mobile-" + Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE
-                      + "-" + qnIndex + "-" + respIndex + "-" + row + "-" + col));
+                        + "-" + qnIndex + "-" + respIndex + "-" + row + "-" + col));
         click(radio);
     }
 
     public boolean isRubricRadioMobileChecked(int qnIndex, int respIndex, int row, int col) {
         WebElement radio = browser.driver.findElement(
                 By.id("mobile-" + Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE
-                      + "-" + qnIndex + "-" + respIndex + "-" + row + "-" + col));
+                        + "-" + qnIndex + "-" + respIndex + "-" + row + "-" + col));
         String isChecked = radio.getAttribute("checked");
         return "true".equals(isChecked);
     }
@@ -190,7 +190,7 @@ public class FeedbackSubmitPage extends AppPage {
     public boolean isRubricRadioChecked(int qnIndex, int respIndex, int row, int col) {
         WebElement radio = browser.driver.findElement(
                 By.id(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE
-                      + "-" + qnIndex + "-" + respIndex + "-" + row + "-" + col));
+                        + "-" + qnIndex + "-" + respIndex + "-" + row + "-" + col));
         String isChecked = radio.getAttribute("checked");
         return "true".equals(isChecked);
     }
@@ -275,7 +275,7 @@ public class FeedbackSubmitPage extends AppPage {
      * Adds feedback participant comment.
      *
      * @param addResponseCommentId suffix id of comment add form
-     * @param commentText comment text
+     * @param commentText          comment text
      */
     public void addFeedbackParticipantComment(String addResponseCommentId, String commentText) {
         WebElement showResponseCommentAddFormButton =
@@ -292,7 +292,7 @@ public class FeedbackSubmitPage extends AppPage {
      * Edits feedback participant comment.
      *
      * @param commentIdSuffix suffix id of comment edit form
-     * @param newCommentText new comment text
+     * @param newCommentText  new comment text
      */
     public void editFeedbackParticipantComment(String commentIdSuffix, String newCommentText) {
         WebElement commentRow = browser.driver.findElement(By.id("responseCommentRow" + commentIdSuffix));

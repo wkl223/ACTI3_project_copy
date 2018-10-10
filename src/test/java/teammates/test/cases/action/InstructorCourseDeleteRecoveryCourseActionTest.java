@@ -37,7 +37,7 @@ public class InstructorCourseDeleteRecoveryCourseActionTest extends BaseActionTe
         InstructorAttributes instructor2OfCourse3 = typicalBundle.instructors.get("instructor2OfCourse3");
         String instructor2Id = instructor2OfCourse3.googleId;
         gaeSimulation.loginAsInstructor(instructor2Id);
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor2OfCourse3.courseId
         };
         assertTrue(CoursesLogic.inst().isCoursePresent(instructor2OfCourse3.courseId));
@@ -63,7 +63,7 @@ public class InstructorCourseDeleteRecoveryCourseActionTest extends BaseActionTe
         InstructorAttributes instructor1OfCourse3 = typicalBundle.instructors.get("instructor1OfCourse3");
         String instructor1Id = instructor1OfCourse3.googleId;
         gaeSimulation.loginAsInstructor(instructor1Id);
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor1OfCourse3.courseId
         };
         assertTrue(CoursesLogic.inst().isCoursePresent(instructor1OfCourse3.courseId));
@@ -97,7 +97,7 @@ public class InstructorCourseDeleteRecoveryCourseActionTest extends BaseActionTe
                 typicalBundle.instructors.get("instructor1OfCourse3").googleId,
                 "icdat.owncourse", "New course", "UTC");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, "icdat.owncourse"
         };
 

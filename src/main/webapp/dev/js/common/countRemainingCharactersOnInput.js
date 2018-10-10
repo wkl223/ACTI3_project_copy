@@ -8,6 +8,7 @@ function computeRemainingCharactersCount($textInput, remainingCharactersElementI
     const currentLength = $textInput.val().length;
     $(`#${remainingCharactersElementId}`).text(maxLength - currentLength);
 }
+
 /**
  * Inserts the remaining characters count for the text input into the designated HTML element
  * @param $textInput - The text input for which the number of characters are to be counted

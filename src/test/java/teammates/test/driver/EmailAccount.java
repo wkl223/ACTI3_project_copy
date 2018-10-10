@@ -91,6 +91,7 @@ public final class EmailAccount {
 
     /**
      * Returns if the list of messages is empty.
+     *
      * @see ListMessagesResponse#getMessages()
      */
     private static boolean isEmpty(List<Message> messages) {

@@ -140,7 +140,7 @@ public class InstructorStudentListPage extends AppPage {
                 .findElement(By.tagName("img"))
                 .getAttribute("src"));
         WebElement photo = browser.driver.findElement(By.id("studentphoto-c" + rowId))
-                                         .findElement(By.cssSelector(".profile-pic-icon-click > img"));
+                .findElement(By.cssSelector(".profile-pic-icon-click > img"));
         JavascriptExecutor jsExecutor = (JavascriptExecutor) browser.driver;
         jsExecutor.executeScript("arguments[0].scrollIntoView(true); window.scrollBy(0, -100);", photo);
         Actions action = new Actions(browser.driver);
@@ -166,7 +166,7 @@ public class InstructorStudentListPage extends AppPage {
     public String getStudentRowId(String courseId, String studentName) {
         int courseNumber = getCourseNumber(courseId);
         int studentCount = browser.driver.findElements(By.cssSelector("tr[id^='student-c" + courseNumber + "']"))
-                                         .size();
+                .size();
         for (int i = 0; i < studentCount; i++) {
             String studentNameInRow = getStudentNameInRow(courseNumber, i);
             if (studentNameInRow.equals(studentName)) {
@@ -178,13 +178,13 @@ public class InstructorStudentListPage extends AppPage {
 
     private String getStudentNameInRow(int courseNumber, int rowId) {
         String xpath = "//tr[@id='student-c" + courseNumber + "." + rowId + "']"
-                     + "//td[@id='" + Const.ParamsNames.STUDENT_NAME + "-c" + courseNumber + "." + rowId + "']";
+                + "//td[@id='" + Const.ParamsNames.STUDENT_NAME + "-c" + courseNumber + "." + rowId + "']";
         return browser.driver.findElement(By.xpath(xpath)).getText();
     }
 
     private WebElement getEnrollLink(int courseNumber) {
         return browser.driver.findElement(By.id("panelHeading-" + courseNumber))
-                             .findElement(By.className("course-enroll-for-test"));
+                .findElement(By.className("course-enroll-for-test"));
     }
 
     private WebElement getViewLink(String rowId) {

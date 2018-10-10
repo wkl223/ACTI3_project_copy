@@ -35,7 +35,7 @@ public class JavamailService extends EmailSenderService {
         } else {
             email.setFrom(new InternetAddress(wrapper.getSenderEmail(), wrapper.getSenderName()));
         }
-        email.setReplyTo(new Address[] { new InternetAddress(wrapper.getReplyTo()) });
+        email.setReplyTo(new Address[]{new InternetAddress(wrapper.getReplyTo())});
         email.addRecipient(Message.RecipientType.TO, new InternetAddress(wrapper.getRecipient()));
         if (wrapper.getBcc() != null && !wrapper.getBcc().isEmpty()) {
             email.addRecipient(Message.RecipientType.BCC, new InternetAddress(wrapper.getBcc()));

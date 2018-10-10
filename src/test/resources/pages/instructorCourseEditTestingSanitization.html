@@ -12,12 +12,17 @@
         Course:
       </strong>
       <div class="pull-right">
-        <a class="btn btn-primary btn-xs" data-original-title="Edit course name" data-placement="top" data-toggle="tooltip" href="javascript:;" id="courseEditLink" title="" type="button">
+        <a class="btn btn-primary btn-xs" data-original-title="Edit course name" data-placement="top"
+           data-toggle="tooltip" href="javascript:;" id="courseEditLink" title="" type="button">
           <span class="glyphicon glyphicon-pencil">
           </span>
           Edit
         </a>
-        <a class="btn btn-primary btn-xs" data-course-id="InsCrsEdit.idOfTestingSanitizationCourse" data-original-title="Delete the course and its corresponding students and sessions" data-placement="top" data-toggle="tooltip" href="/page/instructorCourseDelete?courseid=InsCrsEdit.idOfTestingSanitizationCourse&next=%2Fpage%2FinstructorCoursesPage&user=InsCrsEdit.idOfInstructor1OfTestingSanitizationCourse&token=${sessionToken}" id="courseDeleteLink" title="" type="button">
+        <a class="btn btn-primary btn-xs" data-course-id="InsCrsEdit.idOfTestingSanitizationCourse"
+           data-original-title="Delete the course and its corresponding students and sessions" data-placement="top"
+           data-toggle="tooltip"
+           href="/page/instructorCourseDelete?courseid=InsCrsEdit.idOfTestingSanitizationCourse&next=%2Fpage%2FinstructorCoursesPage&user=InsCrsEdit.idOfInstructor1OfTestingSanitizationCourse&token=${sessionToken}"
+           id="courseDeleteLink" title="" type="button">
           <span class="glyphicon glyphicon-trash">
           </span>
           Delete
@@ -34,7 +39,9 @@
             Course ID:
           </label>
           <div class="col-sm-3">
-            <input class="form-control" data-original-title="Identifier of the course, e.g.CS3215-Sem1." data-placement="top" data-toggle="tooltip" disabled="" id="courseid" maxlength="40" name="courseid" tabindex="1" title="" type="text" value="InsCrsEdit.idOfTestingSanitizationCourse">
+            <input class="form-control" data-original-title="Identifier of the course, e.g.CS3215-Sem1."
+                   data-placement="top" data-toggle="tooltip" disabled="" id="courseid" maxlength="40" name="courseid"
+                   tabindex="1" title="" type="text" value="InsCrsEdit.idOfTestingSanitizationCourse">
           </div>
         </div>
         <div class="form-group">
@@ -42,7 +49,9 @@
             Course Name:
           </label>
           <div class="col-sm-9">
-            <input class="form-control" data-original-title="The name of the course, e.g. Software Engineering." data-placement="top" data-toggle="tooltip" disabled="" id="coursename" maxlength="64" name="coursename" tabindex="2" title="" type="text" value="Testing<script> alert('hi!'); </script>">
+            <input class="form-control" data-original-title="The name of the course, e.g. Software Engineering."
+                   data-placement="top" data-toggle="tooltip" disabled="" id="coursename" maxlength="64"
+                   name="coursename" tabindex="2" title="" type="text" value="Testing<script> alert('hi!'); </script>">
           </div>
         </div>
         <div class="form-group">
@@ -53,7 +62,8 @@
             <div class="input-group">
               <select class="form-control" data-original-title="The time zone for the course. You should not need to change this as it is auto-detected based on your
                   device settings.<br><br> TEAMMATES automatically adjusts to match the current time offset in your area,
-                  including clock changes due to daylight saving time." data-placement="top" data-time-zone="UTC" data-toggle="tooltip" disabled="" id="coursetimezone" name="coursetimezone" title="">
+                  including clock changes due to daylight saving time." data-placement="top" data-time-zone="UTC"
+                      data-toggle="tooltip" disabled="" id="coursetimezone" name="coursetimezone" title="">
               </select>
               <span class="input-group-btn">
                 <input class="btn btn-primary" disabled="" id="auto-detect-time-zone" type="button" value="Auto-Detect">
@@ -63,7 +73,8 @@
         </div>
         <div class="form-group">
           <div class=" col-sm-12 align-center">
-            <input class="btn btn-primary" id="btnSaveCourse" name="btnSaveCourse" style="display:none;" type="submit" value="Save Changes">
+            <input class="btn btn-primary" id="btnSaveCourse" name="btnSaveCourse" style="display:none;" type="submit"
+                   value="Save Changes">
           </div>
         </div>
         <input name="user" type="hidden" value="InsCrsEdit.idOfInstructor1OfTestingSanitizationCourse">
@@ -96,17 +107,24 @@
           <input name="courseeditmainindex" type="hidden" value="1">
           <input name="user" type="hidden" value="InsCrsEdit.idOfInstructor1OfTestingSanitizationCourse">
         </form>
-        <a class="btn btn-primary btn-xs" data-original-title="Edit instructor details" data-placement="top" data-toggle="tooltip" href="javascript:;" id="instrEditLink1" title="" type="button">
+        <a class="btn btn-primary btn-xs" data-original-title="Edit instructor details" data-placement="top"
+           data-toggle="tooltip" href="javascript:;" id="instrEditLink1" title="" type="button">
           <span class="glyphicon glyphicon-pencil">
           </span>
           Edit
         </a>
-        <a class="btn btn-primary btn-xs" data-original-title="Cancel editing instructor details" data-placement="top" data-toggle="tooltip" href="javascript:;" id="instrCancelLink1" style="display: none;" title="" type="button">
+        <a class="btn btn-primary btn-xs" data-original-title="Cancel editing instructor details" data-placement="top"
+           data-toggle="tooltip" href="javascript:;" id="instrCancelLink1" style="display: none;" title=""
+           type="button">
           <span class="glyphicon glyphicon-remove">
           </span>
           Cancel
         </a>
-        <a class="btn btn-primary btn-xs" data-course-id="InsCrsEdit.idOfTestingSanitizationCourse" data-instructor-name="Instructor<script> alert('hi!'); </script>" data-is-delete-self="true" data-original-title="Delete the instructor from the course" data-placement="top" data-toggle="tooltip" href="/page/instructorCourseInstructorDelete?courseid=InsCrsEdit.idOfTestingSanitizationCourse&instructoremail=InsCrsEdit.instructor1%40sanitization.tmt&user=InsCrsEdit.idOfInstructor1OfTestingSanitizationCourse&token=${sessionToken}" id="instrDeleteLink1" title="" type="button">
+        <a class="btn btn-primary btn-xs" data-course-id="InsCrsEdit.idOfTestingSanitizationCourse"
+           data-instructor-name="Instructor<script> alert('hi!'); </script>" data-is-delete-self="true"
+           data-original-title="Delete the instructor from the course" data-placement="top" data-toggle="tooltip"
+           href="/page/instructorCourseInstructorDelete?courseid=InsCrsEdit.idOfTestingSanitizationCourse&instructoremail=InsCrsEdit.instructor1%40sanitization.tmt&user=InsCrsEdit.idOfInstructor1OfTestingSanitizationCourse&token=${sessionToken}"
+           id="instrDeleteLink1" title="" type="button">
           <span class="glyphicon glyphicon-trash">
           </span>
           Delete
@@ -114,7 +132,8 @@
       </div>
     </div>
     <div class="panel-body">
-      <form action="/page/instructorCourseInstructorEditSave" class="form form-horizontal" id="formEditInstructor1" method="post" name="formEditInstructors">
+      <form action="/page/instructorCourseInstructorEditSave" class="form form-horizontal" id="formEditInstructor1"
+            method="post" name="formEditInstructors">
         <input name="courseid" type="hidden" value="InsCrsEdit.idOfTestingSanitizationCourse">
         <input name="instructorid" type="hidden" value="InsCrsEdit.idOfInstructor1OfTestingSanitizationCourse">
         <input name="user" type="hidden" value="InsCrsEdit.idOfInstructor1OfTestingSanitizationCourse">
@@ -125,7 +144,8 @@
               Google ID:
             </label>
             <div class="col-sm-9">
-              <input class="form-control immutable" disabled="" id="instructorid1" maxlength="254" tabindex="3" type="text" value="InsCrsEdit.idOfInstructor1OfTestingSanitizationCourse">
+              <input class="form-control immutable" disabled="" id="instructorid1" maxlength="254" tabindex="3"
+                     type="text" value="InsCrsEdit.idOfInstructor1OfTestingSanitizationCourse">
             </div>
           </div>
           <div class="form-group">
@@ -133,7 +153,9 @@
               Name:
             </label>
             <div class="col-sm-9">
-              <input class="form-control" data-original-title="Enter the name of the instructor." data-placement="top" data-toggle="tooltip" disabled="" id="instructorname1" maxlength="100" name="instructorname" tabindex="4" title="" type="text" value="Instructor<script> alert('hi!'); </script>">
+              <input class="form-control" data-original-title="Enter the name of the instructor." data-placement="top"
+                     data-toggle="tooltip" disabled="" id="instructorname1" maxlength="100" name="instructorname"
+                     tabindex="4" title="" type="text" value="Instructor<script> alert('hi!'); </script>">
             </div>
           </div>
           <div class="form-group">
@@ -141,16 +163,25 @@
               Email:
             </label>
             <div class="col-sm-9">
-              <input class="form-control" data-original-title="Enter the Email of the instructor." data-placement="top" data-toggle="tooltip" disabled="" id="instructoremail1" maxlength="254" name="instructoremail" tabindex="5" title="" type="text" value="InsCrsEdit.instructor1@sanitization.tmt">
+              <input class="form-control" data-original-title="Enter the Email of the instructor." data-placement="top"
+                     data-toggle="tooltip" disabled="" id="instructoremail1" maxlength="254" name="instructoremail"
+                     tabindex="5" title="" type="text" value="InsCrsEdit.instructor1@sanitization.tmt">
             </div>
           </div>
           <div class="form-group">
             <label class="col-sm-3 control-label">
-              <input checked="" data-original-title="If this is unselected, the instructor will be completely invisible to students. E.g. to give access to a colleague for ‘auditing’ your course" data-placement="top" data-toggle="tooltip" disabled="" name="instructorisdisplayed" title="" type="checkbox" value="true">
+              <input checked=""
+                     data-original-title="If this is unselected, the instructor will be completely invisible to students. E.g. to give access to a colleague for ‘auditing’ your course"
+                     data-placement="top" data-toggle="tooltip" disabled="" name="instructorisdisplayed" title=""
+                     type="checkbox" value="true">
               Display to students as:
             </label>
             <div class="col-sm-9">
-              <input class="form-control" data-original-title="Specify the role of this instructor in this course as shown to the students" data-placement="top" data-toggle="tooltip" disabled="" name="instructordisplayname" placeholder="E.g.Co-lecturer, Teaching Assistant" title="" type="text" value="inst'&quot;/><script>alert('hi!');</script>">
+              <input class="form-control"
+                     data-original-title="Specify the role of this instructor in this course as shown to the students"
+                     data-placement="top" data-toggle="tooltip" disabled="" name="instructordisplayname"
+                     placeholder="E.g.Co-lecturer, Teaching Assistant" title="" type="text"
+                     value="inst'&quot;/><script>alert('hi!');</script>">
             </div>
           </div>
           <div id="accessControlInfoForInstr1">
@@ -174,7 +205,8 @@
           </div>
           <div class="form-group">
             <div class="align-center">
-              <input class="btn btn-primary" id="btnSaveInstructor1" style="display:none;" tabindex="6" type="submit" value="Save changes">
+              <input class="btn btn-primary" id="btnSaveInstructor1" style="display:none;" tabindex="6" type="submit"
+                     value="Save changes">
             </div>
           </div>
         </div>
@@ -195,7 +227,8 @@
       <div class="pull-right">
         <div class="display-icon" style="display:inline;">
         </div>
-        <a class="btn btn-primary btn-xs" data-original-title="Cancel adding an instructor" data-placement="top" data-toggle="tooltip" href="javascript:;" id="cancelAddInstructorLink" title="" type="button">
+        <a class="btn btn-primary btn-xs" data-original-title="Cancel adding an instructor" data-placement="top"
+           data-toggle="tooltip" href="javascript:;" id="cancelAddInstructorLink" title="" type="button">
           <span class="glyphicon glyphicon-remove">
           </span>
           Cancel
@@ -203,7 +236,8 @@
       </div>
     </div>
     <div class="panel-body fill-plain">
-      <form action="/page/instructorCourseInstructorAdd" class="form form-horizontal" id="formAddInstructor" method="post" name="formAddInstructor">
+      <form action="/page/instructorCourseInstructorAdd" class="form form-horizontal" id="formAddInstructor"
+            method="post" name="formAddInstructor">
         <input name="courseid" type="hidden" value="InsCrsEdit.idOfTestingSanitizationCourse">
         <input name="user" type="hidden" value="InsCrsEdit.idOfInstructor1OfTestingSanitizationCourse">
         <input name="token" type="hidden" value="${sessionToken}">
@@ -213,7 +247,9 @@
               Name:
             </label>
             <div class="col-sm-9">
-              <input class="form-control" data-original-title="Enter the name of the instructor." data-placement="top" data-toggle="tooltip" id="instructorname" maxlength="100" name="instructorname" tabindex="8" title="" type="text">
+              <input class="form-control" data-original-title="Enter the name of the instructor." data-placement="top"
+                     data-toggle="tooltip" id="instructorname" maxlength="100" name="instructorname" tabindex="8"
+                     title="" type="text">
             </div>
           </div>
           <div class="form-group">
@@ -221,17 +257,25 @@
               Email:
             </label>
             <div class="col-sm-9">
-              <input class="form-control" data-original-title="Enter the Email of the instructor." data-placement="top" data-toggle="tooltip" id="instructoremail" maxlength="254" name="instructoremail" tabindex="9" title="" type="text">
+              <input class="form-control" data-original-title="Enter the Email of the instructor." data-placement="top"
+                     data-toggle="tooltip" id="instructoremail" maxlength="254" name="instructoremail" tabindex="9"
+                     title="" type="text">
             </div>
           </div>
           <div id="accessControlEditDivForInstr2">
             <div class="form-group">
               <label class="col-sm-3 control-label">
-                <input checked="" data-original-title="If this is unselected, the instructor will be completely invisible to students. E.g. to give access to a colleague for ‘auditing’ your course" data-placement="top" data-toggle="tooltip" name="instructorisdisplayed" title="" type="checkbox" value="true">
+                <input checked=""
+                       data-original-title="If this is unselected, the instructor will be completely invisible to students. E.g. to give access to a colleague for ‘auditing’ your course"
+                       data-placement="top" data-toggle="tooltip" name="instructorisdisplayed" title="" type="checkbox"
+                       value="true">
                 Display to students as:
               </label>
               <div class="col-sm-9">
-                <input class="form-control" data-original-title="Specify the role of this instructor in this course as shown to the students" data-placement="top" data-toggle="tooltip" name="instructordisplayname" placeholder="E.g.Co-lecturer, Teaching Assistant" title="" type="text" value="Instructor">
+                <input class="form-control"
+                       data-original-title="Specify the role of this instructor in this course as shown to the students"
+                       data-placement="top" data-toggle="tooltip" name="instructordisplayname"
+                       placeholder="E.g.Co-lecturer, Teaching Assistant" title="" type="text" value="Instructor">
               </div>
             </div>
             <div class="form-group">
@@ -254,7 +298,8 @@
                 </a>
                 <br>
                 <input id="instructorroleforinstructor2" name="instructorrole" type="radio" value="Observer">
-                 Observer: Can only view information(students, submissions, comments etc.). Cannot edit/delete/submit anything.
+                 Observer: Can only view information(students, submissions, comments etc.). Cannot edit/delete/submit
+                anything.
                 <a class="view-role-details" data-role="Observer" href="javascript:;">
                   View Details
                 </a>
@@ -328,7 +373,8 @@
       </form>
     </div>
   </div>
-  <div aria-hidden="true" aria-labelledby="instructorRoleModalLabel" class="modal fade" id="tunePermissionsDivForInstructorAll" role="dialog">
+  <div aria-hidden="true" aria-labelledby="instructorRoleModalLabel" class="modal fade"
+       id="tunePermissionsDivForInstructorAll" role="dialog">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">

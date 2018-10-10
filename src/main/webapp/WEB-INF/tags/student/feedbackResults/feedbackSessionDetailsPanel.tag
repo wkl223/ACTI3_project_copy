@@ -2,7 +2,8 @@
 <%@ tag description="studentFeedbackResults.jsp - Displays feedback session details" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib tagdir="/WEB-INF/tags/student/feedbackResults" prefix="feedbackResults" %>
-<%@ attribute name="feedbackSession" type="teammates.common.datatransfer.attributes.FeedbackSessionAttributes" required="true" %>
+<%@ attribute name="feedbackSession" type="teammates.common.datatransfer.attributes.FeedbackSessionAttributes"
+              required="true" %>
 
 <div class="well well-plain">
   <div class="panel-body">

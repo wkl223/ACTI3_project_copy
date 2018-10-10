@@ -74,22 +74,22 @@ public class StringHelperTest extends BaseTestCase {
         };
         verifyRegexMatch(stringsToMatch, regexList, true);
 
-        stringsToMatch = new String[] {"namess", "nam", "student", "full"};
+        stringsToMatch = new String[]{"namess", "nam", "student", "full"};
         verifyRegexMatch(stringsToMatch, regexList, false);
 
         regexList = FieldValidator.REGEX_COLUMN_SECTION;
-        stringsToMatch = new String[] {
+        stringsToMatch = new String[]{
                 "section", "sections", "sect", "sec", "course sections", "courses sections",
                 "course section", "course sections", "course sec", "courses sec", "Section",
                 "SECTIONS", "Sect", "Sec", "Course Section", "Course Sections"
         };
         verifyRegexMatch(stringsToMatch, regexList, true);
 
-        stringsToMatch = new String[] {"secc", "Section 1", "Course 1"};
+        stringsToMatch = new String[]{"secc", "Section 1", "Course 1"};
         verifyRegexMatch(stringsToMatch, regexList, false);
 
         regexList = FieldValidator.REGEX_COLUMN_TEAM;
-        stringsToMatch = new String[] {
+        stringsToMatch = new String[]{
                 "team", "teams", "Team", "TEAMS", "group", "Group",
                 "Groups", "GROUPS", "student teams", "students teams ", "student team",
                 "students team", "STUDENT TEAM", "Student Teams ", "Student groups",
@@ -98,11 +98,11 @@ public class StringHelperTest extends BaseTestCase {
         };
         verifyRegexMatch(stringsToMatch, regexList, true);
 
-        stringsToMatch = new String[] {"tea", "Team 1", "Group 1"};
+        stringsToMatch = new String[]{"tea", "Team 1", "Group 1"};
         verifyRegexMatch(stringsToMatch, regexList, false);
 
         regexList = FieldValidator.REGEX_COLUMN_EMAIL;
-        stringsToMatch = new String[] {
+        stringsToMatch = new String[]{
                 "email", "emails", " email ", " Email ", " Emails", "EMAILS", "EMAIL",
                 "mail", "Mail", "MAIL", "MAILS", "E-mail", "E-MAILS", "E-mail", "E-mails",
                 "e mails", "E mails", "E  mail", "E MAIL", "E MAILS", "Email address",
@@ -111,17 +111,17 @@ public class StringHelperTest extends BaseTestCase {
         };
         verifyRegexMatch(stringsToMatch, regexList, true);
 
-        stringsToMatch = new String[] {"emai", "test@gmail.com", "address1"};
+        stringsToMatch = new String[]{"emai", "test@gmail.com", "address1"};
         verifyRegexMatch(stringsToMatch, regexList, false);
 
         regexList = FieldValidator.REGEX_COLUMN_COMMENT;
-        stringsToMatch = new String[] {
+        stringsToMatch = new String[]{
                 "comment", "Comment", "COMMENT", "comments", "Comments", " COMMENTS ",
                 "note", "Note", "NOTE", "notes", "Notes", "  NOTES  "
         };
         verifyRegexMatch(stringsToMatch, regexList, true);
 
-        stringsToMatch = new String[] {"this is a comment", "this is a note", "one comment, one note"};
+        stringsToMatch = new String[]{"this is a comment", "this is a note", "one comment, one note"};
         verifyRegexMatch(stringsToMatch, regexList, false);
 
     }
@@ -173,11 +173,11 @@ public class StringHelperTest extends BaseTestCase {
     }
 
     /**
-    * Verifies that encrypting with and without specifying algorithm parameters produce the same ciphertext.
-    * This ensures parameters being specified for encryption are the same as the defaults.
-    *
-    * @param plaintext the plaintext to encrypt, as a hexadecimal string.
-    */
+     * Verifies that encrypting with and without specifying algorithm parameters produce the same ciphertext.
+     * This ensures parameters being specified for encryption are the same as the defaults.
+     *
+     * @param plaintext the plaintext to encrypt, as a hexadecimal string.
+     */
     private static void assertEncryptionUsesExpectedDefaultParams(String plaintext) throws Exception {
         String actualCiphertext = encryptWithoutSpecifyingAlgorithmParams(plaintext);
         String expectedCiphertext = StringHelper.encrypt(plaintext);
@@ -352,7 +352,7 @@ public class StringHelperTest extends BaseTestCase {
 
         // input nested square brackets, expected outermost brackets removed
         assertEquals("test1, [], ] test2",
-                     StringHelper.removeEnclosingSquareBrackets("[test1, [], ] test2]"));
+                StringHelper.removeEnclosingSquareBrackets("[test1, [], ] test2]"));
 
         // input no square brackets, expected same input string
         assertEquals("test", StringHelper.removeEnclosingSquareBrackets("test"));
@@ -378,44 +378,44 @@ public class StringHelperTest extends BaseTestCase {
     @Test
     public void testCsvToHtmlTable() {
         String csvText = "ColHeader1, ColHeader2, ColHeader3, ColHeader4" + System.lineSeparator()
-                         + "\"Data 1-1\", \"Data 1\"\"2\", \"Data 1,3\", \"Data 1\"\"\"\"4\"" + System.lineSeparator()
-                         + "Data 2-1, Data 2-2, Data 2-3, \"Data 2-4\"\"\"" + System.lineSeparator()
-                         + "Data 3-1, Data 3-2, Data 3-3, Data 3-4" + System.lineSeparator()
-                         + ",,," + System.lineSeparator()
-                         + ",,,Data 5-4" + System.lineSeparator();
+                + "\"Data 1-1\", \"Data 1\"\"2\", \"Data 1,3\", \"Data 1\"\"\"\"4\"" + System.lineSeparator()
+                + "Data 2-1, Data 2-2, Data 2-3, \"Data 2-4\"\"\"" + System.lineSeparator()
+                + "Data 3-1, Data 3-2, Data 3-3, Data 3-4" + System.lineSeparator()
+                + ",,," + System.lineSeparator()
+                + ",,,Data 5-4" + System.lineSeparator();
         String htmlText = StringHelper.csvToHtmlTable(csvText);
         String expectedHtmlText = "<table class=\"table table-bordered table-striped table-condensed\">"
-                                      + "<tr>"
-                                          + "<td>ColHeader1</td>"
-                                          + "<td> ColHeader2</td>"
-                                          + "<td> ColHeader3</td>"
-                                          + "<td>ColHeader4</td>"
-                                      + "</tr>"
-                                      + "<tr>"
-                                          + "<td>Data 1-1</td>"
-                                          + "<td> Data 1&quot;2</td>"
-                                          + "<td> Data 1,3</td>"
-                                          + "<td>Data 1&quot;&quot;4</td>"
-                                      + "</tr>"
-                                      + "<tr>"
-                                          + "<td>Data 2-1</td>"
-                                          + "<td> Data 2-2</td>"
-                                          + "<td> Data 2-3</td>"
-                                          + "<td>Data 2-4&quot;</td>"
-                                      + "</tr>"
-                                      + "<tr>"
-                                          + "<td>Data 3-1</td>"
-                                          + "<td> Data 3-2</td>"
-                                          + "<td> Data 3-3</td>"
-                                          + "<td>Data 3-4</td>"
-                                      + "</tr>"
-                                      + "<tr>"
-                                          + "<td></td>"
-                                          + "<td></td>"
-                                          + "<td></td>"
-                                          + "<td>Data 5-4</td>"
-                                      + "</tr>"
-                                  + "</table>";
+                + "<tr>"
+                + "<td>ColHeader1</td>"
+                + "<td> ColHeader2</td>"
+                + "<td> ColHeader3</td>"
+                + "<td>ColHeader4</td>"
+                + "</tr>"
+                + "<tr>"
+                + "<td>Data 1-1</td>"
+                + "<td> Data 1&quot;2</td>"
+                + "<td> Data 1,3</td>"
+                + "<td>Data 1&quot;&quot;4</td>"
+                + "</tr>"
+                + "<tr>"
+                + "<td>Data 2-1</td>"
+                + "<td> Data 2-2</td>"
+                + "<td> Data 2-3</td>"
+                + "<td>Data 2-4&quot;</td>"
+                + "</tr>"
+                + "<tr>"
+                + "<td>Data 3-1</td>"
+                + "<td> Data 3-2</td>"
+                + "<td> Data 3-3</td>"
+                + "<td>Data 3-4</td>"
+                + "</tr>"
+                + "<tr>"
+                + "<td></td>"
+                + "<td></td>"
+                + "<td></td>"
+                + "<td>Data 5-4</td>"
+                + "</tr>"
+                + "</table>";
         assertEquals(expectedHtmlText, htmlText);
     }
 
@@ -446,7 +446,7 @@ public class StringHelperTest extends BaseTestCase {
         assertEquals("", StringHelper.removeNonAscii("©¡¢â"));
 
         assertEquals("Coevaluacin Prctica (Part 1)",
-                     StringHelper.removeNonAscii("Coevaluación Práctica (Part 1)"));
+                StringHelper.removeNonAscii("Coevaluación Práctica (Part 1)"));
     }
 
     @Test

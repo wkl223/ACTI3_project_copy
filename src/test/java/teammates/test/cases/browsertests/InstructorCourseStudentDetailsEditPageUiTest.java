@@ -39,9 +39,9 @@ public class InstructorCourseStudentDetailsEditPageUiTest extends BaseUiTestCase
         ______TS("content: unregistered student");
 
         AppUrl editPageUrl = createUrl(Const.ActionURIs.INSTRUCTOR_COURSE_STUDENT_DETAILS_EDIT)
-                                        .withUserId(instructorId)
-                                        .withCourseId(courseId)
-                                        .withStudentEmail(testData.students.get("unregisteredStudent").email);
+                .withUserId(instructorId)
+                .withCourseId(courseId)
+                .withStudentEmail(testData.students.get("unregisteredStudent").email);
 
         editPage = loginAdminToPage(editPageUrl, InstructorCourseStudentDetailsEditPage.class);
         editPage.verifyHtmlMainContent("/instructorCourseStudentEditUnregisteredPage.html");
@@ -49,9 +49,9 @@ public class InstructorCourseStudentDetailsEditPageUiTest extends BaseUiTestCase
         ______TS("content: registered student");
 
         editPageUrl = createUrl(Const.ActionURIs.INSTRUCTOR_COURSE_STUDENT_DETAILS_EDIT)
-            .withUserId(instructorId)
-            .withCourseId(courseId)
-            .withStudentEmail(testData.students.get("registeredStudent").email);
+                .withUserId(instructorId)
+                .withCourseId(courseId)
+                .withStudentEmail(testData.students.get("registeredStudent").email);
 
         editPage = loginAdminToPage(editPageUrl, InstructorCourseStudentDetailsEditPage.class);
 
@@ -117,7 +117,7 @@ public class InstructorCourseStudentDetailsEditPageUiTest extends BaseUiTestCase
 
         // Verify data
         StudentAttributes student = BackDoor.getStudent(testData.courses.get("CCSDEditUiT.CS2104").getId(),
-                                                                             "CCSDEditUiT.jose.tmms@gmail.tmt");
+                "CCSDEditUiT.jose.tmms@gmail.tmt");
         assertEquals("José Gómez</option></td></div>'\"", student.name);
         assertEquals("Team 1</td></div>'\"", student.team);
         assertEquals(testData.students.get("registeredStudent").googleId, student.googleId);
@@ -133,7 +133,7 @@ public class InstructorCourseStudentDetailsEditPageUiTest extends BaseUiTestCase
 
         // Verify data
         student = BackDoor.getStudent(testData.courses.get("CCSDEditUiT.CS2104").getId(),
-                                      "newemail@gmail.tmt");
+                "newemail@gmail.tmt");
         assertEquals("New name", student.name);
         assertEquals("New team", student.team);
         assertEquals("newemail@gmail.tmt", student.email);
@@ -143,7 +143,7 @@ public class InstructorCourseStudentDetailsEditPageUiTest extends BaseUiTestCase
         // Verify adding the original student again does not overwrite the edited entity
         BackDoor.createStudent(testData.students.get("registeredStudent"));
         student = BackDoor.getStudent(testData.courses.get("CCSDEditUiT.CS2104").getId(),
-                                      "newemail@gmail.tmt");
+                "newemail@gmail.tmt");
         assertNotNull(student);
     }
 

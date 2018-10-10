@@ -36,20 +36,20 @@ public class InstructorCourseStudentDetailsEditPageActionTest extends BaseAction
         verifyAssumptionFailure();
 
         //null student email
-        String[] invalidParams = new String[] {
+        String[] invalidParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor1OfCourse1.courseId
         };
         verifyAssumptionFailure(invalidParams);
 
         //null course id
-        invalidParams = new String[] {
+        invalidParams = new String[]{
                 Const.ParamsNames.STUDENT_EMAIL, student1InCourse1.email
         };
         verifyAssumptionFailure(invalidParams);
 
         ______TS("Typical case, edit student detail page");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor1OfCourse1.courseId,
                 Const.ParamsNames.STUDENT_EMAIL, student1InCourse1.email
         };
@@ -73,11 +73,11 @@ public class InstructorCourseStudentDetailsEditPageActionTest extends BaseAction
         assertEquals(student1InCourse1.course, pageData.getStudentInfoTable().getCourseId());
 
         String expectedLogMessage = "TEAMMATESLOG|||instructorCourseStudentDetailsEdit|||instructorCourseStudentDetailsEdit"
-                                  + "|||true|||Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1"
-                                  + "|||instr1@course1.tmt|||instructorCourseStudentEdit Page Load<br>Editing Student "
-                                  + "<span class=\"bold\">student1InCourse1@gmail.tmt's</span> details in Course "
-                                  + "<span class=\"bold\">[idOfTypicalCourse1]</span>"
-                                  + "|||/page/instructorCourseStudentDetailsEdit";
+                + "|||true|||Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1"
+                + "|||instr1@course1.tmt|||instructorCourseStudentEdit Page Load<br>Editing Student "
+                + "<span class=\"bold\">student1InCourse1@gmail.tmt's</span> details in Course "
+                + "<span class=\"bold\">[idOfTypicalCourse1]</span>"
+                + "|||/page/instructorCourseStudentDetailsEdit";
         AssertHelper.assertLogMessageEquals(expectedLogMessage, a.getLogMessage());
 
     }
@@ -93,7 +93,7 @@ public class InstructorCourseStudentDetailsEditPageActionTest extends BaseAction
         InstructorAttributes instructor1OfCourse1 = typicalBundle.instructors.get("instructor1OfCourse1");
         StudentAttributes student1InCourse1 = typicalBundle.students.get("student1InCourse1");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor1OfCourse1.courseId,
                 Const.ParamsNames.STUDENT_EMAIL, student1InCourse1.email
         };

@@ -85,16 +85,16 @@ public class SanitizationHelperTest extends BaseTestCase {
 
     private void sanitizeHtml_receivesCodeInjection_returnsSanitized() {
         String unsanitized = "< > \" / ' &"
-                             + "<script>alert('injected');</script>";
+                + "<script>alert('injected');</script>";
         String expected = "&lt; &gt; &quot; &#x2f; &#39; &amp;"
-                          + "&lt;script&gt;alert(&#39;injected&#39;);&lt;&#x2f;script&gt;";
+                + "&lt;script&gt;alert(&#39;injected&#39;);&lt;&#x2f;script&gt;";
         String sanitized = SanitizationHelper.sanitizeForHtml(unsanitized);
         assertEquals(expected, sanitized);
     }
 
     private void sanitizeHtml_receivesSanitized_returnsUnchanged() {
         String sanitized = "&lt; &gt; &quot; &#x2f; &#39; &amp;"
-                           + "&lt;script&gt;alert(&#39;injected&#39;);&lt;&#x2f;script&gt;";
+                + "&lt;script&gt;alert(&#39;injected&#39;);&lt;&#x2f;script&gt;";
         assertEquals(sanitized, SanitizationHelper.sanitizeForHtml(sanitized));
     }
 
@@ -174,23 +174,23 @@ public class SanitizationHelperTest extends BaseTestCase {
         assertEquals("<p>wihtout changes</p>", SanitizationHelper.sanitizeForRichText("<p>wihtout changes</p>"));
         assertEquals("<p>spaces test</p>", SanitizationHelper.sanitizeForRichText("<p >spaces test</p >"));
         String actualRichText = "<body onload=\"alert('onload');\">"
-                                + "<a href=\"https://teammatesv4.appspot.com\" onclick=\"alert('fail');\"></a>"
-                                + "<script>alert('fail');</script>"
-                                + "<h1></h1><h2></h2><h3></h3><h4></h4><h5></h5><h6></h6>"
-                                + "<hr />"
-                                + "<img src=\"https://teammatesv4.appspot.com/images/overview.png\" />"
-                                + "<p style=\"text-align:center\"><strong>Content</strong></p>"
-                                + "<div onmouseover=\"alert('onmouseover');\"></div>"
-                                + "<iframe></iframe>"
-                                + "<input></input>"
-                                + "<span style=\"color:#339966\">Content</span>";
+                + "<a href=\"https://teammatesv4.appspot.com\" onclick=\"alert('fail');\"></a>"
+                + "<script>alert('fail');</script>"
+                + "<h1></h1><h2></h2><h3></h3><h4></h4><h5></h5><h6></h6>"
+                + "<hr />"
+                + "<img src=\"https://teammatesv4.appspot.com/images/overview.png\" />"
+                + "<p style=\"text-align:center\"><strong>Content</strong></p>"
+                + "<div onmouseover=\"alert('onmouseover');\"></div>"
+                + "<iframe></iframe>"
+                + "<input></input>"
+                + "<span style=\"color:#339966\">Content</span>";
         String expectedRichText = "<a href=\"https://teammatesv4.appspot.com\"></a>"
-                                  + "<h1></h1><h2></h2><h3></h3><h4></h4><h5></h5><h6></h6>"
-                                  + "<hr />"
-                                  + "<img src=\"https://teammatesv4.appspot.com/images/overview.png\" />"
-                                  + "<p style=\"text-align:center\"><strong>Content</strong></p>"
-                                  + "<div></div>"
-                                  + "<span style=\"color:#339966\">Content</span>";
+                + "<h1></h1><h2></h2><h3></h3><h4></h4><h5></h5><h6></h6>"
+                + "<hr />"
+                + "<img src=\"https://teammatesv4.appspot.com/images/overview.png\" />"
+                + "<p style=\"text-align:center\"><strong>Content</strong></p>"
+                + "<div></div>"
+                + "<span style=\"color:#339966\">Content</span>";
         String sanitized = SanitizationHelper.sanitizeForRichText(actualRichText);
         assertEquals(expectedRichText, sanitized);
 
@@ -234,9 +234,9 @@ public class SanitizationHelperTest extends BaseTestCase {
 
     private void sanitizeForNextUrl_receivesUrl_returnsSanitizedUrl() {
         String url = "/page/studentCourseJoinAuthenticated?key=FF6266"
-                     + "&next=/page/studentHomePage%23/encodedHashHere%2B/encodedPlusHere";
+                + "&next=/page/studentHomePage%23/encodedHashHere%2B/encodedPlusHere";
         String expected = "/page/studentCourseJoinAuthenticated?key=FF6266$"
-                          + "{amp}next=/page/studentHomePage${hash}/encodedHashHere${plus}/encodedPlusHere";
+                + "{amp}next=/page/studentHomePage${hash}/encodedHashHere${plus}/encodedPlusHere";
         assertEquals(expected, SanitizationHelper.sanitizeForNextUrl(url));
     }
 
@@ -252,16 +252,16 @@ public class SanitizationHelperTest extends BaseTestCase {
 
     private void desanitizeFromNextUrl_receivesSanitized_returnsDesanitized() {
         String expected = "/page/studentCourseJoinAuthenticated?key=FF6266"
-                          + "&next=/page/studentHomePage%23/encodedHashHere%2B/encodedPlusHere";
+                + "&next=/page/studentHomePage%23/encodedHashHere%2B/encodedPlusHere";
         String sanitizedUrl = SanitizationHelper.sanitizeForNextUrl(expected);
         assertEquals(expected, SanitizationHelper.desanitizeFromNextUrl(sanitizedUrl));
 
         sanitizedUrl = "/page/studentCourseDetailsPage?user=USERNAME"
-                       + "${amp}courseid=CS2103-Aug2016${hash}/encodedHashHere${plus}/encodedPlusHere"
-                       + " /plusHere";
+                + "${amp}courseid=CS2103-Aug2016${hash}/encodedHashHere${plus}/encodedPlusHere"
+                + " /plusHere";
         expected = "/page/studentCourseDetailsPage?user=USERNAME"
-                   + "&courseid=CS2103-Aug2016%23/encodedHashHere%2B/encodedPlusHere"
-                   + "+/plusHere";
+                + "&courseid=CS2103-Aug2016%23/encodedHashHere%2B/encodedPlusHere"
+                + "+/plusHere";
         assertEquals(expected, SanitizationHelper.desanitizeFromNextUrl(sanitizedUrl));
     }
 
@@ -367,9 +367,9 @@ public class SanitizationHelperTest extends BaseTestCase {
                 + " It contains some <script>dangerous</script> elements </span>";
         String correctSanitized =
                 "<span class=\"text-danger\"> A <span class=\"bold\">typical</span> log  message <br>"
-                + " It contains some &lt;script&gt;dangerous&lt;&#x2f;script&gt; elements </span>";
+                        + " It contains some &lt;script&gt;dangerous&lt;&#x2f;script&gt; elements </span>";
         assertEquals("Should escape HTML special characters"
-                + "other than in <span class=\"text-danger\">, <span class=\"bold\"> and <br>",
+                        + "other than in <span class=\"text-danger\">, <span class=\"bold\"> and <br>",
                 correctSanitized, SanitizationHelper.sanitizeForLogMessage(unsanitized));
 
         unsanitized = "Hmm. <span class=\"text-info\"> How about this? </span> and <span> this</span>";

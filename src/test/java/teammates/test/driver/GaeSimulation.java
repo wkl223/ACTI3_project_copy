@@ -49,7 +49,9 @@ public class GaeSimulation {
 
     private static GaeSimulation instance = new GaeSimulation();
 
-    /** This is used only to generate an HttpServletRequest for given parameters. */
+    /**
+     * This is used only to generate an HttpServletRequest for given parameters.
+     */
     private ServletUnitClient sc;
 
     private LocalServiceTestHelper helper;
@@ -80,7 +82,7 @@ public class GaeSimulation {
         LocalModulesServiceTestConfig localModules = new LocalModulesServiceTestConfig();
         LocalLogServiceTestConfig localLog = new LocalLogServiceTestConfig();
         helper = new LocalServiceTestHelper(localDatastore, localMail, localUserServices,
-                                            localTasks, localSearch, localModules, localLog);
+                localTasks, localSearch, localModules, localLog);
 
         helper.setEnvAttributes(getEnvironmentAttributesWithApplicationHostname());
         helper.setUp();
@@ -153,7 +155,7 @@ public class GaeSimulation {
                                   String httpVersion, String userAgent, boolean complete, Integer status,
                                   String referrer) {
         localLogService.addRequestInfo(appId, versionId, requestId, ip, nickname, startTimeUsec, endTimeUsec,
-                                       method, resource, httpVersion, userAgent, complete, status, referrer);
+                method, resource, httpVersion, userAgent, complete, status, referrer);
     }
 
     /**

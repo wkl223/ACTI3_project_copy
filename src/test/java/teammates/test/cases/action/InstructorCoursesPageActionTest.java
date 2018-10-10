@@ -27,7 +27,7 @@ public class InstructorCoursesPageActionTest extends BaseActionTest {
         InstructorAttributes instructor1OfCourse1 = typicalBundle.instructors.get("instructor1OfCourse1");
         String instructorId = instructor1OfCourse1.googleId;
 
-        String[] submissionParams = new String[] {Const.ParamsNames.IS_USING_AJAX, "true"};
+        String[] submissionParams = new String[]{Const.ParamsNames.IS_USING_AJAX, "true"};
 
         InstructorAttributes instructor1ofCourse1 = typicalBundle.instructors.get("instructor1OfCourse1");
 
@@ -118,7 +118,7 @@ public class InstructorCoursesPageActionTest extends BaseActionTest {
     @Override
     @Test
     protected void testAccessControl() throws Exception {
-        String[] submissionParams = new String[] {};
+        String[] submissionParams = new String[]{};
         verifyOnlyInstructorsCanAccess(submissionParams);
     }
 }

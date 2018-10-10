@@ -49,7 +49,7 @@ public class CoursesDbTest extends BaseComponentTestCase {
             signalFailureToDetectException();
         } catch (EntityAlreadyExistsException e) {
             AssertHelper.assertContains(String.format(EntitiesDb.ERROR_CREATE_ENTITY_ALREADY_EXISTS, "Course"),
-                                        e.getMessage());
+                    e.getMessage());
         }
 
         ______TS("Failure: create a course with invalid parameter");
@@ -75,7 +75,7 @@ public class CoursesDbTest extends BaseComponentTestCase {
             signalFailureToDetectException();
         } catch (InvalidParametersException e) {
             AssertHelper.assertContains("not acceptable to TEAMMATES as a/an course name because it is too long",
-                                        e.getMessage());
+                    e.getMessage());
         }
 
         ______TS("Failure: null parameter");
@@ -164,9 +164,9 @@ public class CoursesDbTest extends BaseComponentTestCase {
             signalFailureToDetectException();
         } catch (InvalidParametersException e) {
             AssertHelper.assertContains("The field 'course ID' is empty",
-                                        e.getMessage());
+                    e.getMessage());
             AssertHelper.assertContains("The field 'course name' is empty",
-                                        e.getMessage());
+                    e.getMessage());
         }
 
         ______TS("fail: non-exisitng course");

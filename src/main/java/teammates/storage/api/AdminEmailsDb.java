@@ -56,8 +56,8 @@ public class AdminEmailsDb extends EntitiesDb<AdminEmail, AdminEmailAttributes> 
         if (adminEmailToUpdate == null) {
             throw new EntityDoesNotExistException(
                     ERROR_UPDATE_NON_EXISTENT_ACCOUNT + ae.getSubject()
-                    + "/" + ae.getSendDate()
-                    + ThreadHelper.getCurrentThreadStack());
+                            + "/" + ae.getSendDate()
+                            + ThreadHelper.getCurrentThreadStack());
         }
 
         ae.sanitizeForSaving();
@@ -74,6 +74,7 @@ public class AdminEmailsDb extends EntitiesDb<AdminEmail, AdminEmailAttributes> 
 
     /**
      * Deletes files uploaded in admin email compose page.
+     *
      * @param key the GCS blobkey used to fetch the file in Google Cloud Storage
      */
     public void deleteAdminEmailUploadedFile(BlobKey key) {
@@ -109,7 +110,7 @@ public class AdminEmailsDb extends EntitiesDb<AdminEmail, AdminEmailAttributes> 
         if (adminEmailToUpdate == null) {
             throw new EntityDoesNotExistException(
                     ERROR_UPDATE_NON_EXISTENT_ACCOUNT + "with Id : " + emailId
-                    + ThreadHelper.getCurrentThreadStack());
+                            + ThreadHelper.getCurrentThreadStack());
         }
 
         newAdminEmail.sanitizeForSaving();
@@ -126,6 +127,7 @@ public class AdminEmailsDb extends EntitiesDb<AdminEmail, AdminEmailAttributes> 
 
     /**
      * This method is not scalable. Not to be used unless for admin features.
+     *
      * @return the list of all adminEmails in the database.
      */
     @Deprecated
@@ -135,6 +137,7 @@ public class AdminEmailsDb extends EntitiesDb<AdminEmail, AdminEmailAttributes> 
 
     /**
      * Gets an admin email by email id.
+     *
      * @return null if no matched email found
      */
     public AdminEmailAttributes getAdminEmailById(String emailId) {
@@ -143,6 +146,7 @@ public class AdminEmailsDb extends EntitiesDb<AdminEmail, AdminEmailAttributes> 
 
     /**
      * Gets an admin email by subject and createDate.
+     *
      * @return null if no matched email found
      */
     public AdminEmailAttributes getAdminEmail(String subject, Instant createDate) {
@@ -151,6 +155,7 @@ public class AdminEmailsDb extends EntitiesDb<AdminEmail, AdminEmailAttributes> 
 
     /**
      * Gets an admin email based on subject.
+     *
      * @return null if no matched email found
      */
     public AdminEmailAttributes getAdminEmailBySubject(String subject) {
@@ -159,30 +164,33 @@ public class AdminEmailsDb extends EntitiesDb<AdminEmail, AdminEmailAttributes> 
 
     /**
      * Gets all admin email drafts that have NOT been sent and NOT in trash bin.
+     *
      * @return empty list if no email found
      */
     public List<AdminEmailAttributes> getAdminEmailDrafts() {
         return makeAttributes(
                 load()
-                .filter("isInTrashBin =", false)
-                .filter("sendDate =", null)
-                .list());
+                        .filter("isInTrashBin =", false)
+                        .filter("sendDate =", null)
+                        .list());
     }
 
     /**
      * Gets all admin emails that have been sent and not in trash bin.
+     *
      * @return empty list if no email found
      */
     public List<AdminEmailAttributes> getSentAdminEmails() {
         return makeAttributes(
                 load()
-                .filter("isInTrashBin =", false)
-                .filter("sendDate !=", null)
-                .list());
+                        .filter("isInTrashBin =", false)
+                        .filter("sendDate !=", null)
+                        .list());
     }
 
     /**
      * Gets all admin emails (including sent and draft mails) that have been moved into trash bin.
+     *
      * @return empty list if no email found
      */
     public List<AdminEmailAttributes> getAdminEmailsInTrashBin() {

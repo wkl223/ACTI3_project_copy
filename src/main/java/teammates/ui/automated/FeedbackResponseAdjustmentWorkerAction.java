@@ -58,9 +58,10 @@ public class FeedbackResponseAdjustmentWorkerAction extends AutomatedAction {
 
         List<FeedbackResponseAttributes> allResponses =
                 logic.getFeedbackResponsesForSession(feedbackSession.getFeedbackSessionName(),
-                                                     feedbackSession.getCourseId());
+                        feedbackSession.getCourseId());
         List<StudentEnrollDetails> enrollmentList =
-                JsonUtils.fromJson(enrollmentDetails, new TypeToken<List<StudentEnrollDetails>>(){}.getType());
+                JsonUtils.fromJson(enrollmentDetails, new TypeToken<List<StudentEnrollDetails>>() {
+                }.getType());
         for (FeedbackResponseAttributes response : allResponses) {
             try {
                 logic.adjustFeedbackResponseForEnrollments(enrollmentList, response);

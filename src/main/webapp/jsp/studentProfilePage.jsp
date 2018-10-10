@@ -13,7 +13,7 @@
 
 </c:set>
 <ts:studentPage title="Student Profile" cssIncludes="${cssIncludes}" jsIncludes="${jsIncludes}">
-  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
-    <tsp:studentProfile student="${data.studentProfile}"/>
+  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}"/>
+  <tsp:studentProfile student="${data.studentProfile}"/>
 </ts:studentPage>
 

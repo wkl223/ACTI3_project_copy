@@ -4,14 +4,14 @@ import {
 
 function updateUncommonSettingsSessionVisibilityInfo() {
     const info = 'Session is visible at submission opening time, '
-             + 'responses are only visible when you publish the results.';
+            + 'responses are only visible when you publish the results.';
 
     $('#uncommonSettingsSessionResponsesVisibleInfoText').html(info);
 }
 
 function updateUncommonSettingsEmailSendingInfo() {
     const info = 'Emails are sent when session opens (within 15 mins), '
-             + '24 hrs before session closes and when results are published.';
+            + '24 hrs before session closes and when results are published.';
 
     $('#uncommonSettingsSendEmailsInfoText').html(info);
 }
@@ -23,13 +23,13 @@ function updateUncommonSettingsInfo() {
 
 function isDefaultSessionResponsesVisibleSetting() {
     return $('#sessionVisibleFromButton_atopen').prop('checked')
-           && $('#resultsVisibleFromButton_later').prop('checked');
+            && $('#resultsVisibleFromButton_later').prop('checked');
 }
 
 function isDefaultSendEmailsSetting() {
     return $('#sendreminderemail_open').prop('checked')
-           && $('#sendreminderemail_closing').prop('checked')
-           && $('#sendreminderemail_published').prop('checked');
+            && $('#sendreminderemail_closing').prop('checked')
+            && $('#sendreminderemail_published').prop('checked');
 }
 
 function showUncommonPanelsForSessionResponsesVisible() {

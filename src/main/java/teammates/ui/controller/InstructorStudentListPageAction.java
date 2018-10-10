@@ -38,7 +38,7 @@ public class InstructorStudentListPageAction extends Action {
 
         if (courses.isEmpty()) {
             statusToUser.add(new StatusMessage(Const.StatusMessages.INSTRUCTOR_NO_COURSE_AND_STUDENTS,
-                                               StatusMessageColor.WARNING));
+                    StatusMessageColor.WARNING));
         }
 
         statusToAdmin = "instructorStudentList Page Load<br>" + "Total Courses: " + courses.size();
@@ -47,12 +47,12 @@ public class InstructorStudentListPageAction extends Action {
         for (CourseAttributes course : courses) {
             InstructorAttributes instructor = instructors.get(course.getId());
             boolean isInstructorAllowedToModify = instructor.isAllowedForPrivilege(
-                                            Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_STUDENT);
+                    Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_STUDENT);
 
             boolean isCourseDisplayed = displayArchive || !instructor.isArchived;
             if (isCourseDisplayed) {
                 coursesToDisplay.add(new InstructorStudentListPageCourseData(course, instructor.isArchived,
-                                                                             isInstructorAllowedToModify));
+                        isInstructorAllowedToModify));
             }
         }
 

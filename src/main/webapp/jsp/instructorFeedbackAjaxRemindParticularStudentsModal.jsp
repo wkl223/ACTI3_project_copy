@@ -1,6 +1,6 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ page pageEncoding="UTF-8" %>
-<%@ page import="teammates.common.util.Const"%>
+<%@ page import="teammates.common.util.Const" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <table class="table-responsive table table-bordered">
@@ -32,21 +32,22 @@
       <td class="align-center">
         <div class="checkbox">
           <label>
-            <input type="checkbox" class="student-not-responded table-column-no-float" name="<%= Const.ParamsNames.SUBMISSION_REMIND_USERLIST %>" value="${userToRemindEmail}">
+            <input type="checkbox" class="student-not-responded table-column-no-float"
+                   name="<%= Const.ParamsNames.SUBMISSION_REMIND_USERLIST %>" value="${userToRemindEmail}">
           </label>
         </div>
       </td>
       <td>
-        ${data.responseStatus.emailSectionTable[userToRemindEmail]}
+          ${data.responseStatus.emailSectionTable[userToRemindEmail]}
       </td>
       <td>
-        ${data.responseStatus.emailTeamNameTable[userToRemindEmail]}
+          ${data.responseStatus.emailTeamNameTable[userToRemindEmail]}
       </td>
       <td>
-        ${data.responseStatus.emailNameTable[userToRemindEmail]}
+          ${data.responseStatus.emailNameTable[userToRemindEmail]}
       </td>
       <td>
-        ${userToRemindEmail}
+          ${userToRemindEmail}
       </td>
       <td>
         No
@@ -58,21 +59,22 @@
       <td class="align-center">
         <div class="checkbox">
           <label>
-            <input type="checkbox" class="student-responded table-column-no-float" name="<%= Const.ParamsNames.SUBMISSION_REMIND_USERLIST %>" value="${userToRemindEmail}">
+            <input type="checkbox" class="student-responded table-column-no-float"
+                   name="<%= Const.ParamsNames.SUBMISSION_REMIND_USERLIST %>" value="${userToRemindEmail}">
           </label>
         </div>
       </td>
       <td>
-        ${data.responseStatus.emailSectionTable[userToRemindEmail]}
+          ${data.responseStatus.emailSectionTable[userToRemindEmail]}
       </td>
       <td>
-        ${data.responseStatus.emailTeamNameTable[userToRemindEmail]}
+          ${data.responseStatus.emailTeamNameTable[userToRemindEmail]}
       </td>
       <td>
-        ${data.responseStatus.emailNameTable[userToRemindEmail]}
+          ${data.responseStatus.emailNameTable[userToRemindEmail]}
       </td>
       <td>
-        ${userToRemindEmail}
+          ${userToRemindEmail}
       </td>
       <td>
         Yes

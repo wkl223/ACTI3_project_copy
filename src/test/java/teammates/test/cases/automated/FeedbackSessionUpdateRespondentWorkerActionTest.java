@@ -34,7 +34,7 @@ public class FeedbackSessionUpdateRespondentWorkerActionTest extends BaseAutomat
 
         verifyRespondentNotInSessionRespondentsList(session, student.email, false);
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 ParamsNames.COURSE_ID, session.getCourseId(),
                 ParamsNames.FEEDBACK_SESSION_NAME, session.getFeedbackSessionName(),
                 ParamsNames.RESPONDENT_EMAIL, student.email,
@@ -53,7 +53,7 @@ public class FeedbackSessionUpdateRespondentWorkerActionTest extends BaseAutomat
 
         verifyRespondentNotInSessionRespondentsList(session, instructor.email, true);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 ParamsNames.COURSE_ID, session.getCourseId(),
                 ParamsNames.FEEDBACK_SESSION_NAME, session.getFeedbackSessionName(),
                 ParamsNames.RESPONDENT_EMAIL, instructor.email,
@@ -70,7 +70,7 @@ public class FeedbackSessionUpdateRespondentWorkerActionTest extends BaseAutomat
 
         verifyRespondentInSessionRespondentsList(session, student.email, false);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 ParamsNames.COURSE_ID, session.getCourseId(),
                 ParamsNames.FEEDBACK_SESSION_NAME, session.getFeedbackSessionName(),
                 ParamsNames.RESPONDENT_EMAIL, student.email,
@@ -87,7 +87,7 @@ public class FeedbackSessionUpdateRespondentWorkerActionTest extends BaseAutomat
 
         verifyRespondentInSessionRespondentsList(session, instructor.email, true);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 ParamsNames.COURSE_ID, session.getCourseId(),
                 ParamsNames.FEEDBACK_SESSION_NAME, session.getFeedbackSessionName(),
                 ParamsNames.RESPONDENT_EMAIL, instructor.email,
@@ -108,7 +108,7 @@ public class FeedbackSessionUpdateRespondentWorkerActionTest extends BaseAutomat
     }
 
     private void verifyRespondentInSessionRespondentsList(FeedbackSessionAttributes session, String respondentEmail,
-            boolean isInstructor) throws EntityDoesNotExistException {
+                                                          boolean isInstructor) throws EntityDoesNotExistException {
         FeedbackSessionResponseStatus responseStatus =
                 fsLogic.getFeedbackSessionResponseStatus(session.getFeedbackSessionName(), session.getCourseId());
         assertFalse(responseStatus.getStudentsWhoDidNotRespond().contains(respondentEmail));
@@ -118,7 +118,7 @@ public class FeedbackSessionUpdateRespondentWorkerActionTest extends BaseAutomat
     }
 
     private void verifyRespondentNotInSessionRespondentsList(FeedbackSessionAttributes session, String respondentEmail,
-            boolean isInstructor) throws EntityDoesNotExistException {
+                                                             boolean isInstructor) throws EntityDoesNotExistException {
         FeedbackSessionResponseStatus responseStatus =
                 fsLogic.getFeedbackSessionResponseStatus(session.getFeedbackSessionName(), session.getCourseId());
         assertTrue(responseStatus.getStudentsWhoDidNotRespond().contains(respondentEmail));

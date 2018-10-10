@@ -142,7 +142,9 @@ public class CourseStudent extends BaseEntity {
         this.like = like;
     }
 
-    public int getLike() { return like; }
+    public int getLike() {
+        return like;
+    }
 
     public String getGoogleId() {
         return googleId;

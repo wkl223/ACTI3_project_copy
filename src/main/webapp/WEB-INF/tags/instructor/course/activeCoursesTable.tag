@@ -6,42 +6,43 @@
 <h2>Active courses</h2>
 <table class="table table-bordered table-striped" id="tableActiveCourses">
   <thead class="fill-primary">
-    <tr>
-      <th id="button_sortcourseid" class="button-sort-none toggle-sort">
-        Course ID<span class="icon-sort unsorted"></span>
-      </th>
-      <th id="button_sortcoursename" class="button-sort-none toggle-sort">
-        Course Name<span class="icon-sort unsorted"></span>
-      </th>
-      <th id="button_sortcoursecreateddate" data-toggle-sort-comparator="sortDate" data-toggle-sort-extractor="dateStampExtractor" class="button-sort-none toggle-sort">
-        Creation Date<span class="icon-sort unsorted"></span>
-      </th>
-      <th>
-        Sections
-      </th>
-      <th>
-        Teams
-      </th>
-      <th>
-        Total Students
-      </th>
-      <th>
-        Total Unregistered
-      </th>
-      <th class="align-center no-print">
-        Action(s)
-      </th>
-    </tr>
+  <tr>
+    <th id="button_sortcourseid" class="button-sort-none toggle-sort">
+      Course ID<span class="icon-sort unsorted"></span>
+    </th>
+    <th id="button_sortcoursename" class="button-sort-none toggle-sort">
+      Course Name<span class="icon-sort unsorted"></span>
+    </th>
+    <th id="button_sortcoursecreateddate" data-toggle-sort-comparator="sortDate"
+        data-toggle-sort-extractor="dateStampExtractor" class="button-sort-none toggle-sort">
+      Creation Date<span class="icon-sort unsorted"></span>
+    </th>
+    <th>
+      Sections
+    </th>
+    <th>
+      Teams
+    </th>
+    <th>
+      Total Students
+    </th>
+    <th>
+      Total Unregistered
+    </th>
+    <th class="align-center no-print">
+      Action(s)
+    </th>
+  </tr>
   </thead>
   <c:forEach items="${activeCourses.rows}" var="activeCourse" varStatus="i">
     <tr>
       <td id="courseid${i.index}">${activeCourse.courseId}</td>
       <td id="coursename${i.index}">${activeCourse.courseName}</td>
       <td
-        id="coursecreateddate${i.index}"
-        data-date-stamp="${activeCourse.createdAtDateStamp}"
-        data-toggle="tooltip"
-        data-original-title="${activeCourse.createdAtFullDateTimeString}">
+          id="coursecreateddate${i.index}"
+          data-date-stamp="${activeCourse.createdAtDateStamp}"
+          data-toggle="tooltip"
+          data-original-title="${activeCourse.createdAtFullDateTimeString}">
           ${activeCourse.createdAtDateString}
       </td>
       <td id="course-stats-sectionNum-${i.index}">
@@ -59,7 +60,7 @@
       <td class="align-center no-print">
         <c:forEach items="${activeCourse.actions}" var="button">
           <a ${button.attributesToString}>
-            ${button.content}
+              ${button.content}
           </a>
         </c:forEach>
       </td>

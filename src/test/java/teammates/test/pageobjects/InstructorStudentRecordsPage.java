@@ -43,6 +43,7 @@ public class InstructorStudentRecordsPage extends AppPage {
 
     /**
      * Checks if the body of all the record panels are visible.
+     *
      * @return true if all record panel bodies are visible
      */
     public boolean areRecordsVisible() {
@@ -51,6 +52,7 @@ public class InstructorStudentRecordsPage extends AppPage {
 
     /**
      * Checks if the body of all the record panels are hidden.
+     *
      * @return true if all record panel bodies are hidden
      */
     public boolean areRecordsHidden() {
@@ -59,6 +61,7 @@ public class InstructorStudentRecordsPage extends AppPage {
 
     /**
      * Checks if the bodies of all the record panels are collapsed or expanded.
+     *
      * @param isVisible true to check for expanded, false to check for collapsed.
      * @return true if all record panel bodies are equals to the visibility being checked.
      */

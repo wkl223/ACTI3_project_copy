@@ -40,7 +40,7 @@ public class InstructorCourseInstructorEditSaveActionTest extends BaseActionTest
         String newInstructorName = "newName";
         String newInstructorEmail = "newEmail@email.com";
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.INSTRUCTOR_ID, instructorId,
                 Const.ParamsNames.INSTRUCTOR_NAME, newInstructorName,
@@ -56,11 +56,11 @@ public class InstructorCourseInstructorEditSaveActionTest extends BaseActionTest
         RedirectResult redirectResult = getRedirectResult(saveAction);
 
         AssertHelper.assertContains(
-                    Const.ActionURIs.INSTRUCTOR_COURSE_EDIT_PAGE,
-                    redirectResult.getDestinationWithParams());
+                Const.ActionURIs.INSTRUCTOR_COURSE_EDIT_PAGE,
+                redirectResult.getDestinationWithParams());
         assertFalse(redirectResult.isError);
         assertEquals(String.format(Const.StatusMessages.COURSE_INSTRUCTOR_EDITED, newInstructorName),
-                     redirectResult.getStatusMessage());
+                redirectResult.getStatusMessage());
 
         InstructorAttributes editedInstructor = instructorsLogic.getInstructorForGoogleId(courseId, instructorId);
         assertEquals(newInstructorName, editedInstructor.name);
@@ -79,7 +79,7 @@ public class InstructorCourseInstructorEditSaveActionTest extends BaseActionTest
 
         String invalidEmail = "wrongEmail.com";
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.INSTRUCTOR_ID, instructorId,
                 Const.ParamsNames.INSTRUCTOR_NAME, instructorToEdit.name,
@@ -116,7 +116,7 @@ public class InstructorCourseInstructorEditSaveActionTest extends BaseActionTest
         newInstructorName = "newName2";
         newInstructorEmail = "newEmail2@email.com";
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.INSTRUCTOR_ID, instructorId,
                 Const.ParamsNames.INSTRUCTOR_NAME, newInstructorName,
@@ -142,7 +142,7 @@ public class InstructorCourseInstructorEditSaveActionTest extends BaseActionTest
                 redirectResult.getDestinationWithParams());
         assertFalse(redirectResult.isError);
         assertEquals(String.format(Const.StatusMessages.COURSE_INSTRUCTOR_EDITED, newInstructorName),
-                     redirectResult.getStatusMessage());
+                redirectResult.getStatusMessage());
 
         editedInstructor = instructorsLogic.getInstructorForGoogleId(courseId, instructorId);
         assertEquals(newInstructorEmail, editedInstructor.email);
@@ -157,7 +157,7 @@ public class InstructorCourseInstructorEditSaveActionTest extends BaseActionTest
         CoursesLogic.inst().deleteCourseCascade("icieat.courseId");
 
         ______TS("Unsuccessful case: test null course id parameter");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.INSTRUCTOR_ID, instructorId,
                 Const.ParamsNames.INSTRUCTOR_NAME, newInstructorName,
                 Const.ParamsNames.INSTRUCTOR_EMAIL, newInstructorEmail,
@@ -183,7 +183,7 @@ public class InstructorCourseInstructorEditSaveActionTest extends BaseActionTest
         }
 
         ______TS("Unsuccessful case: test null instructor name parameter");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.INSTRUCTOR_ID, instructorId,
                 Const.ParamsNames.INSTRUCTOR_EMAIL, newInstructorEmail,
@@ -209,7 +209,7 @@ public class InstructorCourseInstructorEditSaveActionTest extends BaseActionTest
         }
 
         ______TS("Unsuccessful case: test null instructor email parameter");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.INSTRUCTOR_ID, instructorId,
                 Const.ParamsNames.INSTRUCTOR_NAME, newInstructorName,
@@ -244,7 +244,7 @@ public class InstructorCourseInstructorEditSaveActionTest extends BaseActionTest
     @Test
     protected void testAccessControl() throws Exception {
         InstructorAttributes instructor = typicalBundle.instructors.get("instructor3OfCourse1");
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor.courseId,
                 Const.ParamsNames.INSTRUCTOR_ID, instructor.googleId,
                 Const.ParamsNames.INSTRUCTOR_NAME, instructor.name,

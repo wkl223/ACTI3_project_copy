@@ -44,7 +44,7 @@ public class InstructorFeedbackEditCopyAction extends Action {
         FeedbackSessionAttributes fsa = logic.getFeedbackSession(originalFeedbackSessionName, originalCourseId);
 
         gateKeeper.verifyAccessible(instructor, logic.getCourse(originalCourseId),
-                                    Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_SESSION_IN_SECTIONS);
+                Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_SESSION_IN_SECTIONS);
         gateKeeper.verifyAccessible(instructor, fsa, false);
 
         try {
@@ -55,8 +55,8 @@ public class InstructorFeedbackEditCopyAction extends Action {
             if (!conflictCourses.isEmpty()) {
                 String commaSeparatedListOfCourses = StringHelper.toString(conflictCourses, ",");
                 String errorToUser = String.format(Const.StatusMessages.FEEDBACK_SESSION_COPY_ALREADYEXISTS,
-                                                   newFeedbackSessionName,
-                                                   commaSeparatedListOfCourses);
+                        newFeedbackSessionName,
+                        commaSeparatedListOfCourses);
 
                 return createAjaxResultWithErrorMessage(errorToUser);
             }
@@ -69,7 +69,7 @@ public class InstructorFeedbackEditCopyAction extends Action {
                         logic.getInstructorForGoogleId(courseIdToCopyTo, account.googleId);
                 CourseAttributes courseToCopyTo = logic.getCourse(courseIdToCopyTo);
                 gateKeeper.verifyAccessible(instructorForCourse, courseToCopyTo,
-                                            Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION);
+                        Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION);
 
                 fs = logic.copyFeedbackSession(newFeedbackSessionName, courseIdToCopyTo, courseToCopyTo.getTimeZone(),
                         originalFeedbackSessionName, originalCourseId, instructor.email);
@@ -81,26 +81,26 @@ public class InstructorFeedbackEditCopyAction extends Action {
             statusToUser.add(new StatusMessage(Const.StatusMessages.FEEDBACK_SESSION_COPIED, StatusMessageColor.SUCCESS));
             statusToAdmin =
                     "Copying to multiple feedback sessions.<br>"
-                    + "New Feedback Session <span class=\"bold\">(" + fs.getFeedbackSessionName() + ")</span> "
-                    + "for Courses: <br>" + commaSeparatedListOfCourses + "<br>"
-                    + "<span class=\"bold\">From:</span> " + fs.getStartTime()
-                    + "<span class=\"bold\"> to</span> " + fs.getEndTime() + "<br>"
-                    + "<span class=\"bold\">Session visible from:</span> " + fs.getSessionVisibleFromTime() + "<br>"
-                    + "<span class=\"bold\">Results visible from:</span> " + fs.getResultsVisibleFromTime() + "<br><br>"
-                    + "<span class=\"bold\">Instructions:</span> " + fs.getInstructions() + "<br>"
-                    + "Copied from <span class=\"bold\">(" + originalFeedbackSessionName + ")</span> for Course "
-                    + "<span class=\"bold\">[" + originalCourseId + "]</span> created.<br>";
+                            + "New Feedback Session <span class=\"bold\">(" + fs.getFeedbackSessionName() + ")</span> "
+                            + "for Courses: <br>" + commaSeparatedListOfCourses + "<br>"
+                            + "<span class=\"bold\">From:</span> " + fs.getStartTime()
+                            + "<span class=\"bold\"> to</span> " + fs.getEndTime() + "<br>"
+                            + "<span class=\"bold\">Session visible from:</span> " + fs.getSessionVisibleFromTime() + "<br>"
+                            + "<span class=\"bold\">Results visible from:</span> " + fs.getResultsVisibleFromTime() + "<br><br>"
+                            + "<span class=\"bold\">Instructions:</span> " + fs.getInstructions() + "<br>"
+                            + "Copied from <span class=\"bold\">(" + originalFeedbackSessionName + ")</span> for Course "
+                            + "<span class=\"bold\">[" + originalCourseId + "]</span> created.<br>";
 
             // Return with redirection url (handled in javascript) to the sessions page after copying,
             // so that the instructor can see the new feedback sessions
             return createAjaxResultWithoutClearingStatusMessage(
-                       new InstructorFeedbackEditCopyData(account, sessionToken,
-                                                          Config.getAppUrl(nextUrl)
-                                                                .withParam(Const.ParamsNames.ERROR,
-                                                                           Boolean.FALSE.toString())
-                                                                .withParam(Const.ParamsNames.USER_ID,
-                                                                           account.googleId)
-                                                          ));
+                    new InstructorFeedbackEditCopyData(account, sessionToken,
+                            Config.getAppUrl(nextUrl)
+                                    .withParam(Const.ParamsNames.ERROR,
+                                            Boolean.FALSE.toString())
+                                    .withParam(Const.ParamsNames.USER_ID,
+                                            account.googleId)
+                    ));
 
         } catch (EntityAlreadyExistsException e) {
             // If conflicts are checked above, this will only occur via race condition

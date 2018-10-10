@@ -11,16 +11,16 @@ import teammates.common.util.Const;
 
 public class UserErrorReportPage extends AppPage {
 
-    @FindBy (name = Const.ParamsNames.ERROR_FEEDBACK_EMAIL_RECEIVER_ADDRESS)
+    @FindBy(name = Const.ParamsNames.ERROR_FEEDBACK_EMAIL_RECEIVER_ADDRESS)
     private WebElement errorFeedbackEmailReceiverAddressField;
 
-    @FindBy (name = Const.ParamsNames.ERROR_FEEDBACK_EMAIL_SUBJECT)
+    @FindBy(name = Const.ParamsNames.ERROR_FEEDBACK_EMAIL_SUBJECT)
     private WebElement errorFeedbackEmailSubjectField;
 
-    @FindBy (name = Const.ParamsNames.ERROR_FEEDBACK_EMAIL_CONTENT)
+    @FindBy(name = Const.ParamsNames.ERROR_FEEDBACK_EMAIL_CONTENT)
     private WebElement errorFeedbackEmailContentField;
 
-    @FindBy (xpath = "//button[@type='submit']")
+    @FindBy(xpath = "//button[@type='submit']")
     private WebElement sendFeedbackButton;
 
     public UserErrorReportPage(Browser browser) {

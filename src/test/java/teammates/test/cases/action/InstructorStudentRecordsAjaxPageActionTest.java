@@ -31,7 +31,7 @@ public class InstructorStudentRecordsAjaxPageActionTest extends BaseActionTest {
 
         ______TS("Typical case: specific session name");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor.courseId,
                 Const.ParamsNames.STUDENT_EMAIL, student.email,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, "First feedback session"
@@ -63,7 +63,7 @@ public class InstructorStudentRecordsAjaxPageActionTest extends BaseActionTest {
         StudentAttributes student = typicalBundle.students.get("student2InCourse1");
         CourseAttributes course = typicalBundle.courses.get("typicalCourse1");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, course.getId(),
                 Const.ParamsNames.STUDENT_EMAIL, student.email,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, "First feedback session"
@@ -75,7 +75,7 @@ public class InstructorStudentRecordsAjaxPageActionTest extends BaseActionTest {
         instructor = typicalBundle.instructors.get("helperOfCourse1");
         gaeSimulation.loginAsInstructor(instructor.googleId);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, course.getId(),
                 Const.ParamsNames.STUDENT_EMAIL, student.email,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, "First feedback session"

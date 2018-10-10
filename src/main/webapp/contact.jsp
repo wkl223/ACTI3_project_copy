@@ -12,11 +12,13 @@
     </p>
     <br>
     <p>
-      <b>Blog:</b> Visit the <a href="http://teammatesonline.blogspot.sg/">TEAMMATES Blog</a> to see our latest updates and information.
+      <b>Blog:</b> Visit the <a href="http://teammatesonline.blogspot.sg/">TEAMMATES Blog</a> to see our latest updates
+      and information.
     </p>
     <br>
     <p>
-      <b>Bug reports and feature requests:</b> Any bug reports or feature requests can be submitted to above email address.
+      <b>Bug reports and feature requests:</b> Any bug reports or feature requests can be submitted to above email
+      address.
     </p>
     <br>
     <p>

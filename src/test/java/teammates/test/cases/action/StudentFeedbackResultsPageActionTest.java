@@ -57,17 +57,17 @@ public class StudentFeedbackResultsPageActionTest extends BaseActionTest {
 
         ______TS("invalid params");
 
-        String[] submissionParams = new String[] {};
+        String[] submissionParams = new String[]{};
 
         verifyRedirectTo(Const.ActionURIs.STUDENT_HOME_PAGE, submissionParams);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, session1InCourse1.getCourseId(),
         };
 
         verifyRedirectTo(Const.ActionURIs.STUDENT_HOME_PAGE, submissionParams);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, session1InCourse1.getFeedbackSessionName()
         };
 
@@ -75,7 +75,7 @@ public class StudentFeedbackResultsPageActionTest extends BaseActionTest {
 
         ______TS("results not viewable when not published");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, session1InCourse1.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, session1InCourse1.getFeedbackSessionName()
         };
@@ -92,7 +92,7 @@ public class StudentFeedbackResultsPageActionTest extends BaseActionTest {
 
         ______TS("access a empty session");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, emptySession.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, emptySession.getFeedbackSessionName()
         };
@@ -102,11 +102,11 @@ public class StudentFeedbackResultsPageActionTest extends BaseActionTest {
         assertEquals(Const.ViewURIs.STUDENT_FEEDBACK_RESULTS, pageResult.destination);
         assertFalse(pageResult.isError);
         assertEquals("You have not received any new feedback but you may review your own submissions below.",
-                     pageResult.getStatusMessage());
+                pageResult.getStatusMessage());
 
         ______TS("access a gracePeriodSession session");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, gracePeriodSession.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, gracePeriodSession.getFeedbackSessionName()
         };
@@ -121,7 +121,7 @@ public class StudentFeedbackResultsPageActionTest extends BaseActionTest {
 
         ______TS("access a closed session");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, closedSession.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME,
                 closedSession.getFeedbackSessionName()
@@ -137,7 +137,7 @@ public class StudentFeedbackResultsPageActionTest extends BaseActionTest {
 
         ______TS("access a non-existent session");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, session1InCourse1.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, "non-existent session"
         };
@@ -148,7 +148,7 @@ public class StudentFeedbackResultsPageActionTest extends BaseActionTest {
             pageResult = getShowPageResult(pageAction);
         } catch (UnauthorizedAccessException exception) {
             assertEquals("Trying to access system using a non-existent feedback session entity",
-                         exception.getMessage());
+                    exception.getMessage());
         }
 
         ______TS("typical case");
@@ -159,7 +159,7 @@ public class StudentFeedbackResultsPageActionTest extends BaseActionTest {
                 session1InCourse1.getFeedbackSessionName(), session1InCourse1.getCourseId());
         FeedbackSessionsLogic.inst().publishFeedbackSession(session1InCourse1);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, session1InCourse1.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, session1InCourse1.getFeedbackSessionName()
         };
@@ -215,7 +215,7 @@ public class StudentFeedbackResultsPageActionTest extends BaseActionTest {
                 .get("session1InCourse1");
         FeedbackSessionsLogic.inst().publishFeedbackSession(session1InCourse1);
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, session1InCourse1.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME,
                 session1InCourse1.getFeedbackSessionName()

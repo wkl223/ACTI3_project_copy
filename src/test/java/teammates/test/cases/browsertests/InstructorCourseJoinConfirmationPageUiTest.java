@@ -23,11 +23,11 @@ public class InstructorCourseJoinConfirmationPageUiTest extends BaseUiTestCase {
         // use the instructor account injected for this test
 
         testData.instructors.get("ICJConfirmationUiT.instr.CS2104").googleId =
-                                        TestProperties.TEST_INSTRUCTOR_ACCOUNT;
+                TestProperties.TEST_INSTRUCTOR_ACCOUNT;
         testData.instructors.get("ICJConfirmationUiT.instr.CS2104").email =
-                                        TestProperties.TEST_INSTRUCTOR_ACCOUNT + "@gmail.com";
+                TestProperties.TEST_INSTRUCTOR_ACCOUNT + "@gmail.com";
         testData.instructors.get("ICJConfirmationUiT.instr.CS1101").email =
-                                        TestProperties.TEST_INSTRUCTOR_ACCOUNT + "@gmail.com";
+                TestProperties.TEST_INSTRUCTOR_ACCOUNT + "@gmail.com";
 
         removeAndRestoreDataBundle(testData);
     }
@@ -58,15 +58,15 @@ public class InstructorCourseJoinConfirmationPageUiTest extends BaseUiTestCase {
         ______TS("Click join link then cancel");
 
         String joinLink = createUrl(Const.ActionURIs.INSTRUCTOR_COURSE_JOIN)
-                                        .withRegistrationKey(invalidEncryptedKey)
-                                        .toAbsoluteString();
+                .withRegistrationKey(invalidEncryptedKey)
+                .toAbsoluteString();
         logout();
         browser.driver.get(joinLink);
 
         InstructorCourseJoinConfirmationPage confirmationPage =
                 AppPage.createCorrectLoginPageType(browser)
-                           .loginAsJoiningInstructor(TestProperties.TEST_INSTRUCTOR_ACCOUNT,
-                                                     TestProperties.TEST_INSTRUCTOR_PASSWORD);
+                        .loginAsJoiningInstructor(TestProperties.TEST_INSTRUCTOR_ACCOUNT,
+                                TestProperties.TEST_INSTRUCTOR_PASSWORD);
 
         confirmationPage.clickCancelButton();
 
@@ -74,12 +74,12 @@ public class InstructorCourseJoinConfirmationPageUiTest extends BaseUiTestCase {
 
         browser.driver.get(joinLink);
         confirmationPage = AppPage.createCorrectLoginPageType(browser)
-                           .loginAsJoiningInstructor(TestProperties.TEST_INSTRUCTOR_ACCOUNT,
-                                                     TestProperties.TEST_INSTRUCTOR_PASSWORD);
+                .loginAsJoiningInstructor(TestProperties.TEST_INSTRUCTOR_ACCOUNT,
+                        TestProperties.TEST_INSTRUCTOR_PASSWORD);
 
         InstructorHomePage instructorHome = confirmationPage.clickConfirmButton();
         instructorHome.verifyContains("You have used an invalid join link: /page/instructorCourseJoin?key="
-                                      + invalidEncryptedKey);
+                + invalidEncryptedKey);
 
         ______TS("Click join link then confirm: success: valid key");
 
@@ -88,8 +88,8 @@ public class InstructorCourseJoinConfirmationPageUiTest extends BaseUiTestCase {
 
         String regkey = BackDoor.getEncryptedKeyForInstructor(courseId, instructorEmail);
         joinLink = createUrl(Const.ActionURIs.INSTRUCTOR_COURSE_JOIN)
-                                        .withRegistrationKey(regkey)
-                                        .toAbsoluteString();
+                .withRegistrationKey(regkey)
+                .toAbsoluteString();
 
         browser.driver.get(joinLink);
         confirmationPage = AppPage.getNewPageInstance(browser, InstructorCourseJoinConfirmationPage.class);

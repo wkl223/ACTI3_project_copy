@@ -66,11 +66,13 @@
                 Set a grace period during which students can still submit responses if the session closes
               </li>
               <li>
-                Choose when you want this session to be visible to students. After this time, students can see the questions,
+                Choose when you want this session to be visible to students. After this time, students can see the
+                questions,
                 but they cannot submit their responses until the session is <i>open</i>
               </li>
               <li>
-                Choose when you want to make this session's responses visible. At this time, TEAMMATES will automatically
+                Choose when you want to make this session's responses visible. At this time, TEAMMATES will
+                automatically
                 publish the results for students to view
               </li>
               <li>
@@ -94,7 +96,8 @@
 
               <div class="well well-plain">
                 <form class="form-group" name="form_feedbacksession" onsubmit="return false">
-                  <div class="row" data-toggle="tooltip" data-placement="top" title="Select a different type of session here.">
+                  <div class="row" data-toggle="tooltip" data-placement="top"
+                       title="Select a different type of session here.">
                     <h4 class="label-control col-md-2 text-md">Create new </h4>
                     <div class="col-md-5">
                       <select class="form-control" name="fstype" id="fstype">
@@ -108,7 +111,8 @@
                     </div>
                     <h4 class="label-control col-md-1 text-md">Or: </h4>
                     <div class="col-md-3">
-                      <a id="button_copy" class="btn btn-info" style="vertical-align:middle;">Copy from previous feedback sessions</a>
+                      <a id="button_copy" class="btn btn-info" style="vertical-align:middle;">Copy from previous
+                        feedback sessions</a>
                     </div>
                   </div>
                   <br>
@@ -116,7 +120,8 @@
                   <div class="panel panel-primary">
                     <div class="panel-body">
                       <div class="row">
-                        <div class="col-md-6" data-toggle="tooltip" data-placement="top" title="Please select the course for which the feedback session is to be created.">
+                        <div class="col-md-6" data-toggle="tooltip" data-placement="top"
+                             title="Please select the course for which the feedback session is to be created.">
                           <div class="form-group">
                             <h5 class="col-sm-4">
                               <label for="courseid" class="control-label">Course ID</label>
@@ -131,7 +136,8 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-6" data-toggle="tooltip" data-placement="top" title="You should not need to change this as your timezone is auto-detected. Daylight saving time is supported.">
+                        <div class="col-md-6" data-toggle="tooltip" data-placement="top"
+                             title="You should not need to change this as your timezone is auto-detected. Daylight saving time is supported.">
                           <div class="form-group">
                             <h5 class="col-sm-4">
                               <label class="control-label">
@@ -154,27 +160,31 @@
                       </div>
                       <br>
                       <div class="row">
-                        <div class="col-md-12" data-toggle="tooltip" data-placement="top" title="Enter the name of the feedback session e.g. Feedback Session 1.">
+                        <div class="col-md-12" data-toggle="tooltip" data-placement="top"
+                             title="Enter the name of the feedback session e.g. Feedback Session 1.">
                           <div class="form-group">
                             <h5 class="col-sm-2">
                               <label for="fsname" class="control-label">Session name
                               </label>
                             </h5>
                             <div class="col-sm-10">
-                              <input class="form-control" type="text" name="fsname" id="fsname" maxlength="38" value="" placeholder="e.g. Feedback for Project Presentation 1">
+                              <input class="form-control" type="text" name="fsname" id="fsname" maxlength="38" value=""
+                                     placeholder="e.g. Feedback for Project Presentation 1">
                             </div>
                           </div>
                         </div>
                       </div>
                       <br>
                       <div class="row" id="instructionsRow">
-                        <div class="col-md-12" data-toggle="tooltip" data-placement="top" title="Enter instructions for this feedback session. e.g. Avoid comments which are too critical.<br> It will be displayed at the top of the page when users respond to the session.">
+                        <div class="col-md-12" data-toggle="tooltip" data-placement="top"
+                             title="Enter instructions for this feedback session. e.g. Avoid comments which are too critical.<br> It will be displayed at the top of the page when users respond to the session.">
                           <div class="form-group">
                             <h5 class="col-sm-2">
                               <label for="instructions" class="control-label">Instructions</label>
                             </h5>
                             <div class="col-sm-10">
-                              <textarea class="form-control" rows="4" cols="100%" name="instructions" id="instructions" placeholder="e.g. Please answer all the given questions.">Please answer all the given questions.</textarea>
+                              <textarea class="form-control" rows="4" cols="100%" name="instructions" id="instructions"
+                                        placeholder="e.g. Please answer all the given questions.">Please answer all the given questions.</textarea>
                             </div>
                           </div>
                         </div>
@@ -184,7 +194,8 @@
                   <div class="panel panel-primary" id="timeFramePanel">
                     <div class="panel-body">
                       <div class="row">
-                        <div class="col-md-5" data-toggle="tooltip" data-placement="top" title="Please select the date and time for which users can start submitting responses for the feedback session.">
+                        <div class="col-md-5" data-toggle="tooltip" data-placement="top"
+                             title="Please select the date and time for which users can start submitting responses for the feedback session.">
                           <div class="row">
                             <div class="col-md-6">
                               <label for="startdate" class="label-control">
@@ -194,7 +205,8 @@
                           </div>
                           <div class="row">
                             <div class="col-md-6">
-                              <input class="form-control col-sm-2 hasDatepicker" type="text" name="startdate" id="startdate" value="21/07/2014" placeholder="Date">
+                              <input class="form-control col-sm-2 hasDatepicker" type="text" name="startdate"
+                                     id="startdate" value="21/07/2014" placeholder="Date">
                             </div>
                             <div class="col-md-6">
                               <select class="form-control" name="starttime" id="starttime">
@@ -226,7 +238,8 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-5 border-left-gray" data-toggle="tooltip" data-placement="top" title="Please select the date and time after which the feedback session will no longer accept submissions from users.">
+                        <div class="col-md-5 border-left-gray" data-toggle="tooltip" data-placement="top"
+                             title="Please select the date and time after which the feedback session will no longer accept submissions from users.">
                           <div class="row">
                             <div class="col-md-6">
                               <label for="enddate" class="label-control">Submission closing time</label>
@@ -234,7 +247,8 @@
                           </div>
                           <div class="row">
                             <div class="col-md-6">
-                              <input class="form-control col-sm-2 hasDatepicker" type="text" name="enddate" id="enddate" value="" placeholder="Date">
+                              <input class="form-control col-sm-2 hasDatepicker" type="text" name="enddate" id="enddate"
+                                     value="" placeholder="Date">
                             </div>
                             <div class="col-md-6">
                               <select class="form-control" name="endtime" id="endtime">
@@ -266,7 +280,8 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-2 border-left-gray" data-toggle="tooltip" data-placement="top" title="Please select the amount of time that the system will continue accepting <br>submissions after the specified deadline.">
+                        <div class="col-md-2 border-left-gray" data-toggle="tooltip" data-placement="top"
+                             title="Please select the amount of time that the system will continue accepting <br>submissions after the specified deadline.">
                           <div class="row">
                             <div class="col-md-12">
                               <label for="graceperiod" class="control-label">
@@ -297,20 +312,24 @@
                       <div class="row">
                         <div class="col-md-6">
                           <div class="row">
-                            <div class="col-md-6" data-toggle="tooltip" data-placement="top" title="Please select when you want the questions for the feedback session to be visible to users who need to participate. Note that users cannot submit their responses until the submissions opening time set below.">
+                            <div class="col-md-6" data-toggle="tooltip" data-placement="top"
+                                 title="Please select when you want the questions for the feedback session to be visible to users who need to participate. Note that users cannot submit their responses until the submissions opening time set below.">
                               <label class="label-control">
                                 Make session visible
                               </label>
                             </div>
                           </div>
                           <div class="row radio">
-                            <div class="col-md-2" data-toggle="tooltip" data-placement="top" title="Select this option to enter in a custom date and time for which the feedback session will become visible.<br>Note that you can make a session visible before it is open for submissions so that users can preview the questions.">
+                            <div class="col-md-2" data-toggle="tooltip" data-placement="top"
+                                 title="Select this option to enter in a custom date and time for which the feedback session will become visible.<br>Note that you can make a session visible before it is open for submissions so that users can preview the questions.">
                               <label for="sessionVisibleFromButton_custom">At
                               </label>
-                              <input type="radio" name="sessionVisibleFromButton" id="sessionVisibleFromButton_custom" value="custom">
+                              <input type="radio" name="sessionVisibleFromButton" id="sessionVisibleFromButton_custom"
+                                     value="custom">
                             </div>
                             <div class="col-md-5">
-                              <input class="form-control col-sm-2 hasDatepicker" type="text" name="visibledate" id="visibledate" value="" disabled="">
+                              <input class="form-control col-sm-2 hasDatepicker" type="text" name="visibledate"
+                                     id="visibledate" value="" disabled="">
                             </div>
                             <div class="col-md-4">
                               <select class="form-control" name="visibletime" id="visibletime" disabled="">
@@ -343,36 +362,46 @@
                             </div>
                           </div>
                           <div class="row radio">
-                            <div class="col-md-6" data-toggle="tooltip" data-placement="top" title="Select this option to have the feedback session become visible when it is open for submissions (as selected above).">
+                            <div class="col-md-6" data-toggle="tooltip" data-placement="top"
+                                 title="Select this option to have the feedback session become visible when it is open for submissions (as selected above).">
                               <label for="sessionVisibleFromButton_atopen">Submission opening time </label>
-                              <input type="radio" name="sessionVisibleFromButton" id="sessionVisibleFromButton_atopen" value="atopen">
+                              <input type="radio" name="sessionVisibleFromButton" id="sessionVisibleFromButton_atopen"
+                                     value="atopen">
                             </div>
                           </div>
                           <div class="row radio">
-                            <div class="col-md-6" data-toggle="tooltip" data-placement="top" title="Select this option if you want the feedback session to never be visible. Use this option if you want to use this as a private feedback session.">
+                            <div class="col-md-6" data-toggle="tooltip" data-placement="top"
+                                 title="Select this option if you want the feedback session to never be visible. Use this option if you want to use this as a private feedback session.">
                               <label for="sessionVisibleFromButton_never">Never</label>
-                              <input type="radio" name="sessionVisibleFromButton" id="sessionVisibleFromButton_never" value="never">
+                              <input type="radio" name="sessionVisibleFromButton" id="sessionVisibleFromButton_never"
+                                     value="never">
                             </div>
                           </div>
                         </div>
 
                         <div class="col-md-6 border-left-gray" id="responsesVisibleFromColumn">
                           <div class="row">
-                            <div class="col-md-6" data-toggle="tooltip" data-placement="top" title="Please select when the responses for the feedback session will be visible to the designated recipients.<br>You can select the response visibility for each type of user and question later.">
+                            <div class="col-md-6" data-toggle="tooltip" data-placement="top"
+                                 title="Please select when the responses for the feedback session will be visible to the designated recipients.<br>You can select the response visibility for each type of user and question later.">
                               <label class="label-control">Make responses visible</label>
                             </div>
                           </div>
                           <div class="row radio">
-                            <div class="col-md-2" data-toggle="tooltip" data-placement="top" title="Select this option to use a custom time for when the responses of the feedback session<br>will be visible to the designated recipients.">
+                            <div class="col-md-2" data-toggle="tooltip" data-placement="top"
+                                 title="Select this option to use a custom time for when the responses of the feedback session<br>will be visible to the designated recipients.">
                               <label for="resultsVisibleFromButton_custom">At</label>
 
-                              <input type="radio" name="resultsVisibleFromButton" id="resultsVisibleFromButton_custom" value="custom">
+                              <input type="radio" name="resultsVisibleFromButton" id="resultsVisibleFromButton_custom"
+                                     value="custom">
                             </div>
                             <div class="col-md-5">
-                              <input class="form-control hasDatepicker" type="text" name="publishdate" id="publishdate" value="" disabled="">
+                              <input class="form-control hasDatepicker" type="text" name="publishdate" id="publishdate"
+                                     value="" disabled="">
                             </div>
                             <div class="col-md-4">
-                              <select class="form-control" name="publishtime" id="publishtime" data-toggle="tooltip" data-placement="top" disabled="" title="Select this option to enter in a custom date and time for which</br>the responses for this feedback session will become visible.">
+                              <select class="form-control" name="publishtime" id="publishtime" data-toggle="tooltip"
+                                      data-placement="top" disabled=""
+                                      title="Select this option to enter in a custom date and time for which</br>the responses for this feedback session will become visible.">
                                 <option value="1">0100H</option>
                                 <option value="2">0200H</option>
                                 <option value="3">0300H</option>
@@ -401,16 +430,20 @@
                             </div>
                           </div>
                           <div class="row radio">
-                            <div class="col-md-3" data-toggle="tooltip" data-placement="top" title="Select this option to have the feedback responses be immediately visible<br>when the session becomes visible to users.">
+                            <div class="col-md-3" data-toggle="tooltip" data-placement="top"
+                                 title="Select this option to have the feedback responses be immediately visible<br>when the session becomes visible to users.">
                               <label for="resultsVisibleFromButton_atvisible">Immediately</label>
-                              <input type="radio" name="resultsVisibleFromButton" id="resultsVisibleFromButton_atvisible" value="atvisible">
+                              <input type="radio" name="resultsVisibleFromButton"
+                                     id="resultsVisibleFromButton_atvisible" value="atvisible">
                             </div>
                           </div>
                           <div class="row radio">
-                            <div class="col-md-5" data-toggle="tooltip" data-placement="top" title="Select this option if you intend to manually publish the session later on.">
+                            <div class="col-md-5" data-toggle="tooltip" data-placement="top"
+                                 title="Select this option if you intend to manually publish the session later on.">
                               <label for="resultsVisibleFromButton_later">Not now (publish manually)
                               </label>
-                              <input type="radio" name="resultsVisibleFromButton" id="resultsVisibleFromButton_later" value="later">
+                              <input type="radio" name="resultsVisibleFromButton" id="resultsVisibleFromButton_later"
+                                     value="later">
                             </div>
                           </div>
                         </div>
@@ -425,30 +458,38 @@
                         </div>
                       </div>
                       <div class="row">
-                        <div class="col-sm-2" data-toggle="tooltip" data-placement="top" title="If the student has not joined the course yet, an email containing the link to join the course will automatically be sent on session opening time.">
+                        <div class="col-sm-2" data-toggle="tooltip" data-placement="top"
+                             title="If the student has not joined the course yet, an email containing the link to join the course will automatically be sent on session opening time.">
                           <div class="checkbox">
                             <label for="sendreminderemail_join">Join reminder
                             </label>
                             <input type="checkbox" id="sendreminderemail_join" disabled="">
                           </div>
                         </div>
-                        <div class="col-sm-3" data-toggle="tooltip" data-placement="top" title="Select this option to automatically send an email to students to notify them when the session is open for submission." disabled="">
+                        <div class="col-sm-3" data-toggle="tooltip" data-placement="top"
+                             title="Select this option to automatically send an email to students to notify them when the session is open for submission."
+                             disabled="">
                           <div class="checkbox">
                             <label>Session opening reminder
                             </label>
-                            <input type="checkbox" name="sendreminderemail" id="sendreminderemail_open" value="FEEDBACK_OPENING">
+                            <input type="checkbox" name="sendreminderemail" id="sendreminderemail_open"
+                                   value="FEEDBACK_OPENING">
                           </div>
                         </div>
-                        <div class="col-sm-3" data-toggle="tooltip" data-placement="top" title="Select this option to automatically send an email to students to remind them to submit 24 hours before the end of the session.">
+                        <div class="col-sm-3" data-toggle="tooltip" data-placement="top"
+                             title="Select this option to automatically send an email to students to remind them to submit 24 hours before the end of the session.">
                           <div class="checkbox">
                             <label for="sendreminderemail_closing">Session closing reminder</label>
-                            <input type="checkbox" name="sendreminderemail" id="sendreminderemail_closing" value="FEEDBACK_CLOSING">
+                            <input type="checkbox" name="sendreminderemail" id="sendreminderemail_closing"
+                                   value="FEEDBACK_CLOSING">
                           </div>
                         </div>
-                        <div class="col-sm-4" data-toggle="tooltip" data-placement="top" title="Select this option to automatically send an email to students to notify them when the session results is published.">
+                        <div class="col-sm-4" data-toggle="tooltip" data-placement="top"
+                             title="Select this option to automatically send an email to students to notify them when the session results is published.">
                           <div class="checkbox">
                             <label for="sendreminderemail_published">Results published announcement</label>
-                            <input type="checkbox" name="sendreminderemail" id="sendreminderemail_published" value="FEEDBACK_PUBLISHED">
+                            <input type="checkbox" name="sendreminderemail" id="sendreminderemail_published"
+                                   value="FEEDBACK_PUBLISHED">
                           </div>
                         </div>
                       </div>
@@ -477,7 +518,9 @@
         <div class="panel-body">
           <p>
             After setting up a session, you can start adding questions.<br>
-            You can also access this page by clicking the <button class="btn btn-xs btn-default">Edit</button> button of the desired session from the <b>Home</b> or <b>Sessions</b> page.
+            You can also access this page by clicking the
+            <button class="btn btn-xs btn-default">Edit</button>
+            button of the desired session from the <b>Home</b> or <b>Sessions</b> page.
           </p>
           <p>
             To add a question:
@@ -494,7 +537,9 @@
               Save changes to the question when you have finished creating the question
             </li>
             <li>
-              When you are finished adding questions, click <button class="btn btn-primary">Done Editing</button>.
+              When you are finished adding questions, click
+              <button class="btn btn-primary">Done Editing</button>
+              .
             </li>
           </ol>
           <div class="bs-example" id="addQuestion">
@@ -502,16 +547,21 @@
               <div class="row">
                 <div class="col-sm-12 row">
                   <div class="col-sm-offset-3 col-sm-9">
-                    <button id="button_openframe" class="btn btn-primary margin-bottom-7px dropdown-toggle" type="button" data-toggle="dropdown">
+                    <button id="button_openframe" class="btn btn-primary margin-bottom-7px dropdown-toggle"
+                            type="button" data-toggle="dropdown">
                       Add New Question <span class="caret"></span>
                     </button>
                     <ul id="add-new-question-dropdown" class="dropdown-menu">
                       <li data-questiontype="TEXT"><a href="javascript:;">Essay question</a></li>
-                      <li data-questiontype="MCQ"><a href="javascript:;"> Multiple-choice (single answer) question</a></li>
-                      <li data-questiontype="MSQ"><a href="javascript:;">Multiple-choice (multiple answers) question</a></li>
+                      <li data-questiontype="MCQ"><a href="javascript:;"> Multiple-choice (single answer) question</a>
+                      </li>
+                      <li data-questiontype="MSQ"><a href="javascript:;">Multiple-choice (multiple answers) question</a>
+                      </li>
                       <li data-questiontype="NUMSCALE"><a href="javascript:;">Numerical-scale question</a></li>
-                      <li data-questiontype="CONSTSUM_OPTION"><a href="javascript:;">Distribute points (among options) question</a></li>
-                      <li data-questiontype="CONSTSUM_RECIPIENT"><a href="javascript:;">Distribute points (among recipients) question</a></li>
+                      <li data-questiontype="CONSTSUM_OPTION"><a href="javascript:;">Distribute points (among options)
+                        question</a></li>
+                      <li data-questiontype="CONSTSUM_RECIPIENT"><a href="javascript:;">Distribute points (among
+                        recipients) question</a></li>
                       <li data-questiontype="CONTRIB"><a href="javascript:;">Team contribution question</a></li>
                       <li data-questiontype="RUBRIC"><a href="javascript:;">Rubric question</a></li>
                       <li data-questiontype="RANK_OPTIONS"><a href="javascript:;">Rank (options) question</a></li>
@@ -520,7 +570,10 @@
                     <a target="_blank" rel="noopener noreferrer">
                       <i class="glyphicon glyphicon-info-sign"></i>
                     </a>
-                    <a id="button_copy" class="btn btn-primary margin-bottom-7px" data-actionlink="/page/instructorFeedbackQuestionCopyPage?user=test%40example.com" data-fsname="hgc" data-courseid="teammates.instructor.uni-demo" data-target="#copyModal" data-toggle="modal">
+                    <a id="button_copy" class="btn btn-primary margin-bottom-7px"
+                       data-actionlink="/page/instructorFeedbackQuestionCopyPage?user=test%40example.com"
+                       data-fsname="hgc" data-courseid="teammates.instructor.uni-demo" data-target="#copyModal"
+                       data-toggle="modal">
                       Copy Question
                     </a>
                     <a id="button_done_editing" class="btn btn-primary margin-bottom-7px">
@@ -590,7 +643,12 @@
                         </label>
                       </h5>
                       <div class="col-sm-10">
-                        <textarea class="form-control textvalue nonDestructive" rows="2" name="questiontext" id="questiontext--1" data-toggle="tooltip" data-placement="top" title="" placeholder="A concise version of the question e.g. &quot;How well did the team member communicate?&quot;" tabindex="9" data-original-title="Please enter the question for users to give feedback about. e.g. What is the biggest weakness of the presented product?" style="z-index: auto; position: relative; line-height: 20px; font-size: 14px; transition: none; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);"></textarea>
+                        <textarea class="form-control textvalue nonDestructive" rows="2" name="questiontext"
+                                  id="questiontext--1" data-toggle="tooltip" data-placement="top" title=""
+                                  placeholder="A concise version of the question e.g. &quot;How well did the team member communicate?&quot;"
+                                  tabindex="9"
+                                  data-original-title="Please enter the question for users to give feedback about. e.g. What is the biggest weakness of the presented product?"
+                                  style="z-index: auto; position: relative; line-height: 20px; font-size: 14px; transition: none; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);"></textarea>
                       </div>
                     </div>
                     <div class="form-group" style="padding: 0 15px;">
@@ -599,19 +657,27 @@
                         </label>
                       </h5>
                       <div class="col-sm-10">
-                        <div class="panel panel-default panel-body question-description mce-content-body content-editor empty" id="questiondescription--1" data-toggle="tooltip" data-placement="top" title="" data-placeholder="More details about the question e.g. &quot;In answering the question, do consider communications made informally within the team, and formal communications with the instructors and tutors.&quot;" tabindex="9" data-original-title="Please enter the description of the question." contenteditable="true" style="position: relative;">
+                        <div
+                            class="panel panel-default panel-body question-description mce-content-body content-editor empty"
+                            id="questiondescription--1" data-toggle="tooltip" data-placement="top" title=""
+                            data-placeholder="More details about the question e.g. &quot;In answering the question, do consider communications made informally within the team, and formal communications with the instructors and tutors.&quot;"
+                            tabindex="9" data-original-title="Please enter the description of the question."
+                            contenteditable="true" style="position: relative;">
                         </div>
                       </div>
-                      <div id="textForm" style="display: block;"><div>
-                        <br>
-                        <div class="row">
-                          <div class="col-xs-12 question-recommended-length">[Optional]
-                            <span data-toggle="tooltip" data-placement="top" title="" data-original-title="The recommended length is shown to the respondent but not enforced" class="tool-tip-decorate">Recommended length
+                      <div id="textForm" style="display: block;">
+                        <div>
+                          <br>
+                          <div class="row">
+                            <div class="col-xs-12 question-recommended-length">[Optional]
+                              <span data-toggle="tooltip" data-placement="top" title=""
+                                    data-original-title="The recommended length is shown to the respondent but not enforced"
+                                    class="tool-tip-decorate">Recommended length
                           </span> for the response:
-                            <input type="number" class="form-control" name="recommendedlength" value=""> words
+                              <input type="number" class="form-control" name="recommendedlength" value=""> words
+                            </div>
                           </div>
                         </div>
-                      </div>
                       </div>
                     </div>
 
@@ -622,7 +688,8 @@
                       <b class="feedback-path-title">Feedback Path</b> (Who is giving feedback about whom?)
                     </div>
                     <div class="col-sm-12 feedback-path-dropdown btn-group">
-                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Students in this course will give feedback on
+                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">Students in this course will give feedback on
                         <span class="glyphicon glyphicon-arrow-right"></span> Giver's team members
                       </button>
                       <ul class="dropdown-menu">
@@ -631,13 +698,19 @@
                           <a>Feedback session creator (i.e., me) will give feedback on...</a>
                           <ul class="dropdown-menu">
                             <li>
-                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="SELF" data-recipient-type="NONE" data-path-description="Feedback session creator (i.e., me) will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Nobody specific (For general class feedback)">
+                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="SELF"
+                                 data-recipient-type="NONE"
+                                 data-path-description="Feedback session creator (i.e., me) will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Nobody specific (For general class feedback)">
                                 Nobody specific (For general class feedback)
                               </a>
-                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="SELF" data-recipient-type="SELF" data-path-description="Feedback session creator (i.e., me) will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Giver (Self feedback)">
+                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="SELF"
+                                 data-recipient-type="SELF"
+                                 data-path-description="Feedback session creator (i.e., me) will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Giver (Self feedback)">
                                 Giver (Self feedback)
                               </a>
-                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="SELF" data-recipient-type="INSTRUCTORS" data-path-description="Feedback session creator (i.e., me) will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Instructors in the course">
+                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="SELF"
+                                 data-recipient-type="INSTRUCTORS"
+                                 data-path-description="Feedback session creator (i.e., me) will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Instructors in the course">
                                 Instructors in the course
                               </a>
                             </li>
@@ -647,19 +720,29 @@
                           <a>Students in this course will give feedback on...</a>
                           <ul class="dropdown-menu">
                             <li>
-                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="STUDENTS" data-recipient-type="NONE" data-path-description="Students in this course will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Nobody specific (For general class feedback)">
+                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="STUDENTS"
+                                 data-recipient-type="NONE"
+                                 data-path-description="Students in this course will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Nobody specific (For general class feedback)">
                                 Nobody specific (For general class feedback)
                               </a>
-                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="STUDENTS" data-recipient-type="SELF" data-path-description="Students in this course will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Giver (Self feedback)">
+                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="STUDENTS"
+                                 data-recipient-type="SELF"
+                                 data-path-description="Students in this course will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Giver (Self feedback)">
                                 Giver (Self feedback)
                               </a>
-                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="STUDENTS" data-recipient-type="INSTRUCTORS" data-path-description="Students in this course will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Instructors in the course">
+                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="STUDENTS"
+                                 data-recipient-type="INSTRUCTORS"
+                                 data-path-description="Students in this course will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Instructors in the course">
                                 Instructors in the course
                               </a>
-                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="STUDENTS" data-recipient-type="OWN_TEAM_MEMBERS" data-path-description="Students in this course will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Giver's team members">
+                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="STUDENTS"
+                                 data-recipient-type="OWN_TEAM_MEMBERS"
+                                 data-path-description="Students in this course will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Giver's team members">
                                 Giver's team members
                               </a>
-                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="STUDENTS" data-recipient-type="OWN_TEAM_MEMBERS_INCLUDING_SELF" data-path-description="Students in this course will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Giver's team members and Giver">
+                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="STUDENTS"
+                                 data-recipient-type="OWN_TEAM_MEMBERS_INCLUDING_SELF"
+                                 data-path-description="Students in this course will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Giver's team members and Giver">
                                 Giver's team members and Giver
                               </a>
                             </li>
@@ -669,20 +752,28 @@
                           <a>Instructors in this course will give feedback on...</a>
                           <ul class="dropdown-menu">
                             <li>
-                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="INSTRUCTORS" data-recipient-type="NONE" data-path-description="Instructors in this course will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Nobody specific (For general class feedback)">
+                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="INSTRUCTORS"
+                                 data-recipient-type="NONE"
+                                 data-path-description="Instructors in this course will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Nobody specific (For general class feedback)">
                                 Nobody specific (For general class feedback)
                               </a>
-                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="INSTRUCTORS" data-recipient-type="SELF" data-path-description="Instructors in this course will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Giver (Self feedback)">
+                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="INSTRUCTORS"
+                                 data-recipient-type="SELF"
+                                 data-path-description="Instructors in this course will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Giver (Self feedback)">
                                 Giver (Self feedback)
                               </a>
-                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="INSTRUCTORS" data-recipient-type="INSTRUCTORS" data-path-description="Instructors in this course will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Instructors in the course">
+                              <a class="feedback-path-dropdown-option" href="javascript:;" data-giver-type="INSTRUCTORS"
+                                 data-recipient-type="INSTRUCTORS"
+                                 data-path-description="Instructors in this course will give feedback on <span class='glyphicon glyphicon-arrow-right'></span> Instructors in the course">
                                 Instructors in the course
                               </a>
                             </li>
                           </ul>
                         </li>
                         <li role="separator" class="divider"></li>
-                        <li><a class="feedback-path-dropdown-option feedback-path-dropdown-option-other" href="javascript:;" data-path-description="Predefined combinations:">Other predefined combinations...</a></li>
+                        <li><a class="feedback-path-dropdown-option feedback-path-dropdown-option-other"
+                               href="javascript:;" data-path-description="Predefined combinations:">Other predefined
+                          combinations...</a></li>
                       </ul>
                     </div>
                   </div>
@@ -692,34 +783,45 @@
                       <b class="visibility-title">Visibility</b> (Who can see the responses?)
                     </div>
                     <div class="visibility-options-dropdown btn-group col-sm-12 margin-bottom-10px">
-                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
                         Shown anonymously to recipient, visible to instructors
                       </button>
                       <ul class="dropdown-menu">
                         <li class="dropdown-header">Common visibility options</li>
 
                         <li>
-                          <a class="visibility-options-dropdown-option" href="javascript:;" data-option-name="ANONYMOUS_TO_RECIPIENT_AND_INSTRUCTORS">Shown anonymously to recipient and instructors</a>
+                          <a class="visibility-options-dropdown-option" href="javascript:;"
+                             data-option-name="ANONYMOUS_TO_RECIPIENT_AND_INSTRUCTORS">Shown anonymously to recipient
+                            and instructors</a>
                         </li>
 
                         <li>
-                          <a class="visibility-options-dropdown-option" href="javascript:;" data-option-name="ANONYMOUS_TO_RECIPIENT_VISIBLE_TO_INSTRUCTORS">Shown anonymously to recipient, visible to instructors</a>
+                          <a class="visibility-options-dropdown-option" href="javascript:;"
+                             data-option-name="ANONYMOUS_TO_RECIPIENT_VISIBLE_TO_INSTRUCTORS">Shown anonymously to
+                            recipient, visible to instructors</a>
                         </li>
 
                         <li>
-                          <a class="visibility-options-dropdown-option" href="javascript:;" data-option-name="ANONYMOUS_TO_RECIPIENT_AND_TEAM_VISIBLE_TO_INSTRUCTORS">Shown anonymously to recipient and team members, visible to instructors</a>
+                          <a class="visibility-options-dropdown-option" href="javascript:;"
+                             data-option-name="ANONYMOUS_TO_RECIPIENT_AND_TEAM_VISIBLE_TO_INSTRUCTORS">Shown anonymously
+                            to recipient and team members, visible to instructors</a>
                         </li>
 
                         <li>
-                          <a class="visibility-options-dropdown-option" href="javascript:;" data-option-name="VISIBLE_TO_INSTRUCTORS_ONLY">Visible to instructors only</a>
+                          <a class="visibility-options-dropdown-option" href="javascript:;"
+                             data-option-name="VISIBLE_TO_INSTRUCTORS_ONLY">Visible to instructors only</a>
                         </li>
 
                         <li>
-                          <a class="visibility-options-dropdown-option" href="javascript:;" data-option-name="VISIBLE_TO_RECIPIENT_AND_INSTRUCTORS">Visible to recipient and instructors</a>
+                          <a class="visibility-options-dropdown-option" href="javascript:;"
+                             data-option-name="VISIBLE_TO_RECIPIENT_AND_INSTRUCTORS">Visible to recipient and
+                            instructors</a>
                         </li>
 
                         <li role="separator" class="divider"></li>
-                        <li><a class="visibility-options-dropdown-option" href="javascript:;" data-option-name="OTHER">Custom visibility options...</a></li>
+                        <li><a class="visibility-options-dropdown-option" href="javascript:;" data-option-name="OTHER">Custom
+                          visibility options...</a></li>
                       </ul>
                     </div>
                     <!-- Fix for collapsing margin problem. Reference: http://stackoverflow.com/questions/6204670 -->
@@ -728,13 +830,16 @@
                       <ul class="text-muted background-color-warning">
 
                         <li>The receiving student can see your response, but not your name.</li>
-                        <li>Instructors in this course can see your response, the name of the recipient, and your name.</li>
+                        <li>Instructors in this course can see your response, the name of the recipient, and your
+                          name.
+                        </li>
                       </ul>
                     </div>
                   </div>
                   <div>
                 <span class="pull-right">
-                  <input id="button_question_submit-1" type="submit" onclick="return false" class="btn btn-primary" value="Save Question" tabindex="0" style="">
+                  <input id="button_question_submit-1" type="submit" onclick="return false" class="btn btn-primary"
+                         value="Save Question" tabindex="0" style="">
                 </span>
                   </div>
                 </div>
@@ -752,11 +857,14 @@
       </div>
       <div id="session-preview-body" class="panel-collapse collapse">
         <div class="panel-body">
-          To see what the current session looks like to anyone in the course when they are submitting responses, use the <b>Preview</b> feature.<br>
+          To see what the current session looks like to anyone in the course when they are submitting responses, use the
+          <b>Preview</b> feature.<br>
           You can quickly and easily confirm that the questions and their settings are correct after editing questions.
           </p>
           <p>
-            To access the preview panel of a specific session, click the <button class="btn btn-xs btn-default">Edit</button> button for that session in the <b>Home</b> or <b>Sessions</b> page. The preview
+            To access the preview panel of a specific session, click the
+            <button class="btn btn-xs btn-default">Edit</button>
+            button for that session in the <b>Home</b> or <b>Sessions</b> page. The preview
             panel is located at the bottom of the Edit Feedback Session page.
           </p>
           <div class="bs-example" id="preview">
@@ -767,7 +875,8 @@
                     Preview Session:
                   </label>
                 </form>
-                <div class="col-sm-5" data-toggle="tooltip" data-placement="top" title="View how this session would look like to a student who is submitting feedback. Preview is unavailable if the course has yet to have any student enrolled.">
+                <div class="col-sm-5" data-toggle="tooltip" data-placement="top"
+                     title="View how this session would look like to a student who is submitting feedback. Preview is unavailable if the course has yet to have any student enrolled.">
                   <form name="form_previewasstudent" class="form_preview">
                     <div class="col-sm-6">
                       <select class="form-control" name="previewas">
@@ -785,7 +894,8 @@
                     </div>
                   </form>
                 </div>
-                <div class="col-sm-5" data-toggle="tooltip" data-placement="top" title="View how this session would look like to an instructor who is submitting feedback.">
+                <div class="col-sm-5" data-toggle="tooltip" data-placement="top"
+                     title="View how this session would look like to an instructor who is submitting feedback.">
                   <form class="form_preview">
                     <div class="col-sm-6">
                       <select class="form-control" name="previewas">
@@ -810,7 +920,8 @@
   <div class="panel-group">
     <div class="panel panel-default" id="session-cannot-submit">
       <div class="panel-heading cursor-pointer" data-toggle="collapse" data-target="#session-cannot-submit-body">
-        <h3 class="panel-title">What should I do if a student says he/she cannot submit an evaluation due to a technical glitch?</h3>
+        <h3 class="panel-title">What should I do if a student says he/she cannot submit an evaluation due to a technical
+          glitch?</h3>
       </div>
       <div id="session-cannot-submit-body" class="panel-collapse collapse">
         <div class="panel-body">
@@ -822,16 +933,23 @@
               Ask the student to view the submission page and send you his/her answers to the session questions.
             </li>
             <li>
-              <a class="collapse-link" data-target="#session-view-results-body" href="#session-view-results">View the results</a> of the session.
+              <a class="collapse-link" data-target="#session-view-results-body" href="#session-view-results">View the
+                results</a> of the session.
             </li>
             <li>
-              Scroll to the panel titled <b>Participants who have not responded to any question</b>. Click on the panel to expand it.
+              Scroll to the panel titled <b>Participants who have not responded to any question</b>. Click on the panel
+              to expand it.
             </li>
             <li>
-              Click the <button class="btn btn-xs btn-default">Submit Responses</button> button of the corresponding student. You will be directed to a page where you can submit responses on behalf of the student.
+              Click the
+              <button class="btn btn-xs btn-default">Submit Responses</button>
+              button of the corresponding student. You will be directed to a page where you can submit responses on
+              behalf of the student.
             </li>
             <li>
-              Copy the student's responses to the corresponding questions, and click the <button class="btn btn-primary btn-s">Submit Feedback</button> button.
+              Copy the student's responses to the corresponding questions, and click the
+              <button class="btn btn-primary btn-s">Submit Feedback</button>
+              button.
             </li>
           </ol>
         </div>
@@ -844,11 +962,16 @@
       <div id="session-view-results-body" class="panel-collapse collapse">
         <div class="panel-body">
           <p>
-            View responses to a session by clicking the <button class="btn btn-xs btn-default">Results</button> button of a session in the <b>Home</b> or <b>Sessions</b> page.<br>
-            Click <button class="btn btn-primary btn-s">Edit View</button> to sort the results in an order that best suits you.
+            View responses to a session by clicking the
+            <button class="btn btn-xs btn-default">Results</button>
+            button of a session in the <b>Home</b> or <b>Sessions</b> page.<br>
+            Click
+            <button class="btn btn-primary btn-s">Edit View</button>
+            to sort the results in an order that best suits you.
           </p>
           <p>5 different views are available, each denoting the order in which responses are grouped.
-            Additionally, you can group the results by team, show or hide statistics, view missing responses and filter responses from a particular section.
+            Additionally, you can group the results by team, show or hide statistics, view missing responses and filter
+            responses from a particular section.
           </p>
           <div class="bs-example" id="resultsTop">
             <div class="panel panel-info margin-0">
@@ -933,7 +1056,8 @@
             </div>
           </div>
           <p>
-            In the example below, results are sorted by <b>Giver > Recipient > Question</b>. Additionally, missing responses
+            In the example below, results are sorted by <b>Giver > Recipient > Question</b>. Additionally, missing
+            responses
             have been recorded.
           </p>
           <div class="bs-example" id="responsesSortbyGiver">
@@ -945,8 +1069,11 @@
                   <strong>Alice Betsy (Team 2)</strong>
                   <a class="link-in-dark-bg" href="#responcesSortbyGiver">[alice.b.tmms@gmail.com]</a>
                   <div class="pull-right">
-                    <form class="inline" method="post" action="/page/instructorEditStudentFeedbackPage?user=test%40example.com" target="_blank">
-                      <input type="submit" class="btn btn-primary btn-xs" value="Moderate Responses" data-toggle="tooltip" title="" data-original-title="Edit the responses given by this student" disabled="disabled">
+                    <form class="inline" method="post"
+                          action="/page/instructorEditStudentFeedbackPage?user=test%40example.com" target="_blank">
+                      <input type="submit" class="btn btn-primary btn-xs" value="Moderate Responses"
+                             data-toggle="tooltip" title=""
+                             data-original-title="Edit the responses given by this student" disabled="disabled">
                     </form>
                     &nbsp;
                     <div class="display-icon" style="display:inline;">
@@ -966,7 +1093,8 @@
                         </div>
                       </div>
 
-                      <div class="col-md-12 tablet-margin-10px tablet-no-padding text-muted small"><br class="hidden-xs hidden-sm">
+                      <div class="col-md-12 tablet-margin-10px tablet-no-padding text-muted small"><br
+                          class="hidden-xs hidden-sm">
                         From:
                         <div class="tablet-bottom-align profile-pic-icon-hover inline-block">
                           Alice Betsy (Team 2)
@@ -998,7 +1126,8 @@
                                 </li>
                               </ul>
                             </div>
-                            <button type="button" class="btn btn-default btn-xs icon-button pull-right" data-toggle="tooltip" data-placement="top" title="Add comment">
+                            <button type="button" class="btn btn-default btn-xs icon-button pull-right"
+                                    data-toggle="tooltip" data-placement="top" title="Add comment">
                               <span class="glyphicon glyphicon-comment glyphicon-primary"></span>
                             </button>
                           </div>
@@ -1019,7 +1148,8 @@
                         </div>
                       </div>
 
-                      <div class="col-md-12 tablet-margin-10px tablet-no-padding text-muted small"><br class="hidden-xs hidden-sm">
+                      <div class="col-md-12 tablet-margin-10px tablet-no-padding text-muted small"><br
+                          class="hidden-xs hidden-sm">
                         From:
                         <div class="tablet-bottom-align profile-pic-icon-hover inline-block">
                           Alice Betsy (Team 2)
@@ -1035,7 +1165,8 @@
                           <div style="clear: both; overflow: hidden">
                             <div class="pull-left">My product is light.
                             </div>
-                            <button type="button" class="btn btn-default btn-xs icon-button pull-right" data-toggle="tooltip" data-placement="top" title="Add comment">
+                            <button type="button" class="btn btn-default btn-xs icon-button pull-right"
+                                    data-toggle="tooltip" data-placement="top" title="Add comment">
                               <span class="glyphicon glyphicon-comment glyphicon-primary"></span>
                             </button>
                           </div>
@@ -1056,7 +1187,8 @@
                         </div>
                       </div>
 
-                      <div class="col-md-12 tablet-margin-10px tablet-no-padding text-muted small"><br class="hidden-xs hidden-sm">
+                      <div class="col-md-12 tablet-margin-10px tablet-no-padding text-muted small"><br
+                          class="hidden-xs hidden-sm">
                         From:
                         <div class="tablet-bottom-align profile-pic-icon-hover inline-block">
                           Alice Betsy (Team 2)
@@ -1071,7 +1203,8 @@
                           <div style="clear: both; overflow: hidden">
                             <div class="pull-left">Benny is a good student.
                             </div>
-                            <button type="button" class="btn btn-default btn-xs icon-button pull-right" data-toggle="tooltip" data-placement="top" title="Add comment">
+                            <button type="button" class="btn btn-default btn-xs icon-button pull-right"
+                                    data-toggle="tooltip" data-placement="top" title="Add comment">
                               <span class="glyphicon glyphicon-comment glyphicon-primary"></span>
                             </button>
                           </div>
@@ -1091,8 +1224,11 @@
                   <strong>Benny Charles (Team 1)</strong>
                   <a class="link-in-dark-bg" href="#benny">[benny.c.tmms@gmail.com]</a>
                   <div class="pull-right">
-                    <form class="inline" method="post" action="/page/instructorEditStudentFeedbackPage?user=test%40example.com" target="_blank">
-                      <input type="submit" class="btn btn-primary btn-xs" value="Moderate Responses" data-toggle="tooltip" title="" data-original-title="Edit the responses given by this student" disabled="disabled">
+                    <form class="inline" method="post"
+                          action="/page/instructorEditStudentFeedbackPage?user=test%40example.com" target="_blank">
+                      <input type="submit" class="btn btn-primary btn-xs" value="Moderate Responses"
+                             data-toggle="tooltip" title=""
+                             data-original-title="Edit the responses given by this student" disabled="disabled">
                     </form>
                     &nbsp;
                     <div class="display-icon" style="display:inline;">
@@ -1112,7 +1248,8 @@
                         </div>
                       </div>
 
-                      <div class="col-md-12 tablet-margin-10px tablet-no-padding text-muted small"><br class="hidden-xs hidden-sm">
+                      <div class="col-md-12 tablet-margin-10px tablet-no-padding text-muted small"><br
+                          class="hidden-xs hidden-sm">
                         From:
                         <div class="tablet-bottom-align profile-pic-icon-hover inline-block">
                           Benny Charles (Team 1)
@@ -1126,7 +1263,8 @@
                         <div class="panel-body">
                           <div style="clear: both; overflow: hidden">
                             <div class="pull-left">Charlie did alot of work.</div>
-                            <button type="button" class="btn btn-default btn-xs icon-button pull-right" data-toggle="tooltip" data-placement="top" title="Add comment">
+                            <button type="button" class="btn btn-default btn-xs icon-button pull-right"
+                                    data-toggle="tooltip" data-placement="top" title="Add comment">
                               <span class="glyphicon glyphicon-comment glyphicon-primary"></span>
                             </button>
                           </div>
@@ -1147,7 +1285,8 @@
                         </div>
                       </div>
 
-                      <div class="col-md-12 tablet-margin-10px tablet-no-padding text-muted small"><br class="hidden-xs hidden-sm">
+                      <div class="col-md-12 tablet-margin-10px tablet-no-padding text-muted small"><br
+                          class="hidden-xs hidden-sm">
                         From:
                         <div class="tablet-bottom-align profile-pic-icon-hover inline-block">
                           Benny Charles (Team 1)
@@ -1161,7 +1300,8 @@
                         <div class="panel-body">
                           <div style="clear: both; overflow: hidden">
                             <div class="pull-left">Danny starts with D.</div>
-                            <button type="button" class="btn btn-default btn-xs icon-button pull-right" data-toggle="tooltip" data-placement="top" title="Add comment">
+                            <button type="button" class="btn btn-default btn-xs icon-button pull-right"
+                                    data-toggle="tooltip" data-placement="top" title="Add comment">
                               <span class="glyphicon glyphicon-comment glyphicon-primary"></span>
                             </button>
                           </div>
@@ -1181,8 +1321,11 @@
                   <strong>Charlie Davis (Team 1)</strong>
                   <a class="link-in-dark-bg" href="#charlie">[charlie.d.tmms@gmail.com]</a>
                   <div class="pull-right">
-                    <form class="inline" method="post" action="/page/instructorEditStudentFeedbackPage?user=test%40example.com" target="_blank">
-                      <input type="submit" class="btn btn-primary btn-xs" value="Moderate Responses" data-toggle="tooltip" title="" data-original-title="Edit the responses given by this student" disabled="disabled">
+                    <form class="inline" method="post"
+                          action="/page/instructorEditStudentFeedbackPage?user=test%40example.com" target="_blank">
+                      <input type="submit" class="btn btn-primary btn-xs" value="Moderate Responses"
+                             data-toggle="tooltip" title=""
+                             data-original-title="Edit the responses given by this student" disabled="disabled">
                     </form>
                     &nbsp;
                     <div class="display-icon" style="display:inline;">
@@ -1202,7 +1345,8 @@
                         </div>
                       </div>
 
-                      <div class="col-md-12 tablet-margin-10px tablet-no-padding text-muted small"><br class="hidden-xs hidden-sm">
+                      <div class="col-md-12 tablet-margin-10px tablet-no-padding text-muted small"><br
+                          class="hidden-xs hidden-sm">
                         From:
                         <div class="tablet-bottom-align profile-pic-icon-hover inline-block">
                           Charlie Davis (Team 1)
@@ -1217,7 +1361,8 @@
                           <div style="clear: both; overflow: hidden">
                             <div class="pull-left">Alice is a good coder.
                             </div>
-                            <button type="button" class="btn btn-default btn-xs icon-button pull-right" data-toggle="tooltip" data-placement="top" title="Add comment">
+                            <button type="button" class="btn btn-default btn-xs icon-button pull-right"
+                                    data-toggle="tooltip" data-placement="top" title="Add comment">
                               <span class="glyphicon glyphicon-comment glyphicon-primary"></span>
                             </button>
                           </div>
@@ -1244,10 +1389,12 @@
                     <table class="table table-striped table-bordered margin-0">
                       <thead class="background-color-medium-gray text-color-gray font-weight-normal">
                       <tr>
-                        <th id="button_sortFromTeam" class="button-sort-none" onclick="toggleSort(this)" style="width: 30%;">
+                        <th id="button_sortFromTeam" class="button-sort-none" onclick="toggleSort(this)"
+                            style="width: 30%;">
                           Team
                         </th>
-                        <th id="button_sortTo" class="button-sort-ascending" onclick="toggleSort(this)" style="width: 30%;">
+                        <th id="button_sortTo" class="button-sort-ascending" onclick="toggleSort(this)"
+                            style="width: 30%;">
                           Name
                         </th>
                         <th class="action-header">
@@ -1262,7 +1409,9 @@
                         <td>Danny Engrid</td>
                         <td class="action-button-item">
                           <form class="inline" method="post">
-                            <input type="submit" class="btn btn-default btn-xs" value="Submit Responses" data-toggle="tooltip" title="" data-original-title="Edit the responses given by this student" disabled="disabled">
+                            <input type="submit" class="btn btn-default btn-xs" value="Submit Responses"
+                                   data-toggle="tooltip" title=""
+                                   data-original-title="Edit the responses given by this student" disabled="disabled">
                           </form>
                         </td>
                       </tr>
@@ -1275,8 +1424,10 @@
 
             </div>
           </div>
-          <p>If you choose to publish the results of the session, students will receive an email with a link to access the
-            session's results. What they can see is governed by the visibility levels you set when setting up the session.
+          <p>If you choose to publish the results of the session, students will receive an email with a link to access
+            the
+            session's results. What they can see is governed by the visibility levels you set when setting up the
+            session.
             Here is an example of what a student might see:
           </p>
           <div class="bs-example" id="responsesStudentView">
@@ -1432,10 +1583,13 @@
           </p>
           <ol>
             <li>
-              Go to the <b>Students</b> page and click the panel heading for Course B. You will see a list of students enrolled in the course.
+              Go to the <b>Students</b> page and click the panel heading for Course B. You will see a list of students
+              enrolled in the course.
             </li>
             <li>
-              Click <button class="btn btn-xs btn-default">All Records</button> button corresponding to Student A to access all the responses Student A has given and received.
+              Click
+              <button class="btn btn-xs btn-default">All Records</button>
+              button corresponding to Student A to access all the responses Student A has given and received.
             </li>
           </ol>
         </div>
@@ -1451,7 +1605,8 @@
       <div id="session-add-comments-body" class="panel-collapse collapse">
         <div class="panel-body">
           <p>
-            While <a class="collapse-link" data-target='#session-view-results-body' href="#session-view-results">viewing the results</a> of a session, you can add comments to respondents' answers.
+            While <a class="collapse-link" data-target='#session-view-results-body' href="#session-view-results">viewing
+            the results</a> of a session, you can add comments to respondents' answers.
           </p>
           <p>
             To create comments on a response in a session:
@@ -1461,10 +1616,14 @@
               View the results of a session
             </li>
             <li>
-              Click <button class="btn btn-primary btn-s">Edit View</button> and change the view type to <b>Group by - Giver &gt; Recipient &gt; Question</b> or <b>Group by - Recipient &gt; Giver &gt; Question</b>
+              Click
+              <button class="btn btn-primary btn-s">Edit View</button>
+              and change the view type to <b>Group by - Giver &gt; Recipient &gt; Question</b> or <b>Group by -
+              Recipient &gt; Giver &gt; Question</b>
             </li>
             <li>
-              Click the <span class="glyphicon glyphicon-comment glyphicon-primary"></span> icon on the right-hand side of the response you would like to comment on
+              Click the <span class="glyphicon glyphicon-comment glyphicon-primary"></span> icon on the right-hand side
+              of the response you would like to comment on
             </li>
             <li>
               Fill in the form, which will appear similar to the example below
@@ -1489,7 +1648,8 @@
                   <div class="panel-heading">Question 3:
                     <span>Rate the latest assignment's difficulty. (1 = Very Easy, 5 = Very Hard).&nbsp;
                       <span>
-                        <a href="javascript:;" id="questionAdditionalInfoButton-3-giver-0-recipient-8" class="color_gray" data-more="[more]" data-less="[less]">[more]</a>
+                        <a href="javascript:;" id="questionAdditionalInfoButton-3-giver-0-recipient-8"
+                           class="color_gray" data-more="[more]" data-less="[less]">[more]</a>
                         <br>
                         <span id="questionAdditionalInfo-3-giver-0-recipient-8" style="display:none;">Numerical-scale question:
                           <br>Minimum value: 1. Increment: 1.0. Maximum value: 5.
@@ -1500,7 +1660,8 @@
                   <div class="panel-body">
                     <div style="clear:both; overflow: hidden">
                       <div class="pull-left">4</div>
-                      <button type="button" class="btn btn-default btn-xs icon-button pull-right" id="button_add_comment" data-toggle="tooltip" data-placement="top" title="Add comment">
+                      <button type="button" class="btn btn-default btn-xs icon-button pull-right"
+                              id="button_add_comment" data-toggle="tooltip" data-placement="top" title="Add comment">
                         <span class="glyphicon glyphicon-comment glyphicon-primary">
                         </span>
                       </button>
@@ -1509,7 +1670,8 @@
                     <ul class="list-group" id="responseCommentTable-8-0-1" style="margin-top: 15px;">
 
                       <!-- frComment Add form -->
-                      <li class="list-group-item list-group-item-warning" id="showResponseCommentAddForm-8-0-1" style="">
+                      <li class="list-group-item list-group-item-warning" id="showResponseCommentAddForm-8-0-1"
+                          style="">
                         <form class="responseCommentAddForm">
                           <div class="form-group">
                             <div class="form-group form-inline">
@@ -1536,52 +1698,63 @@
                                 </tr>
                                 <tr id="response-giver-8-0-1">
                                   <td class="text-left">
-                                    <div data-toggle="tooltip" data-placement="top" title="Control what response giver can view">
+                                    <div data-toggle="tooltip" data-placement="top"
+                                         title="Control what response giver can view">
                                       Response Giver
                                     </div>
                                   </td>
                                   <td>
-                                    <input class="visibilityCheckbox answerCheckbox centered" name="receiverLeaderCheckbox" type="checkbox" value="GIVER" checked="">
+                                    <input class="visibilityCheckbox answerCheckbox centered"
+                                           name="receiverLeaderCheckbox" type="checkbox" value="GIVER" checked="">
                                   </td>
                                   <td>
-                                    <input class="visibilityCheckbox giverCheckbox" type="checkbox" value="GIVER" checked="">
+                                    <input class="visibilityCheckbox giverCheckbox" type="checkbox" value="GIVER"
+                                           checked="">
                                   </td>
                                 </tr>
 
                                 <tr id="response-recipient-8-0-1">
                                   <td class="text-left">
-                                    <div data-toggle="tooltip" data-placement="top" title="Control what response recipient(s) can view">
+                                    <div data-toggle="tooltip" data-placement="top"
+                                         title="Control what response recipient(s) can view">
                                       Response Recipient(s)
                                     </div>
                                   </td>
                                   <td>
-                                    <input class="visibilityCheckbox answerCheckbox centered" name="receiverLeaderCheckbox" type="checkbox" value="RECEIVER" checked="">
+                                    <input class="visibilityCheckbox answerCheckbox centered"
+                                           name="receiverLeaderCheckbox" type="checkbox" value="RECEIVER" checked="">
                                   </td>
                                   <td>
-                                    <input class="visibilityCheckbox giverCheckbox" type="checkbox" value="RECEIVER" checked="">
+                                    <input class="visibilityCheckbox giverCheckbox" type="checkbox" value="RECEIVER"
+                                           checked="">
                                   </td>
                                 </tr>
 
                                 <tr id="response-instructors-8-0-1">
                                   <td class="text-left">
-                                    <div data-toggle="tooltip" data-placement="top" title="Control what instructors can view">
+                                    <div data-toggle="tooltip" data-placement="top"
+                                         title="Control what instructors can view">
                                       Instructors
                                     </div>
                                   </td>
                                   <td>
-                                    <input class="visibilityCheckbox answerCheckbox" type="checkbox" value="INSTRUCTORS" checked="">
+                                    <input class="visibilityCheckbox answerCheckbox" type="checkbox" value="INSTRUCTORS"
+                                           checked="">
                                   </td>
                                   <td>
-                                    <input class="visibilityCheckbox giverCheckbox" type="checkbox" value="INSTRUCTORS" checked="">
+                                    <input class="visibilityCheckbox giverCheckbox" type="checkbox" value="INSTRUCTORS"
+                                           checked="">
                                   </td>
                                 </tr>
                                 </tbody>
                               </table>
                             </div>
-                            <textarea class="form-control" rows="3" placeholder="Your comment about this response" name="responsecommenttext" id="responseCommentAddForm-8-0-1"></textarea>
+                            <textarea class="form-control" rows="3" placeholder="Your comment about this response"
+                                      name="responsecommenttext" id="responseCommentAddForm-8-0-1"></textarea>
                           </div>
                           <div class="col-sm-offset-5">
-                            <a href="javascript:;" type="button" class="btn btn-primary" id="button_save_comment_for_add-8-0-1">Add</a>
+                            <a href="javascript:;" type="button" class="btn btn-primary"
+                               id="button_save_comment_for_add-8-0-1">Add</a>
                             <input type="button" class="btn btn-default" value="Cancel">
                           </div>
                         </form>
@@ -1607,17 +1780,22 @@
           </p>
           <ol>
             <li>
-              Navigate to the page where you <a class="collapse-link" data-target="#session-add-comments-body" href="#session-add-comments">added the comment</a> that you want to edit or delete.
+              Navigate to the page where you <a class="collapse-link" data-target="#session-add-comments-body"
+                                                href="#session-add-comments">added the comment</a> that you want to edit
+              or delete.
             </li>
             <li>
               Hover over the comment which you want to edit or delete.
             </li>
             <li>
               Click the <span class="glyphicon glyphicon-pencil glyphicon-primary"></span> icon to edit the comment, or
-              or <span class="glyphicon glyphicon-trash glyphicon-primary"></span> icon to delete the comment. The icons are visible on the right-hand side of the comment field.
+              or <span class="glyphicon glyphicon-trash glyphicon-primary"></span> icon to delete the comment. The icons
+              are visible on the right-hand side of the comment field.
             </li>
             <li>
-              If you are editing the comment, make your edits and click <button class="btn btn-primary btn-s">Save</button> to save changes.
+              If you are editing the comment, make your edits and click
+              <button class="btn btn-primary btn-s">Save</button>
+              to save changes.
             </li>
             <li>
               If you are deleting the comment, click <b>OK</b> to confirm that you want to delete the comment.
@@ -1632,7 +1810,8 @@
       </div>
       <div id="session-search-body" class="panel-collapse collapse">
         <div class="panel-body">
-          You can search for questions, responses to a question and comments on responses in any of your courses. To do so:
+          You can search for questions, responses to a question and comments on responses in any of your courses. To do
+          so:
           <ol>
             <li>
               Go to the <b>Search</b> page using the top navigation bar.
@@ -1644,11 +1823,14 @@
               Type in the keywords of your search.
             </li>
             <li>
-              Click <button class="btn btn-primary btn-xs">Search</button>.
+              Click
+              <button class="btn btn-primary btn-xs">Search</button>
+              .
             </li>
           </ol>
           <p>
-            Assuming the relevant data exists, the results for a search with the keyword <code>good</code> would look something similar to this:
+            Assuming the relevant data exists, the results for a search with the keyword <code>good</code> would look
+            something similar to this:
           </p>
           <div class="bs-example">
             <div class="panel panel-primary">
@@ -1677,7 +1859,8 @@
                         </tr>
                         <tr>
                           <td>
-                            <strong>Response:</strong> A highlight for me has been putting Software Engineering skills to use.
+                            <strong>Response:</strong> A highlight for me has been putting Software Engineering skills
+                            to use.
                           </td>
                         </tr>
                         <tr class="active">
@@ -1692,7 +1875,9 @@
                                     From: instructor@university.edu [Tue, 23 May 2017, 11:59 PM UTC]
                                   </span>
                                 </div>
-                                <div style="margin-left: 15px;">Alice, <span class="highlight">good</span> to know that you liked applying software engineering skills in the project.</div>
+                                <div style="margin-left: 15px;">Alice, <span class="highlight">good</span> to know that
+                                  you liked applying software engineering skills in the project.
+                                </div>
                               </li>
                             </ul>
                           </td>

@@ -28,7 +28,7 @@ public class InstructorCourseEnrollPageAction extends Action {
                 new InstructorCourseEnrollPageData(account, sessionToken, courseId, studentsInfo);
 
         statusToAdmin = String.format(Const.StatusMessages.ADMIN_LOG_INSTRUCTOR_COURSE_ENROLL_PAGE_LOAD,
-                                      courseId);
+                courseId);
         addDataLossWarningToStatusToUser(courseId);
 
         return createShowPageResult(Const.ViewURIs.INSTRUCTOR_COURSE_ENROLL, pageData);
@@ -37,7 +37,7 @@ public class InstructorCourseEnrollPageAction extends Action {
     private void addDataLossWarningToStatusToUser(String courseId) {
         if (hasExistingResponses(courseId)) {
             statusToUser.add(new StatusMessage(Const.StatusMessages.COURSE_ENROLL_POSSIBLE_DATA_LOSS,
-                                               StatusMessageColor.WARNING));
+                    StatusMessageColor.WARNING));
         }
     }
 

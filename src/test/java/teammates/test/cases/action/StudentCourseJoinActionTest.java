@@ -78,7 +78,7 @@ public class StudentCourseJoinActionTest extends BaseActionTest {
          * generated when creating the student instance.So the reg key needs to
          * be obtained by calling the getter from logic to retrieve again
          */
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.REGKEY, newStudentKey,
                 Const.ParamsNames.NEXT_URL, Const.ActionURIs.STUDENT_PROFILE_PAGE
         };
@@ -102,7 +102,7 @@ public class StudentCourseJoinActionTest extends BaseActionTest {
 
         gaeSimulation.logoutUser();
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.REGKEY, newStudentKey,
                 Const.ParamsNames.NEXT_URL, Const.ActionURIs.STUDENT_PROFILE_PAGE,
                 Const.ParamsNames.STUDENT_EMAIL, newStudentData.email,
@@ -127,7 +127,7 @@ public class StudentCourseJoinActionTest extends BaseActionTest {
         ______TS("Non-existent student attempting to join course displays error");
 
         gaeSimulation.loginUser(idOfNewStudent);
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.REGKEY, newStudentKey,
                 Const.ParamsNames.NEXT_URL, Const.ActionURIs.STUDENT_PROFILE_PAGE,
                 Const.ParamsNames.STUDENT_EMAIL, newStudentData.email,
@@ -183,14 +183,14 @@ public class StudentCourseJoinActionTest extends BaseActionTest {
     @Override
     @Test
     protected void testAccessControl() throws Exception {
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, typicalBundle.courses.get("typicalCourse1").getId()
         };
         verifyAccessibleWithoutLogin(submissionParams);
 
         StudentAttributes unregStudent1 = typicalBundle.students.get("student1InUnregisteredCourse");
         String key = StudentsLogic.inst().getStudentForEmail(unregStudent1.course, unregStudent1.email).key;
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.REGKEY, StringHelper.encrypt(key),
                 Const.ParamsNames.COURSE_ID, unregStudent1.course,
                 Const.ParamsNames.STUDENT_EMAIL, unregStudent1.email

@@ -6,7 +6,7 @@ import teammates.common.util.Const;
 import teammates.ui.template.StudentProfileEditBox;
 import teammates.ui.template.StudentProfileUploadPhotoModal;
 
-public class StudentProfileEditPageData extends PageData{
+public class StudentProfileEditPageData extends PageData {
     private StudentProfileEditBox profileEditBox;
     private StudentProfileUploadPhotoModal uploadPhotoModal;
 

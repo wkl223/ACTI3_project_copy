@@ -47,8 +47,8 @@ public class InstructorFeedbackQuestionEditActionTest extends BaseActionTest {
 
         FeedbackSessionAttributes fs = typicalBundle.feedbackSessions.get("session1InCourse1");
         FeedbackQuestionAttributes fq = FeedbackQuestionsLogic
-                                            .inst()
-                                            .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 1);
+                .inst()
+                .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 1);
 
         ______TS("Typical Case");
 
@@ -305,9 +305,9 @@ public class InstructorFeedbackQuestionEditActionTest extends BaseActionTest {
         r = getRedirectResult(a);
 
         assertEquals(String.format(FieldValidator.PARTICIPANT_TYPE_TEAM_ERROR_MESSAGE,
-                                   FeedbackParticipantType.OWN_TEAM_MEMBERS.toDisplayRecipientName(),
-                                   FeedbackParticipantType.TEAMS.toDisplayGiverName()),
-                     r.getStatusMessage());
+                FeedbackParticipantType.OWN_TEAM_MEMBERS.toDisplayRecipientName(),
+                FeedbackParticipantType.TEAMS.toDisplayGiverName()),
+                r.getStatusMessage());
 
         ______TS("Delete Feedback");
 
@@ -341,7 +341,7 @@ public class InstructorFeedbackQuestionEditActionTest extends BaseActionTest {
 
         ______TS("Unsuccessful case: test null course id parameter");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.FEEDBACK_QUESTION_GIVERTYPE, FeedbackParticipantType.STUDENTS.toString(),
                 Const.ParamsNames.FEEDBACK_QUESTION_RECIPIENTTYPE, FeedbackParticipantType.STUDENTS.toString(),
@@ -363,12 +363,12 @@ public class InstructorFeedbackQuestionEditActionTest extends BaseActionTest {
             signalFailureToDetectException("Did not detect that parameters are null.");
         } catch (NullPostParameterException e) {
             assertEquals(String.format(Const.StatusCodes.NULL_POST_PARAMETER,
-                         Const.ParamsNames.COURSE_ID), e.getMessage());
+                    Const.ParamsNames.COURSE_ID), e.getMessage());
         }
 
         ______TS("Unsuccessful case: test null course id parameter");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_QUESTION_GIVERTYPE, FeedbackParticipantType.STUDENTS.toString(),
                 Const.ParamsNames.FEEDBACK_QUESTION_RECIPIENTTYPE, FeedbackParticipantType.STUDENTS.toString(),
@@ -390,7 +390,7 @@ public class InstructorFeedbackQuestionEditActionTest extends BaseActionTest {
             signalFailureToDetectException("Did not detect that parameters are null.");
         } catch (NullPostParameterException e) {
             assertEquals(String.format(Const.StatusCodes.NULL_POST_PARAMETER,
-                         Const.ParamsNames.FEEDBACK_SESSION_NAME), e.getMessage());
+                    Const.ParamsNames.FEEDBACK_SESSION_NAME), e.getMessage());
         }
     }
 
@@ -405,8 +405,8 @@ public class InstructorFeedbackQuestionEditActionTest extends BaseActionTest {
 
         FeedbackSessionAttributes fs = dataBundle.feedbackSessions.get("mcqSession");
         FeedbackQuestionAttributes fq = FeedbackQuestionsLogic
-                                            .inst()
-                                            .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 1);
+                .inst()
+                .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 1);
         FeedbackMcqQuestionDetails mcqDetails = (FeedbackMcqQuestionDetails) fq.getQuestionDetails();
         FeedbackResponsesDb frDb = new FeedbackResponsesDb();
 
@@ -591,12 +591,12 @@ public class InstructorFeedbackQuestionEditActionTest extends BaseActionTest {
 
         FeedbackSessionAttributes fs = dataBundle.feedbackSessions.get("mcqSession");
         FeedbackQuestionAttributes fq = FeedbackQuestionsLogic
-                                            .inst()
-                                            .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 4);
+                .inst()
+                .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 4);
         FeedbackMcqQuestionDetails mcqDetails = (FeedbackMcqQuestionDetails) fq.getQuestionDetails();
         FeedbackResponsesDb frDb = new FeedbackResponsesDb();
 
-        String[] requiredParams = new String[] {
+        String[] requiredParams = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.FEEDBACK_QUESTION_GIVERTYPE, fq.giverType.toString(),
@@ -771,8 +771,8 @@ public class InstructorFeedbackQuestionEditActionTest extends BaseActionTest {
 
         FeedbackSessionAttributes fs = dataBundle.feedbackSessions.get("msqSession");
         FeedbackQuestionAttributes fq = FeedbackQuestionsLogic
-                                            .inst()
-                                            .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 1);
+                .inst()
+                .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 1);
         FeedbackMsqQuestionDetails msqDetails = (FeedbackMsqQuestionDetails) fq.getQuestionDetails();
         FeedbackResponsesDb frDb = new FeedbackResponsesDb();
 
@@ -791,7 +791,7 @@ public class InstructorFeedbackQuestionEditActionTest extends BaseActionTest {
                 Const.ParamsNames.FEEDBACK_QUESTION_TEXT, "What do you like best about the class?",
                 Const.ParamsNames.FEEDBACK_QUESTION_DESCRIPTION, "more details",
                 Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED,
-                    Integer.toString(msqDetails.getNumOfChoicesForMsq(fs.getCourseId(), FeedbackParticipantType.NONE)),
+                Integer.toString(msqDetails.getNumOfChoicesForMsq(fs.getCourseId(), FeedbackParticipantType.NONE)),
                 Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", msqDetails.getMsqChoices().get(0),
                 Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", msqDetails.getMsqChoices().get(1),
                 Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFENTITIESTYPE, "max",
@@ -959,12 +959,12 @@ public class InstructorFeedbackQuestionEditActionTest extends BaseActionTest {
 
         FeedbackSessionAttributes fs = dataBundle.feedbackSessions.get("msqSession");
         FeedbackQuestionAttributes fq = FeedbackQuestionsLogic
-                                            .inst()
-                                            .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 3);
+                .inst()
+                .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 3);
         FeedbackMsqQuestionDetails msqDetails = (FeedbackMsqQuestionDetails) fq.getQuestionDetails();
         FeedbackResponsesDb frDb = new FeedbackResponsesDb();
 
-        String[] requiredParams = new String[] {
+        String[] requiredParams = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.FEEDBACK_QUESTION_GIVERTYPE, fq.giverType.toString(),
@@ -989,7 +989,7 @@ public class InstructorFeedbackQuestionEditActionTest extends BaseActionTest {
         String[] editWeightsParams = {
                 Const.ParamsNames.FEEDBACK_QUESTION_TEXT, "Choose all the food you like",
                 Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, Integer.toString(
-                        msqDetails.getNumOfChoicesForMsq(fs.getCourseId(), FeedbackParticipantType.NONE)),
+                msqDetails.getNumOfChoicesForMsq(fs.getCourseId(), FeedbackParticipantType.NONE)),
                 Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, "on",
                 Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", msqDetails.getMsqChoices().get(0),
                 Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", "1.5",
@@ -1037,7 +1037,7 @@ public class InstructorFeedbackQuestionEditActionTest extends BaseActionTest {
         String[] editOtherOptionWeightParams = {
                 Const.ParamsNames.FEEDBACK_QUESTION_TEXT, "Choose all the food you like",
                 Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, Integer.toString(
-                        msqDetails.getNumOfChoicesForMsq(fs.getCourseId(), FeedbackParticipantType.NONE)),
+                msqDetails.getNumOfChoicesForMsq(fs.getCourseId(), FeedbackParticipantType.NONE)),
                 Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, "on",
                 Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", Double.toString(msqDetails.getMsqWeights().get(0)),
                 Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", Double.toString(msqDetails.getMsqWeights().get(1)),
@@ -1080,7 +1080,7 @@ public class InstructorFeedbackQuestionEditActionTest extends BaseActionTest {
         String[] editNullWeightsParams = {
                 Const.ParamsNames.FEEDBACK_QUESTION_TEXT, "What do you like best about the class?",
                 Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, Integer.toString(
-                        msqDetails.getNumOfChoicesForMsq(fs.getCourseId(), FeedbackParticipantType.NONE)),
+                msqDetails.getNumOfChoicesForMsq(fs.getCourseId(), FeedbackParticipantType.NONE)),
                 Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, "on",
                 Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", msqDetails.getMsqChoices().get(0),
                 // Remove this weight to create a null weight for choice-0
@@ -1128,7 +1128,7 @@ public class InstructorFeedbackQuestionEditActionTest extends BaseActionTest {
         String[] editNullOtherWeightsParams = {
                 Const.ParamsNames.FEEDBACK_QUESTION_TEXT, "What do you like best about the class?",
                 Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, Integer.toString(
-                        msqDetails.getNumOfChoicesForMsq(fs.getCourseId(), FeedbackParticipantType.NONE)),
+                msqDetails.getNumOfChoicesForMsq(fs.getCourseId(), FeedbackParticipantType.NONE)),
                 Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, "on",
                 Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", msqDetails.getMsqChoices().get(0),
                 Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", "1",
@@ -1156,8 +1156,8 @@ public class InstructorFeedbackQuestionEditActionTest extends BaseActionTest {
 
         FeedbackSessionAttributes fs = dataBundle.feedbackSessions.get("numscaleSession");
         FeedbackQuestionAttributes fq = FeedbackQuestionsLogic
-                                            .inst()
-                                            .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 1);
+                .inst()
+                .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 1);
         FeedbackNumericalScaleQuestionDetails numscaleDetails =
                 (FeedbackNumericalScaleQuestionDetails) fq.getQuestionDetails();
         FeedbackResponsesDb frDb = new FeedbackResponsesDb();
@@ -1256,8 +1256,8 @@ public class InstructorFeedbackQuestionEditActionTest extends BaseActionTest {
 
         FeedbackSessionAttributes fs = dataBundle.feedbackSessions.get("constSumSession");
         FeedbackQuestionAttributes fq = FeedbackQuestionsLogic
-                                            .inst()
-                                            .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 1);
+                .inst()
+                .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 1);
         FeedbackResponsesDb frDb = new FeedbackResponsesDb();
 
         ______TS("Edit text");
@@ -1363,8 +1363,8 @@ public class InstructorFeedbackQuestionEditActionTest extends BaseActionTest {
 
         FeedbackSessionAttributes fs = dataBundle.feedbackSessions.get("constSumSession");
         FeedbackQuestionAttributes fq = FeedbackQuestionsLogic
-                                            .inst()
-                                            .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 2);
+                .inst()
+                .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 2);
         FeedbackResponsesDb frDb = new FeedbackResponsesDb();
         FeedbackConstantSumQuestionDetails fqd = (FeedbackConstantSumQuestionDetails) fq.getQuestionDetails();
 
@@ -1472,8 +1472,8 @@ public class InstructorFeedbackQuestionEditActionTest extends BaseActionTest {
 
         FeedbackSessionAttributes fs = dataBundle.feedbackSessions.get("contribSession");
         FeedbackQuestionAttributes fq = FeedbackQuestionsLogic
-                                            .inst()
-                                            .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 1);
+                .inst()
+                .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 1);
         FeedbackResponsesDb frDb = new FeedbackResponsesDb();
         FeedbackContributionQuestionDetails fqd = (FeedbackContributionQuestionDetails) fq.getQuestionDetails();
 
@@ -1542,8 +1542,8 @@ public class InstructorFeedbackQuestionEditActionTest extends BaseActionTest {
         r = getRedirectResult(a);
 
         assertEquals(Const.FeedbackQuestion.CONTRIB_ERROR_INVALID_FEEDBACK_PATH
-                     + "<br>" + Const.StatusMessages.FEEDBACK_QUESTION_EDITED,
-                     r.getStatusMessage());
+                        + "<br>" + Const.StatusMessages.FEEDBACK_QUESTION_EDITED,
+                r.getStatusMessage());
 
         assertEquals(
                 getPageResultDestination(
@@ -1570,8 +1570,8 @@ public class InstructorFeedbackQuestionEditActionTest extends BaseActionTest {
 
         FeedbackSessionAttributes fs = dataBundle.feedbackSessions.get("rubricSession");
         FeedbackQuestionAttributes fq = FeedbackQuestionsLogic
-                                            .inst()
-                                            .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 1);
+                .inst()
+                .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 1);
         FeedbackResponsesDb frDb = new FeedbackResponsesDb();
         FeedbackRubricQuestionDetails fqd = (FeedbackRubricQuestionDetails) fq.getQuestionDetails();
 

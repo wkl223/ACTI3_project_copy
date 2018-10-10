@@ -26,7 +26,7 @@ public class TaskQueuer {
 
     protected void addTask(String queueName, String workerUrl, Map<String, String> paramMap) {
         Map<String, String[]> multisetParamMap = new HashMap<>();
-        paramMap.forEach((key, value) -> multisetParamMap.put(key, new String[] { value }));
+        paramMap.forEach((key, value) -> multisetParamMap.put(key, new String[]{value}));
         TaskWrapper task = new TaskWrapper(queueName, workerUrl, multisetParamMap);
         new TaskQueuesLogic().addTask(task);
     }
@@ -34,7 +34,7 @@ public class TaskQueuer {
     protected void addDeferredTask(String queueName, String workerUrl, Map<String, String> paramMap,
                                    long countdownTime) {
         Map<String, String[]> multisetParamMap = new HashMap<>();
-        paramMap.forEach((key, value) -> multisetParamMap.put(key, new String[] { value }));
+        paramMap.forEach((key, value) -> multisetParamMap.put(key, new String[]{value}));
         TaskWrapper task = new TaskWrapper(queueName, workerUrl, multisetParamMap);
         new TaskQueuesLogic().addDeferredTask(task, countdownTime);
     }
@@ -69,7 +69,7 @@ public class TaskQueuer {
     /**
      * Schedules an admin email preparation in address mode, i.e. using the address list given directly.
      *
-     * @param emailId the ID of admin email to be retrieved from the database
+     * @param emailId                   the ID of admin email to be retrieved from the database
      * @param addressReceiverListString the list of email receivers given as String
      */
     public void scheduleAdminEmailPreparationInAddressMode(String emailId, String addressReceiverListString) {
@@ -90,10 +90,10 @@ public class TaskQueuer {
      * and "email index" for accessing the email {@code String} inside the {@code List<String>}.
      * </p>
      *
-     * @param emailId the ID of admin email to be retrieved from the database
+     * @param emailId                  the ID of admin email to be retrieved from the database
      * @param groupReceiverListFileKey the file key for the group receiver list in GCS
-     * @param emailListIndex see method description
-     * @param emailIndex see method description
+     * @param emailListIndex           see method description
+     * @param emailIndex               see method description
      */
     public void scheduleAdminEmailPreparationInGroupMode(String emailId, String groupReceiverListFileKey,
                                                          int emailListIndex, int emailIndex) {
@@ -110,10 +110,10 @@ public class TaskQueuer {
     /**
      * Schedules an admin email to be sent.
      *
-     * @param emailId the ID of admin email to be retrieved from the database (if needed)
+     * @param emailId       the ID of admin email to be retrieved from the database (if needed)
      * @param emailReceiver the email address of the email receiver
-     * @param emailSubject the subject of the email
-     * @param emailContent the content of the email
+     * @param emailSubject  the subject of the email
+     * @param emailContent  the content of the email
      */
     public void scheduleAdminEmailForSending(String emailId, String emailReceiver, String emailSubject,
                                              String emailContent) {
@@ -139,7 +139,7 @@ public class TaskQueuer {
      * Schedules for feedback session reminders (i.e. student has not submitted responses yet)
      * for the specified feedback session.
      *
-     * @param courseId the course ID of the feedback session
+     * @param courseId            the course ID of the feedback session
      * @param feedbackSessionName the name of the feedback session
      */
     public void scheduleFeedbackSessionReminders(String courseId, String feedbackSessionName,
@@ -157,27 +157,27 @@ public class TaskQueuer {
      * Schedules for feedback session reminders (i.e. student has not submitted responses yet)
      * for the specified feedback session for the specified group of users.
      *
-     * @param courseId the course ID of the feedback session
+     * @param courseId            the course ID of the feedback session
      * @param feedbackSessionName the name of the feedback session
-     * @param usersToRemind the group of users to send the reminders to
+     * @param usersToRemind       the group of users to send the reminders to
      */
     public void scheduleFeedbackSessionRemindersForParticularUsers(String courseId, String feedbackSessionName,
                                                                    String[] usersToRemind,
                                                                    String googleIdOfRequestingInstructor) {
         Map<String, String[]> paramMap = new HashMap<>();
-        paramMap.put(ParamsNames.SUBMISSION_FEEDBACK, new String[] { feedbackSessionName });
-        paramMap.put(ParamsNames.SUBMISSION_COURSE, new String[] { courseId });
+        paramMap.put(ParamsNames.SUBMISSION_FEEDBACK, new String[]{feedbackSessionName});
+        paramMap.put(ParamsNames.SUBMISSION_COURSE, new String[]{courseId});
         paramMap.put(ParamsNames.SUBMISSION_REMIND_USERLIST, usersToRemind);
-        paramMap.put(ParamsNames.USER_ID, new String[] { googleIdOfRequestingInstructor });
+        paramMap.put(ParamsNames.USER_ID, new String[]{googleIdOfRequestingInstructor});
 
         addTaskMultisetParam(TaskQueue.FEEDBACK_SESSION_REMIND_PARTICULAR_USERS_EMAIL_QUEUE_NAME,
-                             TaskQueue.FEEDBACK_SESSION_REMIND_PARTICULAR_USERS_EMAIL_WORKER_URL, paramMap);
+                TaskQueue.FEEDBACK_SESSION_REMIND_PARTICULAR_USERS_EMAIL_WORKER_URL, paramMap);
     }
 
     /**
      * Schedules for feedback session published email to be sent.
      *
-     * @param courseId the course ID of the feedback session
+     * @param courseId            the course ID of the feedback session
      * @param feedbackSessionName the name of the feedback session
      */
     public void scheduleFeedbackSessionPublishedEmail(String courseId, String feedbackSessionName) {
@@ -193,15 +193,15 @@ public class TaskQueuer {
      * Schedules for feedback session publication reminders
      * for the specified feedback session for the specified group of users.
      *
-     * @param courseId the course ID of the feedback session
+     * @param courseId            the course ID of the feedback session
      * @param feedbackSessionName the name of the feedback session
-     * @param usersToEmail the group of users to send the reminders to
+     * @param usersToEmail        the group of users to send the reminders to
      */
     public void scheduleFeedbackSessionResendPublishedEmail(String courseId, String feedbackSessionName,
-            String[] usersToEmail) {
+                                                            String[] usersToEmail) {
         Map<String, String[]> paramMap = new HashMap<>();
-        paramMap.put(ParamsNames.SUBMISSION_FEEDBACK, new String[] { feedbackSessionName });
-        paramMap.put(ParamsNames.SUBMISSION_COURSE, new String[] { courseId });
+        paramMap.put(ParamsNames.SUBMISSION_FEEDBACK, new String[]{feedbackSessionName});
+        paramMap.put(ParamsNames.SUBMISSION_COURSE, new String[]{courseId});
         paramMap.put(ParamsNames.SUBMISSION_RESEND_PUBLISHED_EMAIL_USER_LIST, usersToEmail);
 
         addTaskMultisetParam(TaskQueue.FEEDBACK_SESSION_RESEND_PUBLISHED_EMAIL_QUEUE_NAME,
@@ -211,7 +211,7 @@ public class TaskQueuer {
     /**
      * Schedules for feedback session unpublished email to be sent.
      *
-     * @param courseId the course ID of the feedback session
+     * @param courseId            the course ID of the feedback session
      * @param feedbackSessionName the name of the feedback session
      */
     public void scheduleFeedbackSessionUnpublishedEmail(String courseId, String feedbackSessionName) {
@@ -227,11 +227,11 @@ public class TaskQueuer {
      * Schedules for course registration to be sent to the specified instructor.
      *
      * @param inviterGoogleId googleId of instructor or administrator who sends the invitation
-     * @param courseId the target course ID
+     * @param courseId        the target course ID
      * @param instructorEmail the email address of the invited instructor
      */
     public void scheduleCourseRegistrationInviteToInstructor(String inviterGoogleId,
-            String instructorEmail, String courseId) {
+                                                             String instructorEmail, String courseId) {
 
         Map<String, String> paramMap = new HashMap<>();
 
@@ -246,7 +246,7 @@ public class TaskQueuer {
     /**
      * Schedules for course registration to be sent to the specified student.
      *
-     * @param courseId the target course ID
+     * @param courseId     the target course ID
      * @param studentEmail the email address of the student
      */
     public void scheduleCourseRegistrationInviteToStudent(String courseId, String studentEmail, boolean isRejoining) {
@@ -264,9 +264,9 @@ public class TaskQueuer {
      * after change is done to a course, typically after enrollment of new students
      * or re-enrollment of old students, or both.
      *
-     * @param courseId the course ID of the feedback session
+     * @param courseId            the course ID of the feedback session
      * @param feedbackSessionName the name of the feedback session
-     * @param enrollmentList the list of enrollment details
+     * @param enrollmentList      the list of enrollment details
      */
     public void scheduleFeedbackResponseAdjustmentForCourse(String courseId, String feedbackSessionName,
                                                             List<StudentEnrollDetails> enrollmentList) {
@@ -335,14 +335,14 @@ public class TaskQueuer {
             paramMap.put(ParamsNames.EMAIL_REPLY_TO_ADDRESS, emailReplyToAddress);
 
             addDeferredTask(TaskQueue.SEND_EMAIL_QUEUE_NAME, TaskQueue.SEND_EMAIL_WORKER_URL,
-                            paramMap, emailDelayTimer);
+                    paramMap, emailDelayTimer);
         } catch (Exception e) {
             log.severe("Error when adding email to task queue: " + e.getMessage() + "\n"
-                       + "Email sender: " + emailSender + "\n"
-                       + "Email sender name: " + emailSenderName + "\n"
-                       + "Email receiver: " + emailReceiver + "\n"
-                       + "Email subject: " + emailSubject + "\n"
-                       + "Email reply-to address: " + emailReplyToAddress);
+                    + "Email sender: " + emailSender + "\n"
+                    + "Email sender name: " + emailSenderName + "\n"
+                    + "Email receiver: " + emailReceiver + "\n"
+                    + "Email subject: " + emailSubject + "\n"
+                    + "Email reply-to address: " + emailReplyToAddress);
         }
     }
 

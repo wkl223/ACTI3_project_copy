@@ -36,20 +36,20 @@ public class InstructorCourseStudentDetailsPageActionTest extends BaseActionTest
         verifyAssumptionFailure();
 
         //null student email
-        String[] invalidParams = new String[] {
+        String[] invalidParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor1OfCourse1.courseId
         };
         verifyAssumptionFailure(invalidParams);
 
         //null course id
-        invalidParams = new String[] {
+        invalidParams = new String[]{
                 Const.ParamsNames.STUDENT_EMAIL, student1InCourse1.email
         };
         verifyAssumptionFailure(invalidParams);
 
         ______TS("Typical case, view student detail");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor1OfCourse1.courseId,
                 Const.ParamsNames.STUDENT_EMAIL, student1InCourse1.email
         };
@@ -74,7 +74,7 @@ public class InstructorCourseStudentDetailsPageActionTest extends BaseActionTest
         assertEquals(student1InCourse1.team, pageData.getStudentInfoTable().getTeam());
         assertEquals(student1InCourse1.comments, pageData.getStudentInfoTable().getComments());
         assertEquals(student1InCourse1.course, pageData.getStudentInfoTable().getCourseId());
-        assertEquals(student1InCourse1.like,pageData.getStudentInfoTable().getLike());
+        assertEquals(student1InCourse1.like, pageData.getStudentInfoTable().getLike());
 
         String expectedLogMessage = "TEAMMATESLOG|||instructorCourseStudentDetailsPage|||instructorCourseStudentDetailsPage"
                 + "|||true|||Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1"
@@ -96,7 +96,7 @@ public class InstructorCourseStudentDetailsPageActionTest extends BaseActionTest
         InstructorAttributes instructor1OfCourse1 = typicalBundle.instructors.get("instructor1OfCourse1");
         StudentAttributes student1InCourse1 = typicalBundle.students.get("student1InCourse1");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor1OfCourse1.courseId,
                 Const.ParamsNames.STUDENT_EMAIL, student1InCourse1.email
         };

@@ -100,10 +100,10 @@ public abstract class DataMigrationForFeedbackResponseCommentSearchDocument
     /**
      * Reflects private static method {@link SearchManager#putDocumentsWithRetry}.
      *
-     * @throws PutException when only non-transient errors are encountered.
+     * @throws PutException                    when only non-transient errors are encountered.
      * @throws MaximumRetriesExceededException with list of failed {@link Document}s as final data and
-     *         final {@link com.google.appengine.api.search.OperationResult}'s message as final message,
-     *         if operation fails after maximum retries.
+     *                                         final {@link com.google.appengine.api.search.OperationResult}'s message as final message,
+     *                                         if operation fails after maximum retries.
      */
     private static void invokePutDocumentsWithRetry(String indexName, List<Document> documents)
             throws PutException, MaximumRetriesExceededException {

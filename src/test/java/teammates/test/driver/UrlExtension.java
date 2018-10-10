@@ -16,6 +16,7 @@ public final class UrlExtension {
 
     /**
      * Gets the relative path of a full URL. Useful for http/https-based URLs.
+     *
      * @throws MalformedURLException if the given {@code url} is malformed
      */
     public static String getRelativePath(String url) throws MalformedURLException {

@@ -29,7 +29,7 @@ public class InstructorCourseJoinEmailWorkerActionTest extends BaseAutomatedActi
         InstructorAttributes instr1InCourse1 = dataBundle.instructors.get("instructor1OfCourse1");
         AccountAttributes inviter = AccountsLogic.inst().getAccount("idOfInstructor2OfCourse1");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 ParamsNames.COURSE_ID, course1.getId(),
                 ParamsNames.INSTRUCTOR_EMAIL, instr1InCourse1.email,
                 ParamsNames.INVITER_ID, inviter.googleId
@@ -43,8 +43,8 @@ public class InstructorCourseJoinEmailWorkerActionTest extends BaseAutomatedActi
         EmailWrapper email = action.getEmailSender().getEmailsSent().get(0);
 
         assertEquals(String.format(EmailType.INSTRUCTOR_COURSE_JOIN.getSubject(), course1.getName(),
-                                   course1.getId()),
-                     email.getSubject());
+                course1.getId()),
+                email.getSubject());
         assertEquals(instr1InCourse1.email, email.getRecipient());
     }
 

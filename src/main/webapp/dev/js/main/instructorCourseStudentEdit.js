@@ -43,8 +43,8 @@ function readyInstructorStudentEditPage() {
             event.preventDefault();
 
             const messageText = 'Editing these fields will result in some existing responses from this student '
-                              + 'to be deleted. You may download the data before you make the changes. Are '
-                              + 'you sure you want to continue?';
+                    + 'to be deleted. You may download the data before you make the changes. Are '
+                    + 'you sure you want to continue?';
             const okCallback = function () {
                 if (isEmailFieldChanged && isOpenOrPublishedEmailSentInThisCourse) {
                     sendEmailToNewEmailOption(event, newStudentEmail);

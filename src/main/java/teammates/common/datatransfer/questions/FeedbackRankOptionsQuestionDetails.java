@@ -32,7 +32,7 @@ public class FeedbackRankOptionsQuestionDetails extends FeedbackRankQuestionDeta
     public static final transient int MIN_NUM_OF_OPTIONS = 2;
     public static final transient String ERROR_NOT_ENOUGH_OPTIONS =
             "Too little options for " + Const.FeedbackQuestionTypeNames.RANK_OPTION
-            + ". Minimum number of options is: ";
+                    + ". Minimum number of options is: ";
 
     List<String> options;
 
@@ -100,9 +100,9 @@ public class FeedbackRankOptionsQuestionDetails extends FeedbackRankQuestionDeta
 
     @Override
     public String getQuestionWithExistingResponseSubmissionFormHtml(
-                        boolean sessionIsOpen, int qnIdx, int responseIdx, String courseId,
-                        int totalNumRecipients,
-                        FeedbackResponseDetails existingResponseDetails, StudentAttributes student) {
+            boolean sessionIsOpen, int qnIdx, int responseIdx, String courseId,
+            int totalNumRecipients,
+            FeedbackResponseDetails existingResponseDetails, StudentAttributes student) {
 
         FeedbackRankOptionsResponseDetails existingResponse = (FeedbackRankOptionsResponseDetails) existingResponseDetails;
         StringBuilder optionListHtml = new StringBuilder();
@@ -117,7 +117,7 @@ public class FeedbackRankOptionsQuestionDetails extends FeedbackRankQuestionDeta
                             Slots.DISABLED, sessionIsOpen ? "" : "disabled",
                             Slots.RANK_OPTION_VISIBILITY, "",
                             Slots.OPTIONS,
-                                    getSubmissionOptionsHtmlForRankingOptions(existingResponse.getAnswerList().get(i)),
+                            getSubmissionOptionsHtmlForRankingOptions(existingResponse.getAnswerList().get(i)),
                             Slots.FEEDBACK_RESPONSE_TEXT, Const.ParamsNames.FEEDBACK_RESPONSE_TEXT,
                             Slots.RANK_OPTION_VALUE, SanitizationHelper.sanitizeForHtml(options.get(i)));
             optionListHtml.append(optionFragment).append(System.lineSeparator());
@@ -147,7 +147,7 @@ public class FeedbackRankOptionsQuestionDetails extends FeedbackRankQuestionDeta
                 Slots.RANK_PARAM_MIN_OPTIONS_TO_BE_RANKED, Const.ParamsNames.FEEDBACK_QUESTION_RANK_MIN_OPTIONS_TO_BE_RANKED,
                 Slots.RANK_MIN_OPTIONS_TO_BE_RANKED, isMinOptionsToBeRankedEnabled
                         ? Integer.toString(minOptionsToBeRanked) : ""
-                );
+        );
     }
 
     @Override
@@ -196,7 +196,7 @@ public class FeedbackRankOptionsQuestionDetails extends FeedbackRankQuestionDeta
                 Slots.RANK_PARAM_MIN_OPTIONS_TO_BE_RANKED, Const.ParamsNames.FEEDBACK_QUESTION_RANK_MIN_OPTIONS_TO_BE_RANKED,
                 Slots.RANK_MIN_OPTIONS_TO_BE_RANKED,
                 isMinOptionsToBeRankedEnabled ? Integer.toString(minOptionsToBeRanked) : ""
-                );
+        );
     }
 
     private String getSubmissionOptionsHtmlForRankingOptions(int rankGiven) {
@@ -204,15 +204,15 @@ public class FeedbackRankOptionsQuestionDetails extends FeedbackRankQuestionDeta
 
         ElementTag option = PageData.createOption("", "", rankGiven == Const.INT_UNINITIALIZED);
         result.append("<option"
-                     + option.getAttributesToString() + ">"
-                     + option.getContent()
-                     + "</option>");
+                + option.getAttributesToString() + ">"
+                + option.getContent()
+                + "</option>");
         for (int i = 1; i <= options.size(); i++) {
             option = PageData.createOption(String.valueOf(i), String.valueOf(i), rankGiven == i);
             result.append("<option"
-                        + option.getAttributesToString() + ">"
-                        + option.getContent()
-                        + "</option>");
+                    + option.getAttributesToString() + ">"
+                    + option.getContent()
+                    + "</option>");
         }
 
         return result.toString();
@@ -267,13 +267,13 @@ public class FeedbackRankOptionsQuestionDetails extends FeedbackRankQuestionDeta
         this.options.add("");
 
         return "<div id=\"rankOptionsForm\">"
-              + this.getQuestionSpecificEditFormHtml(-1)
-              + "</div>";
+                + this.getQuestionSpecificEditFormHtml(-1)
+                + "</div>";
     }
 
     @Override
     public String getQuestionAdditionalInfoHtml(int questionNumber,
-            String additionalInfoId) {
+                                                String additionalInfoId) {
         StringBuilder optionListHtml = new StringBuilder(100);
         String optionFragmentTemplate = FormTemplates.MSQ_ADDITIONAL_INFO_FRAGMENT;
         String additionalInfo = "";
@@ -289,9 +289,9 @@ public class FeedbackRankOptionsQuestionDetails extends FeedbackRankQuestionDeta
 
         optionListHtml.append("</ul>");
         additionalInfo = Templates.populateTemplate(
-            FormTemplates.MSQ_ADDITIONAL_INFO,
-            Slots.QUESTION_TYPE_NAME, this.getQuestionTypeDisplayName(),
-            Slots.MSQ_ADDITIONAL_INFO_FRAGMENTS, optionListHtml.toString());
+                FormTemplates.MSQ_ADDITIONAL_INFO,
+                Slots.QUESTION_TYPE_NAME, this.getQuestionTypeDisplayName(),
+                Slots.MSQ_ADDITIONAL_INFO_FRAGMENTS, optionListHtml.toString());
 
         return Templates.populateTemplate(
                 FormTemplates.FEEDBACK_QUESTION_ADDITIONAL_INFO,
@@ -304,11 +304,11 @@ public class FeedbackRankOptionsQuestionDetails extends FeedbackRankQuestionDeta
 
     @Override
     public String getQuestionResultStatisticsHtml(
-                        List<FeedbackResponseAttributes> responses,
-                        FeedbackQuestionAttributes question,
-                        String studentEmail,
-                        FeedbackSessionResultsBundle bundle,
-                        String view) {
+            List<FeedbackResponseAttributes> responses,
+            FeedbackQuestionAttributes question,
+            String studentEmail,
+            FeedbackSessionResultsBundle bundle,
+            String view) {
 
         if ("student".equals(view) || responses.isEmpty()) {
             return "";
@@ -338,9 +338,9 @@ public class FeedbackRankOptionsQuestionDetails extends FeedbackRankQuestionDeta
 
     @Override
     public String getQuestionResultStatisticsCsv(
-                        List<FeedbackResponseAttributes> responses,
-                        FeedbackQuestionAttributes question,
-                        FeedbackSessionResultsBundle bundle) {
+            List<FeedbackResponseAttributes> responses,
+            FeedbackQuestionAttributes question,
+            FeedbackSessionResultsBundle bundle) {
         if (responses.isEmpty()) {
             return "";
         }
@@ -368,10 +368,11 @@ public class FeedbackRankOptionsQuestionDetails extends FeedbackRankQuestionDeta
      * ranks received for that option.
      * The key of the map returned is the option name.
      * The values of the map are list of ranks received by the key.
-     * @param responses  a list of responses
+     *
+     * @param responses a list of responses
      */
     private Map<String, List<Integer>> generateOptionRanksMapping(
-                                            List<FeedbackResponseAttributes> responses) {
+            List<FeedbackResponseAttributes> responses) {
         Map<String, List<Integer>> optionRanks = new HashMap<>();
         for (FeedbackResponseAttributes response : responses) {
             FeedbackRankOptionsResponseDetails frd = (FeedbackRankOptionsResponseDetails) response.getResponseDetails();
@@ -406,10 +407,10 @@ public class FeedbackRankOptionsQuestionDetails extends FeedbackRankQuestionDeta
         FeedbackRankOptionsQuestionDetails newRankQuestionDetails = (FeedbackRankOptionsQuestionDetails) newDetails;
 
         return this.options.size() != newRankQuestionDetails.options.size()
-            || !this.options.containsAll(newRankQuestionDetails.options)
-            || !newRankQuestionDetails.options.containsAll(this.options)
-            || this.minOptionsToBeRanked != newRankQuestionDetails.minOptionsToBeRanked
-            || this.maxOptionsToBeRanked != newRankQuestionDetails.maxOptionsToBeRanked;
+                || !this.options.containsAll(newRankQuestionDetails.options)
+                || !newRankQuestionDetails.options.containsAll(this.options)
+                || this.minOptionsToBeRanked != newRankQuestionDetails.minOptionsToBeRanked
+                || this.maxOptionsToBeRanked != newRankQuestionDetails.maxOptionsToBeRanked;
     }
 
     @Override
@@ -426,8 +427,8 @@ public class FeedbackRankOptionsQuestionDetails extends FeedbackRankQuestionDeta
     @Override
     public String getQuestionTypeChoiceOption() {
         return "<li data-questiontype = \"" + FeedbackQuestionType.RANK_OPTIONS.name() + "\">"
-                 + "<a href=\"javascript:;\">" + Const.FeedbackQuestionTypeNames.RANK_OPTION + "</a>"
-             + "</li>";
+                + "<a href=\"javascript:;\">" + Const.FeedbackQuestionTypeNames.RANK_OPTION + "</a>"
+                + "</li>";
     }
 
     @Override

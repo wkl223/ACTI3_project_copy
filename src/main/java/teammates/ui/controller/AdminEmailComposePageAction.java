@@ -23,9 +23,9 @@ public class AdminEmailComposePageAction extends Action {
             data.emailToEdit = logic.getAdminEmailById(idOfEmailToEdit);
             statusToAdmin =
                     data.emailToEdit == null
-                    ? "adminEmailComposePage Page Load : " + Const.StatusMessages.EMAIL_NOT_FOUND
-                    : "adminEmailComposePage Page Load : Edit Email "
-                      + "[" + SanitizationHelper.sanitizeForHtml(data.emailToEdit.getSubject()) + "]";
+                            ? "adminEmailComposePage Page Load : " + Const.StatusMessages.EMAIL_NOT_FOUND
+                            : "adminEmailComposePage Page Load : Edit Email "
+                            + "[" + SanitizationHelper.sanitizeForHtml(data.emailToEdit.getSubject()) + "]";
 
             if (data.emailToEdit == null) {
                 isError = true;

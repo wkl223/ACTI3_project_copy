@@ -105,7 +105,7 @@ public class InstructorFeedbackUnpublishActionTest extends BaseActionTest {
                 Const.ActionURIs.INSTRUCTOR_FEEDBACK_SESSIONS_PAGE, true, "idOfInstructor1OfCourse1");
         assertEquals(expectedDestination, result.getDestinationWithParams());
         assertEquals("Error unpublishing feedback session: Session has already been unpublished.",
-                     result.getStatusMessage());
+                result.getStatusMessage());
         assertTrue(result.isError);
 
         verifyNoTasksAdded(unpublishAction);
@@ -155,7 +155,7 @@ public class InstructorFeedbackUnpublishActionTest extends BaseActionTest {
 
         makeFeedbackSessionPublished(session); //we have to revert to the closed state
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, session.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, session.getFeedbackSessionName()
         };

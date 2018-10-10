@@ -52,10 +52,10 @@ public class InstructorFeedbackEditCopyUiTest extends BaseUiTestCase {
         assertTrue(feedbackEditPage.getFsCopyToModal().isFormSubmissionStatusMessageVisible());
 
         feedbackEditPage.getFsCopyToModal()
-                        .verifyStatusMessage(
-                                 String.format(Const.StatusMessages.FEEDBACK_SESSION_COPY_ALREADYEXISTS,
-                                               feedbackSessionName,
-                                               testData.courses.get("course").getId()));
+                .verifyStatusMessage(
+                        String.format(Const.StatusMessages.FEEDBACK_SESSION_COPY_ALREADYEXISTS,
+                                feedbackSessionName,
+                                testData.courses.get("course").getId()));
 
         // Full HTML verification already done in InstructorFeedbackEditPageUiTest
         feedbackEditPage.verifyHtmlMainContent("/instructorFeedbackEditCopyFail.html");
@@ -74,9 +74,9 @@ public class InstructorFeedbackEditCopyUiTest extends BaseUiTestCase {
         assertTrue(feedbackEditPage.getFsCopyToModal().isFormSubmissionStatusMessageVisible());
         feedbackEditPage.getFsCopyToModal().verifyStatusMessage(
                 "\"" + invalidNameforFs + "\" is not acceptable to TEAMMATES as a/an "
-                + "feedback session name because it contains invalid characters. "
-                + "A/An feedback session name must start with an alphanumeric character, "
-                + "and cannot contain any vertical bar (|) or percent sign (%).");
+                        + "feedback session name because it contains invalid characters. "
+                        + "A/An feedback session name must start with an alphanumeric character, "
+                        + "and cannot contain any vertical bar (|) or percent sign (%).");
 
         feedbackEditPage.getFsCopyToModal().clickCloseButton();
 
@@ -98,10 +98,10 @@ public class InstructorFeedbackEditCopyUiTest extends BaseUiTestCase {
 
     private InstructorFeedbackEditPage getFeedbackEditPage() {
         AppUrl feedbackPageLink = createUrl(Const.ActionURIs.INSTRUCTOR_FEEDBACK_EDIT_PAGE)
-                                             .withUserId(instructorId)
-                                             .withCourseId(courseId)
-                                             .withSessionName(feedbackSessionName)
-                                             .withEnableSessionEditDetails(true);
+                .withUserId(instructorId)
+                .withCourseId(courseId)
+                .withSessionName(feedbackSessionName)
+                .withEnableSessionEditDetails(true);
         return loginAdminToPage(feedbackPageLink, InstructorFeedbackEditPage.class);
     }
 

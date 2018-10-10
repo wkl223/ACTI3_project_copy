@@ -42,7 +42,7 @@ public class InstructorCourseEditSaveActionTest extends BaseActionTest {
         verifyAssumptionFailure();
 
         ______TS("Typical case: edit course name with same name");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.COURSE_NAME, courseName,
                 Const.ParamsNames.COURSE_TIME_ZONE, courseTimeZone
@@ -67,7 +67,7 @@ public class InstructorCourseEditSaveActionTest extends BaseActionTest {
 
         ______TS("Typical case: edit course name with valid characters");
         String courseNameWithValidCharacters = courseName + " valid";
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.COURSE_NAME, courseNameWithValidCharacters,
                 Const.ParamsNames.COURSE_TIME_ZONE, courseTimeZone
@@ -86,7 +86,7 @@ public class InstructorCourseEditSaveActionTest extends BaseActionTest {
 
         ______TS("Failure case: edit course name with empty string");
         courseName = "";
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.COURSE_NAME, courseName,
                 Const.ParamsNames.COURSE_TIME_ZONE, courseTimeZone
@@ -98,8 +98,8 @@ public class InstructorCourseEditSaveActionTest extends BaseActionTest {
 
         // get updated results and compare
         statusMessage = getPopulatedEmptyStringErrorMessage(
-                            FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE_EMPTY_STRING,
-                            FieldValidator.COURSE_NAME_FIELD_NAME, FieldValidator.COURSE_NAME_MAX_LENGTH);
+                FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE_EMPTY_STRING,
+                FieldValidator.COURSE_NAME_FIELD_NAME, FieldValidator.COURSE_NAME_MAX_LENGTH);
         assertEquals(statusMessage, redirectResult.getStatusMessage());
         assertEquals(
                 getPageResultDestination(
@@ -108,7 +108,7 @@ public class InstructorCourseEditSaveActionTest extends BaseActionTest {
 
         ______TS("Failure case: edit course name with non-alphanumeric start character");
         courseName = "@#$@#$";
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.COURSE_NAME, courseName,
                 Const.ParamsNames.COURSE_TIME_ZONE, courseTimeZone
@@ -120,8 +120,8 @@ public class InstructorCourseEditSaveActionTest extends BaseActionTest {
 
         // get updated results and compare
         statusMessage = getPopulatedErrorMessage(FieldValidator.INVALID_NAME_ERROR_MESSAGE,
-                            courseName, FieldValidator.COURSE_NAME_FIELD_NAME,
-                            FieldValidator.REASON_START_WITH_NON_ALPHANUMERIC_CHAR);
+                courseName, FieldValidator.COURSE_NAME_FIELD_NAME,
+                FieldValidator.REASON_START_WITH_NON_ALPHANUMERIC_CHAR);
         assertEquals(statusMessage, redirectResult.getStatusMessage());
         assertEquals(
                 getPageResultDestination(Const.ActionURIs.INSTRUCTOR_COURSE_EDIT_PAGE, true, instructorId, courseId),
@@ -129,7 +129,7 @@ public class InstructorCourseEditSaveActionTest extends BaseActionTest {
 
         ______TS("Failure case: edit course name with name containing | and %");
         courseName = "normal|name%";
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.COURSE_NAME, courseName,
                 Const.ParamsNames.COURSE_TIME_ZONE, courseTimeZone
@@ -141,8 +141,8 @@ public class InstructorCourseEditSaveActionTest extends BaseActionTest {
 
         // get updated results and compare
         statusMessage = getPopulatedErrorMessage(FieldValidator.INVALID_NAME_ERROR_MESSAGE,
-                            courseName, FieldValidator.COURSE_NAME_FIELD_NAME,
-                            FieldValidator.REASON_CONTAINS_INVALID_CHAR);
+                courseName, FieldValidator.COURSE_NAME_FIELD_NAME,
+                FieldValidator.REASON_CONTAINS_INVALID_CHAR);
         assertEquals(statusMessage, redirectResult.getStatusMessage());
         assertEquals(
                 getPageResultDestination(Const.ActionURIs.INSTRUCTOR_COURSE_EDIT_PAGE, true, instructorId, courseId),
@@ -151,7 +151,7 @@ public class InstructorCourseEditSaveActionTest extends BaseActionTest {
         ______TS("Failure case: invalid time zone");
         courseName = CoursesLogic.inst().getCourse(courseId).getName();
         courseTimeZone = "InvalidTimeZone";
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.COURSE_NAME, courseName,
                 Const.ParamsNames.COURSE_TIME_ZONE, courseTimeZone
@@ -161,8 +161,8 @@ public class InstructorCourseEditSaveActionTest extends BaseActionTest {
         redirectResult = getRedirectResult(courseEditSaveAction);
 
         statusMessage = getPopulatedErrorMessage(FieldValidator.TIME_ZONE_ERROR_MESSAGE,
-                            courseTimeZone, FieldValidator.TIME_ZONE_FIELD_NAME,
-                            FieldValidator.REASON_UNAVAILABLE_AS_CHOICE);
+                courseTimeZone, FieldValidator.TIME_ZONE_FIELD_NAME,
+                FieldValidator.REASON_UNAVAILABLE_AS_CHOICE);
         assertEquals(statusMessage, redirectResult.getStatusMessage());
         assertEquals(
                 getPageResultDestination(Const.ActionURIs.INSTRUCTOR_COURSE_EDIT_PAGE, true, instructorId, courseId),
@@ -197,7 +197,7 @@ public class InstructorCourseEditSaveActionTest extends BaseActionTest {
         String courseId = instructor.courseId;
         String courseName = "Typical Course 1 with 2 Evals";
         String courseTimeZone = typicalBundle.courses.get("typicalCourse1").getTimeZone().getId();
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.COURSE_NAME, courseName,
                 Const.ParamsNames.COURSE_TIME_ZONE, courseTimeZone

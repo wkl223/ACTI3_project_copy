@@ -13,6 +13,7 @@ public class StudentProfilePageAction extends Action {
 
     private static final Logger log = Logger.getLogger();
     private static String user;
+
     @Override
     public ActionResult execute() throws EntityDoesNotExistException {
 
@@ -33,7 +34,7 @@ public class StudentProfilePageAction extends Action {
                 + "Viewing details for Student <span class=\"bold\">" + studentEmail;
 
         StudentProfilePageData data =
-                new StudentProfilePageData(account,sessionToken,student);
+                new StudentProfilePageData(account, sessionToken, student);
         return createShowPageResult(Const.ViewURIs.STUDENT_PROFILE_PAGE, data);
 
     }

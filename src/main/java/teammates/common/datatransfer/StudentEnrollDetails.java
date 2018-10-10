@@ -20,7 +20,7 @@ public class StudentEnrollDetails {
     }
 
     public StudentEnrollDetails(StudentUpdateStatus updateStatus, String course,
-            String email, String oldTeam, String newTeam, String oldSection, String newSection) {
+                                String email, String oldTeam, String newTeam, String oldSection, String newSection) {
         this.updateStatus = updateStatus;
         this.course = course;
         this.email = email;

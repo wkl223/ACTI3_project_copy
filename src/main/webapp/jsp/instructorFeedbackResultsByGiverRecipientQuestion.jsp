@@ -9,5 +9,6 @@
 </c:set>
 
 <results:resultsPage title="Session Results" jsIncludes="${jsIncludes}">
-  <results:bySectionPanels isGroupedByQuestion="${false}" isShowingAll="${data.bundle.complete}" isGroupedByTeam="${data.groupedByTeam}" />
+  <results:bySectionPanels isGroupedByQuestion="${false}" isShowingAll="${data.bundle.complete}"
+                           isGroupedByTeam="${data.groupedByTeam}"/>
 </results:resultsPage>

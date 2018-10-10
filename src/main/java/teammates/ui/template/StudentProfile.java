@@ -22,9 +22,9 @@ public class StudentProfile {
         this.email = student.email;
         this.institute = student.institute;
         this.nationality = student.nationality;
-        this.like=student.like;
+        this.like = student.like;
         this.moreInfo = student.moreInfo;
-        this.googleId=student.googleId;
+        this.googleId = student.googleId;
     }
 
     public String getPictureUrl() {
@@ -55,7 +55,15 @@ public class StudentProfile {
         return nationality;
     }
 
-    public String getMoreInfo() { return moreInfo; }
-    public int getLike(){return like;}
-    public String getGoogleId(){return googleId;}
+    public String getMoreInfo() {
+        return moreInfo;
+    }
+
+    public int getLike() {
+        return like;
+    }
+
+    public String getGoogleId() {
+        return googleId;
+    }
 }

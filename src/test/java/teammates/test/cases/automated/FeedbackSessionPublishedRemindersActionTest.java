@@ -31,8 +31,8 @@ public class FeedbackSessionPublishedRemindersActionTest extends BaseAutomatedAc
         verifySpecifiedTasksAdded(action, Const.TaskQueue.FEEDBACK_SESSION_PUBLISHED_EMAIL_QUEUE_NAME, 2);
 
         ______TS("1 session published by moving automated publish time, "
-                 + "1 session published similarly with disabled published reminder, "
-                 + "1 session published manually");
+                + "1 session published similarly with disabled published reminder, "
+                + "1 session published manually");
 
         // Publish session by moving automated publish time
 

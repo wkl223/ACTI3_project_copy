@@ -24,13 +24,13 @@ public class InstructorCourseStudentDetailsPageAction extends Action {
         StudentAttributes student = logic.getStudentForEmail(courseId, studentEmail);
         if (student == null) {
             statusToUser.add(new StatusMessage(Const.StatusMessages.STUDENT_NOT_FOUND_FOR_COURSE_DETAILS,
-                                               StatusMessageColor.DANGER));
+                    StatusMessageColor.DANGER));
             isError = true;
             return createRedirectResult(Const.ActionURIs.INSTRUCTOR_HOME_PAGE);
         }
         InstructorAttributes instructor = logic.getInstructorForGoogleId(courseId, account.googleId);
         gateKeeper.verifyAccessible(instructor, logic.getCourse(courseId), student.section,
-                                    Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_STUDENT_IN_SECTIONS);
+                Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_STUDENT_IN_SECTIONS);
 
         boolean hasSection = logic.hasIndicatedSections(courseId);
 
@@ -39,11 +39,11 @@ public class InstructorCourseStudentDetailsPageAction extends Action {
 
         InstructorCourseStudentDetailsPageData data =
                 new InstructorCourseStudentDetailsPageData(account, sessionToken, student, studentProfile,
-                                                           hasSection);
+                        hasSection);
 
         statusToAdmin = "instructorCourseStudentDetails Page Load<br>"
-                        + "Viewing details for Student <span class=\"bold\">" + studentEmail
-                        + "</span> in Course <span class=\"bold\">[" + courseId + "]</span>";
+                + "Viewing details for Student <span class=\"bold\">" + studentEmail
+                + "</span> in Course <span class=\"bold\">[" + courseId + "]</span>";
 
         return createShowPageResult(Const.ViewURIs.INSTRUCTOR_COURSE_STUDENT_DETAILS, data);
 
@@ -52,7 +52,7 @@ public class InstructorCourseStudentDetailsPageAction extends Action {
     private StudentProfileAttributes loadStudentProfile(StudentAttributes student, InstructorAttributes currentInstructor) {
         StudentProfileAttributes studentProfile = null;
         boolean isInstructorAllowedToViewStudent = currentInstructor.isAllowedForPrivilege(student.section,
-                                                        Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_STUDENT_IN_SECTIONS);
+                Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_STUDENT_IN_SECTIONS);
         boolean isStudentWithProfile = !student.googleId.isEmpty();
         if (isInstructorAllowedToViewStudent && isStudentWithProfile) {
             studentProfile = logic.getStudentProfile(student.googleId);
@@ -63,14 +63,14 @@ public class InstructorCourseStudentDetailsPageAction extends Action {
 
         // this means that the user is returning to the page and is not the first time
         boolean hasExistingStatus = !statusToUser.isEmpty()
-                                        || session.getAttribute(Const.ParamsNames.STATUS_MESSAGES_LIST) != null;
+                || session.getAttribute(Const.ParamsNames.STATUS_MESSAGES_LIST) != null;
         if (!isStudentWithProfile && !hasExistingStatus) {
             statusToUser.add(new StatusMessage(Const.StatusMessages.STUDENT_NOT_JOINED_YET_FOR_RECORDS,
-                                               StatusMessageColor.WARNING));
+                    StatusMessageColor.WARNING));
         }
         if (!isInstructorAllowedToViewStudent && !hasExistingStatus) {
             statusToUser.add(new StatusMessage(Const.StatusMessages.STUDENT_PROFILE_UNACCESSIBLE_TO_INSTRUCTOR,
-                                               StatusMessageColor.WARNING));
+                    StatusMessageColor.WARNING));
         }
         return null;
     }

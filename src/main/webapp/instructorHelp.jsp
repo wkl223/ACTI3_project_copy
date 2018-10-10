@@ -11,8 +11,10 @@
   <div class="contentHolder">
     <p>
       Have questions about how to use TEAMMATES? This page answers some frequently asked questions.<br>
-      If you are new to TEAMMATES, our <a href="/gettingStarted.jsp">Getting Started</a> guide will introduce you to the basic functions of TEAMMATES.<br>
-      If you have any remaining questions, don't hesitate to <a href="mailto:teammates@comp.nus.edu.sg">email us</a>. We respond within 24 hours.
+      If you are new to TEAMMATES, our <a href="/gettingStarted.jsp">Getting Started</a> guide will introduce you to the
+      basic functions of TEAMMATES.<br>
+      If you have any remaining questions, don't hesitate to <a href="mailto:teammates@comp.nus.edu.sg">email us</a>. We
+      respond within 24 hours.
     </p>
     <div id="topics" style="display: block;">
       <p>
@@ -36,8 +38,8 @@
     <div class="row padding-top-55px">
       <div class="col-sm-6 col-sm-offset-3">
         <div class="input-group input-group-lg">
-            <input type="text" class="form-control" placeholder="How can we help?" id="searchQuery" autocomplete="off">
-            <span class="input-group-btn">
+          <input type="text" class="form-control" placeholder="How can we help?" id="searchQuery" autocomplete="off">
+          <span class="input-group-btn">
               <button id="search" class="btn btn-default" type="submit">
                 <span class="glyphicon glyphicon-search"></span>
               </button>

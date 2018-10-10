@@ -39,7 +39,7 @@ public class InstructorFeedbackPreviewAsStudentActionTest extends BaseActionTest
         String courseId = student.course;
         String previewAsEmail = student.email;
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackSessionName,
                 Const.ParamsNames.PREVIEWAS, previewAsEmail
@@ -55,10 +55,10 @@ public class InstructorFeedbackPreviewAsStudentActionTest extends BaseActionTest
 
         AssertHelper.assertLogMessageEquals(
                 "TEAMMATESLOG|||instructorFeedbackPreviewAsStudent|||instructorFeedbackPreviewAsStudent"
-                + "|||true|||Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||instr1@course1.tmt|||"
-                + "Preview feedback session as student (" + student.email + ")<br>"
-                + "Session Name: First feedback session<br>Course ID: idOfTypicalCourse1|||"
-                + "/page/instructorFeedbackPreviewAsStudent",
+                        + "|||true|||Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||instr1@course1.tmt|||"
+                        + "Preview feedback session as student (" + student.email + ")<br>"
+                        + "Session Name: First feedback session<br>Course ID: idOfTypicalCourse1|||"
+                        + "/page/instructorFeedbackPreviewAsStudent",
                 paia.getLogMessage());
 
         gaeSimulation.loginAsInstructor(idOfInstructorHelper);
@@ -69,7 +69,7 @@ public class InstructorFeedbackPreviewAsStudentActionTest extends BaseActionTest
         courseId = "idOfTypicalCourse1";
         previewAsEmail = student.email;
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackSessionName,
                 Const.ParamsNames.PREVIEWAS, previewAsEmail
@@ -80,7 +80,7 @@ public class InstructorFeedbackPreviewAsStudentActionTest extends BaseActionTest
             showPageResult = getShowPageResult(paia);
         } catch (UnauthorizedAccessException e) {
             assertEquals("Feedback session [First feedback session] is not accessible to instructor ["
-                         + instructorHelper.email + "] for privilege [canmodifysession]", e.getMessage());
+                    + instructorHelper.email + "] for privilege [canmodifysession]", e.getMessage());
         }
 
         gaeSimulation.loginAsInstructor(idOfInstructor);
@@ -89,7 +89,7 @@ public class InstructorFeedbackPreviewAsStudentActionTest extends BaseActionTest
 
         previewAsEmail = "non-exIstentEmail@gsail.tmt";
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackSessionName,
                 Const.ParamsNames.PREVIEWAS, previewAsEmail
@@ -101,7 +101,7 @@ public class InstructorFeedbackPreviewAsStudentActionTest extends BaseActionTest
             signalFailureToDetectException();
         } catch (EntityNotFoundException enfe) {
             assertEquals("Student Email " + previewAsEmail + " does not exist in " + courseId + ".",
-                         enfe.getMessage());
+                    enfe.getMessage());
         }
     }
 
@@ -116,7 +116,7 @@ public class InstructorFeedbackPreviewAsStudentActionTest extends BaseActionTest
         FeedbackSessionAttributes session = typicalBundle.feedbackSessions.get("session1InCourse1");
         StudentAttributes student = typicalBundle.students.get("student1InCourse1");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, session.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, session.getFeedbackSessionName(),
                 Const.ParamsNames.PREVIEWAS, student.email

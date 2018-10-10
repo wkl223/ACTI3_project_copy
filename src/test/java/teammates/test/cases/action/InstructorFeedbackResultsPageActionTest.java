@@ -111,7 +111,7 @@ public class InstructorFeedbackResultsPageActionTest extends BaseActionTest {
         ______TS("Failure case: no params");
 
         this.verifyAssumptionFailure();
-        this.verifyAssumptionFailure(new String[] {
+        this.verifyAssumptionFailure(new String[]{
                 Const.ParamsNames.COURSE_ID, session.getCourseId()
         });
 
@@ -331,7 +331,7 @@ public class InstructorFeedbackResultsPageActionTest extends BaseActionTest {
     protected void testAccessControl() throws Exception {
         FeedbackSessionAttributes fs = typicalBundle.feedbackSessions.get("session1InCourse1");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName()
         };

@@ -4,26 +4,21 @@
     "TEAMMATESEMAILLOG|||email1@email.com|||subject1 subject2 |||id01 keyword3",
     "TEAMMATESEMAILLOG|||email1@email.com|||subject1 subject3|||id02 keyword2 keyword4",
     "TEAMMATESEMAILLOG|||email3@email.com|||subject1 subject2 subject3|||id03 keyword1 keyword3",
-
     "TEAMMATESEMAILLOG|||email1@test.tmt|||subject1 subject2 subject3|||id04 keyword1 keyword3",
     "TEAMMATESEMAILLOG|||email2@test.tmt|||subject1 subject3|||id05 keyword2",
     "TEAMMATESEMAILLOG|||email3@test.tmt|||subject1 subject2 subject3|||id06 keyword1",
-
     "Not Desired Format"
   ],
   [
     "TEAMMATESEMAILLOG|||email2@email.com|||subject1|||id10 keyword2 keyword4",
     "TEAMMATESEMAILLOG|||email4@email.com|||subject1 subject2|||id11 keyword1 keyword2",
-
     "TEAMMATESEMAILLOG|||email1@test.tmt|||subject1 subject2 subject3|||id12 keyword1 keyword3",
     "TEAMMATESEMAILLOG|||email2@test.tmt|||subject1 subject3|||id13 keyword4",
-
     "Not Desired Format"
   ],
   [
     "TEAMMATESEMAILLOG|||email1@email.com|||subject3|||id20 keyword3 keyword1",
     "TEAMMATESEMAILLOG|||email4@email.com|||subject1 subject2|||id21 keyword2 keyword3",
-
     "TEAMMATESEMAILLOG|||email2@email.tmt|||subject1|||id22 keyword3 keyword1"
   ],
   [

@@ -34,17 +34,17 @@ public class FeedbackRubricQuestionDetailsTest extends BaseTestCase {
     public void testGetRubricWeightsForEachCell_allChoicesNull_weightsListShouldBeEmpty() {
         FeedbackRubricQuestionDetails rubricDetails = new FeedbackRubricQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "RUBRIC" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "Rubric question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_COLS, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_ROWS, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-0", new String[] {"SubQn-1"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-1", new String[] {"SubQn-2"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-0", new String[] { "1.50" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-1", new String[] { "2.50" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-0", new String[] { "1.00" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-1", new String[] { "2.00" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"RUBRIC"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"Rubric question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_COLS, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_ROWS, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-0", new String[]{"SubQn-1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-1", new String[]{"SubQn-2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-0", new String[]{"1.50"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-1", new String[]{"2.50"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-0", new String[]{"1.00"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-1", new String[]{"2.00"});
 
         assertTrue(rubricDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.RUBRIC));
         assertTrue(rubricDetails.hasAssignedWeights());
@@ -58,17 +58,17 @@ public class FeedbackRubricQuestionDetailsTest extends BaseTestCase {
     public void testGetRubricWeightsForEachCell_allSubQuestionsNull_weightsListShouldBeEmpty() {
         FeedbackRubricQuestionDetails rubricDetails = new FeedbackRubricQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "RUBRIC" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "Rubric question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_COLS, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_ROWS, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-0", new String[] {"Choice-1"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-1", new String[] {"Choice-2"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-0", new String[] { "1.50" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-1", new String[] { "2.50" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-0", new String[] { "1.00" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-1", new String[] { "2.00" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"RUBRIC"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"Rubric question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_COLS, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_ROWS, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-0", new String[]{"Choice-1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-1", new String[]{"Choice-2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-0", new String[]{"1.50"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-1", new String[]{"2.50"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-0", new String[]{"1.00"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-1", new String[]{"2.00"});
 
         assertTrue(rubricDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.RUBRIC));
         assertTrue(rubricDetails.hasAssignedWeights());
@@ -82,19 +82,19 @@ public class FeedbackRubricQuestionDetailsTest extends BaseTestCase {
     public void testGetRubricWeightsForEachCell_emptySubQuestion_weightForInValidSubQestionShouldNotBeParsed() {
         FeedbackRubricQuestionDetails rubricDetails = new FeedbackRubricQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "RUBRIC" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "Rubric question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_COLS, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_ROWS, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-0", new String[] {"       "});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-1", new String[] {"SubQn-2"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-0", new String[] {" Choice-1"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-1", new String[] {"Choice-2"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-0", new String[] { "1.50" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-1", new String[] { "2.50" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-0", new String[] { "1.00" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-1", new String[] { "2.00" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"RUBRIC"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"Rubric question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_COLS, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_ROWS, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-0", new String[]{"       "});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-1", new String[]{"SubQn-2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-0", new String[]{" Choice-1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-1", new String[]{"Choice-2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-0", new String[]{"1.50"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-1", new String[]{"2.50"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-0", new String[]{"1.00"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-1", new String[]{"2.00"});
 
         assertTrue(rubricDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.RUBRIC));
         assertTrue(rubricDetails.hasAssignedWeights());
@@ -110,15 +110,15 @@ public class FeedbackRubricQuestionDetailsTest extends BaseTestCase {
     public void testGetRubricWeightsForEachCell_allWeightsNull_weightListShouldBeEmpty() {
         FeedbackRubricQuestionDetails rubricDetails = new FeedbackRubricQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "RUBRIC" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "Rubric question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_COLS, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_ROWS, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-0", new String[] {"SubQn-1"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-1", new String[] {"SubQn-2"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-0", new String[] {" Choice-1"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-1", new String[] {"Choice-2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"RUBRIC"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"Rubric question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_COLS, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_ROWS, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-0", new String[]{"SubQn-1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-1", new String[]{"SubQn-2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-0", new String[]{" Choice-1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-1", new String[]{"Choice-2"});
 
         assertTrue(rubricDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.RUBRIC));
         assertTrue(rubricDetails.hasAssignedWeights());
@@ -130,19 +130,19 @@ public class FeedbackRubricQuestionDetailsTest extends BaseTestCase {
     public void testGetRubricWeightsForEachCell_invalidWeightPassed_invalidWeightShouldNotBeParsed() {
         FeedbackRubricQuestionDetails rubricDetails = new FeedbackRubricQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "RUBRIC" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "Rubric question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_COLS, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_ROWS, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-0", new String[] {"SubQn-1"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-1", new String[] {"SubQn-2"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-0", new String[] {" Choice-1"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-1", new String[] {"Choice-2"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-0", new String[] {"Invalid"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-1", new String[] { "2.50" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-0", new String[] { "1.00" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-1", new String[] { "2.00" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"RUBRIC"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"Rubric question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_COLS, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_ROWS, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-0", new String[]{"SubQn-1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-1", new String[]{"SubQn-2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-0", new String[]{" Choice-1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-1", new String[]{"Choice-2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-0", new String[]{"Invalid"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-1", new String[]{"2.50"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-0", new String[]{"1.00"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-1", new String[]{"2.00"});
 
         assertTrue(rubricDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.RUBRIC));
         assertTrue(rubricDetails.hasAssignedWeights());
@@ -161,19 +161,19 @@ public class FeedbackRubricQuestionDetailsTest extends BaseTestCase {
     public void testGetRubricWeightsForEachCell_weightsDisabledValidWeights_weightListShouldBeEmpty() {
         FeedbackRubricQuestionDetails rubricDetails = new FeedbackRubricQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "RUBRIC" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "Rubric question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_COLS, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_ROWS, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHTS_ASSIGNED, new String[] { "off" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-0", new String[] {"SubQn-1"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-1", new String[] {"SubQn-2"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-0", new String[] {" Choice-1"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-1", new String[] {"Choice-2"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-0", new String[] { "1.50" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-1", new String[] { "2.50" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-0", new String[] { "1.00" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-1", new String[] { "2.00" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"RUBRIC"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"Rubric question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_COLS, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_ROWS, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHTS_ASSIGNED, new String[]{"off"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-0", new String[]{"SubQn-1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-1", new String[]{"SubQn-2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-0", new String[]{" Choice-1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-1", new String[]{"Choice-2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-0", new String[]{"1.50"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-1", new String[]{"2.50"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-0", new String[]{"1.00"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-1", new String[]{"2.00"});
 
         assertTrue(rubricDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.RUBRIC));
         assertFalse(rubricDetails.hasAssignedWeights());
@@ -185,19 +185,19 @@ public class FeedbackRubricQuestionDetailsTest extends BaseTestCase {
     public void testGetRubricWeightsForEachCell_weightsEnabledValidWeights_weightsListShouldHaveCorrectWeights() {
         FeedbackRubricQuestionDetails rubricDetails = new FeedbackRubricQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "RUBRIC" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "Rubric question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_COLS, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_ROWS, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-0", new String[] {"SubQn-1"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-1", new String[] {"SubQn-2"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-0", new String[] {" Choice-1"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-1", new String[] {"Choice-2"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-0", new String[] { "1.50" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-1", new String[] { "2.50" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-0", new String[] { "1.00" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-1", new String[] { "2.00" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"RUBRIC"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"Rubric question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_COLS, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_ROWS, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-0", new String[]{"SubQn-1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-1", new String[]{"SubQn-2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-0", new String[]{" Choice-1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-1", new String[]{"Choice-2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-0", new String[]{"1.50"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-1", new String[]{"2.50"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-0", new String[]{"1.00"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-1", new String[]{"2.00"});
 
         assertTrue(rubricDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.RUBRIC));
         assertTrue(rubricDetails.hasAssignedWeights());
@@ -216,18 +216,18 @@ public class FeedbackRubricQuestionDetailsTest extends BaseTestCase {
     public void testValidateQuestionDetails_invalidWeightListSize_errorReturned() {
         FeedbackRubricQuestionDetails rubricDetails = new FeedbackRubricQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "RUBRIC" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "Rubric question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_COLS, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_ROWS, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-0", new String[] {"SubQn-1"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-1", new String[] {"SubQn-2"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-0", new String[] {" Choice-1"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-1", new String[] {"Choice-2"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-0", new String[] { "1.50" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-0", new String[] { "1.00" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-1", new String[] { "2.00" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"RUBRIC"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"Rubric question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_COLS, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_ROWS, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-0", new String[]{"SubQn-1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-1", new String[]{"SubQn-2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-0", new String[]{" Choice-1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-1", new String[]{"Choice-2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-0", new String[]{"1.50"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-0", new String[]{"1.00"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-1", new String[]{"2.00"});
 
         assertTrue(rubricDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.RUBRIC));
         assertTrue(rubricDetails.hasAssignedWeights());
@@ -240,19 +240,19 @@ public class FeedbackRubricQuestionDetailsTest extends BaseTestCase {
     public void testValidateQuestionDetails_validWeightListSize_errorListShouldBeEmpty() {
         FeedbackRubricQuestionDetails rubricDetails = new FeedbackRubricQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "RUBRIC" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "Rubric question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_COLS, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_ROWS, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-0", new String[] {"SubQn-1"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-1", new String[] {"SubQn-2"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-0", new String[] {" Choice-1"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-1", new String[] {"Choice-2"});
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-0", new String[] { "1.50" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-1", new String[] { "2.50" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-0", new String[] { "1.00" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-1", new String[] { "2.00" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"RUBRIC"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"Rubric question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_COLS, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_NUM_ROWS, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-0", new String[]{"SubQn-1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_SUBQUESTION + "-1", new String[]{"SubQn-2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-0", new String[]{" Choice-1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_CHOICE + "-1", new String[]{"Choice-2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-0", new String[]{"1.50"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-0-1", new String[]{"2.50"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-0", new String[]{"1.00"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_RUBRIC_WEIGHT + "-1-1", new String[]{"2.00"});
 
         assertTrue(rubricDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.RUBRIC));
         assertTrue(rubricDetails.hasAssignedWeights());

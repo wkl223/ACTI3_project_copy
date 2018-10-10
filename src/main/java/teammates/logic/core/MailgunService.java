@@ -33,8 +33,8 @@ public class MailgunService extends EmailSenderService {
         FormDataMultiPart formData = new FormDataMultiPart();
 
         String sender = wrapper.getSenderName() == null || wrapper.getSenderName().isEmpty()
-                        ? wrapper.getSenderEmail()
-                        : wrapper.getSenderName() + " <" + wrapper.getSenderEmail() + ">";
+                ? wrapper.getSenderEmail()
+                : wrapper.getSenderName() + " <" + wrapper.getSenderEmail() + ">";
         formData.field("from", sender);
 
         formData.field("to", wrapper.getRecipient());

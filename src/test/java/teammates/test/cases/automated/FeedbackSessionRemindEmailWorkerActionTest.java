@@ -45,7 +45,7 @@ public class FeedbackSessionRemindEmailWorkerActionTest extends BaseAutomatedAct
         // re-read from Datastore to update the respondents list
         session1 = fsLogic.getFeedbackSession(session1.getFeedbackSessionName(), session1.getCourseId());
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 ParamsNames.SUBMISSION_FEEDBACK, session1.getFeedbackSessionName(),
                 ParamsNames.SUBMISSION_COURSE, session1.getCourseId(),
                 ParamsNames.USER_ID, instructor1.getGoogleId()
@@ -79,8 +79,8 @@ public class FeedbackSessionRemindEmailWorkerActionTest extends BaseAutomatedAct
         for (TaskWrapper task : tasksAdded) {
             Map<String, String[]> paramMap = task.getParamMap();
             assertEquals(String.format(EmailType.FEEDBACK_SESSION_REMINDER.getSubject(), courseName,
-                                       session1.getSessionName()),
-                         paramMap.get(ParamsNames.EMAIL_SUBJECT)[0]);
+                    session1.getSessionName()),
+                    paramMap.get(ParamsNames.EMAIL_SUBJECT)[0]);
 
             String header = "The email below has been sent to students of course: [" + session1.getCourseId() + "]";
             String content = paramMap.get(ParamsNames.EMAIL_CONTENT)[0];

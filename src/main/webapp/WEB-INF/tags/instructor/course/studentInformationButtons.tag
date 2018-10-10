@@ -16,7 +16,7 @@
 
     <form method="post" action="<%=Const.ActionURIs.INSTRUCTOR_COURSE_STUDENT_LIST_DOWNLOAD%>" style="display:inline;">
       <button id="button_download" type="submit" class="btn btn-primary" value="Delete All Students"
-          name="<%=Const.ParamsNames.FEEDBACK_RESULTS_UPLOADDOWNLOADBUTTON%>">
+              name="<%=Const.ParamsNames.FEEDBACK_RESULTS_UPLOADDOWNLOADBUTTON%>">
         <span class="glyphicon glyphicon-download-alt"></span>
         Download Student List
       </button>
@@ -43,6 +43,6 @@
       <input type="hidden" name="<%=Const.ParamsNames.CSV_TO_HTML_TABLE_NEEDED%>" value="true">
     </form>
 
-    <course:studentTableModal />
+    <course:studentTableModal/>
   </div>
 </div>

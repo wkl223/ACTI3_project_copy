@@ -29,12 +29,12 @@ public class InstructorFeedbackQuestionVisibilityMessageActionTest extends BaseA
 
         FeedbackSessionAttributes fs = typicalBundle.feedbackSessions.get("session1InCourse1");
         FeedbackQuestionAttributes fq = FeedbackQuestionsLogic
-                                            .inst()
-                                            .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 1);
+                .inst()
+                .getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 1);
 
         ______TS("Typical Case - max -> constructed params");
 
-        String[] typicalParams = new String[] {
+        String[] typicalParams = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.FEEDBACK_QUESTION_GIVERTYPE, FeedbackParticipantType.STUDENTS.toString(),
@@ -57,7 +57,7 @@ public class InstructorFeedbackQuestionVisibilityMessageActionTest extends BaseA
 
         ______TS("Custom Case Students - constructed params");
 
-        String[] customParams = new String[] {
+        String[] customParams = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.FEEDBACK_QUESTION_GIVERTYPE, FeedbackParticipantType.STUDENTS.toString(),
@@ -84,7 +84,7 @@ public class InstructorFeedbackQuestionVisibilityMessageActionTest extends BaseA
         fs = typicalBundle.feedbackSessions.get("session2InCourse1");
         fq = FeedbackQuestionsLogic.inst().getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 1);
 
-        customParams = new String[] {
+        customParams = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.FEEDBACK_QUESTION_GIVERTYPE, FeedbackParticipantType.TEAMS.toString(),
@@ -111,7 +111,7 @@ public class InstructorFeedbackQuestionVisibilityMessageActionTest extends BaseA
         fs = typicalBundle.feedbackSessions.get("gracePeriodSession");
         fq = FeedbackQuestionsLogic.inst().getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 1);
 
-        customParams = new String[] {
+        customParams = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.FEEDBACK_QUESTION_GIVERTYPE, FeedbackParticipantType.INSTRUCTORS.toString(),
@@ -143,7 +143,7 @@ public class InstructorFeedbackQuestionVisibilityMessageActionTest extends BaseA
         fs = typicalBundle.feedbackSessions.get("session1InCourse2");
         fq = FeedbackQuestionsLogic.inst().getFeedbackQuestion(fs.getFeedbackSessionName(), fs.getCourseId(), 1);
 
-        String[] params = new String[] {
+        String[] params = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.FEEDBACK_QUESTION_GIVERTYPE, FeedbackParticipantType.INSTRUCTORS.toString(),
@@ -166,7 +166,7 @@ public class InstructorFeedbackQuestionVisibilityMessageActionTest extends BaseA
 
         ______TS("Null participant list - constructed params");
 
-        params = new String[] {
+        params = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.FEEDBACK_QUESTION_GIVERTYPE, FeedbackParticipantType.INSTRUCTORS.toString(),

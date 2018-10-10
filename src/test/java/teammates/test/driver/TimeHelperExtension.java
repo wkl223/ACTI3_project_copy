@@ -50,6 +50,7 @@ public final class TimeHelperExtension {
 
     /**
      * Returns an java.time.Instant object that is offset by a number of minutes from now.
+     *
      * @param offsetInMinutes number of minutes offset by (integer).
      * @return java.time.Instant offset by offsetInMinutes minutes from now.
      */
@@ -59,6 +60,7 @@ public final class TimeHelperExtension {
 
     /**
      * Returns an java.time.Instant object that is offset by a number of hours from now.
+     *
      * @param offsetInHours number of hours offset by (integer).
      * @return java.time.Instant offset by offsetInHours hours from now.
      */
@@ -69,8 +71,9 @@ public final class TimeHelperExtension {
     /**
      * Returns an java.time.Instant object that is offset by a number of days from now,
      * and adjusted to the start of the day in admin's time zone.
+     *
      * @param dayOffset number of days offset by (integer).
-     * @return          java.time.Instant with appropriate offset from now
+     * @return java.time.Instant with appropriate offset from now
      */
     public static Instant getBeginOfTheDayOffsetNowInAdminTimeZone(int dayOffset) {
         return TimeHelper.getInstantDaysOffsetFromNow(dayOffset).atZone(Const.SystemParams.ADMIN_TIME_ZONE)
@@ -80,8 +83,9 @@ public final class TimeHelperExtension {
     /**
      * Returns an java.time.Instant object that is offset by a number of days from now,
      * and adjusted to the end of the day in admin's time zone.
+     *
      * @param dayOffset number of days offset by (integer).
-     * @return          java.time.Instant with appropriate offset from now
+     * @return java.time.Instant with appropriate offset from now
      */
     public static Instant getEndOfTheDayOffsetNowInAdminTimeZone(int dayOffset) {
         return TimeHelper.getInstantDaysOffsetFromNow(dayOffset).atZone(Const.SystemParams.ADMIN_TIME_ZONE)

@@ -20,7 +20,7 @@ import teammates.common.util.StatusMessageColor;
 
 /**
  * Action: saves the file information of the profile picture
- *         that was just uploaded.
+ * that was just uploaded.
  */
 public class InstructorFeedbackResponseCommentUploadAction extends Action {
     /*

@@ -57,7 +57,7 @@ public class InstructorFeedbackResponseCommentDeleteActionTest extends BaseActio
 
         verifyAssumptionFailure();
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, feedbackResponseComment.courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackResponseComment.feedbackSessionName,
                 Const.ParamsNames.FEEDBACK_RESPONSE_COMMENT_TEXT, "Comment to first response",
@@ -68,7 +68,7 @@ public class InstructorFeedbackResponseCommentDeleteActionTest extends BaseActio
 
         ______TS("Typical successful case");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, feedbackResponseComment.courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackResponseComment.feedbackSessionName,
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID, feedbackResponseComment.feedbackResponseId,
@@ -90,7 +90,7 @@ public class InstructorFeedbackResponseCommentDeleteActionTest extends BaseActio
 
         ______TS("Non-existent feedback response comment");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, feedbackResponseComment.courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackResponseComment.feedbackSessionName,
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID, feedbackResponseComment.feedbackResponseId,
@@ -119,13 +119,13 @@ public class InstructorFeedbackResponseCommentDeleteActionTest extends BaseActio
 
         giverEmail = "student2InCourse1@gmail.tmt";
         feedbackResponse = feedbackResponsesDb.getFeedbackResponse(feedbackQuestion.getId(), giverEmail,
-                                                                   receiverEmail);
+                receiverEmail);
         feedbackResponseComment = typicalBundle.feedbackResponseComments.get("comment1FromT1C1ToR1Q2S1C1");
         feedbackResponseComment = feedbackResponseCommentsDb.getFeedbackResponseComment(feedbackResponse.getId(),
                 feedbackResponseComment.commentGiver, feedbackResponseComment.createdAt);
         assertNotNull("response comment not found", feedbackResponseComment);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, feedbackResponseComment.courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackResponseComment.feedbackSessionName,
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID, feedbackResponseComment.feedbackResponseId,
@@ -167,7 +167,7 @@ public class InstructorFeedbackResponseCommentDeleteActionTest extends BaseActio
         comment = frcDb.getFeedbackResponseComment(response.getId(), comment.commentGiver, comment.createdAt);
         comment.feedbackResponseId = response.getId();
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.FEEDBACK_RESPONSE_COMMENT_TEXT, "",

@@ -63,8 +63,8 @@ public class FeedbackResponse extends BaseEntity {
     }
 
     public FeedbackResponse(String feedbackSessionName, String courseId,
-            String feedbackQuestionId, FeedbackQuestionType feedbackQuestionType,
-            String giverEmail, String giverSection, String recipient, String recipientSection, Text answer) {
+                            String feedbackQuestionId, FeedbackQuestionType feedbackQuestionType,
+                            String giverEmail, String giverSection, String recipient, String recipientSection, Text answer) {
         this.feedbackSessionName = feedbackSessionName;
         this.courseId = courseId;
         this.feedbackQuestionId = feedbackQuestionId;

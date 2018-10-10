@@ -43,8 +43,8 @@ public abstract class FeedbackQuestionDetails {
             int totalNumRecipients, FeedbackResponseDetails existingResponseDetails, StudentAttributes student);
 
     public abstract String getQuestionWithoutExistingResponseSubmissionFormHtml(
-                                boolean sessionIsOpen, int qnIdx, int responseIdx, String courseId,
-                                int totalNumRecipients, StudentAttributes student);
+            boolean sessionIsOpen, int qnIdx, int responseIdx, String courseId,
+            int totalNumRecipients, StudentAttributes student);
 
     public abstract String getQuestionSpecificEditFormHtml(int questionNumber);
 
@@ -66,7 +66,9 @@ public abstract class FeedbackQuestionDetails {
 
     public abstract String getCsvHeader();
 
-    /** Gets the header for detailed responses in csv format. Override in child classes if necessary. */
+    /**
+     * Gets the header for detailed responses in csv format. Override in child classes if necessary.
+     */
     public String getCsvDetailedResponsesHeader(int noOfInstructorComments) {
         StringBuilder header = new StringBuilder(1000);
         String headerString = "Team" + "," + "Giver's Full Name" + ","
@@ -154,9 +156,10 @@ public abstract class FeedbackQuestionDetails {
 
     /**
      * Validates the question details.
+     *
      * @param courseId courseId of the question
      * @return A {@code List<String>} of error messages (to show as status message to user) if any, or an
-     *         empty list if question details are valid.
+     * empty list if question details are valid.
      */
     public abstract List<String> validateQuestionDetails(String courseId);
 
@@ -166,7 +169,7 @@ public abstract class FeedbackQuestionDetails {
      *
      * @param responses - The {@code List<FeedbackResponseAttributes>} for the question to be validated
      * @return A {@code List<String>} of error messages (to show as status message to user) if any, or an
-     *         empty list if question responses are valid.
+     * empty list if question responses are valid.
      */
     public abstract List<String> validateResponseAttributes(List<FeedbackResponseAttributes> responses, int numRecipients);
 
@@ -175,6 +178,7 @@ public abstract class FeedbackQuestionDetails {
      * Validates visibility options as well.
      *
      * <p>Override in Feedback*QuestionDetails if necessary.
+     *
      * @return error message detailing the error, or an empty string if valid.
      */
     public abstract String validateGiverRecipientVisibility(FeedbackQuestionAttributes feedbackQuestionAttributes);
@@ -190,7 +194,7 @@ public abstract class FeedbackQuestionDetails {
     public static FeedbackQuestionDetails createQuestionDetails(Map<String, String[]> requestParameters,
                                                                 FeedbackQuestionType questionType) {
         String questionText = HttpRequestHelper.getValueFromParamMap(requestParameters,
-                                                                     Const.ParamsNames.FEEDBACK_QUESTION_TEXT);
+                Const.ParamsNames.FEEDBACK_QUESTION_TEXT);
         Assumption.assertNotNull("Null question text", questionText);
         Assumption.assertNotEmpty("Empty question text", questionText);
 
@@ -204,8 +208,8 @@ public abstract class FeedbackQuestionDetails {
                                           FeedbackSessionResultsBundle bundle,
                                           FeedbackQuestionAttributes question) {
         return "<i>"
-               + SanitizationHelper.sanitizeForHtml(getNoResponseText(giverEmail, recipientEmail, bundle, question))
-               + "</i>";
+                + SanitizationHelper.sanitizeForHtml(getNoResponseText(giverEmail, recipientEmail, bundle, question))
+                + "</i>";
     }
 
     /**
@@ -214,7 +218,7 @@ public abstract class FeedbackQuestionDetails {
     public boolean shouldShowNoResponseText(FeedbackQuestionAttributes question) {
         // we do not show all possible responses
         return question.recipientType != FeedbackParticipantType.STUDENTS
-            && question.recipientType != FeedbackParticipantType.TEAMS;
+                && question.recipientType != FeedbackParticipantType.TEAMS;
     }
 
     public String getNoResponseTextInCsv(String giverEmail, String recipientEmail,
@@ -235,7 +239,9 @@ public abstract class FeedbackQuestionDetails {
         return Const.INSTRUCTOR_FEEDBACK_RESULTS_MISSING_RESPONSE;
     }
 
-    /** Checks if the question has been skipped. */
+    /**
+     * Checks if the question has been skipped.
+     */
     public boolean isQuestionSkipped(String[] answer) {
         if (answer == null) {
             return true;

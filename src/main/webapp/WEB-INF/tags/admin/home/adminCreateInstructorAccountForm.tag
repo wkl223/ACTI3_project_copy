@@ -22,11 +22,13 @@
   <br>
   <div>
     <label class="label-control">Institution: </label>
-    <input class="form-control addInstructorFormControl" type="text" id="instructorInstitution" value="${instructorInstitution}">
+    <input class="form-control addInstructorFormControl" type="text" id="instructorInstitution"
+           value="${instructorInstitution}">
   </div>
   <br>
 
   <div>
-    <button class="btn btn-primary addInstructorFormControl addInstructorBtn" id="btnAddInstructor">Add Instructor</button>
+    <button class="btn btn-primary addInstructorFormControl addInstructorBtn" id="btnAddInstructor">Add Instructor
+    </button>
   </div>
 </div>

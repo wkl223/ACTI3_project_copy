@@ -22,9 +22,9 @@ public final class EmailChecker {
     /**
      * Verifies that the given {@code emailContent} is the same as
      * the content given in the file at {@code filePathParam}. <br>
-     * @param filePathParam
-     *         If this starts with "/" (e.g., "/expected.html"), the
-     *         folder is assumed to be {@link TestProperties#TEST_EMAILS_FOLDER}.
+     *
+     * @param filePathParam If this starts with "/" (e.g., "/expected.html"), the
+     *                      folder is assumed to be {@link TestProperties#TEST_EMAILS_FOLDER}.
      */
     public static void verifyEmailContent(String emailContent, String filePathParam) throws IOException {
         String filePath = (filePathParam.startsWith("/") ? TestProperties.TEST_EMAILS_FOLDER : "") + filePathParam;
@@ -59,7 +59,7 @@ public final class EmailChecker {
      */
     private static String injectTestProperties(String emailContent) {
         return emailContent.replace("${app.url}", Config.APP_URL)
-                           .replace("${support.email}", Config.SUPPORT_EMAIL);
+                .replace("${support.email}", Config.SUPPORT_EMAIL);
     }
 
     /**
@@ -75,14 +75,14 @@ public final class EmailChecker {
      */
     private static String replaceUnpredictableValuesWithPlaceholders(String emailContent) {
         return emailContent // regkey in URLs
-                           .replaceAll(Const.ParamsNames.REGKEY + "=" + REGEX_ENCRYPTED_REGKEY,
-                                       Const.ParamsNames.REGKEY + "=\\${regkey\\.enc}");
+                .replaceAll(Const.ParamsNames.REGKEY + "=" + REGEX_ENCRYPTED_REGKEY,
+                        Const.ParamsNames.REGKEY + "=\\${regkey\\.enc}");
 
     }
 
     private static String replaceInjectedValuesWithPlaceholders(String emailContent) {
         return emailContent.replace(Config.APP_URL, "${app.url}")
-                           .replace(Config.SUPPORT_EMAIL, "${support.email}");
+                .replace(Config.SUPPORT_EMAIL, "${support.email}");
     }
 
     /**

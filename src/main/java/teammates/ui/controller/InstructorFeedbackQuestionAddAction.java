@@ -27,8 +27,8 @@ public class InstructorFeedbackQuestionAddAction extends Action {
         InstructorAttributes instructorDetailForCourse = logic.getInstructorForGoogleId(courseId, account.googleId);
 
         gateKeeper.verifyAccessible(instructorDetailForCourse,
-                                    logic.getFeedbackSession(feedbackSessionName, courseId),
-                                    false, Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION);
+                logic.getFeedbackSession(feedbackSessionName, courseId),
+                false, Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION);
 
         FeedbackQuestionAttributes feedbackQuestion = extractFeedbackQuestionData(instructorDetailForCourse.email);
         List<String> questionDetailsErrors = feedbackQuestion.getQuestionDetails().validateQuestionDetails(courseId);
@@ -60,12 +60,12 @@ public class InstructorFeedbackQuestionAddAction extends Action {
             logic.createFeedbackQuestion(feedbackQuestion);
             statusToUser.add(new StatusMessage(Const.StatusMessages.FEEDBACK_QUESTION_ADDED, StatusMessageColor.SUCCESS));
             statusToAdmin = "Created Feedback Question for Feedback Session:<span class=\"bold\">("
-                          + feedbackQuestion.feedbackSessionName + ")</span> for Course <span class=\"bold\">["
-                          + feedbackQuestion.courseId + "]</span> created.<br>"
-                          + "<span class=\"bold\">"
-                          + feedbackQuestion.getQuestionDetails().getQuestionTypeDisplayName()
-                          + ":</span> "
-                          + SanitizationHelper.sanitizeForHtml(feedbackQuestion.getQuestionDetails().getQuestionText());
+                    + feedbackQuestion.feedbackSessionName + ")</span> for Course <span class=\"bold\">["
+                    + feedbackQuestion.courseId + "]</span> created.<br>"
+                    + "<span class=\"bold\">"
+                    + feedbackQuestion.getQuestionDetails().getQuestionTypeDisplayName()
+                    + ":</span> "
+                    + SanitizationHelper.sanitizeForHtml(feedbackQuestion.getQuestionDetails().getQuestionText());
         } catch (InvalidParametersException e) {
             statusToUser.add(new StatusMessage(e.getMessage(), StatusMessageColor.DANGER));
             statusToAdmin = e.getMessage();
@@ -99,7 +99,7 @@ public class InstructorFeedbackQuestionAddAction extends Action {
         int numberOfEntitiesToGiveFeedbackTo;
         if ("custom".equals(numberOfEntityTypes)
                 && (recipientType == FeedbackParticipantType.STUDENTS
-                        || recipientType == FeedbackParticipantType.TEAMS)) {
+                || recipientType == FeedbackParticipantType.TEAMS)) {
             String numberOfEntities = getNonNullRequestParamValue(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFENTITIES);
             numberOfEntitiesToGiveFeedbackTo = Integer.parseInt(numberOfEntities);
         } else {
@@ -112,7 +112,7 @@ public class InstructorFeedbackQuestionAddAction extends Action {
                 getRequestParamValue(Const.ParamsNames.FEEDBACK_QUESTION_SHOWGIVERTO));
         List<FeedbackParticipantType> showRecipientNameTo =
                 FeedbackParticipantType.getParticipantListFromCommaSeparatedValues(
-                getRequestParamValue(Const.ParamsNames.FEEDBACK_QUESTION_SHOWRECIPIENTTO));
+                        getRequestParamValue(Const.ParamsNames.FEEDBACK_QUESTION_SHOWRECIPIENTTO));
 
         String questionTypeInString = getNonNullRequestParamValue(Const.ParamsNames.FEEDBACK_QUESTION_TYPE);
         questionTypeInString = FeedbackQuestionType.standardizeIfConstSum(questionTypeInString);

@@ -74,7 +74,7 @@ public class AdminAccountManagementPageUiTest extends BaseUiTestCase {
 
         String idOfInstructorToDelete = "AAMgtUiT.instr1";
         accountsPage.clickDeleteInstructorStatus(idOfInstructorToDelete)
-            .waitForTextsForAllStatusMessagesToUserEquals(Const.StatusMessages.INSTRUCTOR_STATUS_DELETED);
+                .waitForTextsForAllStatusMessagesToUserEquals(Const.StatusMessages.INSTRUCTOR_STATUS_DELETED);
         assertFalse(BackDoor.getAccount(idOfInstructorToDelete).isInstructor);
     }
 
@@ -95,7 +95,7 @@ public class AdminAccountManagementPageUiTest extends BaseUiTestCase {
 
     private void loginToAdminAccountsManagementPage(String instructorIdToShow) {
         AppUrl accountsPageUrl = createUrl(Const.ActionURIs.ADMIN_ACCOUNT_MANAGEMENT_PAGE
-                                           + "?all=true&googleId=" + instructorIdToShow);
+                + "?all=true&googleId=" + instructorIdToShow);
         accountsPage = loginAdminToPage(accountsPageUrl, AdminAccountManagementPage.class);
         accountsPage.waitForAdminAccountsManagementPageToFinishLoading();
         accountsPage.verifyIsCorrectPage();

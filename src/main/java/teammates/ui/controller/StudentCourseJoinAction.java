@@ -24,8 +24,8 @@ public class StudentCourseJoinAction extends Action {
         Assumption.assertPostParamNotNull(Const.ParamsNames.REGKEY, regkey);
 
         statusToAdmin = "Action Student Clicked Join Link"
-                        + (account.googleId == null ? "<br>Email: " + account.email
-                                                    : "<br>Google ID: " + account.googleId + "<br>Key: " + regkey);
+                + (account.googleId == null ? "<br>Email: " + account.email
+                : "<br>Google ID: " + account.googleId + "<br>Key: " + regkey);
 
         if (student == null) {
             statusToAdmin += "<br>Student course join failed as student does not exist.";
@@ -50,7 +50,7 @@ public class StudentCourseJoinAction extends Action {
         // the student is redirected to join page because he/she is not registered in the course
         boolean isRedirectResult = !Const.SystemParams.PAGES_ACCESSIBLE_WITHOUT_REGISTRATION.contains(nextUrlType);
         boolean isNextUrlAccessibleWithoutLogin =
-                        Const.SystemParams.PAGES_ACCESSIBLE_WITHOUT_GOOGLE_LOGIN.contains(nextUrlType);
+                Const.SystemParams.PAGES_ACCESSIBLE_WITHOUT_GOOGLE_LOGIN.contains(nextUrlType);
         String courseId = student.course;
         StudentCourseJoinConfirmationPageData data =
                 new StudentCourseJoinConfirmationPageData(

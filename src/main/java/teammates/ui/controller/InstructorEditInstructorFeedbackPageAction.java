@@ -19,8 +19,8 @@ public class InstructorEditInstructorFeedbackPageAction extends Action {
         String instructorUnderModerationEmail = getRequestParamValue(Const.ParamsNames.FEEDBACK_SESSION_MODERATED_PERSON);
 
         gateKeeper.verifyAccessible(logic.getInstructorForGoogleId(courseId, account.googleId),
-                                    logic.getFeedbackSession(feedbackSessionName, courseId),
-                                    false, Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION);
+                logic.getFeedbackSession(feedbackSessionName, courseId),
+                false, Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION);
 
         InstructorAttributes instructorUnderModeration =
                 logic.getInstructorForEmail(courseId, instructorUnderModerationEmail);
@@ -59,8 +59,8 @@ public class InstructorEditInstructorFeedbackPageAction extends Action {
         }
 
         statusToAdmin = "Moderating feedback session for instructor (" + instructorUnderModeration.email + ")<br>"
-                      + "Session Name: " + feedbackSessionName + "<br>"
-                      + "Course ID: " + courseId;
+                + "Session Name: " + feedbackSessionName + "<br>"
+                + "Course ID: " + courseId;
 
         data.bundle.hideUnmoderatableQuestions();
         data.init(courseId);

@@ -13,7 +13,7 @@
 
 <ta:adminPage title="Admin Email" jsIncludes="${jsIncludes}">
   <adminEmail:navTabs isCompose="${data.adminEmailCompose}" isDraft="${data.adminEmailDraft}"
-      isSent="${data.adminEmailSent}" isTrash="${data.adminEmailTrash}"/>
+                      isSent="${data.adminEmailSent}" isTrash="${data.adminEmailTrash}"/>
 
   <c:choose>
     <c:when test="${data.pageState eq 'COMPOSE'}">
@@ -33,5 +33,5 @@
     </c:otherwise>
   </c:choose>
 
-  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
+  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}"/>
 </ta:adminPage>

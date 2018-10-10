@@ -34,6 +34,7 @@ public final class StringHelper {
 
     /**
      * Checks whether the input string is empty or equals {@code null}.
+     *
      * @param s The string to be checked
      */
     public static boolean isEmpty(String s) {
@@ -51,6 +52,7 @@ public final class StringHelper {
 
     /**
      * Checks whether the input string matches the regex.
+     *
      * @param input The string to be matched
      * @param regex The regex  used for the matching
      */
@@ -62,7 +64,8 @@ public final class StringHelper {
 
     /**
      * Checks whether any substring of the input string matches any of the group of given regex expressions.
-     * @param input The string to be matched
+     *
+     * @param input     The string to be matched
      * @param regexList The regex list used for the matching
      */
     public static boolean isAnyMatching(String input, List<String> regexList) {
@@ -90,7 +93,8 @@ public final class StringHelper {
 
     /**
      * Trims head of the String if it is longer than specified Length.
-     *  E.g., String "12345678" with maximumStringLength = 6, returns "345678"
+     * E.g., String "12345678" with maximumStringLength = 6, returns "345678"
+     *
      * @param maximumStringLength - maximum required length of the string
      * @return String with at most maximumStringLength length
      */
@@ -163,6 +167,7 @@ public final class StringHelper {
     /**
      * Converts and concatenates a list of objects to a single string, separated by line breaks.
      * The conversion is done by using the {@link Object#toString()} method.
+     *
      * @return Concatenated string.
      */
     public static <T> String toString(List<T> list) {
@@ -172,6 +177,7 @@ public final class StringHelper {
     /**
      * Converts and concatenates a list of objects to a single string, separated by the given delimiter.
      * The conversion is done by using the {@link Object#toString()} method.
+     *
      * @return Concatenated string.
      */
     public static <T> String toString(List<T> list, String delimiter) {
@@ -197,9 +203,9 @@ public final class StringHelper {
         }
 
         return utcFormatTimeZone + String.format(
-                                    " %+03d:%02d",
-                                    (int) hourOffsetTimeZone,
-                                    (int) (Math.abs(hourOffsetTimeZone - (int) hourOffsetTimeZone) * 300 / 5));
+                " %+03d:%02d",
+                (int) hourOffsetTimeZone,
+                (int) (Math.abs(hourOffsetTimeZone - (int) hourOffsetTimeZone) * 300 / 5));
     }
 
     /**
@@ -227,14 +233,13 @@ public final class StringHelper {
      * last name: "Tim Lin" <br>
      * processed full name: "Danny Tim Lin" <br>
      *
-     *
      * @return split name array{0--> first name, 1--> last name, 2--> processed full name by removing "{}"}
      */
 
     public static String[] splitName(String fullName) {
 
         if (fullName == null) {
-            return new String[] {};
+            return new String[]{};
         }
 
         String lastName;
@@ -245,9 +250,9 @@ public final class StringHelper {
             int endIndex = fullName.indexOf('}');
             lastName = fullName.substring(startIndex + 1, endIndex);
             firstName = fullName.replace("{", "")
-                                .replace("}", "")
-                                .replace(lastName, "")
-                                .trim();
+                    .replace("}", "")
+                    .replace(lastName, "")
+                    .trim();
 
         } else {
             lastName = fullName.substring(fullName.lastIndexOf(' ') + 1).trim();
@@ -255,14 +260,15 @@ public final class StringHelper {
         }
 
         String processedfullName = fullName.replace("{", "")
-                                           .replace("}", "");
+                .replace("}", "");
 
-        return new String[] {firstName, lastName, processedfullName};
+        return new String[]{firstName, lastName, processedfullName};
     }
 
     /**
      * Trims the string and reduces consecutive white spaces to only one space.
      * Example: " a   a  " --> "a a".
+     *
      * @return processed string, returns null if parameter is null
      */
     public static String removeExtraSpace(String str) {
@@ -290,8 +296,8 @@ public final class StringHelper {
      * Replaces every character in {@code str} that does not match
      * {@code regex} with the character {@code replacement}.
      *
-     * @param str String to be replaced.
-     * @param regex Pattern that every character is to be matched against.
+     * @param str         String to be replaced.
+     * @param regex       Pattern that every character is to be matched against.
      * @param replacement Character unmatching characters should be replaced with.
      * @return String with all unmatching characters replaced; null if input is null.
      */
@@ -330,6 +336,7 @@ public final class StringHelper {
 
     /**
      * Converts a csv string to a html table string for displaying.
+     *
      * @return html table string
      */
     public static String csvToHtmlTable(String str) {
@@ -353,7 +360,7 @@ public final class StringHelper {
         }
 
         return String.format("<table class=\"table table-bordered table-striped table-condensed\">%s</table>",
-                             result.toString());
+                result.toString());
     }
 
     private static String handleNewLine(String str) {
@@ -479,9 +486,9 @@ public final class StringHelper {
      * Removes the outermost enclosing square brackets surrounding a string.
      *
      * @return the string without the outermost enclosing square brackets
-     *         if the given string is enclosed by square brackets <br>
-     *         the string itself if the given string is not enclosed by square brackets <br>
-     *         null if the given string is null
+     * if the given string is enclosed by square brackets <br>
+     * the string itself if the given string is not enclosed by square brackets <br>
+     * null if the given string is null
      */
     public static String removeEnclosingSquareBrackets(String str) {
         if (str == null) {

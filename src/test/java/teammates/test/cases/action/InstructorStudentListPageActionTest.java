@@ -29,7 +29,7 @@ public class InstructorStudentListPageActionTest extends BaseActionTest {
         InstructorAttributes instructor = typicalBundle.instructors.get("instructor3OfCourse1");
         String instructorId = instructor.googleId;
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.SEARCH_KEY, "A search key",
                 Const.ParamsNames.DISPLAY_ARCHIVE, "false",
         };
@@ -47,9 +47,9 @@ public class InstructorStudentListPageActionTest extends BaseActionTest {
         assertEquals("", r.getStatusMessage());
 
         String expectedLogMessage = "TEAMMATESLOG|||instructorStudentListPage|||instructorStudentListPage"
-                                  + "|||true|||Instructor|||Instructor 3 of Course 1 and 2|||idOfInstructor3"
-                                  + "|||instr3@course1n2.tmt|||instructorStudentList Page Load<br>Total Courses: 2"
-                                  + "|||/page/instructorStudentListPage";
+                + "|||true|||Instructor|||Instructor 3 of Course 1 and 2|||idOfInstructor3"
+                + "|||instr3@course1n2.tmt|||instructorStudentList Page Load<br>Total Courses: 2"
+                + "|||/page/instructorStudentListPage";
         AssertHelper.assertLogMessageEquals(expectedLogMessage, a.getLogMessage());
 
         InstructorStudentListPageData islpd = (InstructorStudentListPageData) r.data;
@@ -73,9 +73,9 @@ public class InstructorStudentListPageActionTest extends BaseActionTest {
         assertEquals(0, islpd.getNumOfCourses());
 
         expectedLogMessage = "TEAMMATESLOG|||instructorStudentListPage|||instructorStudentListPage"
-                           + "|||true|||Instructor|||Instructor Without Courses|||instructorWithoutCourses"
-                           + "|||iwc@yahoo.tmt|||instructorStudentList Page Load<br>Total Courses: 0"
-                           + "|||/page/instructorStudentListPage";
+                + "|||true|||Instructor|||Instructor Without Courses|||instructorWithoutCourses"
+                + "|||iwc@yahoo.tmt|||instructorStudentList Page Load<br>Total Courses: 0"
+                + "|||/page/instructorStudentListPage";
         AssertHelper.assertLogMessageEquals(expectedLogMessage, a.getLogMessage());
 
         instructor = typicalBundle.instructors.get("instructorOfArchivedCourse");
@@ -98,13 +98,13 @@ public class InstructorStudentListPageActionTest extends BaseActionTest {
         assertEquals(0, islpd.getNumOfCourses());
 
         expectedLogMessage = "TEAMMATESLOG|||instructorStudentListPage|||instructorStudentListPage"
-                           + "|||true|||Instructor|||InstructorOfArchiveCourse name|||idOfInstructorOfArchivedCourse"
-                           + "|||instructorOfArchiveCourse@archiveCourse.tmt"
-                           + "|||instructorStudentList Page Load<br>Total Courses: 1"
-                           + "|||/page/instructorStudentListPage";
+                + "|||true|||Instructor|||InstructorOfArchiveCourse name|||idOfInstructorOfArchivedCourse"
+                + "|||instructorOfArchiveCourse@archiveCourse.tmt"
+                + "|||instructorStudentList Page Load<br>Total Courses: 1"
+                + "|||/page/instructorStudentListPage";
         AssertHelper.assertLogMessageEquals(expectedLogMessage, a.getLogMessage());
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.SEARCH_KEY, "A search key",
                 Const.ParamsNames.DISPLAY_ARCHIVE, "true",
         };
@@ -126,10 +126,10 @@ public class InstructorStudentListPageActionTest extends BaseActionTest {
         assertEquals(1, islpd.getNumOfCourses());
 
         expectedLogMessage = "TEAMMATESLOG|||instructorStudentListPage|||instructorStudentListPage"
-                           + "|||true|||Instructor|||InstructorOfArchiveCourse name|||idOfInstructorOfArchivedCourse"
-                           + "|||instructorOfArchiveCourse@archiveCourse.tmt"
-                           + "|||instructorStudentList Page Load<br>Total Courses: 1"
-                           + "|||/page/instructorStudentListPage";
+                + "|||true|||Instructor|||InstructorOfArchiveCourse name|||idOfInstructorOfArchivedCourse"
+                + "|||instructorOfArchiveCourse@archiveCourse.tmt"
+                + "|||instructorStudentList Page Load<br>Total Courses: 1"
+                + "|||/page/instructorStudentListPage";
         AssertHelper.assertLogMessageEquals(expectedLogMessage, a.getLogMessage());
 
     }
@@ -142,7 +142,7 @@ public class InstructorStudentListPageActionTest extends BaseActionTest {
     @Override
     @Test
     protected void testAccessControl() throws Exception {
-        String[] submissionParams = new String[] {};
+        String[] submissionParams = new String[]{};
         verifyOnlyInstructorsCanAccess(submissionParams);
     }
 

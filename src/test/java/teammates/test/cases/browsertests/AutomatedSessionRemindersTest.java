@@ -13,9 +13,9 @@ import teammates.test.pageobjects.GenericAppPage;
 
 /**
  * SUT: {@link Const.ActionURIs#AUTOMATED_FEEDBACK_OPENING_REMINDERS},
- *      {@link Const.ActionURIs#AUTOMATED_FEEDBACK_CLOSING_REMINDERS},
- *      {@link Const.ActionURIs#AUTOMATED_FEEDBACK_CLOSED_REMINDERS},
- *      {@link Const.ActionURIs#AUTOMATED_FEEDBACK_PUBLISHED_REMINDERS}.
+ * {@link Const.ActionURIs#AUTOMATED_FEEDBACK_CLOSING_REMINDERS},
+ * {@link Const.ActionURIs#AUTOMATED_FEEDBACK_CLOSED_REMINDERS},
+ * {@link Const.ActionURIs#AUTOMATED_FEEDBACK_PUBLISHED_REMINDERS}.
  */
 @Priority(5)
 public class AutomatedSessionRemindersTest extends BaseUiTestCase {

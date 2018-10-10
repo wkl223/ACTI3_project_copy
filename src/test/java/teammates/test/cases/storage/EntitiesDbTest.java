@@ -47,9 +47,9 @@ public class EntitiesDbTest extends BaseComponentTestCase {
             signalFailureToDetectException();
         } catch (EntityAlreadyExistsException e) {
             AssertHelper.assertContains(String.format(EntitiesDb.ERROR_CREATE_ENTITY_ALREADY_EXISTS,
-                                                      c.getEntityTypeAsString())
-                                                + c.getIdentificationString(),
-                                        e.getMessage());
+                    c.getEntityTypeAsString())
+                            + c.getIdentificationString(),
+                    e.getMessage());
         }
         coursesDb.deleteEntity(c);
 
@@ -63,9 +63,9 @@ public class EntitiesDbTest extends BaseComponentTestCase {
         } catch (InvalidParametersException e) {
             AssertHelper.assertContains(
                     getPopulatedErrorMessage(
-                        COURSE_ID_ERROR_MESSAGE, invalidCourse.getId(),
-                        FieldValidator.COURSE_ID_FIELD_NAME, REASON_INCORRECT_FORMAT,
-                        FieldValidator.COURSE_ID_MAX_LENGTH),
+                            COURSE_ID_ERROR_MESSAGE, invalidCourse.getId(),
+                            FieldValidator.COURSE_ID_FIELD_NAME, REASON_INCORRECT_FORMAT,
+                            FieldValidator.COURSE_ID_MAX_LENGTH),
                     e.getMessage());
         }
 

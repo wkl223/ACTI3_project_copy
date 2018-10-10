@@ -40,7 +40,7 @@ public class InstructorCourseInstructorAddActionTest extends BaseActionTest {
         String newInstructorName = "New Instructor Name";
         String newInstructorEmail = "ICIAAT.newInstructor@email.tmt";
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.INSTRUCTOR_NAME, newInstructorName,
                 Const.ParamsNames.INSTRUCTOR_EMAIL, newInstructorEmail,
@@ -63,7 +63,7 @@ public class InstructorCourseInstructorAddActionTest extends BaseActionTest {
         assertEquals(Const.ActionURIs.INSTRUCTOR_COURSE_EDIT_PAGE, redirectResult.destination);
         assertFalse(redirectResult.isError);
         assertEquals(String.format(Const.StatusMessages.COURSE_INSTRUCTOR_ADDED,
-                    newInstructorName, newInstructorEmail), redirectResult.getStatusMessage());
+                newInstructorName, newInstructorEmail), redirectResult.getStatusMessage());
 
         assertTrue(instructorsLogic.isEmailOfInstructorOfCourse(newInstructorEmail, courseId));
 
@@ -106,7 +106,7 @@ public class InstructorCourseInstructorAddActionTest extends BaseActionTest {
 
         ______TS("Error: try to add an instructor with invalid email");
         String newInvalidInstructorEmail = "ICIAAT.newInvalidInstructor.email.tmt";
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.INSTRUCTOR_NAME, newInstructorName,
                 Const.ParamsNames.INSTRUCTOR_EMAIL, newInvalidInstructorEmail,
@@ -123,18 +123,18 @@ public class InstructorCourseInstructorAddActionTest extends BaseActionTest {
                 redirectResult.getDestinationWithParams());
         assertTrue(redirectResult.isError);
         assertEquals(getPopulatedErrorMessage(FieldValidator.EMAIL_ERROR_MESSAGE, newInvalidInstructorEmail,
-                         FieldValidator.EMAIL_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
-                         FieldValidator.EMAIL_MAX_LENGTH),
-                     redirectResult.getStatusMessage());
+                FieldValidator.EMAIL_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
+                FieldValidator.EMAIL_MAX_LENGTH),
+                redirectResult.getStatusMessage());
 
         expectedLogSegment = "TEAMMATESLOG|||instructorCourseInstructorAdd|||instructorCourseInstructorAdd"
-               + "|||true|||Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||instr1@course1.tmt"
-               + "|||Servlet Action Failure : "
-               + getPopulatedErrorMessage(
-                     FieldValidator.EMAIL_ERROR_MESSAGE, newInvalidInstructorEmail,
-                     FieldValidator.EMAIL_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
-                     FieldValidator.EMAIL_MAX_LENGTH)
-               + "|||/page/instructorCourseInstructorAdd";
+                + "|||true|||Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||instr1@course1.tmt"
+                + "|||Servlet Action Failure : "
+                + getPopulatedErrorMessage(
+                FieldValidator.EMAIL_ERROR_MESSAGE, newInvalidInstructorEmail,
+                FieldValidator.EMAIL_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
+                FieldValidator.EMAIL_MAX_LENGTH)
+                + "|||/page/instructorCourseInstructorAdd";
         AssertHelper.assertLogMessageEquals(expectedLogSegment, addAction.getLogMessage());
 
         verifyNoTasksAdded(addAction);
@@ -144,7 +144,7 @@ public class InstructorCourseInstructorAddActionTest extends BaseActionTest {
         instructorsLogic.deleteInstructorCascade(courseId, newInstructorEmail);
 
         gaeSimulation.loginAsAdmin(adminUserId);
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.INSTRUCTOR_NAME, newInstructorName,
                 Const.ParamsNames.INSTRUCTOR_EMAIL, newInstructorEmail,
@@ -196,7 +196,7 @@ public class InstructorCourseInstructorAddActionTest extends BaseActionTest {
     @Override
     @Test
     protected void testAccessControl() throws Exception {
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, "idOfTypicalCourse1",
                 Const.ParamsNames.INSTRUCTOR_NAME, "Instructor Name",
                 Const.ParamsNames.INSTRUCTOR_EMAIL, "instructor@email.tmt",

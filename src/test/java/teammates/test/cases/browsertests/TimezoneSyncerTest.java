@@ -32,7 +32,7 @@ public class TimezoneSyncerTest extends BaseUiTestCase {
     public void testAll() {
         Document pageSource = Jsoup.parse(page.getPageSource());
         assertEquals(pageSource.getElementById("javatime").text().replace(" ", System.lineSeparator()),
-                     pageSource.getElementById("momentjs").text().replace(" ", System.lineSeparator()));
+                pageSource.getElementById("momentjs").text().replace(" ", System.lineSeparator()));
     }
 
 }

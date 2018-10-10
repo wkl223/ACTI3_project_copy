@@ -16,7 +16,7 @@ public class InstructorFeedbackResultsDownloadAction extends Action {
         String courseId = getRequestParamValue(Const.ParamsNames.COURSE_ID);
         String feedbackSessionName = getRequestParamValue(Const.ParamsNames.FEEDBACK_SESSION_NAME);
         String section = getRequestParamValue(Const.ParamsNames.SECTION_NAME);
-        String reqName= getRequestParamValue(Const.ParamsNames.FEEDBACK_RESULTS_UPLOADDOWNLOADBUTTON);
+        String reqName = getRequestParamValue(Const.ParamsNames.FEEDBACK_RESULTS_UPLOADDOWNLOADBUTTON);
         boolean isMissingResponsesShown = getRequestParamAsBoolean(
                 Const.ParamsNames.FEEDBACK_RESULTS_INDICATE_MISSING_RESPONSES);
         boolean isStatsShown = getRequestParamAsBoolean(Const.ParamsNames.FEEDBACK_RESULTS_SHOWSTATS);
@@ -54,30 +54,30 @@ public class InstructorFeedbackResultsDownloadAction extends Action {
 
                 fileName = courseId + "_" + feedbackSessionName + questionName;
                 statusToAdmin = "Summary data for Feedback Session " + feedbackSessionName
-                              + " in Course " + courseId + " was downloaded";
+                        + " in Course " + courseId + " was downloaded";
             } else {
                 fileContent = logic.getFeedbackSessionResultSummaryInSectionAsCsv(
                         courseId, feedbackSessionName, instructor.email, section,
                         questionId, isMissingResponsesShown, isStatsShown);
                 fileName = courseId + "_" + feedbackSessionName + "_" + section + questionName;
                 statusToAdmin = "Summary data for Feedback Session " + feedbackSessionName
-                              + " in Course " + courseId + " within " + section + " was downloaded";
+                        + " in Course " + courseId + " within " + section + " was downloaded";
             }
         } catch (ExceedingRangeException e) {
             // not tested as the test file is not large enough to reach this catch block
             statusToUser.add(new StatusMessage("This session has more responses than that can be downloaded in one go. "
-                        + "Please download responses for "
-                        + (questionNumber == null ? "one question at a time instead. "
-                        + "To download responses for a specific question, click on the corresponding question number."
-                                                 : "section instead."),
-                                                 StatusMessageColor.DANGER));
+                    + "Please download responses for "
+                    + (questionNumber == null ? "one question at a time instead. "
+                    + "To download responses for a specific question, click on the corresponding question number."
+                    : "section instead."),
+                    StatusMessageColor.DANGER));
             isError = true;
             RedirectResult result = createRedirectResult(Const.ActionURIs.INSTRUCTOR_FEEDBACK_RESULTS_PAGE);
             result.addResponseParam(Const.ParamsNames.COURSE_ID, courseId);
             result.addResponseParam(Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackSessionName);
             return result;
         }
-            return createFileDownloadResult(fileName, fileContent);
+        return createFileDownloadResult(fileName, fileContent);
     }
 
 }

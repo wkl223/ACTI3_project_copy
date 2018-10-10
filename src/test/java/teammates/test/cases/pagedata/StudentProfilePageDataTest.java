@@ -31,14 +31,14 @@ public class StudentProfilePageDataTest extends BaseTestCase {
 
     private void testWithPictureKeyAndNoNullFields() {
         sppd = initializeDataWithPictureKeyAndNoNullFields();
-      //  testProfileEditBox(sppd.getProfileEditBox());
-      //  testUploadPhotoModal(sppd.getUploadPhotoModal());
+        //  testProfileEditBox(sppd.getProfileEditBox());
+        //  testUploadPhotoModal(sppd.getUploadPhotoModal());
     }
 
     private void testWithNoPictureKeyAndNullFields() {
         sppd = initializeDataWithNoPictureKeyAndNullFields();
-      //  testProfileEditBox(sppd.getProfileEditBox());
-     //   testUploadPhotoModal(sppd.getUploadPhotoModal());
+        //  testProfileEditBox(sppd.getProfileEditBox());
+        //   testUploadPhotoModal(sppd.getUploadPhotoModal());
     }
 
     private StudentProfilePageData initializeDataWithPictureKeyAndNoNullFields() {
@@ -62,8 +62,8 @@ public class StudentProfilePageDataTest extends BaseTestCase {
                 .build();
         isEditingPhoto = "false";
         pictureUrl = Const.ActionURIs.STUDENT_PROFILE_PICTURE
-                   + "?" + Const.ParamsNames.BLOB_KEY + "=" + spa.pictureKey
-                   + "&" + Const.ParamsNames.USER_ID + "=" + acct.googleId;
+                + "?" + Const.ParamsNames.BLOB_KEY + "=" + spa.pictureKey
+                + "&" + Const.ParamsNames.USER_ID + "=" + acct.googleId;
         return null; //new StudentProfilePageData(acct, dummySessionToken, isEditingPhoto);
     }
 

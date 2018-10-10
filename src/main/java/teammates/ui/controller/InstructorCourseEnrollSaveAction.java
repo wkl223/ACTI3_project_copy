@@ -40,7 +40,7 @@ public class InstructorCourseEnrollSaveAction extends Action {
 
         InstructorAttributes instructor = logic.getInstructorForGoogleId(courseId, account.googleId);
         gateKeeper.verifyAccessible(instructor, logic.getCourse(courseId),
-                                    Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_STUDENT);
+                Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_STUDENT);
 
         /* Process enrollment list and setup data for page result */
         try {
@@ -48,10 +48,10 @@ public class InstructorCourseEnrollSaveAction extends Action {
             boolean hasSection = hasSections(students);
 
             InstructorCourseEnrollResultPageData pageData = new InstructorCourseEnrollResultPageData(account, sessionToken,
-                                                                    courseId, students, hasSection, studentsInfo);
+                    courseId, students, hasSection, studentsInfo);
 
             statusToAdmin = "Students Enrolled in Course <span class=\"bold\">["
-                            + courseId + "]:</span><br>" + sanitizedStudentsInfo.replace("\n", "<br>");
+                    + courseId + "]:</span><br>" + sanitizedStudentsInfo.replace("\n", "<br>");
 
             return createShowPageResult(Const.ViewURIs.INSTRUCTOR_COURSE_ENROLL_RESULT, pageData);
 
@@ -69,9 +69,9 @@ public class InstructorCourseEnrollSaveAction extends Action {
 
             statusToUser.add(
                     new StatusMessage("The enrollment failed, possibly because some students were re-enrolled before "
-                                      + "the previous enrollment action was still being processed by TEAMMATES database "
-                                      + "servers. Please try again after about 10 minutes. If the problem persists, "
-                                      + "please contact TEAMMATES support", StatusMessageColor.DANGER));
+                            + "the previous enrollment action was still being processed by TEAMMATES database "
+                            + "servers. Please try again after about 10 minutes. If the problem persists, "
+                            + "please contact TEAMMATES support", StatusMessageColor.DANGER));
 
             InstructorCourseEnrollPageData pageData =
                     new InstructorCourseEnrollPageData(account, sessionToken, courseId, studentsInfo);
@@ -115,7 +115,7 @@ public class InstructorCourseEnrollSaveAction extends Action {
      * on their updateStatus. Each category is put into a separate list.<br>
      *
      * @return An array of lists of StudentData objects in which each list contains
-     *         student with the same updateStatus
+     * student with the same updateStatus
      */
     @SuppressWarnings("unchecked")
     private List<StudentAttributes>[] separateStudents(List<StudentAttributes> students) {

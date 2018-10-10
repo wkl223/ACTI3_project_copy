@@ -94,10 +94,10 @@ public class StudentAttributes extends EntityAttributes<CourseStudent> {
         String enrollmentStringSeparator = "|";
 
         return this.section + enrollmentStringSeparator
-             + this.team + enrollmentStringSeparator
-             + this.name + enrollmentStringSeparator
-             + this.email + enrollmentStringSeparator
-             + this.comments;
+                + this.team + enrollmentStringSeparator
+                + this.name + enrollmentStringSeparator
+                + this.email + enrollmentStringSeparator
+                + this.comments;
     }
 
     public boolean isRegistered() {
@@ -106,17 +106,17 @@ public class StudentAttributes extends EntityAttributes<CourseStudent> {
 
     public String getRegistrationUrl() {
         return Config.getAppUrl(Const.ActionURIs.STUDENT_COURSE_JOIN_NEW)
-                                           .withRegistrationKey(StringHelper.encrypt(key))
-                                           .withStudentEmail(email)
-                                           .withCourseId(course)
-                                           .toString();
+                .withRegistrationKey(StringHelper.encrypt(key))
+                .withStudentEmail(email)
+                .withCourseId(course)
+                .toString();
     }
 
     public String getPublicProfilePictureUrl() {
         return Config.getAppUrl(Const.ActionURIs.STUDENT_PROFILE_PICTURE)
-                           .withStudentEmail(StringHelper.encrypt(email))
-                           .withCourseId(StringHelper.encrypt(course))
-                           .toString();
+                .withStudentEmail(StringHelper.encrypt(email))
+                .withCourseId(StringHelper.encrypt(course))
+                .toString();
     }
 
     public String getName() {
@@ -135,7 +135,9 @@ public class StudentAttributes extends EntityAttributes<CourseStudent> {
         return key;
     }
 
-    public int getLike() { return like; }
+    public int getLike() {
+        return like;
+    }
 
     /**
      * Format: email%courseId e.g., adam@gmail.com%cs1101.
@@ -158,11 +160,11 @@ public class StudentAttributes extends EntityAttributes<CourseStudent> {
 
     public boolean isEnrollInfoSameAs(StudentAttributes otherStudent) {
         return otherStudent != null && otherStudent.email.equals(this.email)
-               && otherStudent.course.equals(this.course)
-               && otherStudent.name.equals(this.name)
-               && otherStudent.comments.equals(this.comments)
-               && otherStudent.team.equals(this.team)
-               && otherStudent.section.equals(this.section);
+                && otherStudent.course.equals(this.course)
+                && otherStudent.name.equals(this.name)
+                && otherStudent.comments.equals(this.comments)
+                && otherStudent.team.equals(this.team)
+                && otherStudent.section.equals(this.section);
     }
 
     @Override
@@ -356,7 +358,7 @@ public class StudentAttributes extends EntityAttributes<CourseStudent> {
             return this;
         }
 
-        public Builder withLike(int like){
+        public Builder withLike(int like) {
             studentAttributes.like = like;
             return this;
         }

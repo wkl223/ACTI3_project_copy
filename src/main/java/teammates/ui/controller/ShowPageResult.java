@@ -18,7 +18,9 @@ import teammates.ui.pagedata.PageData;
  */
 public class ShowPageResult extends ActionResult {
 
-    /** The data that will be used to render the page. */
+    /**
+     * The data that will be used to render the page.
+     */
     public PageData data;
 
     public ShowPageResult(
@@ -57,6 +59,7 @@ public class ShowPageResult extends ActionResult {
 
     /**
      * Adds the list of status messages (if any) to the page data.
+     *
      * @param req HttpServletRequest object
      */
     private void addStatusMessagesToPageData(HttpServletRequest req) {

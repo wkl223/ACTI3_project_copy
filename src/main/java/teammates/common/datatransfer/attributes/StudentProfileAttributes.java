@@ -149,7 +149,7 @@ public class StudentProfileAttributes extends EntityAttributes<StudentProfile> {
     @Override
     public StudentProfile toEntity() {
         return new StudentProfile(googleId, shortName, email, institute, nationality, gender,
-                                  new Text(moreInfo), new BlobKey(this.pictureKey), like);
+                new Text(moreInfo), new BlobKey(this.pictureKey), like);
     }
 
     @Override
@@ -241,10 +241,12 @@ public class StudentProfileAttributes extends EntityAttributes<StudentProfile> {
             profileAttributes.modifiedDate = modifiedDate == null ? Instant.now() : modifiedDate;
             return this;
         }
+
         public Builder withLike(int like) {
             profileAttributes.like = like;
             return this;
         }
+
         public StudentProfileAttributes build() {
             return profileAttributes;
         }

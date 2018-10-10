@@ -1,13 +1,17 @@
 <%@ tag trimDirectiveWhitespaces="true" %>
-<%@ tag description="studentFeedbackResults.jsp - Student feedback results question with responses" pageEncoding="UTF-8" %>
+<%@ tag description="studentFeedbackResults.jsp - Student feedback results question with responses"
+        pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib tagdir="/WEB-INF/tags/student/feedbackResults" prefix="feedbackResults" %>
-<%@ attribute name="questionWithResponses" type="teammates.ui.template.StudentFeedbackResultsQuestionWithResponses" required="true" %>
+<%@ attribute name="questionWithResponses" type="teammates.ui.template.StudentFeedbackResultsQuestionWithResponses"
+              required="true" %>
 
 <div class="panel panel-default">
   <div class="panel-heading">
     <%-- Note: When an element has class text-preserve-space, do not insert HTML spaces --%>
-    <h4>Question ${questionWithResponses.questionDetails.questionIndex}: <span class="text-preserve-space"><c:out value="${questionWithResponses.questionDetails.questionText}"/>${questionWithResponses.questionDetails.additionalInfo}</span></h4>
+    <h4>Question ${questionWithResponses.questionDetails.questionIndex}: <span class="text-preserve-space"><c:out
+        value="${questionWithResponses.questionDetails.questionText}"/>${questionWithResponses.questionDetails.additionalInfo}</span>
+    </h4>
 
     ${questionWithResponses.questionDetails.questionResultStatistics}
 

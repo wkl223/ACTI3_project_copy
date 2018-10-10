@@ -10,10 +10,11 @@
 
 <div class="well well-plain" id="courseInformationHeader">
   <div class="form form-horizontal">
-    <course:courseInformation courseDetails="${courseDetails}" instructors="${instructors}" />
+    <course:courseInformation courseDetails="${courseDetails}" instructors="${instructors}"/>
 
     <c:if test="${courseDetails.stats.studentsTotal > 1}">
-      <course:studentInformationButtons courseDetails="${courseDetails}" courseRemindButton="${courseRemindButton}" courseDeleteAllButton="${courseDeleteAllButton}"/>
+      <course:studentInformationButtons courseDetails="${courseDetails}" courseRemindButton="${courseRemindButton}"
+                                        courseDeleteAllButton="${courseDeleteAllButton}"/>
     </c:if>
   </div>
 </div>

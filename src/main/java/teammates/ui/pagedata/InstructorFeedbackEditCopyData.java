@@ -6,7 +6,6 @@ import teammates.common.util.Url;
 /**
  * PageData object that is sent back as a result of InstructorFeedbackEditCopy.
  * Specifies a page for the user to be redirected to as a result of the form submission.
- *
  */
 public class InstructorFeedbackEditCopyData extends PageData {
     public final String redirectUrl;
@@ -16,10 +15,10 @@ public class InstructorFeedbackEditCopyData extends PageData {
                                           Url redirectUrl, String errorMessage) {
         super(account, sessionToken);
         String redirectUrlAsString = redirectUrl == null ? ""
-                                                         : redirectUrl.toString();
+                : redirectUrl.toString();
         this.redirectUrl = redirectUrlAsString;
         this.errorMessage = errorMessage == null ? ""
-                                                 : errorMessage;
+                : errorMessage;
     }
 
     /**

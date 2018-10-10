@@ -16,11 +16,13 @@ import teammates.common.util.StatusMessage;
 
 public class ImageResult extends ActionResult {
 
-    /** The Google Cloud Storage blob key for the image. */
+    /**
+     * The Google Cloud Storage blob key for the image.
+     */
     public String blobKey;
 
     public ImageResult(String destination, String blobKey, AccountAttributes account,
-            List<StatusMessage> status) {
+                       List<StatusMessage> status) {
         super(destination, account, status);
         this.blobKey = blobKey;
     }

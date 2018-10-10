@@ -24,7 +24,7 @@ public class InstructorFeedbackPublishAction extends Action {
         boolean isCreatorOnly = false;
 
         gateKeeper.verifyAccessible(instructor, session, isCreatorOnly,
-                                    Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION);
+                Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION);
 
         try {
             logic.publishFeedbackSession(session);
@@ -34,7 +34,7 @@ public class InstructorFeedbackPublishAction extends Action {
 
             statusToUser.add(new StatusMessage(Const.StatusMessages.FEEDBACK_SESSION_PUBLISHED, StatusMessageColor.SUCCESS));
             statusToAdmin = "Feedback Session <span class=\"bold\">(" + feedbackSessionName + ")</span> "
-                            + "for Course <span class=\"bold\">[" + courseId + "]</span> published.";
+                    + "for Course <span class=\"bold\">[" + courseId + "]</span> published.";
         } catch (InvalidParametersException e) {
             setStatusForException(e);
         }

@@ -19,28 +19,28 @@ public abstract class EntityAttributes<E extends BaseEntity> {
 
     /**
      * Returns a {@code List} of strings, one string for each attribute whose
-     *         value is invalid. The string explains why the value is invalid
-     *         and what should values are acceptable. These explanations are
-     *         good enough to show to the user. Returns an empty {@code List} if
-     *         all attributes are valid.
+     * value is invalid. The string explains why the value is invalid
+     * and what should values are acceptable. These explanations are
+     * good enough to show to the user. Returns an empty {@code List} if
+     * all attributes are valid.
      */
     public abstract List<String> getInvalidityInfo();
 
     /**
      * Returns a {@code Object} corresponding to the attributes defined by {@code this}
-     *            {@link EntityAttributes} class.
+     * {@link EntityAttributes} class.
      */
     public abstract E toEntity();
 
     /**
      * Returns an abridged string which can sufficiently identify the entity
-     *            this class represents for use in error messages / exceptions.
+     * this class represents for use in error messages / exceptions.
      */
     public abstract String getIdentificationString();
 
     /**
      * Returns the type of entity this Attribute class represents as a human
-     *            readable string.
+     * readable string.
      */
     public abstract String getEntityTypeAsString();
 
@@ -63,7 +63,7 @@ public abstract class EntityAttributes<E extends BaseEntity> {
     /**
      * Adds {@code error} to {@code errors} if {@code error} is a non-empty string.
      *
-     * @param error An error message, possibly empty.
+     * @param error  An error message, possibly empty.
      * @param errors A List of errors, to add {@code error} to.
      */
     public void addNonEmptyError(String error, List<String> errors) {

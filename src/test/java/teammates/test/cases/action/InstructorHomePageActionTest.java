@@ -23,7 +23,7 @@ public class InstructorHomePageActionTest extends BaseActionTest {
     @Override
     @Test
     public void testExecuteAndPostProcess() throws Exception {
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.CHECK_PERSISTENCE_COURSE, "something"
         };
 
@@ -50,17 +50,17 @@ public class InstructorHomePageActionTest extends BaseActionTest {
         assertEquals(0, data.getCourseTables().size());
 
         String expectedLogMessage = "TEAMMATESLOG|||instructorHomePage|||instructorHomePage"
-                                     + "|||true|||Instructor|||Instructor Without Courses"
-                                     + "|||instructorWithoutCourses|||iwc@yahoo.tmt"
-                                     + "|||instructorHome Page Load<br>Total Courses: 0"
-                                     + "|||/page/instructorHomePage";
+                + "|||true|||Instructor|||Instructor Without Courses"
+                + "|||instructorWithoutCourses|||iwc@yahoo.tmt"
+                + "|||instructorHome Page Load<br>Total Courses: 0"
+                + "|||/page/instructorHomePage";
         AssertHelper.assertLogMessageEquals(expectedLogMessage, a.getLogMessage());
 
-        submissionParams = new String[] {};
+        submissionParams = new String[]{};
 
         ______TS("instructor with multiple courses, sort by course id, masquerade mode");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_SORTING_CRITERIA, Const.SORT_BY_COURSE_ID
         };
         String adminUserId = "admin.user";
@@ -74,7 +74,7 @@ public class InstructorHomePageActionTest extends BaseActionTest {
         String newCourseIdForSorting = "idOfTypicalCourse"; // should be 1st if sort by course id
         String newCourseNameForSorting = "Typical Course 3"; //should be 3rd if sort by course name
         logic.createCourseAndInstructor(instructorWithMultipleCourses, newCourseIdForSorting,
-                                        newCourseNameForSorting, "UTC");
+                newCourseNameForSorting, "UTC");
 
         a = getAction(addUserIdToParams(instructorWithMultipleCourses, submissionParams));
         r = getShowPageResult(a);
@@ -99,15 +99,15 @@ public class InstructorHomePageActionTest extends BaseActionTest {
         assertEquals(Const.SORT_BY_COURSE_ID, data.getSortCriteria());
 
         expectedLogMessage = "TEAMMATESLOG|||instructorHomePage|||instructorHomePage|||true"
-                              + "|||Instructor(M)|||Instructor 3 of Course 1 and 2"
-                              + "|||idOfInstructor3|||instr3@course1n2.tmt"
-                              + "|||instructorHome Page Load<br>Total Courses: 3"
-                              + "|||/page/instructorHomePage";
+                + "|||Instructor(M)|||Instructor 3 of Course 1 and 2"
+                + "|||idOfInstructor3|||instr3@course1n2.tmt"
+                + "|||instructorHome Page Load<br>Total Courses: 3"
+                + "|||/page/instructorHomePage";
         AssertHelper.assertLogMessageEqualsInMasqueradeMode(expectedLogMessage, a.getLogMessage(), adminUserId);
 
         ______TS("instructor with multiple courses, sort by course name, masquerade mode");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_SORTING_CRITERIA, Const.SORT_BY_COURSE_NAME
         };
 
@@ -135,7 +135,7 @@ public class InstructorHomePageActionTest extends BaseActionTest {
 
         ______TS("instructor with multiple courses, sort by course name, masquerade mode");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_SORTING_CRITERIA, "haha"
         };
 
@@ -149,7 +149,7 @@ public class InstructorHomePageActionTest extends BaseActionTest {
 
         ______TS("instructor with multiple courses, sort by creation date, masquerade mode");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_SORTING_CRITERIA, Const.SORT_BY_COURSE_CREATION_DATE
         };
 
@@ -187,11 +187,11 @@ public class InstructorHomePageActionTest extends BaseActionTest {
     @Override
     @Test
     protected void testAccessControl() throws Exception {
-        String[] submissionParams = new String[] {};
+        String[] submissionParams = new String[]{};
         verifyOnlyInstructorsCanAccess(submissionParams);
 
         // check for persistence issue
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.CHECK_PERSISTENCE_COURSE, "random_course"
         };
 

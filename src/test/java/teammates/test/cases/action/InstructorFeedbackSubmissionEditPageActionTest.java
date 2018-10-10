@@ -30,10 +30,10 @@ public class InstructorFeedbackSubmissionEditPageActionTest extends BaseActionTe
 
         ______TS("not enough parameters");
 
-        String[] paramsWithoutCourseId = new String[] {
+        String[] paramsWithoutCourseId = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, session.getFeedbackSessionName()
         };
-        String[] paramsWithoutFeedbackSessionName = new String[] {
+        String[] paramsWithoutFeedbackSessionName = new String[]{
                 Const.ParamsNames.COURSE_ID, session.getCourseId()
         };
 
@@ -42,7 +42,7 @@ public class InstructorFeedbackSubmissionEditPageActionTest extends BaseActionTe
 
         ______TS("Test null feedback session name parameter");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, session.getCourseId(),
                 Const.ParamsNames.USER_ID, instructor.googleId
         };
@@ -56,12 +56,12 @@ public class InstructorFeedbackSubmissionEditPageActionTest extends BaseActionTe
             signalFailureToDetectException("Did not detect that parameters are null.");
         } catch (NullPostParameterException e) {
             assertEquals(String.format(Const.StatusCodes.NULL_POST_PARAMETER,
-                                       Const.ParamsNames.FEEDBACK_SESSION_NAME), e.getMessage());
+                    Const.ParamsNames.FEEDBACK_SESSION_NAME), e.getMessage());
         }
 
         ______TS("Test null course id parameter");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, session.getFeedbackSessionName(),
                 Const.ParamsNames.USER_ID, instructor.googleId
         };
@@ -72,7 +72,7 @@ public class InstructorFeedbackSubmissionEditPageActionTest extends BaseActionTe
             signalFailureToDetectException("Did not detect that parameters are null.");
         } catch (NullPostParameterException e) {
             assertEquals(String.format(Const.StatusCodes.NULL_POST_PARAMETER,
-                                       Const.ParamsNames.COURSE_ID), e.getMessage());
+                    Const.ParamsNames.COURSE_ID), e.getMessage());
         }
 
         ______TS("Test insufficient authorization");
@@ -80,7 +80,7 @@ public class InstructorFeedbackSubmissionEditPageActionTest extends BaseActionTe
         instructor = typicalBundle.instructors.get("helperOfCourse1");
         gaeSimulation.loginAsInstructor(instructor.googleId);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, session.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, session.getFeedbackSessionName(),
                 Const.ParamsNames.USER_ID, instructor.googleId
@@ -92,7 +92,7 @@ public class InstructorFeedbackSubmissionEditPageActionTest extends BaseActionTe
             signalFailureToDetectException("Did not detect insufficient authorization.");
         } catch (UnauthorizedAccessException e) {
             assertEquals("Feedback session [First feedback session] is not accessible to instructor "
-                         + "[helper@course1.tmt] for this purpose", e.getMessage());
+                    + "[helper@course1.tmt] for this purpose", e.getMessage());
         }
 
         ______TS("Test feedback session that does not exist");
@@ -100,7 +100,7 @@ public class InstructorFeedbackSubmissionEditPageActionTest extends BaseActionTe
         instructor = typicalBundle.instructors.get("instructor1OfCourse1");
         gaeSimulation.loginAsInstructor(instructor.googleId);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, session.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, "feedback session that does not exist",
                 Const.ParamsNames.USER_ID, instructor.googleId
@@ -114,11 +114,11 @@ public class InstructorFeedbackSubmissionEditPageActionTest extends BaseActionTe
                 rr.getDestinationWithParams());
         assertFalse(rr.isError);
         assertEquals(Const.StatusMessages.FEEDBACK_SESSION_DELETED_NO_ACCESS,
-                     rr.getStatusMessage());
+                rr.getStatusMessage());
 
         ______TS("typical success case");
 
-        String[] params = new String[] {
+        String[] params = new String[]{
                 Const.ParamsNames.COURSE_ID, session.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, session.getFeedbackSessionName(),
                 Const.ParamsNames.USER_ID, instructor.googleId
@@ -154,7 +154,7 @@ public class InstructorFeedbackSubmissionEditPageActionTest extends BaseActionTe
 
         session = typicalBundle.feedbackSessions.get("closedSession");
 
-        params = new String[] {
+        params = new String[]{
                 Const.ParamsNames.COURSE_ID, session.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, session.getFeedbackSessionName(),
                 Const.ParamsNames.USER_ID, instructor.googleId
@@ -182,7 +182,7 @@ public class InstructorFeedbackSubmissionEditPageActionTest extends BaseActionTe
     protected void testAccessControl() throws Exception {
         FeedbackSessionAttributes fs = typicalBundle.feedbackSessions.get("session1InCourse1");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName()
         };

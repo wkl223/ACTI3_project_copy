@@ -66,7 +66,7 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
         data = new FeedbackSubmissionEditPageData(account, student, sessionToken);
         data.bundle = getDataBundle(userEmailForCourse);
         Assumption.assertNotNull("Feedback session " + feedbackSessionName
-                                 + " does not exist in " + courseId + ".", data.bundle);
+                + " does not exist in " + courseId + ".", data.bundle);
 
         checkAdditionalConstraints();
 
@@ -75,7 +75,7 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
         if (!isSessionOpenForSpecificUser(data.bundle.feedbackSession)) {
             isError = true;
             statusToUser.add(new StatusMessage(Const.StatusMessages.FEEDBACK_SUBMISSIONS_NOT_OPEN,
-                                               StatusMessageColor.WARNING));
+                    StatusMessageColor.WARNING));
             return createSpecificRedirectResult();
         }
 
@@ -99,12 +99,12 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
             FeedbackQuestionAttributes questionAttributes = data.bundle.getQuestionAttributes(questionId);
             if (questionAttributes == null) {
                 statusToUser.add(new StatusMessage("The feedback session or questions may have changed "
-                                                       + "while you were submitting. Please check your responses "
-                                                       + "to make sure they are saved correctly.",
-                                                   StatusMessageColor.WARNING));
+                        + "while you were submitting. Please check your responses "
+                        + "to make sure they are saved correctly.",
+                        StatusMessageColor.WARNING));
                 isError = true;
                 log.warning("Question not found. (deleted or invalid id passed?) id: "
-                            + questionId + " index: " + questionIndx);
+                        + questionId + " index: " + questionIndx);
                 continue;
             }
 
@@ -156,7 +156,7 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
                     addToPendingResponses(response);
                 } else {
                     response.giver = questionAttributes.giverType.isTeam() ? userTeamForCourse
-                                                                                : userEmailForCourse;
+                            : userEmailForCourse;
                     response.giverSection = userSectionForCourse;
                     responsesForQuestion.add(response);
                     extractFeedbackParticipantCommentsData(questionAttributes, questionIndx,
@@ -171,7 +171,7 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
 
             List<String> questionSpecificErrors =
                     questionDetails.validateResponseAttributes(responsesForQuestion,
-                                                               data.bundle.recipientList.get(questionId).size());
+                            data.bundle.recipientList.get(questionId).size());
             errors.addAll(questionSpecificErrors);
 
             if (!emailSet.containsAll(responsesRecipients)) {
@@ -240,13 +240,13 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
             try {
                 EmailWrapper email = instructor == null
                         ? new EmailGenerator().generateFeedbackSubmissionConfirmationEmailForStudent(session,
-                                student, Instant.now())
+                        student, Instant.now())
                         : new EmailGenerator().generateFeedbackSubmissionConfirmationEmailForInstructor(session,
-                                instructor, Instant.now());
+                        instructor, Instant.now());
                 emailSender.sendEmail(email);
             } catch (EmailSendingException e) {
                 log.severe("Submission confirmation email failed to send: "
-                           + TeammatesException.toStringWithStackTrace(e));
+                        + TeammatesException.toStringWithStackTrace(e));
             }
         }
         // TODO: Refactor to AjaxResult so status messages do not have to be passed by session
@@ -257,7 +257,8 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
      * If the {@code response} is an existing response, check that
      * the questionId and responseId that it has
      * is in {@code data.bundle.questionResponseBundle}.
-     * @param response  a response which has non-null id
+     *
+     * @param response a response which has non-null id
      */
     private boolean isExistingResponseValid(FeedbackResponseAttributes response) {
 
@@ -289,7 +290,7 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
             }
             responsesToUpdate.add(response);
         } else if (!response.responseMetaData.getValue().isEmpty()
-                   && !response.recipient.isEmpty()) {
+                && !response.recipient.isEmpty()) {
             responsesToSave.add(response);
         }
     }
@@ -381,7 +382,7 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
         Assumption.assertPostParamNotNull(Const.ParamsNames.FEEDBACK_QUESTION_ID + "-" + questionIndx,
                 response.feedbackQuestionId);
         Assumption.assertEquals("feedbackQuestionId Mismatch", feedbackQuestionAttributes.getId(),
-                                response.feedbackQuestionId);
+                response.feedbackQuestionId);
 
         response.recipient = getRequestParamValue(
                 Const.ParamsNames.FEEDBACK_RESPONSE_RECIPIENT + "-" + questionIndx + "-" + responseIndx);
@@ -415,8 +416,8 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
         } else {
             FeedbackResponseDetails responseDetails =
                     FeedbackResponseDetails.createResponseDetails(answer, questionDetails.getQuestionType(),
-                                                                  questionDetails, requestParameters,
-                                                                  questionIndx, responseIndx);
+                            questionDetails, requestParameters,
+                            questionIndx, responseIndx);
             response.setResponseDetails(responseDetails);
         }
 
@@ -424,7 +425,7 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
     }
 
     private void extractFeedbackParticipantCommentsData(FeedbackQuestionAttributes questionAttributes,
-            int questionIndex, FeedbackResponseAttributes response, int responseIndex) {
+                                                        int questionIndex, FeedbackResponseAttributes response, int responseIndex) {
         if (!questionAttributes.getQuestionDetails().isFeedbackParticipantCommentsOnResponsesAllowed()) {
             return;
         }
@@ -436,11 +437,11 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
         // comment id is null when adding new comments
         if (commentId == null) {
             commentText = getRequestParamValue(Const.ParamsNames.FEEDBACK_RESPONSE_COMMENT_ADD_TEXT + "-"
-                                                       + questionIndex + "-" + responseIndex);
+                    + questionIndex + "-" + responseIndex);
 
         } else {
             commentText = getRequestParamValue(Const.ParamsNames.FEEDBACK_RESPONSE_COMMENT_TEXT
-                                                       + "-" + questionIndex + "-" + responseIndex);
+                    + "-" + questionIndex + "-" + responseIndex);
         }
 
         if (commentText == null || commentText.isEmpty()) {
@@ -522,7 +523,7 @@ public abstract class FeedbackSubmissionEditSaveAction extends Action {
         // e.g. on FeedbackQuestionSubmissionEditSaveAction,
         // or if the submitter can submit both as a student and instructor
         return hasValidResponse
-            || logic.hasGiverRespondedForSession(getUserEmailForCourse(), feedbackSessionName, courseId);
+                || logic.hasGiverRespondedForSession(getUserEmailForCourse(), feedbackSessionName, courseId);
     }
 
     protected abstract void appendRespondent();

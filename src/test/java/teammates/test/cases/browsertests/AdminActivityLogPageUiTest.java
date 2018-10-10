@@ -77,7 +77,7 @@ public class AdminActivityLogPageUiTest extends BaseUiTestCase {
         assertTrue(statusMessageText.contains("The earliest log entry checked on"));
         assertTrue(statusMessageText.contains("in Admin Time Zone"));
         assertTrue(statusMessageText.contains("in Local Time Zone")
-                   || statusMessageText.contains("Local Time Unavailable"));
+                || statusMessageText.contains("Local Time Unavailable"));
     }
 
     private void testViewActionsLink() {

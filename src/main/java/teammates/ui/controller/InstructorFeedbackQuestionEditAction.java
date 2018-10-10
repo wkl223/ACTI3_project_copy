@@ -33,8 +33,8 @@ public class InstructorFeedbackQuestionEditAction extends Action {
         String feedbackSessionName = getNonNullRequestParamValue(Const.ParamsNames.FEEDBACK_SESSION_NAME);
 
         gateKeeper.verifyAccessible(logic.getInstructorForGoogleId(courseId, account.googleId),
-                                    logic.getFeedbackSession(feedbackSessionName, courseId),
-                                    false, Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION);
+                logic.getFeedbackSession(feedbackSessionName, courseId),
+                false, Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION);
 
         String editType = getNonNullRequestParamValue(Const.ParamsNames.FEEDBACK_QUESTION_EDITTYPE);
 
@@ -61,7 +61,7 @@ public class InstructorFeedbackQuestionEditAction extends Action {
         }
 
         return createRedirectResult(new PageData(account, sessionToken)
-                                            .getInstructorFeedbackEditLink(courseId, feedbackSessionName));
+                .getInstructorFeedbackEditLink(courseId, feedbackSessionName));
     }
 
     private void duplicateQuestion() throws InvalidParametersException {
@@ -96,7 +96,7 @@ public class InstructorFeedbackQuestionEditAction extends Action {
     }
 
     private void editQuestion(FeedbackQuestionAttributes updatedQuestion) throws InvalidParametersException,
-                                                                                 EntityDoesNotExistException {
+            EntityDoesNotExistException {
         String err = validateQuestionGiverRecipientVisibility(updatedQuestion);
 
         if (!err.isEmpty()) {
@@ -118,12 +118,12 @@ public class InstructorFeedbackQuestionEditAction extends Action {
 
             statusToUser.add(new StatusMessage(Const.StatusMessages.FEEDBACK_QUESTION_EDITED, StatusMessageColor.SUCCESS));
             statusToAdmin = "Feedback Question " + updatedQuestion.questionNumber
-                          + " for session:<span class=\"bold\">("
-                          + updatedQuestion.feedbackSessionName + ")</span> for Course <span class=\"bold\">["
-                          + updatedQuestion.courseId + "]</span> edited.<br>"
-                          + "<span class=\"bold\">"
-                          + updatedQuestionDetails.getQuestionTypeDisplayName() + ":</span> "
-                          + SanitizationHelper.sanitizeForHtml(updatedQuestionDetails.getQuestionText());
+                    + " for session:<span class=\"bold\">("
+                    + updatedQuestion.feedbackSessionName + ")</span> for Course <span class=\"bold\">["
+                    + updatedQuestion.courseId + "]</span> edited.<br>"
+                    + "<span class=\"bold\">"
+                    + updatedQuestionDetails.getQuestionTypeDisplayName() + ":</span> "
+                    + SanitizationHelper.sanitizeForHtml(updatedQuestionDetails.getQuestionText());
         } else {
             statusToUser.addAll(questionDetailsErrorsMessages);
             isError = true;
@@ -141,22 +141,22 @@ public class InstructorFeedbackQuestionEditAction extends Action {
 
         FeedbackQuestionDetails questionDetails = null;
         Class<? extends FeedbackQuestionDetails> questionDetailsClass = feedbackQuestionAttributes
-                                                                            .questionType.getQuestionDetailsClass();
+                .questionType.getQuestionDetailsClass();
         Constructor<? extends FeedbackQuestionDetails> questionDetailsClassConstructor;
 
         try {
             questionDetailsClassConstructor = questionDetailsClass.getConstructor();
             questionDetails = questionDetailsClassConstructor.newInstance();
             Method m = questionDetailsClass.getMethod("validateGiverRecipientVisibility",
-                                                      FeedbackQuestionAttributes.class);
+                    FeedbackQuestionAttributes.class);
             errorMsg = (String) m.invoke(questionDetails, feedbackQuestionAttributes);
 
         } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
-                 | InvocationTargetException | InstantiationException e) {
+                | InvocationTargetException | InstantiationException e) {
             log.severe(TeammatesException.toStringWithStackTrace(e));
             // Assumption.fails are not tested
             Assumption.fail("Failed to instantiate Feedback*QuestionDetails instance for "
-                            + feedbackQuestionAttributes.questionType.toString() + " question type.");
+                    + feedbackQuestionAttributes.questionType.toString() + " question type.");
         }
 
         return errorMsg;
@@ -218,7 +218,7 @@ public class InstructorFeedbackQuestionEditAction extends Action {
                 getRequestParamValue(Const.ParamsNames.FEEDBACK_QUESTION_SHOWGIVERTO));
         List<FeedbackParticipantType> showRecipientNameTo =
                 FeedbackParticipantType.getParticipantListFromCommaSeparatedValues(
-                getRequestParamValue(Const.ParamsNames.FEEDBACK_QUESTION_SHOWRECIPIENTTO));
+                        getRequestParamValue(Const.ParamsNames.FEEDBACK_QUESTION_SHOWRECIPIENTTO));
 
         String questionTypeInString = getNonNullRequestParamValue(Const.ParamsNames.FEEDBACK_QUESTION_TYPE);
         FeedbackQuestionType questionType = FeedbackQuestionType.valueOf(questionTypeInString);

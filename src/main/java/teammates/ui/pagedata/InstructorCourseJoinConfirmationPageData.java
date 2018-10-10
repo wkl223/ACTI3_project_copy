@@ -10,7 +10,7 @@ public class InstructorCourseJoinConfirmationPageData extends PageData {
     private String institute;
 
     public InstructorCourseJoinConfirmationPageData(AccountAttributes account, String sessionToken, String regkey,
-            String institute) {
+                                                    String institute) {
         super(account, sessionToken);
         this.regkey = regkey;
         this.institute = institute;
@@ -27,7 +27,7 @@ public class InstructorCourseJoinConfirmationPageData extends PageData {
     public String getConfirmationLink() {
 
         return Const.ActionURIs.INSTRUCTOR_COURSE_JOIN_AUTHENTICATED + "?key=" + regkey
-             + (institute == null
+                + (institute == null
                 ? ""
                 : '&' + Const.ParamsNames.INSTRUCTOR_INSTITUTION + '=' + SanitizationHelper.sanitizeForUri(institute));
     }

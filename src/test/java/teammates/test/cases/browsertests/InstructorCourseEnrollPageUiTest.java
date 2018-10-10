@@ -61,31 +61,31 @@ public class InstructorCourseEnrollPageUiTest extends BaseUiTestCase {
         String enrollString =
                 // Modify team for student within section
                 "Section 1\tTeam 4\tAlice Betsy\talice.b.tmms@gmail.tmt"
-                + "\tThis comment has been changed\t"
-                // Modify section and team
-                + "Section 2\tTeam 2\tBenny Charles\tbenny.c.tmms@gmail.tmt\t\t"
-                + "Section 2\tTeam 2\tCharlie Davis\tcharlie.d.tmms@gmail.tmt"
-                + "\tThis student's name is Charlie Davis\t"
-                + "Section 2\tTeam 2\tDanny Engrid\tdanny.e.tmms@gmail.tmt"
-                + "\tThis student's name is Danny Engrid\t"
-                // A student with no comment
-                + "Section 3\tTeam 3\tFrank Galoe\tfrank.g.tmms@gmail.tmt\t\t"
-                // A new student with name containing accented characters
-                + "Section 1\tTeam 1\tJosé Gómez\tjose.gomez.tmns@gmail.tmt"
-                + "\tThis student name contains accented characters\t";
+                        + "\tThis comment has been changed\t"
+                        // Modify section and team
+                        + "Section 2\tTeam 2\tBenny Charles\tbenny.c.tmms@gmail.tmt\t\t"
+                        + "Section 2\tTeam 2\tCharlie Davis\tcharlie.d.tmms@gmail.tmt"
+                        + "\tThis student's name is Charlie Davis\t"
+                        + "Section 2\tTeam 2\tDanny Engrid\tdanny.e.tmms@gmail.tmt"
+                        + "\tThis student's name is Danny Engrid\t"
+                        // A student with no comment
+                        + "Section 3\tTeam 3\tFrank Galoe\tfrank.g.tmms@gmail.tmt\t\t"
+                        // A new student with name containing accented characters
+                        + "Section 1\tTeam 1\tJosé Gómez\tjose.gomez.tmns@gmail.tmt"
+                        + "\tThis student name contains accented characters\t";
 
         String expectedEnrollText =
                 "Section|Team|Name|Email|Comments\n"
-                + "Section 1|Team 4|Alice Betsy|alice.b.tmms@gmail.tmt|"
-                    + "This comment has been changed\n"
-                + "Section 2|Team 2|Benny Charles|benny.c.tmms@gmail.tmt|\n"
-                + "Section 2|Team 2|Charlie Davis|charlie.d.tmms@gmail.tmt|"
-                    + "This student's name is Charlie Davis\n"
-                + "Section 2|Team 2|Danny Engrid|danny.e.tmms@gmail.tmt|"
-                    + "This student's name is Danny Engrid\n"
-                + "Section 3|Team 3|Frank Galoe|frank.g.tmms@gmail.tmt|\n"
-                + "Section 1|Team 1|José Gómez|jose.gomez.tmns@gmail.tmt|"
-                + "This student name contains accented characters";
+                        + "Section 1|Team 4|Alice Betsy|alice.b.tmms@gmail.tmt|"
+                        + "This comment has been changed\n"
+                        + "Section 2|Team 2|Benny Charles|benny.c.tmms@gmail.tmt|\n"
+                        + "Section 2|Team 2|Charlie Davis|charlie.d.tmms@gmail.tmt|"
+                        + "This student's name is Charlie Davis\n"
+                        + "Section 2|Team 2|Danny Engrid|danny.e.tmms@gmail.tmt|"
+                        + "This student's name is Danny Engrid\n"
+                        + "Section 3|Team 3|Frank Galoe|frank.g.tmms@gmail.tmt|\n"
+                        + "Section 1|Team 1|José Gómez|jose.gomez.tmns@gmail.tmt|"
+                        + "This student name contains accented characters";
 
         InstructorCourseEnrollResultPage resultsPage = enrollPage.enroll(enrollString);
 
@@ -114,27 +114,27 @@ public class InstructorCourseEnrollPageUiTest extends BaseUiTestCase {
         BackDoor.createInstructor(testData.instructors.get("CCEnrollUiT.teammates.test"));
 
         enrollUrl = createUrl(Const.ActionURIs.INSTRUCTOR_COURSE_ENROLL_PAGE)
-            .withUserId(testData.instructors.get("CCEnrollUiT.teammates.test").googleId)
-            .withCourseId(testData.courses.get("CCEnrollUiT.CS2104").getId());
+                .withUserId(testData.instructors.get("CCEnrollUiT.teammates.test").googleId)
+                .withCourseId(testData.courses.get("CCEnrollUiT.CS2104").getId());
 
         enrollPage = loginAdminToPage(enrollUrl, InstructorCourseEnrollPage.class);
 
         enrollString =
                 "Section 1\tTeam 1\tAlice Betsy\talice.b.tmms@gmail.tmt\t"
-                + "This comment has been changed\t"
-                // A student with no comment
-                + "Section 1\tTeam 1\tFrank Galoe\tfrank.g.tmms@gmail.tmt\t\t"
-                // A new student with name containing accented characters
-                + "Section 3\tTeam 3\tJosé Gómez\tjose.gomez.tmns@gmail.tmt\t"
-                + "This student name contains accented characters\n";
+                        + "This comment has been changed\t"
+                        // A student with no comment
+                        + "Section 1\tTeam 1\tFrank Galoe\tfrank.g.tmms@gmail.tmt\t\t"
+                        // A new student with name containing accented characters
+                        + "Section 3\tTeam 3\tJosé Gómez\tjose.gomez.tmns@gmail.tmt\t"
+                        + "This student name contains accented characters\n";
 
         expectedEnrollText =
                 "Section|Team|Name|Email|Comments\n"
-                + "Section 1|Team 1|Alice Betsy|alice.b.tmms@gmail.tmt|"
-                + "This comment has been changed\n"
-                + "Section 1|Team 1|Frank Galoe|frank.g.tmms@gmail.tmt|\n"
-                + "Section 3|Team 3|José Gómez|jose.gomez.tmns@gmail.tmt|"
-                + "This student name contains accented characters";
+                        + "Section 1|Team 1|Alice Betsy|alice.b.tmms@gmail.tmt|"
+                        + "This comment has been changed\n"
+                        + "Section 1|Team 1|Frank Galoe|frank.g.tmms@gmail.tmt|\n"
+                        + "Section 3|Team 3|José Gómez|jose.gomez.tmns@gmail.tmt|"
+                        + "This student name contains accented characters";
 
         resultsPage = enrollPage.enroll(enrollString);
         resultsPage.verifyHtmlMainContent("/instructorCourseEnrollPageResultForEmptyCourse.html");
@@ -146,8 +146,8 @@ public class InstructorCourseEnrollPageUiTest extends BaseUiTestCase {
 
         // Ensure students were actually enrolled
         coursesPageUrl = createUrl(Const.ActionURIs.INSTRUCTOR_COURSE_DETAILS_PAGE)
-            .withUserId(testData.instructors.get("CCEnrollUiT.teammates.test").googleId)
-            .withCourseId(courseId);
+                .withUserId(testData.instructors.get("CCEnrollUiT.teammates.test").googleId)
+                .withCourseId(courseId);
         detailsPage = loginAdminToPage(coursesPageUrl, InstructorCoursesDetailsPage.class);
         assertEquals(3, detailsPage.getStudentCountForCourse());
 
@@ -161,14 +161,14 @@ public class InstructorCourseEnrollPageUiTest extends BaseUiTestCase {
 
         enrollString =
                 "\tTeam 10\tNo Section 1\tno.section.one@gmail.tmt\t"
-                + "This student has no section\t"
-                + "\tTeam 11\tNo Section 2\tno.section.two@gmail.tmt\t\n";
+                        + "This student has no section\t"
+                        + "\tTeam 11\tNo Section 2\tno.section.two@gmail.tmt\t\n";
 
         expectedEnrollText =
                 "Section|Team|Name|Email|Comments\n"
-                + "|Team 10|No Section 1|no.section.one@gmail.tmt|"
-                + "This student has no section\n"
-                + "|Team 11|No Section 2|no.section.two@gmail.tmt|";
+                        + "|Team 10|No Section 1|no.section.one@gmail.tmt|"
+                        + "This student has no section\n"
+                        + "|Team 11|No Section 2|no.section.two@gmail.tmt|";
 
         resultsPage = enrollPage.enroll(enrollString);
         resultsPage.verifyHtmlMainContent("/instructorCourseEnrollPageResultEmptySection.html");
@@ -188,8 +188,8 @@ public class InstructorCourseEnrollPageUiTest extends BaseUiTestCase {
         ______TS("enroll action: fail to enroll as a team cannot be in 2 different sections");
 
         enrollUrl = createUrl(Const.ActionURIs.INSTRUCTOR_COURSE_ENROLL_PAGE)
-            .withUserId(testData.instructors.get("CCEnrollUiT.teammates.test").googleId)
-            .withCourseId(testData.courses.get("CCEnrollUiT.CS2104").getId());
+                .withUserId(testData.instructors.get("CCEnrollUiT.teammates.test").googleId)
+                .withCourseId(testData.courses.get("CCEnrollUiT.CS2104").getId());
 
         enrollPage = loginAdminToPage(enrollUrl, InstructorCourseEnrollPage.class);
 
@@ -205,8 +205,8 @@ public class InstructorCourseEnrollPageUiTest extends BaseUiTestCase {
         ______TS("enroll action: fail to enroll as there is no input");
 
         enrollUrl = createUrl(Const.ActionURIs.INSTRUCTOR_COURSE_ENROLL_PAGE)
-            .withUserId(testData.instructors.get("CCEnrollUiT.teammates.test").googleId)
-            .withCourseId(testData.courses.get("CCEnrollUiT.CS2104").getId());
+                .withUserId(testData.instructors.get("CCEnrollUiT.teammates.test").googleId)
+                .withCourseId(testData.courses.get("CCEnrollUiT.CS2104").getId());
 
         enrollPage = loginAdminToPage(enrollUrl, InstructorCourseEnrollPage.class);
 
@@ -226,13 +226,13 @@ public class InstructorCourseEnrollPageUiTest extends BaseUiTestCase {
         enrollString =
                 // A new student with no email input
                 "Section 3\tTeam 3\tFrank Hughe\t\t\t"
-                // A new student with invalid email input
-                + "Section 1\tTeam 1\tBlack Jack\tbjack.gmail.tmt\tThis student email is invalid\t"
-                // A new student with invalid team name
-                + "Section 1\t" + StringHelperExtension.generateStringOfLength(FieldValidator.TEAM_NAME_MAX_LENGTH + 1)
+                        // A new student with invalid email input
+                        + "Section 1\tTeam 1\tBlack Jack\tbjack.gmail.tmt\tThis student email is invalid\t"
+                        // A new student with invalid team name
+                        + "Section 1\t" + StringHelperExtension.generateStringOfLength(FieldValidator.TEAM_NAME_MAX_LENGTH + 1)
                         + "\tRobert Downey\trob@email.tmt\tThis student team name is too long\t"
-                // A new student with invalid name
-                + "Section 2\tTeam 2\t"
+                        // A new student with invalid name
+                        + "Section 2\tTeam 2\t"
                         + StringHelperExtension.generateStringOfLength(FieldValidator.PERSON_NAME_MAX_LENGTH + 1)
                         + "\tlongname@email.tmt\tThis student name is too long\n";
 

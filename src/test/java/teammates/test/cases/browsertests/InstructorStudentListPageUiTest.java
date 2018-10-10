@@ -44,7 +44,7 @@ public class InstructorStudentListPageUiTest extends BaseUiTestCase {
         File picture = new File("src/test/resources/images/profile_pic_updated.png");
         String pictureData = JsonUtils.toJson(FileHelper.readFileAsBytes(picture.getAbsolutePath()));
         assertEquals("Unable to upload profile picture", "[BACKDOOR_STATUS_SUCCESS]",
-                     BackDoor.uploadAndUpdateStudentProfilePicture(student.googleId, pictureData));
+                BackDoor.uploadAndUpdateStudentProfilePicture(student.googleId, pictureData));
     }
 
     @Test
@@ -181,10 +181,10 @@ public class InstructorStudentListPageUiTest extends BaseUiTestCase {
         StudentAttributes student2 = testData.students.get("Student3Course3");
         viewPage.clickShowPhoto(student2.course, student2.name);
         String photoUrl = createUrl(Const.ActionURIs.STUDENT_PROFILE_PICTURE)
-                                        .withStudentEmail(StringHelper.encrypt(student2.email))
-                                        .withCourseId(StringHelper.encrypt(student2.course))
-                                        .withUserId(instructorId)
-                                        .toAbsoluteString();
+                .withStudentEmail(StringHelper.encrypt(student2.email))
+                .withCourseId(StringHelper.encrypt(student2.course))
+                .withUserId(instructorId)
+                .toAbsoluteString();
         viewPage.verifyProfilePhoto(student2.course, student2.name, photoUrl);
         viewPage.verifyHtmlMainContent("/instructorStudentListPageWithPicture.html");
     }
@@ -209,7 +209,7 @@ public class InstructorStudentListPageUiTest extends BaseUiTestCase {
         viewPage.checkCourse(1);
         ThreadHelper.waitFor(500);
         InstructorCourseStudentDetailsViewPage studentDetailsPage = viewPage.clickViewStudent(student1.course,
-                                                                                              student1.name);
+                student1.name);
         studentDetailsPage.verifyIsCorrectPage(student1.email);
         studentDetailsPage.closeCurrentWindowAndSwitchToParentWindow();
         viewPage = loginAdminToPage(viewPageUrl, InstructorStudentListPage.class);
@@ -221,7 +221,7 @@ public class InstructorStudentListPageUiTest extends BaseUiTestCase {
         viewPage.checkCourse(1);
         ThreadHelper.waitFor(500);
         InstructorCourseStudentDetailsEditPage studentEditPage = viewPage.clickEditStudent(student2.course,
-                                                                                           student2.name);
+                student2.name);
         studentEditPage.verifyIsCorrectPage(student2.email);
         studentEditPage.submitButtonClicked();
         studentEditPage.closeCurrentWindowAndSwitchToParentWindow();
@@ -233,7 +233,7 @@ public class InstructorStudentListPageUiTest extends BaseUiTestCase {
         viewPage.checkCourse(1);
         ThreadHelper.waitFor(500);
         InstructorStudentRecordsPage studentRecordsPage = viewPage.clickViewRecordsStudent(student2.course,
-                                                                                           student2.name);
+                student2.name);
         studentRecordsPage.verifyIsCorrectPage(student2.name);
         studentRecordsPage.closeCurrentWindowAndSwitchToParentWindow();
         viewPage = loginAdminToPage(viewPageUrl, InstructorStudentListPage.class);

@@ -38,7 +38,7 @@ public class InstructorCourseEditPageActionTest extends BaseActionTest {
         verifyAssumptionFailure();
 
         ______TS("Typical case: open the course edit page");
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId
         };
 
@@ -55,11 +55,11 @@ public class InstructorCourseEditPageActionTest extends BaseActionTest {
         verifySameInstructorList(InstructorsLogic.inst().getInstructorsForCourse(courseId), data.getInstructorPanelList());
 
         String expectedLogSegment = "instructorCourseEdit Page Load<br>"
-                                    + "Editing information for Course <span class=\"bold\">[" + courseId + "]</span>";
+                + "Editing information for Course <span class=\"bold\">[" + courseId + "]</span>";
         AssertHelper.assertContains(expectedLogSegment, editAction.getLogMessage());
 
         ______TS("Typical case: open the course edit page with instructor's email");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.INSTRUCTOR_EMAIL, "instr1@course1.tmt",
                 Const.ParamsNames.COURSE_EDIT_MAIN_INDEX, "1"
@@ -77,7 +77,7 @@ public class InstructorCourseEditPageActionTest extends BaseActionTest {
         assertEquals(1, data.getInstructorPanelList().size());
 
         expectedLogSegment = "instructorCourseEdit Page Load<br>"
-                             + "Editing information for Course <span class=\"bold\">[" + courseId + "]</span>";
+                + "Editing information for Course <span class=\"bold\">[" + courseId + "]</span>";
         AssertHelper.assertContains(expectedLogSegment, editAction.getLogMessage());
 
         ______TS("Masquerade mode");
@@ -88,7 +88,7 @@ public class InstructorCourseEditPageActionTest extends BaseActionTest {
 
         gaeSimulation.loginAsAdmin("admin.user");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.USER_ID, instructorId,
                 Const.ParamsNames.COURSE_ID, courseId
         };
@@ -96,7 +96,7 @@ public class InstructorCourseEditPageActionTest extends BaseActionTest {
         editAction = getAction(submissionParams);
         pageResult = getShowPageResult(editAction);
         assertEquals(getPageResultDestination(Const.ViewURIs.INSTRUCTOR_COURSE_EDIT, false, "idOfInstructor4"),
-                     pageResult.getDestinationWithParams());
+                pageResult.getDestinationWithParams());
         assertFalse(pageResult.isError);
         assertEquals("", pageResult.getStatusMessage());
 
@@ -105,14 +105,14 @@ public class InstructorCourseEditPageActionTest extends BaseActionTest {
         verifySameInstructorList(InstructorsLogic.inst().getInstructorsForCourse(courseId), data.getInstructorPanelList());
 
         expectedLogSegment = "instructorCourseEdit Page Load<br>"
-                             + "Editing information for Course <span class=\"bold\">[" + courseId + "]</span>";
+                + "Editing information for Course <span class=\"bold\">[" + courseId + "]</span>";
         AssertHelper.assertContains(expectedLogSegment, editAction.getLogMessage());
 
         ______TS("Failure case: edit a non-existing course");
 
         CoursesLogic.inst().deleteCourseCascade(courseId);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.USER_ID, instructorId,
                 Const.ParamsNames.COURSE_ID, courseId
         };
@@ -142,7 +142,7 @@ public class InstructorCourseEditPageActionTest extends BaseActionTest {
     @Override
     @Test
     protected void testAccessControl() throws Exception {
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, typicalBundle.instructors.get("instructor1OfCourse1").courseId
         };
 

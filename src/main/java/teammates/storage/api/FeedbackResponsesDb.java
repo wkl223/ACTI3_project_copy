@@ -49,6 +49,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return Null if not found.
      */
     public FeedbackResponseAttributes getFeedbackResponse(String feedbackResponseId) {
@@ -58,6 +59,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return Null if not found.
      */
     public FeedbackResponseAttributes getFeedbackResponse(
@@ -68,6 +70,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return Null if not found.
      */
     public FeedbackResponse getFeedbackResponseEntityWithCheck(String feedbackResponseId) {
@@ -84,6 +87,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return Null if not found.
      */
     public FeedbackResponse getFeedbackResponseEntityWithCheck(
@@ -104,6 +108,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return Null if not found.
      */
     public FeedbackResponse getFeedbackResponseEntityOptimized(FeedbackResponseAttributes response) {
@@ -113,6 +118,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return An empty list if no such responses are found.
      */
     public List<FeedbackResponseAttributes> getFeedbackResponsesForQuestionInSection(
@@ -126,6 +132,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return An empty list if no such responses are found.
      */
     public List<FeedbackResponseAttributes> getFeedbackResponsesForQuestion(
@@ -150,6 +157,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return An empty list if no such responses are found.
      */
     public List<FeedbackResponseAttributes> getFeedbackResponsesForSession(
@@ -163,6 +171,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return An empty list if no such responses are found.
      */
     public List<FeedbackResponseAttributes> getFeedbackResponsesForSessionWithinRange(
@@ -176,6 +185,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return An empty list if no such responses are found.
      */
     public List<FeedbackResponseAttributes> getFeedbackResponsesForSessionInSection(
@@ -190,6 +200,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return An empty list if no such responses are found.
      */
     public List<FeedbackResponseAttributes> getFeedbackResponsesForSessionFromSection(
@@ -204,6 +215,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return An empty list if no such responses are found.
      */
     public List<FeedbackResponseAttributes> getFeedbackResponsesForSessionToSection(
@@ -218,6 +230,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return An empty list if no such responses are found.
      */
     public List<FeedbackResponseAttributes> getFeedbackResponsesForSessionInSectionWithinRange(
@@ -234,6 +247,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return An empty list if no such responses are found.
      */
     public List<FeedbackResponseAttributes> getFeedbackResponsesForSessionFromSectionWithinRange(
@@ -250,6 +264,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return An empty list if no such responses are found.
      */
     public List<FeedbackResponseAttributes> getFeedbackResponsesForSessionToSectionWithinRange(
@@ -266,6 +281,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return An empty list if no such responses are found.
      */
     public List<FeedbackResponseAttributes> getFeedbackResponsesForReceiverForQuestion(
@@ -279,6 +295,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return An empty list if no such responses are found.
      */
     public List<FeedbackResponseAttributes> getFeedbackResponsesForReceiverForQuestionInSection(
@@ -294,6 +311,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return An empty list if no such responses are found.
      */
     public List<FeedbackResponseAttributes> getFeedbackResponsesFromGiverForQuestion(
@@ -307,6 +325,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return An empty list if no such responses are found.
      */
     public List<FeedbackResponseAttributes> getFeedbackResponsesFromGiverForQuestionInSection(
@@ -320,9 +339,10 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     }
 
     /**
-     *  Preconditions: <br>
+     * Preconditions: <br>
      * * All parameters are non-null.
-     *  @return An empty list if no such responses are found.
+     *
+     * @return An empty list if no such responses are found.
      */
     public List<FeedbackResponseAttributes> getFeedbackResponsesFromGiverForSessionWithinRange(
             String giverEmail, String feedbackSessionName, String courseId, int range) {
@@ -337,6 +357,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return An empty list if no such responses are found.
      */
     public List<FeedbackResponseAttributes> getFeedbackResponsesForReceiverForCourse(
@@ -350,6 +371,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return An empty list if no such responses are found.
      */
     public List<FeedbackResponseAttributes> getFeedbackResponsesFromGiverForCourse(
@@ -362,9 +384,9 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
 
     /**
      * Updates the feedback response identified by {@code newAttributes.getId()} and
-     *   changes the {@code updatedAt} timestamp to be the time of update.
+     * changes the {@code updatedAt} timestamp to be the time of update.
      * For the remaining parameters, the existing value is preserved
-     *   if the parameter is null (due to 'keep existing' policy).<br>
+     * if the parameter is null (due to 'keep existing' policy).<br>
      * Preconditions: <br>
      * * {@code newAttributes.getId()} is non-null and correspond to an existing feedback response.
      */
@@ -376,9 +398,9 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     /**
      * Updates the feedback response identified by {@code newAttributes.getId()}
      * For the remaining parameters, the existing value is preserved
-     *   if the parameter is null (due to 'keep existing' policy).<br>
+     * if the parameter is null (due to 'keep existing' policy).<br>
      * The timestamp for {@code updatedAt} is independent of the {@code newAttributes}
-     *   and depends on the value of {@code keepUpdateTimestamp}
+     * and depends on the value of {@code keepUpdateTimestamp}
      * Preconditions: <br>
      * * {@code newAttributes.getId()} is non-null and correspond to an existing feedback response.
      */
@@ -397,14 +419,14 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
      * Optimized to take in FeedbackResponse entity if available, to prevent reading the entity again.
      * Updates the feedback response identified by {@code newAttributes.getId()}
      * For the remaining parameters, the existing value is preserved
-     *   if the parameter is null (due to 'keep existing' policy).<br>
+     * if the parameter is null (due to 'keep existing' policy).<br>
      * The timestamp for {@code updatedAt} is independent of the {@code newAttributes}
-     *   and depends on the value of {@code keepUpdateTimestamp}
+     * and depends on the value of {@code keepUpdateTimestamp}
      * Preconditions: <br>
      * * {@code newAttributes.getId()} is non-null and correspond to an existing feedback response.
      */
     private void updateFeedbackResponseOptimized(FeedbackResponseAttributes newAttributes, FeedbackResponse fr,
-            boolean keepUpdateTimestamp) throws InvalidParametersException, EntityDoesNotExistException {
+                                                 boolean keepUpdateTimestamp) throws InvalidParametersException, EntityDoesNotExistException {
         Assumption.assertNotNull(Const.StatusCodes.DBLEVEL_NULL_INPUT, newAttributes);
 
         //TODO: Sanitize values and update tests accordingly
@@ -473,7 +495,7 @@ public class FeedbackResponsesDb extends EntitiesDb<FeedbackResponse, FeedbackRe
     }
 
     private List<FeedbackResponse> getFeedbackResponseEntitiesForQuestionInSection(
-                String feedbackQuestionId, String section) {
+            String feedbackQuestionId, String section) {
         List<FeedbackResponse> feedbackResponses = new ArrayList<>();
 
         feedbackResponses.addAll(load()

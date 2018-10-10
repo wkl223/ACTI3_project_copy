@@ -19,7 +19,7 @@ public class ActivityLogEntryTest extends BaseTestCase {
     public void builder_defaultValues() {
         Builder builder = new Builder("instructorHome", "URL", 10);
         String logMessage = "TEAMMATESLOG|||instructorHome|||instructorHome|||true|||Unknown|||Unknown|||Unknown"
-                            + "|||Unknown|||Unknown|||URL";
+                + "|||Unknown|||Unknown|||URL";
         AssertHelper.assertLogMessageEquals(logMessage, builder.build().generateLogMessage());
     }
 
@@ -27,14 +27,14 @@ public class ActivityLogEntryTest extends BaseTestCase {
     public void builder_withNullValues_ignoreNullValues() {
         Builder builder = new Builder(null, null, 10);
         builder.withActionResponse(null)
-               .withLogId(null)
-               .withLogMessage(null)
-               .withUserEmail(null)
-               .withUserGoogleId(null)
-               .withUserName(null)
-               .withUserRole(null);
+                .withLogId(null)
+                .withLogMessage(null)
+                .withUserEmail(null)
+                .withUserGoogleId(null)
+                .withUserName(null)
+                .withUserRole(null);
         String logMessage = "TEAMMATESLOG|||Unknown|||Unknown|||true|||Unknown|||Unknown|||Unknown"
-                            + "|||Unknown|||Unknown|||Unknown";
+                + "|||Unknown|||Unknown|||Unknown";
         ActivityLogEntry entry = builder.build();
         AssertHelper.assertLogMessageEquals(logMessage, entry.generateLogMessage());
         assertEquals(Const.ActivityLog.UNKNOWN, entry.getLogId());
@@ -45,20 +45,20 @@ public class ActivityLogEntryTest extends BaseTestCase {
         ______TS("Test generateLogMessage");
 
         String statusToAdmin = "<span class=\"text-danger\">Error. ActivityLogEntry object is not created "
-                               + "for this servlet action.</span><br>Message";
+                + "for this servlet action.</span><br>Message";
         String logMessage = "TEAMMATESLOG|||instructorHome|||Servlet Action Failure|||true"
-                            + "|||Instructor(M)|||Joe|||GoogleIdA|||instructor@email.tmt"
-                            + "|||" + statusToAdmin + "|||url.com";
+                + "|||Instructor(M)|||Joe|||GoogleIdA|||instructor@email.tmt"
+                + "|||" + statusToAdmin + "|||url.com";
         Builder builder = new Builder("instructorHome", "url.com", 10);
         builder.withActionResponse(Const.ACTION_RESULT_FAILURE)
-               .withUserRole(Const.ActivityLog.ROLE_INSTRUCTOR)
-               .withUserName("Joe")
-               .withUserGoogleId("GoogleIdA")
-               .withUserEmail("instructor@email.tmt")
-               .withLogMessage(statusToAdmin)
-               .withLogId("GoogleIdA@10")
-               .withActionTimeTaken(20)
-               .withMasqueradeUserRole(true);
+                .withUserRole(Const.ActivityLog.ROLE_INSTRUCTOR)
+                .withUserName("Joe")
+                .withUserGoogleId("GoogleIdA")
+                .withUserEmail("instructor@email.tmt")
+                .withLogMessage(statusToAdmin)
+                .withLogId("GoogleIdA@10")
+                .withActionTimeTaken(20)
+                .withMasqueradeUserRole(true);
 
         ActivityLogEntry entry = builder.build();
         AssertHelper.assertLogMessageEquals(logMessage, entry.generateLogMessage());
@@ -85,7 +85,7 @@ public class ActivityLogEntryTest extends BaseTestCase {
     public void logEntry_withAppLogLine_constructSuccessfully() {
         ______TS("Success: Generate activityLog from appLogLine (with TimeTaken)");
         String logMessageWithoutTimeTaken = "TEAMMATESLOG|||instructorHome|||Pageload|||true|||Instructor"
-                                            + "|||UserName|||UserId|||UserEmail|||Message|||URL|||UserId20151019143729608";
+                + "|||UserName|||UserId|||UserEmail|||Message|||URL|||UserId20151019143729608";
         AppLogLine appLog = new AppLogLine();
         appLog.setLogMessage(logMessageWithoutTimeTaken + Const.ActivityLog.FIELD_SEPARATOR + "20");
         ActivityLogEntry entry = ActivityLogEntry.buildFromAppLog(appLog);
@@ -114,7 +114,7 @@ public class ActivityLogEntryTest extends BaseTestCase {
         assertTrue(entry.generateLogMessage().contains(Const.ActivityLog.MESSAGE_ERROR_LOG_MESSAGE_FORMAT));
 
         String logMessageMalformation = "TEAMMATESLOG|||instructorHome|||Pageload|||true|||Instructor"
-                                        + "|||UserName|||UserId|||UserEmail|||Message|||URL";
+                + "|||UserName|||UserId|||UserEmail|||Message|||URL";
         appLog.setLogMessage(logMessageMalformation);
         entry = ActivityLogEntry.buildFromAppLog(appLog);
         assertTrue(entry.generateLogMessage().contains(Const.ActivityLog.MESSAGE_ERROR_LOG_MESSAGE_FORMAT));

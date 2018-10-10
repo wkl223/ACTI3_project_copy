@@ -8,9 +8,9 @@ import teammates.common.util.ThreadHelper;
  * Handles running and retrying of {@link Retryable} tasks.
  * Generally, the methods retry tasks with exponential backoff until one of the following conditions is met:
  * <ul>
- *     <li>Task is successful (see specific method documentation for definition of success).</li>
- *     <li>Maximum retries are exceeded (as determined by the specified maximum delay).</li>
- *     <li>A {@link Throwable} of type specified in the task is encountered (this is thrown upwards).</li>
+ * <li>Task is successful (see specific method documentation for definition of success).</li>
+ * <li>Maximum retries are exceeded (as determined by the specified maximum delay).</li>
+ * <li>A {@link Throwable} of type specified in the task is encountered (this is thrown upwards).</li>
  * </ul>
  */
 public final class RetryManager {
@@ -47,7 +47,7 @@ public final class RetryManager {
             @Override
             public <T, E extends Throwable> boolean isSuccessful(Retryable<T, E> task) throws E {
                 Assumption.assertTrue("Success condition " + NOT_NULL + " is only applicable to subclasses of "
-                        + RetryableTaskReturnsThrows.class.getSimpleName(),
+                                + RetryableTaskReturnsThrows.class.getSimpleName(),
                         RetryableTaskReturnsThrows.class.isInstance(task));
 
                 return !((RetryableTaskReturnsThrows<T, E>) task).isResultNull();
@@ -63,9 +63,9 @@ public final class RetryManager {
     /**
      * Runs {@code task}, retrying if needed using exponential backoff, until task is successful.
      *
-     * @returns {@code task} result or null if none.
-     * @throws E if encountered while running or evaluating {@code task}.
+     * @throws E                               if encountered while running or evaluating {@code task}.
      * @throws MaximumRetriesExceededException if maximum retries are exceeded.
+     * @returns {@code task} result or null if none.
      */
     public <T, E extends Throwable> T runUntilSuccessful(Retryable<T, E> task) throws E, MaximumRetriesExceededException {
         return doRetry(task, SuccessCondition.DEFAULT);
@@ -74,9 +74,9 @@ public final class RetryManager {
     /**
      * Runs {@code task}, retrying if needed using exponential backoff, until task returns a non-null result.
      *
-     * @returns {@code task} result or null if none.
-     * @throws E if encountered while running or evaluating {@code task}.
+     * @throws E                               if encountered while running or evaluating {@code task}.
      * @throws MaximumRetriesExceededException if maximum retries are exceeded.
+     * @returns {@code task} result or null if none.
      */
     public <T, E extends Throwable> T runUntilNotNull(RetryableTaskReturnsThrows<T, E> task)
             throws E, MaximumRetriesExceededException {
@@ -87,9 +87,9 @@ public final class RetryManager {
      * Runs {@code task}, retrying if needed using exponential backoff, until no exceptions of the specified
      * {@code recognizedExceptionTypes} are caught.
      *
-     * @returns {@code task} result or null if none.
-     * @throws E if encountered while running or evaluating {@code task}.
+     * @throws E                               if encountered while running or evaluating {@code task}.
      * @throws MaximumRetriesExceededException if maximum retries are exceeded.
+     * @returns {@code task} result or null if none.
      */
     @SafeVarargs
     public final <T, E extends Throwable> T runUntilNoRecognizedException(

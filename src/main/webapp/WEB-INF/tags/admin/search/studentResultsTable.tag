@@ -17,21 +17,21 @@
   <div class="table-responsive">
     <table class="table table-striped data-table" id="search_table">
       <thead>
-        <tr>
-          <th>Institute </th>
-          <th>Course[Section](Team)</th>
-          <th>Name</th>
-          <th>Google ID[Details]</th>
-          <th>Comments</th>
-          <th>Options</th>
+      <tr>
+        <th>Institute</th>
+        <th>Course[Section](Team)</th>
+        <th>Name</th>
+        <th>Google ID[Details]</th>
+        <th>Comments</th>
+        <th>Options</th>
 
-        </tr>
+      </tr>
       </thead>
 
       <tbody>
-        <c:forEach items="${studentResultsTable.studentRows}" var="student">
-          <adminSearch:studentRow student="${student}"/>
-        </c:forEach>
+      <c:forEach items="${studentResultsTable.studentRows}" var="student">
+        <adminSearch:studentRow student="${student}"/>
+      </c:forEach>
       </tbody>
     </table>
   </div>

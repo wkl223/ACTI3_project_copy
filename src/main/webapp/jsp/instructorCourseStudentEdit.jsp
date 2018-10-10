@@ -11,6 +11,6 @@
       studentInfoTable="${data.studentInfoTable}"
       newEmail="${data.newEmail}"
       openOrPublishedEmailSentForTheCourse="${data.openOrPublishedEmailSentForTheCourse}"
-      sessionToken="${data.sessionToken}" />
+      sessionToken="${data.sessionToken}"/>
   <br><br>
 </ti:instructorPage>

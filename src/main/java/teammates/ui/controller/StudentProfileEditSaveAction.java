@@ -12,22 +12,23 @@ import teammates.common.util.StringHelper;
 
 /**
  * Action: saves the new profile details given by a student.
- *         A purely Action based URI as it redirects back to
- *         StudentProfilePageAction once completed
+ * A purely Action based URI as it redirects back to
+ * StudentProfilePageAction once completed
  */
 public class StudentProfileEditSaveAction extends Action {
 
     static int like;
+
     @Override
     protected ActionResult execute() throws EntityDoesNotExistException {
         try {
-            this.like=Integer.parseInt(getRequestParamValue("like"));
+            this.like = Integer.parseInt(getRequestParamValue("like"));
             account.studentProfile = extractProfileData();
             logic.updateStudentProfile(account.studentProfile);
             statusToUser.add(new StatusMessage(Const.StatusMessages.STUDENT_PROFILE_EDITED, StatusMessageColor.SUCCESS));
             statusToAdmin = "Student Profile for <span class=\"bold\">(" + account.googleId
-                          + ")</span> edited.<br>"
-                          + SanitizationHelper.sanitizeForHtmlTag(account.studentProfile.toString());
+                    + ")</span> edited.<br>"
+                    + SanitizationHelper.sanitizeForHtmlTag(account.studentProfile.toString());
         } catch (InvalidParametersException ipe) {
             setStatusForException(ipe);
         }
@@ -56,7 +57,7 @@ public class StudentProfileEditSaveAction extends Action {
         editedProfile.gender = getRequestParamValue(Const.ParamsNames.STUDENT_GENDER);
         editedProfile.moreInfo = getRequestParamValue(Const.ParamsNames.STUDENT_PROFILE_MOREINFO);
         editedProfile.pictureKey = "";
-        editedProfile.like=this.like;
+        editedProfile.like = this.like;
         preprocessParameters(editedProfile);
         validatePostParameters(editedProfile);
 

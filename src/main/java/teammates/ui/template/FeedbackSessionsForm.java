@@ -13,7 +13,6 @@ import teammates.ui.pagedata.PageData;
 
 /**
  * Data model for the form for creating/editing a feedback session.
- *
  */
 public class FeedbackSessionsForm {
     private String formSubmitActionLink;
@@ -61,8 +60,8 @@ public class FeedbackSessionsForm {
     private FeedbackSessionsAdditionalSettingsFormSegment additionalSettings;
 
     public static FeedbackSessionsForm getFsFormForExistingFs(FeedbackSessionAttributes existingFs,
-                                                  FeedbackSessionsAdditionalSettingsFormSegment additionalSettings,
-                                                  String fsDeleteLink, String fsEditCopyLink) {
+                                                              FeedbackSessionsAdditionalSettingsFormSegment additionalSettings,
+                                                              String fsDeleteLink, String fsEditCopyLink) {
         FeedbackSessionsForm fsForm = new FeedbackSessionsForm();
 
         fsForm.fsDeleteLink = fsDeleteLink;
@@ -133,26 +132,26 @@ public class FeedbackSessionsForm {
         newFsForm.fsTimeZone = feedbackSession == null ? null : feedbackSession.getTimeZone().getId();
 
         newFsForm.instructions = feedbackSession == null
-                               ? "Please answer all the given questions."
-                               : SanitizationHelper.sanitizeForRichText(feedbackSession.getInstructions().getValue());
+                ? "Please answer all the given questions."
+                : SanitizationHelper.sanitizeForRichText(feedbackSession.getInstructions().getValue());
 
         newFsForm.fsStartDate = feedbackSession == null
-                              ? ""
-                              : TimeHelper.formatDateForSessionsForm(feedbackSession.getStartTimeLocal());
+                ? ""
+                : TimeHelper.formatDateForSessionsForm(feedbackSession.getStartTimeLocal());
 
         LocalDateTime startDate = feedbackSession == null ? null : feedbackSession.getStartTimeLocal();
         newFsForm.fsStartTimeOptions = PageData.getTimeOptionsAsElementTags(startDate);
 
         newFsForm.fsEndDate = feedbackSession == null
-                            ? ""
-                            : TimeHelper.formatDateForSessionsForm(feedbackSession.getEndTimeLocal());
+                ? ""
+                : TimeHelper.formatDateForSessionsForm(feedbackSession.getEndTimeLocal());
 
         LocalDateTime endDate = feedbackSession == null ? null : feedbackSession.getEndTimeLocal();
         newFsForm.fsEndTimeOptions = PageData.getTimeOptionsAsElementTags(endDate);
 
         newFsForm.gracePeriodOptions = PageData.getGracePeriodOptionsAsElementTags(feedbackSession == null
-                                                                              ? Const.INT_UNINITIALIZED
-                                                                              : feedbackSession.getGracePeriodMinutes());
+                ? Const.INT_UNINITIALIZED
+                : feedbackSession.getGracePeriodMinutes());
 
         newFsForm.isSubmitButtonDisabled = isSubmitButtonDisabled;
         newFsForm.formSubmitActionLink = Const.ActionURIs.INSTRUCTOR_FEEDBACK_ADD;

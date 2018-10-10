@@ -69,6 +69,7 @@ function removeConstSumOption(index, questionNum) {
         }
     }
 }
+
 /**
  * If the radio button is checked, the corresponding number field will be enabled,
  * otherwise it will be disabled.

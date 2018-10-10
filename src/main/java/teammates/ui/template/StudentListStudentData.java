@@ -32,16 +32,16 @@ public class StudentListStudentData {
                 Const.ParamsNames.INSTRUCTOR_REMIND_STUDENT_IS_FROM, previousPage);
         this.courseStudentDetailsLink =
                 furnishLinkWithCourseEmailAndUserId(Const.ActionURIs.INSTRUCTOR_COURSE_STUDENT_DETAILS_PAGE,
-                                                    course, studentEmail, googleId);
+                        course, studentEmail, googleId);
         this.courseStudentEditLink =
                 furnishLinkWithCourseEmailAndUserId(Const.ActionURIs.INSTRUCTOR_COURSE_STUDENT_DETAILS_EDIT,
-                                                    course, studentEmail, googleId);
+                        course, studentEmail, googleId);
         this.courseStudentRemindLink = furnishLinkWithCourseEmailAndUserId(courseStudentRemindRawLink, course,
-                                                                           studentEmail, googleId);
+                studentEmail, googleId);
         this.courseStudentDeleteLink = furnishLinkWithCourseEmailAndUserId(Const.ActionURIs.INSTRUCTOR_COURSE_STUDENT_DELETE,
-                                                                           course, studentEmail, googleId);
+                course, studentEmail, googleId);
         this.courseStudentRecordsLink = furnishLinkWithCourseEmailAndUserId(Const.ActionURIs.INSTRUCTOR_STUDENT_RECORDS_PAGE,
-                                                                            course, studentEmail, googleId);
+                course, studentEmail, googleId);
     }
 
     private String furnishLinkWithCourseEmailAndUserId(String rawLink, String course, String studentEmail,

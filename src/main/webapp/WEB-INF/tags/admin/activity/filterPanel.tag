@@ -7,7 +7,7 @@
 <%@ attribute name="shouldShowAllLogs" required="true" %>
 <%@ attribute name="shouldShowTestData" required="true" %>
 <%@ attribute name="filterQuery" required="true" %>
-<%@ attribute name="queryKeywordsForInfo" required="true"%>
+<%@ attribute name="queryKeywordsForInfo" required="true" %>
 
 <div class="well well-plain">
   <form class="form-horizontal" method="post" action="/admin/adminActivityLogPage" id="activityLogFilter" role="form">
@@ -25,7 +25,8 @@
         </div>
       </div>
 
-      <input id="query-keywords-default-for-info" type="hidden" value="<%= Const.ACTION_RESULT_FAILURE %>, <%= Const.ACTION_RESULT_SYSTEM_ERROR_REPORT %>">
+      <input id="query-keywords-default-for-info" type="hidden"
+             value="<%= Const.ACTION_RESULT_FAILURE %>, <%= Const.ACTION_RESULT_SYSTEM_ERROR_REPORT %>">
       <input id="query-keywords-for-info" type="hidden" value="${queryKeywordsForInfo}">
 
       <div class="form-group">
@@ -59,7 +60,8 @@
 
             <p class="text-center">
               <span class="glyphicon glyphicon-hand-right"></span>
-              Combine filters with the <span class="label label-warning">AND</span> keyword or the <span class="label label-warning">|</span> separator.
+              Combine filters with the <span class="label label-warning">AND</span> keyword or the <span
+                class="label label-warning">|</span> separator.
             </p>
           </div>
         </div>
@@ -71,7 +73,9 @@
                 <strong>Sample Queries:</strong> <br>
                 <ul>
                   <li>E.g. role: Instructor AND request: InstructorCourse, InstructorEval AND from: 15/03/13</li>
-                  <li>E.g. from: 13/03/13 AND to: 17/03/13 AND person: teammates.test AND response: Pageload, System Error Report, Servlet Action Failure</li>
+                  <li>E.g. from: 13/03/13 AND to: 17/03/13 AND person: teammates.test AND response: Pageload, System
+                    Error Report, Servlet Action Failure
+                  </li>
                 </ul>
               </div>
             </div>
@@ -80,7 +84,8 @@
           <div class="form-group">
             <div class="col-md-12">
               <div class="form-control-static">
-                <strong>Possible Labels:</strong>&nbsp;from, to, person, role, request, response, version, time, info, id<br>
+                <strong>Possible Labels:</strong>&nbsp;from, to, person, role, request, response, version, time, info,
+                id<br>
                 <ul>
                   <li>E.g. from: 13/03/13</li>
                   <li>E.g. to: 13/03/13</li>
@@ -90,9 +95,11 @@
                   <li>E.g. response: Pageload, System Error Report, Delete Course</li>
                   <li>E.g. version: 4.15, 4.16</li>
                   <li>E.g. version: 4-15, 4.16 (both "." and "-" are acceptable)</li>
-                  <li>E.g. time: 1000 (means 1000ms) </li>
-                  <li>E.g. info: Admin Account Management Page Load </li>
-                  <li>E.g. info: Admin Account Management Page Load, Total, 90 (Use "," to search multiple key strings)</li>
+                  <li>E.g. time: 1000 (means 1000ms)</li>
+                  <li>E.g. info: Admin Account Management Page Load</li>
+                  <li>E.g. info: Admin Account Management Page Load, Total, 90 (Use "," to search multiple key
+                    strings)
+                  </li>
                   <li>E.g. id: alice@gmail.com%20160131181745245, charlie@gmail.com%20160201182727734</li>
                 </ul>
               </div>
@@ -112,11 +119,11 @@
               <p class="form-control-static">
                 <strong>Possible Servlets Requests: </strong> <br>
                 <br>
-                <div class="table-responsive">
-                  <table class="table table-condensed">
-                    ${actionListAsHtml}
-                  </table>
-                </div>
+              <div class="table-responsive">
+                <table class="table table-condensed">
+                  ${actionListAsHtml}
+                </table>
+              </div>
               </p>
             </div>
           </div>
@@ -125,63 +132,63 @@
             <div class="col-md-12">
               <p class="form-control-static">
                 <strong>Possible Responses:</strong> <br> <br>
-                <div class="table-responsive">
-                  <table class="table table-condensed">
-                    <tr>
-                      <td>
-                        <ul class="list-group">
-                          <li class="list-group-item">Remind Students About Evaluation</li>
-                          <li class="list-group-item">Send Evaluation Closing reminders</li>
-                          <li class="list-group-item">Send Evaluation Opening reminders</li>
-                        </ul>
-                      </td>
+              <div class="table-responsive">
+                <table class="table table-condensed">
+                  <tr>
+                    <td>
+                      <ul class="list-group">
+                        <li class="list-group-item">Remind Students About Evaluation</li>
+                        <li class="list-group-item">Send Evaluation Closing reminders</li>
+                        <li class="list-group-item">Send Evaluation Opening reminders</li>
+                      </ul>
+                    </td>
 
-                      <td>
-                        <ul class="list-group">
-                          <li class="list-group-item">Publish Evaluation</li>
-                          <li class="list-group-item">Unpublish Evaluation</li>
-                          <li class="list-group-item">Send Registration</li>
-                        </ul>
-                      </td>
+                    <td>
+                      <ul class="list-group">
+                        <li class="list-group-item">Publish Evaluation</li>
+                        <li class="list-group-item">Unpublish Evaluation</li>
+                        <li class="list-group-item">Send Registration</li>
+                      </ul>
+                    </td>
 
-                      <td>
-                        <ul class="list-group">
-                          <li class="list-group-item">Pageload</li>
-                          <li class="list-group-item">System Error Report</li>
-                          <li class="list-group-item">Servlet Action Failure</li>
-                        </ul>
-                      </td>
-                    </tr>
+                    <td>
+                      <ul class="list-group">
+                        <li class="list-group-item">Pageload</li>
+                        <li class="list-group-item">System Error Report</li>
+                        <li class="list-group-item">Servlet Action Failure</li>
+                      </ul>
+                    </td>
+                  </tr>
 
-                    <tr>
-                      <td>
-                        <ul class="list-group">
-                          <li class="list-group-item">Add New Course</li>
-                          <li class="list-group-item">Delete Course</li>
-                          <li class="list-group-item">Edit Course Info</li>
-                        </ul>
-                      </td>
+                  <tr>
+                    <td>
+                      <ul class="list-group">
+                        <li class="list-group-item">Add New Course</li>
+                        <li class="list-group-item">Delete Course</li>
+                        <li class="list-group-item">Edit Course Info</li>
+                      </ul>
+                    </td>
 
-                      <td>
-                        <ul class="list-group">
-                          <li class="list-group-item">Enroll Students</li>
-                          <li class="list-group-item">Edit Student Details</li>
-                          <li class="list-group-item">Delete Student</li>
-                          <li class="list-group-item">Student Joining Course</li>
-                        </ul>
-                      </td>
+                    <td>
+                      <ul class="list-group">
+                        <li class="list-group-item">Enroll Students</li>
+                        <li class="list-group-item">Edit Student Details</li>
+                        <li class="list-group-item">Delete Student</li>
+                        <li class="list-group-item">Student Joining Course</li>
+                      </ul>
+                    </td>
 
-                      <td>
-                        <ul class="list-group">
-                          <li class="list-group-item">Create New Evaluation</li>
-                          <li class="list-group-item">Edit Evaluation Info</li>
-                          <li class="list-group-item">Delete Evaluation</li>
-                          <li class="list-group-item">Edit Submission</li>
-                        </ul>
-                      </td>
-                    </tr>
-                  </table>
-                </div>
+                    <td>
+                      <ul class="list-group">
+                        <li class="list-group-item">Create New Evaluation</li>
+                        <li class="list-group-item">Edit Evaluation Info</li>
+                        <li class="list-group-item">Delete Evaluation</li>
+                        <li class="list-group-item">Edit Submission</li>
+                      </ul>
+                    </td>
+                  </tr>
+                </table>
+              </div>
               </p>
             </div>
           </div>

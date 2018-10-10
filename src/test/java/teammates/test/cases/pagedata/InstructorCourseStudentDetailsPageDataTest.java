@@ -113,8 +113,8 @@ public class InstructorCourseStudentDetailsPageDataTest extends BaseTestCase {
             this.pictureUrl = Const.SystemParams.DEFAULT_PROFILE_PICTURE_PATH;
         } else {
             this.pictureUrl = Const.ActionURIs.STUDENT_PROFILE_PICTURE + "?"
-                            + Const.ParamsNames.BLOB_KEY + "=" + pictureKey + "&"
-                            + Const.ParamsNames.USER_ID + "=null";
+                    + Const.ParamsNames.BLOB_KEY + "=" + pictureKey + "&"
+                    + Const.ParamsNames.USER_ID + "=null";
         }
 
         inputStudentProfile = StudentProfileAttributes.builder(googleId)

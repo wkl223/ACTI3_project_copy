@@ -149,7 +149,8 @@
       <a href="http://activatejavascript.org/en/instructions/" target="_blank" rel="noopener noreferrer">http://activatejavascript.org/en/instructions/</a>
     </li>
     <li>
-      <a href="https://support.mozilla.org/en-US/kb/javascript-settings-for-interactive-web-pages" target="_blank" rel="noopener noreferrer">
+      <a href="https://support.mozilla.org/en-US/kb/javascript-settings-for-interactive-web-pages" target="_blank"
+         rel="noopener noreferrer">
         https://support.mozilla.org/en-US/kb/javascript-settings-for-interactive-web-page
       </a>
     </li>

@@ -42,13 +42,13 @@ public class StudentFeedbackSubmissionEditSaveAction extends FeedbackSubmissionE
     @Override
     protected FeedbackSessionQuestionsBundle getDataBundle(String userEmailForCourse) throws EntityDoesNotExistException {
         return logic.getFeedbackSessionQuestionsBundleForStudent(feedbackSessionName, courseId,
-                                                                 userEmailForCourse);
+                userEmailForCourse);
     }
 
     @Override
     protected void setStatusToAdmin() {
         statusToAdmin = "Show student feedback edit result page<br>" + "Session Name: "
-                        + feedbackSessionName + "<br>" + "Course ID: " + courseId;
+                + feedbackSessionName + "<br>" + "Course ID: " + courseId;
     }
 
     @Override
@@ -70,7 +70,7 @@ public class StudentFeedbackSubmissionEditSaveAction extends FeedbackSubmissionE
         // Provide course id and session name for the redirected page
         result.responseParams.put(Const.ParamsNames.COURSE_ID, student.course);
         result.responseParams.put(Const.ParamsNames.FEEDBACK_SESSION_NAME,
-                                  getRequestParamValue(Const.ParamsNames.FEEDBACK_SESSION_NAME));
+                getRequestParamValue(Const.ParamsNames.FEEDBACK_SESSION_NAME));
 
         return result;
     }

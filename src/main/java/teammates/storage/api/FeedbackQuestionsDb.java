@@ -44,6 +44,7 @@ public class FeedbackQuestionsDb extends EntitiesDb<FeedbackQuestion, FeedbackQu
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return Null if not found.
      */
     public FeedbackQuestionAttributes getFeedbackQuestion(String feedbackQuestionId) {
@@ -61,6 +62,7 @@ public class FeedbackQuestionsDb extends EntitiesDb<FeedbackQuestion, FeedbackQu
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return Null if not found.
      */
     public FeedbackQuestionAttributes getFeedbackQuestion(
@@ -78,6 +80,7 @@ public class FeedbackQuestionsDb extends EntitiesDb<FeedbackQuestion, FeedbackQu
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return An empty list if no such questions are found.
      */
     public List<FeedbackQuestionAttributes> getFeedbackQuestionsForSession(
@@ -91,6 +94,7 @@ public class FeedbackQuestionsDb extends EntitiesDb<FeedbackQuestion, FeedbackQu
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return An empty list if no such questions are found.
      */
     public List<FeedbackQuestionAttributes> getFeedbackQuestionsForGiverType(
@@ -104,9 +108,9 @@ public class FeedbackQuestionsDb extends EntitiesDb<FeedbackQuestion, FeedbackQu
 
     /**
      * Updates the feedback question identified by `{@code newAttributes.getId()}
-     *   and changes the {@code updatedAt} timestamp to be the time of update.
+     * and changes the {@code updatedAt} timestamp to be the time of update.
      * For the remaining parameters, the existing value is preserved
-     *   if the parameter is null (due to 'keep existing' policy).<br>
+     * if the parameter is null (due to 'keep existing' policy).<br>
      *
      * <p>Preconditions:
      * {@code newAttributes.getId()} is non-null and correspond to an existing feedback question.
@@ -119,12 +123,12 @@ public class FeedbackQuestionsDb extends EntitiesDb<FeedbackQuestion, FeedbackQu
     /**
      * Updates the feedback question identified by `{@code newAttributes.getId()}
      * For the remaining parameters, the existing value is preserved
-     *   if the parameter is null (due to 'keep existing' policy).<br>
+     * if the parameter is null (due to 'keep existing' policy).<br>
      * The timestamp for {@code updatedAt} is independent of the {@code newAttributes}
-     *   and depends on the value of {@code keepUpdateTimestamp}
+     * and depends on the value of {@code keepUpdateTimestamp}
      * Preconditions: <br>
      * * {@code newAttributes.getId()} is non-null and
-     *  correspond to an existing feedback question. <br>
+     * correspond to an existing feedback question. <br>
      */
     public void updateFeedbackQuestion(FeedbackQuestionAttributes newAttributes, boolean keepUpdateTimestamp)
             throws InvalidParametersException, EntityDoesNotExistException {

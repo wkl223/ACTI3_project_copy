@@ -46,20 +46,20 @@ public class AdminPrepareEmailGroupModeWorkerAction extends AutomatedAction {
         String indexOfEmailToResumeAsString = getRequestParamValue(ParamsNames.ADMIN_GROUP_RECEIVER_EMAIL_INDEX);
 
         int indexOfEmailListToResume = indexOfEmailListToResumeAsString == null
-                                       ? 0
-                                       : Integer.parseInt(indexOfEmailListToResumeAsString);
+                ? 0
+                : Integer.parseInt(indexOfEmailListToResumeAsString);
         int indexOfEmailToResume = indexOfEmailToResumeAsString == null
-                                   ? 0
-                                   : Integer.parseInt(indexOfEmailToResumeAsString);
+                ? 0
+                : Integer.parseInt(indexOfEmailToResumeAsString);
 
         try {
             List<List<String>> processedReceiverEmails =
                     GoogleCloudStorageHelper.getGroupReceiverList(new BlobKey(groupReceiverListFileKey));
             addAdminEmailToTaskQueue(emailId, groupReceiverListFileKey, processedReceiverEmails,
-                                     indexOfEmailListToResume, indexOfEmailToResume);
+                    indexOfEmailListToResume, indexOfEmailToResume);
         } catch (IOException e) {
             log.severe("Unexpected error while adding admin email tasks: "
-                       + TeammatesException.toStringWithStackTrace(e));
+                    + TeammatesException.toStringWithStackTrace(e));
         }
     }
 
@@ -69,13 +69,13 @@ public class AdminPrepareEmailGroupModeWorkerAction extends AutomatedAction {
     }
 
     private void addAdminEmailToTaskQueue(String emailId, String groupReceiverListFileKey,
-            List<List<String>> processedReceiverEmails,
-            int indexOfEmailListToResume, int indexOfEmailToResume) {
+                                          List<List<String>> processedReceiverEmails,
+                                          int indexOfEmailListToResume, int indexOfEmailToResume) {
         AdminEmailAttributes adminEmail = logic.getAdminEmailById(emailId);
         Assumption.assertNotNull(adminEmail);
 
         log.info("Resume adding group mail tasks for mail with id " + emailId + " from list index: "
-                 + indexOfEmailListToResume + " and email index: " + indexOfEmailToResume);
+                + indexOfEmailListToResume + " and email index: " + indexOfEmailToResume);
 
         int indexOfLastEmailList = 0;
         int indexOfLastEmail = 0;
@@ -85,11 +85,11 @@ public class AdminPrepareEmailGroupModeWorkerAction extends AutomatedAction {
             for (int j = indexOfEmailToResume; j < currentEmailList.size(); j++) {
                 String receiverEmail = currentEmailList.get(j);
                 taskQueuer.scheduleAdminEmailForSending(emailId, receiverEmail, adminEmail.getSubject(),
-                                                        adminEmail.getContentValue());
+                        adminEmail.getContentValue());
                 if (isNearDeadline()) {
                     taskQueuer.scheduleAdminEmailPreparationInGroupMode(emailId, groupReceiverListFileKey, i, j);
                     log.info("Adding group mail tasks for mail with id " + emailId
-                             + " have been paused with list index: " + i + " and email index: " + j);
+                            + " have been paused with list index: " + i + " and email index: " + j);
                     return;
                 }
                 indexOfLastEmail = j;
@@ -98,8 +98,8 @@ public class AdminPrepareEmailGroupModeWorkerAction extends AutomatedAction {
         }
 
         log.info("Adding group mail tasks for mail with id " + emailId
-                 + "was complete with last reached list index: " + indexOfLastEmailList
-                 + " and last reached email index: " + indexOfLastEmail);
+                + "was complete with last reached list index: " + indexOfLastEmailList
+                + " and last reached email index: " + indexOfLastEmail);
     }
 
 }

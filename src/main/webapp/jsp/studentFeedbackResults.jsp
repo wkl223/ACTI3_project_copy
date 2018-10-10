@@ -12,12 +12,12 @@
 <ts:studentPage title="Feedback Results" jsIncludes="${jsIncludes}">
   <c:if test="${empty data.account.googleId}">
     <div id="registerMessage" class="alert alert-info">
-      ${data.registerMessage}
+        ${data.registerMessage}
     </div>
   </c:if>
 
   <feedbackResults:feedbackSessionDetailsPanel feedbackSession="${data.bundle.feedbackSession}"/>
-  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
+  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}"/>
   <br>
 
   <c:forEach items="${data.feedbackResultsQuestionsWithResponses}" var="questionWithResponses">

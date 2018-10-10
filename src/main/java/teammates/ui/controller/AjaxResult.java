@@ -14,7 +14,9 @@ import teammates.ui.pagedata.PageData;
 
 public class AjaxResult extends ActionResult {
 
-    /** The data that will be sent back to the caller. */
+    /**
+     * The data that will be sent back to the caller.
+     */
     public PageData data;
     private boolean isClearingStatusMessage = true;
 
@@ -58,6 +60,7 @@ public class AjaxResult extends ActionResult {
 
     /**
      * Adds the list of status messages (if any) to the page data.
+     *
      * @param req HttpServletRequest object
      */
     private void addStatusMessagesToPageData(HttpServletRequest req) {
@@ -74,6 +77,7 @@ public class AjaxResult extends ActionResult {
 
     /**
      * Clears the list of status message in session variable.
+     *
      * @param req HttpServeletRequest object
      */
     private void clearStatusMessageForRequest(HttpServletRequest req) {

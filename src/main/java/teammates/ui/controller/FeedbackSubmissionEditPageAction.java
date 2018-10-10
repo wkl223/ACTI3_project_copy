@@ -29,7 +29,7 @@ public abstract class FeedbackSubmissionEditPageAction extends Action {
 
         if (feedbackSession == null) {
             statusToUser.add(new StatusMessage(Const.StatusMessages.FEEDBACK_SESSION_DELETED_NO_ACCESS,
-                                               StatusMessageColor.WARNING));
+                    StatusMessageColor.WARNING));
 
             return createSpecificRedirectResult();
         }
@@ -91,18 +91,18 @@ public abstract class FeedbackSubmissionEditPageAction extends Action {
      * <li>Every {@code *Action} adds the status messages ({@link Action#statusToUser}) to be shown the user.
      * <li>The {@code *Action} is executed.
      * <li>The base {@link Action} class will add the status messages to the session status messages
-     *     ({@link Action#putStatusMessageToSession}).
+     * ({@link Action#putStatusMessageToSession}).
      * <li>
-     *     The action will be executed and returns a {@code *Result}.
-     *     <ul>
-     *     <li>For {@link AjaxResult}, the session status messages may be cleared after setting it
-     *         in the {@link PageData} ({@link AjaxResult#clearStatusMessageForRequest(HttpServletRequest)}).
- *         <li>For {@link FileDownloadResult} or {@link ImageResult}, they do not do anything with status messages but
-     *         the session status messages will <strong>continue to persist.</strong>
-     *     <li>For {@link RedirectResult}, the session status messages will be used in the next page.
-     *     <li>For {@link ShowPageResult}, the session status messages in the session is cleared after setting it
-     *         in the {@link PageData} ({@link ShowPageResult#addStatusMessagesToPageData(HttpServletRequest)}.
-     *     </ul>
+     * The action will be executed and returns a {@code *Result}.
+     * <ul>
+     * <li>For {@link AjaxResult}, the session status messages may be cleared after setting it
+     * in the {@link PageData} ({@link AjaxResult#clearStatusMessageForRequest(HttpServletRequest)}).
+     * <li>For {@link FileDownloadResult} or {@link ImageResult}, they do not do anything with status messages but
+     * the session status messages will <strong>continue to persist.</strong>
+     * <li>For {@link RedirectResult}, the session status messages will be used in the next page.
+     * <li>For {@link ShowPageResult}, the session status messages in the session is cleared after setting it
+     * in the {@link PageData} ({@link ShowPageResult#addStatusMessagesToPageData(HttpServletRequest)}.
+     * </ul>
      * </ol>
      *
      * <p>Therefore if the session unexpectedly contains another status message, this returns the wrong result.

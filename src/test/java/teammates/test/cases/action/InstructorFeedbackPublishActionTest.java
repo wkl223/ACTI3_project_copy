@@ -109,7 +109,7 @@ public class InstructorFeedbackPublishActionTest extends BaseActionTest {
 
         assertEquals(expectedDestination, result.getDestinationWithParams());
         assertEquals("Error publishing feedback session: Session has already been published.",
-                     result.getStatusMessage());
+                result.getStatusMessage());
         assertTrue(result.isError);
 
         verifyNoTasksAdded(publishAction);
@@ -159,7 +159,7 @@ public class InstructorFeedbackPublishActionTest extends BaseActionTest {
 
         makeFeedbackSessionUnpublished(session); //we have to revert to the closed state
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, session.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, session.getFeedbackSessionName()
         };

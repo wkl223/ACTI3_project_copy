@@ -88,47 +88,47 @@ public class FeedbackResponseCommentSearchDocument extends SearchDocument {
         }
 
         switch (relatedQuestion.recipientType) {
-        case INSTRUCTORS:
-            InstructorAttributes ins = instructorsDb.getInstructorForEmail(comment.courseId, relatedResponse.recipient);
-            if (ins != null && !addedEmailSet.contains(ins.email)) {
-                relatedInstructors.add(ins);
-                addedEmailSet.add(ins.email);
-                responseRecipientName = ins.name + " (" + ins.displayedName + ")";
-            }
-            break;
-        case SELF:
-            responseRecipientName = responseGiverName;
-            break;
-        case NONE:
-            responseRecipientName = Const.USER_NOBODY_TEXT;
-            break;
-        case TEAMS:
-            responseRecipientName = relatedResponse.recipient;
-            break;
-        default:
-            StudentAttributes stu = studentsDb.getStudentForEmail(comment.courseId, relatedResponse.recipient);
+            case INSTRUCTORS:
+                InstructorAttributes ins = instructorsDb.getInstructorForEmail(comment.courseId, relatedResponse.recipient);
+                if (ins != null && !addedEmailSet.contains(ins.email)) {
+                    relatedInstructors.add(ins);
+                    addedEmailSet.add(ins.email);
+                    responseRecipientName = ins.name + " (" + ins.displayedName + ")";
+                }
+                break;
+            case SELF:
+                responseRecipientName = responseGiverName;
+                break;
+            case NONE:
+                responseRecipientName = Const.USER_NOBODY_TEXT;
+                break;
+            case TEAMS:
+                responseRecipientName = relatedResponse.recipient;
+                break;
+            default:
+                StudentAttributes stu = studentsDb.getStudentForEmail(comment.courseId, relatedResponse.recipient);
 
-            if (stu != null && !addedEmailSet.contains(stu.email)) {
-                relatedStudents.add(stu);
-                addedEmailSet.add(stu.email);
-                responseRecipientName = stu.name + " (" + stu.team + ")";
-            }
+                if (stu != null && !addedEmailSet.contains(stu.email)) {
+                    relatedStudents.add(stu);
+                    addedEmailSet.add(stu.email);
+                    responseRecipientName = stu.name + " (" + stu.team + ")";
+                }
 
-            List<StudentAttributes> team = studentsDb.getStudentsForTeam(relatedResponse.recipient, comment.courseId);
-            if (team != null) {
-                responseRecipientName = relatedResponse.recipient; // it's actually a team name here
-                for (StudentAttributes studentInTeam : team) {
-                    if (!addedEmailSet.contains(studentInTeam.email)) {
-                        relatedStudents.add(studentInTeam);
-                        addedEmailSet.add(studentInTeam.email);
+                List<StudentAttributes> team = studentsDb.getStudentsForTeam(relatedResponse.recipient, comment.courseId);
+                if (team != null) {
+                    responseRecipientName = relatedResponse.recipient; // it's actually a team name here
+                    for (StudentAttributes studentInTeam : team) {
+                        if (!addedEmailSet.contains(studentInTeam.email)) {
+                            relatedStudents.add(studentInTeam);
+                            addedEmailSet.add(studentInTeam.email);
+                        }
                     }
                 }
-            }
 
-            if (stu == null || team == null) {
-                responseRecipientName = Const.USER_UNKNOWN_TEXT;
-            }
-            break;
+                if (stu == null || team == null) {
+                    responseRecipientName = Const.USER_UNKNOWN_TEXT;
+                }
+                break;
         }
     }
 
@@ -144,9 +144,9 @@ public class FeedbackResponseCommentSearchDocument extends SearchDocument {
                 break; // in case of exceeding size limit for document
             }
             relatedPeopleBuilder.append(student.email).append(delim)
-                .append(student.name).append(delim)
-                .append(student.team).append(delim)
-                .append(student.section).append(delim);
+                    .append(student.name).append(delim)
+                    .append(student.team).append(delim)
+                    .append(student.section).append(delim);
             counter++;
         }
         counter = 0;
@@ -155,8 +155,8 @@ public class FeedbackResponseCommentSearchDocument extends SearchDocument {
                 break;
             }
             relatedPeopleBuilder.append(instructor.email).append(delim)
-                .append(instructor.name).append(delim)
-                .append(instructor.displayedName).append(delim);
+                    .append(instructor.name).append(delim)
+                    .append(instructor.displayedName).append(delim);
             counter++;
         }
 
@@ -164,69 +164,69 @@ public class FeedbackResponseCommentSearchDocument extends SearchDocument {
         // it contains courseId, courseName, feedback session name, question number, question title,
         // response answer commentGiverEmail, commentGiverName, related people's information, and commentText
         String searchableText = comment.courseId + delim
-                                + (course == null ? "" : course.getName()) + delim
-                                + relatedSession.getFeedbackSessionName() + delim
-                                + "question " + relatedQuestion.questionNumber + delim
-                                + relatedQuestion.getQuestionDetails().getQuestionText() + delim
-                                + relatedResponse.getResponseDetails().getAnswerString() + delim
-                                + comment.commentGiver + delim
-                                + commentGiverName + delim
-                                + relatedPeopleBuilder.toString() + delim
-                                + comment.commentText.getValue();
+                + (course == null ? "" : course.getName()) + delim
+                + relatedSession.getFeedbackSessionName() + delim
+                + "question " + relatedQuestion.questionNumber + delim
+                + relatedQuestion.getQuestionDetails().getQuestionText() + delim
+                + relatedResponse.getResponseDetails().getAnswerString() + delim
+                + comment.commentGiver + delim
+                + commentGiverName + delim
+                + relatedPeopleBuilder.toString() + delim
+                + comment.commentText.getValue();
 
         // for data-migration use
         boolean isVisibilityFollowingFeedbackQuestion = comment.isVisibilityFollowingFeedbackQuestion;
         boolean isVisibleToGiver = isVisibilityFollowingFeedbackQuestion
-                                   || comment.isVisibleTo(FeedbackParticipantType.GIVER);
+                || comment.isVisibleTo(FeedbackParticipantType.GIVER);
         boolean isVisibleToReceiver = isVisibilityFollowingFeedbackQuestion
-                                    ? relatedQuestion.isResponseVisibleTo(FeedbackParticipantType.RECEIVER)
-                                    : comment.isVisibleTo(FeedbackParticipantType.RECEIVER);
+                ? relatedQuestion.isResponseVisibleTo(FeedbackParticipantType.RECEIVER)
+                : comment.isVisibleTo(FeedbackParticipantType.RECEIVER);
         boolean isVisibleToInstructor = isVisibilityFollowingFeedbackQuestion
-                                      ? relatedQuestion.isResponseVisibleTo(FeedbackParticipantType.INSTRUCTORS)
-                                      : comment.isVisibleTo(FeedbackParticipantType.INSTRUCTORS);
+                ? relatedQuestion.isResponseVisibleTo(FeedbackParticipantType.INSTRUCTORS)
+                : comment.isVisibleTo(FeedbackParticipantType.INSTRUCTORS);
 
         return Document.newBuilder()
                 // these are used to filter documents visible to certain instructor
                 // TODO: some of the following fields are not used anymore
                 // (refer to {@link FeedbackResponseCommentSearchQuery}), can remove them
                 .addField(Field.newBuilder().setName(Const.SearchDocumentField.COURSE_ID)
-                                            .setText(comment.courseId))
+                        .setText(comment.courseId))
                 .addField(Field.newBuilder().setName(Const.SearchDocumentField.FEEDBACK_RESPONSE_COMMENT_GIVER_EMAIL)
-                                            .setText(comment.commentGiver))
+                        .setText(comment.commentGiver))
                 .addField(Field.newBuilder().setName(Const.SearchDocumentField.GIVER_EMAIL)
-                                            .setText(relatedResponse.giver))
+                        .setText(relatedResponse.giver))
                 .addField(Field.newBuilder().setName(Const.SearchDocumentField.GIVER_SECTION)
-                                            .setText(relatedResponse.giverSection))
+                        .setText(relatedResponse.giverSection))
                 .addField(Field.newBuilder().setName(Const.SearchDocumentField.RECIPIENT_EMAIL)
-                                            .setText(relatedResponse.recipient))
+                        .setText(relatedResponse.recipient))
                 .addField(Field.newBuilder().setName(Const.SearchDocumentField.RECIPIENT_SECTION)
-                                            .setText(relatedResponse.recipientSection))
+                        .setText(relatedResponse.recipientSection))
                 .addField(Field.newBuilder().setName(Const.SearchDocumentField.IS_VISIBLE_TO_GIVER)
-                                            .setText(Boolean.toString(isVisibleToGiver)))
+                        .setText(Boolean.toString(isVisibleToGiver)))
                 .addField(Field.newBuilder().setName(Const.SearchDocumentField.IS_VISIBLE_TO_RECEIVER)
-                                            .setText(Boolean.toString(isVisibleToReceiver)))
+                        .setText(Boolean.toString(isVisibleToReceiver)))
                 .addField(Field.newBuilder().setName(Const.SearchDocumentField.IS_VISIBLE_TO_INSTRUCTOR)
-                                            .setText(Boolean.toString(isVisibleToInstructor)))
+                        .setText(Boolean.toString(isVisibleToInstructor)))
                 // searchableText and createdDate are used to match the query string
                 .addField(Field.newBuilder().setName(Const.SearchDocumentField.SEARCHABLE_TEXT)
-                                            .setText(searchableText))
+                        .setText(searchableText))
                 .addField(Field.newBuilder().setName(Const.SearchDocumentField.CREATED_DATE)
-                                            .setDate(TimeHelper.convertInstantToDate(comment.createdAt)))
+                        .setDate(TimeHelper.convertInstantToDate(comment.createdAt)))
                 // attribute field is used to convert a doc back to attribute
                 .addField(Field.newBuilder().setName(Const.SearchDocumentField.FEEDBACK_RESPONSE_COMMENT_ATTRIBUTE)
-                                            .setText(JsonUtils.toJson(comment)))
+                        .setText(JsonUtils.toJson(comment)))
                 .addField(Field.newBuilder().setName(Const.SearchDocumentField.FEEDBACK_RESPONSE_ATTRIBUTE)
-                                            .setText(JsonUtils.toJson(relatedResponse)))
+                        .setText(JsonUtils.toJson(relatedResponse)))
                 .addField(Field.newBuilder().setName(Const.SearchDocumentField.FEEDBACK_RESPONSE_GIVER_NAME)
-                                            .setText(JsonUtils.toJson(responseGiverName)))
+                        .setText(JsonUtils.toJson(responseGiverName)))
                 .addField(Field.newBuilder().setName(Const.SearchDocumentField.FEEDBACK_RESPONSE_RECEIVER_NAME)
-                                            .setText(JsonUtils.toJson(responseRecipientName)))
+                        .setText(JsonUtils.toJson(responseRecipientName)))
                 .addField(Field.newBuilder().setName(Const.SearchDocumentField.FEEDBACK_QUESTION_ATTRIBUTE)
-                                            .setText(JsonUtils.toJson(relatedQuestion)))
+                        .setText(JsonUtils.toJson(relatedQuestion)))
                 .addField(Field.newBuilder().setName(Const.SearchDocumentField.FEEDBACK_SESSION_ATTRIBUTE)
-                                            .setText(JsonUtils.toJson(relatedSession)))
+                        .setText(JsonUtils.toJson(relatedSession)))
                 .addField(Field.newBuilder().setName(Const.SearchDocumentField.FEEDBACK_RESPONSE_COMMENT_GIVER_NAME)
-                                            .setText(JsonUtils.toJson(commentGiverDisplayedName)))
+                        .setText(JsonUtils.toJson(commentGiverDisplayedName)))
                 .setId(comment.getId().toString())
                 .build();
     }
@@ -378,33 +378,33 @@ public class FeedbackResponseCommentSearchDocument extends SearchDocument {
 
     private void setCommentGiverNameAndDisplayedName() {
         switch (comment.commentGiverType) {
-        case INSTRUCTORS:
-            InstructorAttributes instructor =
-                    instructorsDb.getInstructorForEmail(comment.courseId, comment.commentGiver);
-            if (instructor == null) {
-                commentGiverDisplayedName = comment.commentGiver;
+            case INSTRUCTORS:
+                InstructorAttributes instructor =
+                        instructorsDb.getInstructorForEmail(comment.courseId, comment.commentGiver);
+                if (instructor == null) {
+                    commentGiverDisplayedName = comment.commentGiver;
+                    commentGiverName = comment.commentGiver;
+                    break;
+                }
+                commentGiverDisplayedName = instructor.displayedName + " " + instructor.name;
+                commentGiverName = instructor.name;
+                break;
+            case STUDENTS:
+                StudentAttributes student = studentsDb.getStudentForEmail(comment.courseId, comment.commentGiver);
+                if (student == null) {
+                    commentGiverDisplayedName = comment.commentGiver;
+                    commentGiverName = comment.commentGiver;
+                    break;
+                }
+                commentGiverDisplayedName = "Student " + student.name;
+                commentGiverName = student.name;
+                break;
+            case TEAMS:
+                commentGiverDisplayedName = "Team " + comment.commentGiver;
                 commentGiverName = comment.commentGiver;
                 break;
-            }
-            commentGiverDisplayedName = instructor.displayedName + " " + instructor.name;
-            commentGiverName = instructor.name;
-            break;
-        case STUDENTS:
-            StudentAttributes student = studentsDb.getStudentForEmail(comment.courseId, comment.commentGiver);
-            if (student == null) {
-                commentGiverDisplayedName = comment.commentGiver;
-                commentGiverName = comment.commentGiver;
-                break;
-            }
-            commentGiverDisplayedName = "Student " + student.name;
-            commentGiverName = student.name;
-            break;
-        case TEAMS:
-            commentGiverDisplayedName = "Team " + comment.commentGiver;
-            commentGiverName = comment.commentGiver;
-            break;
-        default:
-            Assumption.fail("Unknown comment giver type.");
+            default:
+                Assumption.fail("Unknown comment giver type.");
         }
     }
 
@@ -413,7 +413,7 @@ public class FeedbackResponseCommentSearchDocument extends SearchDocument {
                                                FeedbackResponseAttributes response, String name) {
         FeedbackQuestionAttributes question = getFeedbackQuestion(bundle.questions, response);
         if (!isNameVisibleToInstructor(bundle.instructorEmails, instructorCourseIdList,
-                                       response, question.showGiverNameTo)
+                response, question.showGiverNameTo)
                 && question.giverType != FeedbackParticipantType.SELF) {
             return FeedbackSessionResultsBundle.getAnonName(question.giverType, name);
         }
@@ -425,7 +425,7 @@ public class FeedbackResponseCommentSearchDocument extends SearchDocument {
                                                    FeedbackResponseAttributes response, String name) {
         FeedbackQuestionAttributes question = getFeedbackQuestion(bundle.questions, response);
         if (!isNameVisibleToInstructor(bundle.instructorEmails, instructorCourseIdList,
-                                       response, question.showRecipientNameTo)
+                response, question.showRecipientNameTo)
                 && question.recipientType != FeedbackParticipantType.SELF
                 && question.recipientType != FeedbackParticipantType.NONE) {
             return FeedbackSessionResultsBundle.getAnonName(question.recipientType, name);

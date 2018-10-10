@@ -26,17 +26,17 @@ function getNumOfRankOptions(qnNumber) {
     const recipient = $(`#recipienttype-${qnNumber}`).val();
 
     switch (recipient) {
-    case 'STUDENTS':
-    case 'INSTRUCTORS':
-    case 'TEAMS':
-        return $(`#num-${recipient.toLowerCase()}`).val();
-    case 'OWN_TEAM_MEMBERS':
-    case 'OWN_TEAM_MEMBERS_INCLUDING_SELF':
-        // returning infinite as this is dependent on team size
-        return Number.MAX_SAFE_INTEGER;
-    default:
-        // other recipient types like NONE, SELF have only 1 recipient
-        return 1;
+        case 'STUDENTS':
+        case 'INSTRUCTORS':
+        case 'TEAMS':
+            return $(`#num-${recipient.toLowerCase()}`).val();
+        case 'OWN_TEAM_MEMBERS':
+        case 'OWN_TEAM_MEMBERS_INCLUDING_SELF':
+            // returning infinite as this is dependent on team size
+            return Number.MAX_SAFE_INTEGER;
+        default:
+            // other recipient types like NONE, SELF have only 1 recipient
+            return 1;
     }
 }
 

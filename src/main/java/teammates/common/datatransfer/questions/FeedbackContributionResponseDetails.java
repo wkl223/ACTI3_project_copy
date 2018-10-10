@@ -16,8 +16,9 @@ public class FeedbackContributionResponseDetails extends FeedbackResponseDetails
 
     private static final Logger log = Logger.getLogger();
 
-    /**This is the claimed points from giver to recipient.
-    */
+    /**
+     * This is the claimed points from giver to recipient.
+     */
     private int answer;
 
     public FeedbackContributionResponseDetails() {
@@ -121,15 +122,15 @@ public class FeedbackContributionResponseDetails extends FeedbackResponseDetails
         if (response.giver.equals(response.recipient)) {
             StudentResultSummary studentResult = stats.get(response.giver);
             String responseAnswerHtml = FeedbackContributionQuestionDetails.convertToEqualShareFormatHtml(
-                                              studentResult.claimedToInstructor);
+                    studentResult.claimedToInstructor);
 
             //For CONTRIB qns, We want to show PC if giver == recipient.
             int pc = studentResult.perceivedToInstructor;
             return responseAnswerHtml
-                 + FeedbackContributionQuestionDetails.getPerceivedContributionInEqualShareFormatHtml(pc);
+                    + FeedbackContributionQuestionDetails.getPerceivedContributionInEqualShareFormatHtml(pc);
         }
         return FeedbackContributionQuestionDetails.convertToEqualShareFormatHtml(
-                                        teamResult.normalizedPeerContributionRatio[giverIndex][recipientIndex]);
+                teamResult.normalizedPeerContributionRatio[giverIndex][recipientIndex]);
     }
 
     private String getContributionQuestionResponseAnswerCsv(
@@ -182,7 +183,7 @@ public class FeedbackContributionResponseDetails extends FeedbackResponseDetails
 
     // TODO: check if this can be made non-static
     public static Map<String, StudentResultSummary> getContribQnStudentResultSummary(FeedbackQuestionAttributes question,
-            FeedbackSessionResultsBundle feedbackSessionResultsBundle) {
+                                                                                     FeedbackSessionResultsBundle feedbackSessionResultsBundle) {
 
         return feedbackSessionResultsBundle.contributionQuestionStudentResultSummary.computeIfAbsent(
                 question.getId(), key -> {
@@ -201,7 +202,7 @@ public class FeedbackContributionResponseDetails extends FeedbackResponseDetails
     }
 
     public Map<String, TeamEvalResult> getContribQnTeamEvalResult(FeedbackQuestionAttributes question,
-            FeedbackSessionResultsBundle feedbackSessionResultsBundle) {
+                                                                  FeedbackSessionResultsBundle feedbackSessionResultsBundle) {
         Map<String, TeamEvalResult> contribQnStats =
                 feedbackSessionResultsBundle.contributionQuestionTeamEvalResults.get(question.getId());
         if (contribQnStats == null) {

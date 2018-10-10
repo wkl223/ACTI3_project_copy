@@ -84,10 +84,10 @@ public final class CoursesLogic {
 
         AccountAttributes courseCreator = accountsLogic.getAccount(instructorGoogleId);
         Assumption.assertNotNull("Trying to create a course for a non-existent instructor :" + instructorGoogleId,
-                                 courseCreator);
+                courseCreator);
         Assumption.assertTrue("Trying to create a course for a person who doesn't have instructor privileges :"
-                                  + instructorGoogleId,
-                              courseCreator.isInstructor);
+                        + instructorGoogleId,
+                courseCreator.isInstructor);
 
         createCourse(courseId, courseName, courseTimeZone);
 
@@ -105,8 +105,8 @@ public final class CoursesLogic {
             //roll back the transaction
             coursesDb.deleteCourse(courseId);
             String errorMessage = "Unexpected exception while trying to create instructor for a new course "
-                                  + System.lineSeparator() + instructor.toString() + System.lineSeparator()
-                                  + TeammatesException.toStringWithStackTrace(e);
+                    + System.lineSeparator() + instructor.toString() + System.lineSeparator()
+                    + TeammatesException.toStringWithStackTrace(e);
             Assumption.fail(errorMessage);
         }
     }
@@ -149,7 +149,7 @@ public final class CoursesLogic {
      * @param googleId The Google ID of the student
      */
     public List<CourseDetailsBundle> getCourseDetailsListForStudent(String googleId)
-                throws EntityDoesNotExistException {
+            throws EntityDoesNotExistException {
 
         List<CourseAttributes> courseList = getCoursesForStudentAccount(googleId);
         CourseAttributes.sortById(courseList);
@@ -212,7 +212,7 @@ public final class CoursesLogic {
      * Returns a list of section names for a course with or without a need to
      * check if the course is existent.
      *
-     * @param courseId Course ID of the course
+     * @param courseId         Course ID of the course
      * @param isCourseVerified Determine whether it is necessary to check if the course exists
      */
     private List<String> getSectionsNameForCourse(String courseId, boolean isCourseVerified)
@@ -240,7 +240,7 @@ public final class CoursesLogic {
      * given course using course attributes and course details bundle.
      *
      * @param course {@link CourseAttributes}
-     * @param cdd {@link CourseDetailsBundle}
+     * @param cdd    {@link CourseDetailsBundle}
      */
     public List<SectionDetailsBundle> getSectionsForCourse(CourseAttributes course, CourseDetailsBundle cdd) {
         Assumption.assertNotNull("Course is null", course);
@@ -362,7 +362,6 @@ public final class CoursesLogic {
      * <b>Note:</b><br>
      * This method does not returns any Loner information presently,<br>
      * Loner information must be returned as we decide to support loners<br>in future.
-     *
      */
     public List<TeamDetailsBundle> getTeamsForCourse(String courseId) throws EntityDoesNotExistException {
 
@@ -417,6 +416,7 @@ public final class CoursesLogic {
     }
 
     // TODO: reduce calls to this function, use above function instead.
+
     /**
      * Returns the {@link CourseDetailsBundle} course details for a course using courseId.
      */
@@ -497,7 +497,7 @@ public final class CoursesLogic {
      * Returns a list of {@link CourseAttributes} for courses a given instructor belongs to,
      * except for courses in recycle bin.
      *
-     * @param googleId The Google ID of the instructor
+     * @param googleId     The Google ID of the instructor
      * @param omitArchived if {@code true}, omits all the archived courses from the return
      */
     public List<CourseAttributes> getCoursesForInstructor(String googleId, boolean omitArchived) {
@@ -572,7 +572,7 @@ public final class CoursesLogic {
      *
      * @param googleId The Google ID of the instructor
      * @return Map with courseId as key, and CourseDetailsBundle as value.
-     *         Does not include details within the course, such as feedback sessions.
+     * Does not include details within the course, such as feedback sessions.
      */
     public Map<String, CourseDetailsBundle> getCourseSummariesForInstructor(String googleId, boolean omitArchived)
             throws EntityDoesNotExistException {
@@ -580,7 +580,7 @@ public final class CoursesLogic {
         instructorsLogic.verifyInstructorExists(googleId);
 
         List<InstructorAttributes> instructorAttributesList = instructorsLogic.getInstructorsForGoogleId(googleId,
-                                                                                                         omitArchived);
+                omitArchived);
 
         return getCourseSummariesForInstructor(instructorAttributesList);
     }
@@ -589,7 +589,7 @@ public final class CoursesLogic {
      * Returns course summaries for instructors.<br>
      *
      * @return Map with courseId as key, and CourseDetailsBundle as value.
-     *         Does not include details within the course, such as feedback sessions.
+     * Does not include details within the course, such as feedback sessions.
      */
     public Map<String, CourseDetailsBundle> getCourseSummariesForInstructor(
             List<InstructorAttributes> instructorAttributesList) {
@@ -609,7 +609,7 @@ public final class CoursesLogic {
                 courseIdList.remove(ca.getId());
             }
             log.severe("Course(s) was deleted but the instructor still exists: " + System.lineSeparator()
-                        + courseIdList.toString());
+                    + courseIdList.toString());
         }
 
         for (CourseAttributes ca : courseList) {
@@ -629,14 +629,15 @@ public final class CoursesLogic {
             String instructorId, boolean omitArchived) {
 
         List<InstructorAttributes> instructorList = instructorsLogic.getInstructorsForGoogleId(instructorId,
-                                                                                               omitArchived);
+                omitArchived);
         return getCourseSummaryWithoutStatsForInstructor(instructorList);
     }
 
     /**
      * Updates the course details.
-     * @param courseId Id of the course to update
-     * @param courseName new name of the course
+     *
+     * @param courseId       Id of the course to update
+     * @param courseName     new name of the course
      * @param courseTimeZone new time zone of the course
      */
     public void updateCourse(String courseId, String courseName, String courseTimeZone)
@@ -760,8 +761,8 @@ public final class CoursesLogic {
 
         StringBuilder export = new StringBuilder(100);
         String courseInfo = "Course ID," + SanitizationHelper.sanitizeForCsv(courseId) + System.lineSeparator()
-                      + "Course Name," + SanitizationHelper.sanitizeForCsv(course.course.getName())
-                      + System.lineSeparator() + System.lineSeparator() + System.lineSeparator();
+                + "Course Name," + SanitizationHelper.sanitizeForCsv(course.course.getName())
+                + System.lineSeparator() + System.lineSeparator() + System.lineSeparator();
         export.append(courseInfo);
 
         String header = (hasSection ? "Section," : "") + "Team,Full Name,Last Name,Status,Email" + System.lineSeparator();

@@ -34,12 +34,12 @@ public class AdminStudentGoogleIdResetAction extends Action {
                 taskQueuer.scheduleCourseRegistrationInviteToStudent(studentCourseId, studentEmail, true);
             } catch (InvalidParametersException e) {
                 statusToUser.add(new StatusMessage(Const.StatusMessages.STUDENT_GOOGLEID_RESET_FAIL,
-                                                   StatusMessageColor.DANGER));
+                        StatusMessageColor.DANGER));
                 statusToAdmin = Const.StatusMessages.STUDENT_GOOGLEID_RESET_FAIL + "<br>"
-                              + "Email: " + studentEmail + "<br>"
-                              + "CourseId: " + studentCourseId + "<br>"
-                              + "Failed with error<br>"
-                              + e.getMessage();
+                        + "Email: " + studentEmail + "<br>"
+                        + "CourseId: " + studentCourseId + "<br>"
+                        + "Failed with error<br>"
+                        + e.getMessage();
                 isError = true;
             }
 
@@ -52,25 +52,25 @@ public class AdminStudentGoogleIdResetAction extends Action {
                 statusToUser.add(new StatusMessage("CourseId : " + studentCourseId, StatusMessageColor.SUCCESS));
 
                 statusToAdmin = Const.StatusMessages.STUDENT_GOOGLEID_RESET + "<br>"
-                              + "Email: " + studentEmail + "<br>"
-                              + "CourseId: " + studentCourseId;
+                        + "Email: " + studentEmail + "<br>"
+                        + "CourseId: " + studentCourseId;
 
                 data.statusForAjax = Const.StatusMessages.STUDENT_GOOGLEID_RESET + "<br>"
-                                   + "Email : " + studentEmail + "<br>"
-                                   + "CourseId : " + studentCourseId;
+                        + "Email : " + studentEmail + "<br>"
+                        + "CourseId : " + studentCourseId;
 
                 data.isGoogleIdReset = true;
                 deleteAccountIfNeeded(wrongGoogleId);
             } else {
                 data.isGoogleIdReset = false;
                 statusToUser.add(new StatusMessage(Const.StatusMessages.STUDENT_GOOGLEID_RESET_FAIL,
-                                                   StatusMessageColor.DANGER));
+                        StatusMessageColor.DANGER));
                 statusToAdmin = Const.StatusMessages.STUDENT_GOOGLEID_RESET_FAIL + "<br>"
-                              + "Email: " + studentEmail + "<br>"
-                              + "CourseId: " + studentCourseId + "<br>";
+                        + "Email: " + studentEmail + "<br>"
+                        + "CourseId: " + studentCourseId + "<br>";
                 data.statusForAjax = Const.StatusMessages.STUDENT_GOOGLEID_RESET_FAIL + "<br>"
-                                   + "Email : " + studentEmail + "<br>"
-                                   + "CourseId : " + studentCourseId;
+                        + "Email : " + studentEmail + "<br>"
+                        + "CourseId : " + studentCourseId;
             }
 
             isError = false;

@@ -49,7 +49,7 @@ public class AdminInstructorAccountAddAction extends Action {
 
         try {
             logic.verifyInputForAdminHomePage(data.instructorName,
-                                              data.instructorInstitution, data.instructorEmail);
+                    data.instructorInstitution, data.instructorEmail);
         } catch (InvalidParametersException e) {
             data.statusForAjax = e.getMessage().replace(System.lineSeparator(), Const.HTML_BR_TAG);
             data.isInstructorAddingResultForAjax = false;
@@ -76,7 +76,7 @@ public class AdminInstructorAccountAddAction extends Action {
             statusToUser.add(new StatusMessage(errorMessage.toString(), StatusMessageColor.DANGER));
 
             String message = "<span class=\"text-danger\">Servlet Action failure in AdminInstructorAccountAddAction" + "<br>"
-                             + e.getClass() + ": " + TeammatesException.toStringWithStackTrace(e) + "<br></span>";
+                    + e.getClass() + ": " + TeammatesException.toStringWithStackTrace(e) + "<br></span>";
 
             errorMessage.append("<br>").append(message);
             statusToUser.add(new StatusMessage("<br>" + message, StatusMessageColor.DANGER));
@@ -89,9 +89,9 @@ public class AdminInstructorAccountAddAction extends Action {
 
         List<InstructorAttributes> instructorList = logic.getInstructorsForCourse(courseId);
         String joinLink = Config.getAppUrl(Const.ActionURIs.INSTRUCTOR_COURSE_JOIN)
-                                .withRegistrationKey(StringHelper.encrypt(instructorList.get(0).key))
-                                .withInstructorInstitution(data.instructorInstitution)
-                                .toAbsoluteString();
+                .withRegistrationKey(StringHelper.encrypt(instructorList.get(0).key))
+                .withInstructorInstitution(data.instructorInstitution)
+                .toAbsoluteString();
         EmailWrapper email = new EmailGenerator().generateNewInstructorAccountJoinEmail(
                 instructorList.get(0).email, data.instructorName, joinLink);
         try {
@@ -100,7 +100,7 @@ public class AdminInstructorAccountAddAction extends Action {
             log.severe("Instructor welcome email failed to send: " + TeammatesException.toStringWithStackTrace(e));
         }
         data.statusForAjax = "Instructor " + SanitizationHelper.sanitizeForHtml(data.instructorName)
-                             + " has been successfully created " + "<a href=" + joinLink + ">" + Const.JOIN_LINK + "</a>";
+                + " has been successfully created " + "<a href=" + joinLink + ">" + Const.JOIN_LINK + "</a>";
         statusToUser.add(new StatusMessage(data.statusForAjax, StatusMessageColor.SUCCESS));
         statusToAdmin = "A New Instructor <span class=\"bold\">"
                 + SanitizationHelper.sanitizeForHtmlTag(data.instructorName) + "</span> has been created.<br>"
@@ -116,6 +116,7 @@ public class AdminInstructorAccountAddAction extends Action {
 
     /**
      * Imports Demo course to new instructor.
+     *
      * @param pageData data from AdminHomePageData
      * @return the ID of Demo course
      */
@@ -208,26 +209,26 @@ public class AdminInstructorAccountAddAction extends Action {
      * check the resulting course id, and if bigger than maximumIdLength, cut it so that it equals maximumIdLength.
      *
      * @param instructorEmailOrProposedCourseId is the instructor email or a proposed course id that already exists.
-     * @param maximumIdLength is the maximum resulting id length allowed, above which we will cut the part before "@"
+     * @param maximumIdLength                   is the maximum resulting id length allowed, above which we will cut the part before "@"
      * @return the proposed course id, e.g.:
-     *         <ul>
-     *         <li>lebron@gmail.com -> lebron.gma-demo</li>
-     *         <li>lebron.gma-demo -> lebron.gma-demo0</li>
-     *         <li>lebron.gma-demo0 -> lebron.gma-demo1</li>
-     *         <li>012345678901234567890123456789.gma-demo9 -> 01234567890123456789012345678.gma-demo10 (being cut)</li>
-     *         </ul>
+     * <ul>
+     * <li>lebron@gmail.com -> lebron.gma-demo</li>
+     * <li>lebron.gma-demo -> lebron.gma-demo0</li>
+     * <li>lebron.gma-demo0 -> lebron.gma-demo1</li>
+     * <li>012345678901234567890123456789.gma-demo9 -> 01234567890123456789012345678.gma-demo10 (being cut)</li>
+     * </ul>
      */
     private String generateNextDemoCourseId(String instructorEmailOrProposedCourseId, int maximumIdLength) {
         final boolean isFirstCourseId = instructorEmailOrProposedCourseId.contains("@");
         if (isFirstCourseId) {
             return StringHelper.truncateHead(getDemoCourseIdRoot(instructorEmailOrProposedCourseId),
-                                             maximumIdLength);
+                    maximumIdLength);
         }
 
         final boolean isFirstTimeDuplicate = instructorEmailOrProposedCourseId.endsWith("-demo");
         if (isFirstTimeDuplicate) {
             return StringHelper.truncateHead(instructorEmailOrProposedCourseId + "0",
-                                             maximumIdLength);
+                    maximumIdLength);
         }
 
         final int lastIndexOfDemo = instructorEmailOrProposedCourseId.lastIndexOf("-demo");

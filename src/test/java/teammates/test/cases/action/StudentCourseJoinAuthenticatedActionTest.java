@@ -55,7 +55,7 @@ public class StudentCourseJoinAuthenticatedActionTest extends BaseActionTest {
         ______TS("invalid key");
 
         String invalidKey = StringHelper.encrypt("invalid key");
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.REGKEY, invalidKey,
                 Const.ParamsNames.NEXT_URL, Const.ActionURIs.STUDENT_HOME_PAGE
         };
@@ -69,7 +69,7 @@ public class StudentCourseJoinAuthenticatedActionTest extends BaseActionTest {
 
         ______TS("already registered student");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.REGKEY,
                 StringHelper.encrypt(student1InCourse1.key),
                 Const.ParamsNames.NEXT_URL, Const.ActionURIs.STUDENT_PROFILE_PAGE
@@ -135,7 +135,7 @@ public class StudentCourseJoinAuthenticatedActionTest extends BaseActionTest {
 
         gaeSimulation.loginUser("idOfNoFSStudent");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.REGKEY,
                 StringHelper.encrypt(studentWithEmptyProfileAttributes.key),
                 Const.ParamsNames.NEXT_URL, Const.ActionURIs.STUDENT_HOME_PAGE
@@ -151,12 +151,12 @@ public class StudentCourseJoinAuthenticatedActionTest extends BaseActionTest {
         assertFalse(redirectResult.isError);
         assertEquals(
                 String.format(Const.StatusMessages.STUDENT_COURSE_JOIN_SUCCESSFUL,
-                              "[idOfCourseNoEvals] Typical Course 3 with 0 Evals")
-                + "<br>"
-                + String.format(Const.StatusMessages.HINT_FOR_NO_SESSIONS_STUDENT,
-                                "[idOfCourseNoEvals] Typical Course 3 with 0 Evals")
-                + "<br>"
-                + Const.StatusMessages.STUDENT_UPDATE_PROFILE,
+                        "[idOfCourseNoEvals] Typical Course 3 with 0 Evals")
+                        + "<br>"
+                        + String.format(Const.StatusMessages.HINT_FOR_NO_SESSIONS_STUDENT,
+                        "[idOfCourseNoEvals] Typical Course 3 with 0 Evals")
+                        + "<br>"
+                        + Const.StatusMessages.STUDENT_UPDATE_PROFILE,
                 redirectResult.getStatusMessage());
 
         ______TS("join course with no feedback sessions, profile has only one missing field");
@@ -176,7 +176,7 @@ public class StudentCourseJoinAuthenticatedActionTest extends BaseActionTest {
 
         gaeSimulation.loginUser("idOfNoFSStudent2");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.REGKEY,
                 StringHelper.encrypt(studentWithoutProfilePictureAttributes.key),
                 Const.ParamsNames.NEXT_URL, Const.ActionURIs.STUDENT_HOME_PAGE
@@ -195,12 +195,12 @@ public class StudentCourseJoinAuthenticatedActionTest extends BaseActionTest {
         assertFalse(redirectResult.isError);
         assertEquals(
                 String.format(Const.StatusMessages.STUDENT_COURSE_JOIN_SUCCESSFUL,
-                              "[idOfCourseNoEvals] Typical Course 3 with 0 Evals")
-                + "<br>"
-                + String.format(Const.StatusMessages.HINT_FOR_NO_SESSIONS_STUDENT,
-                                "[idOfCourseNoEvals] Typical Course 3 with 0 Evals")
-                + "<br>"
-                + Const.StatusMessages.STUDENT_UPDATE_PROFILE_PICTURE,
+                        "[idOfCourseNoEvals] Typical Course 3 with 0 Evals")
+                        + "<br>"
+                        + String.format(Const.StatusMessages.HINT_FOR_NO_SESSIONS_STUDENT,
+                        "[idOfCourseNoEvals] Typical Course 3 with 0 Evals")
+                        + "<br>"
+                        + Const.StatusMessages.STUDENT_UPDATE_PROFILE_PICTURE,
                 redirectResult.getStatusMessage());
 
         ______TS("join course with no feedback sessions, profile has no missing field");
@@ -220,7 +220,7 @@ public class StudentCourseJoinAuthenticatedActionTest extends BaseActionTest {
 
         gaeSimulation.loginUser("idOfNoFSStudent3");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.REGKEY,
                 StringHelper.encrypt(studentWithFullProfileAttributes.key),
                 Const.ParamsNames.NEXT_URL, Const.ActionURIs.STUDENT_HOME_PAGE
@@ -236,10 +236,10 @@ public class StudentCourseJoinAuthenticatedActionTest extends BaseActionTest {
         assertFalse(redirectResult.isError);
         assertEquals(
                 String.format(Const.StatusMessages.STUDENT_COURSE_JOIN_SUCCESSFUL,
-                              "[idOfCourseNoEvals] Typical Course 3 with 0 Evals")
-                + "<br>"
-                + String.format(Const.StatusMessages.HINT_FOR_NO_SESSIONS_STUDENT,
-                                "[idOfCourseNoEvals] Typical Course 3 with 0 Evals"),
+                        "[idOfCourseNoEvals] Typical Course 3 with 0 Evals")
+                        + "<br>"
+                        + String.format(Const.StatusMessages.HINT_FOR_NO_SESSIONS_STUDENT,
+                        "[idOfCourseNoEvals] Typical Course 3 with 0 Evals"),
                 redirectResult.getStatusMessage());
 
         ______TS("typical case");
@@ -268,7 +268,7 @@ public class StudentCourseJoinAuthenticatedActionTest extends BaseActionTest {
 
         gaeSimulation.loginUser("idOfNewStudent");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.REGKEY,
                 StringHelper.encrypt(newStudentAttributes.key),
                 Const.ParamsNames.NEXT_URL, Const.ActionURIs.STUDENT_PROFILE_PAGE
@@ -284,7 +284,7 @@ public class StudentCourseJoinAuthenticatedActionTest extends BaseActionTest {
         assertFalse(redirectResult.isError);
         assertEquals(
                 String.format(Const.StatusMessages.STUDENT_COURSE_JOIN_SUCCESSFUL,
-                              "[idOfTypicalCourse1] Typical Course 1 with 2 Evals"),
+                        "[idOfTypicalCourse1] Typical Course 1 with 2 Evals"),
                 redirectResult.getStatusMessage());
 
         ______TS("typical case: data requires sanitization");
@@ -299,7 +299,7 @@ public class StudentCourseJoinAuthenticatedActionTest extends BaseActionTest {
         studentTestSanitization =
                 studentsDb.getStudentForEmail(studentTestSanitization.course, studentTestSanitization.email);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.REGKEY,
                 StringHelper.encrypt(studentTestSanitization.key),
                 Const.ParamsNames.NEXT_URL, Const.ActionURIs.STUDENT_PROFILE_PAGE
@@ -318,8 +318,8 @@ public class StudentCourseJoinAuthenticatedActionTest extends BaseActionTest {
                 + SanitizationHelper.sanitizeForHtml(courseTestSanitization.getName());
         String expectedStatusMessage =
                 String.format(Const.StatusMessages.STUDENT_COURSE_JOIN_SUCCESSFUL, courseIdentifier) + "<br>"
-                + String.format(Const.StatusMessages.HINT_FOR_NO_SESSIONS_STUDENT, courseIdentifier) + "<br>"
-                + accountTestSanitization.studentProfile.generateUpdateMessageForStudent();
+                        + String.format(Const.StatusMessages.HINT_FOR_NO_SESSIONS_STUDENT, courseIdentifier) + "<br>"
+                        + accountTestSanitization.studentProfile.generateUpdateMessageForStudent();
         assertEquals(expectedStatusMessage, redirectResult.getStatusMessage());
     }
 
@@ -342,7 +342,7 @@ public class StudentCourseJoinAuthenticatedActionTest extends BaseActionTest {
 
         StudentAttributes unregStudent1 = typicalBundle.students.get("student1InUnregisteredCourse");
         String key = StudentsLogic.inst().getStudentForEmail(unregStudent1.course, unregStudent1.email).key;
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.REGKEY, StringHelper.encrypt(key),
                 Const.ParamsNames.NEXT_URL, "randomUrl"
         };

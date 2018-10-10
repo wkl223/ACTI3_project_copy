@@ -29,7 +29,7 @@ public class FeedbackSessionUnpublishedEmailWorkerActionTest extends BaseAutomat
     public void allTests() {
         FeedbackSessionAttributes session1 = dataBundle.feedbackSessions.get("session1InCourse1");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 ParamsNames.EMAIL_COURSE, session1.getCourseId(),
                 ParamsNames.EMAIL_FEEDBACK, session1.getFeedbackSessionName()
         };
@@ -45,8 +45,8 @@ public class FeedbackSessionUnpublishedEmailWorkerActionTest extends BaseAutomat
         for (TaskWrapper task : tasksAdded) {
             Map<String, String[]> paramMap = task.getParamMap();
             assertEquals(String.format(EmailType.FEEDBACK_UNPUBLISHED.getSubject(), courseName,
-                                       session1.getSessionName()),
-                         paramMap.get(ParamsNames.EMAIL_SUBJECT)[0]);
+                    session1.getSessionName()),
+                    paramMap.get(ParamsNames.EMAIL_SUBJECT)[0]);
         }
     }
 

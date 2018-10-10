@@ -12,20 +12,20 @@
   <div class="table-responsive">
     <table class="table table-condensed data-table" id="activity-logs-table">
       <thead>
-        <tr>
-          <th width="10%">Date [Timing]</th>
-          <th>[Role][Action][Google ID][Name][Email]</th>
-        </tr>
+      <tr>
+        <th width="10%">Date [Timing]</th>
+        <th>[Role][Action][Google ID][Name][Email]</th>
+      </tr>
       </thead>
       <tbody>
-        <c:if test="${empty logs}">
-          <tr id="noResultFoundMessage">
-            <td colspan='2'><i>No application logs found</i></td>
-          </tr>
-        </c:if>
-        <c:forEach items="${logs}" var="log">
-          <activity:activityLogTableRow log="${log}"/>
-        </c:forEach>
+      <c:if test="${empty logs}">
+        <tr id="noResultFoundMessage">
+          <td colspan='2'><i>No application logs found</i></td>
+        </tr>
+      </c:if>
+      <c:forEach items="${logs}" var="log">
+        <activity:activityLogTableRow log="${log}"/>
+      </c:forEach>
       </tbody>
     </table>
   </div>

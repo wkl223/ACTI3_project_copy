@@ -13,7 +13,7 @@ public class InstructorStudentListPageCourseData {
     public boolean isInstructorAllowedToModify;
 
     public InstructorStudentListPageCourseData(CourseAttributes course, boolean isCourseArchived,
-                                        boolean isInstructorAllowedToModify) {
+                                               boolean isInstructorAllowedToModify) {
         this.course = course;
         this.isCourseArchived = isCourseArchived;
         this.isInstructorAllowedToModify = isInstructorAllowedToModify;

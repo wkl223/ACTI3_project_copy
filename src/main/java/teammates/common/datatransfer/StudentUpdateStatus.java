@@ -22,18 +22,18 @@ public enum StudentUpdateStatus {
 
     public static StudentUpdateStatus enumRepresentation(int numericRepresentation) {
         switch (numericRepresentation) {
-        case 0:
-            return ERROR;
-        case 1:
-            return NEW;
-        case 2:
-            return MODIFIED;
-        case 3:
-            return UNMODIFIED;
-        case 4:
-            return NOT_IN_ENROLL_LIST;
-        default:
-            return UNKNOWN;
+            case 0:
+                return ERROR;
+            case 1:
+                return NEW;
+            case 2:
+                return MODIFIED;
+            case 3:
+                return UNMODIFIED;
+            case 4:
+                return NOT_IN_ENROLL_LIST;
+            default:
+                return UNKNOWN;
         }
     }
 

@@ -39,8 +39,8 @@ public class Version implements Comparable<Version> {
         isRcVersion = versionInString.endsWith("rc");
 
         String[] list = versionInString.contains("-") // split to at most 3 parts
-                      ? versionInString.replace("rc", "").split("-", 3)
-                      : versionInString.replace("rc", "").split("\\.", 3); // regex escape for dots '.'
+                ? versionInString.replace("rc", "").split("-", 3)
+                : versionInString.replace("rc", "").split("\\.", 3); // regex escape for dots '.'
         if (list.length > 0) {
             major = list[0];
         }

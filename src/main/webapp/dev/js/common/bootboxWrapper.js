@@ -53,7 +53,7 @@ function showModalAlert(titleText, messageText, okButtonText, bootstrapContextua
  *                  onHiddenCallback - triggers when the event `hidden.bs.modal` is triggered
  */
 function showModalConfirmation(titleText, messageText, okCallback, cancelCallback,
-        okButtonText, cancelButtonText, bootstrapContextualColor, onHiddenCallback) {
+                               okButtonText, cancelButtonText, bootstrapContextualColor, onHiddenCallback) {
     const modal = bootbox.dialog({
         title: titleText,
         message: messageText,
@@ -93,8 +93,8 @@ function showModalConfirmation(titleText, messageText, okCallback, cancelCallbac
  *                  onHiddenCallback - triggers when the event `hidden.bs.modal` is triggered
  */
 function showModalConfirmationWithCancel(titleText, messageText, yesButtonCallback, noButtonCallback,
-        cancelButtonCallback, yesButtonText, noButtonText, cancelButtonText, bootstrapContextualColor,
-        onHiddenCallback) {
+                                         cancelButtonCallback, yesButtonText, noButtonText, cancelButtonText, bootstrapContextualColor,
+                                         onHiddenCallback) {
     const modal = bootbox.dialog({
         title: titleText,
         message: messageText,

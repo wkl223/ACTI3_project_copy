@@ -6,7 +6,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true">&times;</span>
         </button>
         <span class="help-block">
           Tips: <span class="btn-link" id="btn-select-element-contents">Click here</span> to select the table,

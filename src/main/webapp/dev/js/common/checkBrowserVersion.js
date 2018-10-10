@@ -73,20 +73,20 @@ function checkBrowserVersion() {
 
     if (!supported) {
         const unsupportedBrowserErrorString =
-            `You are currently using ${browserName} v.${majorVersion}. `
-            + 'This web browser is not officially supported by TEAMMATES. '
-            + 'In case this web browser does not display the webpage correctly, '
-            + 'you may wish to view it in the following supported browsers: <br>'
-            + '<table>'
+                `You are currently using ${browserName} v.${majorVersion}. `
+                + 'This web browser is not officially supported by TEAMMATES. '
+                + 'In case this web browser does not display the webpage correctly, '
+                + 'you may wish to view it in the following supported browsers: <br>'
+                + '<table>'
                 + '<tr>'
-                    + `<td width="50%"> - ${MSIE} ${MSIE_LOWEST_VERSION}+</td>`
-                    + `<td> - ${CHROME} ${CHROME_LOWEST_VERSION}+</td>`
+                + `<td width="50%"> - ${MSIE} ${MSIE_LOWEST_VERSION}+</td>`
+                + `<td> - ${CHROME} ${CHROME_LOWEST_VERSION}+</td>`
                 + '</tr>'
                 + '<tr>'
-                    + `<td> - ${FIREFOX} ${FIREFOX_LOWEST_VERSION}+</td>`
-                    + `<td> - ${SAFARI} ${SAFARI_LOWEST_VERSION}+</td>`
+                + `<td> - ${FIREFOX} ${FIREFOX_LOWEST_VERSION}+</td>`
+                + `<td> - ${SAFARI} ${SAFARI_LOWEST_VERSION}+</td>`
                 + '</tr>'
-            + '</table>';
+                + '</table>';
 
         const message = $('#browserMessage');
         message.css('display', 'block');

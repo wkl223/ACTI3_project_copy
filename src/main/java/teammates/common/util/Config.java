@@ -15,52 +15,84 @@ import teammates.common.exception.TeammatesException;
  */
 public final class Config {
 
-    /** The value of the application URL, or null if no server instance is running. */
+    /**
+     * The value of the application URL, or null if no server instance is running.
+     */
     public static final String APP_URL;
 
-    /** The value of the "app.gcs.bucketname" in build.properties file. */
+    /**
+     * The value of the "app.gcs.bucketname" in build.properties file.
+     */
     public static final String GCS_BUCKETNAME;
 
-    /** The value of the "app.backdoor.key" in build.properties file. */
+    /**
+     * The value of the "app.backdoor.key" in build.properties file.
+     */
     public static final String BACKDOOR_KEY;
 
-    /** The value of the "app.encryption.key" in build.properties file. */
+    /**
+     * The value of the "app.encryption.key" in build.properties file.
+     */
     public static final String ENCRYPTION_KEY;
 
-    /** The value of the "app.persistence.checkduration" in build.properties file. */
+    /**
+     * The value of the "app.persistence.checkduration" in build.properties file.
+     */
     public static final int PERSISTENCE_CHECK_DURATION;
 
-    /** The value of the "app.crashreport.email" in build.properties file. */
+    /**
+     * The value of the "app.crashreport.email" in build.properties file.
+     */
     public static final String SUPPORT_EMAIL;
 
-    /** The value of the "app.student.motd.url" in build.properties file. */
+    /**
+     * The value of the "app.student.motd.url" in build.properties file.
+     */
     public static final String STUDENT_MOTD_URL;
 
-    /** The value of the "app.email.senderemail" in build.properties file. */
+    /**
+     * The value of the "app.email.senderemail" in build.properties file.
+     */
     public static final String EMAIL_SENDEREMAIL;
 
-    /** The value of the "app.email.sendername" in build.properties file. */
+    /**
+     * The value of the "app.email.sendername" in build.properties file.
+     */
     public static final String EMAIL_SENDERNAME;
 
-    /** The value of the "app.email.replyto" in build.properties file. */
+    /**
+     * The value of the "app.email.replyto" in build.properties file.
+     */
     public static final String EMAIL_REPLYTO;
 
-    /** The value of the "app.email.service" in build.properties file. */
+    /**
+     * The value of the "app.email.service" in build.properties file.
+     */
     public static final String EMAIL_SERVICE;
 
-    /** The value of the "app.sendgrid.apikey" in build.properties file. */
+    /**
+     * The value of the "app.sendgrid.apikey" in build.properties file.
+     */
     public static final String SENDGRID_APIKEY;
 
-    /** The value of the "app.mailgun.apikey" in build.properties file. */
+    /**
+     * The value of the "app.mailgun.apikey" in build.properties file.
+     */
     public static final String MAILGUN_APIKEY;
 
-    /** The value of the "app.mailgun.domainname" in build.properties file. */
+    /**
+     * The value of the "app.mailgun.domainname" in build.properties file.
+     */
     public static final String MAILGUN_DOMAINNAME;
 
-    /** The value of the "app.mailjet.apikey" in build.properties file. */
+    /**
+     * The value of the "app.mailjet.apikey" in build.properties file.
+     */
     public static final String MAILJET_APIKEY;
 
-    /** The value of the "app.mailjet.secretkey" in build.properties file. */
+    /**
+     * The value of the "app.mailjet.secretkey" in build.properties file.
+     */
     public static final String MAILJET_SECRETKEY;
 
     static {
@@ -94,6 +126,7 @@ public final class Config {
 
     /**
      * This method is not to be used by classes not compiled by GAE (e.g non-production codes).
+     *
      * @return The app ID specified in appengine-web.xml, e.g. "teammatesv4"
      */
     public static String getAppId() {

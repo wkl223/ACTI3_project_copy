@@ -86,31 +86,31 @@ public class ControllerServlet extends HttpServlet {
 
         } catch (PageNotFoundException e) {
             log.warning(new LogMessageGenerator()
-                                .generateActionFailureLogMessage(url, params, e, userType));
+                    .generateActionFailureLogMessage(url, params, e, userType));
             cleanUpStatusMessageInSession(req);
             resp.sendRedirect(appendParamsToErrorPageUrl(Const.ViewURIs.ACTION_NOT_FOUND_PAGE, params, url));
         } catch (EntityNotFoundException e) {
             log.warning(new LogMessageGenerator()
-                                .generateActionFailureLogMessage(url, params, e, userType));
+                    .generateActionFailureLogMessage(url, params, e, userType));
             cleanUpStatusMessageInSession(req);
             resp.sendRedirect(appendParamsToErrorPageUrl(Const.ViewURIs.ENTITY_NOT_FOUND_PAGE, params, url));
 
         } catch (FeedbackSessionNotVisibleException e) {
             log.warning(new LogMessageGenerator()
-                                .generateActionFailureLogMessage(url, params, e, userType));
+                    .generateActionFailureLogMessage(url, params, e, userType));
             cleanUpStatusMessageInSession(req);
             req.getSession().setAttribute(Const.ParamsNames.FEEDBACK_SESSION_NOT_VISIBLE, e.getStartTimeString());
             resp.sendRedirect(appendParamsToErrorPageUrl(Const.ViewURIs.FEEDBACK_SESSION_NOT_VISIBLE, params, url));
 
         } catch (InvalidOriginException e) {
             log.warning(new LogMessageGenerator()
-                                .generateActionFailureLogMessage(url, params, e, userType));
+                    .generateActionFailureLogMessage(url, params, e, userType));
             cleanUpStatusMessageInSession(req);
             resp.sendRedirect(appendParamsToErrorPageUrl(Const.ViewURIs.INVALID_ORIGIN, params, url));
 
         } catch (UnauthorizedAccessException e) {
             log.warning(new LogMessageGenerator()
-                                .generateActionFailureLogMessage(url, params, e, userType));
+                    .generateActionFailureLogMessage(url, params, e, userType));
             cleanUpStatusMessageInSession(req);
             resp.sendRedirect(appendParamsToErrorPageUrl(Const.ViewURIs.UNAUTHORIZED, params, url));
 
@@ -131,7 +131,7 @@ public class ControllerServlet extends HttpServlet {
 
             List<StatusMessage> statusMessagesToUser = new ArrayList<>();
             statusMessagesToUser.add(new StatusMessage(Const.StatusMessages.NULL_POST_PARAMETER_MESSAGE,
-                                                       StatusMessageColor.WARNING));
+                    StatusMessageColor.WARNING));
             req.getSession().setAttribute(Const.ParamsNames.STATUS_MESSAGES_LIST, statusMessagesToUser);
 
             if (requestUrl.contains("/instructor")) {
@@ -150,7 +150,7 @@ public class ControllerServlet extends HttpServlet {
              * Note that severe logs are sent by email automatically in the cron job auto/compileLogs.
              */
             log.severe("Unexpected exception caught by ControllerServlet : "
-                        + TeammatesException.toStringWithStackTrace(t));
+                    + TeammatesException.toStringWithStackTrace(t));
             cleanUpStatusMessageInSession(req);
             resp.sendRedirect(appendParamsToErrorPageUrl(Const.ViewURIs.ERROR_PAGE, params, url));
         }

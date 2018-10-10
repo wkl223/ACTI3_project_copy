@@ -62,8 +62,8 @@ function attachEventToRemindStudentsButton() {
     $('#button_remind').on('click', (event) => {
         const $clickedButton = $(event.currentTarget);
         const messageText = `${'Usually, there is no need to use this feature because TEAMMATES sends an automatic '
-                          + 'invite to students at the opening time of each session. Send a join request to '
-                          + 'all yet-to-join students in '}${$clickedButton.data('courseId')} anyway?`;
+        + 'invite to students at the opening time of each session. Send a join request to '
+        + 'all yet-to-join students in '}${$clickedButton.data('courseId')} anyway?`;
         const okCallback = function okCallback() {
             window.location = $clickedButton.attr('href');
         };

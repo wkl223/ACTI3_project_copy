@@ -8,7 +8,7 @@
   <script type="text/javascript" src="/js/studentCourseJoinConfirmation.js"></script>
 </c:set>
 <ts:studentPage title="Course Join Confirmation" jsIncludes="${jsIncludes}">
-  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
+  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}"/>
   <br>
   <div class="panel panel-primary panel-narrow">
     <div class="panel-heading">
@@ -18,18 +18,23 @@
       <p>
         You are currently logged in as <span><strong>${data.account.googleId}</strong></span>.
         <c:if test="${data.redirectResult}">
-          You have been redirected to this page because you navigated to a link for the course <strong>${data.courseId}</strong>, which you have not been registered in.
+          You have been redirected to this page because you navigated to a link for the course
+          <strong>${data.courseId}</strong>, which you have not been registered in.
         </c:if>
         <br>
         <c:choose>
           <c:when test="${data.redirectResult}">
-            If you wish to register as <strong>${data.account.googleId}</strong>, please confirm below to complete your registration.
-            <br>If you wish to register with another Google ID<c:if test="${data.nextUrlAccessibleWithoutLogin}"> or do not wish to register for this course</c:if>, please
-            <a href="${data.logoutUrl}">log out</a>, log in with your desired Google ID<c:if test="${data.nextUrlAccessibleWithoutLogin}"> if necessary</c:if>, and navigate to the link again.
+            If you wish to register as
+            <strong>${data.account.googleId}</strong>, please confirm below to complete your registration.
+            <br>If you wish to register with another Google ID<c:if
+              test="${data.nextUrlAccessibleWithoutLogin}"> or do not wish to register for this course</c:if>, please
+            <a href="${data.logoutUrl}">log out</a>, log in with your desired Google ID<c:if
+              test="${data.nextUrlAccessibleWithoutLogin}"> if necessary</c:if>, and navigate to the link again.
             <br>
           </c:when>
           <c:otherwise>
-            If this is not you please <a href="${data.logoutUrl}">log out</a> and re-login using your own Google account.
+            If this is not you please <a href="${data.logoutUrl}">log
+            out</a> and re-login using your own Google account.
             <br>If this is you, please confirm below to complete your registration.
             <br>
           </c:otherwise>

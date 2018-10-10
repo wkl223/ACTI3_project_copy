@@ -30,7 +30,7 @@ public class InstructorCourseDetailsPageActionTest extends BaseActionTest {
         verifyAssumptionFailure();
 
         ______TS("Typical Case, Course with at least one student");
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor1OfCourse1.courseId
         };
         InstructorCourseDetailsPageAction pageAction = getAction(submissionParams);
@@ -53,10 +53,10 @@ public class InstructorCourseDetailsPageActionTest extends BaseActionTest {
         assertEquals(0, pageData.getCourseDetails().feedbackSessions.size());
 
         String expectedLogMessage = "TEAMMATESLOG|||instructorCourseDetailsPage|||instructorCourseDetailsPage|||true"
-                                    + "|||Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1"
-                                    + "|||instr1@course1.tmt|||instructorCourseDetails Page Load<br>Viewing Course "
-                                    + "Details for Course <span class=\"bold\">[idOfTypicalCourse1]</span>"
-                                    + "|||/page/instructorCourseDetailsPage";
+                + "|||Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1"
+                + "|||instr1@course1.tmt|||instructorCourseDetails Page Load<br>Viewing Course "
+                + "Details for Course <span class=\"bold\">[idOfTypicalCourse1]</span>"
+                + "|||/page/instructorCourseDetailsPage";
         AssertHelper.assertLogMessageEquals(expectedLogMessage, pageAction.getLogMessage());
 
         ______TS("Masquerade mode, Course with no student");
@@ -65,18 +65,18 @@ public class InstructorCourseDetailsPageActionTest extends BaseActionTest {
         gaeSimulation.loginAsAdmin(adminUserId);
 
         InstructorAttributes instructor4 = typicalBundle.instructors.get("instructor4");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor4.courseId
         };
         pageAction = getAction(addUserIdToParams(instructor4.googleId, submissionParams));
         pageResult = getShowPageResult(pageAction);
 
         assertEquals(getPageResultDestination(Const.ViewURIs.INSTRUCTOR_COURSE_DETAILS, false, "idOfInstructor4"),
-                     pageResult.getDestinationWithParams());
+                pageResult.getDestinationWithParams());
         assertFalse(pageResult.isError);
         assertEquals(String.format(Const.StatusMessages.INSTRUCTOR_COURSE_EMPTY,
-                                   pageResult.data.getInstructorCourseEnrollLink(instructor4.courseId)),
-                     pageResult.getStatusMessage());
+                pageResult.data.getInstructorCourseEnrollLink(instructor4.courseId)),
+                pageResult.getStatusMessage());
 
         pageData = (InstructorCourseDetailsPageData) pageResult.data;
         assertEquals(1, pageData.getInstructors().size());
@@ -89,17 +89,17 @@ public class InstructorCourseDetailsPageActionTest extends BaseActionTest {
         assertEquals(0, pageData.getCourseDetails().feedbackSessions.size());
 
         expectedLogMessage = "TEAMMATESLOG|||instructorCourseDetailsPage|||instructorCourseDetailsPage|||true|||"
-                             + "Instructor(M)|||Instructor 4 of CourseNoEvals|||idOfInstructor4|||"
-                             + "instr4@coursenoevals.tmt|||instructorCourseDetails Page Load<br>Viewing Course "
-                             + "Details for Course <span class=\"bold\">[idOfCourseNoEvals]</span>|||"
-                             + "/page/instructorCourseDetailsPage";
+                + "Instructor(M)|||Instructor 4 of CourseNoEvals|||idOfInstructor4|||"
+                + "instr4@coursenoevals.tmt|||instructorCourseDetails Page Load<br>Viewing Course "
+                + "Details for Course <span class=\"bold\">[idOfCourseNoEvals]</span>|||"
+                + "/page/instructorCourseDetailsPage";
         AssertHelper.assertLogMessageEqualsInMasqueradeMode(expectedLogMessage, pageAction.getLogMessage(), adminUserId);
 
         ______TS("HTML Table needed");
         instructor1OfCourse1 = typicalBundle.instructors.get("instructor1OfCourse1");
         gaeSimulation.loginAsInstructor(instructor1OfCourse1.googleId);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor1OfCourse1.courseId,
                 Const.ParamsNames.CSV_TO_HTML_TABLE_NEEDED, "true"
         };
@@ -115,64 +115,64 @@ public class InstructorCourseDetailsPageActionTest extends BaseActionTest {
         pageData = (InstructorCourseDetailsPageData) ajaxResult.data;
 
         assertEquals("<table class=\"table table-bordered table-striped table-condensed\">"
-                         + "<tr>"
-                             + "<td>Course ID</td>"
-                             + "<td>idOfTypicalCourse1</td>"
-                         + "</tr>"
-                         + "<tr>"
-                             + "<td>Course Name</td>"
-                             + "<td>Typical Course 1 with 2 Evals</td>"
-                         + "</tr>"
-                         + "<tr>"
-                             + "<td>Section</td>"
-                             + "<td>Team</td>"
-                             + "<td>Full Name</td>"
-                             + "<td>Last Name</td>"
-                             + "<td>Status</td>"
-                             + "<td>Email</td>"
-                         + "</tr>"
-                         + "<tr>"
-                             + "<td>Section 1</td>"
-                             + "<td>Team 1.1&lt;&#x2f;td&gt;&lt;&#x2f;div&gt;&#39;&quot;</td>"
-                             + "<td>student1 In Course1&lt;&#x2f;td&gt;&lt;&#x2f;div&gt;&#39;&quot;</td>"
-                             + "<td>Course1&lt;&#x2f;td&gt;&lt;&#x2f;div&gt;&#39;&quot;</td>"
-                             + "<td>Joined</td>"
-                             + "<td>student1InCourse1@gmail.tmt</td>"
-                         + "</tr>"
-                         + "<tr>"
-                             + "<td>Section 1</td>"
-                             + "<td>Team 1.1&lt;&#x2f;td&gt;&lt;&#x2f;div&gt;&#39;&quot;</td>"
-                             + "<td>student2 In Course1</td>"
-                             + "<td>Course1</td>"
-                             + "<td>Joined</td>"
-                             + "<td>student2InCourse1@gmail.tmt</td>"
-                         + "</tr>"
-                         + "<tr>"
-                             + "<td>Section 1</td>"
-                             + "<td>Team 1.1&lt;&#x2f;td&gt;&lt;&#x2f;div&gt;&#39;&quot;</td>"
-                             + "<td>student3 In Course1</td>"
-                             + "<td>Course1</td>"
-                             + "<td>Joined</td>"
-                             + "<td>student3InCourse1@gmail.tmt</td>"
-                         + "</tr>"
-                         + "<tr>"
-                             + "<td>Section 1</td>"
-                             + "<td>Team 1.1&lt;&#x2f;td&gt;&lt;&#x2f;div&gt;&#39;&quot;</td>"
-                             + "<td>student4 In Course1</td>"
-                             + "<td>Course1</td>"
-                             + "<td>Joined</td>"
-                             + "<td>student4InCourse1@gmail.tmt</td>"
-                         + "</tr>"
-                         + "<tr>"
-                             + "<td>Section 2</td>"
-                             + "<td>Team 1.2</td>"
-                             + "<td>student5 In Course1</td>"
-                             + "<td>Course1</td>"
-                             + "<td>Joined</td>"
-                             + "<td>student5InCourse1@gmail.tmt</td>"
-                         + "</tr>"
-                     + "</table>",
-                     pageData.getStudentListHtmlTableAsString());
+                        + "<tr>"
+                        + "<td>Course ID</td>"
+                        + "<td>idOfTypicalCourse1</td>"
+                        + "</tr>"
+                        + "<tr>"
+                        + "<td>Course Name</td>"
+                        + "<td>Typical Course 1 with 2 Evals</td>"
+                        + "</tr>"
+                        + "<tr>"
+                        + "<td>Section</td>"
+                        + "<td>Team</td>"
+                        + "<td>Full Name</td>"
+                        + "<td>Last Name</td>"
+                        + "<td>Status</td>"
+                        + "<td>Email</td>"
+                        + "</tr>"
+                        + "<tr>"
+                        + "<td>Section 1</td>"
+                        + "<td>Team 1.1&lt;&#x2f;td&gt;&lt;&#x2f;div&gt;&#39;&quot;</td>"
+                        + "<td>student1 In Course1&lt;&#x2f;td&gt;&lt;&#x2f;div&gt;&#39;&quot;</td>"
+                        + "<td>Course1&lt;&#x2f;td&gt;&lt;&#x2f;div&gt;&#39;&quot;</td>"
+                        + "<td>Joined</td>"
+                        + "<td>student1InCourse1@gmail.tmt</td>"
+                        + "</tr>"
+                        + "<tr>"
+                        + "<td>Section 1</td>"
+                        + "<td>Team 1.1&lt;&#x2f;td&gt;&lt;&#x2f;div&gt;&#39;&quot;</td>"
+                        + "<td>student2 In Course1</td>"
+                        + "<td>Course1</td>"
+                        + "<td>Joined</td>"
+                        + "<td>student2InCourse1@gmail.tmt</td>"
+                        + "</tr>"
+                        + "<tr>"
+                        + "<td>Section 1</td>"
+                        + "<td>Team 1.1&lt;&#x2f;td&gt;&lt;&#x2f;div&gt;&#39;&quot;</td>"
+                        + "<td>student3 In Course1</td>"
+                        + "<td>Course1</td>"
+                        + "<td>Joined</td>"
+                        + "<td>student3InCourse1@gmail.tmt</td>"
+                        + "</tr>"
+                        + "<tr>"
+                        + "<td>Section 1</td>"
+                        + "<td>Team 1.1&lt;&#x2f;td&gt;&lt;&#x2f;div&gt;&#39;&quot;</td>"
+                        + "<td>student4 In Course1</td>"
+                        + "<td>Course1</td>"
+                        + "<td>Joined</td>"
+                        + "<td>student4InCourse1@gmail.tmt</td>"
+                        + "</tr>"
+                        + "<tr>"
+                        + "<td>Section 2</td>"
+                        + "<td>Team 1.2</td>"
+                        + "<td>student5 In Course1</td>"
+                        + "<td>Course1</td>"
+                        + "<td>Joined</td>"
+                        + "<td>student5InCourse1@gmail.tmt</td>"
+                        + "</tr>"
+                        + "</table>",
+                pageData.getStudentListHtmlTableAsString());
     }
 
     @Override
@@ -183,7 +183,7 @@ public class InstructorCourseDetailsPageActionTest extends BaseActionTest {
     @Override
     @Test
     protected void testAccessControl() throws Exception {
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, typicalBundle.instructors.get("instructor1OfCourse1").courseId
         };
 

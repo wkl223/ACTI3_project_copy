@@ -137,11 +137,11 @@ public class InstructorCourseEditPageUiTest extends BaseUiTestCase {
         // Add instructor
         assertEquals(maxLengthInstructorName, courseEditPage.fillNewInstructorName(maxLengthInstructorName));
         assertEquals(longInstructorName.substring(0, FieldValidator.PERSON_NAME_MAX_LENGTH),
-                     courseEditPage.fillNewInstructorName(longInstructorName));
+                courseEditPage.fillNewInstructorName(longInstructorName));
         // Edit instructor
         assertEquals(maxLengthInstructorName, courseEditPage.editInstructorName(1, maxLengthInstructorName));
         assertEquals(longInstructorName.substring(0, FieldValidator.PERSON_NAME_MAX_LENGTH),
-                     courseEditPage.editInstructorName(1, longInstructorName));
+                courseEditPage.editInstructorName(1, longInstructorName));
 
         String maxLengthEmail = StringHelperExtension.generateStringOfLength(FieldValidator.EMAIL_MAX_LENGTH);
         String longEmail = StringHelperExtension.generateStringOfLength(FieldValidator.EMAIL_MAX_LENGTH + 1);
@@ -149,11 +149,11 @@ public class InstructorCourseEditPageUiTest extends BaseUiTestCase {
         // Add instructor
         assertEquals(maxLengthEmail, courseEditPage.fillNewInstructorEmail(maxLengthEmail));
         assertEquals(longEmail.substring(0, FieldValidator.EMAIL_MAX_LENGTH),
-                     courseEditPage.fillNewInstructorEmail(longEmail));
+                courseEditPage.fillNewInstructorEmail(longEmail));
         // Edit instructor
         assertEquals(maxLengthEmail, courseEditPage.editInstructorEmail(1, maxLengthEmail));
         assertEquals(longEmail.substring(0, FieldValidator.EMAIL_MAX_LENGTH),
-                     courseEditPage.editInstructorEmail(1, longEmail));
+                courseEditPage.editInstructorEmail(1, longEmail));
     }
 
     private void testInviteInstructorAction() {
@@ -229,11 +229,11 @@ public class InstructorCourseEditPageUiTest extends BaseUiTestCase {
                         "Teammates Instructor", "InsCrsEdit.instructor@gmail.tmt"));
 
         AppUrl courseDetailsLink = createUrl(Const.ActionURIs.INSTRUCTOR_COURSE_DETAILS_PAGE)
-                                    .withCourseId(courseId)
-                                    .withUserId(testData.instructors.get("InsCrsEdit.test").googleId);
+                .withCourseId(courseId)
+                .withUserId(testData.instructors.get("InsCrsEdit.test").googleId);
 
         InstructorCourseDetailsPage courseDetailsPage = AppPage.getNewPageInstance(browser,
-                                                                courseDetailsLink, InstructorCourseDetailsPage.class);
+                courseDetailsLink, InstructorCourseDetailsPage.class);
         courseDetailsPage.verifyHtmlPart(By.id("instructors"), "/instructorCourseDetailsAddInstructor.html");
         courseEditPage = getCourseEditPage();
         courseEditPage.clickEditInstructorLink(3);
@@ -281,7 +281,7 @@ public class InstructorCourseEditPageUiTest extends BaseUiTestCase {
         ______TS("success: unhide instructor and verify changes");
 
         courseEditPage.editInstructor(editInstructorIndex, "New name", "new_email@email.tmt", true, "New display name",
-                                      Const.InstructorPermissionRoleNames.INSTRUCTOR_PERMISSION_ROLE_COOWNER);
+                Const.InstructorPermissionRoleNames.INSTRUCTOR_PERMISSION_ROLE_COOWNER);
         courseEditPage.waitForTextsForAllStatusMessagesToUserEquals(
                 String.format(Const.StatusMessages.COURSE_INSTRUCTOR_EDITED, "New name"));
         courseEditPage.verifyInstructorDetails(editInstructorIndex, "New name", "new_email@email.tmt",
@@ -437,21 +437,21 @@ public class InstructorCourseEditPageUiTest extends BaseUiTestCase {
         courseEditPage.clickEditInstructorLink(editInstructorIndex);
         assertTrue(courseEditPage.isInstructorEditable(editInstructorIndex));
         courseEditPage.verifyHtmlMainContent(
-                            "/instructorCourseEditEditInstructorPrivilegesSuccessfulAndCheckEditAgain.html");
+                "/instructorCourseEditEditInstructorPrivilegesSuccessfulAndCheckEditAgain.html");
         courseEditPage.clickSaveInstructorButton(editInstructorIndex);
 
         ______TS("failure: edit failed due to invalid parameters");
         String invalidEmail = "InsCrsEdit.email.tmt";
 
         courseEditPage.editInstructor(editInstructorIndex, "New name", invalidEmail, true, "New display name",
-                                      Const.InstructorPermissionRoleNames.INSTRUCTOR_PERMISSION_ROLE_COOWNER);
+                Const.InstructorPermissionRoleNames.INSTRUCTOR_PERMISSION_ROLE_COOWNER);
         courseEditPage.waitForTextsForAllStatusMessagesToUserEquals(
                 new FieldValidator().getInvalidityInfoForEmail(invalidEmail));
 
         String invalidName = "";
 
         courseEditPage.editInstructor(editInstructorIndex, invalidName, "teammates@email.tmt", true, "New display name",
-                                      Const.InstructorPermissionRoleNames.INSTRUCTOR_PERMISSION_ROLE_COOWNER);
+                Const.InstructorPermissionRoleNames.INSTRUCTOR_PERMISSION_ROLE_COOWNER);
         courseEditPage.waitForTextsForAllStatusMessagesToUserEquals(
                 new FieldValidator().getInvalidityInfoForPersonName(invalidName));
 
@@ -662,7 +662,7 @@ public class InstructorCourseEditPageUiTest extends BaseUiTestCase {
         courseEditPage.clickCancelEditInstructorLink(editInstructorIndex);
 
         courseEditPage.verifyHtmlPart(By.id("formEditInstructor" + editInstructorIndex),
-                                      "/instructorCourseEditCancelEditCoownerForm.html");
+                "/instructorCourseEditCancelEditCoownerForm.html");
 
         courseEditPage.clickEditInstructorLink(editInstructorIndex);
         assertFalse(courseEditPage.isTunePermissionsDivVisible(editInstructorIndex));
@@ -676,7 +676,7 @@ public class InstructorCourseEditPageUiTest extends BaseUiTestCase {
         courseEditPage.clickCancelEditInstructorLink(editInstructorIndex);
 
         courseEditPage.verifyHtmlPart(By.id("formEditInstructor" + editInstructorIndex),
-                                      "/instructorCourseEditCancelEditCustomInstructorForm.html");
+                "/instructorCourseEditCancelEditCustomInstructorForm.html");
 
         ______TS("success: cancel editing a Custom instructor's permissions");
 
@@ -693,7 +693,7 @@ public class InstructorCourseEditPageUiTest extends BaseUiTestCase {
         courseEditPage.clickCancelEditInstructorLink(editInstructorIndex);
 
         courseEditPage.verifyHtmlPart(By.id("formEditInstructor" + editInstructorIndex),
-                                      "/instructorCourseEditCancelEditCustomInstructorPermissionsForm.html");
+                "/instructorCourseEditCancelEditCustomInstructorPermissionsForm.html");
 
         courseEditPage.clickEditInstructorLink(editInstructorIndex);
         assertTrue(courseEditPage.isTunePermissionsDivVisible(editInstructorIndex));
@@ -793,8 +793,8 @@ public class InstructorCourseEditPageUiTest extends BaseUiTestCase {
         courseEditPage.changePageType(InstructorCourseEditPage.class);
         courseEditPage.waitForTextsForAllStatusMessagesToUserEquals(
                 getPopulatedEmptyStringErrorMessage(
-                                     FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE_EMPTY_STRING,
-                                     FieldValidator.COURSE_NAME_FIELD_NAME, FieldValidator.COURSE_NAME_MAX_LENGTH));
+                        FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE_EMPTY_STRING,
+                        FieldValidator.COURSE_NAME_FIELD_NAME, FieldValidator.COURSE_NAME_MAX_LENGTH));
     }
 
     private void testDeleteCourseAction() {
@@ -836,8 +836,8 @@ public class InstructorCourseEditPageUiTest extends BaseUiTestCase {
 
     private InstructorCourseEditPage getCourseEditPage() {
         AppUrl courseEditPageLink = createUrl(Const.ActionURIs.INSTRUCTOR_COURSE_EDIT_PAGE)
-                                    .withUserId(instructorId)
-                                    .withCourseId(courseId);
+                .withUserId(instructorId)
+                .withCourseId(courseId);
 
         return loginAdminToPage(courseEditPageLink, InstructorCourseEditPage.class);
     }

@@ -49,7 +49,7 @@ public class FeedbackSessionResultsBundleTest extends BaseTestCase {
                         responseBundle.feedbackQuestions, emailNameTable, new HashMap<>(),
                         new HashMap<>(), null, visibilityTable, null,
                         new CourseRoster(new ArrayList<>(responseBundle.students.values()),
-                        new ArrayList<>(responseBundle.instructors.values())), null);
+                                new ArrayList<>(responseBundle.instructors.values())), null);
 
         ______TS("Test question having responses");
         FeedbackQuestionAttributes fqa = responseBundle.feedbackQuestions.get("qn1InSession1InCourse1");

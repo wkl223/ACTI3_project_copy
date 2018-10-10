@@ -123,7 +123,7 @@ public class AdminEmailComposeSendAction extends Action {
 
         statusToAdmin += "<br/>" + "Group receiver's list " + groupReceiverListFileKey;
         statusToUser.add(new StatusMessage("Email will be sent within an hour to uploaded group receiver's list.",
-                     StatusMessageColor.SUCCESS));
+                StatusMessageColor.SUCCESS));
     }
 
     private void moveJobToAddressModeTaskQueue() {
@@ -134,7 +134,7 @@ public class AdminEmailComposeSendAction extends Action {
 
         statusToAdmin += "<br/>" + "Recipient: " + addressReceiverListString;
         statusToUser.add(new StatusMessage("Email will be sent within an hour to " + addressReceiverListString,
-                     StatusMessageColor.SUCCESS));
+                StatusMessageColor.SUCCESS));
     }
 
     private void recordNewSentEmail(String subject,

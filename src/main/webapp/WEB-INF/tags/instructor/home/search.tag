@@ -6,15 +6,15 @@
   <div class="row">
     <div class="col-md-12">
       <form method="get" action="${data.instructorSearchLink}"
-          name="search_form">
+            name="search_form">
         <div class="input-group">
           <input type="text" id="searchbox"
-              title="<%= Const.Tooltips.SEARCH_STUDENT %>"
-              name="<%= Const.ParamsNames.SEARCH_KEY %>"
-              class="form-control"
-              data-toggle="tooltip"
-              data-placement="top"
-              placeholder="e.g. Charles Shultz, charles@gmail.com">
+                 title="<%= Const.Tooltips.SEARCH_STUDENT %>"
+                 name="<%= Const.ParamsNames.SEARCH_KEY %>"
+                 class="form-control"
+                 data-toggle="tooltip"
+                 data-placement="top"
+                 placeholder="e.g. Charles Shultz, charles@gmail.com">
           <span class="input-group-btn">
             <button class="btn btn-default" type="submit" value="Search" id="buttonSearch">
               Search

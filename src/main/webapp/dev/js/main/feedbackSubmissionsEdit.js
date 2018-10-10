@@ -149,7 +149,7 @@ function updateMsqOtherOptionField() {
 // Looks for the question to be moderated (if it exists)
 function focusModeratedQuestion() {
     if ($('#moderated-question').length > 0) {
-        scrollToElement($('#moderated-question')[0], { duration: 1000 });
+        scrollToElement($('#moderated-question')[0], {duration: 1000});
     }
 }
 
@@ -275,7 +275,7 @@ function prepareMSQQuestions() {
 
         // reset "none of the above" if any option is clicked
         const $options = $(`input[name^="responsetext-${qnNum}-"][value!=""], `
-                        + `input[name^="responsetext-${qnNum}-"][data-text]`); // includes 'other'
+                + `input[name^="responsetext-${qnNum}-"][data-text]`); // includes 'other'
 
         $options.click(function () {
             const $self = $(this);
@@ -479,7 +479,7 @@ function prepareConstSumQuestions() {
 
         // Check if feedback session is open or under preview mode
         if (!$('#response_submit_button').is(':disabled')
-            || isPreview()) {
+                || isPreview()) {
             // Add elements for displaying instructions to Constant Sum questions
             $(`.constraints-${qnNum}`).each(function () {
                 $(this).prepend('<p class="text-color-blue align-left text-bold">Note:</p>'
@@ -626,6 +626,7 @@ function updateConstSumQnMessages(qnNum) {
             inputFieldElement.val(0);
         }
     }
+
     /*
      * Checks current input provided by user
      * and updates error/success messages based on constraints
@@ -701,6 +702,7 @@ function updateConstSumQnMessages(qnNum) {
         }
         messageElement.html(message);
     }
+
     function updateSumBasedOn(ptsAllocatedParam) {
         let pointsAllocated = ptsAllocatedParam;
         if (isNumber(pointsAllocated)) {
@@ -1028,7 +1030,9 @@ function updateRankMessageQn(qnNum) {
         const selector = $(`#rankToRecipients-${questionNumber}`).val() === 'true'
                 ? `select[name^="responsetext-${questionNumber}-"]`
                 : `select[name="responsetext-${questionNumber}-${recipientIndex}"]`;
-        const rankedOptions = $(selector).filter(function () { return $(this).val() !== ''; }).length;
+        const rankedOptions = $(selector).filter(function () {
+            return $(this).val() !== '';
+        }).length;
 
         if (rankedOptions === 0) {
             return;
@@ -1161,7 +1165,7 @@ function prepareRankQuestions() {
         const isRankingRecipients = $(`#rankToRecipients-${qnNum}`).val() === 'true';
 
         if (!$('#response_submit_button').is(':disabled')
-            || isPreview()) {
+                || isPreview()) {
             if (isRankingRecipients) {
                 let numResponses = $(`[name="questionresponsetotal-${qnNum}"]`).val();
                 numResponses = parseInt(numResponses, 10);
@@ -1267,6 +1271,7 @@ function showModalSuccessIfResponsesSubmitted() {
                 null, BootstrapContextualColors.SUCCESS);
     }
 }
+
 /**
  * Updates the length of the textArea
  * @param textAreaId - Id of text area for which char are to be counted
@@ -1331,9 +1336,9 @@ $(document).ready(() => {
         formatRubricQuestions();
 
         const validationStatus = validateConstSumQuestions()
-                                 && validateRankQuestions()
-                                 && validateAllAnswersHaveRecipient()
-                                 && validateMsqQuestions();
+                && validateRankQuestions()
+                && validateAllAnswersHaveRecipient()
+                && validateMsqQuestions();
 
         updateMcqOtherOptionField();
         updateMsqOtherOptionField();

@@ -60,8 +60,8 @@ public class FeedbackTextQuestionDetails extends FeedbackQuestionDetails {
 
     @Override
     public String getQuestionWithExistingResponseSubmissionFormHtml(boolean sessionIsOpen, int qnIdx,
-            int responseIdx, String courseId, int totalNumRecipients, FeedbackResponseDetails existingResponseDetails,
-            StudentAttributes student) {
+                                                                    int responseIdx, String courseId, int totalNumRecipients, FeedbackResponseDetails existingResponseDetails,
+                                                                    StudentAttributes student) {
         return Templates.populateTemplate(
                 FormTemplates.TEXT_SUBMISSION_FORM,
                 Slots.IS_SESSION_OPEN, Boolean.toString(sessionIsOpen),
@@ -71,7 +71,7 @@ public class FeedbackTextQuestionDetails extends FeedbackQuestionDetails {
                 "${recommendedLengthDisplay}", recommendedLength == 0 ? "style=\"display:none\"" : "",
                 "${recommendedLength}", Integer.toString(recommendedLength),
                 Slots.TEXT_EXISTING_RESPONSE,
-                    SanitizationHelper.sanitizeForRichText(existingResponseDetails.getAnswerString()));
+                SanitizationHelper.sanitizeForRichText(existingResponseDetails.getAnswerString()));
     }
 
     @Override
@@ -110,10 +110,10 @@ public class FeedbackTextQuestionDetails extends FeedbackQuestionDetails {
 
     @Override
     public String getQuestionResultStatisticsHtml(List<FeedbackResponseAttributes> responses,
-            FeedbackQuestionAttributes question,
-            String studentEmail,
-            FeedbackSessionResultsBundle bundle,
-            String view) {
+                                                  FeedbackQuestionAttributes question,
+                                                  String studentEmail,
+                                                  FeedbackSessionResultsBundle bundle,
+                                                  String view) {
         if (responses.isEmpty()) {
             return "";
         }
@@ -165,7 +165,7 @@ public class FeedbackTextQuestionDetails extends FeedbackQuestionDetails {
     @Override
     public String getQuestionTypeChoiceOption() {
         return "<li data-questiontype = \"TEXT\"><a href=\"javascript:;\">"
-               + Const.FeedbackQuestionTypeNames.TEXT + "</a></li>";
+                + Const.FeedbackQuestionTypeNames.TEXT + "</a></li>";
     }
 
     @Override

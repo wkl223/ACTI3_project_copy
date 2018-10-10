@@ -4,11 +4,11 @@
 <%@ attribute name="editCopyActionLink" required="true" %>
 
 <div class="modal fade" id="fsCopyModal" tabindex="-1" role="dialog"
-    aria-labelledby="fsCopyModal" aria-hidden="true">
+     aria-labelledby="fsCopyModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <form method="post" id="instructorCopyModalForm" role="form"
-          action="${editCopyActionLink}">
+            action="${editCopyActionLink}">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4 class="modal-title">

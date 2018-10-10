@@ -11,15 +11,16 @@
 
 <ti:instructorPage title="Course Details" jsIncludes="${jsIncludes}">
   <course:courseInformationContainer courseDetails="${data.courseDetails}"
-      instructors="${data.instructors}"
-      courseRemindButton="${data.courseRemindButton}"
-      courseDeleteAllButton="${data.courseDeleteAllButton}"/>
+                                     instructors="${data.instructors}"
+                                     courseRemindButton="${data.courseRemindButton}"
+                                     courseDeleteAllButton="${data.courseDeleteAllButton}"/>
   <br>
   <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}"/>
   <input type="hidden" id="show-comment-box" value="false">
   <br>
-  <ti:studentList courseId="${data.courseDetails.course.id}" courseIndex="${0}" hasSection="${data.hasSection}" sections="${data.sections}"
-      fromCourseDetailsPage="${true}"/>
+  <ti:studentList courseId="${data.courseDetails.course.id}" courseIndex="${0}" hasSection="${data.hasSection}"
+                  sections="${data.sections}"
+                  fromCourseDetailsPage="${true}"/>
   <br>
   <br>
   <br>

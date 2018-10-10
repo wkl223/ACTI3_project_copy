@@ -15,6 +15,7 @@ public final class FileHelper {
     /**
      * Reads the contents of a file in the {@code resources} folder
      * as an {@link InputStream}.
+     *
      * @param file The file name, which must be in the {@code resources} folder.
      */
     public static InputStream getResourceAsStream(String file) {
@@ -23,6 +24,7 @@ public final class FileHelper {
 
     /**
      * Reads the contents of a file in the {@code resources} folder.
+     *
      * @param file The file name, which must be in the {@code resources} folder.
      */
     public static String readResourceFile(String file) {

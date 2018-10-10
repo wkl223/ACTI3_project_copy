@@ -91,8 +91,8 @@ public class InstructorSubmissionAdjustmentUiTest extends BaseUiTestCase {
 
     private void loadEnrollmentPage() {
         AppUrl enrollUrl = createUrl(Const.ActionURIs.INSTRUCTOR_COURSE_ENROLL_PAGE)
-                            .withUserId(testData.instructors.get("instructor1OfCourse1").googleId)
-                            .withCourseId(testData.courses.get("typicalCourse1").getId());
+                .withUserId(testData.instructors.get("instructor1OfCourse1").googleId)
+                .withCourseId(testData.courses.get("typicalCourse1").getId());
 
         enrollPage = loginAdminToPage(enrollUrl, InstructorCourseEnrollPage.class);
     }
@@ -127,7 +127,7 @@ public class InstructorSubmissionAdjustmentUiTest extends BaseUiTestCase {
     }
 
     private List<FeedbackResponseAttributes> getAllResponsesForStudentForSession(StudentAttributes student,
-            String feedbackSessionName) {
+                                                                                 String feedbackSessionName) {
         List<FeedbackResponseAttributes> returnList = new ArrayList<>();
 
         List<FeedbackResponseAttributes> allResponseOfStudent = getAllTeamResponsesForStudent(student);

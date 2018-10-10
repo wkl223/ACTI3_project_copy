@@ -32,7 +32,7 @@ public class InstructorCourseEditPageData extends PageData {
                 .builder(course.getId(),
                         SanitizationHelper.desanitizeIfHtmlSanitized(course.getName()),
                         course.getTimeZone())
-                 .build();
+                .build();
         this.course.createdAt = course.createdAt;
 
         this.instructorToShowIndex = instructorToShowIndex;
@@ -41,39 +41,39 @@ public class InstructorCourseEditPageData extends PageData {
         boolean isShowingAllInstructors = instructorToShowIndex == -1;
         if (isShowingAllInstructors) {
             instructorPanelList = createInstructorPanelList(currentInstructor, instructorList, sectionNames,
-                                                            feedbackNames);
+                    feedbackNames);
         } else {
             instructorPanelList = createInstructorPanelForSingleInstructor(
-                                            currentInstructor, instructorList.get(0), instructorToShowIndex,
-                                            sectionNames, feedbackNames);
+                    currentInstructor, instructorList.get(0), instructorToShowIndex,
+                    sectionNames, feedbackNames);
         }
         addInstructorPanel = createInstructorPanel(currentInstructor, instructorPanelList.size() + 1, null,
-                                                   sectionNames, feedbackNames);
+                sectionNames, feedbackNames);
     }
 
     private List<CourseEditInstructorPanel> createInstructorPanelList(InstructorAttributes currentInstructor,
-                                           List<InstructorAttributes> instructorList,
-                                           List<String> sectionNames, List<String> feedbackNames) {
+                                                                      List<InstructorAttributes> instructorList,
+                                                                      List<String> sectionNames, List<String> feedbackNames) {
         List<CourseEditInstructorPanel> panelList = new ArrayList<>();
         int instructorIndex = 0;
         for (InstructorAttributes instructor : instructorList) {
             instructorIndex++;
             CourseEditInstructorPanel instructorPanel = createInstructorPanel(currentInstructor,
-                                                                              instructorIndex, instructor,
-                                                                              sectionNames, feedbackNames);
+                    instructorIndex, instructor,
+                    sectionNames, feedbackNames);
             panelList.add(instructorPanel);
         }
         return panelList;
     }
 
     private List<CourseEditInstructorPanel> createInstructorPanelForSingleInstructor(InstructorAttributes currentInstructor,
-                                    InstructorAttributes instructorForPanel, int instructorIndex,
-                                    List<String> sectionNames, List<String> feedbackNames) {
+                                                                                     InstructorAttributes instructorForPanel, int instructorIndex,
+                                                                                     List<String> sectionNames, List<String> feedbackNames) {
         List<CourseEditInstructorPanel> panelList = new ArrayList<>();
         CourseEditInstructorPanel instructorPanel = createInstructorPanel(
-                                                            currentInstructor,
-                                                            instructorIndex, instructorForPanel,
-                                                            sectionNames, feedbackNames);
+                currentInstructor,
+                instructorIndex, instructorForPanel,
+                sectionNames, feedbackNames);
         panelList.add(instructorPanel);
 
         return panelList;
@@ -81,13 +81,13 @@ public class InstructorCourseEditPageData extends PageData {
 
     private void createCourseRelatedButtons(InstructorAttributes currentInstructor) {
         boolean isEditDeleteCourseButtonDisabled = !currentInstructor.isAllowedForPrivilege(
-                                                       Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_COURSE);
+                Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_COURSE);
 
         editCourseButton = createEditCourseButton(isEditDeleteCourseButtonDisabled);
         deleteCourseButton = createDeleteCourseButton(isEditDeleteCourseButtonDisabled);
 
         boolean isAddInstructorButtonDisabled = !currentInstructor.isAllowedForPrivilege(
-                                                    Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_INSTRUCTOR);
+                Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_INSTRUCTOR);
         addInstructorButton = createAddInstructorButton(isAddInstructorButtonDisabled);
     }
 
@@ -97,15 +97,15 @@ public class InstructorCourseEditPageData extends PageData {
                                                             List<String> sectionNames,
                                                             List<String> feedbackNames) {
         CourseEditInstructorPanel instructorPanel = new CourseEditInstructorPanel(instructorToShowIndex,
-                                                                          instructorIndex, instructor,
-                                                                          sectionNames, feedbackNames);
+                instructorIndex, instructor,
+                sectionNames, feedbackNames);
 
         if (instructor == null) {
             instructorPanel.setCancelAddInstructorButton(createCancelAddInstructorButton());
         } else {
             int panelIndex = instructorPanel.getIndex();
             boolean isDisabled = !currentInstructor.isAllowedForPrivilege(
-                                         Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_INSTRUCTOR);
+                    Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_INSTRUCTOR);
 
             if (instructor.googleId == null) {
                 instructorPanel.setResendInviteButton(createRemindInstructorButton(instructor, panelIndex, isDisabled));
@@ -167,7 +167,7 @@ public class InstructorCourseEditPageData extends PageData {
         String buttonContent = "<span class=\"glyphicon glyphicon-pencil\"></span> Edit";
         String buttonId = "courseEditLink";
         return createBasicButton(buttonContent, buttonId, "javascript:;", Const.Tooltips.COURSE_INFO_EDIT,
-                                 isDisabled);
+                isDisabled);
     }
 
     private ElementTag createDeleteCourseButton(boolean isDisabled) {
@@ -176,7 +176,7 @@ public class InstructorCourseEditPageData extends PageData {
         String href = getInstructorCourseDeleteLink(course.getId(), false);
 
         ElementTag button = createBasicButton(buttonContent, buttonId, href, Const.Tooltips.COURSE_MOVE_TO_RECOVERY,
-                                              isDisabled);
+                isDisabled);
         button.setAttribute("data-course-id", course.getId());
         String existingClasses = button.removeAttribute("class");
         button.setAttribute("class", existingClasses);
@@ -190,7 +190,7 @@ public class InstructorCourseEditPageData extends PageData {
         String href = getInstructorCourseRemindInstructorLink(instructor.courseId, instructor.email);
 
         ElementTag button = createBasicButton(buttonContent, buttonId, href, Const.Tooltips.COURSE_INSTRUCTOR_REMIND,
-                                              isDisabled);
+                isDisabled);
         button.setAttribute("data-instructor-name", instructor.getName());
         button.setAttribute("data-course-id", instructor.getCourseId());
 
@@ -204,7 +204,7 @@ public class InstructorCourseEditPageData extends PageData {
         boolean isDeleteSelf = instructor.email.equals(this.account.email);
 
         ElementTag button = createBasicButton(buttonContent, buttonId, href, Const.Tooltips.COURSE_INSTRUCTOR_DELETE,
-                                              isDisabled);
+                isDisabled);
         button.setAttribute("data-is-delete-self", String.valueOf(isDeleteSelf));
         button.setAttribute("data-instructor-name", instructor.getName());
         button.setAttribute("data-course-id", instructor.getCourseId());
@@ -224,7 +224,7 @@ public class InstructorCourseEditPageData extends PageData {
         String buttonId = "instrCancelLink" + panelIndex;
 
         return createBasicButton(buttonContent, buttonId, "javascript:;", Const.Tooltips.COURSE_INSTRUCTOR_CANCEL_EDIT,
-                                 isDisabled);
+                isDisabled);
     }
 
     private ElementTag createCancelAddInstructorButton() {

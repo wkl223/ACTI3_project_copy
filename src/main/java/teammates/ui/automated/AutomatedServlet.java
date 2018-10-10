@@ -47,7 +47,7 @@ public class AutomatedServlet extends HttpServlet {
         } catch (Throwable t) {
             String requestUrl = req.getRequestURL().toString();
             log.severe("Exception occured while performing " + requestUrl + "|||"
-                       + TeammatesException.toStringWithStackTrace(t));
+                    + TeammatesException.toStringWithStackTrace(t));
             resp.setStatus(500); // so task will be recognised as failed and GAE retry mechanism can kick in
         }
     }
