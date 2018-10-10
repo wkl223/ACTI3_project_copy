@@ -134,7 +134,8 @@ public class StudentAttributes extends EntityAttributes<CourseStudent> {
     public String getKey() {
         return key;
     }
-    public int getLike(){return like;}
+
+    public int getLike() { return like; }
 
     /**
      * Format: email%courseId e.g., adam@gmail.com%cs1101.
@@ -236,7 +237,7 @@ public class StudentAttributes extends EntityAttributes<CourseStudent> {
 
     @Override
     public CourseStudent toEntity() {
-        return new CourseStudent(email, name, googleId, comments, course, team, section,like);
+        return new CourseStudent(email, name, googleId, comments, course, team, section, like);
     }
 
     @Override
@@ -356,7 +357,7 @@ public class StudentAttributes extends EntityAttributes<CourseStudent> {
         }
 
         public Builder withLike(int like){
-            studentAttributes.like=like;
+            studentAttributes.like = like;
             return this;
         }
 

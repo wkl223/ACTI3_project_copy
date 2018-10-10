@@ -192,6 +192,7 @@ public final class Const {
                         ActionURIs.INSTRUCTOR_FEEDBACK_RESPONSE_COMMENT_EDIT,
                         ActionURIs.INSTRUCTOR_FEEDBACK_SUBMISSION_EDIT_SAVE,
                         ActionURIs.INSTRUCTOR_FEEDBACK_UNPUBLISH,
+                        ActionURIs.INSTRUCTOR_FEEDBACK_UPLOAD,
                         ActionURIs.STUDENT_FEEDBACK_SUBMISSION_EDIT_SAVE,
                         ActionURIs.STUDENT_PROFILE_CREATEUPLOADFORMURL,
                         ActionURIs.STUDENT_PROFILE_EDIT_SAVE,
@@ -977,7 +978,7 @@ public final class Const {
                 "/page/instructorCourseStudentDetailsEditSave";
         public static final String INSTRUCTOR_COURSE_STUDENT_DELETE = "/page/instructorCourseStudentDelete";
         public static final String INSTRUCTOR_COURSE_STUDENT_DELETE_ALL = "/page/instructorCourseStudentDeleteAll";
-        public static final String INSTRUCTOR_COURSE_STUDENT_DETAILS_LIKE="/page/instructorCourseStudentDetailsLike";
+        public static final String INSTRUCTOR_COURSE_STUDENT_DETAILS_LIKE = "/page/instructorCourseStudentDetailsLike";
         public static final String INSTRUCTOR_COURSE_STUDENT_LIST_DOWNLOAD = "/page/instructorCourseStudentListDownload";
         public static final String INSTRUCTOR_COURSE_ENROLL_PAGE = "/page/instructorCourseEnrollPage";
         public static final String INSTRUCTOR_COURSE_ENROLL_SAVE = "/page/instructorCourseEnrollSave";
@@ -1009,6 +1010,7 @@ public final class Const {
                 "/page/instructorFeedbackRemindParticularStudents";
         public static final String INSTRUCTOR_FEEDBACK_PUBLISH = "/page/instructorFeedbackPublish";
         public static final String INSTRUCTOR_FEEDBACK_UNPUBLISH = "/page/instructorFeedbackUnpublish";
+        public static final String INSTRUCTOR_FEEDBACK_UPLOAD ="/page/instructorFeedbackUpload";//
         public static final String INSTRUCTOR_FEEDBACK_RESEND_PUBLISHED_EMAIL_PAGE =
                 "/page/instructorFeedbackResendPublishedEmailPage";
         public static final String INSTRUCTOR_FEEDBACK_RESEND_PUBLISHED_EMAIL =
@@ -1224,8 +1226,7 @@ public final class Const {
         public static final String STUDENT_COURSE_JOIN_CONFIRMATION = "/jsp/studentCourseJoinConfirmation.jsp";
         public static final String STUDENT_COURSE_DETAILS = "/jsp/studentCourseDetails.jsp";
         public static final String STUDENT_FEEDBACK_SUBMISSION_EDIT = "/jsp/studentFeedbackSubmissionEdit.jsp";
-        public static final String STUDENT_FEEDBACK_QUESTION_SUBMISSION_EDIT =
-                "/jsp/studentFeedbackQuestionSubmissionEdit.jsp";
+        public static final String STUDENT_FEEDBACK_QUESTION_SUBMISSION_EDIT = "/jsp/studentFeedbackQuestionSubmissionEdit.jsp";
         public static final String STUDENT_FEEDBACK_RESULTS = "/jsp/studentFeedbackResults.jsp";
         public static final String STUDENT_PROFILE_PAGE = "/jsp/studentProfilePage.jsp";
         public static final String STUDENT_PROFILE_EDIT_PAGE = "/jsp/studentProfileEditPage.jsp";//keep in here

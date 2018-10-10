@@ -88,7 +88,7 @@ public class CourseStudent extends BaseEntity {
     }
 
     public CourseStudent(String email, String name, String googleId, String comments, String courseId,
-                         String teamName, String sectionName,int like) {
+                         String teamName, String sectionName, int like) {
         setEmail(email);
         setName(name);
         setGoogleId(googleId);
@@ -142,7 +142,7 @@ public class CourseStudent extends BaseEntity {
         this.like = like;
     }
 
-    public int getLike(){return like;}
+    public int getLike() { return like; }
 
     public String getGoogleId() {
         return googleId;

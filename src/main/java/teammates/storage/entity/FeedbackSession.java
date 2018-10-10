@@ -77,7 +77,7 @@ public class FeedbackSession extends BaseEntity {
     
     /* Back-end attribute: used as the key to identify a pdf file in google cloud storage;
      * a corresponding public setter created, accept a String as param */    
-    private String filePDF;
+    private String filePdf;
 
     @Unindex
     private boolean isFollowingCourseTimeZone;
@@ -409,11 +409,11 @@ public class FeedbackSession extends BaseEntity {
     }
     
     public void setFileName(String fileName) {
-        this.filePDF = fileName;
+        this.filePdf = fileName;
     }
     
     public String getFileName() {
-        return this.filePDF;
+        return this.filePdf;
     }
 
 }

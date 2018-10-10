@@ -178,7 +178,7 @@ public final class StudentsLogic {
             EntityDoesNotExistException {
         updateStudentCascade(originalEmail, student, true);
     }
-    public void updateStudentLike(StudentAttributes student){
+    public void updateStudentLike(StudentAttributes student) {
             student.like++;
     }
 
