@@ -20,7 +20,7 @@ public class TableSortTest extends BaseUiTestCase {
 
     @BeforeClass
     public void classSetup() {
-        loginAdmin();
+//        loginAdmin();
         page = AppPage.getNewPageInstance(browser).navigateTo(createUrl(Const.ViewURIs.TABLE_SORT));
     }
 

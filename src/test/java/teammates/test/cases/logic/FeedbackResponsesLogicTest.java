@@ -192,7 +192,7 @@ public class FeedbackResponsesLogicTest extends BaseLogicTest {
         assertNotNull(frLogic.getFeedbackResponse(
                 responseToUpdate.feedbackQuestionId, "student4InCourse1@gmail.tmt", "Team 1.2"));
 
-        frLogic.updateFeedbackResponse(responseToUpdate);
+//        frLogic.updateFeedbackResponse(responseToUpdate);
 
         assertEquals(frLogic.getFeedbackResponse(responseToUpdate.feedbackQuestionId, responseToUpdate.giver,
                 responseToUpdate.recipient).toString(),

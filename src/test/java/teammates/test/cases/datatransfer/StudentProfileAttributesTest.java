@@ -112,7 +112,8 @@ public class StudentProfileAttributesTest extends BaseAttributesTest {
                         + "\n  \"nationality\": \"Lebanese\",\n  \"gender\": \"female\","
                         + "\n  \"moreInfo\": \"moreInfo can have a lot more than this...\","
                         + "\n  \"pictureKey\": \"profile Pic Key\","
-                        + "\n  \"modifiedDate\": \"2015-05-21T08:34:00Z\"\n}",
+                        + "\n  \"modifiedDate\": \"2015-05-21T08:34:00Z\"\n"
+                        + "\n  \"like\": \"1\"\n}",
                 spa.getJsonString());
     }
 

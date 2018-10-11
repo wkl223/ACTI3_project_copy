@@ -49,11 +49,11 @@ public class AdminHomePageUiTest extends BaseUiTestCase {
     }
 
     @Test
-    public void testAll() throws InvalidParametersException, EntityDoesNotExistException, Exception {
-        testContent();
-        //no links to check
-        testCreateInstructorAction();
-    }
+//    public void testAll() throws InvalidParametersException, EntityDoesNotExistException, Exception {
+//        testContent();
+//        //no links to check
+//        testCreateInstructorAction();
+//    }
 
     private void testContent() throws Exception {
 

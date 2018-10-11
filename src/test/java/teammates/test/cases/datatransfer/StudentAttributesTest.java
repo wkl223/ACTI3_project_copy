@@ -475,7 +475,8 @@ public class StudentAttributesTest extends BaseTestCaseWithMinimalGaeEnvironment
         assertEquals("{\n  \"email\": \"email@email.com\",\n  \"course\": \"course1\",\n  \"name\": \"name 1\","
                 + "\n  \"googleId\": \"\",\n  \"lastName\": \"1\","
                 + "\n  \"comments\": \"comment 1\",\n  \"team\": \"team 1\","
-                + "\n  \"section\": \"sect 1\"\n}", studentAttributes.getJsonString());
+                + "\n  \"section\": \"sect 1\"\n  \"like\": \"0\"}", studentAttributes.getJsonString());
+
     }
 
     private CourseStudent generateTypicalStudentObject() {

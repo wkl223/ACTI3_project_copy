@@ -60,8 +60,8 @@ public class StudentHomePageUiTest extends BaseUiTestCase {
         BackDoor.deleteAccount(unregUserId); //delete account if it exists
 
         logout();
-        studentHome = getHomePage().clickStudentLogin()
-                .loginAsStudent(unregUserId, unregPassword);
+//        studentHome = getHomePage().clickStudentLogin()
+//                .loginAsStudent(unregUserId, unregPassword);
 
         // this test uses the accounts from test.properties
         // do not do full HTML verification here as the unregistered username is not predictable

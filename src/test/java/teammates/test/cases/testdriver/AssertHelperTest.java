@@ -37,7 +37,7 @@ public class AssertHelperTest extends BaseTestCase {
         String inputStr = FileHelper.readFile(TestProperties.TEST_PAGES_FOLDER
                 + "/commonAssertRegexTestPart.html");
 
-        AssertHelper.assertContainsRegex(inputStr, pageStr);
+//        AssertHelper.assertContainsRegex(inputStr, pageStr);
         AssertHelper.assertContainsRegex("Fails on checking assert contains regex",
                 inputStr, pageStr);
 

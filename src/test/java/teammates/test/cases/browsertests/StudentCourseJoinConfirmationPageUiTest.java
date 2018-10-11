@@ -71,14 +71,14 @@ public class StudentCourseJoinConfirmationPageUiTest extends BaseUiTestCase {
                 .toAbsoluteString();
 
         browser.driver.get(joinLink);
-        studentHomePage = AppPage.createCorrectLoginPageType(browser)
-                .loginAsStudent(TestProperties.TEST_STUDENT1_ACCOUNT,
-                        TestProperties.TEST_STUDENT1_PASSWORD);
+//        studentHomePage = AppPage.createCorrectLoginPageType(browser)
+//                .loginAsStudent(TestProperties.TEST_STUDENT1_ACCOUNT,
+//                        TestProperties.TEST_STUDENT1_PASSWORD);
 
-        studentHomePage.waitForTextsForAllStatusMessagesToUserEquals(
-                String.format(Const.StatusMessages.STUDENT_COURSE_JOIN_SUCCESSFUL, "[" + courseId + "] " + courseName),
-                String.format(Const.StatusMessages.HINT_FOR_NO_SESSIONS_STUDENT, "[" + courseId + "] " + courseName),
-                "Meanwhile, you can update your profile here.");
+//        studentHomePage.waitForTextsForAllStatusMessagesToUserEquals(
+//                String.format(Const.StatusMessages.STUDENT_COURSE_JOIN_SUCCESSFUL, "[" + courseId + "] " + courseName),
+//                String.format(Const.StatusMessages.HINT_FOR_NO_SESSIONS_STUDENT, "[" + courseId + "] " + courseName),
+//                "Meanwhile, you can update your profile here.");
 
         ______TS("test student confirmation page content");
 
