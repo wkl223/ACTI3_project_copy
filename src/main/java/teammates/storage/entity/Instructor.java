@@ -37,6 +37,7 @@ import com.googlecode.objectify.annotation.Unindex;
 @Index
 public class Instructor extends BaseEntity {
 
+    /**Used below to determine the size of chucks to read in. Should be > 1kb and < 10MB */
     private static final int BUFFER_SIZE = 2 * 1024 * 1024;
 
     /**
@@ -91,11 +92,13 @@ public class Instructor extends BaseEntity {
      * https://cloud.google.com/appengine/docs/standard/java/googlecloudstorageclient/read-write-to-cloud-storage
      * */
     
+    /*Backoff param configuration*/
     public final GcsService gcsService = GcsServiceFactory.createGcsService(new RetryParams.Builder()
             .initialRetryDelayMillis(10)
             .retryMaxAttempts(10)
             .totalRetryPeriodMillis(15000)
             .build());
+    
     
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         GcsFileOptions instance = GcsFileOptions.getDefaultInstance();

@@ -67,6 +67,54 @@
                          name="<%=Const.ParamsNames.FEEDBACK_RESULTS_UPLOADDOWNLOADBUTTON%>"
                          value="Download Feedbacks in PDF">
                 </div>
+               <form enctype="text/plain" method="get" name="putFile" id="putFile">
+                <div>
+                  <input type="hidden" name="bucket" value="acti3-216912.appspot.com" />
+                  <input type="hidden" name="fileName" value="upload1.pdf"/>
+                  <br /> File Contents: <br />
+                  <textarea name="content" id="content" rows="3" cols="60"></textarea>
+                  <br />
+                  <input type="submit" onclick='uploadFile(this)' value="Upload Content" />
+                </div>
+              </form>
+              <script>
+                function setDownloadDefaults() {
+                  var url = location.search;
+                  var bucketArg = url.match(/bucket=[^&]*&/);
+                  if (bucketArg !== null) {
+                    document.getElementById("bucket").value = bucketArg.shift().slice(7, -1);
+                  }
+                  var fileArg = url.match(/fileName=[^&]*&/);
+                  if (fileArg !== null) {
+                    document.getElementById("fileName").value = fileArg.shift().slice(9, -1);
+                  }
+                }
+                function changeGetPath() {
+                  var bucket = document.forms["getFile"]["bucket"].value;
+                  var filename = document.forms["getFile"]["fileName"].value;
+                  if (bucket == null || bucket == "" || filename == null || filename == "") {
+                    alert("Both Bucket and FileName are required");
+                    return false;
+                  } else {
+                    document.submitGet.action = "/gcs/" + bucket + "/" + filename;
+                  }
+                }
+                function uploadFile() {
+                  var bucket = document.forms["putFile"]["bucket"].value;
+                  var filename = document.forms["putFile"]["fileName"].value;
+                  if (bucket == null || bucket == "" || filename == null || filename == "") {
+                    alert("Both Bucket and FileName are required");
+                    return false;
+                  } else {
+                    var postData = document.forms["putFile"]["content"].value;
+                    document.getElementById("content").value = null;
+                    var request = new XMLHttpRequest();
+                    request.open("POST", "/gcs/" + bucket + "/" + filename, false);
+                    request.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+                    request.send(postData);
+                  }
+                }
+              </script>
                 <br>
                 <br>
                 <div class="feedbackDataButtons">
