@@ -11,6 +11,14 @@ import com.googlecode.objectify.Key;
 import com.googlecode.objectify.cmd.LoadType;
 import com.googlecode.objectify.cmd.QueryKeys;
 
+import com.google.appengine.tools.cloudstorage.GcsFileOptions;
+import com.google.appengine.tools.cloudstorage.GcsFilename;
+import com.google.appengine.tools.cloudstorage.GcsInputChannel;
+import com.google.appengine.tools.cloudstorage.GcsOutputChannel;
+import com.google.appengine.tools.cloudstorage.GcsService;
+import com.google.appengine.tools.cloudstorage.GcsServiceFactory;
+import com.google.appengine.tools.cloudstorage.RetryParams;
+
 import teammates.common.datatransfer.attributes.AccountAttributes;
 import teammates.common.datatransfer.attributes.StudentProfileAttributes;
 import teammates.common.exception.EntityAlreadyExistsException;
@@ -86,6 +94,7 @@ public class AccountsDb extends EntitiesDb<Account, AccountAttributes> {
      * if the given parameter is false<br>
      * Preconditions:
      * <br> * All parameters are non-null.
+     *
      * @return Null if not found.
      */
     public AccountAttributes getAccount(String googleId, boolean retrieveStudentProfile) {
@@ -99,7 +108,7 @@ public class AccountsDb extends EntitiesDb<Account, AccountAttributes> {
 
     /**
      * Returns {@link AccountAttributes} objects for all accounts with instructor privileges.
-     *         Returns an empty list if no such accounts are found.
+     * Returns an empty list if no such accounts are found.
      */
     public List<AccountAttributes> getInstructorAccounts() {
         return makeAttributes(
@@ -122,7 +131,7 @@ public class AccountsDb extends EntitiesDb<Account, AccountAttributes> {
 
         if (accountToUpdate == null) {
             throw new EntityDoesNotExistException(ERROR_UPDATE_NON_EXISTENT_ACCOUNT + a.googleId
-                + ThreadHelper.getCurrentThreadStack());
+                    + ThreadHelper.getCurrentThreadStack());
         }
 
         a.sanitizeForSaving();
@@ -161,7 +170,7 @@ public class AccountsDb extends EntitiesDb<Account, AccountAttributes> {
 
     /**
      * Note: This is a non-cascade delete. <br>
-     *   <br> Fails silently if there is no such account.
+     * <br> Fails silently if there is no such account.
      * <br> Preconditions:
      * <br> * {@code googleId} is not null.
      */

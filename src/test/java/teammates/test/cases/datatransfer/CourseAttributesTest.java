@@ -141,12 +141,12 @@ public class CourseAttributesTest extends BaseTestCase {
         assertFalse("invalid value", invalidCourse.isValid());
         String errorMessage =
                 getPopulatedErrorMessage(
-                    FieldValidator.COURSE_ID_ERROR_MESSAGE, invalidCourse.getId(),
-                    FieldValidator.COURSE_ID_FIELD_NAME, FieldValidator.REASON_TOO_LONG,
-                    FieldValidator.COURSE_ID_MAX_LENGTH) + System.lineSeparator()
-                + getPopulatedEmptyStringErrorMessage(
-                      FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE_EMPTY_STRING,
-                      FieldValidator.COURSE_NAME_FIELD_NAME, FieldValidator.COURSE_NAME_MAX_LENGTH);
+                        FieldValidator.COURSE_ID_ERROR_MESSAGE, invalidCourse.getId(),
+                        FieldValidator.COURSE_ID_FIELD_NAME, FieldValidator.REASON_TOO_LONG,
+                        FieldValidator.COURSE_ID_MAX_LENGTH) + System.lineSeparator()
+                        + getPopulatedEmptyStringErrorMessage(
+                        FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE_EMPTY_STRING,
+                        FieldValidator.COURSE_NAME_FIELD_NAME, FieldValidator.COURSE_NAME_MAX_LENGTH);
         assertEquals("invalid value", errorMessage, StringHelper.toString(invalidCourse.getInvalidityInfo()));
     }
 

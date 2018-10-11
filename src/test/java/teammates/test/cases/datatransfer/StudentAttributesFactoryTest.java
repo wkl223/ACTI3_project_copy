@@ -32,7 +32,7 @@ public class StudentAttributesFactoryTest extends BaseTestCase {
             signalFailureToDetectException();
         } catch (EnrollException e) {
             assertEquals(StudentAttributesFactory.ERROR_HEADER_ROW_FIELD_MISSED + ": <mark>Team</mark>",
-                         e.getMessage());
+                    e.getMessage());
         }
 
         ______TS("Failure case: missing 'Name' field");
@@ -42,7 +42,7 @@ public class StudentAttributesFactoryTest extends BaseTestCase {
             signalFailureToDetectException();
         } catch (EnrollException e) {
             assertEquals(StudentAttributesFactory.ERROR_HEADER_ROW_FIELD_MISSED + ": <mark>Name</mark>",
-                         e.getMessage());
+                    e.getMessage());
         }
 
         ______TS("Failure case: missing 'Team' field");
@@ -52,7 +52,7 @@ public class StudentAttributesFactoryTest extends BaseTestCase {
             signalFailureToDetectException();
         } catch (EnrollException e) {
             assertEquals(StudentAttributesFactory.ERROR_HEADER_ROW_FIELD_MISSED + ": <mark>Team</mark>",
-                         e.getMessage());
+                    e.getMessage());
         }
 
         ______TS("Failure case: missing 'Email' field");
@@ -62,7 +62,7 @@ public class StudentAttributesFactoryTest extends BaseTestCase {
             signalFailureToDetectException();
         } catch (EnrollException e) {
             assertEquals(StudentAttributesFactory.ERROR_HEADER_ROW_FIELD_MISSED + ": <mark>Email</mark>",
-                         e.getMessage());
+                    e.getMessage());
         }
 
         ______TS("Failure case: repeated required columns");
@@ -223,14 +223,14 @@ public class StudentAttributesFactoryTest extends BaseTestCase {
 
     private int locateColumnIndexes(String line) throws Exception {
         return (int) invokeMethod(StudentAttributesFactory.class, "locateColumnIndexes",
-                                  new Class<?>[] { String.class },
-                                  new StudentAttributesFactory(), new Object[] { line });
+                new Class<?>[]{String.class},
+                new StudentAttributesFactory(), new Object[]{line});
     }
 
     private String[] splitLineIntoColumns(String line) throws Exception {
         return (String[]) invokeMethod(StudentAttributesFactory.class, "splitLineIntoColumns",
-                                       new Class<?>[] { String.class },
-                                       new StudentAttributesFactory(), new Object[] { line });
+                new Class<?>[]{String.class},
+                new StudentAttributesFactory(), new Object[]{line});
     }
 
 }

@@ -21,7 +21,7 @@ function linkAjaxForResponseRate() {
             success(data) {
                 setTimeout(() => {
                     const type = data.sessionDetails ? 'sessionDetails' : 'evaluationDetails';
-                    const { submittedTotal, expectedTotal } = data[type].stats;
+                    const {submittedTotal, expectedTotal} = data[type].stats;
                     parentOfHyperlinkObject.html(`${submittedTotal} / ${expectedTotal}`);
                 }, 500);
             },

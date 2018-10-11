@@ -34,7 +34,7 @@ public class StudentHomePageActionTest extends BaseActionTest {
         String studentId = student1InCourse1.googleId;
         String adminUserId = "admin.user";
 
-        String[] submissionParams = new String[] {};
+        String[] submissionParams = new String[]{};
 
         ______TS("unregistered student");
 
@@ -53,9 +53,9 @@ public class StudentHomePageActionTest extends BaseActionTest {
         assertEquals(0, data.getCourseTables().size());
 
         String expectedLogMessage = "TEAMMATESLOG|||studentHomePage|||studentHomePage"
-                                    + "|||true|||Unregistered|||Unknown|||unreg.user|||Unknown"
-                                    + "|||Servlet Action Failure :Student with Google ID "
-                                    + "unreg.user does not exist|||/page/studentHomePage";
+                + "|||true|||Unregistered|||Unknown|||unreg.user|||Unknown"
+                + "|||Servlet Action Failure :Student with Google ID "
+                + "unreg.user does not exist|||/page/studentHomePage";
         AssertHelper.assertLogMessageEquals(expectedLogMessage, a.getLogMessage());
 
         ______TS("registered student with no courses");
@@ -93,10 +93,10 @@ public class StudentHomePageActionTest extends BaseActionTest {
         assertEquals(0, data.getCourseTables().size());
 
         expectedLogMessage = "TEAMMATESLOG|||studentHomePage|||studentHomePage|||true"
-                             + "|||Unregistered|||Student Without Courses|||googleId.without.courses"
-                             + "|||googleId.without.courses@email.tmt|||Servlet Action Failure "
-                             + ":Student with Google ID googleId.without.courses does not exist"
-                             + "|||/page/studentHomePage";
+                + "|||Unregistered|||Student Without Courses|||googleId.without.courses"
+                + "|||googleId.without.courses@email.tmt|||Servlet Action Failure "
+                + ":Student with Google ID googleId.without.courses does not exist"
+                + "|||/page/studentHomePage";
         AssertHelper.assertLogMessageEquals(expectedLogMessage, a.getLogMessage());
 
         ______TS("typical user, masquerade mode");
@@ -118,14 +118,14 @@ public class StudentHomePageActionTest extends BaseActionTest {
         assertEquals(2, data.getCourseTables().size());
 
         expectedLogMessage = "TEAMMATESLOG|||studentHomePage|||studentHomePage|||true"
-                             + "|||Student(M)|||Student in two courses|||student2InCourse1"
-                             + "|||student2InCourse1@gmail.tmt"
-                             + "|||studentHome Page Load<br>Total courses: 2"
-                             + "|||/page/studentHomePage";
+                + "|||Student(M)|||Student in two courses|||student2InCourse1"
+                + "|||student2InCourse1@gmail.tmt"
+                + "|||studentHome Page Load<br>Total courses: 2"
+                + "|||/page/studentHomePage";
         AssertHelper.assertLogMessageEqualsInMasqueradeMode(expectedLogMessage, a.getLogMessage(), adminUserId);
 
         ______TS("New student with no existing course, course join affected by eventual consistency");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.CHECK_PERSISTENCE_COURSE, "idOfTypicalCourse1"
         };
         studentId = "newStudent";
@@ -137,7 +137,7 @@ public class StudentHomePageActionTest extends BaseActionTest {
         assertEquals("idOfTypicalCourse1", data.getCourseTables().get(0).getCourseId());
 
         ______TS("Registered student with existing courses, course join affected by eventual consistency");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.CHECK_PERSISTENCE_COURSE, "idOfTypicalCourse2"
         };
         student1InCourse1 = typicalBundle.students.get("student1InCourse1");
@@ -150,7 +150,7 @@ public class StudentHomePageActionTest extends BaseActionTest {
         assertEquals("idOfTypicalCourse2", data.getCourseTables().get(1).getCourseId());
 
         ______TS("Just joined course, course join not affected by eventual consistency and appears in list");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.CHECK_PERSISTENCE_COURSE, "idOfTypicalCourse1"
         };
         student1InCourse1 = typicalBundle.students.get("student1InCourse1");
@@ -173,11 +173,11 @@ public class StudentHomePageActionTest extends BaseActionTest {
     @Override
     @Test
     protected void testAccessControl() throws Exception {
-        String[] submissionParams = new String[] {};
+        String[] submissionParams = new String[]{};
         verifyOnlyLoggedInUsersCanAccess(submissionParams);
 
         // check for persistence issue
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.CHECK_PERSISTENCE_COURSE, "random_course"
         };
 

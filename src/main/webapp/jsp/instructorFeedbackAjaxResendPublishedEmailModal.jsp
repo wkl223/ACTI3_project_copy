@@ -1,5 +1,5 @@
 <%@ page pageEncoding="UTF-8" %>
-<%@ page import="teammates.common.util.Const"%>
+<%@ page import="teammates.common.util.Const" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <table class="table-responsive table table-bordered">
@@ -33,21 +33,23 @@
       <td class="align-center">
         <div class="checkbox">
           <label>
-            <input type="checkbox" class="table-column-no-float" name="<%= Const.ParamsNames.SUBMISSION_RESEND_PUBLISHED_EMAIL_USER_LIST %>" value="${userToEmailEmail}">
+            <input type="checkbox" class="table-column-no-float"
+                   name="<%= Const.ParamsNames.SUBMISSION_RESEND_PUBLISHED_EMAIL_USER_LIST %>"
+                   value="${userToEmailEmail}">
           </label>
         </div>
       </td>
       <td>
-        ${data.responseStatus.emailSectionTable[userToEmailEmail]}
+          ${data.responseStatus.emailSectionTable[userToEmailEmail]}
       </td>
       <td>
-        ${data.responseStatus.emailTeamNameTable[userToEmailEmail]}
+          ${data.responseStatus.emailTeamNameTable[userToEmailEmail]}
       </td>
       <td>
-        ${data.responseStatus.emailNameTable[userToEmailEmail]}
+          ${data.responseStatus.emailNameTable[userToEmailEmail]}
       </td>
       <td>
-        ${userToEmailEmail}
+          ${userToEmailEmail}
       </td>
     </tr>
   </c:forEach>

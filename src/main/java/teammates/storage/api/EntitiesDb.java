@@ -30,6 +30,7 @@ import teammates.storage.search.SearchQuery;
 
 /**
  * Base class for all classes performing CRUD operations against the Datastore.
+ *
  * @param <E> Specific entity class
  * @param <A> Specific attributes class
  */
@@ -206,9 +207,10 @@ public abstract class EntitiesDb<E extends BaseEntity, A extends EntityAttribute
     }
 
     // TODO: use this method for subclasses.
+
     /**
      * Note: This is a non-cascade delete.<br>
-     *   <br> Fails silently if there is no such object.
+     * <br> Fails silently if there is no such object.
      */
     public void deleteEntity(A entityToDelete) {
         Assumption.assertNotNull(Const.StatusCodes.DBLEVEL_NULL_INPUT, entityToDelete);
@@ -262,16 +264,18 @@ public abstract class EntitiesDb<E extends BaseEntity, A extends EntityAttribute
     /**
      * NOTE: This method must be overriden for all subclasses such that it will return the
      * Entity matching the EntityAttributes in the parameter.
-     * @return    the Entity which matches the given {@link EntityAttributes} {@code attributes}
-     *             based on the default key identifiers.
+     *
+     * @return the Entity which matches the given {@link EntityAttributes} {@code attributes}
+     * based on the default key identifiers.
      */
     protected abstract E getEntity(A attributes);
 
     /**
      * NOTE: This method must be overriden for all subclasses such that it will return the key query for the
      * Entity matching the EntityAttributes in the parameter.
-     * @return    the key query for the Entity which matches the given {@link EntityAttributes} {@code attributes}
-     *             based on the default key identifiers.
+     *
+     * @return the key query for the Entity which matches the given {@link EntityAttributes} {@code attributes}
+     * based on the default key identifiers.
      */
     protected abstract QueryKeys<E> getEntityQueryKeys(A attributes);
 

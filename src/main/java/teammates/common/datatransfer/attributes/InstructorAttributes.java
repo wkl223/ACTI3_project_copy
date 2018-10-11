@@ -26,13 +26,17 @@ public class InstructorAttributes extends EntityAttributes<Instructor> {
 
     // Note: be careful when changing these variables as their names are used in *.json files.
 
-    /** Required fields. */
+    /**
+     * Required fields.
+     */
     public String googleId;
     public String courseId;
     public String name;
     public String email;
 
-    /** Optional fields. */
+    /**
+     * Optional fields.
+     */
     public String key;
     public String role;
     public String displayedName;
@@ -102,10 +106,10 @@ public class InstructorAttributes extends EntityAttributes<Instructor> {
     public Instructor toEntity() {
         if (key != null) {
             return new Instructor(googleId, courseId, isArchived, name, email, key, role,
-                                  isDisplayedToStudents, displayedName, getTextFromInstructorPrivileges());
+                    isDisplayedToStudents, displayedName, getTextFromInstructorPrivileges());
         }
         return new Instructor(googleId, courseId, isArchived, name, email, role,
-                              isDisplayedToStudents, displayedName, getTextFromInstructorPrivileges());
+                isDisplayedToStudents, displayedName, getTextFromInstructorPrivileges());
     }
 
     @Override
@@ -229,11 +233,10 @@ public class InstructorAttributes extends EntityAttributes<Instructor> {
     /**
      * Returns true if this instructor object is equal with the given {@code instructor} object.
      *
-     * @param instructor
-     *            the {@link InstructorAttributes} of an instructor, cannot be
-     *            {@code null}
+     * @param instructor the {@link InstructorAttributes} of an instructor, cannot be
+     *                   {@code null}
      * @return true if this {@link InstructorAttributes} is equal to
-     *         {@code instructor}, otherwise false
+     * {@code instructor}, otherwise false
      */
     public boolean isEqualToAnotherInstructor(InstructorAttributes instructor) {
         // JsonParser is used instead of

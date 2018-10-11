@@ -31,7 +31,7 @@ public class StudentProfileCreateFormUrlActionTest extends BaseActionTest {
     private void testGenerateUploadUrlSuccessTypical(AccountAttributes student) {
         ______TS("Typical case");
 
-        String[] submissionParams = new String[] {};
+        String[] submissionParams = new String[]{};
         gaeSimulation.loginAsStudent(student.googleId);
         StudentProfileCreateFormUrlAction action = getAction(submissionParams);
         AjaxResult result = getAjaxResult(action);
@@ -46,12 +46,12 @@ public class StudentProfileCreateFormUrlActionTest extends BaseActionTest {
 
         gaeSimulation.loginAsAdmin("admin.user");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.USER_ID, student.googleId
         };
 
         StudentProfileCreateFormUrlAction action = getAction(addUserIdToParams(student.googleId,
-                                                                               submissionParams));
+                submissionParams));
         AjaxResult result = getAjaxResult(action);
 
         assertFalse(result.isError);
@@ -63,9 +63,9 @@ public class StudentProfileCreateFormUrlActionTest extends BaseActionTest {
                                   AjaxResult result, boolean isMasquerade) {
         StudentProfileCreateFormUrlAjaxPageData data = (StudentProfileCreateFormUrlAjaxPageData) result.data;
         String expectedLogMessage = "TEAMMATESLOG|||studentProfileCreateFormUrl|||studentProfileCreateFormUrl"
-                                  + "|||true|||Student" + (isMasquerade ? "(M)" : "") + "|||" + student.name
-                                  + "|||" + student.googleId + "|||" + student.email + "|||Created Url successfully: "
-                                  + data.formUrl + "|||/page/studentProfileCreateFormUrl";
+                + "|||true|||Student" + (isMasquerade ? "(M)" : "") + "|||" + student.name
+                + "|||" + student.googleId + "|||" + student.email + "|||Created Url successfully: "
+                + data.formUrl + "|||/page/studentProfileCreateFormUrl";
         AssertHelper.assertLogMessageEqualsIgnoreLogId(expectedLogMessage, action.getLogMessage());
     }
 
@@ -77,7 +77,7 @@ public class StudentProfileCreateFormUrlActionTest extends BaseActionTest {
     @Test
     @Override
     protected void testAccessControl() throws Exception {
-        String[] submissionParams = new String[] {};
+        String[] submissionParams = new String[]{};
         verifyAccessibleForStudents(submissionParams);
     }
 

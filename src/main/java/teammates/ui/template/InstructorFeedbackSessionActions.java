@@ -62,10 +62,10 @@ public class InstructorFeedbackSessionActions {
                 session.isVisible() && !session.isClosed() && shouldEnableSubmitLink;
         this.isAllowedToRemind =
                 session.isOpened()
-                && instructor.isAllowedForPrivilege(Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION);
+                        && instructor.isAllowedForPrivilege(Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION);
 
         this.publishButton = new FeedbackSessionPublishButton(data, session, returnUrl, instructor,
-                                                              PUBLISH_BUTTON_TYPE);
+                PUBLISH_BUTTON_TYPE);
         this.isAllowedToResendPublishedEmail = session.isPublished();
     }
 

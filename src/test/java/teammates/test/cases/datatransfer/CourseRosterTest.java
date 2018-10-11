@@ -54,10 +54,10 @@ public class CourseRosterTest extends BaseTestCase {
         ______TS("multiple students, multiple instructors");
 
         roster = new CourseRoster(createStudentList("team 1", "s1@gmail.com",
-                                                        "team 1", "s2@gmail.com",
-                                                        "team 2", "s3@gmail.com"),
-                                   createInstructorList("John", "ins1@email.com",
-                                                          "Jean", "ins2@email.com"));
+                "team 1", "s2@gmail.com",
+                "team 2", "s3@gmail.com"),
+                createInstructorList("John", "ins1@email.com",
+                        "Jean", "ins2@email.com"));
 
         assertFalse(roster.isStudentInCourse("non-existent@gmail.com"));
         assertTrue(roster.isStudentInCourse("s2@gmail.com"));

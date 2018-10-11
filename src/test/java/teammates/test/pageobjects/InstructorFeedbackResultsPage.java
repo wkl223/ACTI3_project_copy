@@ -126,7 +126,7 @@ public class InstructorFeedbackResultsPage extends AppPage {
         displayEditSettingsWindow();
 
         Select select = new Select(browser.driver.findElements(By.name(Const.ParamsNames.FEEDBACK_RESULTS_GROUPBYSECTION))
-                                                 .get(1));
+                .get(1));
         select.selectByVisibleText(section);
 
         submitEditForm();
@@ -136,7 +136,7 @@ public class InstructorFeedbackResultsPage extends AppPage {
         displayEditSettingsWindow();
 
         Select select = new Select(browser.driver.findElements(By.name(Const.ParamsNames.FEEDBACK_RESULTS_GROUPBYSECTION))
-                                                 .get(1));
+                .get(1));
         select.selectByVisibleText("All");
 
         submitEditForm();
@@ -236,7 +236,7 @@ public class InstructorFeedbackResultsPage extends AppPage {
 
     public String getQuestionAdditionalInfoButtonText(int qnNumber, String additionalInfoId) {
         WebElement qnAdditionalInfoButton = browser.driver.findElement(By.id("questionAdditionalInfoButton-"
-                                                                             + qnNumber + "-" + additionalInfoId));
+                + qnNumber + "-" + additionalInfoId));
         return qnAdditionalInfoButton.getText();
     }
 
@@ -328,6 +328,7 @@ public class InstructorFeedbackResultsPage extends AppPage {
 
     /**
      * Checks if the body of all the results panels are collapsed or expanded.
+     *
      * @param isVisible true to check for expanded, false to check for collapsed.
      * @return true if all results panel body are equals to the visibility being checked.
      */
@@ -372,7 +373,7 @@ public class InstructorFeedbackResultsPage extends AppPage {
      * Waits for Ajax loaded panel to be expanded. The panel is expanded when Ajax loading finishes,
      * which is identified by the removal of Ajax class in the element.
      *
-     * @param panelId the Id of panel element
+     * @param panelId   the Id of panel element
      * @param ajaxClass the class removed from {@code panelElement} when Ajax loading finished
      */
     public void waitForAjaxLoadedPanelToExpand(String panelId, String ajaxClass) {
@@ -427,7 +428,7 @@ public class InstructorFeedbackResultsPage extends AppPage {
         WebElement commentRow = waitForElementPresence(commentRowSelector);
         waitForTextContainedInElementPresence(By.id("plainCommentText" + commentRowIdSuffix), commentText);
         assertTrue(commentRow.findElement(By.className("text-muted")).getText().contains(giverName)
-                   || commentRow.findElement(By.className("text-muted")).getText().contains("you"));
+                || commentRow.findElement(By.className("text-muted")).getText().contains("you"));
     }
 
     /**
@@ -436,7 +437,7 @@ public class InstructorFeedbackResultsPage extends AppPage {
      * checks the state of the added comment based on implementation.
      */
     public void waitAndVerifyForFeedbackResponseCommentAdded(String commentRowIdSuffix, String commentText,
-            String giverName) {
+                                                             String giverName) {
         waitForCommentRowContentEquals(commentRowIdSuffix, commentText, giverName);
         // Checks approximately that the added comment is constructed correctly
         assertTrue(isElementPresent(By.id("responseCommentEditForm" + commentRowIdSuffix)));
@@ -485,8 +486,8 @@ public class InstructorFeedbackResultsPage extends AppPage {
     public void hoverClickAndViewPhotoOnTableCell(int questionBodyIndex, int tableRow, int tableCol, String urlRegex)
             throws MaximumRetriesExceededException {
         String cellSelector = "#questionBody-" + questionBodyIndex + " .data-table tbody"
-                              + " tr:nth-child(" + (tableRow + 1) + ")"
-                              + " td:nth-child(" + (tableCol + 1) + ")";
+                + " tr:nth-child(" + (tableRow + 1) + ")"
+                + " td:nth-child(" + (tableCol + 1) + ")";
         String popoverSelector = cellSelector + " .popover-content";
         String hoverSelector = cellSelector + " .profile-pic-icon-hover";
 
@@ -554,7 +555,7 @@ public class InstructorFeedbackResultsPage extends AppPage {
 
     public void removeNavBar() {
         executeScript("document.getElementsByClassName('navbar-fixed-top')[0].parentNode.removeChild("
-                      + "document.getElementsByClassName('navbar-fixed-top')[0])");
+                + "document.getElementsByClassName('navbar-fixed-top')[0])");
     }
 
     public void verifyModerateResponseButtonBelongsTo(WebElement btn, String email) {
@@ -563,8 +564,8 @@ public class InstructorFeedbackResultsPage extends AppPage {
 
     public WebElement getModerateResponseButtonInQuestionView(int qnNo, int responseNo) {
         return browser.driver.findElement(By.id("questionBody-" + (qnNo - 1)))
-                             .findElement(By.className("table-responsive"))
-                             .findElement(By.xpath("table/tbody/tr[" + responseNo + "]/td[6]/form"));
+                .findElement(By.className("table-responsive"))
+                .findElement(By.xpath("table/tbody/tr[" + responseNo + "]/td[6]/form"));
     }
 
     public void clickInstructorPanelCollapseStudentsButton() {
@@ -590,7 +591,7 @@ public class InstructorFeedbackResultsPage extends AppPage {
     public void verifyPanelForParticipantIsDisplayed(String participantIdentifier) {
         WebElement panel = browser.driver.findElement(
                 By.xpath("//div[contains(@class, 'panel-primary') or contains(@class, 'panel-default')]"
-                            + "[contains(.,'[" + participantIdentifier + "]')]"));
+                        + "[contains(.,'[" + participantIdentifier + "]')]"));
         assertTrue(panel.isDisplayed());
     }
 
@@ -623,7 +624,7 @@ public class InstructorFeedbackResultsPage extends AppPage {
 
     public void waitForAjaxError(int indexOfForm) {
         By ajaxErrorSelector = By.cssSelector(".ajax_submit:nth-of-type(" + indexOfForm
-                                        + ") .ajax-error");
+                + ") .ajax-error");
         waitForElementPresence(ajaxErrorSelector);
 
         waitForTextContainedInElementPresence(ajaxErrorSelector, "[ Failed to load. Click here to retry. ]");

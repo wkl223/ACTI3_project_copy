@@ -29,13 +29,13 @@ public class InstructorStudentListAjaxPageActionTest extends BaseActionTest {
 
         verifyAssumptionFailure();
 
-        String[] submissionParams = new String[] {};
+        String[] submissionParams = new String[]{};
 
         verifyAssumptionFailure(submissionParams);
 
         ______TS("typical successful case");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor.courseId,
                 Const.ParamsNames.COURSE_INDEX, "1"
         };
@@ -58,7 +58,7 @@ public class InstructorStudentListAjaxPageActionTest extends BaseActionTest {
     @Test
     protected void testAccessControl() throws Exception {
         InstructorAttributes instructor = typicalBundle.instructors.get("instructor3OfCourse1");
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor.courseId,
                 Const.ParamsNames.COURSE_INDEX, "1"
         };

@@ -83,6 +83,7 @@ public class FeedbackResponseCommentsDb extends EntitiesDb<FeedbackResponseComme
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return Null if not found.
      */
     public FeedbackResponseCommentAttributes getFeedbackResponseComment(Long feedbackResponseCommentId) {
@@ -95,6 +96,7 @@ public class FeedbackResponseCommentsDb extends EntitiesDb<FeedbackResponseComme
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return Null if not found.
      */
     public FeedbackResponseCommentAttributes getFeedbackResponseComment(
@@ -105,12 +107,13 @@ public class FeedbackResponseCommentsDb extends EntitiesDb<FeedbackResponseComme
 
         return makeAttributesOrNull(getFeedbackResponseCommentEntity(feedbackResponseId, commentGiver, createdAt),
                 "Trying to get non-existent response comment: " + feedbackResponseId + "/from: " + commentGiver
-                + "created at: " + createdAt);
+                        + "created at: " + createdAt);
     }
 
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return Null if not found.
      */
     public FeedbackResponseCommentAttributes getFeedbackResponseComment(
@@ -121,12 +124,13 @@ public class FeedbackResponseCommentsDb extends EntitiesDb<FeedbackResponseComme
 
         return makeAttributesOrNull(getFeedbackResponseCommentEntity(courseId, createdAt, commentGiver),
                 "Trying to get non-existent response comment: from: " + commentGiver + " in the course " + courseId
-                + " created at: " + createdAt);
+                        + " created at: " + createdAt);
     }
 
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return Null if not found.
      */
     public List<FeedbackResponseCommentAttributes> getFeedbackResponseCommentForGiver(String courseId, String commentGiver) {
@@ -280,7 +284,7 @@ public class FeedbackResponseCommentsDb extends EntitiesDb<FeedbackResponseComme
 
         saveEntities(responseComments);
         log.info("updating last editor email from: " + oldEmail + " to: " + updatedEmail
-                 + " for feedback response comments in the course: " + courseId);
+                + " for feedback response comments in the course: " + courseId);
     }
 
     /*
@@ -303,6 +307,7 @@ public class FeedbackResponseCommentsDb extends EntitiesDb<FeedbackResponseComme
 
     /**
      * Searches for response comments.
+     *
      * @return {@link FeedbackResponseCommentSearchResultBundle}
      */
     public FeedbackResponseCommentSearchResultBundle search(String queryString, List<InstructorAttributes> instructors) {

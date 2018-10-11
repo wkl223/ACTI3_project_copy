@@ -24,6 +24,7 @@ QUnit.test('createRowForResultTable(name, email, institution, isSuccess, status)
     const boolIndex = 3;
     const successClass = 'success';
     const failureClass = 'danger';
+
     function testCreateRowForResultTable(isSuccess) {
         const testProperties = ['testName', 'testMail', 'testInstitution', isSuccess, 'testStatus'];
         const result = createRowForResultTable(...testProperties);
@@ -33,6 +34,7 @@ QUnit.test('createRowForResultTable(name, email, institution, isSuccess, status)
             assert.contains(result, property, `should contain ${property}`);
         });
     }
+
     [true, false].forEach(testCreateRowForResultTable);
 });
 
@@ -52,10 +54,10 @@ QUnit.test('test conversion from instructor list to pipe-separated string', (ass
 QUnit.test('test conversion from pipe-separated string to instructor list', (assert) => {
     assert.expect(1);
     const instructorString = 'testName1 | testEmail1@email.com | testInstitution1\n'
-        + 'testName2  |   testEmail2@email.com | testInstitution2\n'
-        + '     \t       \n'
-        + 'testName3| testEmail3@email.com   |  testInstitution3\n'
-        + '      \t                      \n';
+            + 'testName2  |   testEmail2@email.com | testInstitution2\n'
+            + '     \t       \n'
+            + 'testName3| testEmail3@email.com   |  testInstitution3\n'
+            + '      \t                      \n';
     const instructorListExpected = [
         Instructor.create('testName1', 'testEmail1@email.com', 'testInstitution1'),
         Instructor.create('testName2', 'testEmail2@email.com', 'testInstitution2'),
@@ -67,10 +69,10 @@ QUnit.test('test conversion from pipe-separated string to instructor list', (ass
 QUnit.test('test conversion from tab- and pipe-separated string to instructor list', (assert) => {
     assert.expect(1);
     const instructorString = 'testName1 | testEmail1@email.com | testInstitution1\n'
-        + 'testName2\ttestEmail2@email.com\ttestInstitution2\n'
-        + '\n'
-        + ' \t  \n'
-        + 'testName3 | testEmail3@email.com | testInstitution3';
+            + 'testName2\ttestEmail2@email.com\ttestInstitution2\n'
+            + '\n'
+            + ' \t  \n'
+            + 'testName3 | testEmail3@email.com | testInstitution3';
     const instructorListExpected = [
         Instructor.create('testName1', 'testEmail1@email.com', 'testInstitution1'),
         Instructor.create('testName2', 'testEmail2@email.com', 'testInstitution2'),

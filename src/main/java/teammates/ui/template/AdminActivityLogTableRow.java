@@ -24,14 +24,14 @@ public class AdminActivityLogTableRow {
 
     public String getUserHomeLink() {
         switch (activityLog.getUserRole()) {
-        case Const.ActivityLog.ROLE_STUDENT:
-            return Url.addParamToUrl(Const.ActionURIs.STUDENT_HOME_PAGE,
-                                     Const.ParamsNames.USER_ID, activityLog.getUserGoogleId());
-        case Const.ActivityLog.ROLE_INSTRUCTOR:
-            return Url.addParamToUrl(Const.ActionURIs.INSTRUCTOR_HOME_PAGE,
-                                     Const.ParamsNames.USER_ID, activityLog.getUserGoogleId());
-        default:
-            return null;
+            case Const.ActivityLog.ROLE_STUDENT:
+                return Url.addParamToUrl(Const.ActionURIs.STUDENT_HOME_PAGE,
+                        Const.ParamsNames.USER_ID, activityLog.getUserGoogleId());
+            case Const.ActivityLog.ROLE_INSTRUCTOR:
+                return Url.addParamToUrl(Const.ActionURIs.INSTRUCTOR_HOME_PAGE,
+                        Const.ParamsNames.USER_ID, activityLog.getUserGoogleId());
+            default:
+                return null;
         }
     }
 
@@ -107,7 +107,7 @@ public class AdminActivityLogTableRow {
 
     public String getDisplayedActionUrl() {
         return SanitizationHelper.sanitizeForHtml(Url.addParamToUrl(activityLog.getActionUrl(),
-                                                  Const.ParamsNames.USER_ID, activityLog.getUserGoogleId()));
+                Const.ParamsNames.USER_ID, activityLog.getUserGoogleId()));
     }
 
     public String getDisplayedLogTime() {

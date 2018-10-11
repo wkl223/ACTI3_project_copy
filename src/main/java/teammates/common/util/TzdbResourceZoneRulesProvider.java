@@ -27,11 +27,17 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public final class TzdbResourceZoneRulesProvider extends ZoneRulesProvider {
 
-    /** Type for ZoneRules. */
+    /**
+     * Type for ZoneRules.
+     */
     private static final byte ZRULES = 1;
-    /** Type for ZoneOffsetTransition. */
+    /**
+     * Type for ZoneOffsetTransition.
+     */
     private static final byte ZOT = 2;
-    /** Type for ZoneOffsetTransitionRule. */
+    /**
+     * Type for ZoneOffsetTransitionRule.
+     */
     private static final byte ZOTRULE = 3;
 
     /**
@@ -102,7 +108,7 @@ public final class TzdbResourceZoneRulesProvider extends ZoneRulesProvider {
     /**
      * Loads the rules from a DateInputStream, often in a jar file.
      *
-     * @param dis  the DateInputStream to load, not null
+     * @param dis the DateInputStream to load, not null
      * @throws Exception if an error occurs
      */
     @SuppressWarnings("PMD.SignatureDeclareThrowsException") // follow original method signature
@@ -158,14 +164,14 @@ public final class TzdbResourceZoneRulesProvider extends ZoneRulesProvider {
     private static Object serRead(DataInput in) throws IOException {
         byte type = in.readByte();
         switch (type) {
-        case ZRULES:
-            return invokeReadExternal(ZoneRules.class, in); // ZoneRules.readExternal(in)
-        case ZOT:
-            return invokeReadExternal(ZoneOffsetTransition.class, in); // ZoneOffsetTransition.readExternal(in)
-        case ZOTRULE:
-            return invokeReadExternal(ZoneOffsetTransitionRule.class, in); // ZoneOffsetTransitionRule.readExternal(in)
-        default:
-            throw new StreamCorruptedException("Unknown serialized type");
+            case ZRULES:
+                return invokeReadExternal(ZoneRules.class, in); // ZoneRules.readExternal(in)
+            case ZOT:
+                return invokeReadExternal(ZoneOffsetTransition.class, in); // ZoneOffsetTransition.readExternal(in)
+            case ZOTRULE:
+                return invokeReadExternal(ZoneOffsetTransitionRule.class, in); // ZoneOffsetTransitionRule.readExternal(in)
+            default:
+                throw new StreamCorruptedException("Unknown serialized type");
         }
     }
 

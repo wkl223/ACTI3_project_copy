@@ -90,7 +90,7 @@ public class StudentAttributesTest extends BaseTestCaseWithMinimalGaeEnvironment
     @Test
     public void testValueOf() {
         CourseStudent originalStudent = new CourseStudent("email@email.com", "name 1", "googleId.1",
-                "comment 1", "courseId1", "team 1", "sect 1",0);
+                "comment 1", "courseId1", "team 1", "sect 1", 0);
         StudentAttributes copyStudent = StudentAttributes.valueOf(originalStudent);
 
         assertEquals(originalStudent.getCourseId(), copyStudent.course);
@@ -156,9 +156,9 @@ public class StudentAttributesTest extends BaseTestCaseWithMinimalGaeEnvironment
                 .build();
         assertFalse(invalidStudent.isValid());
         assertEquals(getPopulatedEmptyStringErrorMessage(
-                         FieldValidator.COURSE_ID_ERROR_MESSAGE_EMPTY_STRING,
-                         FieldValidator.COURSE_ID_FIELD_NAME, FieldValidator.COURSE_ID_MAX_LENGTH),
-                     invalidStudent.getInvalidityInfo().get(0));
+                FieldValidator.COURSE_ID_ERROR_MESSAGE_EMPTY_STRING,
+                FieldValidator.COURSE_ID_FIELD_NAME, FieldValidator.COURSE_ID_MAX_LENGTH),
+                invalidStudent.getInvalidityInfo().get(0));
 
         ______TS("Failure case: invalid course id");
         invalidStudent = StudentAttributes
@@ -168,10 +168,10 @@ public class StudentAttributesTest extends BaseTestCaseWithMinimalGaeEnvironment
 
         assertFalse(invalidStudent.isValid());
         assertEquals(getPopulatedErrorMessage(
-                         FieldValidator.COURSE_ID_ERROR_MESSAGE, invalidStudent.course,
-                         FieldValidator.COURSE_ID_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
-                         FieldValidator.COURSE_ID_MAX_LENGTH),
-                     invalidStudent.getInvalidityInfo().get(0));
+                FieldValidator.COURSE_ID_ERROR_MESSAGE, invalidStudent.course,
+                FieldValidator.COURSE_ID_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
+                FieldValidator.COURSE_ID_MAX_LENGTH),
+                invalidStudent.getInvalidityInfo().get(0));
 
         ______TS("Failure case: empty name");
         invalidStudent = StudentAttributes
@@ -181,9 +181,9 @@ public class StudentAttributesTest extends BaseTestCaseWithMinimalGaeEnvironment
 
         assertFalse(invalidStudent.isValid());
         assertEquals(invalidStudent.getInvalidityInfo().get(0),
-                     getPopulatedEmptyStringErrorMessage(
-                         FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE_EMPTY_STRING,
-                         FieldValidator.PERSON_NAME_FIELD_NAME, FieldValidator.PERSON_NAME_MAX_LENGTH));
+                getPopulatedEmptyStringErrorMessage(
+                        FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE_EMPTY_STRING,
+                        FieldValidator.PERSON_NAME_FIELD_NAME, FieldValidator.PERSON_NAME_MAX_LENGTH));
 
         ______TS("Failure case: empty email");
         invalidStudent = StudentAttributes
@@ -193,9 +193,9 @@ public class StudentAttributesTest extends BaseTestCaseWithMinimalGaeEnvironment
 
         assertFalse(invalidStudent.isValid());
         assertEquals(getPopulatedEmptyStringErrorMessage(
-                         FieldValidator.EMAIL_ERROR_MESSAGE_EMPTY_STRING,
-                         FieldValidator.EMAIL_FIELD_NAME, FieldValidator.EMAIL_MAX_LENGTH),
-                     invalidStudent.getInvalidityInfo().get(0));
+                FieldValidator.EMAIL_ERROR_MESSAGE_EMPTY_STRING,
+                FieldValidator.EMAIL_FIELD_NAME, FieldValidator.EMAIL_MAX_LENGTH),
+                invalidStudent.getInvalidityInfo().get(0));
 
         ______TS("Failure case: section name too long");
         String longSectionName = StringHelperExtension
@@ -207,10 +207,10 @@ public class StudentAttributesTest extends BaseTestCaseWithMinimalGaeEnvironment
 
         assertFalse(invalidStudent.isValid());
         assertEquals(getPopulatedErrorMessage(
-                         FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE, longSectionName,
-                         FieldValidator.SECTION_NAME_FIELD_NAME, FieldValidator.REASON_TOO_LONG,
-                         FieldValidator.SECTION_NAME_MAX_LENGTH),
-                     invalidStudent.getInvalidityInfo().get(0));
+                FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE, longSectionName,
+                FieldValidator.SECTION_NAME_FIELD_NAME, FieldValidator.REASON_TOO_LONG,
+                FieldValidator.SECTION_NAME_MAX_LENGTH),
+                invalidStudent.getInvalidityInfo().get(0));
 
         ______TS("Failure case: team name too long");
         String longTeamName = StringHelperExtension.generateStringOfLength(FieldValidator.TEAM_NAME_MAX_LENGTH + 1);
@@ -221,10 +221,10 @@ public class StudentAttributesTest extends BaseTestCaseWithMinimalGaeEnvironment
 
         assertFalse(invalidStudent.isValid());
         assertEquals(getPopulatedErrorMessage(
-                         FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE, longTeamName,
-                         FieldValidator.TEAM_NAME_FIELD_NAME, FieldValidator.REASON_TOO_LONG,
-                         FieldValidator.TEAM_NAME_MAX_LENGTH),
-                     invalidStudent.getInvalidityInfo().get(0));
+                FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE, longTeamName,
+                FieldValidator.TEAM_NAME_FIELD_NAME, FieldValidator.REASON_TOO_LONG,
+                FieldValidator.TEAM_NAME_MAX_LENGTH),
+                invalidStudent.getInvalidityInfo().get(0));
 
         ______TS("Failure case: student name too long");
         String longStudentName = StringHelperExtension
@@ -236,10 +236,10 @@ public class StudentAttributesTest extends BaseTestCaseWithMinimalGaeEnvironment
 
         assertFalse(invalidStudent.isValid());
         assertEquals(getPopulatedErrorMessage(
-                         FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE, longStudentName,
-                         FieldValidator.PERSON_NAME_FIELD_NAME, FieldValidator.REASON_TOO_LONG,
-                         FieldValidator.PERSON_NAME_MAX_LENGTH),
-                     invalidStudent.getInvalidityInfo().get(0));
+                FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE, longStudentName,
+                FieldValidator.PERSON_NAME_FIELD_NAME, FieldValidator.REASON_TOO_LONG,
+                FieldValidator.PERSON_NAME_MAX_LENGTH),
+                invalidStudent.getInvalidityInfo().get(0));
 
         ______TS("Failure case: invalid email");
         invalidStudent = StudentAttributes
@@ -249,10 +249,10 @@ public class StudentAttributesTest extends BaseTestCaseWithMinimalGaeEnvironment
 
         assertFalse(invalidStudent.isValid());
         assertEquals(getPopulatedErrorMessage(
-                         FieldValidator.EMAIL_ERROR_MESSAGE, "ee.com",
-                         FieldValidator.EMAIL_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
-                         FieldValidator.EMAIL_MAX_LENGTH),
-                     invalidStudent.getInvalidityInfo().get(0));
+                FieldValidator.EMAIL_ERROR_MESSAGE, "ee.com",
+                FieldValidator.EMAIL_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
+                FieldValidator.EMAIL_MAX_LENGTH),
+                invalidStudent.getInvalidityInfo().get(0));
 
         ______TS("Failure case: comment too long");
         String longComment = StringHelperExtension
@@ -265,9 +265,9 @@ public class StudentAttributesTest extends BaseTestCaseWithMinimalGaeEnvironment
         assertFalse(invalidStudent.isValid());
         assertEquals(
                 getPopulatedErrorMessage(
-                    FieldValidator.SIZE_CAPPED_POSSIBLY_EMPTY_STRING_ERROR_MESSAGE, longComment,
-                    FieldValidator.STUDENT_ROLE_COMMENTS_FIELD_NAME, FieldValidator.REASON_TOO_LONG,
-                    FieldValidator.STUDENT_ROLE_COMMENTS_MAX_LENGTH),
+                        FieldValidator.SIZE_CAPPED_POSSIBLY_EMPTY_STRING_ERROR_MESSAGE, longComment,
+                        FieldValidator.STUDENT_ROLE_COMMENTS_FIELD_NAME, FieldValidator.REASON_TOO_LONG,
+                        FieldValidator.STUDENT_ROLE_COMMENTS_MAX_LENGTH),
                 invalidStudent.getInvalidityInfo().get(0));
 
         // Other invalid parameters cases are omitted because they are already
@@ -290,28 +290,28 @@ public class StudentAttributesTest extends BaseTestCaseWithMinimalGaeEnvironment
         assertFalse("invalid value", s.isValid());
         String errorMessage =
                 getPopulatedErrorMessage(
-                    FieldValidator.GOOGLE_ID_ERROR_MESSAGE, "invalid@google@id",
-                    FieldValidator.GOOGLE_ID_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
-                    FieldValidator.GOOGLE_ID_MAX_LENGTH) + System.lineSeparator()
-                + getPopulatedEmptyStringErrorMessage(
-                      FieldValidator.COURSE_ID_ERROR_MESSAGE_EMPTY_STRING,
-                      FieldValidator.COURSE_ID_FIELD_NAME, FieldValidator.COURSE_ID_MAX_LENGTH) + System.lineSeparator()
-                + getPopulatedErrorMessage(
-                      FieldValidator.EMAIL_ERROR_MESSAGE, "invalid email",
-                      FieldValidator.EMAIL_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
-                      FieldValidator.EMAIL_MAX_LENGTH) + System.lineSeparator()
-                + getPopulatedErrorMessage(
-                      FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE,
-                      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                      FieldValidator.TEAM_NAME_FIELD_NAME, FieldValidator.REASON_TOO_LONG,
-                      FieldValidator.TEAM_NAME_MAX_LENGTH) + System.lineSeparator()
-                + getPopulatedErrorMessage(
-                      FieldValidator.SIZE_CAPPED_POSSIBLY_EMPTY_STRING_ERROR_MESSAGE, s.comments,
-                      FieldValidator.STUDENT_ROLE_COMMENTS_FIELD_NAME, FieldValidator.REASON_TOO_LONG,
-                      FieldValidator.STUDENT_ROLE_COMMENTS_MAX_LENGTH) + System.lineSeparator()
-                + getPopulatedEmptyStringErrorMessage(
-                      FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE_EMPTY_STRING,
-                      FieldValidator.PERSON_NAME_FIELD_NAME, FieldValidator.PERSON_NAME_MAX_LENGTH);
+                        FieldValidator.GOOGLE_ID_ERROR_MESSAGE, "invalid@google@id",
+                        FieldValidator.GOOGLE_ID_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
+                        FieldValidator.GOOGLE_ID_MAX_LENGTH) + System.lineSeparator()
+                        + getPopulatedEmptyStringErrorMessage(
+                        FieldValidator.COURSE_ID_ERROR_MESSAGE_EMPTY_STRING,
+                        FieldValidator.COURSE_ID_FIELD_NAME, FieldValidator.COURSE_ID_MAX_LENGTH) + System.lineSeparator()
+                        + getPopulatedErrorMessage(
+                        FieldValidator.EMAIL_ERROR_MESSAGE, "invalid email",
+                        FieldValidator.EMAIL_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
+                        FieldValidator.EMAIL_MAX_LENGTH) + System.lineSeparator()
+                        + getPopulatedErrorMessage(
+                        FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE,
+                        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                        FieldValidator.TEAM_NAME_FIELD_NAME, FieldValidator.REASON_TOO_LONG,
+                        FieldValidator.TEAM_NAME_MAX_LENGTH) + System.lineSeparator()
+                        + getPopulatedErrorMessage(
+                        FieldValidator.SIZE_CAPPED_POSSIBLY_EMPTY_STRING_ERROR_MESSAGE, s.comments,
+                        FieldValidator.STUDENT_ROLE_COMMENTS_FIELD_NAME, FieldValidator.REASON_TOO_LONG,
+                        FieldValidator.STUDENT_ROLE_COMMENTS_MAX_LENGTH) + System.lineSeparator()
+                        + getPopulatedEmptyStringErrorMessage(
+                        FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE_EMPTY_STRING,
+                        FieldValidator.PERSON_NAME_FIELD_NAME, FieldValidator.PERSON_NAME_MAX_LENGTH);
         assertEquals("invalid value", errorMessage, StringHelper.toString(s.getInvalidityInfo()));
     }
 
@@ -372,13 +372,13 @@ public class StudentAttributesTest extends BaseTestCaseWithMinimalGaeEnvironment
         StudentAttributes.sortByTeamName(sortedList);
         List<StudentAttributes> unsortedList = generateTypicalStudentAttributesList();
         assertEquals(sortedList.get(0).toEnrollmentString(),
-                     unsortedList.get(2).toEnrollmentString());
+                unsortedList.get(2).toEnrollmentString());
         assertEquals(sortedList.get(1).toEnrollmentString(),
-                     unsortedList.get(0).toEnrollmentString());
+                unsortedList.get(0).toEnrollmentString());
         assertEquals(sortedList.get(2).toEnrollmentString(),
-                     unsortedList.get(1).toEnrollmentString());
+                unsortedList.get(1).toEnrollmentString());
         assertEquals(sortedList.get(3).toEnrollmentString(),
-                     unsortedList.get(3).toEnrollmentString());
+                unsortedList.get(3).toEnrollmentString());
     }
 
     @Test
@@ -387,13 +387,13 @@ public class StudentAttributesTest extends BaseTestCaseWithMinimalGaeEnvironment
         StudentAttributes.sortBySectionName(sortedList);
         List<StudentAttributes> unsortedList = generateTypicalStudentAttributesList();
         assertEquals(sortedList.get(0).toEnrollmentString(),
-                     unsortedList.get(3).toEnrollmentString());
+                unsortedList.get(3).toEnrollmentString());
         assertEquals(sortedList.get(1).toEnrollmentString(),
-                     unsortedList.get(0).toEnrollmentString());
+                unsortedList.get(0).toEnrollmentString());
         assertEquals(sortedList.get(2).toEnrollmentString(),
-                     unsortedList.get(1).toEnrollmentString());
+                unsortedList.get(1).toEnrollmentString());
         assertEquals(sortedList.get(3).toEnrollmentString(),
-                     unsortedList.get(2).toEnrollmentString());
+                unsortedList.get(2).toEnrollmentString());
     }
 
     @Test
@@ -445,10 +445,10 @@ public class StudentAttributesTest extends BaseTestCaseWithMinimalGaeEnvironment
 
         sd.key = "testkey";
         String regUrl = Config.getAppUrl(Const.ActionURIs.STUDENT_COURSE_JOIN_NEW)
-                                .withRegistrationKey(StringHelper.encrypt("testkey"))
-                                .withStudentEmail("email@email.com")
-                                .withCourseId("course1")
-                                .toString();
+                .withRegistrationKey(StringHelper.encrypt("testkey"))
+                .withStudentEmail("email@email.com")
+                .withCourseId("course1")
+                .toString();
         assertEquals(regUrl, sd.getRegistrationUrl());
     }
 
@@ -459,9 +459,9 @@ public class StudentAttributesTest extends BaseTestCaseWithMinimalGaeEnvironment
                 .withSection("sect 1").withComments("comment 1").withTeam("team 1")
                 .build();
         String profilePicUrl = Config.getAppUrl(Const.ActionURIs.STUDENT_PROFILE_PICTURE)
-                                       .withStudentEmail(StringHelper.encrypt("email@email.com"))
-                                       .withCourseId(StringHelper.encrypt("course1"))
-                                       .toString();
+                .withStudentEmail(StringHelper.encrypt("email@email.com"))
+                .withCourseId(StringHelper.encrypt("course1"))
+                .toString();
         assertEquals(profilePicUrl, studentAttributes.getPublicProfilePictureUrl());
     }
 
@@ -473,17 +473,17 @@ public class StudentAttributesTest extends BaseTestCaseWithMinimalGaeEnvironment
                 .build();
 
         assertEquals("{\n  \"email\": \"email@email.com\",\n  \"course\": \"course1\",\n  \"name\": \"name 1\","
-                     + "\n  \"googleId\": \"\",\n  \"lastName\": \"1\","
-                     + "\n  \"comments\": \"comment 1\",\n  \"team\": \"team 1\","
-                     + "\n  \"section\": \"sect 1\"\n}", studentAttributes.getJsonString());
+                + "\n  \"googleId\": \"\",\n  \"lastName\": \"1\","
+                + "\n  \"comments\": \"comment 1\",\n  \"team\": \"team 1\","
+                + "\n  \"section\": \"sect 1\"\n}", studentAttributes.getJsonString());
     }
 
     private CourseStudent generateTypicalStudentObject() {
-        return new CourseStudent("email@email.com", "name 1", "googleId.1", "comment 1", "courseId1", "team 1", "sect 1",0);
+        return new CourseStudent("email@email.com", "name 1", "googleId.1", "comment 1", "courseId1", "team 1", "sect 1", 0);
     }
 
     private CourseStudent generateStudentWithoutSectionObject() {
-        return new CourseStudent("email@email.com", "name 1", "googleId.1", "comment 1", "courseId1", "team 1", null,0);
+        return new CourseStudent("email@email.com", "name 1", "googleId.1", "comment 1", "courseId1", "team 1", null, 0);
     }
 
     private List<StudentAttributes> generateTypicalStudentAttributesList() {

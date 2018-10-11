@@ -204,7 +204,7 @@ public class StudentProfilePictureEditActionTest extends BaseActionTest {
     }
 
     private String[] createValidParamsForProfilePictureEdit() {
-        return new String[] {
+        return new String[]{
                 Const.ParamsNames.PROFILE_PICTURE_LEFTX, "0",
                 Const.ParamsNames.PROFILE_PICTURE_RIGHTX, "100",
                 Const.ParamsNames.PROFILE_PICTURE_TOPY, "0",
@@ -224,7 +224,7 @@ public class StudentProfilePictureEditActionTest extends BaseActionTest {
     @Override
     @Test
     protected void testAccessControl() throws Exception {
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.PROFILE_PICTURE_LEFTX, "0",
                 Const.ParamsNames.PROFILE_PICTURE_RIGHTX, "100",
                 Const.ParamsNames.PROFILE_PICTURE_TOPY, "0",

@@ -27,7 +27,7 @@ public class InstructorCourseInstructorEditSaveAction extends InstructorCourseIn
 
         InstructorAttributes instructor = logic.getInstructorForGoogleId(courseId, account.googleId);
         gateKeeper.verifyAccessible(instructor, logic.getCourse(courseId),
-                                    Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_INSTRUCTOR);
+                Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_INSTRUCTOR);
 
         InstructorAttributes instructorToEdit =
                 extractUpdatedInstructor(courseId, instructorId, instructorName, instructorEmail);
@@ -41,7 +41,7 @@ public class InstructorCourseInstructorEditSaveAction extends InstructorCourseIn
             }
 
             statusToUser.add(new StatusMessage(String.format(Const.StatusMessages.COURSE_INSTRUCTOR_EDITED, instructorName),
-                                               StatusMessageColor.SUCCESS));
+                    StatusMessageColor.SUCCESS));
             statusToAdmin = "Instructor <span class=\"bold\"> " + instructorName + "</span>"
                     + " for Course <span class=\"bold\">[" + courseId + "]</span> edited.<br>"
                     + "New Name: " + instructorName + "<br>New Email: " + instructorEmail;
@@ -62,7 +62,7 @@ public class InstructorCourseInstructorEditSaveAction extends InstructorCourseIn
      *
      * @param courseId         Id of the course.
      * @param instructorToEdit Instructor that will be edited.
-     *                             This may be modified within the method.
+     *                         This may be modified within the method.
      */
     private void updateToEnsureValidityOfInstructorsForTheCourse(String courseId, InstructorAttributes instructorToEdit) {
         List<InstructorAttributes> instructors = logic.getInstructorsForCourse(courseId);
@@ -75,10 +75,10 @@ public class InstructorCourseInstructorEditSaveAction extends InstructorCourseIn
             }
         }
         boolean isLastRegInstructorWithPrivilege = numOfInstrCanModifyInstructor <= 1
-                                                   && instrWithModifyInstructorPrivilege != null
-                                                   && (!instrWithModifyInstructorPrivilege.isRegistered()
-                                                           || instrWithModifyInstructorPrivilege.googleId
-                                                                     .equals(instructorToEdit.googleId));
+                && instrWithModifyInstructorPrivilege != null
+                && (!instrWithModifyInstructorPrivilege.isRegistered()
+                || instrWithModifyInstructorPrivilege.googleId
+                .equals(instructorToEdit.googleId));
         if (isLastRegInstructorWithPrivilege) {
             instructorToEdit.privileges.updatePrivilege(Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_INSTRUCTOR, true);
         }
@@ -109,7 +109,7 @@ public class InstructorCourseInstructorEditSaveAction extends InstructorCourseIn
 
         InstructorAttributes instructorToEdit =
                 updateBasicInstructorAttributes(courseId, instructorId, instructorName, instructorEmail,
-                                                instructorRole, isDisplayedToStudents, displayedName);
+                        instructorRole, isDisplayedToStudents, displayedName);
 
         if (instructorRole.equals(Const.InstructorPermissionRoleNames.INSTRUCTOR_PERMISSION_ROLE_CUSTOM)) {
             updateInstructorCourseLevelPrivileges(instructorToEdit);
@@ -133,12 +133,12 @@ public class InstructorCourseInstructorEditSaveAction extends InstructorCourseIn
      * @param instructorRole        Role of the instructor.
      * @param isDisplayedToStudents Whether the instructor should be visible to students.
      * @param displayedName         Name to be visible to students.
-     *                                  Should not be {@code null} even if {@code isDisplayedToStudents} is false.
+     *                              Should not be {@code null} even if {@code isDisplayedToStudents} is false.
      * @return The edited instructor with updated basic info, and its old custom privileges (if applicable)
      */
     private InstructorAttributes updateBasicInstructorAttributes(String courseId,
-            String instructorId, String instructorName, String instructorEmail,
-            String instructorRole, boolean isDisplayedToStudents, String displayedName) {
+                                                                 String instructorId, String instructorName, String instructorEmail,
+                                                                 String instructorRole, boolean isDisplayedToStudents, String displayedName) {
         InstructorAttributes instructorToEdit = null;
         if (instructorId == null) {
             instructorToEdit = logic.getInstructorForEmail(courseId, instructorEmail);

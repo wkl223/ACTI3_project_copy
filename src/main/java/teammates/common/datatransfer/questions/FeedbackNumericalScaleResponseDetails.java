@@ -15,7 +15,7 @@ public class FeedbackNumericalScaleResponseDetails extends FeedbackResponseDetai
 
     @Override
     public void extractResponseDetails(FeedbackQuestionType questionType,
-            FeedbackQuestionDetails questionDetails, String[] answer) {
+                                       FeedbackQuestionDetails questionDetails, String[] answer) {
         try {
             double numscaleAnswer = Double.parseDouble(answer[0]);
             setAnswer(numscaleAnswer);

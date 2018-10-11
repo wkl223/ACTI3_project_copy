@@ -41,7 +41,7 @@ const instructorPrivilegeValues = [
 function showNewInstructorForm() {
     $('#panelAddInstructor').show();
     $('#btnShowNewInstructorForm').hide();
-    scrollToElement($('#panelAddInstructor')[0], { duration: 1000 });
+    scrollToElement($('#panelAddInstructor')[0], {duration: 1000});
 }
 
 function hideNewInstructorForm() {
@@ -366,12 +366,12 @@ function bindDeleteInstructorLink() {
 
         const messageText = $clickedLink.data('isDeleteSelf')
                 ? 'Are you sure you want to delete your instructor role from the course '
-                        + `<strong>${$clickedLink.data('courseId')}</strong>? `
-                        + 'You will not be able to access the course anymore.'
+                + `<strong>${$clickedLink.data('courseId')}</strong>? `
+                + 'You will not be able to access the course anymore.'
                 : 'Are you sure you want to delete the instructor '
-                        + `<strong>${$clickedLink.data('instructorName')}</strong> `
-                        + `from the course <strong>${$clickedLink.data('courseId')}</strong>? `
-                        + 'He/she will not be able to access the course anymore.';
+                + `<strong>${$clickedLink.data('instructorName')}</strong> `
+                + `from the course <strong>${$clickedLink.data('courseId')}</strong>? `
+                + 'He/she will not be able to access the course anymore.';
         const okCallback = function () {
             window.location = $clickedLink.attr('href');
         };

@@ -14,16 +14,20 @@
       </p>
       <ul>
         <li>
-          You clicked on a link received in email, but the link was mangled by the email software. Try copy-pasting the entire link into the Browser address bar.
+          You clicked on a link received in email, but the link was mangled by the email software. Try copy-pasting the
+          entire link into the Browser address bar.
         </li>
         <li>
-          The entity (e.g. course, session) you were trying to access was deleted by an instructor after the link was sent to you by TEAMMATES.
+          The entity (e.g. course, session) you were trying to access was deleted by an instructor after the link was
+          sent to you by TEAMMATES.
           <br><br>
         </li>
       </ul>
-      If the problem persists, please inform <a class="link" href="contact.jsp" target="_blank" rel="noopener noreferrer">TEAMMATES support team</a>.
+      If the problem persists, please inform <a class="link" href="contact.jsp" target="_blank"
+                                                rel="noopener noreferrer">TEAMMATES support team</a>.
       <br><br>
-      <b>Note: </b>If the problematic link was received via email, please also forward us the original email containing the link you clicked, to help us with the troubleshooting.
+      <b>Note: </b>If the problematic link was received via email, please also forward us the original email containing
+      the link you clicked, to help us with the troubleshooting.
       <br><br>
       If you are a registered user you can go back to the <a href="/page/studentHomePage">home page</a>
       <br><br>

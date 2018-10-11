@@ -46,14 +46,14 @@
                 </div>
                 <div class="col-md-6">
                   <button type="submit" title="Enroll" id="button_enroll" name="button_enroll"
-                      class="btn btn-primary btn-md pull-right">
+                          class="btn btn-primary btn-md pull-right">
                     Enroll students
                   </button>
                 </div>
               </div>
               <br>
               <textarea class="form-control" id="enrollstudents" name="enrollstudents" rows="6" cols="120"
-                  placeholder="Paste student data here ...">${fn:escapeXml(data.enrollStudents)}</textarea>
+                        placeholder="Paste student data here ...">${fn:escapeXml(data.enrollStudents)}</textarea>
             </div>
           </div>
         </div>

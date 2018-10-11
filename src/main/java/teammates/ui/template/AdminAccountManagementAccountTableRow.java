@@ -14,7 +14,7 @@ public class AdminAccountManagementAccountTableRow {
     private String sessionToken;
 
     public AdminAccountManagementAccountTableRow(AccountAttributes account, List<InstructorAttributes> instructorList,
-            String sessionToken) {
+                                                 String sessionToken) {
         this.account = account;
         this.instructorList = instructorList;
         this.sessionToken = sessionToken;

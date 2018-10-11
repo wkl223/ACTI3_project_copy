@@ -48,6 +48,7 @@ QUnit.test('isWithinView()', (assert) => {
         const testString = `Element with style ${style}${condition ? ' is within view' : ' is not within view'}`;
         assert.equal(isWithinView(testDiv), condition, testString);
     }
+
     assertWithStyle('top: 0%;', true);
     assertWithStyle('top: 100%;', false);
     assertWithStyle('bottom: 0%;', true);
@@ -105,13 +106,13 @@ QUnit.test('isDate(date)', (assert) => {
 
 QUnit.test('extractIdSuffixFromId({ idPrefix, id })', (assert) => {
     // Randomly test few actual ids to extract identifier from
-    assert.equal(extractIdSuffixFromId({ idPrefix: 'commentDelete', id: 'commentDelete-1-1-0-1' }), '1-1-0-1');
-    assert.equal(extractIdSuffixFromId({ idPrefix: 'mcqOptionRow', id: 'mcqOptionRow-1--1' }), '1--1');
-    assert.equal(extractIdSuffixFromId({ idPrefix: 'questionAdditionalInfo', id: 'questionAdditionalInfo-7-' }),
+    assert.equal(extractIdSuffixFromId({idPrefix: 'commentDelete', id: 'commentDelete-1-1-0-1'}), '1-1-0-1');
+    assert.equal(extractIdSuffixFromId({idPrefix: 'mcqOptionRow', id: 'mcqOptionRow-1--1'}), '1--1');
+    assert.equal(extractIdSuffixFromId({idPrefix: 'questionAdditionalInfo', id: 'questionAdditionalInfo-7-'}),
             '7-');
     // Randomly test imaginary ids to extract identifier from
-    assert.equal(extractIdSuffixFromId({ idPrefix: 'AxK-', id: 'AxK--bb--xx-ll2' }), 'bb--xx-ll2');
-    assert.equal(extractIdSuffixFromId({ idPrefix: 'AxK', id: 'AxK--bb--xx-ll2' }), '-bb--xx-ll2');
+    assert.equal(extractIdSuffixFromId({idPrefix: 'AxK-', id: 'AxK--bb--xx-ll2'}), 'bb--xx-ll2');
+    assert.equal(extractIdSuffixFromId({idPrefix: 'AxK', id: 'AxK--bb--xx-ll2'}), '-bb--xx-ll2');
 });
 
 QUnit.test('scrollToTop()', (assert) => {
@@ -175,6 +176,7 @@ QUnit.test('getPointValue(s, ditchZero)', (assert) => {
         const tolerance = 0.0001;
         return Math.abs(numberA - numberB) < tolerance;
     }
+
     assert.ok(isCloseEnough(getPointValue('0.0', false), 100), 'Float 0');
     assert.ok(isCloseEnough(getPointValue('0.1', false), 100.1), 'Float 0.1');
     assert.ok(isCloseEnough(getPointValue('-0.1', false), 99.9), 'Float -0.1');
@@ -238,21 +240,21 @@ QUnit.test('setStatusMessage(message,status)', (assert) => {
     assert.equal($('#statusMessagesToUser .statusMessage').html(), message, 'Normal status message');
     assert.ok($('#statusMessagesToUser .statusMessage').attr('class') === getExpectedClasses(
             BootstrapContextualColors.SUCCESS),
-    'Success message status byspecifying status of message (BootstrapContextualColors.SUCCESS)');
+            'Success message status byspecifying status of message (BootstrapContextualColors.SUCCESS)');
     clearStatusMessages();
 
     setStatusMessage(message, BootstrapContextualColors.WARNING);
     assert.equal($('#statusMessagesToUser .statusMessage').html(), message, 'Normal status message');
     assert.ok($('#statusMessagesToUser .statusMessage').attr('class') === getExpectedClasses(
             BootstrapContextualColors.WARNING),
-    'Warning message status by specifying status of message (BootstrapContextualColors.WARNING)');
+            'Warning message status by specifying status of message (BootstrapContextualColors.WARNING)');
     clearStatusMessages();
 
     setStatusMessage(message, BootstrapContextualColors.DANGER);
     assert.equal($('#statusMessagesToUser .statusMessage').html(), message, 'Normal status message');
     assert.ok($('#statusMessagesToUser .statusMessage').attr('class') === getExpectedClasses(
             BootstrapContextualColors.DANGER),
-    'Danger message status by specifying status of message (BootstrapContextualColors.DANGER)');
+            'Danger message status by specifying status of message (BootstrapContextualColors.DANGER)');
     clearStatusMessages();
 
     setStatusMessage('');

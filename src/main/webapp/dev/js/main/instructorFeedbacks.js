@@ -145,7 +145,7 @@ function bindCopyButton() {
             $('#copyModalForm').submit();
         } else {
             $newSessionName.addClass('text-box-error');
-            $('#copyModal').animate({ scrollTop: $newSessionName.offset().top }, 500);
+            $('#copyModal').animate({scrollTop: $newSessionName.offset().top}, 500);
         }
         return false;
     });
@@ -208,7 +208,7 @@ function updateCourseNameAndTimeZoneFromSelection() {
 function initializeCourseName() {
     $('.course-attributes-data').each((idx, obj) => {
         const $obj = $(obj);
-        $('.course-attributes-data').data(obj.id, { name: $obj.data('name'), timeZone: $obj.data('timeZone') });
+        $('.course-attributes-data').data(obj.id, {name: $obj.data('name'), timeZone: $obj.data('timeZone')});
     });
     updateCourseNameAndTimeZoneFromSelection();
 }
@@ -232,7 +232,7 @@ const ajaxRequest = function (e) {
         beforeSend() {
             isSessionsAjaxSending = true;
             $('#sessionList').html('<img height="75" width="75" class="margin-center-horizontal" '
-                                   + 'src="/images/ajax-preload.gif"/>');
+                    + 'src="/images/ajax-preload.gif"/>');
         },
         error() {
             isSessionsAjaxSending = false;

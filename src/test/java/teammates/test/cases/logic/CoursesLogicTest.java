@@ -576,7 +576,7 @@ public class CoursesLogicTest extends BaseLogicTest {
             signalFailureToDetectException();
         } catch (EntityDoesNotExistException e) {
             AssertHelper.assertContains("does not exist",
-                                         e.getMessage());
+                    e.getMessage());
         }
 
         ______TS("null parameter");
@@ -618,7 +618,7 @@ public class CoursesLogicTest extends BaseLogicTest {
             signalFailureToDetectException();
         } catch (EntityDoesNotExistException e) {
             AssertHelper.assertContains("does not exist",
-                                         e.getMessage());
+                    e.getMessage());
         }
 
         ______TS("null parameter");
@@ -662,7 +662,7 @@ public class CoursesLogicTest extends BaseLogicTest {
             signalFailureToDetectException();
         } catch (EntityDoesNotExistException e) {
             AssertHelper.assertContains("does not exist",
-                                         e.getMessage());
+                    e.getMessage());
         }
 
         ______TS("Null parameter");
@@ -743,7 +743,7 @@ public class CoursesLogicTest extends BaseLogicTest {
         courseId = instructor1OfCourse2.courseId;
 
         csvString = coursesLogic.getCourseStudentListAsCsv(courseId, instructorId);
-        expectedCsvString = new String[] {
+        expectedCsvString = new String[]{
                 // CHECKSTYLE.OFF:LineLength csv lines can exceed character limit
                 "Course ID,\"idOfTypicalCourse2\"",
                 "Course Name,\"Typical Course 2 with 1 Evals\"",
@@ -766,7 +766,7 @@ public class CoursesLogicTest extends BaseLogicTest {
         courseId = instructor5.courseId;
 
         csvString = coursesLogic.getCourseStudentListAsCsv(courseId, instructorId);
-        expectedCsvString = new String[] {
+        expectedCsvString = new String[]{
                 // CHECKSTYLE.OFF:LineLength csv lines can exceed character limit
                 "Course ID,\"idOfUnregisteredCourse\"",
                 "Course Name,\"Unregistered Course\"",
@@ -788,7 +788,7 @@ public class CoursesLogicTest extends BaseLogicTest {
             signalFailureToDetectException();
         } catch (EntityDoesNotExistException e) {
             AssertHelper.assertContains("does not exist",
-                                         e.getMessage());
+                    e.getMessage());
         }
 
         ______TS("Failure case: non existent course in the list of courses of the instructor");
@@ -798,7 +798,7 @@ public class CoursesLogicTest extends BaseLogicTest {
             signalFailureToDetectException();
         } catch (EntityDoesNotExistException e) {
             AssertHelper.assertContains("does not exist",
-                                         e.getMessage());
+                    e.getMessage());
         }
 
         ______TS("Failure case: null parameter");
@@ -830,7 +830,7 @@ public class CoursesLogicTest extends BaseLogicTest {
             signalFailureToDetectException();
         } catch (EntityDoesNotExistException e) {
             AssertHelper.assertContains("does not exist",
-                                         e.getMessage());
+                    e.getMessage());
         }
 
         ______TS("Failure case: null parameter");
@@ -939,13 +939,13 @@ public class CoursesLogicTest extends BaseLogicTest {
 
         String expectedError =
                 "\"" + invalidCourse.getId() + "\" is not acceptable to TEAMMATES as a/an course ID because"
-                + " it is not in the correct format. "
-                + "A course ID can contain letters, numbers, fullstops, hyphens, underscores, and dollar signs. "
-                + "It cannot be longer than 40 characters, cannot be empty and cannot contain spaces.";
+                        + " it is not in the correct format. "
+                        + "A course ID can contain letters, numbers, fullstops, hyphens, underscores, and dollar signs. "
+                        + "It cannot be longer than 40 characters, cannot be empty and cannot contain spaces.";
 
         try {
             coursesLogic.createCourseAndInstructor(i.googleId, invalidCourse.getId(), invalidCourse.getName(),
-                                                   invalidCourse.getTimeZone().getId());
+                    invalidCourse.getTimeZone().getId());
             signalFailureToDetectException();
         } catch (InvalidParametersException e) {
             assertEquals(expectedError, e.getMessage());
@@ -962,12 +962,12 @@ public class CoursesLogicTest extends BaseLogicTest {
 
         try {
             coursesLogic.createCourseAndInstructor(i.googleId, courseWithDuplicateInstructor.getId(),
-                                                   courseWithDuplicateInstructor.getName(),
-                                                   courseWithDuplicateInstructor.getTimeZone().getId());
+                    courseWithDuplicateInstructor.getName(),
+                    courseWithDuplicateInstructor.getTimeZone().getId());
             signalFailureToDetectException();
         } catch (AssertionError e) {
             AssertHelper.assertContains("Unexpected exception while trying to create instructor for a new course",
-                                        e.getMessage());
+                    e.getMessage());
         }
         verifyAbsentInDatastore(courseWithDuplicateInstructor);
 
@@ -977,12 +977,12 @@ public class CoursesLogicTest extends BaseLogicTest {
 
         try {
             coursesLogic.createCourseAndInstructor(i.googleId, courseWithDuplicateInstructor.getId(),
-                                                   courseWithDuplicateInstructor.getName(),
-                                                   courseWithDuplicateInstructor.getTimeZone().getId());
+                    courseWithDuplicateInstructor.getName(),
+                    courseWithDuplicateInstructor.getTimeZone().getId());
             signalFailureToDetectException();
         } catch (AssertionError e) {
             AssertHelper.assertContains("Unexpected exception while trying to create instructor for a new course",
-                                        e.getMessage());
+                    e.getMessage());
         }
         verifyAbsentInDatastore(courseWithDuplicateInstructor);
 
@@ -994,8 +994,8 @@ public class CoursesLogicTest extends BaseLogicTest {
         instructorsDb.deleteInstructor(i.courseId, i.email);
 
         coursesLogic.createCourseAndInstructor(i.googleId, courseWithDuplicateInstructor.getId(),
-                                               courseWithDuplicateInstructor.getName(),
-                                               courseWithDuplicateInstructor.getTimeZone().getId());
+                courseWithDuplicateInstructor.getName(),
+                courseWithDuplicateInstructor.getTimeZone().getId());
         verifyPresentInDatastore(courseWithDuplicateInstructor);
         verifyPresentInDatastore(i);
 
@@ -1003,8 +1003,8 @@ public class CoursesLogicTest extends BaseLogicTest {
 
         try {
             coursesLogic.createCourseAndInstructor(null, courseWithDuplicateInstructor.getId(),
-                                                   courseWithDuplicateInstructor.getName(),
-                                                   courseWithDuplicateInstructor.getTimeZone().getId());
+                    courseWithDuplicateInstructor.getName(),
+                    courseWithDuplicateInstructor.getTimeZone().getId());
             signalFailureToDetectException();
         } catch (AssertionError e) {
             assertEquals(Const.StatusCodes.DBLEVEL_NULL_INPUT, e.getMessage());
@@ -1236,8 +1236,8 @@ public class CoursesLogicTest extends BaseLogicTest {
                     getPopulatedEmptyStringErrorMessage(
                             FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE_EMPTY_STRING,
                             FieldValidator.COURSE_NAME_FIELD_NAME, FieldValidator.COURSE_NAME_MAX_LENGTH)
-                    + System.lineSeparator()
-                    + getPopulatedErrorMessage(
+                            + System.lineSeparator()
+                            + getPopulatedErrorMessage(
                             FieldValidator.TIME_ZONE_ERROR_MESSAGE, invalidTimeZone,
                             FieldValidator.TIME_ZONE_FIELD_NAME, FieldValidator.REASON_UNAVAILABLE_AS_CHOICE);
             assertEquals(expectedErrorMessage, e.getMessage());

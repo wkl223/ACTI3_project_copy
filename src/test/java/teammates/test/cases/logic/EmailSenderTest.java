@@ -22,9 +22,9 @@ import teammates.logic.core.SendgridService;
 
 /**
  * SUT: {@link JavamailService},
- *      {@link SendgridService},
- *      {@link MailgunService},
- *      {@link MailjetService}.
+ * {@link SendgridService},
+ * {@link MailgunService},
+ * {@link MailjetService}.
  */
 public class EmailSenderTest extends BaseLogicTest {
 
@@ -107,11 +107,11 @@ public class EmailSenderTest extends BaseLogicTest {
         assertEquals(wrapper.getSenderEmail(), email.get(Email.FROMEMAIL));
         assertEquals(wrapper.getSenderName(), email.get(Email.FROMNAME));
         assertEquals(wrapper.getRecipient(),
-                     ((JSONArray) email.get(Email.RECIPIENTS)).getJSONObject(0).get("Email"));
+                ((JSONArray) email.get(Email.RECIPIENTS)).getJSONObject(0).get("Email"));
         assertEquals(wrapper.getBcc(),
-                     ((JSONArray) email.get(Email.RECIPIENTS)).getJSONObject(1).get("Email"));
+                ((JSONArray) email.get(Email.RECIPIENTS)).getJSONObject(1).get("Email"));
         assertEquals(wrapper.getReplyTo(),
-                     ((JSONObject) email.get(Email.HEADERS)).getString("Reply-To"));
+                ((JSONObject) email.get(Email.HEADERS)).getString("Reply-To"));
         assertEquals(wrapper.getSubject(), email.get(Email.SUBJECT));
         assertEquals(wrapper.getContent(), email.get(Email.HTMLPART));
     }

@@ -54,7 +54,7 @@ public class FeedbackParticipantFeedbackResponseCommentDeleteActionTest extends 
 
         ______TS("Unsuccessful case: not enough parameters");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, feedbackResponseComment.courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackResponseComment.feedbackSessionName,
         };
@@ -64,7 +64,7 @@ public class FeedbackParticipantFeedbackResponseCommentDeleteActionTest extends 
 
         ______TS("Non-existent feedback response comment: fails silently");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, feedbackResponseComment.courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackResponseComment.feedbackSessionName,
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID, feedbackResponseComment.feedbackResponseId,
@@ -88,7 +88,7 @@ public class FeedbackParticipantFeedbackResponseCommentDeleteActionTest extends 
         InstructorAttributes instructor = dataBundle.instructors.get("instructor1InCourse1");
         gaeSimulation.loginAsInstructor(instructor.googleId);
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, feedbackResponseComment.courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackResponseComment.feedbackSessionName,
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID, feedbackResponseComment.feedbackResponseId,
@@ -153,7 +153,7 @@ public class FeedbackParticipantFeedbackResponseCommentDeleteActionTest extends 
         StudentAttributes student = dataBundle.students.get("student1InCourse1");
         gaeSimulation.loginAsStudent(student.googleId);
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, feedbackResponseComment.courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackResponseComment.feedbackSessionName,
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID, feedbackResponseComment.feedbackResponseId,
@@ -190,7 +190,7 @@ public class FeedbackParticipantFeedbackResponseCommentDeleteActionTest extends 
         StudentAttributes student = dataBundle.students.get("student1InCourse1");
         gaeSimulation.loginAsStudent(student.googleId);
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, feedbackResponseComment.courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackResponseComment.feedbackSessionName,
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID, feedbackResponseComment.feedbackResponseId,
@@ -224,7 +224,7 @@ public class FeedbackParticipantFeedbackResponseCommentDeleteActionTest extends 
         ______TS("Moderator can delete comment");
 
         InstructorAttributes moderator = dataBundle.instructors.get("instructor2InCourse1");
-        String[] submissionParamsForModeration = new String[] {
+        String[] submissionParamsForModeration = new String[]{
                 Const.ParamsNames.COURSE_ID, comment.courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, comment.feedbackSessionName,
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID, comment.feedbackResponseId,
@@ -252,7 +252,7 @@ public class FeedbackParticipantFeedbackResponseCommentDeleteActionTest extends 
         response = frDb.getFeedbackResponse(question.getId(), response.giver, response.recipient);
         comment = frcDb.getFeedbackResponseComment(response.getId(), comment.commentGiver, comment.createdAt);
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID, response.getId(),
@@ -268,7 +268,7 @@ public class FeedbackParticipantFeedbackResponseCommentDeleteActionTest extends 
         ______TS("Moderator can delete comment");
 
         InstructorAttributes moderator = dataBundle.instructors.get("instructor1InCourse1");
-        String[] submissionParamsForModeration = new String[] {
+        String[] submissionParamsForModeration = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID, response.getId(),
@@ -296,7 +296,7 @@ public class FeedbackParticipantFeedbackResponseCommentDeleteActionTest extends 
         response = frDb.getFeedbackResponse(question.getId(), response.giver, response.recipient);
         comment = frcDb.getFeedbackResponseComment(response.getId(), comment.commentGiver, comment.createdAt);
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID, response.getId(),
@@ -318,7 +318,7 @@ public class FeedbackParticipantFeedbackResponseCommentDeleteActionTest extends 
         ______TS("Moderator can delete comment");
 
         InstructorAttributes moderator = dataBundle.instructors.get("instructor1InCourse1");
-        String[] submissionParamsForModeration = new String[] {
+        String[] submissionParamsForModeration = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID, response.getId(),

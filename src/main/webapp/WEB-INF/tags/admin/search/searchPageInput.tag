@@ -15,13 +15,13 @@
 
             <div class="input-group">
               <input type="text" class="form-control" id="filterQuery"
-                  name="<%=Const.ParamsNames.ADMIN_SEARCH_KEY%>"
-                  value="${searchKey}">
+                     name="<%=Const.ParamsNames.ADMIN_SEARCH_KEY%>"
+                     value="${searchKey}">
 
               <span class="input-group-btn">
                 <button class="btn btn-default" type="submit"
-                    name="<%=Const.ParamsNames.ADMIN_SEARCH_BUTTON_HIT%>"
-                    id="searchButton" value="true">Search</button>
+                        name="<%=Const.ParamsNames.ADMIN_SEARCH_BUTTON_HIT%>"
+                        id="searchButton" value="true">Search</button>
               </span>
             </div>
           </div>

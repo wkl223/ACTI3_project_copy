@@ -44,10 +44,10 @@ public class CompileLogsAction extends AutomatedAction {
         long startTime = endTime - queryRange;
 
         LogQuery q = LogQuery.Builder.withDefaults()
-                                     .includeAppLogs(true)
-                                     .startTimeMillis(startTime)
-                                     .endTimeMillis(endTime)
-                                     .minLogLevel(LogLevel.ERROR);
+                .includeAppLogs(true)
+                .startTimeMillis(startTime)
+                .endTimeMillis(endTime)
+                .minLogLevel(LogLevel.ERROR);
 
         Iterable<RequestLogs> logs = logService.fetch(q);
         List<AppLogLine> errorLogs = new ArrayList<>();

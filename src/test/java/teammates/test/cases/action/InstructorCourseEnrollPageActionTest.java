@@ -44,7 +44,7 @@ public class InstructorCourseEnrollPageActionTest extends BaseActionTest {
         gaeSimulation.loginAsInstructor(instructor.getGoogleId());
 
         String courseId = instructor.getCourseId();
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId
         };
         InstructorCourseEnrollPageAction enrollPageAction = getAction(submissionParams);
@@ -72,7 +72,7 @@ public class InstructorCourseEnrollPageActionTest extends BaseActionTest {
         gaeSimulation.loginAsInstructor(instructor.getGoogleId());
 
         String courseId = instructor.getCourseId();
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId
         };
         InstructorCourseEnrollPageAction enrollPageAction = getAction(submissionParams);
@@ -102,7 +102,7 @@ public class InstructorCourseEnrollPageActionTest extends BaseActionTest {
         String instructorId = instructorToMasquerade.googleId;
         String courseId = instructorToMasquerade.courseId;
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.USER_ID, instructorId,
                 Const.ParamsNames.COURSE_ID, courseId
         };
@@ -132,7 +132,7 @@ public class InstructorCourseEnrollPageActionTest extends BaseActionTest {
     @Override
     @Test
     protected void testAccessControl() throws Exception {
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, typicalBundle.instructors.get("instructor1OfCourse1").courseId
         };
 

@@ -33,6 +33,7 @@ public class CourseRoster {
 
     /**
      * Checks if an instructor is the instructor of a course by providing an email address.
+     *
      * @param instructorEmail email of the instructor to be checked.
      * @return true if the instructor is an instructor of the course
      */
@@ -53,7 +54,7 @@ public class CourseRoster {
         StudentAttributes student1 = studentListByEmail.get(studentEmail1);
         StudentAttributes student2 = studentListByEmail.get(studentEmail2);
         return student1 != null && student2 != null
-               && student1.team != null && student1.team.equals(student2.team);
+                && student1.team != null && student1.team.equals(student2.team);
     }
 
     public StudentAttributes getStudentForEmail(String email) {

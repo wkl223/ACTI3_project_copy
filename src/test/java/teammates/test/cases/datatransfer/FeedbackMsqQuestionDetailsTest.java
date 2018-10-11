@@ -30,13 +30,13 @@ public class FeedbackMsqQuestionDetailsTest extends BaseTestCase {
     public void testGetMsqWeights_allChoicesNull_weightsListShouldBeEmpty() {
         FeedbackMsqQuestionDetails msqDetails = new FeedbackMsqQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "MSQ" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "msq question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[] { "NONE" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[] { "1.50" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[] { "2.50" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"MSQ"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"msq question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[]{"NONE"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[]{"1.50"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[]{"2.50"});
 
         assertTrue(msqDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.MSQ));
         assertEquals(msqDetails.getQuestionType(), FeedbackQuestionType.MSQ);
@@ -54,15 +54,15 @@ public class FeedbackMsqQuestionDetailsTest extends BaseTestCase {
         FeedbackMsqQuestionDetails msqDetails = new FeedbackMsqQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
 
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "MSQ" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "msq question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[] { "NONE" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[] { "        " });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[] { "Choice 2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[] { "1.22" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[] { "1.55" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"MSQ"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"msq question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[]{"NONE"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[]{"        "});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[]{"Choice 2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[]{"1.22"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[]{"1.55"});
 
         assertTrue(msqDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.MSQ));
         assertTrue(msqDetails.hasAssignedWeights());
@@ -77,13 +77,13 @@ public class FeedbackMsqQuestionDetailsTest extends BaseTestCase {
         FeedbackMsqQuestionDetails msqDetails = new FeedbackMsqQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
 
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "MSQ" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "msq question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[] { "NONE" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[] { "Choice 1" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[] { "Choice 2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[] { "on" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"MSQ"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"msq question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[]{"NONE"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[]{"Choice 1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[]{"Choice 2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[]{"on"});
 
         assertTrue(msqDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.MSQ));
         assertTrue(msqDetails.hasAssignedWeights());
@@ -96,15 +96,15 @@ public class FeedbackMsqQuestionDetailsTest extends BaseTestCase {
         FeedbackMsqQuestionDetails msqDetails = new FeedbackMsqQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
 
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "MSQ" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "msq question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[] { "NONE" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[] { "Choice 1" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[] { "Choice 2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[] { "Invalid Weight" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[] { "1.55" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"MSQ"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"msq question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[]{"NONE"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[]{"Choice 1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[]{"Choice 2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[]{"Invalid Weight"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[]{"1.55"});
 
         assertTrue(msqDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.MSQ));
         assertTrue(msqDetails.hasAssignedWeights());
@@ -119,15 +119,15 @@ public class FeedbackMsqQuestionDetailsTest extends BaseTestCase {
         FeedbackMsqQuestionDetails msqDetails = new FeedbackMsqQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
 
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "MSQ" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "msq question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[] { "NONE" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[] { "Choice 1" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[] { "Choice 2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[] { "off" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[] { "1.25" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[] { "1.55" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"MSQ"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"msq question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[]{"NONE"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[]{"Choice 1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[]{"Choice 2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[]{"off"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[]{"1.25"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[]{"1.55"});
 
         assertTrue(msqDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.MSQ));
         assertFalse(msqDetails.hasAssignedWeights());
@@ -140,15 +140,15 @@ public class FeedbackMsqQuestionDetailsTest extends BaseTestCase {
         FeedbackMsqQuestionDetails msqDetails = new FeedbackMsqQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
 
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "MSQ" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "msq question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[] { "NONE" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[] { "Choice 1" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[] { "Choice 2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[] { "1.50" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[] { "2.50" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"MSQ"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"msq question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[]{"NONE"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[]{"Choice 1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[]{"Choice 2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[]{"1.50"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[]{"2.50"});
 
         assertTrue(msqDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.MSQ));
         assertTrue(msqDetails.hasAssignedWeights());
@@ -167,17 +167,17 @@ public class FeedbackMsqQuestionDetailsTest extends BaseTestCase {
         FeedbackMsqQuestionDetails msqDetails = new FeedbackMsqQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
 
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "MSQ" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "msq question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[] { "NONE" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[] { "Choice 1" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[] { "Choice 2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[] { "2.57" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[] { "1.12" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQOTHEROPTIONFLAG, new String[] { "off" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_OTHER_WEIGHT, new String[] { "3.12" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"MSQ"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"msq question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[]{"NONE"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[]{"Choice 1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[]{"Choice 2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[]{"2.57"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[]{"1.12"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQOTHEROPTIONFLAG, new String[]{"off"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_OTHER_WEIGHT, new String[]{"3.12"});
 
         assertTrue(msqDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.MSQ));
         assertTrue(msqDetails.hasAssignedWeights());
@@ -191,17 +191,17 @@ public class FeedbackMsqQuestionDetailsTest extends BaseTestCase {
         FeedbackMsqQuestionDetails msqDetails = new FeedbackMsqQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
 
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "MSQ" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "msq question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[] { "NONE" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[] { "Choice 1" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[] { "Choice 2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[] { "2.57" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[] { "1.12" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQOTHEROPTIONFLAG, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_OTHER_WEIGHT, new String[] { "3.12" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"MSQ"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"msq question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[]{"NONE"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[]{"Choice 1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[]{"Choice 2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[]{"2.57"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[]{"1.12"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQOTHEROPTIONFLAG, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_OTHER_WEIGHT, new String[]{"3.12"});
 
         assertTrue(msqDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.MSQ));
         assertTrue(msqDetails.hasAssignedWeights());
@@ -214,15 +214,15 @@ public class FeedbackMsqQuestionDetailsTest extends BaseTestCase {
         FeedbackMsqQuestionDetails msqDetails = new FeedbackMsqQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
 
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "MSQ" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "msq question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[] { "NONE" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[] { "Choice 1" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[] { "Choice 2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[] { "off" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQOTHEROPTIONFLAG, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_OTHER_WEIGHT, new String[] { "3.12" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"MSQ"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"msq question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[]{"NONE"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[]{"Choice 1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[]{"Choice 2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[]{"off"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQOTHEROPTIONFLAG, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_OTHER_WEIGHT, new String[]{"3.12"});
 
         assertTrue(msqDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.MSQ));
         assertFalse(msqDetails.hasAssignedWeights());
@@ -236,17 +236,17 @@ public class FeedbackMsqQuestionDetailsTest extends BaseTestCase {
         FeedbackMsqQuestionDetails msqDetails = new FeedbackMsqQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
 
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "MSQ" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "msq question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[] { "NONE" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[] { "Choice 1" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[] { "Choice 2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[] { "2.57" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[] { "1.12" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQOTHEROPTIONFLAG, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_OTHER_WEIGHT, new String[] { "aa" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"MSQ"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"msq question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[]{"NONE"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[]{"Choice 1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[]{"Choice 2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[]{"2.57"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[]{"1.12"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQOTHEROPTIONFLAG, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_OTHER_WEIGHT, new String[]{"aa"});
 
         // Other weight value before editing the question
         assertEquals(0.0, msqDetails.getMsqOtherWeight());
@@ -262,16 +262,16 @@ public class FeedbackMsqQuestionDetailsTest extends BaseTestCase {
         FeedbackMsqQuestionDetails msqDetails = new FeedbackMsqQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
 
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "MSQ" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "msq question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[] { "NONE" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[] { "Choice 1" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[] { "Choice 2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[] { "2.57" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[] { "1.12" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQOTHEROPTIONFLAG, new String[] { "on" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"MSQ"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"msq question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[]{"NONE"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[]{"Choice 1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[]{"Choice 2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[]{"2.57"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[]{"1.12"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQOTHEROPTIONFLAG, new String[]{"on"});
         // The following line is commented out, so otherWeight parameter is missing from the requestParams.
         // requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_OTHER_WEIGHT, new String[] { "" });
 
@@ -283,11 +283,11 @@ public class FeedbackMsqQuestionDetailsTest extends BaseTestCase {
         FeedbackMsqQuestionDetails msqDetails = new FeedbackMsqQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
 
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "MSQ" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "msq question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[] { "NONE" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[] { "Choice 2" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"MSQ"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"msq question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[]{"NONE"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[]{"Choice 2"});
 
         assertTrue(msqDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.MSQ));
         List<String> errors = msqDetails.validateQuestionDetails(dummySessionToken);
@@ -301,14 +301,14 @@ public class FeedbackMsqQuestionDetailsTest extends BaseTestCase {
         FeedbackMsqQuestionDetails msqDetails = new FeedbackMsqQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
 
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "MSQ" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "msq question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[] { "NONE" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[] { "Choice 1" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[] { "Choice 2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[] { "1.22" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"MSQ"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"msq question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[]{"NONE"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[]{"Choice 1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[]{"Choice 2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[]{"1.22"});
         // The following msqWeight-1 is commented out, so the number of Weights can become 1 whereas numOfChoices is 2.
         // requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[] { "1.55" });
 
@@ -324,15 +324,15 @@ public class FeedbackMsqQuestionDetailsTest extends BaseTestCase {
         FeedbackMsqQuestionDetails msqDetails = new FeedbackMsqQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
 
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "MSQ" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "msq question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[] { "NONE" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[] { "Choice 1" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[] { "Choice 2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[] { "1.22" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[] { "1.55" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"MSQ"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"msq question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[]{"NONE"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[]{"Choice 1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[]{"Choice 2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[]{"1.22"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[]{"1.55"});
 
         assertTrue(msqDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.MSQ));
         assertTrue(msqDetails.hasAssignedWeights());
@@ -345,16 +345,16 @@ public class FeedbackMsqQuestionDetailsTest extends BaseTestCase {
         FeedbackMsqQuestionDetails msqDetails = new FeedbackMsqQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
 
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "MSQ" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "msq question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[] { "NONE" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[] { "Choice 1" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[] { "Choice 2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[] { "1.22" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"MSQ"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"msq question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[]{"NONE"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[]{"Choice 1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[]{"Choice 2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[]{"1.22"});
         // Pass negative weight for choice 1 to check that negative weights are not allowed.
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[] { "-1.55" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[]{"-1.55"});
 
         assertTrue(msqDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.MSQ));
         List<String> errors = msqDetails.validateQuestionDetails(dummySessionToken);
@@ -367,18 +367,18 @@ public class FeedbackMsqQuestionDetailsTest extends BaseTestCase {
         FeedbackMsqQuestionDetails msqDetails = new FeedbackMsqQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
 
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "MSQ" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "msq question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[] { "NONE" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[] { "Choice 1" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[] { "Choice 2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[] { "1.22" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[] { "1.55" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQOTHEROPTIONFLAG, new String[] { "on" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"MSQ"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"msq question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[]{"NONE"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[]{"Choice 1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[]{"Choice 2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[]{"1.22"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[]{"1.55"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQOTHEROPTIONFLAG, new String[]{"on"});
         // Pass negative weight for 'Other' option to check that negative weights are not allowed.
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_OTHER_WEIGHT, new String[] { "-2" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_OTHER_WEIGHT, new String[]{"-2"});
 
         assertTrue(msqDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.MSQ));
         List<String> errors = msqDetails.validateQuestionDetails(dummySessionToken);
@@ -391,17 +391,17 @@ public class FeedbackMsqQuestionDetailsTest extends BaseTestCase {
         FeedbackMsqQuestionDetails msqDetails = new FeedbackMsqQuestionDetails();
         HashMap<String, String[]> requestParams = new HashMap<>();
 
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[] { "MSQ" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[] { "msq question text" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[] { "STUDENTS" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[] { "2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[] { "Choice 1" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[] { "Choice 2" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[] { "2.57" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[] { "1.12" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQOTHEROPTIONFLAG, new String[] { "on" });
-        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_OTHER_WEIGHT, new String[] { "3.12" });
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TYPE, new String[]{"MSQ"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_TEXT, new String[]{"msq question text"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_GENERATED_OPTIONS, new String[]{"STUDENTS"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED, new String[]{"2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-0", new String[]{"Choice 1"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQCHOICE + "-1", new String[]{"Choice 2"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_HAS_WEIGHTS_ASSIGNED, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-0", new String[]{"2.57"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_WEIGHT + "-1", new String[]{"1.12"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQOTHEROPTIONFLAG, new String[]{"on"});
+        requestParams.put(Const.ParamsNames.FEEDBACK_QUESTION_MSQ_OTHER_WEIGHT, new String[]{"3.12"});
 
         assertTrue(msqDetails.extractQuestionDetails(requestParams, FeedbackQuestionType.MSQ));
         // As, weights does not support other generateOptionsFor options then 'NONE',

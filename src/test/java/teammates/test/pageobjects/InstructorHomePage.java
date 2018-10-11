@@ -267,7 +267,7 @@ public class InstructorHomePage extends AppPage {
         int sessionRowId = getEvaluationRowId(courseId, evalName);
         return browser.driver.findElement(
                 By.xpath("//tbody/tr[" + (sessionRowId + 1)
-                    + "]//button[contains(@class,'session-results-options')]"));
+                        + "]//button[contains(@class,'session-results-options')]"));
     }
 
     public void clickSessionResultsOptionsCaretElement(String courseId, String evalName) {

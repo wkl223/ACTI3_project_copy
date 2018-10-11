@@ -39,9 +39,9 @@ public class InstructorCourseStudentDetailsEditSaveAction extends Action {
 
         if (student == null) {
             return redirectWithError(Const.StatusMessages.STUDENT_NOT_FOUND_FOR_EDIT,
-                                     "Student <span class=\"bold\">" + studentEmail + "</span> in "
-                                     + "Course <span class=\"bold\">[" + courseId + "]</span> not found.",
-                                     courseId);
+                    "Student <span class=\"bold\">" + studentEmail + "</span> in "
+                            + "Course <span class=\"bold\">[" + courseId + "]</span> not found.",
+                    courseId);
         }
 
         student.name = getRequestParamValue(Const.ParamsNames.STUDENT_NAME);
@@ -82,19 +82,19 @@ public class InstructorCourseStudentDetailsEditSaveAction extends Action {
                         emailSender.sendEmail(email);
                     } catch (Exception e) {
                         log.severe("Error while sending session summary email"
-                                    + TeammatesException.toStringWithStackTrace(e));
+                                + TeammatesException.toStringWithStackTrace(e));
                     }
                 }
             }
 
             statusToUser.add(new StatusMessage(isSessionSummarySendEmail && isEmailChanged
-                                ? Const.StatusMessages.STUDENT_EDITED_AND_EMAIL_SENT
-                                : Const.StatusMessages.STUDENT_EDITED, StatusMessageColor.SUCCESS));
+                    ? Const.StatusMessages.STUDENT_EDITED_AND_EMAIL_SENT
+                    : Const.StatusMessages.STUDENT_EDITED, StatusMessageColor.SUCCESS));
 
             statusToAdmin = "Student <span class=\"bold\">" + studentEmail + "'s</span> details in "
-                            + "Course <span class=\"bold\">[" + courseId + "]</span> edited.<br>"
-                            + "New Email: " + student.email + "<br>New Team: " + student.team + "<br>"
-                            + "Comments: " + student.comments;
+                    + "Course <span class=\"bold\">[" + courseId + "]</span> edited.<br>"
+                    + "New Email: " + student.email + "<br>New Team: " + student.team + "<br>"
+                    + "Comments: " + student.comments;
 
             RedirectResult result = createRedirectResult(Const.ActionURIs.INSTRUCTOR_COURSE_DETAILS_PAGE);
             result.addResponseParam(Const.ParamsNames.COURSE_ID, courseId);

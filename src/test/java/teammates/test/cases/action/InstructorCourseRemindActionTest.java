@@ -39,7 +39,7 @@ public class InstructorCourseRemindActionTest extends BaseActionTest {
         ______TS("Typical case: Send email to remind an instructor to register for the course");
         gaeSimulation.loginAsInstructor(instructorId);
         InstructorAttributes anotherInstructorOfCourse1 = typicalBundle.instructors.get("instructorNotYetJoinCourse1");
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.INSTRUCTOR_EMAIL, anotherInstructorOfCourse1.email
         };
@@ -50,7 +50,7 @@ public class InstructorCourseRemindActionTest extends BaseActionTest {
         assertEquals(Const.ActionURIs.INSTRUCTOR_COURSE_EDIT_PAGE, redirectResult.destination);
         assertFalse(redirectResult.isError);
         assertEquals(Const.StatusMessages.COURSE_REMINDER_SENT_TO + anotherInstructorOfCourse1.email,
-                     redirectResult.getStatusMessage());
+                redirectResult.getStatusMessage());
 
         String expectedLogSegment = "Registration Key sent to the following users "
                 + "in Course <span class=\"bold\">[" + courseId + "]</span>:<br>"
@@ -69,7 +69,7 @@ public class InstructorCourseRemindActionTest extends BaseActionTest {
         ______TS("Typical case: Send email to remind a student to register for the course from course details page");
 
         StudentAttributes student1InCourse1 = typicalBundle.students.get("student1InCourse1");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.STUDENT_EMAIL, student1InCourse1.email,
                 Const.ParamsNames.INSTRUCTOR_REMIND_STUDENT_IS_FROM, Const.PageNames.INSTRUCTOR_COURSE_DETAILS_PAGE
@@ -81,7 +81,7 @@ public class InstructorCourseRemindActionTest extends BaseActionTest {
         assertEquals(Const.ActionURIs.INSTRUCTOR_COURSE_DETAILS_PAGE, redirectResult.destination);
         assertFalse(redirectResult.isError);
         assertEquals(Const.StatusMessages.COURSE_REMINDER_SENT_TO + student1InCourse1.email,
-                     redirectResult.getStatusMessage());
+                redirectResult.getStatusMessage());
 
         expectedLogSegment = "Registration Key sent to the following users "
                 + "in Course <span class=\"bold\">[" + courseId + "]</span>:<br>"
@@ -135,7 +135,7 @@ public class InstructorCourseRemindActionTest extends BaseActionTest {
         unregisteredStudent1 = StudentsLogic.inst().getStudentForEmail(courseId, unregisteredStudent1.email);
         unregisteredStudent2 = StudentsLogic.inst().getStudentForEmail(courseId, unregisteredStudent2.email);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId
         };
         remindAction = getAction(addUserIdToParams(instructorId, submissionParams));
@@ -143,7 +143,7 @@ public class InstructorCourseRemindActionTest extends BaseActionTest {
         assertEquals(Const.ActionURIs.INSTRUCTOR_COURSE_DETAILS_PAGE, redirectResult.destination);
         assertFalse(redirectResult.isError);
         assertEquals(Const.StatusMessages.COURSE_REMINDERS_SENT,
-                     redirectResult.getStatusMessage());
+                redirectResult.getStatusMessage());
 
         // 2 unregistered students, thus 2 emails queued to be sent
         verifySpecifiedTasksAdded(remindAction, Const.TaskQueue.STUDENT_COURSE_JOIN_EMAIL_QUEUE_NAME, 2);
@@ -171,7 +171,7 @@ public class InstructorCourseRemindActionTest extends BaseActionTest {
 
         ______TS("Typical case: no unregistered students in course");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId
         };
         remindAction = getAction(addUserIdToParams(instructorId, submissionParams));
@@ -189,14 +189,14 @@ public class InstructorCourseRemindActionTest extends BaseActionTest {
         ______TS("Failure case: Invalid email parameter");
 
         String invalidEmail = "invalidEmail.com";
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.INSTRUCTOR_EMAIL, invalidEmail
         };
 
         executeAndAssertEntityNotFoundException(instructorId, submissionParams);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.STUDENT_EMAIL, invalidEmail
         };
@@ -205,7 +205,7 @@ public class InstructorCourseRemindActionTest extends BaseActionTest {
 
         ______TS("Failure case: Invalid course id parameter");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, "invalidCourseId",
                 Const.ParamsNames.INSTRUCTOR_EMAIL, anotherInstructorOfCourse1.email
         };
@@ -232,7 +232,7 @@ public class InstructorCourseRemindActionTest extends BaseActionTest {
     @Override
     @Test
     protected void testAccessControl() throws Exception {
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, typicalBundle.instructors.get("instructor1OfCourse1").courseId
         };
 

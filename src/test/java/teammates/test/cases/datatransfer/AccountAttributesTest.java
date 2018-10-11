@@ -43,21 +43,21 @@ public class AccountAttributesTest extends BaseAttributesTest {
         account = createInvalidAccountAttributesObject();
         String expectedError =
                 getPopulatedEmptyStringErrorMessage(
-                    FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE_EMPTY_STRING,
-                    FieldValidator.PERSON_NAME_FIELD_NAME, FieldValidator.PERSON_NAME_MAX_LENGTH) + System.lineSeparator()
-                + getPopulatedErrorMessage(
-                      FieldValidator.GOOGLE_ID_ERROR_MESSAGE, "invalid google id",
-                      FieldValidator.GOOGLE_ID_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
-                      FieldValidator.GOOGLE_ID_MAX_LENGTH) + System.lineSeparator()
-                + getPopulatedErrorMessage(
-                      FieldValidator.EMAIL_ERROR_MESSAGE, "invalid@email@com",
-                      FieldValidator.EMAIL_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
-                      FieldValidator.EMAIL_MAX_LENGTH) + System.lineSeparator()
-                + getPopulatedErrorMessage(
-                      FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE,
-                      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                      FieldValidator.INSTITUTE_NAME_FIELD_NAME, FieldValidator.REASON_TOO_LONG,
-                      FieldValidator.INSTITUTE_NAME_MAX_LENGTH);
+                        FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE_EMPTY_STRING,
+                        FieldValidator.PERSON_NAME_FIELD_NAME, FieldValidator.PERSON_NAME_MAX_LENGTH) + System.lineSeparator()
+                        + getPopulatedErrorMessage(
+                        FieldValidator.GOOGLE_ID_ERROR_MESSAGE, "invalid google id",
+                        FieldValidator.GOOGLE_ID_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
+                        FieldValidator.GOOGLE_ID_MAX_LENGTH) + System.lineSeparator()
+                        + getPopulatedErrorMessage(
+                        FieldValidator.EMAIL_ERROR_MESSAGE, "invalid@email@com",
+                        FieldValidator.EMAIL_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
+                        FieldValidator.EMAIL_MAX_LENGTH) + System.lineSeparator()
+                        + getPopulatedErrorMessage(
+                        FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE,
+                        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                        FieldValidator.INSTITUTE_NAME_FIELD_NAME, FieldValidator.REASON_TOO_LONG,
+                        FieldValidator.INSTITUTE_NAME_MAX_LENGTH);
         assertFalse("all valid values", account.isValid());
         assertEquals("all valid values", expectedError, StringHelper.toString(account.getInvalidityInfo()));
 
@@ -311,15 +311,15 @@ public class AccountAttributesTest extends BaseAttributesTest {
                 .withEmail("&<email>&")
                 .withIsInstructor(true)
                 .withStudentProfileAttributes(StudentProfileAttributes.builder("googleId@gmail.com")
-                    .withShortName(shortName)
-                    .withEmail(personalEmail)
-                    .withInstitute(profileInstitute)
-                    .withNationality(nationality)
-                    .withGender(gender)
-                    .withMoreInfo(moreInfo)
-                    .withPictureKey(pictureKey)
-                    .withModifiedDate(Const.TIME_REPRESENTS_DEFAULT_TIMESTAMP)
-                    .build())
+                        .withShortName(shortName)
+                        .withEmail(personalEmail)
+                        .withInstitute(profileInstitute)
+                        .withNationality(nationality)
+                        .withGender(gender)
+                        .withMoreInfo(moreInfo)
+                        .withPictureKey(pictureKey)
+                        .withModifiedDate(Const.TIME_REPRESENTS_DEFAULT_TIMESTAMP)
+                        .build())
                 .build();
 
     }

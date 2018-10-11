@@ -61,9 +61,9 @@ public final class SearchManager {
     /**
      * Tries putting a document, handling transient errors by retrying with exponential backoff.
      *
-     * @throws PutException if a non-transient error is encountered.
+     * @throws PutException                    if a non-transient error is encountered.
      * @throws MaximumRetriesExceededException with final {@link OperationResult}'s message as final message,
-     *         if operation fails after maximum retries.
+     *                                         if operation fails after maximum retries.
      */
     private static void putDocumentWithRetry(String indexName, final Document document)
             throws PutException, MaximumRetriesExceededException {
@@ -129,9 +129,9 @@ public final class SearchManager {
     /**
      * Tries putting multiple documents, handling transient errors by retrying with exponential backoff.
      *
-     * @throws PutException when only non-transient errors are encountered.
+     * @throws PutException                    when only non-transient errors are encountered.
      * @throws MaximumRetriesExceededException with list of failed {@link Document}s as final data and
-     *         final {@link OperationResult}'s message as final message, if operation fails after maximum retries.
+     *                                         final {@link OperationResult}'s message as final message, if operation fails after maximum retries.
      */
     private static void putDocumentsWithRetry(String indexName, final List<Document> documents)
             throws PutException, MaximumRetriesExceededException {

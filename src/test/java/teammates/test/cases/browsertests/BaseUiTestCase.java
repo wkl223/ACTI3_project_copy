@@ -88,7 +88,7 @@ public abstract class BaseUiTestCase extends BaseTestCaseWithBackDoorApiAccess {
      */
     protected static Url createLocalUrl(String testFileName) throws IOException {
         return new Url("file:///" + new File(".").getCanonicalPath() + "/"
-                                  + TestProperties.TEST_PAGES_FOLDER + testFileName);
+                + TestProperties.TEST_PAGES_FOLDER + testFileName);
     }
 
     /**
@@ -133,7 +133,7 @@ public abstract class BaseUiTestCase extends BaseTestCaseWithBackDoorApiAccess {
      * Logs in a page as an instructor.
      */
     protected <T extends AppPage> T loginInstructorToPage(String instructorGoogleId, String password,
-            AppUrl url, Class<T> typeOfPage) {
+                                                          AppUrl url, Class<T> typeOfPage) {
         //logout
         logout();
 

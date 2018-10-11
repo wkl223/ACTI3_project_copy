@@ -27,7 +27,9 @@
               <div class="col-lg-8">
                 <p class="form-control-static">
                   Instructor Session
-                  <a data-original-title="Edit feedback session details" data-placement="top" data-toggle="tooltip" href="/page/instructorFeedbackEditPage?courseid=FRankUiT.CS4221&fsname=Instructor+Session&editsessiondetails=true&user=FRankUiT.instructor" id="edit_icon_button">
+                  <a data-original-title="Edit feedback session details" data-placement="top" data-toggle="tooltip"
+                     href="/page/instructorFeedbackEditPage?courseid=FRankUiT.CS4221&fsname=Instructor+Session&editsessiondetails=true&user=FRankUiT.instructor"
+                     id="edit_icon_button">
                     <span class="glyphicon glyphicon-edit">
                     </span>
                   </a>
@@ -66,7 +68,8 @@
               <div class="col-md-12">
                 <form action="/page/instructorFeedbackResultsDownload" method="post">
                   <div id="feedbackDataButtons">
-                    <input class="btn btn-primary btn-block" id="button_download" name="fruploaddownloadbtn" type="submit" value="Download Results">
+                    <input class="btn btn-primary btn-block" id="button_download" name="fruploaddownloadbtn"
+                           type="submit" value="Download Results">
                   </div>
                   <input name="user" type="hidden" value="FRankUiT.instructor">
                   <input name="fsname" type="hidden" value="Instructor Session">
@@ -77,7 +80,11 @@
                 </form>
                 <br>
                 <div>
-                  <a class="btn btn-primary btn-block session-unpublish-for-test" data-fsname="Instructor Session" data-original-title="Make responses no longer visible" data-placement="top" data-sending-published-email="true" data-toggle="tooltip" href="/page/instructorFeedbackUnpublish?courseid=FRankUiT.CS4221&fsname=Instructor+Session&next=%2Fpage%2FinstructorFeedbackSessionsPage&user=FRankUiT.instructor&token=${sessionToken}" title="">
+                  <a class="btn btn-primary btn-block session-unpublish-for-test" data-fsname="Instructor Session"
+                     data-original-title="Make responses no longer visible" data-placement="top"
+                     data-sending-published-email="true" data-toggle="tooltip"
+                     href="/page/instructorFeedbackUnpublish?courseid=FRankUiT.CS4221&fsname=Instructor+Session&next=%2Fpage%2FinstructorFeedbackSessionsPage&user=FRankUiT.instructor&token=${sessionToken}"
+                     title="">
                     Unpublish Results
                   </a>
                 </div>
@@ -213,7 +220,8 @@
       </div>
       <div class="row">
         <div class="col-md-offset-10 col-md-2">
-          <button class="btn btn-primary btn-block" data-target="#editModal" data-toggle="modal" id="editBtn" type="button">
+          <button class="btn btn-primary btn-block" data-target="#editModal" data-toggle="modal" id="editBtn"
+                  type="button">
             Edit View
           </button>
         </div>
@@ -221,7 +229,9 @@
     </div>
     <div class="modal fade" id="editModal" role="dialog">
       <div class="modal-dialog">
-        <form action="/page/instructorFeedbackResultsPage?courseid=FRankUiT.CS4221&fsname=Instructor+Session&user=FRankUiT.instructor" method="post">
+        <form
+            action="/page/instructorFeedbackResultsPage?courseid=FRankUiT.CS4221&fsname=Instructor+Session&user=FRankUiT.instructor"
+            method="post">
           <div class="modal-content">
             <div class="modal-header alert-info">
               <button class="close" data-dismiss="modal" type="button">
@@ -302,7 +312,8 @@
                   </div>
                   <div data-original-title="Indicate missing responses" data-toggle="tooltip" title="">
                     <div class="checkbox">
-                      <input id="indicate-missing-responses-checkbox" name="frindicatemissingresponses" type="checkbox" value="true">
+                      <input id="indicate-missing-responses-checkbox" name="frindicatemissingresponses" type="checkbox"
+                             value="true">
                       Indicate Missing Responses
                     </div>
                   </div>
@@ -329,14 +340,17 @@
   <div id="statusMessagesToUser" style="display: none;">
   </div>
   <div>
-    <a class="btn btn-default btn-xs pull-right" data-original-title="Expand all panels. You can also click on the panel heading to toggle each one individually." data-toggle="tooltip" id="collapse-panels-button" title="">
+    <a class="btn btn-default btn-xs pull-right"
+       data-original-title="Expand all panels. You can also click on the panel heading to toggle each one individually."
+       data-toggle="tooltip" id="collapse-panels-button" title="">
       Expand All Sections
     </a>
   </div>
   <br>
   <br>
   <div class="panel panel-success">
-    <div class="panel-heading ajax_auto" data-target="#panelBodyCollapse-section-0-1" id="panelHeading-section-0-1" style="cursor: pointer;">
+    <div class="panel-heading ajax_auto" data-target="#panelBodyCollapse-section-0-1" id="panelHeading-section-0-1"
+         style="cursor: pointer;">
       <div class="row">
         <div class="col-sm-9 panel-heading-text">
           <strong>
@@ -345,7 +359,9 @@
         </div>
         <div class="col-sm-3">
           <div class="pull-right">
-            <a class="btn btn-success btn-xs collapse" data-original-title="Collapse or expand all student panels. You can also click on the panel heading to toggle each one individually." data-toggle="tooltip" id="collapse-panels-button-section-0" title="">
+            <a class="btn btn-success btn-xs collapse"
+               data-original-title="Collapse or expand all student panels. You can also click on the panel heading to toggle each one individually."
+               data-toggle="tooltip" id="collapse-panels-button-section-0" title="">
               Collapse Students
             </a>
              
@@ -374,7 +390,8 @@
     </div>
   </div>
   <div class="panel panel-success">
-    <div class="panel-heading" data-target="#panelBodyCollapse-section-1-2" id="panelHeading-section-1-2" style="cursor: pointer;">
+    <div class="panel-heading" data-target="#panelBodyCollapse-section-1-2" id="panelHeading-section-1-2"
+         style="cursor: pointer;">
       <div class="row">
         <div class="col-sm-9 panel-heading-text">
           <strong>
@@ -383,7 +400,9 @@
         </div>
         <div class="col-sm-3">
           <div class="pull-right">
-            <a class="btn btn-success btn-xs collapse" data-original-title="Collapse or expand all student panels. You can also click on the panel heading to toggle each one individually." data-toggle="tooltip" id="collapse-panels-button-section-1" style="display: inline;" title="">
+            <a class="btn btn-success btn-xs collapse"
+               data-original-title="Collapse or expand all student panels. You can also click on the panel heading to toggle each one individually."
+               data-toggle="tooltip" id="collapse-panels-button-section-1" style="display: inline;" title="">
               Collapse Students
             </a>
              
@@ -413,7 +432,8 @@
     </div>
   </div>
   <div class="panel panel-success">
-    <div class="panel-heading ajax_auto" data-target="#panelBodyCollapse-section-2-3" id="panelHeading-section-2-3" style="cursor: pointer;">
+    <div class="panel-heading ajax_auto" data-target="#panelBodyCollapse-section-2-3" id="panelHeading-section-2-3"
+         style="cursor: pointer;">
       <div class="row">
         <div class="col-sm-9 panel-heading-text">
           <strong>
@@ -422,7 +442,9 @@
         </div>
         <div class="col-sm-3">
           <div class="pull-right">
-            <a class="btn btn-success btn-xs collapse" data-original-title="Collapse or expand all student panels. You can also click on the panel heading to toggle each one individually." data-toggle="tooltip" id="collapse-panels-button-section-2" title="">
+            <a class="btn btn-success btn-xs collapse"
+               data-original-title="Collapse or expand all student panels. You can also click on the panel heading to toggle each one individually."
+               data-toggle="tooltip" id="collapse-panels-button-section-2" title="">
               Collapse Students
             </a>
              
@@ -453,7 +475,9 @@
   <div aria-hidden="true" aria-labelledby="remindModal" class="modal fade" id="remindModal" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <form action="/page/instructorFeedbackRemindParticularStudents?next=%2Fpage%2FinstructorFeedbackResultsPage%3Fuser%3DFRankUiT.instructor%26courseid%3DFRankUiT.CS4221%26fsname%3DInstructor%2BSession&token=${sessionToken}" method="post" name="form_remind_list" role="form">
+        <form
+            action="/page/instructorFeedbackRemindParticularStudents?next=%2Fpage%2FinstructorFeedbackResultsPage%3Fuser%3DFRankUiT.instructor%26courseid%3DFRankUiT.CS4221%26fsname%3DInstructor%2BSession&token=${sessionToken}"
+            method="post" name="form_remind_list" role="form">
           <div class="modal-header">
             <button aria-hidden="true" class="close" data-dismiss="modal" type="button">
               ×
@@ -491,8 +515,10 @@
     </div>
   </div>
   <div class="panel panel-default">
-    <div class="panel-heading ajax-response-auto" data-target="#panelBodyCollapse-4" id="panelHeading-4" style="cursor: pointer;">
-      <form action="/page/instructorFeedbackResultsPage" class="responseRateForm" id="responseRate" style="display:none;">
+    <div class="panel-heading ajax-response-auto" data-target="#panelBodyCollapse-4" id="panelHeading-4"
+         style="cursor: pointer;">
+      <form action="/page/instructorFeedbackResultsPage" class="responseRateForm" id="responseRate"
+            style="display:none;">
         <input name="courseid" type="hidden" value="FRankUiT.CS4221">
         <input name="fsname" type="hidden" value="Instructor Session">
         <input name="user" type="hidden" value="FRankUiT.instructor">

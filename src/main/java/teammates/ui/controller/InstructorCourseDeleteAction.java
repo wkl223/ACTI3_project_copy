@@ -17,8 +17,8 @@ public class InstructorCourseDeleteAction extends Action {
         Assumption.assertPostParamNotNull(Const.ParamsNames.COURSE_ID, idOfCourseToDelete);
 
         gateKeeper.verifyAccessible(logic.getInstructorForGoogleId(idOfCourseToDelete, account.googleId),
-                                    logic.getCourse(idOfCourseToDelete),
-                                    Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_COURSE);
+                logic.getCourse(idOfCourseToDelete),
+                Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_COURSE);
 
         try {
             /* Move the course to recycle bin and setup status to be shown to user and admin */

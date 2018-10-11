@@ -42,9 +42,9 @@ public class FeedbackResponseCommentsDbTest extends BaseComponentTestCase {
         frcDb.createEntity(frcaData);
         frcDb.createEntity(anotherFrcaData);
         frcaData = frcDb.getFeedbackResponseComment(frcaData.feedbackResponseId,
-                                 frcaData.commentGiver, frcaData.createdAt);
+                frcaData.commentGiver, frcaData.createdAt);
         anotherFrcaData = frcDb.getFeedbackResponseComment(anotherFrcaData.feedbackResponseId,
-                                        anotherFrcaData.commentGiver, anotherFrcaData.createdAt);
+                anotherFrcaData.commentGiver, anotherFrcaData.createdAt);
         frcasData.add(frcaData);
         frcasData.add(anotherFrcaData);
     }
@@ -229,7 +229,7 @@ public class FeedbackResponseCommentsDbTest extends BaseComponentTestCase {
         frcaTemp.commentText = new Text("Update feedback response comment");
         frcDb.createEntity(frcaTemp);
         frcaTemp = frcDb.getFeedbackResponseComment(frcaTemp.feedbackResponseId,
-                                 frcaTemp.commentGiver, frcaTemp.createdAt);
+                frcaTemp.commentGiver, frcaTemp.createdAt);
 
         FeedbackResponseCommentAttributes frcaExpected =
                 frcDb.getFeedbackResponseComment(frcaTemp.courseId, frcaTemp.createdAt, frcaTemp.commentGiver);
@@ -238,7 +238,7 @@ public class FeedbackResponseCommentsDbTest extends BaseComponentTestCase {
 
         FeedbackResponseCommentAttributes frcaActual =
                 frcDb.getFeedbackResponseComment(
-                              frcaExpected.courseId, frcaExpected.createdAt, frcaExpected.commentGiver);
+                        frcaExpected.courseId, frcaExpected.createdAt, frcaExpected.commentGiver);
 
         frcaExpected.setId(frcaActual.getId());
         frcaExpected.feedbackQuestionId = frcaActual.feedbackQuestionId;

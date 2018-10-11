@@ -12,7 +12,7 @@
     <div id="statusMessagesToUser">
       <c:forEach items="${statusMessagesToUser}" var="statusMessage">
         <div class="overflow-auto alert alert-${statusMessage.color} icon-${statusMessage.color} statusMessage">
-          ${statusMessage.text}
+            ${statusMessage.text}
         </div>
       </c:forEach>
     </div>

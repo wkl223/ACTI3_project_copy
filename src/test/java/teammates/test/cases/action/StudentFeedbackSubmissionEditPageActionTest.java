@@ -64,14 +64,14 @@ public class StudentFeedbackSubmissionEditPageActionTest extends BaseActionTest 
 
         FeedbackSessionAttributes session1InCourse1 = dataBundle.feedbackSessions.get("session1InCourse1");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, session1InCourse1.getFeedbackSessionName(),
                 Const.ParamsNames.USER_ID, student1InCourse1.googleId
         };
 
         verifyAssumptionFailure(submissionParams);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, session1InCourse1.getCourseId(),
                 Const.ParamsNames.USER_ID, student1InCourse1.googleId
         };
@@ -80,7 +80,7 @@ public class StudentFeedbackSubmissionEditPageActionTest extends BaseActionTest 
 
         ______TS("Test null feedback session name parameter");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, session1InCourse1.getCourseId(),
                 Const.ParamsNames.USER_ID, student1InCourse1.googleId
         };
@@ -94,12 +94,12 @@ public class StudentFeedbackSubmissionEditPageActionTest extends BaseActionTest 
             signalFailureToDetectException("Did not detect that parameters are null.");
         } catch (NullPostParameterException e) {
             assertEquals(String.format(Const.StatusCodes.NULL_POST_PARAMETER,
-                                       Const.ParamsNames.FEEDBACK_SESSION_NAME), e.getMessage());
+                    Const.ParamsNames.FEEDBACK_SESSION_NAME), e.getMessage());
         }
 
         ______TS("Test null course id parameter");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, session1InCourse1.getFeedbackSessionName(),
                 Const.ParamsNames.USER_ID, student1InCourse1.googleId
         };
@@ -110,12 +110,12 @@ public class StudentFeedbackSubmissionEditPageActionTest extends BaseActionTest 
             signalFailureToDetectException("Did not detect that parameters are null.");
         } catch (NullPostParameterException e) {
             assertEquals(String.format(Const.StatusCodes.NULL_POST_PARAMETER,
-                                       Const.ParamsNames.COURSE_ID), e.getMessage());
+                    Const.ParamsNames.COURSE_ID), e.getMessage());
         }
 
         ______TS("typical success case for registered student");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, session1InCourse1.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, session1InCourse1.getFeedbackSessionName(),
                 Const.ParamsNames.USER_ID, student1InCourse1.googleId
@@ -139,7 +139,7 @@ public class StudentFeedbackSubmissionEditPageActionTest extends BaseActionTest 
 
         feedbackSessionsDb.deleteEntity(session1InCourse1);
 
-        String[] params = new String[] {
+        String[] params = new String[]{
                 Const.ParamsNames.COURSE_ID, session1InCourse1.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, session1InCourse1.getFeedbackSessionName(),
                 Const.ParamsNames.USER_ID, student1InCourse1.googleId
@@ -153,7 +153,7 @@ public class StudentFeedbackSubmissionEditPageActionTest extends BaseActionTest 
                 redirectResult.getDestinationWithParams());
         assertFalse(redirectResult.isError);
         assertEquals(Const.StatusMessages.FEEDBACK_SESSION_DELETED_NO_ACCESS,
-                     redirectResult.getStatusMessage());
+                redirectResult.getStatusMessage());
 
         // for unregistered student
 
@@ -162,7 +162,7 @@ public class StudentFeedbackSubmissionEditPageActionTest extends BaseActionTest 
         unregStudent = stDb.getStudentForEmail("idOfTypicalCourse1", "unreg@stud.ent");
         gaeSimulation.logoutUser();
 
-        params = new String[] {
+        params = new String[]{
                 Const.ParamsNames.COURSE_ID, session1InCourse1.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, session1InCourse1.getFeedbackSessionName(),
                 Const.ParamsNames.REGKEY, StringHelper.encrypt(unregStudent.key),
@@ -173,10 +173,10 @@ public class StudentFeedbackSubmissionEditPageActionTest extends BaseActionTest 
             pageAction = getAction(params);
 
             AssertHelper.assertLogMessageEqualsForUnregisteredStudentUser(
-                            "TEAMMATESLOG|||studentFeedbackSubmissionEditPage|||studentFeedbackSubmissionEditPage|||"
-                          + "true|||Unregistered:idOfTypicalCourse1|||Unreg Student|||Unknown|||unreg@stud.ent|||"
-                          + "Unknown|||/page/studentFeedbackSubmissionEditPage", pageAction.getLogMessage(),
-                            unregStudent.email, unregStudent.course);
+                    "TEAMMATESLOG|||studentFeedbackSubmissionEditPage|||studentFeedbackSubmissionEditPage|||"
+                            + "true|||Unregistered:idOfTypicalCourse1|||Unreg Student|||Unknown|||unreg@stud.ent|||"
+                            + "Unknown|||/page/studentFeedbackSubmissionEditPage", pageAction.getLogMessage(),
+                    unregStudent.email, unregStudent.course);
 
             redirectResult = getRedirectResult(pageAction);
             signalFailureToDetectException("EntityDoesNotExist");
@@ -193,7 +193,7 @@ public class StudentFeedbackSubmissionEditPageActionTest extends BaseActionTest 
 
         session1InCourse1 = dataBundle.feedbackSessions.get("session1InCourse1");
 
-        params = new String[] {
+        params = new String[]{
                 Const.ParamsNames.COURSE_ID, session1InCourse1.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, session1InCourse1.getFeedbackSessionName(),
                 Const.ParamsNames.USER_ID, student1InCourse1.googleId
@@ -231,9 +231,9 @@ public class StudentFeedbackSubmissionEditPageActionTest extends BaseActionTest 
 
         new StudentsDb()
                 .updateStudentWithoutSearchability(student1InCourse1.course, student1InCourse1.email,
-                                                   student1InCourse1.name, student1InCourse1.team,
-                                                   student1InCourse1.section, student1InCourse1.email,
-                                                   student1InCourse1.googleId, student1InCourse1.comments);
+                        student1InCourse1.name, student1InCourse1.team,
+                        student1InCourse1.section, student1InCourse1.email,
+                        student1InCourse1.googleId, student1InCourse1.comments);
 
         pageAction = getAction(params);
         redirectResult = getRedirectResult(pageAction);
@@ -243,7 +243,7 @@ public class StudentFeedbackSubmissionEditPageActionTest extends BaseActionTest 
                 redirectResult.getDestinationWithParams());
         assertTrue(redirectResult.isError);
         assertEquals("You are not registered in the course " + session1InCourse1.getCourseId(),
-                     redirectResult.getStatusMessage());
+                redirectResult.getStatusMessage());
     }
 
     @Override
@@ -257,7 +257,7 @@ public class StudentFeedbackSubmissionEditPageActionTest extends BaseActionTest 
         FeedbackSessionAttributes session1InCourse1 = dataBundle.feedbackSessions
                 .get("session1InCourse1");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, session1InCourse1.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME,
                 session1InCourse1.getFeedbackSessionName()

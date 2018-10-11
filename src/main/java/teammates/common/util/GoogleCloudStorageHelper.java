@@ -32,7 +32,7 @@ public final class GoogleCloudStorageHelper {
 
     /**
      * Returns true if a file with the specified {@link BlobKey} exists in the
-     *         Google Cloud Storage.
+     * Google Cloud Storage.
      */
     public static boolean doesFileExistInGcs(BlobKey fileKey) {
         try {
@@ -63,8 +63,8 @@ public final class GoogleCloudStorageHelper {
     public static String writeImageDataToGcs(String googleId, byte[] imageData) throws IOException {
         GcsFilename gcsFilename = new GcsFilename(Config.GCS_BUCKETNAME, googleId);
         try (GcsOutputChannel outputChannel =
-                GcsServiceFactory.createGcsService(RetryParams.getDefaultInstance())
-                .createOrReplace(gcsFilename, new GcsFileOptions.Builder().mimeType("image/png").build())) {
+                     GcsServiceFactory.createGcsService(RetryParams.getDefaultInstance())
+                             .createOrReplace(gcsFilename, new GcsFileOptions.Builder().mimeType("image/png").build())) {
 
             outputChannel.write(ByteBuffer.wrap(imageData));
         }
@@ -81,18 +81,18 @@ public final class GoogleCloudStorageHelper {
     public static String getNewUploadUrl(String callbackUrl) {
         UploadOptions uploadOptions =
                 UploadOptions.Builder.withDefaults()
-                             .googleStorageBucketName(Config.GCS_BUCKETNAME)
-                             .maxUploadSizeBytes(Const.SystemParams.MAX_FILE_LIMIT_FOR_BLOBSTOREAPI);
+                        .googleStorageBucketName(Config.GCS_BUCKETNAME)
+                        .maxUploadSizeBytes(Const.SystemParams.MAX_FILE_LIMIT_FOR_BLOBSTOREAPI);
 
         return BlobstoreServiceFactory.getBlobstoreService()
-                                      .createUploadUrl(callbackUrl, uploadOptions);
+                .createUploadUrl(callbackUrl, uploadOptions);
     }
 
     /**
      * Gets the file with the specified {@link BlobKey} in the Google Cloud Storage,
      * parses it and returns it as a list of list.<br>
      * Assumption: the file represented by {@code blobKey} is a valid txt file
-     *             that can be parsed into a comma-separated list
+     * that can be parsed into a comma-separated list
      */
     public static List<List<String>> getGroupReceiverList(BlobKey blobKey) throws IOException {
         Assumption.assertNotNull(blobKey);

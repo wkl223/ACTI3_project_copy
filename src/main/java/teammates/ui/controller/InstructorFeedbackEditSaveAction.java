@@ -40,13 +40,13 @@ public class InstructorFeedbackEditSaveAction extends InstructorFeedbackAbstract
             statusToUser.add(new StatusMessage(Const.StatusMessages.FEEDBACK_SESSION_EDITED, StatusMessageColor.SUCCESS));
             statusToAdmin =
                     "Updated Feedback Session "
-                    + "<span class=\"bold\">(" + feedbackSession.getFeedbackSessionName() + ")</span> for Course "
-                    + "<span class=\"bold\">[" + feedbackSession.getCourseId() + "]</span> created.<br>"
-                    + "<span class=\"bold\">From:</span> " + feedbackSession.getStartTime()
-                    + "<span class=\"bold\"> to</span> " + feedbackSession.getEndTime()
-                    + "<br><span class=\"bold\">Session visible from:</span> " + feedbackSession.getSessionVisibleFromTime()
-                    + "<br><span class=\"bold\">Results visible from:</span> " + feedbackSession.getResultsVisibleFromTime()
-                    + "<br><br><span class=\"bold\">Instructions:</span> " + feedbackSession.getInstructions();
+                            + "<span class=\"bold\">(" + feedbackSession.getFeedbackSessionName() + ")</span> for Course "
+                            + "<span class=\"bold\">[" + feedbackSession.getCourseId() + "]</span> created.<br>"
+                            + "<span class=\"bold\">From:</span> " + feedbackSession.getStartTime()
+                            + "<span class=\"bold\"> to</span> " + feedbackSession.getEndTime()
+                            + "<br><span class=\"bold\">Session visible from:</span> " + feedbackSession.getSessionVisibleFromTime()
+                            + "<br><span class=\"bold\">Results visible from:</span> " + feedbackSession.getResultsVisibleFromTime()
+                            + "<br><br><span class=\"bold\">Instructions:</span> " + feedbackSession.getInstructions();
             data.setHasError(false);
         } catch (InvalidParametersException e) {
             setStatusForException(e);
@@ -72,7 +72,7 @@ public class InstructorFeedbackEditSaveAction extends InstructorFeedbackAbstract
     }
 
     private void addResolvedTimeFieldToDataIfRequired(LocalDateTime input, LocalDateTime resolved,
-            InstructorFeedbackEditPageData data, String dateInputId, String timeInputId) {
+                                                      InstructorFeedbackEditPageData data, String dateInputId, String timeInputId) {
         if (input == null || input.isEqual(resolved)) {
             return;
         }

@@ -15,7 +15,8 @@ function bindLinksInUnregisteredPage(selector) {
         e.preventDefault();
         const $clickedLink = $(e.currentTarget);
 
-        const { header, text } = Const.ModalDialog.UNREGISTERED_STUDENT;
+        const {header, text} = Const.ModalDialog.UNREGISTERED_STUDENT;
+
         function okCallback() {
             window.location = $clickedLink.attr('href');
         }

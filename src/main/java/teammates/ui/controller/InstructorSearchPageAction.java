@@ -64,7 +64,7 @@ public class InstructorSearchPageAction extends Action {
 
             if (totalResultsSize == 0) {
                 statusToUser.add(new StatusMessage(Const.StatusMessages.INSTRUCTOR_SEARCH_NO_RESULTS,
-                                                   StatusMessageColor.WARNING));
+                        StatusMessageColor.WARNING));
             }
         }
 

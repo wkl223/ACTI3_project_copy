@@ -44,18 +44,18 @@ public class InstructorStudentListAjaxPageAction extends Action {
                 for (StudentAttributes student : teamDetails.students) {
                     String studentPhotoUrl = student.getPublicProfilePictureUrl();
                     studentPhotoUrl = Url.addParamToUrl(studentPhotoUrl,
-                                                    Const.ParamsNames.USER_ID, account.googleId);
+                            Const.ParamsNames.USER_ID, account.googleId);
                     emailPhotoUrlMapping.put(student.email, studentPhotoUrl);
                 }
             }
             Map<String, Boolean> sectionPrivilege = new HashMap<>();
             sectionPrivilege.put(Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_STUDENT_IN_SECTIONS,
-                                 instructor.isAllowedForPrivilege(
-                                         sectionDetails.name,
-                                         Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_STUDENT_IN_SECTIONS));
+                    instructor.isAllowedForPrivilege(
+                            sectionDetails.name,
+                            Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_STUDENT_IN_SECTIONS));
             sectionPrivilege.put(Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_STUDENT,
-                                 instructor.isAllowedForPrivilege(sectionDetails.name,
-                                                                  Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_STUDENT));
+                    instructor.isAllowedForPrivilege(sectionDetails.name,
+                            Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_STUDENT));
             sectionPrivileges.put(sectionDetails.name, sectionPrivilege);
         }
 

@@ -149,10 +149,10 @@ function renderPage(page) {
                 $(button).addClass('btn-primary');
                 $(button).prop('disabled', true);
             } else if (
-                pageNum === 1
-                || pageNum === numPages
-                || pageNum === curPage - 1
-                || pageNum === curPage + 1
+                    pageNum === 1
+                    || pageNum === numPages
+                    || pageNum === curPage - 1
+                    || pageNum === curPage + 1
             ) {
                 $(button).removeClass('hidden-xs');
                 $(button).prop('disabled', false);
@@ -200,6 +200,7 @@ function bindPagingButtons() {
             renderPage(pageNo);
         });
     }
+
     $('#pagingControls').find('button').each((idx, pageButton) => {
         if ($(pageButton).text() !== '...') {
             if ($(pageButton).attr('data') === 'prevPage') {
@@ -229,16 +230,16 @@ function searchQuestions() {
     // for details refer to elasticlunr documentation
     const results = index.search(query, {
         fields: {
-            title: { boost: 4 },
-            tags: { boost: 2 },
-            body: { boost: 0.5 },
+            title: {boost: 4},
+            tags: {boost: 2},
+            body: {boost: 0.5},
         },
         bool: 'AND',
     });
 
     // add relevant panels to search results
     $.each(results, (idx, result) => {
-        const { htmlId } = questionMap[result.ref];
+        const {htmlId} = questionMap[result.ref];
         const questionPanel = $(`#${htmlId}`).get(0);
         $('#searchResults').append(questionPanel.outerHTML);
     });
@@ -260,12 +261,12 @@ function searchQuestions() {
         }
 
         let buttonHtml = '<button type="button" class="btn btn-default" data="prevPage">'
-                         + '<span class="glyphicon glyphicon-chevron-left"></span></button>';
+                + '<span class="glyphicon glyphicon-chevron-left"></span></button>';
         for (let i = 0; i < numPages; i += 1) {
             buttonHtml += `<button type='button' class='btn btn-default'>${i + 1}</button>`;
         }
         buttonHtml += '<button type="button" class="btn btn-default" data="nextPage">'
-                     + '<span class="glyphicon glyphicon-chevron-right"></span></button>';
+                + '<span class="glyphicon glyphicon-chevron-right"></span></button>';
         $('#pagingControls').html(buttonHtml);
         $('#pagingControls').addClass('padding-15px margin-bottom-35px');
         bindPagingButtons();

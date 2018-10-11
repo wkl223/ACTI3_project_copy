@@ -34,7 +34,7 @@ public class InstructorFeedbackRemindParticularStudentsAction extends Action {
         String[] usersToRemind = getRequestParamValues(Const.ParamsNames.SUBMISSION_REMIND_USERLIST);
         if (usersToRemind == null || usersToRemind.length == 0) {
             statusToUser.add(new StatusMessage(Const.StatusMessages.FEEDBACK_SESSION_REMINDERSEMPTYRECIPIENT,
-                                               StatusMessageColor.DANGER));
+                    StatusMessageColor.DANGER));
             return createRedirectResult(nextUrl);
         }
 
@@ -47,7 +47,7 @@ public class InstructorFeedbackRemindParticularStudentsAction extends Action {
             statusToAdmin += "<br>" + user;
         }
         statusToAdmin += "<br>in Feedback Session <span class=\"bold\">(" + feedbackSessionName
-                         + ")</span> " + "of Course <span class=\"bold\">[" + courseId + "]</span>";
+                + ")</span> " + "of Course <span class=\"bold\">[" + courseId + "]</span>";
 
         return createRedirectResult(nextUrl);
     }

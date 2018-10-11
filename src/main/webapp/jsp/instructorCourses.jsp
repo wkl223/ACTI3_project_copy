@@ -14,10 +14,10 @@
 <ti:instructorPage title="Add New Course" jsIncludes="${jsIncludes}">
   <c:if test="${!data.usingAjax}">
     <course:addCoursePanel courseIdToShow="${data.courseIdToShow}"
-        courseNameToShow="${data.courseNameToShow}"
-        googleId="${data.account.googleId}"
-        sessionToken="${data.sessionToken}"/>
-    <course:loadCoursesTableByAjaxForm />
+                           courseNameToShow="${data.courseNameToShow}"
+                           googleId="${data.account.googleId}"
+                           sessionToken="${data.sessionToken}"/>
+    <course:loadCoursesTableByAjaxForm/>
   </c:if>
 
   <br>
@@ -38,7 +38,7 @@
 
       <c:if test="${not empty data.archivedCourses.rows}">
         <course:archivedCoursesTable archivedCourses="${data.archivedCourses}"
-            activeCourses="${data.activeCourses}"/>
+                                     activeCourses="${data.activeCourses}"/>
         <br>
         <br>
         <br>
@@ -46,7 +46,7 @@
       </c:if>
 
       <c:if test="${not empty data.recoveryCourses.rows}">
-        <course:recoveryCoursePanel />
+        <course:recoveryCoursePanel/>
         <br>
         <br>
         <br>

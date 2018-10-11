@@ -11,8 +11,8 @@
     ${jsIncludes}
   </jsp:attribute>
   <jsp:body>
-    <jsp:include page="<%=Const.ViewURIs.INSTRUCTOR_FEEDBACK_RESULTS_TOP%>" />
-    <jsp:doBody />
-    <jsp:include page="<%=Const.ViewURIs.INSTRUCTOR_FEEDBACK_RESULTS_BOTTOM%>" />
+    <jsp:include page="<%=Const.ViewURIs.INSTRUCTOR_FEEDBACK_RESULTS_TOP%>"/>
+    <jsp:doBody/>
+    <jsp:include page="<%=Const.ViewURIs.INSTRUCTOR_FEEDBACK_RESULTS_BOTTOM%>"/>
   </jsp:body>
 </ti:instructorPage>

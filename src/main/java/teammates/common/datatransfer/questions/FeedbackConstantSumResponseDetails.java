@@ -27,8 +27,8 @@ public class FeedbackConstantSumResponseDetails extends
         }
         FeedbackConstantSumQuestionDetails constSumQd = (FeedbackConstantSumQuestionDetails) questionDetails;
         this.setConstantSumResponseDetails(constSumAnswer,
-                                           constSumQd.getConstSumOptions(),
-                                           constSumQd.isDistributeToRecipients());
+                constSumQd.getConstSumOptions(),
+                constSumQd.isDistributeToRecipients());
     }
 
     /**
@@ -83,8 +83,8 @@ public class FeedbackConstantSumResponseDetails extends
         this.answers = answers;
         if (!distributeToRecipients) {
             Assumption.assertEquals("ConstSum num response does not match num of options. "
-                                            + answers.size() + "/" + constSumOptions.size(),
-                                    answers.size(), constSumOptions.size());
+                            + answers.size() + "/" + constSumOptions.size(),
+                    answers.size(), constSumOptions.size());
         }
     }
 

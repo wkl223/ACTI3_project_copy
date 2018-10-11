@@ -4,24 +4,26 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ attribute name="recoveryCourses" type="teammates.ui.template.RecoveryCoursesTable" required="true" %>
 
-<c:set var="tableHeaderClass" value="background-color-medium-gray text-color-gray font-weight-normal" />
+<c:set var="tableHeaderClass" value="background-color-medium-gray text-color-gray font-weight-normal"/>
 <table class="table table-bordered table-striped margin-0" id="tableRecoveryCourses">
   <thead class="${tableHeaderClass}">
-    <tr>
-      <th id="btn_sortid" class="button-sort-none toggle-sort">
-        Course ID<span class="icon-sort unsorted"></span>
-      </th>
-      <th id="btn_sortname" class="button-sort-none toggle-sort">
-        Course Name<span class="icon-sort unsorted"></span>
-      </th>
-      <th id="btn_sortcoursecreateddate" data-toggle-sort-comparator="sortDate" data-toggle-sort-extractor="dateStampExtractor" class="button-sort-none toggle-sort">
-        Creation Date<span class="icon-sort unsorted"></span>
-      </th>
-      <th id="btn_sortcoursedeleteddate" data-toggle-sort-comparator="sortDate" data-toggle-sort-extractor="dateStampExtractor" class="button-sort-none toggle-sort">
-        Deletion Date<span class="icon-sort unsorted"></span>
-      </th>
-      <th class="align-center no-print">Action(s)</th>
-    </tr>
+  <tr>
+    <th id="btn_sortid" class="button-sort-none toggle-sort">
+      Course ID<span class="icon-sort unsorted"></span>
+    </th>
+    <th id="btn_sortname" class="button-sort-none toggle-sort">
+      Course Name<span class="icon-sort unsorted"></span>
+    </th>
+    <th id="btn_sortcoursecreateddate" data-toggle-sort-comparator="sortDate"
+        data-toggle-sort-extractor="dateStampExtractor" class="button-sort-none toggle-sort">
+      Creation Date<span class="icon-sort unsorted"></span>
+    </th>
+    <th id="btn_sortcoursedeleteddate" data-toggle-sort-comparator="sortDate"
+        data-toggle-sort-extractor="dateStampExtractor" class="button-sort-none toggle-sort">
+      Deletion Date<span class="icon-sort unsorted"></span>
+    </th>
+    <th class="align-center no-print">Action(s)</th>
+  </tr>
   </thead>
   <c:forEach items="${recoveryCourses.rows}" var="recoveryCourse" varStatus="i">
     <tr>

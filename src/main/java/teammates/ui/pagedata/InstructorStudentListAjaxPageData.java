@@ -28,9 +28,9 @@ public class InstructorStudentListAjaxPageData extends PageData {
         List<StudentListSectionData> sectionsDetails = new ArrayList<>();
         for (SectionDetailsBundle section : sections) {
             boolean isAllowedToViewStudentInSection = sectionPrivileges.get(section.name)
-                                            .get(Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_STUDENT_IN_SECTIONS);
+                    .get(Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_STUDENT_IN_SECTIONS);
             boolean isAllowedToModifyStudent = sectionPrivileges.get(section.name)
-                                            .get(Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_STUDENT);
+                    .get(Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_STUDENT);
             sectionsDetails.add(new StudentListSectionData(section, isAllowedToViewStudentInSection,
                     isAllowedToModifyStudent, emailPhotoUrlMapping, account.googleId, getSessionToken(),
                     Const.PageNames.INSTRUCTOR_STUDENT_LIST_PAGE));

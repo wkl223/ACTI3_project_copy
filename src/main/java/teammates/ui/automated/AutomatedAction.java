@@ -14,8 +14,8 @@ import teammates.logic.api.TaskQueuer;
  * <p>
  * This class of action is different from the non-automated ones in the following manner:
  * <ul>
- *     <li>Non-administrators are barred from performing it.</li>
- *     <li>The limit for request is 10 minutes instead of 1 minute.</li>
+ * <li>Non-administrators are barred from performing it.</li>
+ * <li>The limit for request is 10 minutes instead of 1 minute.</li>
  * </ul>
  * </p>
  */
@@ -60,7 +60,7 @@ public abstract class AutomatedAction {
      * Returns the value for the specified parameter expected to be present in the http request.
      * Assumption: the requested parameter is not null.
      *
-     * @param paramName  a constant from the {@link teammates.common.util.Const.ParamsNames} class.
+     * @param paramName a constant from the {@link teammates.common.util.Const.ParamsNames} class.
      */
     protected String getNonNullRequestParamValue(String paramName) {
         return getNonNullRequestParamValues(paramName)[0];
@@ -74,7 +74,7 @@ public abstract class AutomatedAction {
      * Returns the values for the specified parameter expected to be present in the http request.
      * Assumption: the requested parameter is not null.
      *
-     * @param paramName  a constant from the {@link teammates.common.util.Const.ParamsNames} class.
+     * @param paramName a constant from the {@link teammates.common.util.Const.ParamsNames} class.
      */
     protected String[] getNonNullRequestParamValues(String paramName) {
         String[] values = getRequestParamValues(paramName);
@@ -91,7 +91,9 @@ public abstract class AutomatedAction {
 
     protected abstract String getActionMessage();
 
-    /** Executes the action. */
+    /**
+     * Executes the action.
+     */
     public abstract void execute();
 
 }

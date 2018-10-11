@@ -1,5 +1,6 @@
 <%@ tag trimDirectiveWhitespaces="true" %>
-<%@ tag description="instructorCourseStudentDetails / instructorStudentRecords - Student Information" pageEncoding="UTF-8" %>
+<%@ tag description="instructorCourseStudentDetails / instructorStudentRecords - Student Information"
+        pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ attribute name="studentInfoTable" type="teammates.ui.template.StudentInfoTable" required="true" %>

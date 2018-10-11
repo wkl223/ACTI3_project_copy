@@ -66,13 +66,13 @@ public class InstructorEditStudentFeedbackPageUiTest extends BaseUiTestCase {
 
         FeedbackQuestionAttributes fq = BackDoor.getFeedbackQuestion("IESFPTCourse", "First feedback session", 1);
         FeedbackResponseAttributes fr = BackDoor.getFeedbackResponse(fq.getId(),
-                                                  "student1InIESFPTCourse@gmail.tmt",
-                                                  "student1InIESFPTCourse@gmail.tmt");
+                "student1InIESFPTCourse@gmail.tmt",
+                "student1InIESFPTCourse@gmail.tmt");
 
         assertEquals("Student 1 self feedback.", fr.getResponseDetails().getAnswerString());
 
         submitPage = loginToInstructorEditStudentFeedbackPage("IESFPTCourseinstr", "student1InIESFPTCourse@gmail.tmt",
-                                                              "session1InIESFPTCourse");
+                "session1InIESFPTCourse");
 
         // Full HTML verification already done in InstructorFeedbackSubmitPageUiTest
         submitPage.verifyHtmlMainContent("/instructorEditStudentFeedbackPageOpen.html");
@@ -81,14 +81,14 @@ public class InstructorEditStudentFeedbackPageUiTest extends BaseUiTestCase {
 
         submitPage.clickSubmitButton();
         submitPage.waitForTextsForAllStatusMessagesToUserEquals(Const.StatusMessages.FEEDBACK_RESPONSES_SAVED,
-                 Const.StatusMessages.FEEDBACK_UNANSWERED_QUESTIONS + "2.");
+                Const.StatusMessages.FEEDBACK_UNANSWERED_QUESTIONS + "2.");
         submitPage.verifyAndCloseSuccessfulSubmissionModal("2.");
 
         fq = BackDoor.getFeedbackQuestion("IESFPTCourse", "First feedback session", 1);
 
         fr = BackDoor.getFeedbackResponse(fq.getId(),
-                                          "student1InIESFPTCourse@gmail.tmt",
-                                          "student1InIESFPTCourse@gmail.tmt");
+                "student1InIESFPTCourse@gmail.tmt",
+                "student1InIESFPTCourse@gmail.tmt");
 
         assertEquals("<p>Good design</p>", fr.getResponseDetails().getAnswerString());
     }
@@ -102,8 +102,8 @@ public class InstructorEditStudentFeedbackPageUiTest extends BaseUiTestCase {
 
         FeedbackQuestionAttributes fq = BackDoor.getFeedbackQuestion("IESFPTCourse", "First feedback session", 2);
         FeedbackResponseAttributes fr = BackDoor.getFeedbackResponse(fq.getId(),
-                                          "student1InIESFPTCourse@gmail.tmt",
-                                          "student1InIESFPTCourse@gmail.tmt");
+                "student1InIESFPTCourse@gmail.tmt",
+                "student1InIESFPTCourse@gmail.tmt");
 
         assertEquals("4", fr.getResponseDetails().getAnswerString());
 

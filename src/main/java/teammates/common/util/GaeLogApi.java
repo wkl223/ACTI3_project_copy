@@ -13,6 +13,7 @@ import com.google.appengine.api.log.RequestLogs;
 public class GaeLogApi {
     /**
      * Retrieves logs using the query.
+     *
      * @return logs fetched from server.
      */
     public List<AppLogLine> fetchLogs(AdminLogQuery query) {

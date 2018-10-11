@@ -114,14 +114,14 @@ public class InstructorCourseDetailsPageUiTest extends BaseUiTestCase {
         detailsPage.sortByName().verifyTablePattern(0, 3, patternString);
 
         patternString = "Team 1</option><option value=\"dump\"></td><td>'\"{*}"
-                        + "Team 1</option><option value=\"dump\"></td><td>'\"{*}"
-                        + "Team 2{*}"
-                        + "Team 2";
+                + "Team 1</option><option value=\"dump\"></td><td>'\"{*}"
+                + "Team 2{*}"
+                + "Team 2";
         detailsPage.sortByTeam().verifyTablePattern(0, 2, patternString);
         patternString = "Team 2{*}"
-                        + "Team 2{*}"
-                        + "Team 1</option><option value=\"dump\"></td><td>'\"{*}"
-                        + "Team 1</option><option value=\"dump\"></td><td>'\"";
+                + "Team 2{*}"
+                + "Team 1</option><option value=\"dump\"></td><td>'\"{*}"
+                + "Team 1</option><option value=\"dump\"></td><td>'\"";
         detailsPage.sortByTeam().verifyTablePattern(0, 2, patternString);
     }
 
@@ -154,8 +154,8 @@ public class InstructorCourseDetailsPageUiTest extends BaseUiTestCase {
         ______TS("link: download student list");
 
         AppUrl studentListDownloadUrl = createUrl(Const.ActionURIs.INSTRUCTOR_COURSE_STUDENT_LIST_DOWNLOAD)
-                                        .withUserId("CCDetailsUiT.instr")
-                                        .withCourseId("CCDetailsUiT.CS2104");
+                .withUserId("CCDetailsUiT.instr")
+                .withCourseId("CCDetailsUiT.CS2104");
 
         detailsPage.verifyDownloadLink(studentListDownloadUrl);
     }
@@ -235,7 +235,7 @@ public class InstructorCourseDetailsPageUiTest extends BaseUiTestCase {
 
         //Use ${test.student1} etc.
         detailsPage.clickDeleteAndConfirm(benny.name)
-                        .verifyHtmlMainContent("/instructorCourseDetailsStudentDeleteSuccessful.html");
+                .verifyHtmlMainContent("/instructorCourseDetailsStudentDeleteSuccessful.html");
 
         detailsPage.clickDeleteAndCancel(danny.name);
         assertNotNull(BackDoor.getStudent(courseId, danny.email));
@@ -264,8 +264,8 @@ public class InstructorCourseDetailsPageUiTest extends BaseUiTestCase {
 
     private InstructorCourseDetailsPage getCourseDetailsPage() {
         AppUrl detailsPageUrl = createUrl(Const.ActionURIs.INSTRUCTOR_COURSE_DETAILS_PAGE)
-                                .withUserId(instructorId)
-                                .withCourseId(courseId);
+                .withUserId(instructorId)
+                .withCourseId(courseId);
 
         return loginAdminToPage(detailsPageUrl, InstructorCourseDetailsPage.class);
     }

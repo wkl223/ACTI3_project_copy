@@ -11,13 +11,13 @@
           <div class="col-md-10">
             <div class="form-group">
               <input type="text" id="searchbox"
-                  title="<%= Const.Tooltips.SEARCH_STUDENT %>"
-                  name="<%= Const.ParamsNames.SEARCH_KEY %>"
-                  class="form-control"
-                  data-toggle="tooltip"
-                  data-placement="top"
-                  placeholder="e.g. Charles Shultz"
-                  value="${searchBox.searchKey}">
+                     title="<%= Const.Tooltips.SEARCH_STUDENT %>"
+                     name="<%= Const.ParamsNames.SEARCH_KEY %>"
+                     class="form-control"
+                     data-toggle="tooltip"
+                     data-placement="top"
+                     placeholder="e.g. Charles Shultz"
+                     value="${searchBox.searchKey}">
             </div>
           </div>
           <div class="col-md-2 nav">

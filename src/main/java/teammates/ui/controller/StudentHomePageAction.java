@@ -98,12 +98,12 @@ public class StudentHomePageAction extends Action {
 
     private void showEventualConsistencyMessage(String recentlyJoinedCourseId) {
         String errorMessage = String.format(Const.StatusMessages.EVENTUAL_CONSISTENCY_MESSAGE_STUDENT,
-                                            recentlyJoinedCourseId);
+                recentlyJoinedCourseId);
         statusToUser.add(new StatusMessage(errorMessage, StatusMessageColor.DANGER));
     }
 
     private void addPlaceholderCourse(List<CourseDetailsBundle> courses, String courseId,
-            Map<FeedbackSessionAttributes, Boolean> sessionSubmissionStatusMap) {
+                                      Map<FeedbackSessionAttributes, Boolean> sessionSubmissionStatusMap) {
         try {
             CourseDetailsBundle course = logic.getCourseDetails(courseId);
             courses.add(course);

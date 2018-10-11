@@ -23,13 +23,13 @@ coverage:
       production_only:
         threshold: 0.5% # allow small drop in coverage
         paths:
-          - "src/main/"
+        - "src/main/"
 
       # production + test code coverage
       all_codes:
         threshold: 0.5% # allow small drop in coverage
         paths:
-          - "src/"
+        - "src/"
 
     patch:
       default:

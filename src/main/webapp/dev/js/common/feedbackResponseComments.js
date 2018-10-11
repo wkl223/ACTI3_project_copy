@@ -422,7 +422,7 @@ const editCommentHandler = (e) => {
 
 function findParentCommentModal(deleteCommentButtonIdSuffix) {
     const idSuffixExcludingFrcIndex =
-        deleteCommentButtonIdSuffix.slice(0, deleteCommentButtonIdSuffix.lastIndexOf('-'));
+            deleteCommentButtonIdSuffix.slice(0, deleteCommentButtonIdSuffix.lastIndexOf('-'));
     return $(`#commentModal-${idSuffixExcludingFrcIndex}`);
 }
 
@@ -492,7 +492,7 @@ function registerResponseCommentsEvent() {
 
     const deleteCommentButtonPrefix = 'commentdelete';
     $body.on('click', `form[class*="responseCommentDeleteForm"] > a[id^="${deleteCommentButtonPrefix}"]`,
-            { deleteCommentButtonPrefix }, deleteCommentHandler);
+            {deleteCommentButtonPrefix}, deleteCommentHandler);
 
     const clickHandlerMap = new Map();
     clickHandlerMap.set(

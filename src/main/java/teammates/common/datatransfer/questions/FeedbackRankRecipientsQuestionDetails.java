@@ -41,7 +41,7 @@ public class FeedbackRankRecipientsQuestionDetails extends FeedbackRankQuestionD
 
     @Override
     public boolean extractQuestionDetails(Map<String, String[]> requestParameters,
-            FeedbackQuestionType questionType) {
+                                          FeedbackQuestionType questionType) {
         super.extractQuestionDetails(requestParameters, questionType);
 
         String minRecipientsToBeRanked = Strings.nullToEmpty(HttpRequestHelper.getValueFromParamMap(
@@ -57,9 +57,9 @@ public class FeedbackRankRecipientsQuestionDetails extends FeedbackRankQuestionD
 
     @Override
     public String getQuestionWithExistingResponseSubmissionFormHtml(
-                        boolean sessionIsOpen, int qnIdx, int responseIdx, String courseId,
-                        int totalNumRecipients,
-                        FeedbackResponseDetails existingResponseDetails, StudentAttributes student) {
+            boolean sessionIsOpen, int qnIdx, int responseIdx, String courseId,
+            int totalNumRecipients,
+            FeedbackResponseDetails existingResponseDetails, StudentAttributes student) {
 
         FeedbackRankRecipientsResponseDetails existingResponse =
                 (FeedbackRankRecipientsResponseDetails) existingResponseDetails;
@@ -74,7 +74,7 @@ public class FeedbackRankRecipientsQuestionDetails extends FeedbackRankQuestionD
                         Slots.DISABLED, sessionIsOpen ? "" : "disabled",
                         Slots.RANK_OPTION_VISIBILITY, "style=\"display:none\"",
                         Slots.OPTIONS, getSubmissionOptionsHtmlForRankingRecipients(
-                                           totalNumRecipients, existingResponse.answer),
+                                totalNumRecipients, existingResponse.answer),
                         Slots.FEEDBACK_RESPONSE_TEXT, Const.ParamsNames.FEEDBACK_RESPONSE_TEXT,
                         Slots.RANK_OPTION_VALUE, "");
         optionListHtml.append(optionFragment).append(System.lineSeparator());
@@ -102,7 +102,7 @@ public class FeedbackRankRecipientsQuestionDetails extends FeedbackRankQuestionD
                 Slots.RANK_PARAM_MIN_OPTIONS_TO_BE_RANKED, Const.ParamsNames.FEEDBACK_QUESTION_RANK_MIN_OPTIONS_TO_BE_RANKED,
                 Slots.RANK_MIN_OPTIONS_TO_BE_RANKED,
                 isMinOptionsToBeRankedEnabled ? Integer.toString(Math.min(minOptionsToBeRanked, totalNumRecipients)) : ""
-                );
+        );
     }
 
     @Override
@@ -121,7 +121,7 @@ public class FeedbackRankRecipientsQuestionDetails extends FeedbackRankQuestionD
                         Slots.DISABLED, sessionIsOpen ? "" : "disabled",
                         Slots.RANK_OPTION_VISIBILITY, "style=\"display:none\"",
                         Slots.OPTIONS, getSubmissionOptionsHtmlForRankingRecipients(
-                                           totalNumRecipients, Const.INT_UNINITIALIZED),
+                                totalNumRecipients, Const.INT_UNINITIALIZED),
                         Slots.FEEDBACK_RESPONSE_TEXT, Const.ParamsNames.FEEDBACK_RESPONSE_TEXT,
                         Slots.RANK_OPTION_VALUE, "");
         optionListHtml.append(optionFragment).append(System.lineSeparator());
@@ -149,7 +149,7 @@ public class FeedbackRankRecipientsQuestionDetails extends FeedbackRankQuestionD
                 Slots.RANK_PARAM_MIN_OPTIONS_TO_BE_RANKED, Const.ParamsNames.FEEDBACK_QUESTION_RANK_MIN_OPTIONS_TO_BE_RANKED,
                 Slots.RANK_MIN_OPTIONS_TO_BE_RANKED,
                 isMinOptionsToBeRankedEnabled ? Integer.toString(Math.min(minOptionsToBeRanked, totalNumRecipients)) : ""
-                );
+        );
     }
 
     @Override
@@ -173,15 +173,15 @@ public class FeedbackRankRecipientsQuestionDetails extends FeedbackRankQuestionD
 
         ElementTag option = PageData.createOption("", "", rankGiven == Const.INT_UNINITIALIZED);
         result.append("<option"
-                     + option.getAttributesToString() + ">"
-                     + option.getContent()
-                     + "</option>");
+                + option.getAttributesToString() + ">"
+                + option.getContent()
+                + "</option>");
         for (int i = 1; i <= totalNumRecipients; i++) {
             option = PageData.createOption(String.valueOf(i), String.valueOf(i), rankGiven == i);
             result.append("<option"
-                        + option.getAttributesToString() + ">"
-                        + option.getContent()
-                        + "</option>");
+                    + option.getAttributesToString() + ">"
+                    + option.getContent()
+                    + "</option>");
         }
 
         return result.toString();
@@ -198,7 +198,7 @@ public class FeedbackRankRecipientsQuestionDetails extends FeedbackRankQuestionD
                 Slots.QUESTION_NUMBER, Integer.toString(questionNumber),
                 Slots.OPTION_RECIPIENT_DISPLAY_NAME, "recipient",
                 Slots.RANK_PARAM_IS_DUPLICATES_ALLOWED,
-                        Const.ParamsNames.FEEDBACK_QUESTION_RANKISDUPLICATESALLOWED,
+                Const.ParamsNames.FEEDBACK_QUESTION_RANKISDUPLICATESALLOWED,
                 Slots.RANK_ARE_DUPLICATES_ALLOWED_CHECKED, isAreDuplicatesAllowed() ? "checked" : "",
                 Slots.RANK_PARAM_MIN_RECIPIENTS_CHECKBOX,
                 Const.ParamsNames.FEEDBACK_QUESTION_RANK_IS_MIN_RECIPIENTS_TO_BE_RANKED_ENABLED,
@@ -208,11 +208,11 @@ public class FeedbackRankRecipientsQuestionDetails extends FeedbackRankQuestionD
                 isMinOptionsToBeRankedEnabled ? Integer.toString(minOptionsToBeRanked) : "",
                 Slots.RANK_IS_MIN_RECIPIENTS_TO_BE_RANKED_ENABLED, isMinOptionsToBeRankedEnabled ? "checked" : "",
                 Slots.RANK_PARAM_MAX_RECIPIENTS_CHECKBOX,
-                        Const.ParamsNames.FEEDBACK_QUESTION_RANK_IS_MAX_RECIPIENTS_TO_BE_RANKED_ENABLED,
+                Const.ParamsNames.FEEDBACK_QUESTION_RANK_IS_MAX_RECIPIENTS_TO_BE_RANKED_ENABLED,
                 Slots.RANK_PARAM_MAX_RECIPIENTS_TO_BE_RANKED,
-                        Const.ParamsNames.FEEDBACK_QUESTION_RANK_MAX_RECIPIENTS_TO_BE_RANKED,
+                Const.ParamsNames.FEEDBACK_QUESTION_RANK_MAX_RECIPIENTS_TO_BE_RANKED,
                 Slots.RANK_MAX_RECIPIENTS_TO_BE_RANKED,
-                        isMaxOptionsToBeRankedEnabled ? Integer.toString(maxOptionsToBeRanked) : "",
+                isMaxOptionsToBeRankedEnabled ? Integer.toString(maxOptionsToBeRanked) : "",
                 Slots.RANK_IS_MAX_RECIPIENTS_TO_BE_RANKED_ENABLED, isMaxOptionsToBeRankedEnabled ? "checked" : "");
 
     }
@@ -227,16 +227,16 @@ public class FeedbackRankRecipientsQuestionDetails extends FeedbackRankQuestionD
 
     @Override
     public String getQuestionAdditionalInfoHtml(int questionNumber,
-            String additionalInfoId) {
+                                                String additionalInfoId) {
         String additionalInfo = this.getQuestionTypeDisplayName() + "<br>";
 
         return Templates.populateTemplate(
-                        FormTemplates.FEEDBACK_QUESTION_ADDITIONAL_INFO,
-                        Slots.MORE, "[more]",
-                        Slots.LESS, "[less]",
-                        Slots.QUESTION_NUMBER, Integer.toString(questionNumber),
-                        Slots.ADDITIONAL_INFO_ID, additionalInfoId,
-                        Slots.QUESTION_ADDITIONAL_INFO, additionalInfo);
+                FormTemplates.FEEDBACK_QUESTION_ADDITIONAL_INFO,
+                Slots.MORE, "[more]",
+                Slots.LESS, "[less]",
+                Slots.QUESTION_NUMBER, Integer.toString(questionNumber),
+                Slots.ADDITIONAL_INFO_ID, additionalInfoId,
+                Slots.QUESTION_ADDITIONAL_INFO, additionalInfo);
     }
 
     /**
@@ -245,17 +245,17 @@ public class FeedbackRankRecipientsQuestionDetails extends FeedbackRankQuestionD
      * i.e., if the ranks for all team members are in the results bundle.
      */
     private String getStudentQuestionResultsStatisticsHtml(String studentEmail, FeedbackQuestionAttributes question,
-            FeedbackSessionResultsBundle bundle) {
+                                                           FeedbackSessionResultsBundle bundle) {
         // at least should be able to be viewed by other students for team recipient
         if (question.recipientType.isTeam()
-                    && (!question.showResponsesTo.contains(FeedbackParticipantType.RECEIVER)
-                    || !question.showResponsesTo.contains(FeedbackParticipantType.STUDENTS))) {
+                && (!question.showResponsesTo.contains(FeedbackParticipantType.RECEIVER)
+                || !question.showResponsesTo.contains(FeedbackParticipantType.STUDENTS))) {
             return "";
         }
         // at least should be able to be viewed by own team members for non-team recipient
         if (!question.recipientType.isTeam()
-                    && (!question.showResponsesTo.contains(FeedbackParticipantType.RECEIVER)
-                    || !question.showResponsesTo.contains(FeedbackParticipantType.OWN_TEAM_MEMBERS))) {
+                && (!question.showResponsesTo.contains(FeedbackParticipantType.RECEIVER)
+                || !question.showResponsesTo.contains(FeedbackParticipantType.OWN_TEAM_MEMBERS))) {
             return "";
         }
 
@@ -310,11 +310,11 @@ public class FeedbackRankRecipientsQuestionDetails extends FeedbackRankQuestionD
 
     @Override
     public String getQuestionResultStatisticsHtml(
-                        List<FeedbackResponseAttributes> responses,
-                        FeedbackQuestionAttributes question,
-                        String studentEmail,
-                        FeedbackSessionResultsBundle bundle,
-                        String view) {
+            List<FeedbackResponseAttributes> responses,
+            FeedbackQuestionAttributes question,
+            String studentEmail,
+            FeedbackSessionResultsBundle bundle,
+            String view) {
 
         if (responses.isEmpty()) {
             return "";
@@ -374,9 +374,9 @@ public class FeedbackRankRecipientsQuestionDetails extends FeedbackRankQuestionD
 
     @Override
     public String getQuestionResultStatisticsCsv(
-                        List<FeedbackResponseAttributes> responses,
-                        FeedbackQuestionAttributes question,
-                        FeedbackSessionResultsBundle bundle) {
+            List<FeedbackResponseAttributes> responses,
+            FeedbackQuestionAttributes question,
+            FeedbackSessionResultsBundle bundle) {
         if (responses.isEmpty()) {
             return "";
         }
@@ -399,8 +399,8 @@ public class FeedbackRankRecipientsQuestionDetails extends FeedbackRankQuestionD
             String teamName = bundle.getTeamNameForEmail(participantIdentifier);
             String recipientName = bundle.getNameForEmail(participantIdentifier);
             String option = SanitizationHelper.sanitizeForCsv(teamName)
-                            + ","
-                            + SanitizationHelper.sanitizeForCsv(recipientName);
+                    + ","
+                    + SanitizationHelper.sanitizeForCsv(recipientName);
 
             String overallRankExceptSelf = recipientOverallRankExceptSelf.containsKey(participantIdentifier)
                     ? Integer.toString(recipientOverallRankExceptSelf.get(participantIdentifier)) : "-";
@@ -426,7 +426,8 @@ public class FeedbackRankRecipientsQuestionDetails extends FeedbackRankQuestionD
      * ranks received for that option.
      * The key of the map returned is the recipient's participant identifier.
      * The values of the map are list of ranks received by the recipient.
-     * @param responses  a list of responses
+     *
+     * @param responses a list of responses
      */
     private Map<String, List<Integer>> generateOptionRanksMapping(List<FeedbackResponseAttributes> responses) {
 
@@ -442,7 +443,8 @@ public class FeedbackRankRecipientsQuestionDetails extends FeedbackRankQuestionD
 
     /**
      * Generates a key, value mapping. Each key corresponds to a recipient and its value is the normalised self rank.
-     * @param responses  a list of responses
+     *
+     * @param responses a list of responses
      */
     private Map<String, Integer> generateSelfRankForEachRecipient(List<FeedbackResponseAttributes> responses) {
         Map<FeedbackResponseAttributes, Integer> normalisedRankOfResponse = getNormalisedRankForEachResponse(responses);
@@ -459,16 +461,17 @@ public class FeedbackRankRecipientsQuestionDetails extends FeedbackRankQuestionD
 
     /**
      * Returns a map of response to the normalised rank by resolving ties for each giver's set of responses.
+     *
      * @see FeedbackRankQuestionDetails#obtainMappingToNormalisedRanksForRanking(Map, List) for how ties are resolved
      */
     private Map<FeedbackResponseAttributes, Integer> getNormalisedRankForEachResponse(
-                                                            List<FeedbackResponseAttributes> responses) {
+            List<FeedbackResponseAttributes> responses) {
 
         // collect each giver's responses
         Map<String, List<FeedbackResponseAttributes>> responsesGivenByPerson = new HashMap<>();
         for (FeedbackResponseAttributes response : responses) {
             responsesGivenByPerson.computeIfAbsent(response.giver, key -> new ArrayList<>())
-                                  .add(response);
+                    .add(response);
         }
 
         // generate response-responseDetails pair
@@ -528,7 +531,7 @@ public class FeedbackRankRecipientsQuestionDetails extends FeedbackRankQuestionD
     @Override
     public String getQuestionTypeChoiceOption() {
         return "<li data-questiontype = \"" + FeedbackQuestionType.RANK_RECIPIENTS.name() + "\"><a href=\"javascript:;\">"
-              + Const.FeedbackQuestionTypeNames.RANK_RECIPIENT + "</a></li>";
+                + Const.FeedbackQuestionTypeNames.RANK_RECIPIENT + "</a></li>";
     }
 
     @Override

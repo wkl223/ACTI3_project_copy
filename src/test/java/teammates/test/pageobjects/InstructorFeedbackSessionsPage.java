@@ -34,13 +34,13 @@ public class InstructorFeedbackSessionsPage extends AppPage {
     @FindBy(id = "endtime")
     private WebElement endTimeDropdown;
 
-    @FindBy (id = "visibletime")
+    @FindBy(id = "visibletime")
     private WebElement visibleTimeDropdown;
 
-    @FindBy (id = "publishtime")
+    @FindBy(id = "publishtime")
     private WebElement publishTimeDropdown;
 
-    @FindBy (id = "timezone")
+    @FindBy(id = "timezone")
     private WebElement timezoneDropdown;
 
     @FindBy(id = "graceperiod")
@@ -252,15 +252,15 @@ public class InstructorFeedbackSessionsPage extends AppPage {
 
     public void clickCopyTableAtRow(int rowIndex) {
         WebElement row = browser.driver.findElement(By.id("copyTableModal"))
-                                       .findElements(By.tagName("tr"))
-                                       .get(rowIndex + 1);
+                .findElements(By.tagName("tr"))
+                .get(rowIndex + 1);
         click(row);
     }
 
     public void clickCopyTableRadioButtonAtRow(int rowIndex) {
         WebElement button = browser.driver.findElement(By.id("copyTableModal"))
-                                       .findElements(By.tagName("tr"))
-                                       .get(rowIndex + 1).findElement(By.tagName("input"));
+                .findElements(By.tagName("tr"))
+                .get(rowIndex + 1).findElement(By.tagName("input"));
         click(button);
     }
 
@@ -294,7 +294,7 @@ public class InstructorFeedbackSessionsPage extends AppPage {
      * This method contains an intended mix of Selenium and JavaScript to ensure that the test
      * passes consistently, do not try to click on the datepicker element using Selenium as it will
      * result in a test that passes or fail randomly.
-    */
+     */
     public void fillTimeValueForDatePickerTest(String timeId, LocalDate newValue) {
         WebElement dateInputElement = browser.driver.findElement(By.id(timeId));
         click(dateInputElement);
@@ -309,20 +309,20 @@ public class InstructorFeedbackSessionsPage extends AppPage {
 
     public String getValueOfDate(String timeId) {
         return (String) executeScript("return $('#" + timeId + "').datepicker('getDate') == null ? "
-                                      + "null : "
-                                      + "$('#" + timeId + "').datepicker('getDate').toDateString();");
+                + "null : "
+                + "$('#" + timeId + "').datepicker('getDate').toDateString();");
     }
 
     public String getMinDateOf(String timeId) {
         return (String) executeScript("return $('#" + timeId + "').datepicker('option', 'minDate') == null ? "
-                                      + "null : "
-                                      + "$('#" + timeId + "').datepicker('option', 'minDate').toDateString();");
+                + "null : "
+                + "$('#" + timeId + "').datepicker('option', 'minDate').toDateString();");
     }
 
     public String getMaxDateOf(String timeId) {
         return (String) executeScript("return $('#" + timeId + "').datepicker('option', 'maxDate') == null ? "
-                                      + "null : "
-                                      + "$('#" + timeId + "').datepicker('option', 'maxDate').toDateString();");
+                + "null : "
+                + "$('#" + timeId + "').datepicker('option', 'maxDate').toDateString();");
     }
 
     public String getSessionType() {
@@ -359,16 +359,16 @@ public class InstructorFeedbackSessionsPage extends AppPage {
 
     public boolean isRowSelected(int rowIndex) {
         WebElement row = browser.driver.findElement(By.id("copyTableModal"))
-                                        .findElements(By.tagName("tr"))
-                                        .get(rowIndex + 1);
+                .findElements(By.tagName("tr"))
+                .get(rowIndex + 1);
 
         return row.getAttribute("class").contains("row-selected");
     }
 
     public boolean isRadioButtonChecked(int rowIndex) {
         WebElement button = browser.driver.findElement(By.id("copyTableModal"))
-                                        .findElements(By.tagName("tr"))
-                                        .get(rowIndex + 1).findElement(By.tagName("input"));
+                .findElements(By.tagName("tr"))
+                .get(rowIndex + 1).findElement(By.tagName("input"));
 
         return button.isSelected();
     }
@@ -381,14 +381,14 @@ public class InstructorFeedbackSessionsPage extends AppPage {
         int sessionRowId = getFeedbackSessionRowId(courseId, sessionName);
         return browser.driver.findElement(
                 By.xpath("//tbody/tr[" + (sessionRowId + 1)
-                + "]/td[contains(@class,'session-response-for-test')]/a"));
+                        + "]/td[contains(@class,'session-response-for-test')]/a"));
     }
 
     public String getResponseValue(String courseId, String sessionName) {
         int sessionRowId = getFeedbackSessionRowId(courseId, sessionName);
         return browser.driver.findElement(
                 By.xpath("//tbody/tr[" + (sessionRowId + 1)
-                + "]/td[contains(@class,'session-response-for-test')]")).getText();
+                        + "]/td[contains(@class,'session-response-for-test')]")).getText();
     }
 
     public void verifyResponseValue(String responseRate, String courseId, String sessionName) {
@@ -457,7 +457,7 @@ public class InstructorFeedbackSessionsPage extends AppPage {
         int sessionRowId = getFeedbackSessionRowId(courseId, sessionName);
         return !browser.driver.findElement(
                 By.xpath("//tbody/tr[" + (sessionRowId + 1)
-                    + "]//button[contains(@class,'session-results-options')]")).isEnabled();
+                        + "]//button[contains(@class,'session-results-options')]")).isEnabled();
     }
 
     public boolean isHidden(By locator) {
@@ -485,7 +485,7 @@ public class InstructorFeedbackSessionsPage extends AppPage {
         String className = "session-view-for-test";
         return goToLinkInRow(
                 By.xpath("//tbody/tr[" + (sessionRowId + 1)
-                + "]//a[contains(@class,'" + className + "')]"),
+                        + "]//a[contains(@class,'" + className + "')]"),
                 InstructorFeedbackResultsPage.class);
     }
 
@@ -494,7 +494,7 @@ public class InstructorFeedbackSessionsPage extends AppPage {
         String className = "session-submit-for-test";
         return goToLinkInRow(
                 By.xpath("//tbody/tr[" + (sessionRowId + 1)
-                + "]//a[contains(@class,'" + className + "')]"),
+                        + "]//a[contains(@class,'" + className + "')]"),
                 FeedbackSubmitPage.class);
     }
 
@@ -503,7 +503,7 @@ public class InstructorFeedbackSessionsPage extends AppPage {
         String className = "session-edit-for-test";
         return goToLinkInRow(
                 By.xpath("//tbody/tr[" + (sessionRowId + 1)
-                + "]//a[contains(@class,'" + className + "')]"),
+                        + "]//a[contains(@class,'" + className + "')]"),
                 InstructorFeedbackEditPage.class);
     }
 
@@ -514,7 +514,7 @@ public class InstructorFeedbackSessionsPage extends AppPage {
     private WebElement getLinkAtTableRow(String className, int rowIndex) {
         return browser.driver.findElement(
                 By.xpath("//table[contains(@id,'table-sessions')]//tbody/tr["
-                + (rowIndex + 1) + "]//a[contains(@class,'" + className + "')]"));
+                        + (rowIndex + 1) + "]//a[contains(@class,'" + className + "')]"));
     }
 
     private int getFeedbackSessionRowId(String courseId, String sessionName) {
@@ -535,16 +535,16 @@ public class InstructorFeedbackSessionsPage extends AppPage {
 
     private String getFeedbackSessionCourseId(int rowId) {
         return browser.driver.findElement(By.id("table-sessions"))
-                             .findElements(By.xpath("tbody/tr")).get(rowId)
-                             .findElements(By.xpath("td")).get(0)
-                             .getText();
+                .findElements(By.xpath("tbody/tr")).get(rowId)
+                .findElements(By.xpath("td")).get(0)
+                .getText();
     }
 
     private String getFeedbackSessionName(int rowId) {
         return browser.driver.findElement(By.id("table-sessions"))
-                             .findElements(By.xpath("tbody/tr")).get(rowId)
-                             .findElements(By.xpath("td")).get(1)
-                             .getText();
+                .findElements(By.xpath("tbody/tr")).get(rowId)
+                .findElements(By.xpath("td")).get(1)
+                .getText();
     }
 
     private <T extends AppPage> T goToLinkInRow(By locator, Class<T> destinationPageType) {

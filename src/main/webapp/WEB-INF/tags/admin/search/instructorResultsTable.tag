@@ -17,19 +17,19 @@
   <div class="table-responsive">
     <table class="table table-striped data-table" id="search_table_instructor">
       <thead>
-        <tr>
-          <th>Course</th>
-          <th>Name</th>
-          <th>Google ID</th>
-          <th>Institute</th>
-          <th>Options</th>
-        </tr>
+      <tr>
+        <th>Course</th>
+        <th>Name</th>
+        <th>Google ID</th>
+        <th>Institute</th>
+        <th>Options</th>
+      </tr>
       </thead>
 
       <tbody>
-        <c:forEach items="${instructorResultsTable.instructorRows}" var="instructor">
-          <adminSearch:instructorRow instructor="${instructor}"/>
-        </c:forEach>
+      <c:forEach items="${instructorResultsTable.instructorRows}" var="instructor">
+        <adminSearch:instructorRow instructor="${instructor}"/>
+      </c:forEach>
       </tbody>
     </table>
   </div>

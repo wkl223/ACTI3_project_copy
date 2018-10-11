@@ -8,15 +8,15 @@
   <c:choose>
     <c:when test="${not empty sessionRows}">
       <thead>
-        <tr>
-          <th>Session Name</th>
-          <th class="button_sortenddate button-sort-none toggle-sort"
-              data-toggle-sort-comparator="sortDate"
-              data-toggle-sort-extractor="dateStampExtractor">Deadline<span class="icon-sort unsorted"></span></th>
-          <th>Submissions</th>
-          <th>Responses</th>
-          <th class="studentHomeActions">Action(s)</th>
-        </tr>
+      <tr>
+        <th>Session Name</th>
+        <th class="button_sortenddate button-sort-none toggle-sort"
+            data-toggle-sort-comparator="sortDate"
+            data-toggle-sort-extractor="dateStampExtractor">Deadline<span class="icon-sort unsorted"></span></th>
+        <th>Submissions</th>
+        <th>Responses</th>
+        <th class="studentHomeActions">Action(s)</th>
+      </tr>
       </thead>
       <c:forEach items="${sessionRows}" var="sessionRow">
         <tr class="home_evaluations_row" id="evaluation${sessionRow.index}">
@@ -24,16 +24,16 @@
           <td data-date-stamp="${sessionRow.endTimeIso8601Utc}">${sessionRow.endTime}</td>
           <td>
             <span data-toggle="tooltip" data-placement="top" title="${sessionRow.submissionsTooltip}">
-              ${sessionRow.submissionStatus}
+                ${sessionRow.submissionStatus}
             </span>
           </td>
           <td>
             <span data-toggle="tooltip" data-placement="top" title="${sessionRow.publishedTooltip}">
-              ${sessionRow.publishedStatus}
+                ${sessionRow.publishedStatus}
             </span>
           </td>
           <td class="studentHomeActions">
-            <home:rowActions actions="${sessionRow.actions}" index="${sessionRow.index}" />
+            <home:rowActions actions="${sessionRow.actions}" index="${sessionRow.index}"/>
           </td>
         </tr>
       </c:forEach>
@@ -41,7 +41,8 @@
     <c:otherwise>
       <tr>
         <th class="align-center bold color_white">
-          Currently, there are no open evaluation/feedback sessions in this course. When a session is open for submission you will be notified.
+          Currently, there are no open evaluation/feedback sessions in this course. When a session is open for
+          submission you will be notified.
         </th>
       </tr>
     </c:otherwise>

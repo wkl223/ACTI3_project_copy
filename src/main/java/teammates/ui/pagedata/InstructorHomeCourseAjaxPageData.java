@@ -39,11 +39,11 @@ public class InstructorHomeCourseAjaxPageData extends PageData {
     }
 
     private CourseTable createCourseTable(CourseAttributes course, InstructorAttributes instructor,
-            List<FeedbackSessionAttributes> feedbackSessions) {
+                                          List<FeedbackSessionAttributes> feedbackSessions) {
         String courseId = course.getId();
         return new CourseTable(course,
-                               createCourseTableLinks(instructor, courseId),
-                               createSessionRows(feedbackSessions, instructor));
+                createCourseTableLinks(instructor, courseId),
+                createSessionRows(feedbackSessions, instructor));
     }
 
     private ElementTag createButton(String text, String className, String href, String tooltip) {
@@ -65,35 +65,35 @@ public class InstructorHomeCourseAjaxPageData extends PageData {
         ElementTag courses = new ElementTag("Course");
 
         ElementTag enroll = createButton("Enroll",
-                                         className + "enroll-for-test",
-                                         getInstructorCourseEnrollLink(courseId),
-                                         Const.Tooltips.COURSE_ENROLL);
+                className + "enroll-for-test",
+                getInstructorCourseEnrollLink(courseId),
+                Const.Tooltips.COURSE_ENROLL);
 
         ElementTag view = createButton("View / Edit",
-                                       className + "view-for-test",
-                                       getInstructorCourseDetailsLink(courseId),
-                                       Const.Tooltips.COURSE_DETAILS);
+                className + "view-for-test",
+                getInstructorCourseDetailsLink(courseId),
+                Const.Tooltips.COURSE_DETAILS);
 
         ElementTag edit = createButton("View / Edit",
-                                       className + "edit-for-test",
-                                       getInstructorCourseEditLink(courseId),
-                                       Const.Tooltips.COURSE_EDIT);
+                className + "edit-for-test",
+                getInstructorCourseEditLink(courseId),
+                Const.Tooltips.COURSE_EDIT);
 
         ElementTag add = createButton("Add",
-                                      className + "add-eval-for-test",
-                                      getInstructorFeedbackSessionsLink(courseId),
-                                      Const.Tooltips.COURSE_ADD_FEEDBACKSESSION);
+                className + "add-eval-for-test",
+                getInstructorFeedbackSessionsLink(courseId),
+                Const.Tooltips.COURSE_ADD_FEEDBACKSESSION);
 
         ElementTag archive = createButton("Archive",
-                                          className + "archive-for-test",
-                                          getInstructorCourseArchiveLink(courseId, true, true),
-                                          Const.Tooltips.COURSE_ARCHIVE);
+                className + "archive-for-test",
+                getInstructorCourseArchiveLink(courseId, true, true),
+                Const.Tooltips.COURSE_ARCHIVE);
         addAttributeIf(true, archive, "data-course-id", courseId);
 
         ElementTag delete = createButton("Delete",
-                                         className + "delete-for-test course-move-to-recovery-link",
-                                         getInstructorCourseDeleteLink(courseId, true),
-                                         Const.Tooltips.COURSE_MOVE_TO_RECOVERY);
+                className + "delete-for-test course-move-to-recovery-link",
+                getInstructorCourseDeleteLink(courseId, true),
+                Const.Tooltips.COURSE_MOVE_TO_RECOVERY);
         addAttributeIf(true, delete, "data-course-id", courseId);
 
         if (instructor.isAllowedForPrivilege(Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_STUDENT)) {
@@ -118,7 +118,7 @@ public class InstructorHomeCourseAjaxPageData extends PageData {
     }
 
     private List<HomeFeedbackSessionRow> createSessionRows(List<FeedbackSessionAttributes> sessions,
-            InstructorAttributes instructor) {
+                                                           InstructorAttributes instructor) {
         List<HomeFeedbackSessionRow> rows = new ArrayList<>();
 
         for (FeedbackSessionAttributes session : sessions) {

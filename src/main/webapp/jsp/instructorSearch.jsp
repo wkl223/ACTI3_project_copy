@@ -14,9 +14,9 @@
 
 <ti:instructorPage title="Search" jsIncludes="${jsIncludes}">
 
-  <search:searchPageInput />
+  <search:searchPageInput/>
   <br>
-  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
+  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}"/>
 
   <c:if test="${not data.feedbackSessionDataEmpty}">
     <search:feedbackSessionDataSearchResults feedbackSessionDataTables="${data.searchFeedbackSessionDataTables}">

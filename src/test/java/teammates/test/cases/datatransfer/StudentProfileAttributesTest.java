@@ -74,7 +74,7 @@ public class StudentProfileAttributesTest extends BaseAttributesTest {
     public void testValueOf() {
         StudentProfile studentProfile = new StudentProfile("id", "Joe", "joe@gmail.com",
                 "Teammates Institute", "American", "male",
-                new Text("hello"), new BlobKey("key"),0);
+                new Text("hello"), new BlobKey("key"), 0);
         StudentProfileAttributes profileAttributes = StudentProfileAttributes.valueOf(studentProfile);
 
         assertEquals(studentProfile.getGoogleId(), profileAttributes.googleId);
@@ -108,12 +108,12 @@ public class StudentProfileAttributesTest extends BaseAttributesTest {
         StudentProfileAttributes spa = StudentProfileAttributes.valueOf(profile.toEntity());
         spa.modifiedDate = TimeHelper.parseInstant("2015-05-21 8:34 AM +0000");
         assertEquals("{\n  \"googleId\": \"valid.googleId\",\n  \"shortName\": \"shor\","
-                     + "\n  \"email\": \"valid@email.com\",\n  \"institute\": \"institute\","
-                     + "\n  \"nationality\": \"Lebanese\",\n  \"gender\": \"female\","
-                     + "\n  \"moreInfo\": \"moreInfo can have a lot more than this...\","
-                     + "\n  \"pictureKey\": \"profile Pic Key\","
-                     + "\n  \"modifiedDate\": \"2015-05-21T08:34:00Z\"\n}",
-                     spa.getJsonString());
+                        + "\n  \"email\": \"valid@email.com\",\n  \"institute\": \"institute\","
+                        + "\n  \"nationality\": \"Lebanese\",\n  \"gender\": \"female\","
+                        + "\n  \"moreInfo\": \"moreInfo can have a lot more than this...\","
+                        + "\n  \"pictureKey\": \"profile Pic Key\","
+                        + "\n  \"modifiedDate\": \"2015-05-21T08:34:00Z\"\n}",
+                spa.getJsonString());
     }
 
     @Test
@@ -161,7 +161,7 @@ public class StudentProfileAttributesTest extends BaseAttributesTest {
         profileToSanitize.sanitizeForSaving();
 
         assertEquals(SanitizationHelper.sanitizeGoogleId(profileToSanitizeExpected.googleId),
-                     profileToSanitize.googleId);
+                profileToSanitize.googleId);
         assertEquals(profileToSanitizeExpected.shortName, profileToSanitize.shortName);
         assertEquals(profileToSanitizeExpected.institute, profileToSanitize.institute);
         assertEquals(profileToSanitizeExpected.email, profileToSanitize.email);
@@ -185,7 +185,7 @@ public class StudentProfileAttributesTest extends BaseAttributesTest {
         assertEquals(expectedEntity.getGender(), actualEntity.getGender());
         assertEquals(expectedEntity.getMoreInfo(), actualEntity.getMoreInfo());
         assertEquals(expectedEntity.getModifiedDate().toString(),
-                     actualEntity.getModifiedDate().toString());
+                actualEntity.getModifiedDate().toString());
         assertEquals(expectedEntity.getPictureKey(), actualEntity.getPictureKey());
     }
 
@@ -206,8 +206,8 @@ public class StudentProfileAttributesTest extends BaseAttributesTest {
     private StudentProfile createStudentProfileFrom(
             StudentProfileAttributes profile) {
         return new StudentProfile(profile.googleId, profile.shortName, profile.email,
-                                  profile.institute, profile.nationality, profile.gender,
-                                  new Text(profile.moreInfo), new BlobKey(profile.pictureKey),profile.like);
+                profile.institute, profile.nationality, profile.gender,
+                new Text(profile.moreInfo), new BlobKey(profile.pictureKey), profile.like);
     }
 
     private List<String> generatedExpectedErrorMessages(StudentProfileAttributes profile) throws Exception {
@@ -216,20 +216,20 @@ public class StudentProfileAttributesTest extends BaseAttributesTest {
         // tests both the constructor and the invalidity info
         expectedErrorMessages.add(
                 getPopulatedErrorMessage(
-                    FieldValidator.INVALID_NAME_ERROR_MESSAGE, profile.shortName,
-                    FieldValidator.PERSON_NAME_FIELD_NAME,
-                    FieldValidator.REASON_START_WITH_NON_ALPHANUMERIC_CHAR,
-                    FieldValidator.PERSON_NAME_MAX_LENGTH));
+                        FieldValidator.INVALID_NAME_ERROR_MESSAGE, profile.shortName,
+                        FieldValidator.PERSON_NAME_FIELD_NAME,
+                        FieldValidator.REASON_START_WITH_NON_ALPHANUMERIC_CHAR,
+                        FieldValidator.PERSON_NAME_MAX_LENGTH));
         expectedErrorMessages.add(
                 getPopulatedErrorMessage(
-                    FieldValidator.EMAIL_ERROR_MESSAGE, profile.email,
-                    FieldValidator.EMAIL_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
-                    FieldValidator.EMAIL_MAX_LENGTH));
+                        FieldValidator.EMAIL_ERROR_MESSAGE, profile.email,
+                        FieldValidator.EMAIL_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
+                        FieldValidator.EMAIL_MAX_LENGTH));
         expectedErrorMessages.add(
                 getPopulatedErrorMessage(
-                    FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE, profile.institute,
-                    FieldValidator.INSTITUTE_NAME_FIELD_NAME, FieldValidator.REASON_TOO_LONG,
-                    FieldValidator.INSTITUTE_NAME_MAX_LENGTH));
+                        FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE, profile.institute,
+                        FieldValidator.INSTITUTE_NAME_FIELD_NAME, FieldValidator.REASON_TOO_LONG,
+                        FieldValidator.INSTITUTE_NAME_MAX_LENGTH));
         expectedErrorMessages.add(String.format(FieldValidator.NATIONALITY_ERROR_MESSAGE, profile.nationality));
 
         return expectedErrorMessages;

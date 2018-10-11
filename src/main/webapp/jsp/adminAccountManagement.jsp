@@ -11,15 +11,15 @@
 </c:set>
 
 <ta:adminPage title="Instructor Account Management" jsIncludes="${jsIncludes}">
-  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
+  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}"/>
   <div id="pagination_top">
-    <accounts:adminAccountManagementPagination />
+    <accounts:adminAccountManagementPagination/>
   </div>
 
-  <accounts:accountTable accounts="${data.accountTable}" />
+  <accounts:accountTable accounts="${data.accountTable}"/>
 
   <div id="pagination_bottom">
-    <accounts:adminAccountManagementPagination />
+    <accounts:adminAccountManagementPagination/>
   </div>
 
   <a href="javascript:;" class="back-to-top-left"><span class="glyphicon glyphicon-arrow-up"></span>&nbsp;Top</a>

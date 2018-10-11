@@ -57,8 +57,8 @@ public class PublicImageServlet extends HttpServlet {
                 // TODO : restrict image request to those "public" files only
 
                 String message = "Public image request with URL: <br>"
-                               + "<a href=\"" + url + "\" target=\"_blank\" rel=\"noopener noreferrer\" >"
-                               + url + "</a>";
+                        + "<a href=\"" + url + "\" target=\"_blank\" rel=\"noopener noreferrer\" >"
+                        + url + "</a>";
 
                 Map<String, String[]> params = HttpRequestHelper.getParameterMap(req);
                 log.info(new LogMessageGenerator().generateBasicActivityLogMessage(url, params, message, userType));

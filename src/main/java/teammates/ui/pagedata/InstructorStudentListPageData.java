@@ -34,10 +34,10 @@ public class InstructorStudentListPageData extends PageData {
 
             InstructorStudentListStudentsTableCourse courseForStudentsTable =
                     new InstructorStudentListStudentsTableCourse(islpcData.isCourseArchived, course.getId(),
-                                                                 courseName,
-                                                                 account.googleId,
-                                                                 getInstructorCourseEnrollLink(course.getId()),
-                                                                 islpcData.isInstructorAllowedToModify);
+                            courseName,
+                            account.googleId,
+                            getInstructorCourseEnrollLink(course.getId()),
+                            islpcData.isInstructorAllowedToModify);
             coursesForStudentsTable.add(courseForStudentsTable);
         }
         this.filterBox = new InstructorStudentListFilterBox(coursesForFilter, displayArchive);

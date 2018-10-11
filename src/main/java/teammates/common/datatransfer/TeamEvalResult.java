@@ -14,24 +14,40 @@ import teammates.common.util.StringHelper;
  */
 public class TeamEvalResult {
 
-    /** submitted value is uninitialized. */
+    /**
+     * submitted value is uninitialized.
+     */
     public static final int NA = Const.INT_UNINITIALIZED;
-    /** submitted 'Not SUre'. */
+    /**
+     * submitted 'Not SUre'.
+     */
     public static final int NSU = Const.POINTS_NOT_SURE;
-    /** did Not SuBmit. */
+    /**
+     * did Not SuBmit.
+     */
     public static final int NSB = Const.POINTS_NOT_SUBMITTED;
     private static final Logger log = Logger.getLogger();
 
-    /** submission values originally from students of the team. */
+    /**
+     * submission values originally from students of the team.
+     */
     public int[][] claimed;
-    /** submission values to be shown to instructor (after normalization). */
+    /**
+     * submission values to be shown to instructor (after normalization).
+     */
     public int[][] normalizedClaimed;
-    /** average perception of team shown to instructor. Excludes self evaluations */
+    /**
+     * average perception of team shown to instructor. Excludes self evaluations
+     */
     public int[] normalizedAveragePerceived;
-    /** team perception shown to students. denormalized to match their own claims */
+    /**
+     * team perception shown to students. denormalized to match their own claims
+     */
     public int[][] denormalizedAveragePerceived;
 
-    /** the values that were used to calculate normalizedAveragePerceived values. */
+    /**
+     * the values that were used to calculate normalizedAveragePerceived values.
+     */
     public int[][] normalizedPeerContributionRatio;
 
     // List of student email's.
@@ -70,7 +86,7 @@ public class TeamEvalResult {
         double[] normalizedAveragePerceivedAsDouble = normalizeValues(averagePerceivedAsDouble);
         log.fine("normalizedAveragePerceivedAsDouble as double:\n"
                 + replaceMagicNumbers(Arrays
-                        .toString(normalizedAveragePerceivedAsDouble)));
+                .toString(normalizedAveragePerceivedAsDouble)));
 
         double[][] normalizedPeerContributionRatioAsDouble =
                 adjustPeerContributionRatioToTallyNormalizedAveragePerceived(peerContributionRatioAsDouble);
@@ -131,7 +147,7 @@ public class TeamEvalResult {
     }
 
     private int[][] calculatePerceivedForStudents(int[][] claimedSanitized,
-            double[] normalizedAveragePerceivedAsDouble) {
+                                                  double[] normalizedAveragePerceivedAsDouble) {
         int teamSize = claimedSanitized.length;
         int[][] output = new int[teamSize][teamSize];
         for (int k = 0; k < teamSize; k++) {
@@ -142,7 +158,7 @@ public class TeamEvalResult {
     }
 
     public static int[] calculatePerceivedForStudent(int[] claimedSanitizedRow,
-            double[] normalizedAveragePerceivedAsDouble) {
+                                                     double[] normalizedAveragePerceivedAsDouble) {
 
         verify("Unsanitized value received ", isSanitized(claimedSanitizedRow));
 
@@ -391,19 +407,20 @@ public class TeamEvalResult {
             }
             if (i == firstDividerLocation || i == secondDividerLocation || i == thirdDividerLocation) {
                 returnValue.append("=======================")
-                           .append(System.lineSeparator());
+                        .append(System.lineSeparator());
             }
         }
         return replaceMagicNumbers(returnValue.toString());
     }
 
-    /** replaces 999 etc. with NA, NSB, NSU etc.
+    /**
+     * replaces 999 etc. with NA, NSB, NSU etc.
      */
     public static String replaceMagicNumbers(String returnValue) {
         return returnValue.replace(NA + ".0", " NA")
-                          .replace(Integer.toString(NA), " NA")
-                          .replace(NSB + ".0", "NSB")
-                          .replace(NSU + ".0", "NSU");
+                .replace(Integer.toString(NA), " NA")
+                .replace(NSB + ".0", "NSB")
+                .replace(NSU + ".0", "NSU");
     }
 
     @Override
@@ -418,30 +435,30 @@ public class TeamEvalResult {
         sb.append("           claimed from student:");
         String filler = "                                ";
         sb.append(indentString)
-          .append(pointsToString(claimed).replace(System.lineSeparator(),
+                .append(pointsToString(claimed).replace(System.lineSeparator(),
                         System.lineSeparator() + indentString + filler))
-          .append(divider)
-          .append("              normalizedClaimed:")
-          .append(indentString)
-          .append(pointsToString(normalizedClaimed).replace(System.lineSeparator(),
+                .append(divider)
+                .append("              normalizedClaimed:")
+                .append(indentString)
+                .append(pointsToString(normalizedClaimed).replace(System.lineSeparator(),
                         System.lineSeparator() + indentString + filler))
-          .append(divider)
-          .append("normalizedPeerContributionRatio:")
-          .append(indentString)
-          .append(pointsToString(normalizedPeerContributionRatio).replace(
+                .append(divider)
+                .append("normalizedPeerContributionRatio:")
+                .append(indentString)
+                .append(pointsToString(normalizedPeerContributionRatio).replace(
                         System.lineSeparator(), System.lineSeparator() + indentString + filler))
-          .append(divider)
-          .append("     normalizedAveragePerceived:")
-          .append(indentString)
-          .append(pointsToString(normalizedAveragePerceived).replace(
+                .append(divider)
+                .append("     normalizedAveragePerceived:")
+                .append(indentString)
+                .append(pointsToString(normalizedAveragePerceived).replace(
                         System.lineSeparator(), System.lineSeparator() + indentString + filler))
-          .append(divider)
+                .append(divider)
 
-          .append("   denormalizedAveragePerceived:")
-          .append(indentString)
-          .append(pointsToString(denormalizedAveragePerceived).replace(
+                .append("   denormalizedAveragePerceived:")
+                .append(indentString)
+                .append(pointsToString(denormalizedAveragePerceived).replace(
                         System.lineSeparator(), System.lineSeparator() + indentString + filler))
-            .append(divider);
+                .append(divider);
         return sb.toString();
     }
 

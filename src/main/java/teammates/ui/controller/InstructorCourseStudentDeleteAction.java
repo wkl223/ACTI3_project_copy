@@ -24,7 +24,7 @@ public class InstructorCourseStudentDeleteAction extends Action {
         logic.deleteStudent(courseId, studentEmail);
         statusToUser.add(new StatusMessage(Const.StatusMessages.STUDENT_DELETED, StatusMessageColor.SUCCESS));
         statusToAdmin = "Student <span class=\"bold\">" + studentEmail
-                      + "</span> in Course <span class=\"bold\">[" + courseId + "]</span> deleted.";
+                + "</span> in Course <span class=\"bold\">[" + courseId + "]</span> deleted.";
 
         RedirectResult result = createRedirectResult(Const.ActionURIs.INSTRUCTOR_COURSE_DETAILS_PAGE);
         result.addResponseParam(Const.ParamsNames.COURSE_ID, courseId);

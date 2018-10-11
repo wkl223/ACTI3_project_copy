@@ -32,7 +32,7 @@ public class FeedbackSessionStatsPageActionTest extends BaseActionTest {
         ______TS("typical: instructor accesses feedback stats of his/her course");
 
         FeedbackSessionAttributes accessableFeedbackSession = typicalBundle.feedbackSessions.get("session1InCourse1");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, accessableFeedbackSession.getFeedbackSessionName(),
                 Const.ParamsNames.COURSE_ID, instructor1OfCourse1.courseId
         };
@@ -51,7 +51,7 @@ public class FeedbackSessionStatsPageActionTest extends BaseActionTest {
         ______TS("fail: instructor accesses stats of non-existent feedback session");
 
         String nonexistentFeedbackSession = "nonexistentFeedbackSession";
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, nonexistentFeedbackSession,
                 Const.ParamsNames.COURSE_ID, instructor1OfCourse1.courseId
         };
@@ -83,7 +83,7 @@ public class FeedbackSessionStatsPageActionTest extends BaseActionTest {
     protected void testAccessControl() throws Exception {
         InstructorAttributes instructor1OfCourse1 = typicalBundle.instructors.get("instructor1OfCourse1");
         FeedbackSessionAttributes accessibleFeedbackSession = typicalBundle.feedbackSessions.get("session1InCourse1");
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, accessibleFeedbackSession.getFeedbackSessionName(),
                 Const.ParamsNames.COURSE_ID, instructor1OfCourse1.courseId
         };

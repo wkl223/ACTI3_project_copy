@@ -14,7 +14,7 @@ public class StudentFeedbackSessionActions {
     private String buttonText;
 
     public StudentFeedbackSessionActions(FeedbackSessionAttributes fs,
-            String feedbackResultsLink, String feedbackResponseEditLink, boolean hasSubmitted) {
+                                         String feedbackResultsLink, String feedbackResponseEditLink, boolean hasSubmitted) {
         this.isSubmitted = hasSubmitted;
         this.isSessionVisible = fs.isVisible();
         this.isSessionPublished = fs.isPublished();
@@ -35,7 +35,7 @@ public class StudentFeedbackSessionActions {
                 this.buttonText = fs.isOpened() ? "Edit Submission" : "View Submission";
             } else {
                 this.tooltipText = fs.isWaitingToOpen() ? Const.Tooltips.FEEDBACK_SESSION_AWAITING
-                                                       : Const.Tooltips.FEEDBACK_SESSION_SUBMIT;
+                        : Const.Tooltips.FEEDBACK_SESSION_SUBMIT;
                 this.buttonText = "Start Submission";
             }
         }

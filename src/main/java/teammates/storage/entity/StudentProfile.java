@@ -57,24 +57,16 @@ public class StudentProfile extends BaseEntity {
     /**
      * Instantiates a new account.
      *
-     * @param googleId
-     *            the Google ID of the user.
-     * @param shortName
-     *            The shortened name of the user.
-     * @param email
-     *            The long-term (personal) email of the user.
-     * @param institute
-     *            The university/school/institute the student is from (useful
-     *            for exchange students)
-     * @param nationality
-     *            The nationality the student is from (useful for
-     *            exchange/foreign students)
-     * @param gender
-     *            The student's gender. Allows "other"
-     * @param moreInfo
-     *            Miscellaneous information, including external profile
-     * @param like
-     *            The 'like' number of a student.
+     * @param googleId    the Google ID of the user.
+     * @param shortName   The shortened name of the user.
+     * @param email       The long-term (personal) email of the user.
+     * @param institute   The university/school/institute the student is from (useful
+     *                    for exchange students)
+     * @param nationality The nationality the student is from (useful for
+     *                    exchange/foreign students)
+     * @param gender      The student's gender. Allows "other"
+     * @param moreInfo    Miscellaneous information, including external profile
+     * @param like        The 'like' number of a student.
      */
     public StudentProfile(String googleId, String shortName, String email, String institute,
                           String nationality, String gender, Text moreInfo, BlobKey pictureKey, int like) {
@@ -174,7 +166,13 @@ public class StudentProfile extends BaseEntity {
     public void setModifiedDate(Instant modifiedDate) {
         this.modifiedDate = TimeHelper.convertInstantToDate(modifiedDate);
     }
-    public void setLike(int like){this.like=like;}
-    public int getLike(){return this.like;}
+
+    public void setLike(int like) {
+        this.like = like;
+    }
+
+    public int getLike() {
+        return this.like;
+    }
 
 }

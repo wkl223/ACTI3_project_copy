@@ -36,7 +36,7 @@ public class FeedbackSessionResendPublishedEmailWorkerActionTest extends BaseAut
         StudentAttributes student1 = dataBundle.students.get("student1InCourse1");
         InstructorAttributes instructor1 = dataBundle.instructors.get("instructor1OfCourse1");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 ParamsNames.SUBMISSION_FEEDBACK, publishedSession.getFeedbackSessionName(),
                 ParamsNames.SUBMISSION_COURSE, publishedSession.getCourseId(),
                 ParamsNames.SUBMISSION_RESEND_PUBLISHED_EMAIL_USER_LIST, student1.email,

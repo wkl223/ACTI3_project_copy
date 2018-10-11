@@ -83,6 +83,7 @@ public class InstructorsDb extends EntitiesDb<Instructor, InstructorAttributes> 
      * This method should be used by admin only since the searching does not restrict the
      * visibility according to the logged-in user's google ID. This is used by admin to
      * search instructors in the whole system.
+     *
      * @return null if no result found
      */
 
@@ -93,7 +94,7 @@ public class InstructorsDb extends EntitiesDb<Instructor, InstructorAttributes> 
         }
 
         Results<ScoredDocument> results = searchDocuments(Const.SearchIndex.INSTRUCTOR,
-                                                          new InstructorSearchQuery(queryString));
+                new InstructorSearchQuery(queryString));
 
         return InstructorSearchDocument.fromResults(results);
     }
@@ -160,7 +161,7 @@ public class InstructorsDb extends EntitiesDb<Instructor, InstructorAttributes> 
 
     /**
      * Preconditions: <br>
-     *  * All parameters are non-null.
+     * * All parameters are non-null.
      *
      * @return empty list if no matching objects.
      */
@@ -172,7 +173,8 @@ public class InstructorsDb extends EntitiesDb<Instructor, InstructorAttributes> 
 
     /**
      * Preconditions: <br>
-     *  * All parameters are non-null.
+     * * All parameters are non-null.
+     *
      * @return empty list if no matching objects.
      */
     public List<InstructorAttributes> getInstructorsForCourse(String courseId) {
@@ -199,7 +201,7 @@ public class InstructorsDb extends EntitiesDb<Instructor, InstructorAttributes> 
 
         if (instructorToUpdate == null) {
             throw new EntityDoesNotExistException(ERROR_UPDATE_NON_EXISTENT_ACCOUNT + instructorAttributesToUpdate.googleId
-                        + ThreadHelper.getCurrentThreadStack());
+                    + ThreadHelper.getCurrentThreadStack());
         }
 
         instructorToUpdate.setName(instructorAttributesToUpdate.name);
@@ -234,7 +236,7 @@ public class InstructorsDb extends EntitiesDb<Instructor, InstructorAttributes> 
 
         if (instructorToUpdate == null) {
             throw new EntityDoesNotExistException(ERROR_UPDATE_NON_EXISTENT_ACCOUNT + instructorAttributesToUpdate.email
-                        + ThreadHelper.getCurrentThreadStack());
+                    + ThreadHelper.getCurrentThreadStack());
         }
 
         instructorToUpdate.setGoogleId(instructorAttributesToUpdate.googleId);

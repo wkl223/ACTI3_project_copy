@@ -12,7 +12,8 @@
 <ta:adminPage title="Add New Instructor" jsIncludes="${jsIncludes}">
   <adminHome:adminCreateInstructorAccountWithOneBoxForm/>
   <adminHome:adminCreateInstructorAccountForm
-      instructorName="${data.instructorName}" instructorEmail="${data.instructorEmail}" instructorInstitution="${data.instructorInstitution}"/>
+      instructorName="${data.instructorName}" instructorEmail="${data.instructorEmail}"
+      instructorInstitution="${data.instructorInstitution}"/>
 
   <div class="panel panel-primary" hidden id="addInstructorResultPanel">
     <div class="panel-heading">
@@ -21,18 +22,18 @@
     <div class="table-responsive">
       <table class="table table-striped table-hover" id="addInstructorResultTable">
         <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Institution</th>
-            <th>Status</th>
-            <th>Message</th>
-          </tr>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Institution</th>
+          <th>Status</th>
+          <th>Message</th>
+        </tr>
         </thead>
         <tbody>
         </tbody>
       </table>
     </div>
   </div>
-  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
+  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}"/>
 </ta:adminPage>

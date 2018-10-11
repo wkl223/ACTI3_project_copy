@@ -26,6 +26,7 @@ public enum FeedbackParticipantType {
     GIVER(false, false, true, "", "", "");
 
     public static final List<FeedbackParticipantType> GIVERS;
+
     static {
         List<FeedbackParticipantType> giverInitializer = new ArrayList<>();
         for (FeedbackParticipantType participantType : FeedbackParticipantType.values()) {
@@ -37,6 +38,7 @@ public enum FeedbackParticipantType {
     }
 
     public static final List<FeedbackParticipantType> RECIPIENTS;
+
     static {
         List<FeedbackParticipantType> recipientInitializer = new ArrayList<>();
         for (FeedbackParticipantType participantType : FeedbackParticipantType.values()) {
@@ -102,7 +104,7 @@ public enum FeedbackParticipantType {
      * Formats the participant type for display to user in the response visibility section.
      *
      * @return A user-friendly {@code String} representing this participant directed to users who are
-     *         responding to a feedback.
+     * responding to a feedback.
      */
     public String toVisibilityString() {
         return displayNameVisibility;
@@ -115,24 +117,24 @@ public enum FeedbackParticipantType {
      */
     public String toSingularFormString() {
         switch (this) {
-        case INSTRUCTORS:
-            return "instructor";
-        case STUDENTS:
-            // Fallthrough
-        case STUDENTS_EXCLUDING_SELF:
-            // Fallthrough
-        case OWN_TEAM_MEMBERS:
-            // Fallthrough
-        case OWN_TEAM_MEMBERS_INCLUDING_SELF:
-            return "student";
-        case TEAMS:
-            // Fallthrough
-        case TEAMS_EXCLUDING_SELF:
-            // Fallthrough
-        case OWN_TEAM:
-            return "team";
-        default:
-            return super.toString();
+            case INSTRUCTORS:
+                return "instructor";
+            case STUDENTS:
+                // Fallthrough
+            case STUDENTS_EXCLUDING_SELF:
+                // Fallthrough
+            case OWN_TEAM_MEMBERS:
+                // Fallthrough
+            case OWN_TEAM_MEMBERS_INCLUDING_SELF:
+                return "student";
+            case TEAMS:
+                // Fallthrough
+            case TEAMS_EXCLUDING_SELF:
+                // Fallthrough
+            case OWN_TEAM:
+                return "team";
+            default:
+                return super.toString();
         }
     }
 

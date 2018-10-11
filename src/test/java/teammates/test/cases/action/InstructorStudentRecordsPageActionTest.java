@@ -48,14 +48,14 @@ public class InstructorStudentRecordsPageActionTest extends BaseActionTest {
         verifyAssumptionFailure();
 
         // null courseId
-        String[] invalidParams = new String[] {
+        String[] invalidParams = new String[]{
                 Const.ParamsNames.STUDENT_EMAIL, student.email
         };
 
         verifyAssumptionFailure(invalidParams);
 
         // null student email
-        invalidParams = new String[] {
+        invalidParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor.courseId
         };
 
@@ -63,7 +63,7 @@ public class InstructorStudentRecordsPageActionTest extends BaseActionTest {
 
         // student not in course
         String studentEmailOfStudent1InCourse2 = typicalBundle.students.get("student1InCourse2").email;
-        invalidParams = new String[] {
+        invalidParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor.courseId,
                 Const.ParamsNames.STUDENT_EMAIL, studentEmailOfStudent1InCourse2
         };
@@ -71,13 +71,13 @@ public class InstructorStudentRecordsPageActionTest extends BaseActionTest {
         RedirectResult redirect = getRedirectResult(getAction(invalidParams));
 
         AssertHelper.assertContains(Const.ActionURIs.INSTRUCTOR_HOME_PAGE,
-                                    redirect.getDestinationWithParams());
+                redirect.getDestinationWithParams());
         AssertHelper.assertContains(Const.StatusMessages.STUDENT_NOT_FOUND_FOR_RECORDS,
-                                    redirect.getStatusMessage());
+                redirect.getStatusMessage());
 
         ______TS("Typical case: student has some records and has profile");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor.courseId,
                 Const.ParamsNames.STUDENT_EMAIL, student.email
         };
@@ -102,13 +102,13 @@ public class InstructorStudentRecordsPageActionTest extends BaseActionTest {
         assertEquals(student.googleId, actualData.spa.googleId);
 
         String expectedLogMessage = "TEAMMATESLOG|||instructorStudentRecordsPage|||instructorStudentRecordsPage"
-                                  + "|||true|||Instructor|||Instructor 3 of Course 1 and 2|||idOfInstructor3"
-                                  + "|||instr3@course1n2.tmt|||instructorStudentRecords Page Load<br>"
-                                  + "Viewing <span class=\"bold\">" + student.email + "'s</span> records "
-                                  + "for Course <span class=\"bold\">[" + instructor.courseId + "]</span><br>"
-                                  + "Number of sessions: 6<br>"
-                                  + "Student Profile: " + SanitizationHelper.sanitizeForHtmlTag(expectedProfile.toString())
-                                  + "|||/page/instructorStudentRecordsPage";
+                + "|||true|||Instructor|||Instructor 3 of Course 1 and 2|||idOfInstructor3"
+                + "|||instr3@course1n2.tmt|||instructorStudentRecords Page Load<br>"
+                + "Viewing <span class=\"bold\">" + student.email + "'s</span> records "
+                + "for Course <span class=\"bold\">[" + instructor.courseId + "]</span><br>"
+                + "Number of sessions: 6<br>"
+                + "Student Profile: " + SanitizationHelper.sanitizeForHtmlTag(expectedProfile.toString())
+                + "|||/page/instructorStudentRecordsPage";
         AssertHelper.assertLogMessageEquals(expectedLogMessage, a.getLogMessage());
 
         ______TS("Typical case: instructor cannot view sections");
@@ -116,7 +116,7 @@ public class InstructorStudentRecordsPageActionTest extends BaseActionTest {
         instructor = typicalBundle.instructors.get("helperOfCourse1");
         gaeSimulation.loginAsInstructor(instructor.googleId);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor.courseId,
                 Const.ParamsNames.STUDENT_EMAIL, student.email
         };
@@ -129,9 +129,9 @@ public class InstructorStudentRecordsPageActionTest extends BaseActionTest {
                 r.getDestinationWithParams());
         assertFalse(r.isError);
         assertEquals("Normally, we would show the student’s profile here. "
-                         + "However, you do not have access to view this student's profile<br>"
-                         + "No records were found for this student",
-                     r.getStatusMessage());
+                        + "However, you do not have access to view this student's profile<br>"
+                        + "No records were found for this student",
+                r.getStatusMessage());
 
         ______TS("Typical case: student has no records, no profiles");
 
@@ -142,7 +142,7 @@ public class InstructorStudentRecordsPageActionTest extends BaseActionTest {
 
         StudentAttributes testStudent = createStudentInTypicalDataBundleForCourseWithNoSession();
 
-        String[] submissionParamsWithNoSession = new String[] {
+        String[] submissionParamsWithNoSession = new String[]{
                 Const.ParamsNames.COURSE_ID, courseIdWithNoSession,
                 Const.ParamsNames.STUDENT_EMAIL, "emailTemp@gmail.tmt"
         };
@@ -159,7 +159,7 @@ public class InstructorStudentRecordsPageActionTest extends BaseActionTest {
         testStudent.googleId = "valid.no.sessions";
         StudentsLogic.inst().updateStudentCascadeWithoutDocument(testStudent.email, testStudent);
         logic.createAccount(testStudent.googleId, testStudent.name, false, testStudent.email,
-                            "valid institute");
+                "valid institute");
 
         a = getAction(submissionParamsWithNoSession);
         r = getShowPageResult(a);
@@ -176,7 +176,7 @@ public class InstructorStudentRecordsPageActionTest extends BaseActionTest {
 
         gaeSimulation.loginAsInstructor(instructorId);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor.courseId,
                 Const.ParamsNames.STUDENT_EMAIL, student.email
         };
@@ -227,7 +227,7 @@ public class InstructorStudentRecordsPageActionTest extends BaseActionTest {
         InstructorAttributes instructor1OfCourse1 = typicalBundle.instructors.get("instructor1OfCourse1");
         StudentAttributes student1InCourse1 = typicalBundle.students.get("student1InCourse1");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor1OfCourse1.courseId,
                 Const.ParamsNames.STUDENT_EMAIL, student1InCourse1.email
         };

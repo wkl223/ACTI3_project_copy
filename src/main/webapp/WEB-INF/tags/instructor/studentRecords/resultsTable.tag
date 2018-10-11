@@ -16,39 +16,47 @@
   <c:when test="${not empty responses}">
     <div class="panel panel-primary">
       <div class="panel-heading">
-        ${panelHeadingToOrFrom}: <strong>${fn:escapeXml(studentName)}</strong>
+          ${panelHeadingToOrFrom}: <strong>${fn:escapeXml(studentName)}</strong>
       </div>
       <div class="panel-body">
         <c:forEach items="${responses}" var="responsesByPerson" varStatus="personIndex">
           <div class="row<c:if test="${personIndex.index != 0}"> border-top-gray</c:if>">
             <div class="col-md-2">
-              ${panelEntryToOrFrom}: <strong>${fn:escapeXml(responsesByPerson.personName)}</strong>
+                ${panelEntryToOrFrom}: <strong>${fn:escapeXml(responsesByPerson.personName)}</strong>
             </div>
             <div class="col-md-10">
               <c:forEach items="${responsesByPerson.responses}" var="response" varStatus="qnIndex">
                 <div class="panel panel-info">
                   <div class="panel-heading">
-                    Question ${response.questionNumber}: <span class="text-preserve-space">${response.questionText}${response.questionMoreInfo}</span>
+                    Question ${response.questionNumber}: <span
+                      class="text-preserve-space">${response.questionText}${response.questionMoreInfo}</span>
                   </div>
                   <div class="panel-body">
                     <div style="clear:both; overflow: hidden">
-                      <%-- Note: When an element has class text-preserve-space, do not insert any HTML spaces --%>
+                        <%-- Note: When an element has class text-preserve-space, do not insert any HTML spaces --%>
                       <div class="pull-left text-preserve-space">${response.responseText}</div>
                     </div>
                     <c:if test="${not empty response.feedbackParticipantComment}">
                       <br>
-                      <shared:feedbackResponseCommentRowForFeedbackParticipant frc="${response.feedbackParticipantComment}"/>
+                      <shared:feedbackResponseCommentRowForFeedbackParticipant
+                          frc="${response.feedbackParticipantComment}"/>
                     </c:if>
                     <c:if test="${not empty response.instructorComments}">
-                      <ul class="list-group" id="responseCommentTable-${fbIndex}-${personIndex.index + 1}-${qnIndex.index + 1}-${viewType}" style="margin-top:15px;">
+                      <ul class="list-group"
+                          id="responseCommentTable-${fbIndex}-${personIndex.index + 1}-${qnIndex.index + 1}-${viewType}"
+                          style="margin-top:15px;">
                         <c:forEach items="${response.instructorComments}" var="responseComment" varStatus="status">
                           <c:if test="${forOrBy == 'by'}">
-                            <shared:feedbackResponseCommentRow frc="${responseComment}" firstIndex="${personIndex.index + 1}"
-                                secondIndex="1" thirdIndex="${qnIndex.index + 1}" frcIndex="${status.count}" viewType="GRQ"/>
+                            <shared:feedbackResponseCommentRow frc="${responseComment}"
+                                                               firstIndex="${personIndex.index + 1}"
+                                                               secondIndex="1" thirdIndex="${qnIndex.index + 1}"
+                                                               frcIndex="${status.count}" viewType="GRQ"/>
                           </c:if>
                           <c:if test="${forOrBy == 'for'}">
                             <shared:feedbackResponseCommentRow frc="${responseComment}" firstIndex="1"
-                                secondIndex="${personIndex.index + 1}" thirdIndex="${qnIndex.index + 1}" frcIndex="${status.count}" viewType="RGQ"/>
+                                                               secondIndex="${personIndex.index + 1}"
+                                                               thirdIndex="${qnIndex.index + 1}"
+                                                               frcIndex="${status.count}" viewType="RGQ"/>
                           </c:if>
                         </c:forEach>
                       </ul>

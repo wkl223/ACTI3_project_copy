@@ -27,7 +27,7 @@ public class FeedbackSubmissionEditQuestion {
     private RecipientType recipientType;
 
     public FeedbackSubmissionEditQuestion(FeedbackQuestionAttributes questionAttributes, int qnIndx,
-                                    boolean isModeratedQuestion) {
+                                          boolean isModeratedQuestion) {
 
         courseId = questionAttributes.courseId;
         questionNumber = questionAttributes.questionNumber;
@@ -59,15 +59,15 @@ public class FeedbackSubmissionEditQuestion {
         messageToDisplayIfNoRecipientAvailable = "";
         if (questionAttributes.recipientType == FeedbackParticipantType.OWN_TEAM_MEMBERS) {
             messageToDisplayIfNoRecipientAvailable = "This question is for team members and you don't have any team members."
-                                                     + " Therefore, you will not be able to answer this question.";
+                    + " Therefore, you will not be able to answer this question.";
         } else if (questionAttributes.recipientType == FeedbackParticipantType.TEAMS) {
             messageToDisplayIfNoRecipientAvailable = "This question is for other teams in this course and this course "
-                                                     + "doesn't have any other team. Therefore, you will not be able to "
-                                                     + "answer this question.";
+                    + "doesn't have any other team. Therefore, you will not be able to "
+                    + "answer this question.";
         } else if (questionAttributes.recipientType == FeedbackParticipantType.STUDENTS) {
             messageToDisplayIfNoRecipientAvailable = "This question is for other students in this course and this course "
-                                                     + "doesn't have any other student. Therefore, you will not be able to "
-                                                     + "answer this question.";
+                    + "doesn't have any other student. Therefore, you will not be able to "
+                    + "answer this question.";
         }
     }
 

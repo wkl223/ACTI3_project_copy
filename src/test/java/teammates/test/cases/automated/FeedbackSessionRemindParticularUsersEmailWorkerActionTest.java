@@ -36,7 +36,7 @@ public class FeedbackSessionRemindParticularUsersEmailWorkerActionTest extends B
         StudentAttributes student1 = dataBundle.students.get("student1InCourse1");
         InstructorAttributes instructor1 = dataBundle.instructors.get("instructor1OfCourse1");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 ParamsNames.SUBMISSION_FEEDBACK, session1.getFeedbackSessionName(),
                 ParamsNames.SUBMISSION_COURSE, session1.getCourseId(),
                 ParamsNames.SUBMISSION_REMIND_USERLIST, student1.email,
@@ -56,8 +56,8 @@ public class FeedbackSessionRemindParticularUsersEmailWorkerActionTest extends B
         for (TaskWrapper task : tasksAdded) {
             Map<String, String[]> paramMap = task.getParamMap();
             assertEquals(String.format(EmailType.FEEDBACK_SESSION_REMINDER.getSubject(), courseName,
-                                       session1.getSessionName()),
-                         paramMap.get(ParamsNames.EMAIL_SUBJECT)[0]);
+                    session1.getSessionName()),
+                    paramMap.get(ParamsNames.EMAIL_SUBJECT)[0]);
             String recipient = paramMap.get(ParamsNames.EMAIL_RECEIVER)[0];
             assertTrue(recipient.equals(student1.email) || recipient.equals(instructor1.email));
         }

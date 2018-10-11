@@ -7,10 +7,12 @@
 <%@ attribute name="responseIndex" required="true" %>
 <%@ attribute name="qnIndex" required="true" %>
 
-<c:set var="divId" value="${qnIndex}-${responseIndex}" />
+<c:set var="divId" value="${qnIndex}-${responseIndex}"/>
 <li class="list-group-item list-group-item-warning"
     id="showResponseCommentAddForm-${divId}" style="display: none;">
-  <c:set var="textAreaId"><%= Const.ParamsNames.FEEDBACK_RESPONSE_COMMENT_ADD_TEXT%></c:set>
+  <c:set var="textAreaId"><%= Const.ParamsNames.FEEDBACK_RESPONSE_COMMENT_ADD_TEXT%>
+  </c:set>
   <shared:feedbackResponseCommentFormForFeedbackParticipant responseIndex="${responseIndex}"
-      qnIndex="${qnIndex}" frc="${frc}" formType="Add" textAreaId="${textAreaId}"/>
+                                                            qnIndex="${qnIndex}" frc="${frc}" formType="Add"
+                                                            textAreaId="${textAreaId}"/>
 </li>

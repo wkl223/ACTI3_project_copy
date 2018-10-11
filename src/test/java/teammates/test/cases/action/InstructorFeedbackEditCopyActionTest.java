@@ -47,7 +47,7 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
         verifyAssumptionFailure();
 
         ______TS("Failure case: Courses not passed in, instructor home page");
-        String[] params = new String[] {
+        String[] params = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.COURSE_ID, instructor.courseId,
                 Const.ParamsNames.COPIED_FEEDBACK_SESSION_NAME, "valid name"
@@ -60,7 +60,7 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
         assertEquals(Const.StatusMessages.FEEDBACK_SESSION_COPY_NONESELECTED, editCopyData.errorMessage);
 
         ______TS("Failure case: Courses not passed in, instructor feedbacks page");
-        params = new String[] {
+        params = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.COURSE_ID, instructor.courseId,
                 Const.ParamsNames.COPIED_FEEDBACK_SESSION_NAME, "valid name"
@@ -74,7 +74,7 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
         assertEquals(Const.StatusMessages.FEEDBACK_SESSION_COPY_NONESELECTED, editCopyData.errorMessage);
 
         ______TS("Failure case: Courses not passed in, instructor feedback copy page");
-        params = new String[] {
+        params = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.COURSE_ID, instructor.courseId,
                 Const.ParamsNames.COPIED_FEEDBACK_SESSION_NAME, "valid name"
@@ -87,7 +87,7 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
         assertEquals(Const.StatusMessages.FEEDBACK_SESSION_COPY_NONESELECTED, editCopyData.errorMessage);
 
         ______TS("Failure case: Courses not passed in, instructor feedback edit page");
-        params = new String[] {
+        params = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.COURSE_ID, instructor.courseId,
                 Const.ParamsNames.COPIED_FEEDBACK_SESSION_NAME, "valid name"
@@ -100,7 +100,7 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
         assertEquals(Const.StatusMessages.FEEDBACK_SESSION_COPY_NONESELECTED, editCopyData.errorMessage);
 
         ______TS("Failure case: copying non-existing fs");
-        params = new String[] {
+        params = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, "non.existing.fs",
                 Const.ParamsNames.COURSE_ID, course.getId(),
                 Const.ParamsNames.COPIED_FEEDBACK_SESSION_NAME, "valid name",
@@ -114,11 +114,11 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
             signalFailureToDetectException();
         } catch (UnauthorizedAccessException uae) {
             assertEquals("Trying to access system using a non-existent feedback session entity",
-                         uae.getMessage());
+                    uae.getMessage());
         }
 
         ______TS("Failure case: copying to non-existing course");
-        params = new String[] {
+        params = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.COURSE_ID, course.getId(),
                 Const.ParamsNames.COPIED_FEEDBACK_SESSION_NAME, "valid name",
@@ -132,13 +132,13 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
             signalFailureToDetectException();
         } catch (UnauthorizedAccessException uae) {
             assertEquals("Trying to access system using a non-existent instructor entity",
-                         uae.getMessage());
+                    uae.getMessage());
         }
 
         ______TS("Failure case: course already has feedback session with same name, instructor home page");
 
         CourseAttributes course6 = dataBundle.courses.get("course6");
-        params = new String[] {
+        params = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, "First Session",
                 Const.ParamsNames.COURSE_ID, course.getId(),
                 Const.ParamsNames.COPIED_FEEDBACK_SESSION_NAME, "First Session",
@@ -153,12 +153,12 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
         assertEquals("", editCopyData.redirectUrl);
 
         expectedString = "A feedback session with the name \"First Session\" already exists in "
-                         + "the following course(s): FeedbackEditCopy.CS2104.";
+                + "the following course(s): FeedbackEditCopy.CS2104.";
         assertEquals(expectedString, editCopyData.errorMessage);
 
         ______TS("Failure case: course already has feedback session with same name, instructor feedbacks page");
 
-        params = new String[] {
+        params = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, "First Session",
                 Const.ParamsNames.COURSE_ID, course.getId(),
                 Const.ParamsNames.COPIED_FEEDBACK_SESSION_NAME, "First Session",
@@ -173,12 +173,12 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
         assertEquals("", editCopyData.redirectUrl);
 
         expectedString = "A feedback session with the name \"First Session\" already exists in "
-                         + "the following course(s): FeedbackEditCopy.CS2104.";
+                + "the following course(s): FeedbackEditCopy.CS2104.";
         assertEquals(expectedString, editCopyData.errorMessage);
 
         ______TS("Failure case: course already has feedback session with same name, instructor feedback copy page");
 
-        params = new String[] {
+        params = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, "First Session",
                 Const.ParamsNames.COURSE_ID, course.getId(),
                 Const.ParamsNames.COPIED_FEEDBACK_SESSION_NAME, "First Session",
@@ -193,12 +193,12 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
         assertEquals("", editCopyData.redirectUrl);
 
         expectedString = "A feedback session with the name \"First Session\" already exists in "
-                         + "the following course(s): FeedbackEditCopy.CS2104.";
+                + "the following course(s): FeedbackEditCopy.CS2104.";
         assertEquals(expectedString, editCopyData.errorMessage);
 
         ______TS("Failure case: course already has feedback session with same name, instructor feedback edit page");
 
-        params = new String[] {
+        params = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, "First Session",
                 Const.ParamsNames.COURSE_ID, course.getId(),
                 Const.ParamsNames.COPIED_FEEDBACK_SESSION_NAME, "First Session",
@@ -213,12 +213,12 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
         assertEquals("", editCopyData.redirectUrl);
 
         expectedString = "A feedback session with the name \"First Session\" already exists in "
-                         + "the following course(s): FeedbackEditCopy.CS2104.";
+                + "the following course(s): FeedbackEditCopy.CS2104.";
         assertEquals(expectedString, editCopyData.errorMessage);
 
         ______TS("Failure case: empty name, instructor home page");
 
-        params = new String[] {
+        params = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, "First Session",
                 Const.ParamsNames.COURSE_ID, course.getId(),
                 Const.ParamsNames.COPIED_FEEDBACK_SESSION_NAME, "",
@@ -233,20 +233,20 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
         assertEquals("", editCopyData.redirectUrl);
 
         expectedString = "The field 'feedback session name' should not be empty. "
-                         + "The value of 'feedback session name' field should be no longer than 38 characters.";
+                + "The value of 'feedback session name' field should be no longer than 38 characters.";
         assertEquals(expectedString, editCopyData.errorMessage);
 
         expectedString =
                 "TEAMMATESLOG|||instructorFeedbackEditCopy|||instructorFeedbackEditCopy|||true|||"
-                + "Instructor|||Instructor 2|||FeedbackEditCopyinstructor2|||tmms.instr@gmail.tmt|||"
-                + "Servlet Action Failure : The field 'feedback session name' should not be empty. The value of "
-                + "'feedback session name' field should be no longer than 38 characters."
-                + "|||/page/instructorFeedbackEditCopy";
+                        + "Instructor|||Instructor 2|||FeedbackEditCopyinstructor2|||tmms.instr@gmail.tmt|||"
+                        + "Servlet Action Failure : The field 'feedback session name' should not be empty. The value of "
+                        + "'feedback session name' field should be no longer than 38 characters."
+                        + "|||/page/instructorFeedbackEditCopy";
         AssertHelper.assertLogMessageEquals(expectedString, a.getLogMessage());
 
         ______TS("Failure case: empty name, instructor feedbacks page");
 
-        params = new String[] {
+        params = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, "First Session",
                 Const.ParamsNames.COURSE_ID, course.getId(),
                 Const.ParamsNames.COPIED_FEEDBACK_SESSION_NAME, "",
@@ -261,20 +261,20 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
         assertEquals("", editCopyData.redirectUrl);
 
         expectedString = "The field 'feedback session name' should not be empty. "
-                         + "The value of 'feedback session name' field should be no longer than 38 characters.";
+                + "The value of 'feedback session name' field should be no longer than 38 characters.";
         assertEquals(expectedString, editCopyData.errorMessage);
 
         expectedString =
                 "TEAMMATESLOG|||instructorFeedbackEditCopy|||instructorFeedbackEditCopy|||true|||"
-                + "Instructor|||Instructor 2|||FeedbackEditCopyinstructor2|||tmms.instr@gmail.tmt|||"
-                + "Servlet Action Failure : The field 'feedback session name' should not be empty. The value of "
-                + "'feedback session name' field should be no longer than 38 characters."
-                + "|||/page/instructorFeedbackEditCopy";
+                        + "Instructor|||Instructor 2|||FeedbackEditCopyinstructor2|||tmms.instr@gmail.tmt|||"
+                        + "Servlet Action Failure : The field 'feedback session name' should not be empty. The value of "
+                        + "'feedback session name' field should be no longer than 38 characters."
+                        + "|||/page/instructorFeedbackEditCopy";
         AssertHelper.assertLogMessageEquals(expectedString, a.getLogMessage());
 
         ______TS("Failure case: empty name, instructor feedback copy page");
 
-        params = new String[] {
+        params = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, "First Session",
                 Const.ParamsNames.COURSE_ID, course.getId(),
                 Const.ParamsNames.COPIED_FEEDBACK_SESSION_NAME, "",
@@ -289,20 +289,20 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
         assertEquals("", editCopyData.redirectUrl);
 
         expectedString = "The field 'feedback session name' should not be empty. "
-                         + "The value of 'feedback session name' field should be no longer than 38 characters.";
+                + "The value of 'feedback session name' field should be no longer than 38 characters.";
         assertEquals(expectedString, editCopyData.errorMessage);
 
         expectedString =
                 "TEAMMATESLOG|||instructorFeedbackEditCopy|||instructorFeedbackEditCopy|||true|||"
-                + "Instructor|||Instructor 2|||FeedbackEditCopyinstructor2|||tmms.instr@gmail.tmt|||"
-                + "Servlet Action Failure : The field 'feedback session name' should not be empty. The value of "
-                + "'feedback session name' field should be no longer than 38 characters."
-                + "|||/page/instructorFeedbackEditCopy";
+                        + "Instructor|||Instructor 2|||FeedbackEditCopyinstructor2|||tmms.instr@gmail.tmt|||"
+                        + "Servlet Action Failure : The field 'feedback session name' should not be empty. The value of "
+                        + "'feedback session name' field should be no longer than 38 characters."
+                        + "|||/page/instructorFeedbackEditCopy";
         AssertHelper.assertLogMessageEquals(expectedString, a.getLogMessage());
 
         ______TS("Failure case: empty name, instructor feedback edit page");
 
-        params = new String[] {
+        params = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, "First Session",
                 Const.ParamsNames.COURSE_ID, course.getId(),
                 Const.ParamsNames.COPIED_FEEDBACK_SESSION_NAME, "",
@@ -317,15 +317,15 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
         assertEquals("", editCopyData.redirectUrl);
 
         expectedString = "The field 'feedback session name' should not be empty. "
-                         + "The value of 'feedback session name' field should be no longer than 38 characters.";
+                + "The value of 'feedback session name' field should be no longer than 38 characters.";
         assertEquals(expectedString, editCopyData.errorMessage);
 
         expectedString =
                 "TEAMMATESLOG|||instructorFeedbackEditCopy|||instructorFeedbackEditCopy|||true|||"
-                + "Instructor|||Instructor 2|||FeedbackEditCopyinstructor2|||tmms.instr@gmail.tmt|||"
-                + "Servlet Action Failure : The field 'feedback session name' should not be empty. The value of "
-                + "'feedback session name' field should be no longer than 38 characters."
-                + "|||/page/instructorFeedbackEditCopy";
+                        + "Instructor|||Instructor 2|||FeedbackEditCopyinstructor2|||tmms.instr@gmail.tmt|||"
+                        + "Servlet Action Failure : The field 'feedback session name' should not be empty. The value of "
+                        + "'feedback session name' field should be no longer than 38 characters."
+                        + "|||/page/instructorFeedbackEditCopy";
         AssertHelper.assertLogMessageEquals(expectedString, a.getLogMessage());
 
         ______TS("Successful case");
@@ -333,7 +333,7 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
         CourseAttributes course7 = dataBundle.courses.get("course7");
         String feedbackSessionName = "First Session";
         String newFeedbackSessionName = "Session with valid name";
-        params = new String[] {
+        params = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackSessionName,
                 Const.ParamsNames.COURSE_ID, course.getId(),
                 Const.ParamsNames.COPIED_FEEDBACK_SESSION_NAME, newFeedbackSessionName,
@@ -354,22 +354,22 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
         editCopyData = (InstructorFeedbackEditCopyData) ajaxResult.data;
 
         expectedString = getPageResultDestination(
-                                 Const.ActionURIs.INSTRUCTOR_FEEDBACK_SESSIONS_PAGE, false, instructor.googleId);
+                Const.ActionURIs.INSTRUCTOR_FEEDBACK_SESSIONS_PAGE, false, instructor.googleId);
         assertEquals(expectedString, editCopyData.redirectUrl);
 
         expectedString = "TEAMMATESLOG|||instructorFeedbackEditCopy|||instructorFeedbackEditCopy|||"
-                         + "true|||Instructor|||Instructor 2|||FeedbackEditCopyinstructor2|||"
-                         + "tmms.instr@gmail.tmt|||Copying to multiple feedback sessions.<br>"
-                         + "New Feedback Session <span class=\"bold\">(Session with valid name)</span> "
-                         + "for Courses: <br>FeedbackEditCopy.CS2103R,FeedbackEditCopy.CS2102<br>"
-                         + "<span class=\"bold\">From:</span> 2012-04-01T21:59:00Z<span class=\"bold\"> "
-                         + "to</span> 2026-04-30T21:59:00Z<br><span class=\"bold\">Session visible from:</span> "
-                         + "2012-04-01T21:59:00Z<br><span class=\"bold\">Results visible from:</span> "
-                         + "2026-05-01T21:59:00Z<br><br><span class=\"bold\">Instructions:</span> "
-                         + "<Text: Instructions for first session><br>Copied from "
-                         + "<span class=\"bold\">(First Session)</span> "
-                         + "for Course <span class=\"bold\">[FeedbackEditCopy.CS2104]</span> created.<br>|||"
-                         + "/page/instructorFeedbackEditCopy";
+                + "true|||Instructor|||Instructor 2|||FeedbackEditCopyinstructor2|||"
+                + "tmms.instr@gmail.tmt|||Copying to multiple feedback sessions.<br>"
+                + "New Feedback Session <span class=\"bold\">(Session with valid name)</span> "
+                + "for Courses: <br>FeedbackEditCopy.CS2103R,FeedbackEditCopy.CS2102<br>"
+                + "<span class=\"bold\">From:</span> 2012-04-01T21:59:00Z<span class=\"bold\"> "
+                + "to</span> 2026-04-30T21:59:00Z<br><span class=\"bold\">Session visible from:</span> "
+                + "2012-04-01T21:59:00Z<br><span class=\"bold\">Results visible from:</span> "
+                + "2026-05-01T21:59:00Z<br><br><span class=\"bold\">Instructions:</span> "
+                + "<Text: Instructions for first session><br>Copied from "
+                + "<span class=\"bold\">(First Session)</span> "
+                + "for Course <span class=\"bold\">[FeedbackEditCopy.CS2104]</span> created.<br>|||"
+                + "/page/instructorFeedbackEditCopy";
         AssertHelper.assertLogMessageEquals(expectedString, a.getLogMessage());
 
         sessionTimeZone = FeedbackSessionsLogic.inst().getFeedbackSession(newFeedbackSessionName,
@@ -389,7 +389,7 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
     @Override
     @Test
     protected void testAccessControl() throws Exception {
-        String[] params = new String[] {
+        String[] params = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, "First feedback session",
                 Const.ParamsNames.COURSE_ID, "idOfTypicalCourse1",
                 Const.ParamsNames.COPIED_FEEDBACK_SESSION_NAME, "Session with valid name",
@@ -408,7 +408,7 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
 
         gaeSimulation.loginAsInstructor(instructorId);
 
-        params = new String[] {
+        params = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.COPIED_FEEDBACK_SESSION_NAME, "valid name",
@@ -420,7 +420,7 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
             signalFailureToDetectException();
         } catch (UnauthorizedAccessException uae) {
             String expectedString = "Course [FeedbackEditCopy.CS2104] is not accessible to instructor "
-                             + "[tmms.instr.cust@course.tmt] for privilege [canviewsessioninsection]";
+                    + "[tmms.instr.cust@course.tmt] for privilege [canviewsessioninsection]";
             assertEquals(expectedString, uae.getMessage());
         }
 
@@ -432,7 +432,7 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
 
         gaeSimulation.loginAsInstructor(instructorId);
 
-        params = new String[] {
+        params = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.COPIED_FEEDBACK_SESSION_NAME, "valid name",
@@ -446,7 +446,7 @@ public class InstructorFeedbackEditCopyActionTest extends BaseActionTest {
             signalFailureToDetectException();
         } catch (UnauthorizedAccessException uae) {
             String expectedString = "Course [FeedbackEditCopy.CS2107] is not accessible to instructor "
-                             + "[tmms.instr@course.tmt] for privilege [canmodifysession]";
+                    + "[tmms.instr@course.tmt] for privilege [canmodifysession]";
             assertEquals(expectedString, uae.getMessage());
         }
     }

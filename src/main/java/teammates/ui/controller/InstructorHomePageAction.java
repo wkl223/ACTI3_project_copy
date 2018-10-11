@@ -21,7 +21,7 @@ public class InstructorHomePageAction extends Action {
     public ActionResult execute() throws EntityDoesNotExistException {
         if (!account.isInstructor && isPersistenceIssue()) {
             statusToUser.add(new StatusMessage(Const.StatusMessages.INSTRUCTOR_PERSISTENCE_ISSUE,
-                                               StatusMessageColor.WARNING));
+                    StatusMessageColor.WARNING));
             statusToAdmin = "instructorHome " + Const.StatusMessages.INSTRUCTOR_PERSISTENCE_ISSUE;
             return createShowPageResult(Const.ViewURIs.INSTRUCTOR_HOME, new InstructorHomePageData(account, sessionToken));
         }
@@ -51,7 +51,7 @@ public class InstructorHomePageAction extends Action {
     private ActionResult loadPage() {
         boolean shouldOmitArchived = true;
         Map<String, CourseSummaryBundle> courses = logic.getCourseSummariesWithoutStatsForInstructor(
-                                                                 account.googleId, shouldOmitArchived);
+                account.googleId, shouldOmitArchived);
 
         ArrayList<CourseSummaryBundle> courseList = new ArrayList<>(courses.values());
 
@@ -80,18 +80,18 @@ public class InstructorHomePageAction extends Action {
 
     private void sortCourse(List<CourseSummaryBundle> courseList, String sortCriteria) {
         switch (sortCriteria) {
-        case Const.SORT_BY_COURSE_ID:
-            CourseSummaryBundle.sortSummarizedCoursesByCourseId(courseList);
-            break;
-        case Const.SORT_BY_COURSE_NAME:
-            CourseSummaryBundle.sortSummarizedCoursesByCourseName(courseList);
-            break;
-        case Const.SORT_BY_COURSE_CREATION_DATE:
-            CourseSummaryBundle.sortSummarizedCoursesByCreationDate(courseList);
-            break;
-        default:
-            Assumption.fail("Invalid course sorting criteria.");
-            break;
+            case Const.SORT_BY_COURSE_ID:
+                CourseSummaryBundle.sortSummarizedCoursesByCourseId(courseList);
+                break;
+            case Const.SORT_BY_COURSE_NAME:
+                CourseSummaryBundle.sortSummarizedCoursesByCourseName(courseList);
+                break;
+            case Const.SORT_BY_COURSE_CREATION_DATE:
+                CourseSummaryBundle.sortSummarizedCoursesByCreationDate(courseList);
+                break;
+            default:
+                Assumption.fail("Invalid course sorting criteria.");
+                break;
         }
     }
 }

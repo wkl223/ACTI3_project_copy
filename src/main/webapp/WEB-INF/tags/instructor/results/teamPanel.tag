@@ -1,5 +1,7 @@
 <%@ tag trimDirectiveWhitespaces="true" %>
-<%@ tag description="instructorFeedbackResults - team panel containing participant panels, and optionally, statistics tables" pageEncoding="UTF-8" %>
+<%@ tag
+    description="instructorFeedbackResults - team panel containing participant panels, and optionally, statistics tables"
+    pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ tag import="teammates.common.util.Const" %>
@@ -8,8 +10,8 @@
 
 <%@ attribute name="isShowingAll" type="java.lang.Boolean" required="true" %>
 <%@ attribute name="teamIndex" type="java.lang.Integer" required="true" %>
-<%@ attribute name="statisticsHeaderText" required="true"%>
-<%@ attribute name="detailedResponsesHeaderText" required="true"%>
+<%@ attribute name="statisticsHeaderText" required="true" %>
+<%@ attribute name="detailedResponsesHeaderText" required="true" %>
 <%@ attribute name="teamName" required="true" %>
 <%@ attribute name="statsTables" type="java.util.List" %>
 <%@ attribute name="isTeamHasResponses" type="java.lang.Boolean" required="true" %>
@@ -26,7 +28,8 @@
     <div class="pull-right">
       <%-- If team statistics are displayed, then the "Collapse Students" button appears under the team statistics tables --%>
       <c:if test="${!isDisplayingTeamStatistics}">
-        <a class="btn btn-warning btn-xs" id="collapse-panels-button-team-${teamIndex}" data-toggle="tooltip" title="Collapse or expand all student panels. You can also click on the panel heading to toggle each one individually.">
+        <a class="btn btn-warning btn-xs" id="collapse-panels-button-team-${teamIndex}" data-toggle="tooltip"
+           title="Collapse or expand all student panels. You can also click on the panel heading to toggle each one individually.">
           Collapse Students
         </a>
         &nbsp;
@@ -61,7 +64,9 @@
                 <h3>${fn:escapeXml(teamName)}${" "}${detailedResponsesHeaderText}</h3>
               </div>
               <div class="col-sm-3 h3">
-                <a class="btn btn-warning btn-xs pull-right" id="collapse-panels-button-team-${teamIndex}" data-toggle="tooltip" title="Collapse or expand all student panels. You can also click on the panel heading to toggle each one individually.">
+                <a class="btn btn-warning btn-xs pull-right" id="collapse-panels-button-team-${teamIndex}"
+                   data-toggle="tooltip"
+                   title="Collapse or expand all student panels. You can also click on the panel heading to toggle each one individually.">
                   Collapse Students
                 </a>
               </div>
@@ -74,7 +79,7 @@
       <c:if test="${isTeamHasResponses || isDisplayingMissingParticipants}">
         <c:forEach items="${participantPanels}" var="participantPanel">
           <results:participantPanel isShowingAll="${isShowingAll}" participantPanel="${participantPanel}"
-              isSecondaryParticipantType="${isSecondaryParticipantType}"/>
+                                    isSecondaryParticipantType="${isSecondaryParticipantType}"/>
         </c:forEach>
       </c:if>
 

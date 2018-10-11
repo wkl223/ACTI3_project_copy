@@ -6,7 +6,8 @@ import teammates.common.datatransfer.FeedbackSessionResultsBundle;
 import teammates.common.datatransfer.attributes.FeedbackQuestionAttributes;
 import teammates.common.datatransfer.attributes.FeedbackResponseAttributes;
 
-/** A class holding the details for the response of a specific question type.
+/**
+ * A class holding the details for the response of a specific question type.
  * This abstract class is inherited by concrete Feedback*ResponseDetails
  * classes which provides the implementation for the various abstract methods
  * such that pages can render the correct information depending on the
@@ -55,7 +56,7 @@ public abstract class FeedbackResponseDetails {
      * override in child class if necessary.
      */
     public String getAnswerCsv(FeedbackResponseAttributes response, FeedbackQuestionAttributes question,
-                                    FeedbackSessionResultsBundle feedbackSessionResultsBundle) {
+                               FeedbackSessionResultsBundle feedbackSessionResultsBundle) {
         return getAnswerCsv(question.getQuestionDetails());
     }
 
@@ -65,6 +66,6 @@ public abstract class FeedbackResponseDetails {
             Map<String, String[]> requestParameters, int questionIndx, int responseIndx) {
 
         return questionType.getFeedbackResponseDetailsInstance(questionDetails, answer, requestParameters,
-                                                               questionIndx, responseIndx);
+                questionIndx, responseIndx);
     }
 }

@@ -10,7 +10,7 @@ import teammates.test.driver.UrlExtension;
 
 /**
  * SUT: {@link Url},
- *      {@link AppUrl}.
+ * {@link AppUrl}.
  */
 public class UrlTest extends BaseTestCase {
 

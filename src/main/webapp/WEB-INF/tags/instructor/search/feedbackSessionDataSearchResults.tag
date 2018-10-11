@@ -7,12 +7,14 @@
 <br>
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <strong><jsp:doBody/></strong>
+    <strong>
+      <jsp:doBody/>
+    </strong>
   </div>
 
   <c:forEach items="${feedbackSessionDataTables}" var="searchFeedbackSessionDataTable" varStatus="i">
     <c:forEach items="${searchFeedbackSessionDataTable.feedbackSessionRows}" var="fsRow">
-      <c:set var="fsName" value="${fsRow.feedbackSessionName}" />
+      <c:set var="fsName" value="${fsRow.feedbackSessionName}"/>
       <search:searchCommentFeedbackSession feedbackSessionRow="${fsRow}" fsIndx="${i.count}"/>
     </c:forEach>
   </c:forEach>

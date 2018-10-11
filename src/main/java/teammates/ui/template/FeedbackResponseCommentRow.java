@@ -40,7 +40,7 @@ public class FeedbackResponseCommentRow {
     private boolean isEditDeleteEnabled;
 
     public FeedbackResponseCommentRow(FeedbackResponseCommentAttributes frc, String giverDisplay,
-            Map<String, String> commentGiverEmailToNameTable, ZoneId sessionTimeZone, FeedbackQuestionAttributes question) {
+                                      Map<String, String> commentGiverEmailToNameTable, ZoneId sessionTimeZone, FeedbackQuestionAttributes question) {
         this.commentGiverEmailToNameTable = commentGiverEmailToNameTable;
         this.commentId = frc.getId();
         this.giverDisplay = giverDisplay;
@@ -57,7 +57,7 @@ public class FeedbackResponseCommentRow {
 
     // For feedback participant comment
     public FeedbackResponseCommentRow(FeedbackResponseCommentAttributes frc, FeedbackQuestionAttributes question,
-            boolean isEditDeleteEnabled) {
+                                      boolean isEditDeleteEnabled) {
         this.commentId = frc.getId();
         this.commentText = frc.commentText.getValue();
         this.isCommentFromFeedbackParticipant = frc.isCommentFromFeedbackParticipant;
@@ -69,9 +69,9 @@ public class FeedbackResponseCommentRow {
     }
 
     public FeedbackResponseCommentRow(FeedbackResponseCommentAttributes frc, String giverDisplay,
-            String giverName, String recipientName, String showCommentToString, String showGiverNameToString,
-            Map<FeedbackParticipantType, Boolean> responseVisibilities, Map<String, String> commentGiverEmailNameTable,
-            ZoneId sessionTimeZone, FeedbackQuestionAttributes question) {
+                                      String giverName, String recipientName, String showCommentToString, String showGiverNameToString,
+                                      Map<FeedbackParticipantType, Boolean> responseVisibilities, Map<String, String> commentGiverEmailNameTable,
+                                      ZoneId sessionTimeZone, FeedbackQuestionAttributes question) {
         this(frc, giverDisplay, commentGiverEmailNameTable, sessionTimeZone, question);
         setDataForAddEditDelete(frc, giverName, recipientName,
                 showCommentToString, showGiverNameToString, responseVisibilities);
@@ -79,8 +79,8 @@ public class FeedbackResponseCommentRow {
 
     // for adding comments
     public FeedbackResponseCommentRow(FeedbackResponseCommentAttributes frc,
-            String giverName, String recipientName, String showCommentToString, String showGiverNameToString,
-            Map<FeedbackParticipantType, Boolean> responseVisibilities, ZoneId sessionTimeZone) {
+                                      String giverName, String recipientName, String showCommentToString, String showGiverNameToString,
+                                      Map<FeedbackParticipantType, Boolean> responseVisibilities, ZoneId sessionTimeZone) {
         setDataForAddEditDelete(frc, giverName, recipientName,
                 showCommentToString, showGiverNameToString, responseVisibilities);
         this.questionId = frc.feedbackQuestionId;
@@ -89,8 +89,8 @@ public class FeedbackResponseCommentRow {
     }
 
     private void setDataForAddEditDelete(FeedbackResponseCommentAttributes frc, String giverName, String recipientName,
-            String showCommentToString, String showGiverNameToString,
-            Map<FeedbackParticipantType, Boolean> responseVisibilities) {
+                                         String showCommentToString, String showGiverNameToString,
+                                         Map<FeedbackParticipantType, Boolean> responseVisibilities) {
         this.responseGiverName = giverName;
         this.responseRecipientName = recipientName;
 
@@ -274,8 +274,8 @@ public class FeedbackResponseCommentRow {
         boolean isGiverAnonymous = Const.DISPLAYED_NAME_FOR_ANONYMOUS_PARTICIPANT.equals(commentGiverName);
         return "(last edited "
                 + (isGiverAnonymous
-                    ? ""
-                    : "by " + SanitizationHelper.sanitizeForHtml(commentGiverEmailToNameTable.get(lastEditorEmail)) + " ")
+                ? ""
+                : "by " + SanitizationHelper.sanitizeForHtml(commentGiverEmailToNameTable.get(lastEditorEmail)) + " ")
                 + "at " + TimeHelper.formatDateTimeForDisplay(lastEditedAt, sessionTimeZone) + ")";
     }
 
@@ -283,7 +283,7 @@ public class FeedbackResponseCommentRow {
      * Returns the type of people that can view the response comment.
      */
     private String getTypeOfPeopleCanViewComment(FeedbackResponseCommentAttributes comment,
-            FeedbackQuestionAttributes relatedQuestion) {
+                                                 FeedbackQuestionAttributes relatedQuestion) {
         List<FeedbackParticipantType> showCommentTo;
         if (comment.isVisibilityFollowingFeedbackQuestion) {
             showCommentTo = relatedQuestion.showResponsesTo;
@@ -302,29 +302,29 @@ public class FeedbackResponseCommentRow {
             }
 
             switch (commentViewer) {
-            case GIVER:
-                peopleCanView.append("response giver, ");
-                break;
-            case RECEIVER:
-                peopleCanView.append("response recipient, ");
-                break;
-            case OWN_TEAM_MEMBERS:
-                peopleCanView.append("response giver's team members, ");
-                break;
-            case RECEIVER_TEAM_MEMBERS:
-                peopleCanView.append("response recipient's team, ");
-                break;
-            case STUDENTS:
-                peopleCanView.append("other students in this course, ");
-                break;
-            case INSTRUCTORS:
-                peopleCanView.append("instructors, ");
-                break;
-            case OWN_TEAM_MEMBERS_INCLUDING_SELF:
-                peopleCanView.append("response giver's team members and response giver, ");
-                break;
-            default:
-                break;
+                case GIVER:
+                    peopleCanView.append("response giver, ");
+                    break;
+                case RECEIVER:
+                    peopleCanView.append("response recipient, ");
+                    break;
+                case OWN_TEAM_MEMBERS:
+                    peopleCanView.append("response giver's team members, ");
+                    break;
+                case RECEIVER_TEAM_MEMBERS:
+                    peopleCanView.append("response recipient's team, ");
+                    break;
+                case STUDENTS:
+                    peopleCanView.append("other students in this course, ");
+                    break;
+                case INSTRUCTORS:
+                    peopleCanView.append("instructors, ");
+                    break;
+                case OWN_TEAM_MEMBERS_INCLUDING_SELF:
+                    peopleCanView.append("response giver's team members and response giver, ");
+                    break;
+                default:
+                    break;
             }
         }
         String peopleCanViewString = peopleCanView.toString();

@@ -12,21 +12,22 @@
 </c:set>
 <c:set var="title">${fn:escapeXml(data.studentName)}'s Records<small class="muted"> - ${data.courseId}</small></c:set>
 <ti:instructorPage jsIncludes="${jsIncludes}" title="${title}">
-  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
+  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}"/>
   <div class="container-fluid">
     <c:if test="${not empty data.studentProfile}">
       <ticsd:studentProfile student="${data.studentProfile}"/>
-      <ti:moreInfo student="${data.studentProfile}" />
+      <ti:moreInfo student="${data.studentProfile}"/>
     </c:if>
     <div class="row">
       <div class="col-md-12">
         <br>
         <c:forEach items="${data.sessionNames}" var="fsName" varStatus="fbIndex">
           <div class="student_feedback panel panel-default load-feedback-session"
-              id="studentFeedback-${fbIndex.index}"
-              data-courseid="${data.courseId}" data-studentemail="${data.studentEmail}"
-              data-googleid="${data.googleId}" data-fsname="${fsName}">
-            <div class="panel-heading student_feedback" data-target="#collapse-target-feedback-${fbIndex.index}" style="cursor: pointer;">
+               id="studentFeedback-${fbIndex.index}"
+               data-courseid="${data.courseId}" data-studentemail="${data.studentEmail}"
+               data-googleid="${data.googleId}" data-fsname="${fsName}">
+            <div class="panel-heading student_feedback" data-target="#collapse-target-feedback-${fbIndex.index}"
+                 style="cursor: pointer;">
               <div class="display-icon pull-right"><span class="glyphicon pull-right glyphicon-chevron-up"></span></div>
               <span id="feedback_name-${fbIndex.index}">
                 <strong>Feedback Session : ${fsName}</strong>

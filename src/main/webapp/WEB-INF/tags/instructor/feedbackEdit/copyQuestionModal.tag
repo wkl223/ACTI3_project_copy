@@ -3,8 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ tag import="teammates.common.util.Const" %>
 
-<%@ attribute name="feedbackSessionName" required="true"%>
-<%@ attribute name="courseId" required="true"%>
+<%@ attribute name="feedbackSessionName" required="true" %>
+<%@ attribute name="courseId" required="true" %>
 
 <div class="modal fade" id="copyModal" tabindex="-1" role="dialog" aria-labelledby="copyModalTitle" aria-hidden="true">
   <div class="modal-dialog modal-lg">
@@ -17,7 +17,7 @@
       </div>
       <div class="modal-body">
         <form class="form" id="copyModalForm" role="form" method="post"
-            action="<%= Const.ActionURIs.INSTRUCTOR_FEEDBACK_QUESTION_COPY %>">
+              action="<%= Const.ActionURIs.INSTRUCTOR_FEEDBACK_QUESTION_COPY %>">
 
           <input type="hidden" name="<%= Const.ParamsNames.FEEDBACK_SESSION_NAME %>" value="${feedbackSessionName}">
           <input type="hidden" name="<%= Const.ParamsNames.USER_ID %>" value="${data.account.googleId}">

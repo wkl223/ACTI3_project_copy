@@ -36,13 +36,13 @@ public class StudentFeedbackResultsPageData extends PageData {
     public void init(Map<FeedbackQuestionAttributes, List<FeedbackResponseAttributes>> questionsWithResponses) {
 
         String joinUrl = Config.getAppUrl(Const.ActionURIs.STUDENT_COURSE_JOIN_NEW)
-                                                   .withRegistrationKey(StringHelper.encrypt(student.key))
-                                                   .withStudentEmail(student.email)
-                                                   .withCourseId(student.course)
-                                                   .toString();
+                .withRegistrationKey(StringHelper.encrypt(student.key))
+                .withStudentEmail(student.email)
+                .withCourseId(student.course)
+                .toString();
 
         registerMessage = String.format(Const.StatusMessages.UNREGISTERED_STUDENT_RESULTS,
-                                            student.name, joinUrl);
+                student.name, joinUrl);
         createFeedbackResultsQuestionsWithResponses(questionsWithResponses);
     }
 
@@ -60,16 +60,17 @@ public class StudentFeedbackResultsPageData extends PageData {
 
     /**
      * Parses the contents of the map and keeps only those data which will be displayed on the browser.
+     *
      * @param questionsWithResponses Question with all responses
      */
     private void createFeedbackResultsQuestionsWithResponses(
-                              Map<FeedbackQuestionAttributes, List<FeedbackResponseAttributes>> questionsWithResponses) {
+            Map<FeedbackQuestionAttributes, List<FeedbackResponseAttributes>> questionsWithResponses) {
 
         feedbackResultsQuestionsWithResponses = new ArrayList<>();
         int questionIndex = 1;
 
         for (Map.Entry<FeedbackQuestionAttributes, List<FeedbackResponseAttributes>>
-                                   questionWithResponses : questionsWithResponses.entrySet()) {
+                questionWithResponses : questionsWithResponses.entrySet()) {
 
             FeedbackQuestionAttributes question = questionWithResponses.getKey();
             List<FeedbackResponseAttributes> responsesBundle = questionWithResponses.getValue();
@@ -93,35 +94,37 @@ public class StudentFeedbackResultsPageData extends PageData {
 
     /**
      * Parses question details which will be displayed on the browser.
-     * @param responsesBundle  Responses for the question
+     *
+     * @param responsesBundle Responses for the question
      * @return Only those details which will be displayed on the page are returned
      */
     private FeedbackResultsQuestionDetails createQuestionDetails(
-                                    int questionIndex, FeedbackQuestionAttributes question,
-                                    FeedbackQuestionDetails questionDetailsBundle,
-                                    List<FeedbackResponseAttributes> responsesBundle) {
+            int questionIndex, FeedbackQuestionAttributes question,
+            FeedbackQuestionDetails questionDetailsBundle,
+            List<FeedbackResponseAttributes> responsesBundle) {
 
         String questionText = questionDetailsBundle.getQuestionText();
         String additionalInfo = questionDetailsBundle.getQuestionAdditionalInfoHtml(questionIndex, "");
         String studentEmail = student == null ? null : student.email;
         String questionResultStatistics = questionDetailsBundle.getQuestionResultStatisticsHtml(
-                                                                    responsesBundle, question, studentEmail,
-                                                                    bundle, "student");
+                responsesBundle, question, studentEmail,
+                bundle, "student");
 
         boolean isIndividualResponsesShownToStudents = questionDetailsBundle.isIndividualResponsesShownToStudents();
 
         return new FeedbackResultsQuestionDetails(Integer.toString(questionIndex), questionText, additionalInfo,
-                                                      questionResultStatistics, isIndividualResponsesShownToStudents);
+                questionResultStatistics, isIndividualResponsesShownToStudents);
     }
 
     /**
      * Creates feedback results responses tables for every recipient.
-     * @param question  Question for which the responses are generated
-     * @param responsesBundle  All responses for a question
+     *
+     * @param question        Question for which the responses are generated
+     * @param responsesBundle All responses for a question
      * @return List of feedback results response tables for a question
      */
     private List<FeedbackResultsResponseTable> createResponseTables(
-                                    FeedbackQuestionAttributes question, List<FeedbackResponseAttributes> responsesBundle) {
+            FeedbackQuestionAttributes question, List<FeedbackResponseAttributes> responsesBundle) {
 
         List<FeedbackResultsResponseTable> responseTables = new ArrayList<>();
         List<String> recipients = new ArrayList<>();
@@ -138,7 +141,7 @@ public class StudentFeedbackResultsPageData extends PageData {
 
             boolean isUserRecipient = student.email.equals(recipient);
             boolean isUserTeamRecipient = question.recipientType == FeedbackParticipantType.TEAMS
-                                          && student.team.equals(recipient);
+                    && student.team.equals(recipient);
             String recipientName;
             if (isUserRecipient) {
                 recipientName = "You";
@@ -149,21 +152,22 @@ public class StudentFeedbackResultsPageData extends PageData {
             }
 
             responseTables.add(createResponseTable(question,
-                                                   responsesForRecipient,
-                                                   recipientName));
+                    responsesForRecipient,
+                    recipientName));
         }
         return responseTables;
     }
 
     /**
      * Creates a feedback results responses table for a recipient.
-     * @param question  Question for which the responses are generated
-     * @param responsesBundleForRecipient  All responses for the question having a particular recipient
+     *
+     * @param question                    Question for which the responses are generated
+     * @param responsesBundleForRecipient All responses for the question having a particular recipient
      * @return Feedback results responses table for a question and a recipient
      */
     private FeedbackResultsResponseTable createResponseTable(FeedbackQuestionAttributes question,
-                                    List<FeedbackResponseAttributes> responsesBundleForRecipient,
-                                    String recipientNameParam) {
+                                                             List<FeedbackResponseAttributes> responsesBundleForRecipient,
+                                                             String recipientNameParam) {
 
         List<FeedbackResultsResponse> responses = new ArrayList<>();
 
@@ -202,11 +206,12 @@ public class StudentFeedbackResultsPageData extends PageData {
 
     /**
      * Creates a list of comments for a feedback results response.
-     * @param feedbackResponseId  Response ID for which comments are created
+     *
+     * @param feedbackResponseId Response ID for which comments are created
      * @return Comments for the response
      */
     private List<FeedbackResponseCommentRow> createStudentFeedbackResultsResponseComments(String feedbackResponseId,
-            FeedbackQuestionAttributes question) {
+                                                                                          FeedbackQuestionAttributes question) {
         List<FeedbackResponseCommentRow> comments = new ArrayList<>();
         List<FeedbackResponseCommentAttributes> commentsBundle = bundle.responseComments.get(feedbackResponseId);
         if (commentsBundle != null) {
@@ -220,12 +225,13 @@ public class StudentFeedbackResultsPageData extends PageData {
 
     /**
      * Filters responses by recipient's email.
+     *
      * @param recipientEmail  Check whether a response's recipient email is equal to this parameter
-     * @param responsesBundle  All responses for a question
+     * @param responsesBundle All responses for a question
      * @return Responses whose recipient email is equal to the parameter
      */
     private List<FeedbackResponseAttributes> filterResponsesByRecipientEmail(
-                                    String recipientEmail, List<FeedbackResponseAttributes> responsesBundle) {
+            String recipientEmail, List<FeedbackResponseAttributes> responsesBundle) {
 
         List<FeedbackResponseAttributes> responsesForRecipient = new ArrayList<>();
 
@@ -240,6 +246,6 @@ public class StudentFeedbackResultsPageData extends PageData {
     @Deprecated // The anonymous identifier hash is slated for complete removal
     private String removeAnonymousHash(String identifier) {
         return identifier.replaceAll(Const.DISPLAYED_NAME_FOR_ANONYMOUS_PARTICIPANT + " (student|instructor|team) "
-                        + REGEX_ANONYMOUS_PARTICIPANT_HASH, Const.DISPLAYED_NAME_FOR_ANONYMOUS_PARTICIPANT + " $1");
+                + REGEX_ANONYMOUS_PARTICIPANT_HASH, Const.DISPLAYED_NAME_FOR_ANONYMOUS_PARTICIPANT + " $1");
     }
 }

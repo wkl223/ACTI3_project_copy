@@ -24,7 +24,7 @@ public class HtmlHelperTest extends BaseTestCase {
         HtmlHelper.assertSameHtml(expected, actual, false);
 
         expected = "<HTML><HEAD><SCRIPT language=\"JavaScript\" src=\"a.js\" ></SCRIPT></HEAD>"
-                   + "<BODY id=\"5\"><P>abc</P><DIV id=\"frameBottom\"><DIV></DIV></DIV></BODY></HTML>";
+                + "<BODY id=\"5\"><P>abc</P><DIV id=\"frameBottom\"><DIV></DIV></DIV></BODY></HTML>";
         actual = expected.replace("<HEAD>", "    <HEAD>    \t" + System.lineSeparator());
         HtmlHelper.assertSameHtml(expected, actual, false);
 
@@ -36,7 +36,7 @@ public class HtmlHelperTest extends BaseTestCase {
         HtmlHelper.assertSameHtml(expected, actual, false);
 
         actual = expected.replace("<DIV></DIV></DIV>",
-            System.lineSeparator() + System.lineSeparator() + "\n<DIV>\n\n</DIV></DIV>\n\n" + System.lineSeparator());
+                System.lineSeparator() + System.lineSeparator() + "\n<DIV>\n\n</DIV></DIV>\n\n" + System.lineSeparator());
         HtmlHelper.assertSameHtml(expected, actual, false);
 
         expected = FileHelper.readFile(TestProperties.TEST_PAGES_FOLDER + "/sampleExpected.html");

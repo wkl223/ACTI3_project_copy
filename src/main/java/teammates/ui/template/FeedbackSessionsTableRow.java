@@ -14,10 +14,11 @@ public class FeedbackSessionsTableRow {
 
     /**
      * Constructs a session row for a course table.
-     * @param name name of the session
+     *
+     * @param name    name of the session
      * @param tooltip tooltip displayed when hovering over status
-     * @param status status of the session
-     * @param href link for the session under response rate
+     * @param status  status of the session
+     * @param href    link for the session under response rate
      * @param actions possible actions to do on the session, a block of HTML representing the formatted actions
      */
     public FeedbackSessionsTableRow(String courseId, String name, String submissionsTooltip, String publishedTooltip,

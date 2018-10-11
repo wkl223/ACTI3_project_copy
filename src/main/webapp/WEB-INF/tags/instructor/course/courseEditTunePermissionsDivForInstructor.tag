@@ -37,7 +37,7 @@
         </div>
       </div>
 
-      <c:if test="${not empty instructorPanel.sectionRows}" >
+      <c:if test="${not empty instructorPanel.sectionRows}">
         <c:forEach items="${instructorPanel.sectionRows}" var="sectionRow">
           <course:courseEditTuneSectionPermissionsDiv
               instructorIndex="${instructorPanel.index}"
@@ -45,8 +45,10 @@
               sectionRow="${sectionRow}"/>
         </c:forEach>
 
-        <a class="small show-tune-section-permissions" id="addSectionLevelForInstructor${instructorPanel.index}" href="javascript:;"
-            data-instructorindex="${instructorPanel.index}" data-panelindex="${instructorPanel.firstBlankSectionRowIndex}">
+        <a class="small show-tune-section-permissions" id="addSectionLevelForInstructor${instructorPanel.index}"
+           href="javascript:;"
+           data-instructorindex="${instructorPanel.index}"
+           data-panelindex="${instructorPanel.firstBlankSectionRowIndex}">
           Give different permissions for a specific section
         </a>
       </c:if>

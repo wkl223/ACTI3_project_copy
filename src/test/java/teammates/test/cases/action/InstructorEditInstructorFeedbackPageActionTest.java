@@ -43,7 +43,7 @@ public class InstructorEditInstructorFeedbackPageActionTest extends BaseActionTe
 
         ______TS("typical success case");
         feedbackSessionName = "First feedback session";
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackSessionName,
                 Const.ParamsNames.FEEDBACK_SESSION_MODERATED_PERSON, moderatedInstructorEmail
@@ -61,15 +61,15 @@ public class InstructorEditInstructorFeedbackPageActionTest extends BaseActionTe
         assertEquals("", showPageResult.getStatusMessage());
         AssertHelper.assertLogMessageEquals(
                 "TEAMMATESLOG|||instructorEditInstructorFeedbackPage|||instructorEditInstructorFeedbackPage"
-                    + "|||true|||Instructor|||IEIFPTCourseinstr|||IEIFPTCourseinstr|||IEIFPTCourseintr@course1.tmt|||"
-                    + "Moderating feedback session for instructor (" + moderatedInstructor.email + ")<br>"
-                    + "Session Name: First feedback session<br>Course ID: IEIFPTCourse|||"
-                    + "/page/instructorEditInstructorFeedbackPage",
+                        + "|||true|||Instructor|||IEIFPTCourseinstr|||IEIFPTCourseinstr|||IEIFPTCourseintr@course1.tmt|||"
+                        + "Moderating feedback session for instructor (" + moderatedInstructor.email + ")<br>"
+                        + "Session Name: First feedback session<br>Course ID: IEIFPTCourse|||"
+                        + "/page/instructorEditInstructorFeedbackPage",
                 editInstructorFpAction.getLogMessage());
 
         ______TS("success: another feedback");
         feedbackSessionName = "Another feedback session";
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackSessionName,
                 Const.ParamsNames.FEEDBACK_SESSION_MODERATED_PERSON, moderatedInstructorEmail
@@ -86,17 +86,17 @@ public class InstructorEditInstructorFeedbackPageActionTest extends BaseActionTe
                 showPageResult.getDestinationWithParams());
         assertEquals("", showPageResult.getStatusMessage());
         String logMessage = "TEAMMATESLOG|||instructorEditInstructorFeedbackPage|||"
-                            + "instructorEditInstructorFeedbackPage|||true|||Instructor|||IEIFPTCourseinstr|||"
-                            + "IEIFPTCourseinstr|||IEIFPTCourseintr@course1.tmt|||"
-                            + "Moderating feedback session for instructor (" + moderatedInstructor.email + ")<br>"
-                            + "Session Name: Another feedback session<br>Course ID: IEIFPTCourse|||"
-                            + "/page/instructorEditInstructorFeedbackPage";
+                + "instructorEditInstructorFeedbackPage|||true|||Instructor|||IEIFPTCourseinstr|||"
+                + "IEIFPTCourseinstr|||IEIFPTCourseintr@course1.tmt|||"
+                + "Moderating feedback session for instructor (" + moderatedInstructor.email + ")<br>"
+                + "Session Name: Another feedback session<br>Course ID: IEIFPTCourse|||"
+                + "/page/instructorEditInstructorFeedbackPage";
         AssertHelper.assertLogMessageEquals(logMessage, editInstructorFpAction.getLogMessage());
 
         ______TS("failure: accessing non-existent moderatedinstructor email");
         gaeSimulation.loginAsInstructor(instructor.googleId);
         moderatedInstructorEmail = "non-exIstentEmail@gsail.tmt";
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackSessionName,
                 Const.ParamsNames.FEEDBACK_SESSION_MODERATED_PERSON, moderatedInstructorEmail
@@ -108,7 +108,7 @@ public class InstructorEditInstructorFeedbackPageActionTest extends BaseActionTe
             signalFailureToDetectException();
         } catch (EntityNotFoundException enfe) {
             assertEquals("Instructor Email " + moderatedInstructorEmail
-                         + " does not exist in " + courseId + ".", enfe.getMessage());
+                    + " does not exist in " + courseId + ".", enfe.getMessage());
         }
     }
 
@@ -125,7 +125,7 @@ public class InstructorEditInstructorFeedbackPageActionTest extends BaseActionTe
         String feedbackSessionName = "First feedback session";
         String moderatedInstructorEmail = "helper@course1.tmt";
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackSessionName,
                 Const.ParamsNames.FEEDBACK_SESSION_MODERATED_PERSON, moderatedInstructorEmail

@@ -9,11 +9,12 @@
 <%@ attribute name="formType" required="true" %>
 <%@ attribute name="textAreaId" required="true" %>
 
-<c:set var="isEditForm" value="${formType eq 'Edit'}" />
-<c:set var="isAddForm" value="${formType eq 'Add'}" />
-<c:set var="divId" value="${qnIndex}-${responseIndex}" />
+<c:set var="isEditForm" value="${formType eq 'Edit'}"/>
+<c:set var="isAddForm" value="${formType eq 'Add'}"/>
+<c:set var="divId" value="${qnIndex}-${responseIndex}"/>
 
-<div class="responseComment${formType}Form"<c:if test="${isEditForm}"> style="display: none;" id="responseCommentEditForm-${divId}"</c:if>>
+<div class="responseComment${formType}Form"<c:if
+    test="${isEditForm}"> style="display: none;" id="responseCommentEditForm-${divId}"</c:if>>
   <div class="form-group form-inline">
     <div class="form-group text-muted" style="margin-left:1em;">
       <p>

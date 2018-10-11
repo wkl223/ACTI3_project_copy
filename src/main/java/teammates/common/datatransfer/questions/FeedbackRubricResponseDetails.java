@@ -89,14 +89,14 @@ public class FeedbackRubricResponseDetails extends FeedbackResponseDetails {
             String chosenChoice = "";
             if (chosenIndex == -1) {
                 chosenChoice = "<span class=\"color-neutral\"><i>"
-                             + Const.INSTRUCTOR_FEEDBACK_RESULTS_MISSING_RESPONSE
-                             + "</i></span>";
+                        + Const.INSTRUCTOR_FEEDBACK_RESULTS_MISSING_RESPONSE
+                        + "</i></span>";
                 html.append(StringHelper.integerToLowerCaseAlphabeticalIndex(i + 1) + ") " + chosenChoice + "<br>");
             } else {
                 chosenChoice = SanitizationHelper.sanitizeForHtml(fqd.getRubricChoices().get(answer.get(i)));
                 html.append(StringHelper.integerToLowerCaseAlphabeticalIndex(i + 1) + ") " + chosenChoice
-                            + " <span class=\"color-neutral\"><i>(Choice " + (chosenIndex + 1)
-                            + ")</i></span><br>");
+                        + " <span class=\"color-neutral\"><i>(Choice " + (chosenIndex + 1)
+                        + ")</i></span><br>");
             }
 
         }
@@ -115,7 +115,7 @@ public class FeedbackRubricResponseDetails extends FeedbackResponseDetails {
 
         tableHeaderHtml.append(
                 "<thead>"
-                   + "<tr>"
+                        + "<tr>"
                         + "<th>Criteria</th>");
 
         List<String> subQuestions = fqd.getRubricSubQuestions();
@@ -128,8 +128,8 @@ public class FeedbackRubricResponseDetails extends FeedbackResponseDetails {
         }
 
         tableHeaderHtml.append(
-                      "</tr>"
-                + "</thead>");
+                "</tr>"
+                        + "</thead>");
 
         StringBuilder tableBodyHtml = new StringBuilder(200);
 
@@ -140,7 +140,7 @@ public class FeedbackRubricResponseDetails extends FeedbackResponseDetails {
 
             tableBodyHtml.append(
                     "<tr>"
-                        + "<td>");
+                            + "<td>");
             tableBodyHtml.append(subQuestions.get(i));
             tableBodyHtml.append("</td>");
 

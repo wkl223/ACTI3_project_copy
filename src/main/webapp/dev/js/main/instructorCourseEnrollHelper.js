@@ -62,7 +62,8 @@ function showPasteModalBox() {
     const messageText = 'Pasting data through the context menu is not supported due to browser restrictions. '
             + 'Please use <kbd>Ctrl + V</kbd> or <kbd>⌘ + V</kbd> to paste your data instead.';
 
-    const okCallback = () => {};
+    const okCallback = () => {
+    };
     showModalConfirmation('Pasting data through the context menu', messageText,
             okCallback, null, null, null, BootstrapContextualColors.WARNING);
 }

@@ -47,8 +47,8 @@ public class InstructorStudentListPageDataTest extends BaseTestCase {
 
     private InstructorStudentListPageData initializeDataWithSearchKey() {
         acct = AccountAttributes.builder()
-            .withGoogleId("valid.id") // only googleId is used
-            .build();
+                .withGoogleId("valid.id") // only googleId is used
+                .build();
 
         searchKey = "<script>alert(\"A search key\");</script>";
         shouldDisplayArchive = false;
@@ -63,7 +63,7 @@ public class InstructorStudentListPageDataTest extends BaseTestCase {
 
         coursesToDisplay = new ArrayList<>();
         coursesToDisplay.add(new InstructorStudentListPageCourseData(sampleCourse, isCourseArchived,
-                                                                     isInstructorAllowedToModify));
+                isInstructorAllowedToModify));
 
         return new InstructorStudentListPageData(acct, dummySessionToken, searchKey, shouldDisplayArchive, coursesToDisplay);
     }
@@ -96,7 +96,7 @@ public class InstructorStudentListPageDataTest extends BaseTestCase {
         assertEquals(sampleCourse.getName(), course.getCourseName());
         assertEquals(acct.googleId, course.getGoogleId());
         assertEquals(islpd.getInstructorCourseEnrollLink(sampleCourse.getId()),
-                                                         course.getInstructorCourseEnrollLink());
+                course.getInstructorCourseEnrollLink());
         assertEquals(isCourseArchived, course.isCourseArchived());
         assertEquals(isInstructorAllowedToModify, course.isInstructorAllowedToModify());
     }

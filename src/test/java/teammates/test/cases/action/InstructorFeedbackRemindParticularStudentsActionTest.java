@@ -30,18 +30,18 @@ public class InstructorFeedbackRemindParticularStudentsActionTest extends BaseAc
         gaeSimulation.loginAsInstructor(instructor1ofCourse1.googleId);
 
         ______TS("Unsuccessful case: Not enough parameters");
-        String[] paramsNoCourseId = new String[] {
+        String[] paramsNoCourseId = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getSessionName(),
         };
         verifyAssumptionFailure(paramsNoCourseId);
-        String[] paramsNoFeedback = new String[] {
+        String[] paramsNoFeedback = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId()
         };
         verifyAssumptionFailure(paramsNoFeedback);
 
         ______TS("Unsuccessful case: No user to remind, warning message generated");
 
-        String[] paramsNoUserToRemind = new String[] {
+        String[] paramsNoUserToRemind = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getSessionName(),
         };
@@ -55,7 +55,7 @@ public class InstructorFeedbackRemindParticularStudentsActionTest extends BaseAc
         ______TS("Unsuccessful case: Feedback session not open, warning message generated");
 
         fs = typicalBundle.feedbackSessions.get("awaiting.session");
-        String[] paramsFeedbackSessionNotOpen = new String[] {
+        String[] paramsFeedbackSessionNotOpen = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getSessionName(),
                 Const.ParamsNames.SUBMISSION_REMIND_USERLIST, studentNotSubmitFeedback.getEmail()
@@ -70,7 +70,7 @@ public class InstructorFeedbackRemindParticularStudentsActionTest extends BaseAc
         ______TS("Successful case: Typical case");
 
         fs = typicalBundle.feedbackSessions.get("session1InCourse1");
-        String[] paramsTypical = new String[] {
+        String[] paramsTypical = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getSessionName(),
                 Const.ParamsNames.SUBMISSION_REMIND_USERLIST, studentNotSubmitFeedback.getEmail()
@@ -96,7 +96,7 @@ public class InstructorFeedbackRemindParticularStudentsActionTest extends BaseAc
     protected void testAccessControl() throws Exception {
         FeedbackSessionAttributes fs = typicalBundle.feedbackSessions.get("session1InCourse1");
         StudentAttributes studentNotSubmitFeedback = typicalBundle.students.get("student5InCourse1");
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.SUBMISSION_REMIND_USERLIST, studentNotSubmitFeedback.getEmail()

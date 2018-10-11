@@ -118,6 +118,7 @@ public final class StudentsLogic {
      * This method should be used by admin only since the searching does not restrict the
      * visibility according to the logged-in user's google ID. This is used by admin to
      * search students in the whole system.
+     *
      * @return null if no result found
      */
     public StudentSearchResultBundle searchStudentsInWholeSystem(String queryString) {
@@ -174,16 +175,17 @@ public final class StudentsLogic {
     }
 
     public void updateStudentCascade(String originalEmail,
-            StudentAttributes student) throws InvalidParametersException,
+                                     StudentAttributes student) throws InvalidParametersException,
             EntityDoesNotExistException {
         updateStudentCascade(originalEmail, student, true);
     }
-    public void updateStudentLike(StudentAttributes student){
-            student.like++;
+
+    public void updateStudentLike(StudentAttributes student) {
+        student.like++;
     }
 
     public void updateStudentCascadeWithoutDocument(String originalEmail,
-            StudentAttributes student) throws InvalidParametersException,
+                                                    StudentAttributes student) throws InvalidParametersException,
             EntityDoesNotExistException {
         updateStudentCascade(originalEmail, student, false);
     }
@@ -203,9 +205,9 @@ public final class StudentsLogic {
         //Untested case: The deletion is not persisted immediately (i.e. persistence delay)
         //       Reason: Difficult to reproduce a persistence delay during testing
         String finalEmail = student.email == null
-                                || !validator.getInvalidityInfoForEmail(student.email).isEmpty()
-                            ? originalEmail
-                            : student.email;
+                || !validator.getInvalidityInfoForEmail(student.email).isEmpty()
+                ? originalEmail
+                : student.email;
 
         // adjust submissions if moving to a different team
         if (isTeamChanged(originalStudent.team, student.team)) {
@@ -214,14 +216,14 @@ public final class StudentsLogic {
 
         if (isSectionChanged(originalStudent.section, student.section)) {
             frLogic.updateFeedbackResponsesForChangingSection(student.course, finalEmail, originalStudent.section,
-                                                              student.section);
+                    student.section);
         }
 
         // TODO: check to delete comments for this section/team if the section/team is no longer existent in the course
     }
 
     public void updateStudentCascadeWithSubmissionAdjustmentScheduled(String originalEmail,
-            StudentAttributes student, boolean hasDocument)
+                                                                      StudentAttributes student, boolean hasDocument)
             throws EntityDoesNotExistException, InvalidParametersException {
         // Edit student uses KeepOriginal policy, where unchanged fields are set
         // as null. Hence, we can't do isValid() for student here.
@@ -241,7 +243,7 @@ public final class StudentsLogic {
         }
 
         studentsDb.updateStudent(student.course, originalEmail, student.name, student.team, student.section,
-                                 student.email, student.googleId, student.comments, hasDocument, false);
+                student.email, student.googleId, student.comments, hasDocument, false);
 
         // cascade email change, if any
         if (!originalEmail.equals(student.email)) {
@@ -265,8 +267,8 @@ public final class StudentsLogic {
             throw new InvalidParametersException(originalStudent.getInvalidityInfo());
         }
         studentsDb.updateStudent(originalStudent.course, originalEmail, originalStudent.name,
-                                 originalStudent.team, originalStudent.section, originalStudent.email,
-                                 originalStudent.googleId, originalStudent.comments, hasDocument, false);
+                originalStudent.team, originalStudent.section, originalStudent.email,
+                originalStudent.googleId, originalStudent.comments, hasDocument, false);
     }
 
     public CourseEnrollmentResult enrollStudents(String enrollLines, String courseId)
@@ -441,7 +443,7 @@ public final class StudentsLogic {
         StringBuilder errorMessage = new StringBuilder(100);
         for (String team : invalidTeamList) {
             errorMessage.append(String.format(Const.StatusMessages.TEAM_INVALID_SECTION_EDIT,
-                                              SanitizationHelper.sanitizeForHtml(team)));
+                    SanitizationHelper.sanitizeForHtml(team)));
         }
 
         if (errorMessage.length() != 0) {
@@ -548,7 +550,7 @@ public final class StudentsLogic {
             enrollmentDetails.updateStatus = StudentUpdateStatus.UNMODIFIED;
         } else if (isModifyingExistingStudent) {
             updateStudentCascadeWithSubmissionAdjustmentScheduled(originalStudentAttributes.email,
-                                                                  validStudentAttributes, true);
+                    validStudentAttributes, true);
             enrollmentDetails.updateStatus = StudentUpdateStatus.MODIFIED;
 
             if (!originalStudentAttributes.team.equals(validStudentAttributes.team)) {
@@ -571,7 +573,7 @@ public final class StudentsLogic {
      *
      * @param lines the enrollment lines entered by the instructor.
      * @throws EnrollException if some of the student instances created are invalid. The exception message contains
-     *         invalidity info for all invalid student instances in HTML format.
+     *                         invalidity info for all invalid student instances in HTML format.
      */
     public List<StudentAttributes> createStudents(String lines, String courseId) throws EnrollException {
         List<String> invalidityInfo = new ArrayList<>();
@@ -641,7 +643,7 @@ public final class StudentsLogic {
     private String duplicateEmailInfo(String userInput, String duplicateEmailInfo) {
         String info =
                 Const.StatusMessages.DUPLICATE_EMAIL_INFO + " \"" + duplicateEmailInfo + "\""
-                + "<br>" + Const.StatusMessages.ENROLL_LINES_PROBLEM_DETAIL_PREFIX + " ";
+                        + "<br>" + Const.StatusMessages.ENROLL_LINES_PROBLEM_DETAIL_PREFIX + " ";
         return String.format(Const.StatusMessages.ENROLL_LINES_PROBLEM, userInput, info);
     }
 
@@ -654,7 +656,7 @@ public final class StudentsLogic {
     }
 
     private boolean isInEnrollList(StudentAttributes student,
-            List<StudentAttributes> studentInfoList) {
+                                   List<StudentAttributes> studentInfoList) {
         for (StudentAttributes studentInfo : studentInfoList) {
             if (studentInfo.email.equalsIgnoreCase(student.email)) {
                 return true;

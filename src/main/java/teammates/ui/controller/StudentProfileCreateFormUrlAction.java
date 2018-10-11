@@ -10,8 +10,8 @@ import teammates.ui.pagedata.StudentProfileCreateFormUrlAjaxPageData;
 
 /**
  * Action: generates the UploadUrl for pictures given by students.
- *         A dynamic generation is done to circumvent the 10 minute
- *         time limit for such URLs
+ * A dynamic generation is done to circumvent the 10 minute
+ * time limit for such URLs
  */
 public class StudentProfileCreateFormUrlAction extends Action {
 

@@ -13,12 +13,12 @@
     ${jsIncludes}
   </jsp:attribute>
   <jsp:attribute name="navBar">
-    <ta:navBar />
+    <ta:navBar/>
   </jsp:attribute>
   <jsp:attribute name="bodyFooter">
-    <t:bodyFooter isAdmin="${true}" />
+    <t:bodyFooter isAdmin="${true}"/>
   </jsp:attribute>
   <jsp:body>
-    <jsp:doBody />
+    <jsp:doBody/>
   </jsp:body>
 </t:page>

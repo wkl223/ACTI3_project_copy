@@ -18,10 +18,10 @@ public class StudentCourseDetailsPageData extends PageData {
     }
 
     public void init(CourseDetailsBundle courseDetails, List<InstructorAttributes> instructors,
-                         StudentAttributes student, TeamDetailsBundle team) {
+                     StudentAttributes student, TeamDetailsBundle team) {
         this.student = student;
         studentCourseDetailsPanel = createStudentCourseDetailsPanel(
-                                        courseDetails, instructors, student, team);
+                courseDetails, instructors, student, team);
     }
 
     public StudentCourseDetailsPanel getStudentCourseDetailsPanel() {
@@ -40,7 +40,7 @@ public class StudentCourseDetailsPageData extends PageData {
         List<StudentAttributes> teammates = team.students;
 
         return new StudentCourseDetailsPanel(courseId, courseName, instructors, studentTeam,
-                                                 studentName, studentEmail, teammates);
+                studentName, studentEmail, teammates);
     }
 
 }

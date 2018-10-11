@@ -157,7 +157,7 @@ public class ProfilesDb extends EntitiesDb<StudentProfile, StudentProfileAttribu
     /**
      * Deletes the profile picture from GCS and
      * updates the profile entity:
-     *     empties the key and updates the modifiedDate.
+     * empties the key and updates the modifiedDate.
      */
     public void deleteStudentProfilePicture(String googleId) throws EntityDoesNotExistException {
         StudentProfile sp = getCurrentProfileFromDb(googleId);

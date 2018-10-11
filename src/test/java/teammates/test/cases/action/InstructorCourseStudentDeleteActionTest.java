@@ -29,7 +29,7 @@ public class InstructorCourseStudentDeleteActionTest extends BaseActionTest {
         ______TS("success: delete a student ");
         gaeSimulation.loginAsInstructor(instructor1OfCourse1.googleId);
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor1OfCourse1.courseId,
                 Const.ParamsNames.STUDENT_EMAIL, student1InCourse1.email
         };
@@ -42,10 +42,10 @@ public class InstructorCourseStudentDeleteActionTest extends BaseActionTest {
         assertEquals(Const.StatusMessages.STUDENT_DELETED, redirectResult.getStatusMessage());
 
         AssertHelper.assertLogMessageEquals("TEAMMATESLOG|||instructorCourseStudentDelete|||instructorCourseStudentDelete|||"
-                     + "true|||Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
-                     + "instr1@course1.tmt|||Student <span class=\"bold\">student1InCourse1@gmail.tmt</span> "
-                     + "in Course <span class=\"bold\">[idOfTypicalCourse1]</span> deleted.|||"
-                     + "/page/instructorCourseStudentDelete", action.getLogMessage());
+                + "true|||Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
+                + "instr1@course1.tmt|||Student <span class=\"bold\">student1InCourse1@gmail.tmt</span> "
+                + "in Course <span class=\"bold\">[idOfTypicalCourse1]</span> deleted.|||"
+                + "/page/instructorCourseStudentDelete", action.getLogMessage());
 
     }
 
@@ -60,7 +60,7 @@ public class InstructorCourseStudentDeleteActionTest extends BaseActionTest {
         InstructorAttributes instructor1OfCourse1 = typicalBundle.instructors.get("instructor1OfCourse1");
         StudentAttributes student1InCourse1 = typicalBundle.students.get("student5InCourse1");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor1OfCourse1.courseId,
                 Const.ParamsNames.STUDENT_EMAIL, student1InCourse1.email
         };

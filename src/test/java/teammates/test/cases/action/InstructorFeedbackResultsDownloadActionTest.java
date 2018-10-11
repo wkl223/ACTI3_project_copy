@@ -138,8 +138,8 @@ public class InstructorFeedbackResultsDownloadActionTest extends BaseActionTest 
             signalFailureToDetectException("Did not detect that parameters are null.");
         } catch (NullPostParameterException e) {
             assertEquals(String.format(Const.StatusCodes.NULL_POST_PARAMETER,
-                                       Const.ParamsNames.COURSE_ID),
-                         e.getMessage());
+                    Const.ParamsNames.COURSE_ID),
+                    e.getMessage());
         }
 
         ______TS("Failure case: params with null feedback session name");
@@ -226,7 +226,7 @@ public class InstructorFeedbackResultsDownloadActionTest extends BaseActionTest 
     }
 
     private void verifyFileContentForDownloadWithMissingResponsesShown(String fileContent,
-            FeedbackSessionAttributes session) {
+                                                                       FeedbackSessionAttributes session) {
         /*
         full testing of file content is
         in FeedbackSessionsLogicTest.testGetFeedbackSessionResultsSummaryAsCsv()
@@ -254,7 +254,7 @@ public class InstructorFeedbackResultsDownloadActionTest extends BaseActionTest 
     }
 
     private void verifyFileContentForDownloadWithMissingResponsesHidden(String fileContent,
-            FeedbackSessionAttributes session) {
+                                                                        FeedbackSessionAttributes session) {
         /*
         full testing of file content is
         in FeedbackSessionsLogicTest.testGetFeedbackSessionResultsSummaryAsCsv()
@@ -353,7 +353,7 @@ public class InstructorFeedbackResultsDownloadActionTest extends BaseActionTest 
     }
 
     private void verifyFileContentForQuestion2Session1InCourse1(String fileContent,
-            FeedbackSessionAttributes session) {
+                                                                FeedbackSessionAttributes session) {
         /*
         full testing of file content is
         in FeedbackSessionsLogicTest.testGetFeedbackSessionResultsSummaryAsCsv()
@@ -380,7 +380,7 @@ public class InstructorFeedbackResultsDownloadActionTest extends BaseActionTest 
     }
 
     private void verifyFileContentForQuestion1Session1InCourse1WithinSection1(String fileContent,
-                              FeedbackSessionAttributes session) {
+                                                                              FeedbackSessionAttributes session) {
         /*
         full testing of file content is
         in FeedbackSessionsLogicTest.testGetFeedbackSessionResultsSummaryAsCsv()
@@ -418,7 +418,7 @@ public class InstructorFeedbackResultsDownloadActionTest extends BaseActionTest 
     protected void testAccessControl() throws Exception {
         FeedbackSessionAttributes session = typicalBundle.feedbackSessions.get("session1InCourse1");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, session.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, session.getFeedbackSessionName()
         };

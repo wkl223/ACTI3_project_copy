@@ -45,7 +45,7 @@ public class InstructorFeedbackEditSaveActionTest extends BaseActionTest {
         ______TS("success: Typical case");
 
         String[] params = createParamsForTypicalFeedbackSession(instructor1ofCourse1.courseId,
-                                                                session.getFeedbackSessionName());
+                session.getFeedbackSessionName());
 
         InstructorFeedbackEditSaveAction a = getAction(params);
         AjaxResult ar = getAjaxResult(a);
@@ -57,16 +57,16 @@ public class InstructorFeedbackEditSaveActionTest extends BaseActionTest {
 
         expectedString =
                 "TEAMMATESLOG|||instructorFeedbackEditSave|||instructorFeedbackEditSave|||true|||"
-                + "Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
-                + "instr1@course1.tmt|||Updated Feedback Session "
-                + "<span class=\"bold\">(First feedback session)</span> for Course "
-                + "<span class=\"bold\">[idOfTypicalCourse1]</span> created.<br>"
-                + "<span class=\"bold\">From:</span> 2012-01-31T22:00:00Z"
-                + "<span class=\"bold\"> to</span> 2014-12-31T22:00:00Z<br>"
-                + "<span class=\"bold\">Session visible from:</span> 2011-12-31T22:00:00Z<br>"
-                + "<span class=\"bold\">Results visible from:</span> 1970-06-22T00:00:00Z<br><br>"
-                + "<span class=\"bold\">Instructions:</span> "
-                + "<Text: instructions>|||/page/instructorFeedbackEditSave";
+                        + "Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
+                        + "instr1@course1.tmt|||Updated Feedback Session "
+                        + "<span class=\"bold\">(First feedback session)</span> for Course "
+                        + "<span class=\"bold\">[idOfTypicalCourse1]</span> created.<br>"
+                        + "<span class=\"bold\">From:</span> 2012-01-31T22:00:00Z"
+                        + "<span class=\"bold\"> to</span> 2014-12-31T22:00:00Z<br>"
+                        + "<span class=\"bold\">Session visible from:</span> 2011-12-31T22:00:00Z<br>"
+                        + "<span class=\"bold\">Results visible from:</span> 1970-06-22T00:00:00Z<br><br>"
+                        + "<span class=\"bold\">Instructions:</span> "
+                        + "<Text: instructions>|||/page/instructorFeedbackEditSave";
         AssertHelper.assertLogMessageEquals(expectedString, a.getLogMessage());
 
         ______TS("failure: Invalid parameters");
@@ -79,7 +79,7 @@ public class InstructorFeedbackEditSaveActionTest extends BaseActionTest {
         pageData = (InstructorFeedbackEditPageData) ar.data;
 
         expectedString = "The start time for this feedback session cannot be "
-                         + "earlier than the time when the session will be visible.";
+                + "earlier than the time when the session will be visible.";
         statusMessage = pageData.getStatusMessagesToUser().get(0);
         verifyStatusMessage(statusMessage, expectedString, StatusMessageColor.DANGER);
         assertTrue(pageData.getHasError());
@@ -116,7 +116,7 @@ public class InstructorFeedbackEditSaveActionTest extends BaseActionTest {
         ______TS("success: Custom time zone, At open show session, 'later' show results");
 
         params = createParamsForTypicalFeedbackSession(instructor1ofCourse1.courseId,
-                                                       session.getFeedbackSessionName());
+                session.getFeedbackSessionName());
         backDoorLogic.updateCourse(course.getId(), course.getName(), "Asia/Kathmandu");
         params[13] = Const.INSTRUCTOR_FEEDBACK_SESSION_VISIBLE_TIME_ATOPEN;
         params[19] = Const.INSTRUCTOR_FEEDBACK_RESULTS_VISIBLE_TIME_LATER;
@@ -131,22 +131,22 @@ public class InstructorFeedbackEditSaveActionTest extends BaseActionTest {
 
         expectedString =
                 "TEAMMATESLOG|||instructorFeedbackEditSave|||instructorFeedbackEditSave|||true|||"
-                + "Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
-                + "instr1@course1.tmt|||Updated Feedback Session "
-                + "<span class=\"bold\">(First feedback session)</span> for Course "
-                + "<span class=\"bold\">[idOfTypicalCourse1]</span> created.<br>"
-                + "<span class=\"bold\">From:</span> 2012-01-31T18:15:00Z"
-                + "<span class=\"bold\"> to</span> 2014-12-31T18:15:00Z<br>"
-                + "<span class=\"bold\">Session visible from:</span> 1970-12-31T00:00:00Z<br>"
-                + "<span class=\"bold\">Results visible from:</span> 1970-01-01T00:00:00Z<br><br>"
-                + "<span class=\"bold\">Instructions:</span> "
-                + "<Text: instructions>|||/page/instructorFeedbackEditSave";
+                        + "Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
+                        + "instr1@course1.tmt|||Updated Feedback Session "
+                        + "<span class=\"bold\">(First feedback session)</span> for Course "
+                        + "<span class=\"bold\">[idOfTypicalCourse1]</span> created.<br>"
+                        + "<span class=\"bold\">From:</span> 2012-01-31T18:15:00Z"
+                        + "<span class=\"bold\"> to</span> 2014-12-31T18:15:00Z<br>"
+                        + "<span class=\"bold\">Session visible from:</span> 1970-12-31T00:00:00Z<br>"
+                        + "<span class=\"bold\">Results visible from:</span> 1970-01-01T00:00:00Z<br><br>"
+                        + "<span class=\"bold\">Instructions:</span> "
+                        + "<Text: instructions>|||/page/instructorFeedbackEditSave";
         AssertHelper.assertLogMessageEquals(expectedString, a.getLogMessage());
 
         ______TS("success: At open session visible time, custom results visible time, UTC");
 
         params = createParamsCombinationForFeedbackSession(
-                         instructor1ofCourse1.courseId, session.getFeedbackSessionName(), 1);
+                instructor1ofCourse1.courseId, session.getFeedbackSessionName(), 1);
         backDoorLogic.updateCourse(course.getId(), course.getName(), "UTC");
 
         a = getAction(params);
@@ -159,16 +159,16 @@ public class InstructorFeedbackEditSaveActionTest extends BaseActionTest {
 
         expectedString =
                 "TEAMMATESLOG|||instructorFeedbackEditSave|||instructorFeedbackEditSave|||true|||"
-                + "Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
-                + "instr1@course1.tmt|||Updated Feedback Session "
-                + "<span class=\"bold\">(First feedback session)</span> for Course "
-                + "<span class=\"bold\">[idOfTypicalCourse1]</span> created.<br>"
-                + "<span class=\"bold\">From:</span> 2012-02-01T00:00:00Z"
-                + "<span class=\"bold\"> to</span> 2015-01-01T00:00:00Z<br>"
-                + "<span class=\"bold\">Session visible from:</span> 1970-12-31T00:00:00Z<br>"
-                + "<span class=\"bold\">Results visible from:</span> 2014-05-08T02:00:00Z<br><br>"
-                + "<span class=\"bold\">Instructions:</span> "
-                + "<Text: instructions>|||/page/instructorFeedbackEditSave";
+                        + "Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
+                        + "instr1@course1.tmt|||Updated Feedback Session "
+                        + "<span class=\"bold\">(First feedback session)</span> for Course "
+                        + "<span class=\"bold\">[idOfTypicalCourse1]</span> created.<br>"
+                        + "<span class=\"bold\">From:</span> 2012-02-01T00:00:00Z"
+                        + "<span class=\"bold\"> to</span> 2015-01-01T00:00:00Z<br>"
+                        + "<span class=\"bold\">Session visible from:</span> 1970-12-31T00:00:00Z<br>"
+                        + "<span class=\"bold\">Results visible from:</span> 2014-05-08T02:00:00Z<br><br>"
+                        + "<span class=\"bold\">Instructions:</span> "
+                        + "<Text: instructions>|||/page/instructorFeedbackEditSave";
         AssertHelper.assertLogMessageEquals(expectedString, a.getLogMessage());
 
         ______TS("success: Masquerade mode, manual release results, UTC");
@@ -177,7 +177,7 @@ public class InstructorFeedbackEditSaveActionTest extends BaseActionTest {
         gaeSimulation.loginAsAdmin(adminUserId);
 
         params = createParamsForTypicalFeedbackSession(instructor1ofCourse1.courseId,
-                                                       session.getFeedbackSessionName());
+                session.getFeedbackSessionName());
         params[19] = Const.INSTRUCTOR_FEEDBACK_RESULTS_VISIBLE_TIME_LATER;
 
         params = addUserIdToParams(instructor1ofCourse1.googleId, params);
@@ -192,16 +192,16 @@ public class InstructorFeedbackEditSaveActionTest extends BaseActionTest {
 
         expectedString =
                 "TEAMMATESLOG|||instructorFeedbackEditSave|||instructorFeedbackEditSave|||true|||"
-                + "Instructor(M)|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
-                + "instr1@course1.tmt|||Updated Feedback Session "
-                + "<span class=\"bold\">(First feedback session)</span> for Course "
-                + "<span class=\"bold\">[idOfTypicalCourse1]</span> created.<br>"
-                + "<span class=\"bold\">From:</span> 2012-02-01T00:00:00Z"
-                + "<span class=\"bold\"> to</span> 2015-01-01T00:00:00Z<br>"
-                + "<span class=\"bold\">Session visible from:</span> 2012-01-01T00:00:00Z<br>"
-                + "<span class=\"bold\">Results visible from:</span> 1970-01-01T00:00:00Z<br><br>"
-                + "<span class=\"bold\">Instructions:</span> "
-                + "<Text: instructions>|||/page/instructorFeedbackEditSave";
+                        + "Instructor(M)|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
+                        + "instr1@course1.tmt|||Updated Feedback Session "
+                        + "<span class=\"bold\">(First feedback session)</span> for Course "
+                        + "<span class=\"bold\">[idOfTypicalCourse1]</span> created.<br>"
+                        + "<span class=\"bold\">From:</span> 2012-02-01T00:00:00Z"
+                        + "<span class=\"bold\"> to</span> 2015-01-01T00:00:00Z<br>"
+                        + "<span class=\"bold\">Session visible from:</span> 2012-01-01T00:00:00Z<br>"
+                        + "<span class=\"bold\">Results visible from:</span> 1970-01-01T00:00:00Z<br><br>"
+                        + "<span class=\"bold\">Instructions:</span> "
+                        + "<Text: instructions>|||/page/instructorFeedbackEditSave";
         AssertHelper.assertLogMessageEqualsInMasqueradeMode(expectedString, a.getLogMessage(), adminUserId);
 
         ______TS("failure: Invalid grace period");

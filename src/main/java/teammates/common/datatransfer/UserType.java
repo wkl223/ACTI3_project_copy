@@ -5,7 +5,7 @@ import com.google.appengine.api.users.User;
 /**
  * Represents a user type.
  * <br> Contains user's Google ID and flags to indicate whether the user
- *  is an admin, instructor, student.
+ * is an admin, instructor, student.
  */
 public class UserType {
 

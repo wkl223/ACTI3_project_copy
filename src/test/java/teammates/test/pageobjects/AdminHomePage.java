@@ -8,22 +8,22 @@ import teammates.common.datatransfer.attributes.InstructorAttributes;
 import teammates.common.util.Const;
 
 public class AdminHomePage extends AppPage {
-    @FindBy (id = "addInstructorDetailsSingleLine")
+    @FindBy(id = "addInstructorDetailsSingleLine")
     private WebElement detailsSingleLineTextBox;
 
-    @FindBy (id = "instructorName")
+    @FindBy(id = "instructorName")
     private WebElement nameTextBox;
 
-    @FindBy (id = "instructorEmail")
+    @FindBy(id = "instructorEmail")
     private WebElement emailTextBox;
 
-    @FindBy (id = "instructorInstitution")
+    @FindBy(id = "instructorInstitution")
     private WebElement institutionTextBox;
 
-    @FindBy (id = "btnAddInstructor")
+    @FindBy(id = "btnAddInstructor")
     private WebElement submitButton;
 
-    @FindBy (id = "btnAddInstructorDetailsSingleLineForm")
+    @FindBy(id = "btnAddInstructorDetailsSingleLineForm")
     private WebElement submitButtonDetailsSingleLineForm;
 
     public AdminHomePage(Browser browser) {

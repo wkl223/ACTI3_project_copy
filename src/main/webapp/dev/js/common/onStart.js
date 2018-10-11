@@ -20,6 +20,7 @@ if (!String.prototype.includes) {
         return this.indexOf(search, start) !== -1;
     };
 }
+
 /* eslint-enable no-extend-native */
 
 /**
@@ -44,7 +45,7 @@ $(document).on('ajaxComplete ready', () => {
      * Initializing then disabling is better than simply
      * not initializing for mobile due to some tooltips-specific
      * code that throws errors.
-    */
+     */
     const $tooltips = $('[data-toggle="tooltip"]');
     $tooltips.tooltip({
         html: true,
@@ -58,7 +59,7 @@ $(document).on('ajaxComplete ready', () => {
      * Underlines all span elements with tool-tips except for
      * the ones without a text value. This is to exclude elements
      * such as 'icons' from underlining.
-    */
+     */
     $('span[data-toggle="tooltip"]').each(function () {
         const textValue = $(this).text().replace(/\s/g, '');
         if (textValue) {

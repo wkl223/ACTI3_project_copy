@@ -64,7 +64,7 @@ public class AdminInstructorAccountAddActionTest extends BaseActionTest {
 
         EmailWrapper emailSent = a.getEmailSender().getEmailsSent().get(0);
         assertEquals(String.format(EmailType.NEW_INSTRUCTOR_ACCOUNT.getSubject(), name),
-                     emailSent.getSubject());
+                emailSent.getSubject());
         assertEquals(email, emailSent.getRecipient());
 
         ______TS("Error: invalid parameter");
@@ -77,8 +77,8 @@ public class AdminInstructorAccountAddActionTest extends BaseActionTest {
 
         String expectedError =
                 "\"" + invalidName + "\" is not acceptable to TEAMMATES as a/an person name because "
-                + "it contains invalid characters. A/An person name must start with an "
-                + "alphanumeric character, and cannot contain any vertical bar (|) or percent sign (%).";
+                        + "it contains invalid characters. A/An person name must start with an "
+                        + "alphanumeric character, and cannot contain any vertical bar (|) or percent sign (%).";
 
         AjaxResult rInvalidParam = getAjaxResult(a);
         assertEquals(expectedError, rInvalidParam.getStatusMessage());
@@ -104,7 +104,7 @@ public class AdminInstructorAccountAddActionTest extends BaseActionTest {
 
         emailSent = a.getEmailSender().getEmailsSent().get(0);
         assertEquals(String.format(EmailType.NEW_INSTRUCTOR_ACCOUNT.getSubject(), name),
-                     emailSent.getSubject());
+                emailSent.getSubject());
         assertEquals(email, emailSent.getRecipient());
 
         new Logic().deleteCourse(getDemoCourseIdRoot(email));
@@ -123,34 +123,34 @@ public class AdminInstructorAccountAddActionTest extends BaseActionTest {
         final String strOneCharLongerThanMaximum =
                 StringHelperExtension.generateStringOfLength(maximumIdLength - normalIdSuffixLength + 1);
         assertEquals(strShortWithWordDemo + normalIdSuffix,
-                     generateNextDemoCourseId(strShortWithWordDemo + atEmail, maximumIdLength));
+                generateNextDemoCourseId(strShortWithWordDemo + atEmail, maximumIdLength));
         assertEquals(strShortWithWordDemo + normalIdSuffix + "0",
-                     generateNextDemoCourseId(strShortWithWordDemo + normalIdSuffix, maximumIdLength));
+                generateNextDemoCourseId(strShortWithWordDemo + normalIdSuffix, maximumIdLength));
         assertEquals(strShortWithWordDemo + normalIdSuffix + "1",
-                     generateNextDemoCourseId(strShortWithWordDemo + normalIdSuffix + "0", maximumIdLength));
+                generateNextDemoCourseId(strShortWithWordDemo + normalIdSuffix + "0", maximumIdLength));
         assertEquals(strWayShorterThanMaximum + normalIdSuffix,
-                     generateNextDemoCourseId(strWayShorterThanMaximum + atEmail, maximumIdLength));
+                generateNextDemoCourseId(strWayShorterThanMaximum + atEmail, maximumIdLength));
         assertEquals(strOneCharShorterThanMaximum + normalIdSuffix,
-                     generateNextDemoCourseId(strOneCharShorterThanMaximum + atEmail, maximumIdLength));
+                generateNextDemoCourseId(strOneCharShorterThanMaximum + atEmail, maximumIdLength));
         assertEquals(strOneCharLongerThanMaximum.substring(1) + normalIdSuffix,
-                     generateNextDemoCourseId(strOneCharLongerThanMaximum + atEmail, maximumIdLength));
+                generateNextDemoCourseId(strOneCharLongerThanMaximum + atEmail, maximumIdLength));
         assertEquals(strWayShorterThanMaximum + normalIdSuffix + "0",
-                     generateNextDemoCourseId(strWayShorterThanMaximum + normalIdSuffix, maximumIdLength));
+                generateNextDemoCourseId(strWayShorterThanMaximum + normalIdSuffix, maximumIdLength));
         assertEquals(strWayShorterThanMaximum + normalIdSuffix + "1",
-                     generateNextDemoCourseId(strWayShorterThanMaximum + normalIdSuffix + "0", maximumIdLength));
+                generateNextDemoCourseId(strWayShorterThanMaximum + normalIdSuffix + "0", maximumIdLength));
         assertEquals(strWayShorterThanMaximum + normalIdSuffix + "10",
-                     generateNextDemoCourseId(strWayShorterThanMaximum + normalIdSuffix + "9", maximumIdLength));
+                generateNextDemoCourseId(strWayShorterThanMaximum + normalIdSuffix + "9", maximumIdLength));
         assertEquals(strOneCharShorterThanMaximum.substring(2) + normalIdSuffix + "10",
-                     generateNextDemoCourseId(strOneCharShorterThanMaximum.substring(1) + normalIdSuffix + "9",
-                                              maximumIdLength));
+                generateNextDemoCourseId(strOneCharShorterThanMaximum.substring(1) + normalIdSuffix + "9",
+                        maximumIdLength));
     }
 
     private String generateNextDemoCourseId(String instructorEmailOrProposedCourseId, int maximumIdLength)
             throws Exception {
         AdminInstructorAccountAddAction a = new AdminInstructorAccountAddAction();
         return (String) invokeMethod(a.getClass(), "generateNextDemoCourseId",
-                                     new Class<?>[] { String.class, int.class },
-                                     a, new Object[] { instructorEmailOrProposedCourseId, maximumIdLength });
+                new Class<?>[]{String.class, int.class},
+                a, new Object[]{instructorEmailOrProposedCourseId, maximumIdLength});
     }
 
     @Override
@@ -169,7 +169,7 @@ public class AdminInstructorAccountAddActionTest extends BaseActionTest {
     @Override
     @Test
     protected void testAccessControl() throws Exception {
-        String[] submissionParams = new String[] {};
+        String[] submissionParams = new String[]{};
         verifyOnlyAdminsCanAccess(submissionParams);
     }
 

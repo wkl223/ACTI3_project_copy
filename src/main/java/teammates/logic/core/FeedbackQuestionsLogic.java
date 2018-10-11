@@ -158,7 +158,7 @@ public final class FeedbackQuestionsLogic {
     }
 
     /**
-     *  Gets a {@link List} of every FeedbackQuestion that the instructor can copy.
+     * Gets a {@link List} of every FeedbackQuestion that the instructor can copy.
      */
     public List<FeedbackQuestionAttributes> getCopiableFeedbackQuestionsForInstructor(String googleId)
             throws EntityDoesNotExistException {
@@ -206,7 +206,7 @@ public final class FeedbackQuestionsLogic {
 
         if (isInstructor) {
             questions.addAll(fqDb.getFeedbackQuestionsForGiverType(
-                            feedbackSessionName, courseId, FeedbackParticipantType.INSTRUCTORS));
+                    feedbackSessionName, courseId, FeedbackParticipantType.INSTRUCTORS));
         }
         questions.sort(null);
         return questions;
@@ -217,8 +217,8 @@ public final class FeedbackQuestionsLogic {
      * instructor who is the creator of the course can view/submit.
      */
     public List<FeedbackQuestionAttributes> getFeedbackQuestionsForCreatorInstructor(
-                                    String feedbackSessionName, String courseId)
-                    throws EntityDoesNotExistException {
+            String feedbackSessionName, String courseId)
+            throws EntityDoesNotExistException {
 
         FeedbackSessionAttributes fsa = fsLogic.getFeedbackSession(feedbackSessionName, courseId);
         if (fsa == null) {
@@ -230,7 +230,7 @@ public final class FeedbackQuestionsLogic {
     }
 
     public List<FeedbackQuestionAttributes> getFeedbackQuestionsForCreatorInstructor(
-                                    FeedbackSessionAttributes fsa) {
+            FeedbackSessionAttributes fsa) {
 
         List<FeedbackQuestionAttributes> questions = new ArrayList<>();
 
@@ -238,7 +238,7 @@ public final class FeedbackQuestionsLogic {
         String courseId = fsa.getCourseId();
 
         questions.addAll(fqDb.getFeedbackQuestionsForGiverType(
-                                       feedbackSessionName, courseId, FeedbackParticipantType.INSTRUCTORS));
+                feedbackSessionName, courseId, FeedbackParticipantType.INSTRUCTORS));
 
         // Return all self (creator) questions
         questions.addAll(fqDb.getFeedbackQuestionsForGiverType(feedbackSessionName,
@@ -318,7 +318,7 @@ public final class FeedbackQuestionsLogic {
     public Map<String, String> getRecipientsForQuestion(
             FeedbackQuestionAttributes question, String giver,
             InstructorAttributes instructorGiver, StudentAttributes studentGiver)
-                    throws EntityDoesNotExistException {
+            throws EntityDoesNotExistException {
 
         Map<String, String> recipients = new HashMap<>();
 
@@ -327,70 +327,70 @@ public final class FeedbackQuestionsLogic {
         String giverTeam = getGiverTeam(giver, instructorGiver, studentGiver);
 
         switch (recipientType) {
-        case SELF:
-            if (question.giverType == FeedbackParticipantType.TEAMS) {
-                recipients.put(studentGiver.team, studentGiver.team);
-            } else {
-                recipients.put(giver, Const.USER_NAME_FOR_SELF);
-            }
-            break;
-        case STUDENTS:
-            List<StudentAttributes> studentsInCourse = studentsLogic.getStudentsForCourse(question.courseId);
-            for (StudentAttributes student : studentsInCourse) {
-                // Ensure student does not evaluate himself
-                if (!giver.equals(student.email)) {
+            case SELF:
+                if (question.giverType == FeedbackParticipantType.TEAMS) {
+                    recipients.put(studentGiver.team, studentGiver.team);
+                } else {
+                    recipients.put(giver, Const.USER_NAME_FOR_SELF);
+                }
+                break;
+            case STUDENTS:
+                List<StudentAttributes> studentsInCourse = studentsLogic.getStudentsForCourse(question.courseId);
+                for (StudentAttributes student : studentsInCourse) {
+                    // Ensure student does not evaluate himself
+                    if (!giver.equals(student.email)) {
+                        recipients.put(student.email, student.name);
+                    }
+                }
+                break;
+            case INSTRUCTORS:
+                List<InstructorAttributes> instructorsInCourse = instructorsLogic.getInstructorsForCourse(question.courseId);
+                for (InstructorAttributes instr : instructorsInCourse) {
+                    // Ensure instructor does not evaluate himself
+                    if (!giver.equals(instr.email)) {
+                        recipients.put(instr.email, instr.name);
+                    }
+                }
+                break;
+            case TEAMS:
+                List<TeamDetailsBundle> teams = coursesLogic.getTeamsForCourse(question.courseId);
+                for (TeamDetailsBundle team : teams) {
+                    // Ensure student('s team) does not evaluate own team.
+                    if (!giverTeam.equals(team.name)) {
+                        // recipientEmail doubles as team name in this case.
+                        recipients.put(team.name, team.name);
+                    }
+                }
+                break;
+            case OWN_TEAM:
+                recipients.put(giverTeam, giverTeam);
+                break;
+            case OWN_TEAM_MEMBERS:
+                List<StudentAttributes> students = studentsLogic.getStudentsForTeam(giverTeam, question.courseId);
+                for (StudentAttributes student : students) {
+                    if (!student.email.equals(giver)) {
+                        recipients.put(student.email, student.name);
+                    }
+                }
+                break;
+            case OWN_TEAM_MEMBERS_INCLUDING_SELF:
+                List<StudentAttributes> teamMembers = studentsLogic.getStudentsForTeam(giverTeam, question.courseId);
+                for (StudentAttributes student : teamMembers) {
+                    // accepts self feedback too
                     recipients.put(student.email, student.name);
                 }
-            }
-            break;
-        case INSTRUCTORS:
-            List<InstructorAttributes> instructorsInCourse = instructorsLogic.getInstructorsForCourse(question.courseId);
-            for (InstructorAttributes instr : instructorsInCourse) {
-                // Ensure instructor does not evaluate himself
-                if (!giver.equals(instr.email)) {
-                    recipients.put(instr.email, instr.name);
-                }
-            }
-            break;
-        case TEAMS:
-            List<TeamDetailsBundle> teams = coursesLogic.getTeamsForCourse(question.courseId);
-            for (TeamDetailsBundle team : teams) {
-                // Ensure student('s team) does not evaluate own team.
-                if (!giverTeam.equals(team.name)) {
-                    // recipientEmail doubles as team name in this case.
-                    recipients.put(team.name, team.name);
-                }
-            }
-            break;
-        case OWN_TEAM:
-            recipients.put(giverTeam, giverTeam);
-            break;
-        case OWN_TEAM_MEMBERS:
-            List<StudentAttributes> students = studentsLogic.getStudentsForTeam(giverTeam, question.courseId);
-            for (StudentAttributes student : students) {
-                if (!student.email.equals(giver)) {
-                    recipients.put(student.email, student.name);
-                }
-            }
-            break;
-        case OWN_TEAM_MEMBERS_INCLUDING_SELF:
-            List<StudentAttributes> teamMembers = studentsLogic.getStudentsForTeam(giverTeam, question.courseId);
-            for (StudentAttributes student : teamMembers) {
-                // accepts self feedback too
-                recipients.put(student.email, student.name);
-            }
-            break;
-        case NONE:
-            recipients.put(Const.GENERAL_QUESTION, Const.GENERAL_QUESTION);
-            break;
-        default:
-            break;
+                break;
+            case NONE:
+                recipients.put(Const.GENERAL_QUESTION, Const.GENERAL_QUESTION);
+                break;
+            default:
+                break;
         }
         return recipients;
     }
 
     private String getGiverTeam(String defaultTeam, InstructorAttributes instructorGiver,
-            StudentAttributes studentGiver) {
+                                StudentAttributes studentGiver) {
         String giverTeam = defaultTeam;
         boolean isStudentGiver = studentGiver != null;
         boolean isInstructorGiver = instructorGiver != null;
@@ -404,7 +404,7 @@ public final class FeedbackQuestionsLogic {
 
     public boolean areThereResponsesForQuestion(String feedbackQuestionId) {
         return !frLogic.getFeedbackResponsesForQuestionWithinRange(feedbackQuestionId, 1)
-                       .isEmpty();
+                .isEmpty();
     }
 
     public boolean isQuestionFullyAnsweredByUser(FeedbackQuestionAttributes question, String email)
@@ -458,7 +458,7 @@ public final class FeedbackQuestionsLogic {
      * if the new number is bigger, then shift down(decrease qn#) all questions in between.
      */
     private void adjustQuestionNumbers(int oldQuestionNumber,
-            int newQuestionNumber, List<FeedbackQuestionAttributes> questions) {
+                                       int newQuestionNumber, List<FeedbackQuestionAttributes> questions) {
         if (oldQuestionNumber > newQuestionNumber && oldQuestionNumber >= 1) {
             for (int i = oldQuestionNumber - 1; i >= newQuestionNumber; i--) {
                 FeedbackQuestionAttributes question = questions.get(i - 1);
@@ -555,14 +555,14 @@ public final class FeedbackQuestionsLogic {
      */
     private void deleteFeedbackQuestionCascadeWithoutResponseRateUpdate(String feedbackQuestionId) {
         FeedbackQuestionAttributes questionToDeleteById =
-                        getFeedbackQuestion(feedbackQuestionId);
+                getFeedbackQuestion(feedbackQuestionId);
 
         if (questionToDeleteById == null) {
             log.warning("Trying to delete question that does not exist: " + feedbackQuestionId);
         } else {
             deleteFeedbackQuestionCascade(questionToDeleteById.feedbackSessionName,
-                                            questionToDeleteById.courseId,
-                                            questionToDeleteById.questionNumber, false);
+                    questionToDeleteById.courseId,
+                    questionToDeleteById.questionNumber, false);
         }
     }
 
@@ -576,14 +576,14 @@ public final class FeedbackQuestionsLogic {
      */
     public void deleteFeedbackQuestionCascade(String feedbackQuestionId) {
         FeedbackQuestionAttributes questionToDeleteById =
-                        getFeedbackQuestion(feedbackQuestionId);
+                getFeedbackQuestion(feedbackQuestionId);
 
         if (questionToDeleteById == null) {
             log.warning("Trying to delete question that does not exist: " + feedbackQuestionId);
         } else {
             deleteFeedbackQuestionCascade(questionToDeleteById.feedbackSessionName,
-                                            questionToDeleteById.courseId,
-                                            questionToDeleteById.questionNumber, true);
+                    questionToDeleteById.courseId,
+                    questionToDeleteById.questionNumber, true);
         }
     }
 
@@ -591,7 +591,6 @@ public final class FeedbackQuestionsLogic {
      * Deletes all feedback questions in all sessions of the course specified. This is
      * a non-cascade delete. The responses to the questions and the comments of these responses
      * should be handled.
-     *
      */
     public void deleteFeedbackQuestionsForCourse(String courseId) {
         fqDb.deleteFeedbackQuestionsForCourse(courseId);
@@ -632,7 +631,7 @@ public final class FeedbackQuestionsLogic {
 
     // Shifts all question numbers after questionNumberToShiftFrom down by one.
     private void shiftQuestionNumbersDown(int questionNumberToShiftFrom,
-            List<FeedbackQuestionAttributes> questionsToShift) {
+                                          List<FeedbackQuestionAttributes> questionsToShift) {
         for (FeedbackQuestionAttributes question : questionsToShift) {
             if (question.questionNumber > questionNumberToShiftFrom) {
                 question.questionNumber -= 1;

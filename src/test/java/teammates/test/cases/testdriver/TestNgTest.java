@@ -18,21 +18,21 @@ public class TestNgTest extends BaseTestCase {
     @Test
     public void checkTestsInTestNg() throws IOException {
         String testNgXml = FileHelper.readFile("./src/test/testng-ci.xml")
-                           + FileHelper.readFile("./src/test/testng-local.xml");
+                + FileHelper.readFile("./src/test/testng-local.xml");
         // <class name, package name>
         Map<String, String> testFiles = getTestFiles(testNgXml, "./src/test/java/teammates/test/cases");
 
         testFiles = excludeFilesNotInTestNg(testFiles,
 
-                                            // Base*TestCase are base classes to be extended by the actual tests
-                                            "BaseUiTestCase",
+                // Base*TestCase are base classes to be extended by the actual tests
+                "BaseUiTestCase",
 
-                                            // Base class for all Feedback*QuestionUiTest (different question types)
-                                            "FeedbackQuestionUiTest",
+                // Base class for all Feedback*QuestionUiTest (different question types)
+                "FeedbackQuestionUiTest",
 
-                                            // Needs to be run only when changes are made to GodMode
-                                            "GodModeTest"
-                                            );
+                // Needs to be run only when changes are made to GodMode
+                "GodModeTest"
+        );
 
         testFiles.forEach((key, value) -> assertTrue(isTestFileIncluded(testNgXml, value, key)));
     }
@@ -40,9 +40,9 @@ public class TestNgTest extends BaseTestCase {
     /**
      * Files to be checked in testng.xml are added to testFiles.
      *
-     * @param testNgXml    Contents of testng.xml
-     * @param rootPath     Root path of test files
-     * @return             Map containing {@code <class name, package name>}
+     * @param testNgXml Contents of testng.xml
+     * @param rootPath  Root path of test files
+     * @return Map containing {@code <class name, package name>}
      */
     private Map<String, String> getTestFiles(String testNgXml, String rootPath) {
         // BaseComponentTestCase, BaseTestCase (files in current directory) excluded because
@@ -54,9 +54,9 @@ public class TestNgTest extends BaseTestCase {
     /**
      * Excludes files which do not have tests in TestNG.
      *
-     * @param testFiles                  Files to be checked before excluding tests
-     * @param filesExcludedFromTestNg    Files to be excluded
-     * @return                           Files to be checked after excluding tests
+     * @param testFiles               Files to be checked before excluding tests
+     * @param filesExcludedFromTestNg Files to be excluded
+     * @return Files to be checked after excluding tests
      */
     private Map<String, String> excludeFilesNotInTestNg(Map<String, String> testFiles, String... filesExcludedFromTestNg) {
         for (String test : filesExcludedFromTestNg) {
@@ -73,19 +73,16 @@ public class TestNgTest extends BaseTestCase {
     /**
      * Recursively adds files from testng.xml which are to be checked.
      *
-     * @param path                            Check files and directories in the current path
-     *
-     * @param areFilesInCurrentDirExcluded    If true, files in the current path are not
-     *                                        added to tests but sub-directories are still checked
-     *
-     * @param packageName                     Package name of the current file
-     * @param testNgXml                       Contents of testng.xml
-     *
-     * @return                                Map containing {@code <class name, package name>} including
-     *                                        current file or tests in the current directory
+     * @param path                         Check files and directories in the current path
+     * @param areFilesInCurrentDirExcluded If true, files in the current path are not
+     *                                     added to tests but sub-directories are still checked
+     * @param packageName                  Package name of the current file
+     * @param testNgXml                    Contents of testng.xml
+     * @return Map containing {@code <class name, package name>} including
+     * current file or tests in the current directory
      */
     private Map<String, String> addFilesToTestsRecursively(String path, boolean areFilesInCurrentDirExcluded,
-            String packageName, String testNgXml) {
+                                                           String packageName, String testNgXml) {
 
         Map<String, String> testFiles = new HashMap<>();
         File folder = new File(path);
@@ -107,8 +104,8 @@ public class TestNgTest extends BaseTestCase {
 
                 testFiles.putAll(
                         addFilesToTestsRecursively(path + "/" + name,
-                                                   isPackageNameInTestNg(packageName + "." + name, testNgXml),
-                                                   packageName + "." + name, testNgXml));
+                                isPackageNameInTestNg(packageName + "." + name, testNgXml),
+                                packageName + "." + name, testNgXml));
             }
         }
 

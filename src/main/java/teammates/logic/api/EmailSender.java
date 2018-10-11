@@ -71,8 +71,8 @@ public class EmailSender {
             sendEmailCopyWithJavamail(report);
         } catch (Exception e) {
             log.severe("Error in sending report: " + (report == null ? "" : report.getInfoForLogging())
-                       + "\nReport content: " + (report == null ? "" : report.getContent())
-                       + "\nCause: " + TeammatesException.toStringWithStackTrace(e));
+                    + "\nReport content: " + (report == null ? "" : report.getContent())
+                    + "\nCause: " + TeammatesException.toStringWithStackTrace(e));
         }
     }
 

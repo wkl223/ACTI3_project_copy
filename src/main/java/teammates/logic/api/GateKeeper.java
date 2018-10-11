@@ -97,7 +97,7 @@ public class GateKeeper {
         }
 
         throw new UnauthorizedAccessException("User " + getCurrentGoogleUser().getNickname()
-                                              + " does not have admin privilleges");
+                + " does not have admin privilleges");
     }
 
     /**
@@ -108,7 +108,7 @@ public class GateKeeper {
             return;
         }
         throw new UnauthorizedAccessException("User " + account.googleId
-                                              + " does not have instructor privilleges");
+                + " does not have instructor privilleges");
     }
 
     /**
@@ -132,7 +132,7 @@ public class GateKeeper {
 
         if (!student.course.equals(course.getId())) {
             throw new UnauthorizedAccessException("Course [" + course.getId() + "] is not accessible to student ["
-                                                  + student.email + "]");
+                    + student.email + "]");
         }
     }
 
@@ -144,20 +144,20 @@ public class GateKeeper {
 
         if (!student.course.equals(feedbacksession.getCourseId())) {
             throw new UnauthorizedAccessException("Feedback session [" + feedbacksession.getFeedbackSessionName()
-                                                  + "] is not accessible to student [" + student.email + "]");
+                    + "] is not accessible to student [" + student.email + "]");
         }
 
         if (!feedbacksession.isVisible()) {
             throw new FeedbackSessionNotVisibleException(
-                                            "This feedback session is not yet visible.",
-                                            feedbacksession.getStartTimeString());
+                    "This feedback session is not yet visible.",
+                    feedbacksession.getStartTimeString());
         }
     }
 
     /**
      * Verifies that comment is created by feedback participant.
      *
-     * @param frc comment to be accessed
+     * @param frc                 comment to be accessed
      * @param feedbackParticipant email or team of feedback participant
      */
     public void verifyOwnership(FeedbackResponseCommentAttributes frc, String feedbackParticipant) {
@@ -179,7 +179,7 @@ public class GateKeeper {
 
         if (!instructor.courseId.equals(course.getId())) {
             throw new UnauthorizedAccessException("Course [" + course.getId() + "] is not accessible to instructor ["
-                                                  + instructor.email + "]");
+                    + instructor.email + "]");
         }
     }
 
@@ -196,12 +196,12 @@ public class GateKeeper {
 
         if (!instructor.courseId.equals(course.getId())) {
             throw new UnauthorizedAccessException("Course [" + course.getId() + "] is not accessible to instructor ["
-                                                  + instructor.email + "]");
+                    + instructor.email + "]");
         }
 
         if (!instructor.isAllowedForPrivilege(privilegeName)) {
             throw new UnauthorizedAccessException("Course [" + course.getId() + "] is not accessible to instructor ["
-                                                  + instructor.email + "] for privilege [" + privilegeName + "]");
+                    + instructor.email + "] for privilege [" + privilegeName + "]");
         }
     }
 
@@ -220,13 +220,13 @@ public class GateKeeper {
 
         if (!instructor.courseId.equals(course.getId())) {
             throw new UnauthorizedAccessException("Course [" + course.getId() + "] is not accessible to instructor ["
-                                                  + instructor.email + "]");
+                    + instructor.email + "]");
         }
 
         if (!instructor.isAllowedForPrivilege(sectionName, privilegeName)) {
             throw new UnauthorizedAccessException("Course [" + course.getId() + "] is not accessible to instructor ["
-                                                  + instructor.email + "] for privilege [" + privilegeName
-                                                  + "] on section [" + sectionName + "]");
+                    + instructor.email + "] for privilege [" + privilegeName
+                    + "] on section [" + sectionName + "]");
         }
     }
 
@@ -239,13 +239,13 @@ public class GateKeeper {
 
         if (!instructor.courseId.equals(feedbacksession.getCourseId())) {
             throw new UnauthorizedAccessException("Feedback session [" + feedbacksession.getFeedbackSessionName()
-                                                  + "] is not accessible to instructor [" + instructor.email + "]");
+                    + "] is not accessible to instructor [" + instructor.email + "]");
         }
 
         if (creatorOnly && !feedbacksession.getCreatorEmail().equals(instructor.email)) {
             throw new UnauthorizedAccessException("Feedback session [" + feedbacksession.getFeedbackSessionName()
-                                                  + "] is not accessible to instructor [" + instructor.email
-                                                  + "] for this purpose");
+                    + "] is not accessible to instructor [" + instructor.email
+                    + "] for this purpose");
         }
     }
 
@@ -263,19 +263,19 @@ public class GateKeeper {
 
         if (!instructor.courseId.equals(feedbacksession.getCourseId())) {
             throw new UnauthorizedAccessException("Feedback session [" + feedbacksession.getFeedbackSessionName()
-                                                  + "] is not accessible to instructor [" + instructor.email + "]");
+                    + "] is not accessible to instructor [" + instructor.email + "]");
         }
 
         if (creatorOnly && !feedbacksession.getCreatorEmail().equals(instructor.email)) {
             throw new UnauthorizedAccessException("Feedback session [" + feedbacksession.getFeedbackSessionName()
-                                                  + "] is not accessible to instructor [" + instructor.email
-                                                  + "] for this purpose");
+                    + "] is not accessible to instructor [" + instructor.email
+                    + "] for this purpose");
         }
 
         if (!instructor.isAllowedForPrivilege(privilegeName)) {
             throw new UnauthorizedAccessException("Feedback session [" + feedbacksession.getFeedbackSessionName()
-                                                  + "] is not accessible to instructor [" + instructor.email
-                                                  + "] for privilege [" + privilegeName + "]");
+                    + "] is not accessible to instructor [" + instructor.email
+                    + "] for privilege [" + privilegeName + "]");
         }
     }
 
@@ -288,20 +288,20 @@ public class GateKeeper {
 
         if (!instructor.courseId.equals(feedbacksession.getCourseId())) {
             throw new UnauthorizedAccessException("Feedback session [" + feedbacksession.getFeedbackSessionName()
-                                                  + "] is not accessible to instructor [" + instructor.email + "]");
+                    + "] is not accessible to instructor [" + instructor.email + "]");
         }
 
         if (creatorOnly && !feedbacksession.getCreatorEmail().equals(instructor.email)) {
             throw new UnauthorizedAccessException("Feedback session [" + feedbacksession.getFeedbackSessionName()
-                                                  + "] is not accessible to instructor [" + instructor.email
-                                                  + "] for this purpose");
+                    + "] is not accessible to instructor [" + instructor.email
+                    + "] for this purpose");
         }
 
         if (!instructor.isAllowedForPrivilege(sectionName, feedbacksession.getFeedbackSessionName(), privilegeName)) {
             throw new UnauthorizedAccessException("Feedback session [" + feedbacksession.getFeedbackSessionName()
-                                                  + "] is not accessible to instructor [" + instructor.email
-                                                  + "] for privilege [" + privilegeName + "] on section ["
-                                                  + sectionName + "]");
+                    + "] is not accessible to instructor [" + instructor.email
+                    + "] for privilege [" + privilegeName + "] on section ["
+                    + sectionName + "]");
         }
     }
 
@@ -314,7 +314,7 @@ public class GateKeeper {
     private void verifyNotNull(Object object, String typeName) {
         if (object == null) {
             throw new UnauthorizedAccessException("Trying to access system using a non-existent " + typeName
-                                                  + " entity");
+                    + " entity");
         }
 
     }
@@ -342,7 +342,7 @@ public class GateKeeper {
     }
 
     public void verifyAccessibleForCurrentUserAsInstructorOrTeamMemberOrAdmin(AccountAttributes account, String courseId,
-            String section, String email) {
+                                                                              String section, String email) {
         if (isAdministrator()) {
             return;
         }

@@ -406,19 +406,19 @@ const seeMoreRequest = function (e) {
 
             if (typeof data === 'undefined') {
                 $sectionBody.html('The results is too large to be viewed. '
-                    + 'Please choose to view the results by questions or download the results.');
+                        + 'Please choose to view the results by questions or download the results.');
             } else {
                 const $appendedSection = $(data).find('#sectionBody-0');
 
                 if (isEmptySection($appendedSection)) {
                     $sectionBody.html('There are no responses for this section yet '
-                        + 'or you do not have access to the responses collected so far.');
+                            + 'or you do not have access to the responses collected so far.');
                 }
 
                 $(data).remove();
                 if (typeof $appendedSection === 'undefined') {
                     $sectionBody.html('There are no responses for this section yet '
-                        + 'or you do not have access to the responses collected so far.');
+                            + 'or you do not have access to the responses collected so far.');
                 } else {
                     $sectionBody.html($appendedSection.html());
                 }

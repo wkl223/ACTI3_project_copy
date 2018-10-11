@@ -49,7 +49,7 @@ public class AdminEmailAttributes extends EntityAttributes<AdminEmail> {
 
     public static AdminEmailAttributes valueOf(AdminEmail adminEmail) {
         return new Builder(adminEmail.getSubject(), adminEmail.getAddressReceiver(),
-                        adminEmail.getGroupReceiver(), adminEmail.getContent())
+                adminEmail.getGroupReceiver(), adminEmail.getContent())
                 .withSendDate(adminEmail.getSendDate())
                 .withCreateDate(adminEmail.getCreateDate())
                 .withEmailId(adminEmail.getEmailId())

@@ -95,7 +95,7 @@ function initializeMap(err, countryCoordinates, userData) {
             };
         },
         // countries don't listed in dataset will be painted with this color
-        fills: { defaultFill: '#F5F5F5' },
+        fills: {defaultFill: '#F5F5F5'},
         data: dataset,
         geographyConfig: {
             borderColor: '#DEDEDE',
@@ -125,7 +125,7 @@ function initializeMap(err, countryCoordinates, userData) {
 
     map.addPlugin('pins', function (layer, data, options) {
         const self = this;
-        const { svg } = this;
+        const {svg} = this;
 
         function datumHasCoords(datum) {
             return datum && datum.latitude && datum.longitude;

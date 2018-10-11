@@ -56,7 +56,7 @@ public class FeedbackResponseCommentsLogicTest extends BaseLogicTest {
 
         verifyExceptionThrownFromCreateFrComment(frComment,
                 "User " + frComment.commentGiver + " is not a registered instructor for course "
-                + frComment.courseId + ".");
+                        + frComment.courseId + ".");
         frComment = restoreFrCommentFromDataBundle("comment1FromT1C1ToR1Q1S1C1");
 
         ______TS("fail: feedback session is not a session for the course");
@@ -65,7 +65,7 @@ public class FeedbackResponseCommentsLogicTest extends BaseLogicTest {
 
         verifyExceptionThrownFromCreateFrComment(frComment,
                 "Feedback session " + frComment.feedbackSessionName + " is not a session for course "
-                + frComment.courseId + ".");
+                        + frComment.courseId + ".");
         frComment = restoreFrCommentFromDataBundle("comment1FromT1C1ToR1Q1S1C1");
 
         ______TS("typical successful case");
@@ -141,7 +141,7 @@ public class FeedbackResponseCommentsLogicTest extends BaseLogicTest {
 
         List<FeedbackResponseCommentAttributes> actualFrComments =
                 frcLogic.getFeedbackResponseCommentForSession(
-                                 frComment.courseId, frComment.feedbackSessionName);
+                        frComment.courseId, frComment.feedbackSessionName);
         FeedbackResponseCommentAttributes actualFrComment = actualFrComments.get(0);
 
         assertEquals(frComment.courseId, actualFrComment.courseId);
@@ -152,7 +152,7 @@ public class FeedbackResponseCommentsLogicTest extends BaseLogicTest {
 
         actualFrComment =
                 frcLogic.getFeedbackResponseComment(
-                                 frComment.feedbackResponseId, frComment.commentGiver, frComment.createdAt);
+                        frComment.feedbackResponseId, frComment.commentGiver, frComment.createdAt);
 
         assertEquals(frComment.courseId, actualFrComment.courseId);
         assertEquals(frComment.commentGiver, actualFrComment.commentGiver);
@@ -178,7 +178,7 @@ public class FeedbackResponseCommentsLogicTest extends BaseLogicTest {
         ______TS("Typical successful case for giver");
 
         actualFrComments = frcLogic.getFeedbackResponseCommentsForGiver(
-                                            frComment.courseId, frComment.commentGiver);
+                frComment.courseId, frComment.commentGiver);
         FeedbackResponseCommentAttributes tempFrComment = restoreFrCommentFromDataBundle("comment1FromT1C1ToR1Q1S1C1");
         expectedFrComments.add(tempFrComment);
         tempFrComment = restoreFrCommentFromDataBundle("comment1FromT1C1ToR1Q2S1C1");
@@ -192,7 +192,7 @@ public class FeedbackResponseCommentsLogicTest extends BaseLogicTest {
             assertEquals(expectedFrComments.get(i).courseId, actualFrComments.get(i).courseId);
             assertEquals(expectedFrComments.get(i).commentGiver, actualFrComments.get(i).commentGiver);
             assertEquals(expectedFrComments.get(i).feedbackSessionName,
-                         actualFrComments.get(i).feedbackSessionName);
+                    actualFrComments.get(i).feedbackSessionName);
         }
 
     }
@@ -206,9 +206,9 @@ public class FeedbackResponseCommentsLogicTest extends BaseLogicTest {
         frComment.courseId = "invalid course name";
         String expectedError =
                 "\"" + frComment.courseId + "\" is not acceptable to TEAMMATES as a/an course ID "
-                + "because it is not in the correct format. A course ID can contain letters, "
-                + "numbers, fullstops, hyphens, underscores, and dollar signs. It cannot be longer "
-                + "than 40 characters, cannot be empty and cannot contain spaces.";
+                        + "because it is not in the correct format. A course ID can contain letters, "
+                        + "numbers, fullstops, hyphens, underscores, and dollar signs. It cannot be longer "
+                        + "than 40 characters, cannot be empty and cannot contain spaces.";
         verifyExceptionThrownWhenUpdateFrComment(frComment, expectedError);
         frComment = restoreFrCommentFromDataBundle("comment1FromT1C1ToR1Q1S1C1");
 
@@ -236,7 +236,7 @@ public class FeedbackResponseCommentsLogicTest extends BaseLogicTest {
         frcLogic.updateFeedbackResponseCommentsEmails(frComment.courseId, oldEmail, updatedEmail);
 
         actualFrComment = frcLogic.getFeedbackResponseComment(
-                                           frComment.feedbackResponseId, updatedEmail, frComment.createdAt);
+                frComment.feedbackResponseId, updatedEmail, frComment.createdAt);
 
         assertEquals(frComment.courseId, actualFrComment.courseId);
         assertEquals(updatedEmail, actualFrComment.commentGiver);
@@ -282,7 +282,7 @@ public class FeedbackResponseCommentsLogicTest extends BaseLogicTest {
 
         FeedbackResponseCommentAttributes actualFrComment =
                 frcLogic.getFeedbackResponseCommentForSession(
-                                 frComment.courseId, frComment.feedbackSessionName).get(1);
+                        frComment.courseId, frComment.feedbackSessionName).get(1);
         verifyPresentInDatastore(actualFrComment);
 
         ______TS("typical success case");
@@ -335,7 +335,7 @@ public class FeedbackResponseCommentsLogicTest extends BaseLogicTest {
     private void verifyNullFromGetFrComment(FeedbackResponseCommentAttributes frComment) {
         FeedbackResponseCommentAttributes frCommentGot =
                 frcLogic.getFeedbackResponseComment(
-                                 frComment.feedbackResponseId, frComment.commentGiver, frComment.createdAt);
+                        frComment.feedbackResponseId, frComment.commentGiver, frComment.createdAt);
         assertNull(frCommentGot);
     }
 
@@ -376,8 +376,8 @@ public class FeedbackResponseCommentsLogicTest extends BaseLogicTest {
 
         List<FeedbackResponseCommentAttributes> existingFrComments =
                 frcLogic.getFeedbackResponseCommentForSession(
-                                 existingFrComment.courseId,
-                                 existingFrComment.feedbackSessionName);
+                        existingFrComment.courseId,
+                        existingFrComment.feedbackSessionName);
 
         FeedbackResponseCommentAttributes existingFrCommentWithId = null;
         for (FeedbackResponseCommentAttributes c : existingFrComments) {
@@ -395,16 +395,16 @@ public class FeedbackResponseCommentsLogicTest extends BaseLogicTest {
     private String getQuestionIdInDataBundle(String questionInDataBundle) {
         FeedbackQuestionAttributes question = dataBundle.feedbackQuestions.get(questionInDataBundle);
         question = fqLogic.getFeedbackQuestion(
-                                   question.feedbackSessionName, question.courseId, question.questionNumber);
+                question.feedbackSessionName, question.courseId, question.questionNumber);
         return question.getId();
     }
 
     private String getResponseIdInDataBundle(String responseInDataBundle, String questionInDataBundle) {
         FeedbackResponseAttributes response = dataBundle.feedbackResponses.get(responseInDataBundle);
         response = frLogic.getFeedbackResponse(
-                                   getQuestionIdInDataBundle(questionInDataBundle),
-                                   response.giver,
-                                   response.recipient);
+                getQuestionIdInDataBundle(questionInDataBundle),
+                response.giver,
+                response.recipient);
         return response.getId();
     }
 }

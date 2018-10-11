@@ -9,10 +9,10 @@
 <%@ attribute name="altNavBar" %>
 <%@ attribute name="altFooter" %>
 <c:set var="defaultNavBar">
-  <ts:navBar />
+  <ts:navBar/>
 </c:set>
 <c:set var="defaultFooter">
-  <t:bodyFooter />
+  <t:bodyFooter/>
 </c:set>
 
 <t:page pageTitle="${title}" bodyTitle="${title}">
@@ -29,6 +29,6 @@
     ${empty altFooter ? defaultFooter : altFooter}
   </jsp:attribute>
   <jsp:body>
-    <jsp:doBody />
+    <jsp:doBody/>
   </jsp:body>
 </t:page>

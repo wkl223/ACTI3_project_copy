@@ -45,11 +45,11 @@ function setupFsCopyModal() {
             beforeSend() {
                 $('#fscopy_submit').prop('disabled', true);
                 $('#courseList').html('Loading possible destination courses. Please wait ...<br>'
-                                      + "<img class='margin-center-horizontal' src='/images/ajax-loader.gif'/>");
+                        + "<img class='margin-center-horizontal' src='/images/ajax-loader.gif'/>");
             },
             error() {
                 $('#courseList').html("<p id='fs-copy-modal-error'>Error retrieving course list."
-                                      + 'Please close the dialog window and try again.</p>');
+                        + 'Please close the dialog window and try again.</p>');
             },
             success(data) {
                 $('#courseList').html(data);
@@ -84,7 +84,7 @@ function setupFsCopyModal() {
             error() {
                 $copyModalStatusMessage.addClass('alert alert-danger');
                 $copyModalStatusMessage.text('There was an error during submission. '
-                                                 + 'Please close the dialog window and try again.');
+                        + 'Please close the dialog window and try again.');
             },
             success(data) {
                 const isError = data.errorMessage !== '';
@@ -280,7 +280,7 @@ function bindStudentPhotoHoverLink(elements) {
                 // pop-over without accidentally hiding the 'view photo' link
                 setTimeout((obj) => {
                     if ($(obj).siblings('.popover').find('.profile-pic').length !== 0
-                    || $(obj).siblings('.popover').find(':hover').length === 0) {
+                            || $(obj).siblings('.popover').find(':hover').length === 0) {
                         $(obj).popover('hide');
                     }
                 }, 200, this);
@@ -342,8 +342,8 @@ function bindCourseDeleteLinks() {
 
         const $clickedLink = $(event.currentTarget);
         const messageText = `Are you sure you want to permanently delete the course: ${$clickedLink.data('courseId')}? `
-                          + 'This operation will delete all students and sessions in this course. '
-                          + 'All instructors of this course will not be able to access it hereafter as well.';
+                + 'This operation will delete all students and sessions in this course. '
+                + 'All instructors of this course will not be able to access it hereafter as well.';
         const okCallback = function () {
             window.location = $clickedLink.attr('href');
         };
@@ -438,7 +438,7 @@ function sendRemindersToStudents(urlLink) {
             const statusToUser = $(data).find('#statusMessagesToUser').html();
             $statusMessage.html(statusToUser);
 
-            scrollToElement($statusMessage[0], { duration: 1000 });
+            scrollToElement($statusMessage[0], {duration: 1000});
         },
     });
 }
@@ -459,7 +459,7 @@ function resendPublishedEmailToStudents(urlLink) {
             const statusToUser = $(data).find('#statusMessagesToUser').html();
             $statusMessage.html(statusToUser);
 
-            scrollToElement($statusMessage[0], { duration: 1000 });
+            scrollToElement($statusMessage[0], {duration: 1000});
         },
     });
 }
@@ -543,7 +543,7 @@ function bindUnpublishButtons() {
  * @param {HTML DOM Object} elementNode The element to select contents from.
  */
 function selectElementContents(elementNode) {
-    const { body } = document;
+    const {body} = document;
     let range;
     if (document.createRange && window.getSelection) {
         range = document.createRange();

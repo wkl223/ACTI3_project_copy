@@ -92,18 +92,18 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
         boolean mcqOtherEnabled = false; // TODO change this when implementing "other, please specify" field
 
         if ("on".equals(HttpRequestHelper.getValueFromParamMap(
-                                    requestParameters, Const.ParamsNames.FEEDBACK_QUESTION_MCQOTHEROPTIONFLAG))) {
+                requestParameters, Const.ParamsNames.FEEDBACK_QUESTION_MCQOTHEROPTIONFLAG))) {
             mcqOtherEnabled = true;
         }
 
         String generatedMcqOptions =
                 HttpRequestHelper.getValueFromParamMap(requestParameters,
-                                                       Const.ParamsNames.FEEDBACK_QUESTION_MCQ_GENERATED_OPTIONS);
+                        Const.ParamsNames.FEEDBACK_QUESTION_MCQ_GENERATED_OPTIONS);
 
         if (generatedMcqOptions.equals(FeedbackParticipantType.NONE.toString())) {
             String numMcqChoicesCreatedString =
                     HttpRequestHelper.getValueFromParamMap(requestParameters,
-                                                           Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED);
+                            Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED);
             Assumption.assertNotNull("Null number of choice for MCQ", numMcqChoicesCreatedString);
             int numMcqChoicesCreated = Integer.parseInt(numMcqChoicesCreatedString);
 
@@ -131,7 +131,7 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
     }
 
     private List<Double> getMcqWeights(Map<String, String[]> requestParameters,
-            int numMcqChoicesCreated, boolean hasAssignedWeights) {
+                                       int numMcqChoicesCreated, boolean hasAssignedWeights) {
         List<Double> mcqWeights = new ArrayList<>();
 
         if (!hasAssignedWeights) {
@@ -158,7 +158,7 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
     }
 
     private double getMcqOtherWeight(Map<String, String[]> requestParameters,
-            boolean mcqOtherEnabled, boolean hasAssignedWeights) {
+                                     boolean mcqOtherEnabled, boolean hasAssignedWeights) {
 
         double mcqOtherWeight = 0;
 
@@ -182,7 +182,7 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
     }
 
     private void setMcqQuestionDetails(int numOfMcqChoices, List<String> mcqChoices, boolean otherEnabled,
-            boolean hasAssignedWeights, List<Double> mcqWeights, double mcqOtherWeight) {
+                                       boolean hasAssignedWeights, List<Double> mcqWeights, double mcqOtherWeight) {
         this.numOfMcqChoices = numOfMcqChoices;
         this.mcqChoices = mcqChoices;
         this.otherEnabled = otherEnabled;
@@ -200,10 +200,10 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
         Assumption.assertTrue(
                 "Can only generate students, students (excluding self), teams, teams (excluding self) or instructors",
                 generateOptionsFor == FeedbackParticipantType.STUDENTS
-                || generateOptionsFor == FeedbackParticipantType.STUDENTS_EXCLUDING_SELF
-                || generateOptionsFor == FeedbackParticipantType.TEAMS
-                || generateOptionsFor == FeedbackParticipantType.TEAMS_EXCLUDING_SELF
-                || generateOptionsFor == FeedbackParticipantType.INSTRUCTORS);
+                        || generateOptionsFor == FeedbackParticipantType.STUDENTS_EXCLUDING_SELF
+                        || generateOptionsFor == FeedbackParticipantType.TEAMS
+                        || generateOptionsFor == FeedbackParticipantType.TEAMS_EXCLUDING_SELF
+                        || generateOptionsFor == FeedbackParticipantType.INSTRUCTORS);
     }
 
     @Override
@@ -234,8 +234,8 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
 
     @Override
     public String getQuestionWithExistingResponseSubmissionFormHtml(boolean sessionIsOpen, int qnIdx,
-            int responseIdx, String courseId, int totalNumRecipients, FeedbackResponseDetails existingResponseDetails,
-            StudentAttributes student) {
+                                                                    int responseIdx, String courseId, int totalNumRecipients, FeedbackResponseDetails existingResponseDetails,
+                                                                    StudentAttributes student) {
         studentDoingQuestion = student;
         FeedbackMcqResponseDetails existingMcqResponse = (FeedbackMcqResponseDetails) existingResponseDetails;
         List<String> choices = generateOptionList(courseId);
@@ -251,7 +251,7 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
                             Slots.RESPONSE_INDEX, Integer.toString(responseIdx),
                             Slots.DISABLED, sessionIsOpen ? "" : "disabled",
                             Slots.CHECKED,
-                                    existingMcqResponse.getAnswerString().equals(choices.get(i)) ? "checked" : "",
+                            existingMcqResponse.getAnswerString().equals(choices.get(i)) ? "checked" : "",
                             Slots.FEEDBACK_RESPONSE_TEXT, Const.ParamsNames.FEEDBACK_RESPONSE_TEXT,
                             Slots.MCQ_CHOICE_VALUE, SanitizationHelper.sanitizeForHtml(choices.get(i)));
             optionListHtml.append(optionFragment).append(System.lineSeparator());
@@ -267,9 +267,9 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
                             Slots.CHECKED, isOtherSelected ? "checked" : "",
                             Slots.FEEDBACK_RESPONSE_TEXT, Const.ParamsNames.FEEDBACK_RESPONSE_TEXT,
                             Slots.MCQ_PARAM_IS_OTHER_OPTION_ANSWER,
-                                    Const.ParamsNames.FEEDBACK_QUESTION_MCQ_ISOTHEROPTIONANSWER,
+                            Const.ParamsNames.FEEDBACK_QUESTION_MCQ_ISOTHEROPTIONANSWER,
                             Slots.MCQ_CHOICE_VALUE,
-                                    SanitizationHelper.sanitizeForHtml(existingMcqResponse.getOtherFieldContent()),
+                            SanitizationHelper.sanitizeForHtml(existingMcqResponse.getOtherFieldContent()),
                             Slots.MCQ_OTHER_OPTION_ANSWER, isOtherSelected ? "1" : "0");
             optionListHtml.append(otherOptionFragment).append(System.lineSeparator());
         }
@@ -303,7 +303,7 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
         if (otherEnabled) {
             String otherOptionFragmentTemplate = FormTemplates.MCQ_SUBMISSION_FORM_OTHEROPTIONFRAGMENT;
             String otherOptionFragment =
-                       Templates.populateTemplate(otherOptionFragmentTemplate,
+                    Templates.populateTemplate(otherOptionFragmentTemplate,
                             Slots.QUESTION_INDEX, Integer.toString(qnIdx),
                             Slots.RESPONSE_INDEX, Integer.toString(responseIdx),
                             Slots.DISABLED, sessionIsOpen ? "" : "disabled",
@@ -311,7 +311,7 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
                             Slots.CHECKED, "",
                             Slots.FEEDBACK_RESPONSE_TEXT, Const.ParamsNames.FEEDBACK_RESPONSE_TEXT,
                             Slots.MCQ_PARAM_IS_OTHER_OPTION_ANSWER,
-                                    Const.ParamsNames.FEEDBACK_QUESTION_MCQ_ISOTHEROPTIONANSWER,
+                            Const.ParamsNames.FEEDBACK_QUESTION_MCQ_ISOTHEROPTIONANSWER,
                             Slots.MCQ_CHOICE_VALUE, "",
                             Slots.MCQ_OTHER_OPTION_ANSWER, "0");
             optionListHtml.append(otherOptionFragment).append(System.lineSeparator());
@@ -326,56 +326,56 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
         List<String> optionList = new ArrayList<>();
 
         switch (generateOptionsFor) {
-        case NONE:
-            optionList = mcqChoices;
-            break;
-        case STUDENTS:
-            //fallthrough
-        case STUDENTS_EXCLUDING_SELF:
-            List<StudentAttributes> studentList = StudentsLogic.inst().getStudentsForCourse(courseId);
+            case NONE:
+                optionList = mcqChoices;
+                break;
+            case STUDENTS:
+                //fallthrough
+            case STUDENTS_EXCLUDING_SELF:
+                List<StudentAttributes> studentList = StudentsLogic.inst().getStudentsForCourse(courseId);
 
-            if (generateOptionsFor == FeedbackParticipantType.STUDENTS_EXCLUDING_SELF) {
-                studentList.removeIf(studentInList -> studentInList.email.equals(studentDoingQuestion.email));
-            }
-
-            for (StudentAttributes student : studentList) {
-                optionList.add(student.name + " (" + student.team + ")");
-            }
-
-            optionList.sort(null);
-            break;
-        case TEAMS:
-            //fallthrough
-        case TEAMS_EXCLUDING_SELF:
-            try {
-                List<TeamDetailsBundle> teamList = CoursesLogic.inst().getTeamsForCourse(courseId);
-
-                if (generateOptionsFor == FeedbackParticipantType.TEAMS_EXCLUDING_SELF) {
-                    teamList.removeIf(teamInList -> teamInList.name.equals(studentDoingQuestion.team));
+                if (generateOptionsFor == FeedbackParticipantType.STUDENTS_EXCLUDING_SELF) {
+                    studentList.removeIf(studentInList -> studentInList.email.equals(studentDoingQuestion.email));
                 }
 
-                for (TeamDetailsBundle team : teamList) {
-                    optionList.add(team.name);
+                for (StudentAttributes student : studentList) {
+                    optionList.add(student.name + " (" + student.team + ")");
                 }
 
                 optionList.sort(null);
-            } catch (EntityDoesNotExistException e) {
-                Assumption.fail("Course disappeared");
-            }
-            break;
-        case INSTRUCTORS:
-            List<InstructorAttributes> instructorList =
-                    InstructorsLogic.inst().getInstructorsForCourse(courseId);
+                break;
+            case TEAMS:
+                //fallthrough
+            case TEAMS_EXCLUDING_SELF:
+                try {
+                    List<TeamDetailsBundle> teamList = CoursesLogic.inst().getTeamsForCourse(courseId);
 
-            for (InstructorAttributes instructor : instructorList) {
-                optionList.add(instructor.name);
-            }
+                    if (generateOptionsFor == FeedbackParticipantType.TEAMS_EXCLUDING_SELF) {
+                        teamList.removeIf(teamInList -> teamInList.name.equals(studentDoingQuestion.team));
+                    }
 
-            optionList.sort(null);
-            break;
-        default:
-            Assumption.fail("Trying to generate options for neither students, teams nor instructors");
-            break;
+                    for (TeamDetailsBundle team : teamList) {
+                        optionList.add(team.name);
+                    }
+
+                    optionList.sort(null);
+                } catch (EntityDoesNotExistException e) {
+                    Assumption.fail("Course disappeared");
+                }
+                break;
+            case INSTRUCTORS:
+                List<InstructorAttributes> instructorList =
+                        InstructorsLogic.inst().getInstructorsForCourse(courseId);
+
+                for (InstructorAttributes instructor : instructorList) {
+                    optionList.add(instructor.name);
+                }
+
+                optionList.sort(null);
+                break;
+            default:
+                Assumption.fail("Trying to generate options for neither students, teams nor instructors");
+                break;
         }
 
         return optionList;
@@ -429,12 +429,12 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
                 Slots.STUDENT_SELECTED, generateOptionsFor == FeedbackParticipantType.STUDENTS ? "selected" : "",
                 Slots.STUDENTS_TO_STRING, FeedbackParticipantType.STUDENTS.toString(),
                 Slots.STUDENT_EXCLUDING_SELF_SELECTED,
-                    generateOptionsFor == FeedbackParticipantType.STUDENTS_EXCLUDING_SELF ? "selected" : "",
+                generateOptionsFor == FeedbackParticipantType.STUDENTS_EXCLUDING_SELF ? "selected" : "",
                 Slots.STUDENTS_EXCLUDING_SELF_TO_STRING, FeedbackParticipantType.STUDENTS_EXCLUDING_SELF.toString(),
                 Slots.TEAM_SELECTED, generateOptionsFor == FeedbackParticipantType.TEAMS ? "selected" : "",
                 Slots.TEAMS_TO_STRING, FeedbackParticipantType.TEAMS.toString(),
                 Slots.TEAM_EXCLUDING_SELF_SELECTED,
-                    generateOptionsFor == FeedbackParticipantType.TEAMS_EXCLUDING_SELF ? "selected" : "",
+                generateOptionsFor == FeedbackParticipantType.TEAMS_EXCLUDING_SELF ? "selected" : "",
                 Slots.TEAMS_EXCLUDING_SELF_TO_STRING, FeedbackParticipantType.TEAMS_EXCLUDING_SELF.toString(),
                 Slots.INSTRUCTOR_SELECTED, generateOptionsFor == FeedbackParticipantType.INSTRUCTORS ? "selected" : "",
                 Slots.INSTRUCTORS_TO_STRING, FeedbackParticipantType.INSTRUCTORS.toString(),
@@ -455,8 +455,8 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
         hasAssignedWeights = false;
 
         return "<div id=\"mcqForm\">"
-                  + getQuestionSpecificEditFormHtml(-1)
-             + "</div>";
+                + getQuestionSpecificEditFormHtml(-1)
+                + "</div>";
     }
 
     @Override
@@ -504,10 +504,10 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
 
     @Override
     public String getQuestionResultStatisticsHtml(List<FeedbackResponseAttributes> responses,
-            FeedbackQuestionAttributes question,
-            String studentEmail,
-            FeedbackSessionResultsBundle bundle,
-            String view) {
+                                                  FeedbackQuestionAttributes question,
+                                                  String studentEmail,
+                                                  FeedbackSessionResultsBundle bundle,
+                                                  String view) {
 
         if ("student".equals(view) || responses.isEmpty()) {
             return "";
@@ -520,7 +520,7 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
         // Do not calculate weighted percentage if weights are not enabled.
         Map<String, Double> weightedPercentagePerOption =
                 hasAssignedWeights ? mcqStats.calculateWeightedPercentagePerOption(answerFrequency)
-                : new LinkedHashMap<>();
+                        : new LinkedHashMap<>();
 
         DecimalFormat df = new DecimalFormat("#.##");
 
@@ -540,7 +540,7 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
                     Slots.COUNT, Integer.toString(count),
                     Slots.PERCENTAGE, df.format(100 * (double) count / responses.size()),
                     Slots.WEIGHTED_PERCENTAGE,
-                            hasAssignedWeights ? df.format(weightedPercentagePerOption.get(key)) : "-"));
+                    hasAssignedWeights ? df.format(weightedPercentagePerOption.get(key)) : "-"));
         }
 
         // If weights are assigned, create the per recipient statistics table,
@@ -579,8 +579,8 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
         // If weights are assigned, add the 'Per Recipient Statistics' to the CSV string.
         if (hasAssignedWeights) {
             csv.append(System.lineSeparator())
-                .append("Per Recipient Statistics").append(System.lineSeparator())
-                .append(mcqStats.getPerRecipientResponseStatsCsv(responses, bundle));
+                    .append("Per Recipient Statistics").append(System.lineSeparator())
+                    .append(mcqStats.getPerRecipientResponseStatsCsv(responses, bundle));
         }
         return csv.toString();
     }
@@ -593,7 +593,7 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
     @Override
     public String getQuestionTypeChoiceOption() {
         return "<li data-questiontype = \"MCQ\"><a href=\"javascript:;\"> "
-               + Const.FeedbackQuestionTypeNames.MCQ + "</a></li>";
+                + Const.FeedbackQuestionTypeNames.MCQ + "</a></li>";
     }
 
     @Override
@@ -699,6 +699,7 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
          * weighted percentage = (response count per option) * (weight of that option) / totalWeightedResponseCount<br>
          * where as, totalWeightedResponseCount is defined as:<br>
          * totalWeightedResponseCount += [response count of option i * weight of option i] for all options.
+         *
          * @param answerFrequency Response count of each option.
          */
         public Map<String, Double> calculateWeightedPercentagePerOption(Map<String, Integer> answerFrequency) {
@@ -746,8 +747,9 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
         /**
          * Returns a list of {@link FeedbackResponseAttributes} sorted by comparing recipient Team name and
          * recipient name for each recipient email.
+         *
          * @param unsortedResponses The list of unsorted responses that needs to be sorted.
-         * @param bundle Result bundle that is used to retrieve recipientTeamName and recipientName for each recipient.
+         * @param bundle            Result bundle that is used to retrieve recipientTeamName and recipientName for each recipient.
          */
         public List<FeedbackResponseAttributes> getResponseAttributesSorted(
                 List<FeedbackResponseAttributes> unsortedResponses, FeedbackSessionResultsBundle bundle) {
@@ -765,13 +767,14 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
          * both the results page and csv files.
          * The specific stats that are generated are -<br>
          * Team, Name, Response count for each option, Total, Average.
-         * @param recipientEmail Email of the recipient whose statistics should be calculated
+         *
+         * @param recipientEmail     Email of the recipient whose statistics should be calculated
          * @param recipientResponses Map containing the response count of each choice for the recipient
-         * @param bundle Feedback session results bundle to get the team name and name of the recipient
+         * @param bundle             Feedback session results bundle to get the team name and name of the recipient
          * @return List of strings containing the 'Per recipient stats' of the recipient
          */
         public List<String> generateStatisticsForEachRecipient(String recipientEmail,
-                Map<String, Integer> recipientResponses, FeedbackSessionResultsBundle bundle) {
+                                                               Map<String, Integer> recipientResponses, FeedbackSessionResultsBundle bundle) {
 
             Assumption.assertTrue("Weights should be enabled when calling the function", hasAssignedWeights);
             List<String> recipientStats = new ArrayList<>();
@@ -837,10 +840,10 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
             }
 
             headerBuilder.append(getRecipientStatsHeaderFragmentHtml("Team"))
-                         .append(getRecipientStatsHeaderFragmentHtml("Recipient Name"))
-                         .append(choicesHtmlBuilder.toString())
-                         .append(getRecipientStatsHeaderFragmentHtml("Total"))
-                         .append(getRecipientStatsHeaderFragmentHtml("Average"));
+                    .append(getRecipientStatsHeaderFragmentHtml("Recipient Name"))
+                    .append(choicesHtmlBuilder.toString())
+                    .append(getRecipientStatsHeaderFragmentHtml("Total"))
+                    .append(getRecipientStatsHeaderFragmentHtml("Average"));
 
             return headerBuilder.toString();
         }
@@ -870,10 +873,10 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
                     }
 
                     fragments.append(SanitizationHelper.sanitizeForCsv(key)).append(',')
-                             .append(SanitizationHelper.sanitizeForCsv(weightString)).append(',')
-                             .append(Integer.toString(responseCount)).append(',')
-                             .append(df.format(100 * (double) responseCount / totalResponseCount)).append(',')
-                             .append(df.format(weightedPercentagePerOption.get(key))).append(System.lineSeparator());
+                            .append(SanitizationHelper.sanitizeForCsv(weightString)).append(',')
+                            .append(Integer.toString(responseCount)).append(',')
+                            .append(df.format(100 * (double) responseCount / totalResponseCount)).append(',')
+                            .append(df.format(weightedPercentagePerOption.get(key))).append(System.lineSeparator());
                 }
             } else {
                 header = "Choice, Response Count, Percentage (%)";
@@ -906,11 +909,12 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
 
         /**
          * Returns the 'Per Recipient' stats body part for CSV files.<br>
+         *
          * @param responses The response attribute list should be sorted first before passing as an argument.
-         * @param bundle Feedback session results bundle
+         * @param bundle    Feedback session results bundle
          */
         protected String getPerRecipientResponseStatsBodyCsv(List<FeedbackResponseAttributes> responses,
-                FeedbackSessionResultsBundle bundle) {
+                                                             FeedbackSessionResultsBundle bundle) {
             StringBuilder bodyBuilder = new StringBuilder(100);
             Map<String, Map<String, Integer>> perRecipientResponses = calculatePerRecipientResponseCount(responses);
 
@@ -930,7 +934,7 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
          * Returns a string containing a per recipient response stats for a single recipient.
          */
         private String getPerRecipientResponseStatsBodyFragmentCsv(String recipientEmail,
-                Map<String, Integer> recipientResponses, FeedbackSessionResultsBundle bundle) {
+                                                                   Map<String, Integer> recipientResponses, FeedbackSessionResultsBundle bundle) {
             StringBuilder fragments = new StringBuilder(100);
             List<String> statsForEachRecipient = generateStatisticsForEachRecipient(
                     recipientEmail, recipientResponses, bundle);
@@ -1030,7 +1034,7 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
          * Returns a String containing the 'Per Recipient Statistics' stats for CSV files for all recipients.
          */
         public String getPerRecipientResponseStatsCsv(List<FeedbackResponseAttributes> responses,
-                FeedbackSessionResultsBundle bundle) {
+                                                      FeedbackSessionResultsBundle bundle) {
             String header = getPerRecipientResponseStatsHeaderCsv();
             // Get the response attributes sorted based on Recipient Team name and recipient name.
             List<FeedbackResponseAttributes> sortedResponses = getResponseAttributesSorted(responses, bundle);
@@ -1047,7 +1051,7 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
          * The sequence of "tr" tags are not enclosed in a "tbody" tag.
          */
         public String getPerRecipientStatsBodyHtml(List<FeedbackResponseAttributes> responses,
-                FeedbackSessionResultsBundle bundle) {
+                                                   FeedbackSessionResultsBundle bundle) {
             StringBuilder bodyBuilder = new StringBuilder(100);
             Map<String, Map<String, Integer>> perRecipientResponses = calculatePerRecipientResponseCount(responses);
 
@@ -1068,7 +1072,7 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
          * The sequence of "td" tags are not enclosed in a "tr" tag.
          */
         private String getPerRecipientStatsBodyFragmentHtml(String recipientEmail,
-                Map<String, Integer> recipientResponses, FeedbackSessionResultsBundle bundle) {
+                                                            Map<String, Integer> recipientResponses, FeedbackSessionResultsBundle bundle) {
             StringBuilder html = new StringBuilder(100);
 
             List<String> cols = generateStatisticsForEachRecipient(recipientEmail, recipientResponses, bundle);
@@ -1077,7 +1081,7 @@ public class FeedbackMcqQuestionDetails extends FeedbackQuestionDetails {
             for (String col : cols) {
                 html.append(
                         Templates.populateTemplate(FormTemplates.MCQ_RESULT_RECIPIENT_STATS_BODY_ROW_FRAGMENT,
-                        Slots.MCQ_RECIPIENT_STAT_CELL, col));
+                                Slots.MCQ_RECIPIENT_STAT_CELL, col));
             }
 
             return html.toString();

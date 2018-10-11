@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ tag import="teammates.common.util.Const" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="t" %>
-<c:set var="isUnregistered" value="${data.unregisteredStudent}" />
+<c:set var="isUnregistered" value="${data.unregisteredStudent}"/>
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -20,13 +20,13 @@
       <ul class="nav navbar-nav">
         <li<c:if test="${fn:contains(data.getClass(), 'StudentHome')}"> class="active"</c:if>>
           <a class="navLinks" id="studentHomeNavLink" href="${data.studentHomeLink}"
-              <c:if test="${isUnregistered}">data-unreg="true"</c:if>>
+             <c:if test="${isUnregistered}">data-unreg="true"</c:if>>
             Home
           </a>
         </li>
         <li<c:if test="${fn:contains(data.getClass(), 'StudentProfilePage')}"> class="active"</c:if>>
           <a class="navLinks" id="studentProfileNavLink" href="${data.studentProfileLink}"
-              <c:if test="${isUnregistered}">data-unreg="true"</c:if>>
+             <c:if test="${isUnregistered}">data-unreg="true"</c:if>>
             Profile
           </a>
         </li>
@@ -43,7 +43,7 @@
             <a id="btnLogout" class="nav logout" href="<%= Const.ActionURIs.LOGOUT %>">
               Logout (
               <span class="text-info" data-toggle="tooltip" title="${data.account.googleId}" data-placement="bottom">
-                ${data.account.truncatedGoogleId}
+                  ${data.account.truncatedGoogleId}
               </span>
               )
             </a>

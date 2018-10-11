@@ -79,7 +79,7 @@ public class AdminEmailComposeSaveAction extends Action {
                                           List<String> addressReceiver,
                                           List<String> groupReceiver,
                                           String content
-                                          ) {
+    ) {
 
         AdminEmailAttributes newDraft = AdminEmailAttributes
                 .builder(subject, addressReceiver, groupReceiver, new Text(content))

@@ -37,7 +37,7 @@ public class InstructorFeedbackQuestionVisibilityMessageAction extends Action {
         int numberOfEntitiesToGiveFeedbackTo;
         if ("custom".equals(numberOfEntityTypes)
                 && (recipientType == FeedbackParticipantType.STUDENTS
-                        || recipientType == FeedbackParticipantType.TEAMS)) {
+                || recipientType == FeedbackParticipantType.TEAMS)) {
             String numberOfEntities = getNonNullRequestParamValue(Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFENTITIES);
 
             numberOfEntitiesToGiveFeedbackTo = Integer.parseInt(numberOfEntities);
@@ -51,7 +51,7 @@ public class InstructorFeedbackQuestionVisibilityMessageAction extends Action {
                 getRequestParamValue(Const.ParamsNames.FEEDBACK_QUESTION_SHOWGIVERTO));
         List<FeedbackParticipantType> showRecipientNameTo =
                 FeedbackParticipantType.getParticipantListFromCommaSeparatedValues(
-                getRequestParamValue(Const.ParamsNames.FEEDBACK_QUESTION_SHOWRECIPIENTTO));
+                        getRequestParamValue(Const.ParamsNames.FEEDBACK_QUESTION_SHOWRECIPIENTTO));
 
         String questionTypeInString = getNonNullRequestParamValue(Const.ParamsNames.FEEDBACK_QUESTION_TYPE);
         questionTypeInString = FeedbackQuestionType.standardizeIfConstSum(questionTypeInString);

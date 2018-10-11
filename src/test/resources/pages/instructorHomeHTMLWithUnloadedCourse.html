@@ -8,9 +8,12 @@
   <div class="well well-plain">
     <div class="row">
       <div class="col-md-12">
-        <form action="/page/instructorSearchPage?user=CHomeUiT.instructor.tmms.unloaded" method="get" name="search_form">
+        <form action="/page/instructorSearchPage?user=CHomeUiT.instructor.tmms.unloaded" method="get"
+              name="search_form">
           <div class="input-group">
-            <input class="form-control" data-original-title="Search for student's information, e.g. name, email" data-placement="top" data-toggle="tooltip" id="searchbox" name="searchkey" placeholder="e.g. Charles Shultz, charles@gmail.com" title="" type="text">
+            <input class="form-control" data-original-title="Search for student's information, e.g. name, email"
+                   data-placement="top" data-toggle="tooltip" id="searchbox" name="searchkey"
+                   placeholder="e.g. Charles Shultz, charles@gmail.com" title="" type="text">
             <span class="input-group-btn">
               <button class="btn btn-default" id="buttonSearch" type="submit" value="Search">
                 Search
@@ -30,7 +33,9 @@
   <div aria-hidden="true" aria-labelledby="remindModal" class="modal fade" id="remindModal" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <form action="/page/instructorFeedbackRemindParticularStudents?next=%2Fpage%2FinstructorHomePage&token=${sessionToken}" method="post" name="form_remind_list" role="form">
+        <form
+            action="/page/instructorFeedbackRemindParticularStudents?next=%2Fpage%2FinstructorHomePage&token=${sessionToken}"
+            method="post" name="form_remind_list" role="form">
           <div class="modal-header">
             <button aria-hidden="true" class="close" data-dismiss="modal" type="button">
               ×
@@ -67,10 +72,13 @@
       </div>
     </div>
   </div>
-  <div aria-hidden="true" aria-labelledby="resendPublishedEmailModal" class="modal fade" id="resendPublishedEmailModal" role="dialog" tabindex="-1">
+  <div aria-hidden="true" aria-labelledby="resendPublishedEmailModal" class="modal fade" id="resendPublishedEmailModal"
+       role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <form action="/page/instructorFeedbackResendPublishedEmail?next=%2Fpage%2FinstructorHomePage&token=${sessionToken}" method="post" name="form_email_list" role="form">
+        <form
+            action="/page/instructorFeedbackResendPublishedEmail?next=%2Fpage%2FinstructorHomePage&token=${sessionToken}"
+            method="post" name="form_email_list" role="form">
           <div class="modal-header">
             <button aria-hidden="true" class="close" data-dismiss="modal" type="button">
               ×
@@ -90,7 +98,8 @@
             <button class="btn btn-default" data-dismiss="modal" type="button">
               Cancel
             </button>
-            <input class="btn btn-primary resend-published-email-particular-button" data-dismiss="modal" type="button" value="Send">
+            <input class="btn btn-primary resend-published-email-particular-button" data-dismiss="modal" type="button"
+                   value="Send">
             <input name="user" type="hidden" value="CHomeUiT.instructor.tmms.unloaded">
           </div>
         </form>
@@ -99,7 +108,8 @@
   </div>
   <div class="row">
     <div class="col-xs-2">
-      <a class="btn btn-primary btn-md" href="/page/instructorCoursesPage?user=CHomeUiT.instructor.tmms.unloaded" id="addNewCourse">
+      <a class="btn btn-primary btn-md" href="/page/instructorCoursesPage?user=CHomeUiT.instructor.tmms.unloaded"
+         id="addNewCourse">
         Add New Course
       </a>
     </div>
@@ -146,12 +156,19 @@
               </button>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="btn-tm-actions course-enroll-for-test" data-original-title="Enroll student into the course" data-placement="left" data-toggle="tooltip" href="/page/instructorCourseEnrollPage?courseid=ins.wit-demo1&user=CHomeUiT.instructor.tmms.unloaded" title="">
+                  <a class="btn-tm-actions course-enroll-for-test" data-original-title="Enroll student into the course"
+                     data-placement="left" data-toggle="tooltip"
+                     href="/page/instructorCourseEnrollPage?courseid=ins.wit-demo1&user=CHomeUiT.instructor.tmms.unloaded"
+                     title="">
                     Enroll
                   </a>
                 </li>
                 <li>
-                  <a class="btn-tm-actions course-view-for-test" data-original-title="View, edit and send invitation emails to the students in the course" data-placement="left" data-toggle="tooltip" href="/page/instructorCourseDetailsPage?courseid=ins.wit-demo1&user=CHomeUiT.instructor.tmms.unloaded" title="">
+                  <a class="btn-tm-actions course-view-for-test"
+                     data-original-title="View, edit and send invitation emails to the students in the course"
+                     data-placement="left" data-toggle="tooltip"
+                     href="/page/instructorCourseDetailsPage?courseid=ins.wit-demo1&user=CHomeUiT.instructor.tmms.unloaded"
+                     title="">
                     View / Edit
                   </a>
                 </li>
@@ -165,7 +182,11 @@
               </button>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="btn-tm-actions course-edit-for-test" data-original-title="Edit Course information and instructor list" data-placement="left" data-toggle="tooltip" href="/page/instructorCourseEditPage?courseid=ins.wit-demo1&user=CHomeUiT.instructor.tmms.unloaded" title="">
+                  <a class="btn-tm-actions course-edit-for-test"
+                     data-original-title="Edit Course information and instructor list" data-placement="left"
+                     data-toggle="tooltip"
+                     href="/page/instructorCourseEditPage?courseid=ins.wit-demo1&user=CHomeUiT.instructor.tmms.unloaded"
+                     title="">
                     View / Edit
                   </a>
                 </li>
@@ -179,7 +200,11 @@
               </button>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="btn-tm-actions course-add-eval-for-test" data-original-title="Add a feedback session for the course" data-placement="left" data-toggle="tooltip" href="/page/instructorFeedbackSessionsPage?user=CHomeUiT.instructor.tmms.unloaded&courseid=ins.wit-demo1" title="">
+                  <a class="btn-tm-actions course-add-eval-for-test"
+                     data-original-title="Add a feedback session for the course" data-placement="left"
+                     data-toggle="tooltip"
+                     href="/page/instructorFeedbackSessionsPage?user=CHomeUiT.instructor.tmms.unloaded&courseid=ins.wit-demo1"
+                     title="">
                     Add
                   </a>
                 </li>
@@ -193,17 +218,30 @@
               </button>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="btn-tm-actions course-archive-for-test" data-course-id="ins.wit-demo1" data-original-title="Archive the course so that it will not be shown in the home page any more (you can still access it from the 'Courses' tab)" data-placement="left" data-toggle="tooltip" href="/page/instructorCourseArchive?courseid=ins.wit-demo1&archive=true&next=%2Fpage%2FinstructorHomePage&user=CHomeUiT.instructor.tmms.unloaded&token=${sessionToken}" title="">
+                  <a class="btn-tm-actions course-archive-for-test" data-course-id="ins.wit-demo1"
+                     data-original-title="Archive the course so that it will not be shown in the home page any more (you can still access it from the 'Courses' tab)"
+                     data-placement="left" data-toggle="tooltip"
+                     href="/page/instructorCourseArchive?courseid=ins.wit-demo1&archive=true&next=%2Fpage%2FinstructorHomePage&user=CHomeUiT.instructor.tmms.unloaded&token=${sessionToken}"
+                     title="">
                     Archive
                   </a>
                 </li>
                 <li>
-                  <a class="btn-tm-actions course-edit-for-test" data-original-title="Edit Course information and instructor list" data-placement="left" data-toggle="tooltip" href="/page/instructorCourseEditPage?courseid=ins.wit-demo1&user=CHomeUiT.instructor.tmms.unloaded" title="">
+                  <a class="btn-tm-actions course-edit-for-test"
+                     data-original-title="Edit Course information and instructor list" data-placement="left"
+                     data-toggle="tooltip"
+                     href="/page/instructorCourseEditPage?courseid=ins.wit-demo1&user=CHomeUiT.instructor.tmms.unloaded"
+                     title="">
                     View / Edit
                   </a>
                 </li>
                 <li>
-                  <a class="btn-tm-actions course-delete-for-test course-move-to-recovery-link" data-course-id="ins.wit-demo1" data-original-title="Delete the course and its corresponding students and sessions" data-placement="left" data-toggle="tooltip" href="/page/instructorCourseDelete?courseid=ins.wit-demo1&next=%2Fpage%2FinstructorHomePage&user=CHomeUiT.instructor.tmms.unloaded&token=${sessionToken}" title="">
+                  <a class="btn-tm-actions course-delete-for-test course-move-to-recovery-link"
+                     data-course-id="ins.wit-demo1"
+                     data-original-title="Delete the course and its corresponding students and sessions"
+                     data-placement="left" data-toggle="tooltip"
+                     href="/page/instructorCourseDelete?courseid=ins.wit-demo1&next=%2Fpage%2FinstructorHomePage&user=CHomeUiT.instructor.tmms.unloaded&token=${sessionToken}"
+                     title="">
                     Delete
                   </a>
                 </li>
@@ -224,56 +262,60 @@
       <div class="panel-body padding-0">
         <table class="table-responsive table table-striped table-bordered margin-0">
           <thead>
-            <tr>
-              <th class="button_sortname button-sort-none toggle-sort">
-                Session Name
-                <span class="icon-sort unsorted">
+          <tr>
+            <th class="button_sortname button-sort-none toggle-sort">
+              Session Name
+              <span class="icon-sort unsorted">
                 </span>
-              </th>
-              <th class="button_sortstartdate button-sort-none toggle-sort" data-toggle-sort-comparator="sortDate" data-toggle-sort-extractor="dateStampExtractor">
-                Start Date
-                <span class="icon-sort unsorted">
+            </th>
+            <th class="button_sortstartdate button-sort-none toggle-sort" data-toggle-sort-comparator="sortDate"
+                data-toggle-sort-extractor="dateStampExtractor">
+              Start Date
+              <span class="icon-sort unsorted">
                 </span>
-              </th>
-              <th class="button_sortenddate button-sort-none toggle-sort" data-toggle-sort-comparator="sortDate" data-toggle-sort-extractor="dateStampExtractor">
-                End Date
-                <span class="icon-sort unsorted">
+            </th>
+            <th class="button_sortenddate button-sort-none toggle-sort" data-toggle-sort-comparator="sortDate"
+                data-toggle-sort-extractor="dateStampExtractor">
+              End Date
+              <span class="icon-sort unsorted">
                 </span>
-              </th>
-              <th>
-                Submissions
-              </th>
-              <th>
-                Responses
-              </th>
-              <th>
-                <span class="text-nowrap tool-tip-decorate" data-original-title="Number of students submitted / Class size" data-placement="top" data-toggle="tooltip" title="">
+            </th>
+            <th>
+              Submissions
+            </th>
+            <th>
+              Responses
+            </th>
+            <th>
+                <span class="text-nowrap tool-tip-decorate"
+                      data-original-title="Number of students submitted / Class size" data-placement="top"
+                      data-toggle="tooltip" title="">
                   Response Rate
                 </span>
-              </th>
-              <th class="col-lg-4 no-print">
-                Action(s)
-              </th>
-            </tr>
+            </th>
+            <th class="col-lg-4 no-print">
+              Action(s)
+            </th>
+          </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
+          <tr>
+            <td>
                 <span class="text-muted">
                   This course does not have any sessions yet.
                 </span>
-              </td>
-              <td>
-              </td>
-              <td>
-              </td>
-              <td>
-              </td>
-              <td>
-              </td>
-              <td>
-              </td>
-            </tr>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+          </tr>
           </tbody>
         </table>
       </div>
@@ -297,12 +339,19 @@
               </button>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="btn-tm-actions course-enroll-for-test" data-original-title="Enroll student into the course" data-placement="left" data-toggle="tooltip" href="/page/instructorCourseEnrollPage?courseid=ins.wit-demo2&user=CHomeUiT.instructor.tmms.unloaded" title="">
+                  <a class="btn-tm-actions course-enroll-for-test" data-original-title="Enroll student into the course"
+                     data-placement="left" data-toggle="tooltip"
+                     href="/page/instructorCourseEnrollPage?courseid=ins.wit-demo2&user=CHomeUiT.instructor.tmms.unloaded"
+                     title="">
                     Enroll
                   </a>
                 </li>
                 <li>
-                  <a class="btn-tm-actions course-view-for-test" data-original-title="View, edit and send invitation emails to the students in the course" data-placement="left" data-toggle="tooltip" href="/page/instructorCourseDetailsPage?courseid=ins.wit-demo2&user=CHomeUiT.instructor.tmms.unloaded" title="">
+                  <a class="btn-tm-actions course-view-for-test"
+                     data-original-title="View, edit and send invitation emails to the students in the course"
+                     data-placement="left" data-toggle="tooltip"
+                     href="/page/instructorCourseDetailsPage?courseid=ins.wit-demo2&user=CHomeUiT.instructor.tmms.unloaded"
+                     title="">
                     View / Edit
                   </a>
                 </li>
@@ -316,7 +365,11 @@
               </button>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="btn-tm-actions course-edit-for-test" data-original-title="Edit Course information and instructor list" data-placement="left" data-toggle="tooltip" href="/page/instructorCourseEditPage?courseid=ins.wit-demo2&user=CHomeUiT.instructor.tmms.unloaded" title="">
+                  <a class="btn-tm-actions course-edit-for-test"
+                     data-original-title="Edit Course information and instructor list" data-placement="left"
+                     data-toggle="tooltip"
+                     href="/page/instructorCourseEditPage?courseid=ins.wit-demo2&user=CHomeUiT.instructor.tmms.unloaded"
+                     title="">
                     View / Edit
                   </a>
                 </li>
@@ -330,7 +383,11 @@
               </button>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="btn-tm-actions course-add-eval-for-test" data-original-title="Add a feedback session for the course" data-placement="left" data-toggle="tooltip" href="/page/instructorFeedbackSessionsPage?user=CHomeUiT.instructor.tmms.unloaded&courseid=ins.wit-demo2" title="">
+                  <a class="btn-tm-actions course-add-eval-for-test"
+                     data-original-title="Add a feedback session for the course" data-placement="left"
+                     data-toggle="tooltip"
+                     href="/page/instructorFeedbackSessionsPage?user=CHomeUiT.instructor.tmms.unloaded&courseid=ins.wit-demo2"
+                     title="">
                     Add
                   </a>
                 </li>
@@ -344,17 +401,30 @@
               </button>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="btn-tm-actions course-archive-for-test" data-course-id="ins.wit-demo2" data-original-title="Archive the course so that it will not be shown in the home page any more (you can still access it from the 'Courses' tab)" data-placement="left" data-toggle="tooltip" href="/page/instructorCourseArchive?courseid=ins.wit-demo2&archive=true&next=%2Fpage%2FinstructorHomePage&user=CHomeUiT.instructor.tmms.unloaded&token=${sessionToken}" title="">
+                  <a class="btn-tm-actions course-archive-for-test" data-course-id="ins.wit-demo2"
+                     data-original-title="Archive the course so that it will not be shown in the home page any more (you can still access it from the 'Courses' tab)"
+                     data-placement="left" data-toggle="tooltip"
+                     href="/page/instructorCourseArchive?courseid=ins.wit-demo2&archive=true&next=%2Fpage%2FinstructorHomePage&user=CHomeUiT.instructor.tmms.unloaded&token=${sessionToken}"
+                     title="">
                     Archive
                   </a>
                 </li>
                 <li>
-                  <a class="btn-tm-actions course-edit-for-test" data-original-title="Edit Course information and instructor list" data-placement="left" data-toggle="tooltip" href="/page/instructorCourseEditPage?courseid=ins.wit-demo2&user=CHomeUiT.instructor.tmms.unloaded" title="">
+                  <a class="btn-tm-actions course-edit-for-test"
+                     data-original-title="Edit Course information and instructor list" data-placement="left"
+                     data-toggle="tooltip"
+                     href="/page/instructorCourseEditPage?courseid=ins.wit-demo2&user=CHomeUiT.instructor.tmms.unloaded"
+                     title="">
                     View / Edit
                   </a>
                 </li>
                 <li>
-                  <a class="btn-tm-actions course-delete-for-test course-move-to-recovery-link" data-course-id="ins.wit-demo2" data-original-title="Delete the course and its corresponding students and sessions" data-placement="left" data-toggle="tooltip" href="/page/instructorCourseDelete?courseid=ins.wit-demo2&next=%2Fpage%2FinstructorHomePage&user=CHomeUiT.instructor.tmms.unloaded&token=${sessionToken}" title="">
+                  <a class="btn-tm-actions course-delete-for-test course-move-to-recovery-link"
+                     data-course-id="ins.wit-demo2"
+                     data-original-title="Delete the course and its corresponding students and sessions"
+                     data-placement="left" data-toggle="tooltip"
+                     href="/page/instructorCourseDelete?courseid=ins.wit-demo2&next=%2Fpage%2FinstructorHomePage&user=CHomeUiT.instructor.tmms.unloaded&token=${sessionToken}"
+                     title="">
                     Delete
                   </a>
                 </li>
@@ -375,56 +445,60 @@
       <div class="panel-body padding-0">
         <table class="table-responsive table table-striped table-bordered margin-0">
           <thead>
-            <tr>
-              <th class="button_sortname button-sort-none toggle-sort">
-                Session Name
-                <span class="icon-sort unsorted">
+          <tr>
+            <th class="button_sortname button-sort-none toggle-sort">
+              Session Name
+              <span class="icon-sort unsorted">
                 </span>
-              </th>
-              <th class="button_sortstartdate button-sort-none toggle-sort" data-toggle-sort-comparator="sortDate" data-toggle-sort-extractor="dateStampExtractor">
-                Start Date
-                <span class="icon-sort unsorted">
+            </th>
+            <th class="button_sortstartdate button-sort-none toggle-sort" data-toggle-sort-comparator="sortDate"
+                data-toggle-sort-extractor="dateStampExtractor">
+              Start Date
+              <span class="icon-sort unsorted">
                 </span>
-              </th>
-              <th class="button_sortenddate button-sort-none toggle-sort" data-toggle-sort-comparator="sortDate" data-toggle-sort-extractor="dateStampExtractor">
-                End Date
-                <span class="icon-sort unsorted">
+            </th>
+            <th class="button_sortenddate button-sort-none toggle-sort" data-toggle-sort-comparator="sortDate"
+                data-toggle-sort-extractor="dateStampExtractor">
+              End Date
+              <span class="icon-sort unsorted">
                 </span>
-              </th>
-              <th>
-                Submissions
-              </th>
-              <th>
-                Responses
-              </th>
-              <th>
-                <span class="text-nowrap tool-tip-decorate" data-original-title="Number of students submitted / Class size" data-placement="top" data-toggle="tooltip" title="">
+            </th>
+            <th>
+              Submissions
+            </th>
+            <th>
+              Responses
+            </th>
+            <th>
+                <span class="text-nowrap tool-tip-decorate"
+                      data-original-title="Number of students submitted / Class size" data-placement="top"
+                      data-toggle="tooltip" title="">
                   Response Rate
                 </span>
-              </th>
-              <th class="col-lg-4 no-print">
-                Action(s)
-              </th>
-            </tr>
+            </th>
+            <th class="col-lg-4 no-print">
+              Action(s)
+            </th>
+          </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
+          <tr>
+            <td>
                 <span class="text-muted">
                   This course does not have any sessions yet.
                 </span>
-              </td>
-              <td>
-              </td>
-              <td>
-              </td>
-              <td>
-              </td>
-              <td>
-              </td>
-              <td>
-              </td>
-            </tr>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+          </tr>
           </tbody>
         </table>
       </div>
@@ -448,12 +522,19 @@
               </button>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="btn-tm-actions course-enroll-for-test" data-original-title="Enroll student into the course" data-placement="left" data-toggle="tooltip" href="/page/instructorCourseEnrollPage?courseid=ins.wit-demo3&user=CHomeUiT.instructor.tmms.unloaded" title="">
+                  <a class="btn-tm-actions course-enroll-for-test" data-original-title="Enroll student into the course"
+                     data-placement="left" data-toggle="tooltip"
+                     href="/page/instructorCourseEnrollPage?courseid=ins.wit-demo3&user=CHomeUiT.instructor.tmms.unloaded"
+                     title="">
                     Enroll
                   </a>
                 </li>
                 <li>
-                  <a class="btn-tm-actions course-view-for-test" data-original-title="View, edit and send invitation emails to the students in the course" data-placement="left" data-toggle="tooltip" href="/page/instructorCourseDetailsPage?courseid=ins.wit-demo3&user=CHomeUiT.instructor.tmms.unloaded" title="">
+                  <a class="btn-tm-actions course-view-for-test"
+                     data-original-title="View, edit and send invitation emails to the students in the course"
+                     data-placement="left" data-toggle="tooltip"
+                     href="/page/instructorCourseDetailsPage?courseid=ins.wit-demo3&user=CHomeUiT.instructor.tmms.unloaded"
+                     title="">
                     View / Edit
                   </a>
                 </li>
@@ -467,7 +548,11 @@
               </button>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="btn-tm-actions course-edit-for-test" data-original-title="Edit Course information and instructor list" data-placement="left" data-toggle="tooltip" href="/page/instructorCourseEditPage?courseid=ins.wit-demo3&user=CHomeUiT.instructor.tmms.unloaded" title="">
+                  <a class="btn-tm-actions course-edit-for-test"
+                     data-original-title="Edit Course information and instructor list" data-placement="left"
+                     data-toggle="tooltip"
+                     href="/page/instructorCourseEditPage?courseid=ins.wit-demo3&user=CHomeUiT.instructor.tmms.unloaded"
+                     title="">
                     View / Edit
                   </a>
                 </li>
@@ -481,7 +566,11 @@
               </button>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="btn-tm-actions course-add-eval-for-test" data-original-title="Add a feedback session for the course" data-placement="left" data-toggle="tooltip" href="/page/instructorFeedbackSessionsPage?user=CHomeUiT.instructor.tmms.unloaded&courseid=ins.wit-demo3" title="">
+                  <a class="btn-tm-actions course-add-eval-for-test"
+                     data-original-title="Add a feedback session for the course" data-placement="left"
+                     data-toggle="tooltip"
+                     href="/page/instructorFeedbackSessionsPage?user=CHomeUiT.instructor.tmms.unloaded&courseid=ins.wit-demo3"
+                     title="">
                     Add
                   </a>
                 </li>
@@ -495,17 +584,30 @@
               </button>
               <ul class="dropdown-menu">
                 <li>
-                  <a class="btn-tm-actions course-archive-for-test" data-course-id="ins.wit-demo3" data-original-title="Archive the course so that it will not be shown in the home page any more (you can still access it from the 'Courses' tab)" data-placement="left" data-toggle="tooltip" href="/page/instructorCourseArchive?courseid=ins.wit-demo3&archive=true&next=%2Fpage%2FinstructorHomePage&user=CHomeUiT.instructor.tmms.unloaded&token=${sessionToken}" title="">
+                  <a class="btn-tm-actions course-archive-for-test" data-course-id="ins.wit-demo3"
+                     data-original-title="Archive the course so that it will not be shown in the home page any more (you can still access it from the 'Courses' tab)"
+                     data-placement="left" data-toggle="tooltip"
+                     href="/page/instructorCourseArchive?courseid=ins.wit-demo3&archive=true&next=%2Fpage%2FinstructorHomePage&user=CHomeUiT.instructor.tmms.unloaded&token=${sessionToken}"
+                     title="">
                     Archive
                   </a>
                 </li>
                 <li>
-                  <a class="btn-tm-actions course-edit-for-test" data-original-title="Edit Course information and instructor list" data-placement="left" data-toggle="tooltip" href="/page/instructorCourseEditPage?courseid=ins.wit-demo3&user=CHomeUiT.instructor.tmms.unloaded" title="">
+                  <a class="btn-tm-actions course-edit-for-test"
+                     data-original-title="Edit Course information and instructor list" data-placement="left"
+                     data-toggle="tooltip"
+                     href="/page/instructorCourseEditPage?courseid=ins.wit-demo3&user=CHomeUiT.instructor.tmms.unloaded"
+                     title="">
                     View / Edit
                   </a>
                 </li>
                 <li>
-                  <a class="btn-tm-actions course-delete-for-test course-move-to-recovery-link" data-course-id="ins.wit-demo3" data-original-title="Delete the course and its corresponding students and sessions" data-placement="left" data-toggle="tooltip" href="/page/instructorCourseDelete?courseid=ins.wit-demo3&next=%2Fpage%2FinstructorHomePage&user=CHomeUiT.instructor.tmms.unloaded&token=${sessionToken}" title="">
+                  <a class="btn-tm-actions course-delete-for-test course-move-to-recovery-link"
+                     data-course-id="ins.wit-demo3"
+                     data-original-title="Delete the course and its corresponding students and sessions"
+                     data-placement="left" data-toggle="tooltip"
+                     href="/page/instructorCourseDelete?courseid=ins.wit-demo3&next=%2Fpage%2FinstructorHomePage&user=CHomeUiT.instructor.tmms.unloaded&token=${sessionToken}"
+                     title="">
                     Delete
                   </a>
                 </li>
@@ -526,56 +628,60 @@
       <div class="panel-body padding-0">
         <table class="table-responsive table table-striped table-bordered margin-0">
           <thead>
-            <tr>
-              <th class="button_sortname button-sort-none toggle-sort">
-                Session Name
-                <span class="icon-sort unsorted">
+          <tr>
+            <th class="button_sortname button-sort-none toggle-sort">
+              Session Name
+              <span class="icon-sort unsorted">
                 </span>
-              </th>
-              <th class="button_sortstartdate button-sort-none toggle-sort" data-toggle-sort-comparator="sortDate" data-toggle-sort-extractor="dateStampExtractor">
-                Start Date
-                <span class="icon-sort unsorted">
+            </th>
+            <th class="button_sortstartdate button-sort-none toggle-sort" data-toggle-sort-comparator="sortDate"
+                data-toggle-sort-extractor="dateStampExtractor">
+              Start Date
+              <span class="icon-sort unsorted">
                 </span>
-              </th>
-              <th class="button_sortenddate button-sort-none toggle-sort" data-toggle-sort-comparator="sortDate" data-toggle-sort-extractor="dateStampExtractor">
-                End Date
-                <span class="icon-sort unsorted">
+            </th>
+            <th class="button_sortenddate button-sort-none toggle-sort" data-toggle-sort-comparator="sortDate"
+                data-toggle-sort-extractor="dateStampExtractor">
+              End Date
+              <span class="icon-sort unsorted">
                 </span>
-              </th>
-              <th>
-                Submissions
-              </th>
-              <th>
-                Responses
-              </th>
-              <th>
-                <span class="text-nowrap tool-tip-decorate" data-original-title="Number of students submitted / Class size" data-placement="top" data-toggle="tooltip" title="">
+            </th>
+            <th>
+              Submissions
+            </th>
+            <th>
+              Responses
+            </th>
+            <th>
+                <span class="text-nowrap tool-tip-decorate"
+                      data-original-title="Number of students submitted / Class size" data-placement="top"
+                      data-toggle="tooltip" title="">
                   Response Rate
                 </span>
-              </th>
-              <th class="col-lg-4 no-print">
-                Action(s)
-              </th>
-            </tr>
+            </th>
+            <th class="col-lg-4 no-print">
+              Action(s)
+            </th>
+          </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
+          <tr>
+            <td>
                 <span class="text-muted">
                   This course does not have any sessions yet.
                 </span>
-              </td>
-              <td>
-              </td>
-              <td>
-              </td>
-              <td>
-              </td>
-              <td>
-              </td>
-              <td>
-              </td>
-            </tr>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+          </tr>
           </tbody>
         </table>
       </div>
@@ -610,7 +716,8 @@
   <div aria-hidden="true" aria-labelledby="fsCopyModal" class="modal fade" id="fsCopyModal" role="dialog" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form action="/page/instructorFeedbackEditCopy?next=%2Fpage%2FinstructorHomePage&token=${sessionToken}" id="instructorCopyModalForm" method="post" role="form">
+        <form action="/page/instructorFeedbackEditCopy?next=%2Fpage%2FinstructorHomePage&token=${sessionToken}"
+              id="instructorCopyModalForm" method="post" role="form">
           <div class="modal-header">
             <button aria-hidden="true" class="close" data-dismiss="modal" type="button">
               ×

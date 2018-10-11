@@ -133,17 +133,17 @@ public class InstructorFeedbackSubmitPageUiTest extends BaseUiTestCase {
                 BackDoor.getFeedbackQuestion("IFSubmitUiT.CS2104", "First Session", 20);
 
         assertNull(BackDoor.getFeedbackResponse(
-                               fq.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.alice.b@gmail.tmt"));
+                fq.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.alice.b@gmail.tmt"));
         assertNull(BackDoor.getFeedbackResponse(
-                               fqPartial.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr2@gmail.tmt"));
+                fqPartial.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr2@gmail.tmt"));
         assertNull(BackDoor.getFeedbackResponse(
-                               fqMcq.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr2@gmail.tmt"));
+                fqMcq.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr2@gmail.tmt"));
         assertNull(BackDoor.getFeedbackResponse(
-                               fqMsq.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr2@gmail.tmt"));
+                fqMsq.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr2@gmail.tmt"));
         assertNull(BackDoor.getFeedbackResponse(
-                               fqNumscale.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr@gmail.tmt"));
+                fqNumscale.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr@gmail.tmt"));
         assertNull(BackDoor.getFeedbackResponse(
-                               fqConstSum.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr@gmail.tmt"));
+                fqConstSum.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr@gmail.tmt"));
 
         submitPage.submitWithoutConfirmationEmail();
 
@@ -152,17 +152,17 @@ public class InstructorFeedbackSubmitPageUiTest extends BaseUiTestCase {
                         + "15, 16, 18, 19, 20, 21, 22, 23, 24.");
 
         assertNotNull(BackDoor.getFeedbackResponse(
-                                   fq.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.alice.b@gmail.tmt"));
+                fq.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.alice.b@gmail.tmt"));
         assertNotNull(BackDoor.getFeedbackResponse(
-                                   fqPartial.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr3@gmail.tmt"));
+                fqPartial.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr3@gmail.tmt"));
         assertNotNull(BackDoor.getFeedbackResponse(
-                                   fqMcq.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr2@gmail.tmt"));
+                fqMcq.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr2@gmail.tmt"));
         assertNotNull(BackDoor.getFeedbackResponse(
-                                   fqMsq.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr2@gmail.tmt"));
+                fqMsq.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr2@gmail.tmt"));
         assertNotNull(BackDoor.getFeedbackResponse(
-                                   fqNumscale.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr@gmail.tmt"));
+                fqNumscale.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr@gmail.tmt"));
         assertNotNull(BackDoor.getFeedbackResponse(
-                                   fqConstSum.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr@gmail.tmt"));
+                fqConstSum.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr@gmail.tmt"));
 
         submitPage = loginToInstructorFeedbackSubmitPage("IFSubmitUiT.instr", "Open Session");
         submitPage.verifyHtmlMainContent("/instructorFeedbackSubmitPagePartiallyFilled.html");
@@ -266,17 +266,17 @@ public class InstructorFeedbackSubmitPageUiTest extends BaseUiTestCase {
         submitPage.waitForTextsForAllStatusMessagesToUserEquals(Const.StatusMessages.FEEDBACK_RESPONSES_SAVED,
                 Const.StatusMessages.FEEDBACK_UNANSWERED_QUESTIONS + "21, 24.");
         assertEquals("<p>" + editedResponse + "</p>",
-                    BackDoor.getFeedbackResponse(
-                                 fq.getId(), "IFSubmitUiT.instr@gmail.tmt",
-                                 "IFSubmitUiT.alice.b@gmail.tmt").getResponseDetails().getAnswerString());
+                BackDoor.getFeedbackResponse(
+                        fq.getId(), "IFSubmitUiT.instr@gmail.tmt",
+                        "IFSubmitUiT.alice.b@gmail.tmt").getResponseDetails().getAnswerString());
 
         fq = BackDoor.getFeedbackQuestion("IFSubmitUiT.CS2104", "First Session", 7);
         assertNotNull(BackDoor.getFeedbackResponse(
-                                   fq.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr@gmail.tmt"));
+                fq.getId(), "IFSubmitUiT.instr@gmail.tmt", "IFSubmitUiT.instr@gmail.tmt"));
         assertEquals("UI",
-                     BackDoor.getFeedbackResponse(
-                                  fqMcq.getId(), "IFSubmitUiT.instr@gmail.tmt",
-                                  "IFSubmitUiT.instr2@gmail.tmt").getResponseDetails().getAnswerString());
+                BackDoor.getFeedbackResponse(
+                        fqMcq.getId(), "IFSubmitUiT.instr@gmail.tmt",
+                        "IFSubmitUiT.instr2@gmail.tmt").getResponseDetails().getAnswerString());
 
         FeedbackMsqResponseDetails frMsq =
                 (FeedbackMsqResponseDetails) BackDoor.getFeedbackResponse(
@@ -289,33 +289,33 @@ public class InstructorFeedbackSubmitPageUiTest extends BaseUiTestCase {
 
         FeedbackNumericalScaleResponseDetails frNumscale =
                 (FeedbackNumericalScaleResponseDetails) BackDoor.getFeedbackResponse(
-                         fqNumscale.getId(), "IFSubmitUiT.instr@gmail.tmt",
-                         "IFSubmitUiT.instr@gmail.tmt").getResponseDetails();
+                        fqNumscale.getId(), "IFSubmitUiT.instr@gmail.tmt",
+                        "IFSubmitUiT.instr@gmail.tmt").getResponseDetails();
 
         assertEquals("5", frNumscale.getAnswerString());
 
         FeedbackConstantSumResponseDetails frConstSum =
                 (FeedbackConstantSumResponseDetails) BackDoor.getFeedbackResponse(
-                         fqConstSum.getId(), "IFSubmitUiT.instr@gmail.tmt",
-                         "IFSubmitUiT.instr@gmail.tmt").getResponseDetails();
+                        fqConstSum.getId(), "IFSubmitUiT.instr@gmail.tmt",
+                        "IFSubmitUiT.instr@gmail.tmt").getResponseDetails();
 
         assertEquals("70, 30", frConstSum.getAnswerString());
 
         FeedbackConstantSumResponseDetails frConstSum0 =
                 (FeedbackConstantSumResponseDetails) BackDoor.getFeedbackResponse(
-                         fqConstSum2.getId(), "IFSubmitUiT.instr@gmail.tmt", "Team 1</td></div>'\"").getResponseDetails();
+                        fqConstSum2.getId(), "IFSubmitUiT.instr@gmail.tmt", "Team 1</td></div>'\"").getResponseDetails();
 
         assertEquals("90", frConstSum0.getAnswerString());
 
         FeedbackConstantSumResponseDetails frConstSum1 =
                 (FeedbackConstantSumResponseDetails) BackDoor.getFeedbackResponse(
-                         fqConstSum2.getId(), "IFSubmitUiT.instr@gmail.tmt", "Team 2").getResponseDetails();
+                        fqConstSum2.getId(), "IFSubmitUiT.instr@gmail.tmt", "Team 2").getResponseDetails();
 
         assertEquals("110", frConstSum1.getAnswerString());
 
         FeedbackConstantSumResponseDetails frConstSum2 =
                 (FeedbackConstantSumResponseDetails) BackDoor.getFeedbackResponse(
-                         fqConstSum2.getId(), "IFSubmitUiT.instr@gmail.tmt", "Team 3").getResponseDetails();
+                        fqConstSum2.getId(), "IFSubmitUiT.instr@gmail.tmt", "Team 3").getResponseDetails();
 
         assertEquals("100", frConstSum2.getAnswerString());
 
@@ -406,8 +406,8 @@ public class InstructorFeedbackSubmitPageUiTest extends BaseUiTestCase {
     }
 
     /**
-     *  Tests the behavior of different question types.
-     *  Test response validation on client side as well, if any.
+     * Tests the behavior of different question types.
+     * Test response validation on client side as well, if any.
      */
     private void testQuestionTypesSubmitAction() {
         ______TS("test submit actions for different question types.");
@@ -433,11 +433,11 @@ public class InstructorFeedbackSubmitPageUiTest extends BaseUiTestCase {
         int responseNumber = 0;
 
         assertTrue(submitPage.isNamedElementVisible(Const.ParamsNames.FEEDBACK_RESPONSE_TEXT + "-"
-                                                    + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
 
         // Test that the recipient selection is disabled and not visible
         assertFalse(submitPage.isNamedElementVisible(Const.ParamsNames.FEEDBACK_RESPONSE_RECIPIENT + "-"
-                                                     + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
     }
 
     private void testMcqSubmitAction() {
@@ -448,15 +448,15 @@ public class InstructorFeedbackSubmitPageUiTest extends BaseUiTestCase {
         int responseNumber = 0;
 
         assertTrue(submitPage.isNamedElementVisible(Const.ParamsNames.FEEDBACK_RESPONSE_TEXT + "-"
-                                                    + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
         assertFalse(submitPage.isNamedElementEnabled(Const.ParamsNames.FEEDBACK_RESPONSE_TEXT + "-"
-                                                     + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
 
         // Test that the recipient selection is disabled and not visible
         assertFalse(submitPage.isNamedElementVisible(Const.ParamsNames.FEEDBACK_RESPONSE_RECIPIENT + "-"
-                                                     + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
         assertFalse(submitPage.isNamedElementEnabled(Const.ParamsNames.FEEDBACK_RESPONSE_RECIPIENT + "-"
-                                                     + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
     }
 
     private void testMsqSubmitAction() {
@@ -467,15 +467,15 @@ public class InstructorFeedbackSubmitPageUiTest extends BaseUiTestCase {
         int responseNumber = 0;
 
         assertTrue(submitPage.isNamedElementVisible(Const.ParamsNames.FEEDBACK_RESPONSE_TEXT + "-"
-                                                    + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
         assertFalse(submitPage.isNamedElementEnabled(Const.ParamsNames.FEEDBACK_RESPONSE_TEXT + "-"
-                                                     + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
 
         // Test that the recipient selection is disabled and not visible
         assertFalse(submitPage.isNamedElementVisible(Const.ParamsNames.FEEDBACK_RESPONSE_RECIPIENT + "-"
-                                                     + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
         assertFalse(submitPage.isNamedElementEnabled(Const.ParamsNames.FEEDBACK_RESPONSE_RECIPIENT + "-"
-                                                     + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
     }
 
     private void testNumScaleSubmitAction() {
@@ -486,15 +486,15 @@ public class InstructorFeedbackSubmitPageUiTest extends BaseUiTestCase {
         int responseNumber = 0;
 
         assertTrue(submitPage.isNamedElementVisible(Const.ParamsNames.FEEDBACK_RESPONSE_TEXT + "-"
-                                                    + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
         assertFalse(submitPage.isNamedElementEnabled(Const.ParamsNames.FEEDBACK_RESPONSE_TEXT + "-"
-                                                     + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
 
         // Test that the recipient selection is disabled and not visible
         assertFalse(submitPage.isNamedElementVisible(Const.ParamsNames.FEEDBACK_RESPONSE_RECIPIENT + "-"
-                                                     + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
         assertFalse(submitPage.isNamedElementEnabled(Const.ParamsNames.FEEDBACK_RESPONSE_RECIPIENT + "-"
-                                                     + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
 
         // Test input entered are valid numbers for the question.
         submitPage = loginToInstructorFeedbackSubmitPage("IFSubmitUiT.instr", "Open Session");
@@ -553,69 +553,69 @@ public class InstructorFeedbackSubmitPageUiTest extends BaseUiTestCase {
         int responseNumber = 0;
 
         assertTrue(submitPage.isNamedElementVisible(Const.ParamsNames.FEEDBACK_RESPONSE_TEXT + "-"
-                                                    + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
         assertFalse(submitPage.isNamedElementEnabled(Const.ParamsNames.FEEDBACK_RESPONSE_TEXT + "-"
-                                                     + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
 
         // Test that the recipient selection is disabled and not visible
         assertFalse(submitPage.isNamedElementVisible(Const.ParamsNames.FEEDBACK_RESPONSE_RECIPIENT + "-"
-                                                     + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
         assertFalse(submitPage.isNamedElementEnabled(Const.ParamsNames.FEEDBACK_RESPONSE_RECIPIENT + "-"
-                                                     + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
 
         submitPage = loginToInstructorFeedbackSubmitPage("IFSubmitUiT.instr", "Open Session");
 
         // Test instructions displayed for filling the form
         qnNumber = 17;
         assertEquals("Total points distributed should add up to 100.",
-                     submitPage.getConstSumInstruction(qnNumber));
+                submitPage.getConstSumInstruction(qnNumber));
 
         qnNumber = 18;
         assertEquals("Total points distributed should add up to 400.",
-                     submitPage.getConstSumInstruction(qnNumber));
+                submitPage.getConstSumInstruction(qnNumber));
 
         qnNumber = 19;
         assertEquals("Total points distributed should add up to 400.\n"
-                     + "Every recipient should be allocated different number of points.",
-                     submitPage.getConstSumInstruction(qnNumber));
+                        + "Every recipient should be allocated different number of points.",
+                submitPage.getConstSumInstruction(qnNumber));
 
         qnNumber = 20;
         assertEquals("Total points distributed should add up to 100.\n"
-                    + "Every option should be allocated different number of points.",
-                    submitPage.getConstSumInstruction(qnNumber));
+                        + "Every option should be allocated different number of points.",
+                submitPage.getConstSumInstruction(qnNumber));
 
         qnNumber = 21;
         assertEquals("Total points distributed should add up to 400.\n"
-                    + "At least one recipient should be allocated different number of points.",
-                    submitPage.getConstSumInstruction(qnNumber));
+                        + "At least one recipient should be allocated different number of points.",
+                submitPage.getConstSumInstruction(qnNumber));
 
         qnNumber = 22;
         assertEquals("Total points distributed should add up to 100.\n"
-                    + "At least one option should be allocated different number of points.",
-                    submitPage.getConstSumInstruction(qnNumber));
+                        + "At least one option should be allocated different number of points.",
+                submitPage.getConstSumInstruction(qnNumber));
 
         qnNumber = 24;
         assertEquals("Total points distributed should add up to 100.\n"
-                    + "At least one option should be allocated different number of points.",
-                    submitPage.getConstSumInstruction(qnNumber));
+                        + "At least one option should be allocated different number of points.",
+                submitPage.getConstSumInstruction(qnNumber));
 
         // Test messages displayed for different user input
         qnNumber = 17;
         assertEquals("All points distributed!", submitPage.getConstSumMessage(qnNumber, 0));
         submitPage.fillResponseTextBox(qnNumber, 0, 0, "80");
         assertEquals("Actual total is 110! Remove the extra 10 points allocated.",
-                     submitPage.getConstSumMessage(qnNumber, 0));
+                submitPage.getConstSumMessage(qnNumber, 0));
         submitPage.fillResponseTextBox(qnNumber, 0, 0, "");
         assertEquals("Actual total is 30! Distribute the remaining 70 points.",
-                     submitPage.getConstSumMessage(qnNumber, 0));
+                submitPage.getConstSumMessage(qnNumber, 0));
         submitPage.fillResponseTextBox(qnNumber, 0, 1, "");
         assertEquals("",
-                     submitPage.getConstSumMessage(qnNumber, 0));
+                submitPage.getConstSumMessage(qnNumber, 0));
 
         // Test error message when submitting
         submitPage.fillResponseTextBox(qnNumber, 0, 1, "10");
         assertEquals("Actual total is 10! Distribute the remaining 90 points.",
-                     submitPage.getConstSumMessage(qnNumber, 0));
+                submitPage.getConstSumMessage(qnNumber, 0));
 
         submitPage.submitWithoutConfirmationEmail();
         submitPage.waitForTextsForAllStatusMessagesToUserEquals(
@@ -625,25 +625,25 @@ public class InstructorFeedbackSubmitPageUiTest extends BaseUiTestCase {
         // Test error message for const sum (to recipient) qn with uneven distribution
         qnNumber = 19;
         assertEquals("Actual total is 300! Distribute the remaining 100 points.\n"
-                     + "All allocated points are different!",
-                     submitPage.getConstSumMessage(qnNumber, 3));
+                        + "All allocated points are different!",
+                submitPage.getConstSumMessage(qnNumber, 3));
         submitPage.fillResponseTextBox(qnNumber, 0, 0, "105");
         assertEquals("Actual total is 320! Distribute the remaining 80 points.\n"
-                     + "Multiple recipients are given same points! eg. 105.",
-                     submitPage.getConstSumMessage(qnNumber, 3));
+                        + "Multiple recipients are given same points! eg. 105.",
+                submitPage.getConstSumMessage(qnNumber, 3));
         submitPage.fillResponseTextBox(qnNumber, 0, 0, "106");
         assertEquals("Actual total is 321! Distribute the remaining 79 points.\n"
-                     + "All allocated points are different!",
-                     submitPage.getConstSumMessage(qnNumber, 3));
+                        + "All allocated points are different!",
+                submitPage.getConstSumMessage(qnNumber, 3));
         submitPage.fillResponseTextBox(qnNumber, 0, 0, "400");
         submitPage.fillResponseTextBox(qnNumber, 1, 0, "400");
         assertEquals("Actual total is 905! Remove the extra 505 points allocated.\n"
-                     + "Multiple recipients are given same points! eg. 400.",
-                     submitPage.getConstSumMessage(qnNumber, 3));
+                        + "Multiple recipients are given same points! eg. 400.",
+                submitPage.getConstSumMessage(qnNumber, 3));
         submitPage.fillResponseTextBox(qnNumber, 1, 0, "154");
         assertEquals("Actual total is 659! Remove the extra 259 points allocated.\n"
-                     + "All allocated points are different!",
-                     submitPage.getConstSumMessage(qnNumber, 3));
+                        + "All allocated points are different!",
+                submitPage.getConstSumMessage(qnNumber, 3));
 
         submitPage.fillResponseTextBox(qnNumber, 0, 0, "");
         submitPage.fillResponseTextBox(qnNumber, 1, 0, "");
@@ -656,8 +656,8 @@ public class InstructorFeedbackSubmitPageUiTest extends BaseUiTestCase {
         submitPage.fillResponseTextBox(qnNumber, 2, 0, "200");
         submitPage.fillResponseTextBox(qnNumber, 3, 0, "100");
         assertEquals("All points distributed!\n"
-                     + "Multiple recipients are given same points! eg. 50.",
-                     submitPage.getConstSumMessage(qnNumber, 3));
+                        + "Multiple recipients are given same points! eg. 50.",
+                submitPage.getConstSumMessage(qnNumber, 3));
 
         submitPage.submitWithoutConfirmationEmail();
         submitPage.waitForTextsForAllStatusMessagesToUserEquals(
@@ -667,24 +667,24 @@ public class InstructorFeedbackSubmitPageUiTest extends BaseUiTestCase {
         // Test error message for const sum (to options) qn with uneven distribution
         qnNumber = 20;
         assertEquals("All points distributed!\n"
-                     + "All allocated points are different!",
-                     submitPage.getConstSumMessage(qnNumber, 0));
+                        + "All allocated points are different!",
+                submitPage.getConstSumMessage(qnNumber, 0));
         submitPage.fillResponseTextBox(qnNumber, 0, 0, "25");
         assertEquals("Actual total is 90! Distribute the remaining 10 points.\n"
-                     + "Multiple options are given same points! eg. 25.",
-                     submitPage.getConstSumMessage(qnNumber, 0));
+                        + "Multiple options are given same points! eg. 25.",
+                submitPage.getConstSumMessage(qnNumber, 0));
         submitPage.fillResponseTextBox(qnNumber, 0, 0, "26");
         assertEquals("Actual total is 91! Distribute the remaining 9 points.\n"
-                     + "All allocated points are different!",
-                     submitPage.getConstSumMessage(qnNumber, 0));
+                        + "All allocated points are different!",
+                submitPage.getConstSumMessage(qnNumber, 0));
         submitPage.fillResponseTextBox(qnNumber, 0, 0, "50");
         assertEquals("Actual total is 115! Remove the extra 15 points allocated.\n"
-                     + "All allocated points are different!",
-                     submitPage.getConstSumMessage(qnNumber, 0));
+                        + "All allocated points are different!",
+                submitPage.getConstSumMessage(qnNumber, 0));
         submitPage.fillResponseTextBox(qnNumber, 0, 1, "50");
         assertEquals("Actual total is 125! Remove the extra 25 points allocated.\n"
-                     + "Multiple options are given same points! eg. 50.",
-                     submitPage.getConstSumMessage(qnNumber, 0));
+                        + "Multiple options are given same points! eg. 50.",
+                submitPage.getConstSumMessage(qnNumber, 0));
 
         // Test error message for const sum (to recipients) qn with uneven distribution for at least some recipients
         qnNumber = 21;
@@ -693,81 +693,81 @@ public class InstructorFeedbackSubmitPageUiTest extends BaseUiTestCase {
         submitPage.fillResponseTextBox(21, 2, 0, "95");
         submitPage.fillResponseTextBox(21, 3, 0, "96");
         assertEquals("Actual total is 381! Distribute the remaining 19 points.\n"
-                     + "At least one recipient has been allocated different number of points.",
-                     submitPage.getConstSumMessage(qnNumber, 3));
+                        + "At least one recipient has been allocated different number of points.",
+                submitPage.getConstSumMessage(qnNumber, 3));
         submitPage.fillResponseTextBox(qnNumber, 3, 0, "95");
         assertEquals("Actual total is 380! Distribute the remaining 20 points.\n"
-                     + "All recipients are given 95 points. "
-                     + "Please allocate different points to at least one recipient.",
-                     submitPage.getConstSumMessage(qnNumber, 3));
+                        + "All recipients are given 95 points. "
+                        + "Please allocate different points to at least one recipient.",
+                submitPage.getConstSumMessage(qnNumber, 3));
         submitPage.fillResponseTextBox(qnNumber, 0, 0, "105");
         submitPage.fillResponseTextBox(qnNumber, 1, 0, "105");
         submitPage.fillResponseTextBox(qnNumber, 2, 0, "105");
         submitPage.fillResponseTextBox(qnNumber, 3, 0, "105");
         assertEquals("Actual total is 420! Remove the extra 20 points allocated.\n"
-                     + "All recipients are given 105 points. "
-                     + "Please allocate different points to at least one recipient.",
-                     submitPage.getConstSumMessage(qnNumber, 3));
+                        + "All recipients are given 105 points. "
+                        + "Please allocate different points to at least one recipient.",
+                submitPage.getConstSumMessage(qnNumber, 3));
         submitPage.fillResponseTextBox(qnNumber, 3, 0, "110");
         assertEquals("Actual total is 425! Remove the extra 25 points allocated.\n"
-                     + "At least one recipient has been allocated different number of points.",
-                     submitPage.getConstSumMessage(qnNumber, 3));
+                        + "At least one recipient has been allocated different number of points.",
+                submitPage.getConstSumMessage(qnNumber, 3));
 
         submitPage.fillResponseTextBox(qnNumber, 0, 0, "100");
         submitPage.fillResponseTextBox(qnNumber, 1, 0, "100");
         submitPage.fillResponseTextBox(qnNumber, 2, 0, "100");
         submitPage.fillResponseTextBox(qnNumber, 3, 0, "100");
         assertEquals("All points distributed!\n"
-                     + "All recipients are given 100 points. "
-                     + "Please allocate different points to at least one recipient.",
-                     submitPage.getConstSumMessage(qnNumber, 3));
+                        + "All recipients are given 100 points. "
+                        + "Please allocate different points to at least one recipient.",
+                submitPage.getConstSumMessage(qnNumber, 3));
 
         // Test error message for const sum (to options) qn with uneven distribution for at least some  options
         qnNumber = 22;
         assertEquals("All points distributed!\n"
-                     + "At least one option has been allocated different number of points.",
-                     submitPage.getConstSumMessage(qnNumber, 0));
+                        + "At least one option has been allocated different number of points.",
+                submitPage.getConstSumMessage(qnNumber, 0));
         submitPage.fillResponseTextBox(qnNumber, 0, 0, "25");
         assertEquals("Actual total is 90! Distribute the remaining 10 points.\n"
-                     + "At least one option has been allocated different number of points.",
-                     submitPage.getConstSumMessage(qnNumber, 0));
+                        + "At least one option has been allocated different number of points.",
+                submitPage.getConstSumMessage(qnNumber, 0));
         submitPage.fillResponseTextBox(qnNumber, 0, 1, "25");
         assertEquals("Actual total is 75! Distribute the remaining 25 points.\n"
-                     + "All options are given 25 points. "
-                     + "Please allocate different points to at least one option.",
-                     submitPage.getConstSumMessage(qnNumber, 0));
+                        + "All options are given 25 points. "
+                        + "Please allocate different points to at least one option.",
+                submitPage.getConstSumMessage(qnNumber, 0));
         submitPage.fillResponseTextBox(qnNumber, 0, 0, "60");
         assertEquals("Actual total is 110! Remove the extra 10 points allocated.\n"
-                     + "At least one option has been allocated different number of points.",
-                     submitPage.getConstSumMessage(qnNumber, 0));
+                        + "At least one option has been allocated different number of points.",
+                submitPage.getConstSumMessage(qnNumber, 0));
         submitPage.fillResponseTextBox(qnNumber, 0, 1, "60");
         submitPage.fillResponseTextBox(qnNumber, 0, 2, "60");
         assertEquals("Actual total is 180! Remove the extra 80 points allocated.\n"
-                     + "All options are given 60 points. "
-                     + "Please allocate different points to at least one option.",
-                     submitPage.getConstSumMessage(qnNumber, 0));
+                        + "All options are given 60 points. "
+                        + "Please allocate different points to at least one option.",
+                submitPage.getConstSumMessage(qnNumber, 0));
 
         qnNumber = 24;
         submitPage.fillResponseTextBox(24, 0, 0, "33");
         submitPage.fillResponseTextBox(24, 0, 1, "33");
         submitPage.fillResponseTextBox(24, 0, 2, "33");
         assertEquals("Actual total is 99! Distribute the remaining 1 points.\n"
-                     + "All options are given 33 points. "
-                     + "Please allocate different points to at least one option.",
-                     submitPage.getConstSumMessage(qnNumber, 0));
+                        + "All options are given 33 points. "
+                        + "Please allocate different points to at least one option.",
+                submitPage.getConstSumMessage(qnNumber, 0));
         submitPage.fillResponseTextBox(24, 0, 0, "31");
         assertEquals("Actual total is 97! Distribute the remaining 3 points.\n"
-                     + "At least one option has been allocated different number of points.",
-                     submitPage.getConstSumMessage(qnNumber, 0));
+                        + "At least one option has been allocated different number of points.",
+                submitPage.getConstSumMessage(qnNumber, 0));
         submitPage.fillResponseTextBox(24, 0, 2, "36");
         assertEquals("All points distributed!\n"
-                     + "At least one option has been allocated different number of points.",
-                     submitPage.getConstSumMessage(qnNumber, 0));
+                        + "At least one option has been allocated different number of points.",
+                submitPage.getConstSumMessage(qnNumber, 0));
 
         // For other const sum question, just test one message.
         qnNumber = 18;
         assertEquals("Actual total is 300! Distribute the remaining 100 points.",
-                     submitPage.getConstSumMessage(qnNumber, 3));
+                submitPage.getConstSumMessage(qnNumber, 3));
     }
 
     private void testContribSubmitAction() {
@@ -784,15 +784,15 @@ public class InstructorFeedbackSubmitPageUiTest extends BaseUiTestCase {
 
         submitPage.waitForAndDismissAlertModal();
         assertTrue(submitPage.isNamedElementVisible(Const.ParamsNames.FEEDBACK_RESPONSE_TEXT + "-"
-                                                    + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
         assertFalse(submitPage.isNamedElementEnabled(Const.ParamsNames.FEEDBACK_RESPONSE_TEXT + "-"
-                                                     + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
 
         // Test that the recipient selection is disabled and not visible
         assertFalse(submitPage.isNamedElementVisible(Const.ParamsNames.FEEDBACK_RESPONSE_RECIPIENT + "-"
-                                                     + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
         assertFalse(submitPage.isNamedElementEnabled(Const.ParamsNames.FEEDBACK_RESPONSE_RECIPIENT + "-"
-                                                     + qnNumber + "-" + responseNumber));
+                + qnNumber + "-" + responseNumber));
     }
 
     private void testModifyData() throws Exception {
@@ -816,18 +816,18 @@ public class InstructorFeedbackSubmitPageUiTest extends BaseUiTestCase {
 
     private FeedbackSubmitPage loginToInstructorFeedbackSubmitPage(String instructorName, String fsName) {
         AppUrl editUrl = createUrl(Const.ActionURIs.INSTRUCTOR_FEEDBACK_SUBMISSION_EDIT_PAGE)
-                          .withUserId(testData.instructors.get(instructorName).googleId)
-                          .withCourseId(testData.feedbackSessions.get(fsName).getCourseId())
-                          .withSessionName(testData.feedbackSessions.get(fsName).getFeedbackSessionName());
+                .withUserId(testData.instructors.get(instructorName).googleId)
+                .withCourseId(testData.feedbackSessions.get(fsName).getCourseId())
+                .withSessionName(testData.feedbackSessions.get(fsName).getFeedbackSessionName());
         return loginAdminToPage(editUrl, FeedbackSubmitPage.class);
     }
 
     private FeedbackSubmitPage loginToStudentFeedbackSubmitPage(
             String studentName, String fsName) {
         AppUrl editUrl = createUrl(Const.ActionURIs.STUDENT_FEEDBACK_SUBMISSION_EDIT_PAGE)
-                          .withUserId(testData.students.get(studentName).googleId)
-                          .withCourseId(testData.feedbackSessions.get(fsName).getCourseId())
-                          .withSessionName(testData.feedbackSessions.get(fsName).getFeedbackSessionName());
+                .withUserId(testData.students.get(studentName).googleId)
+                .withCourseId(testData.feedbackSessions.get(fsName).getCourseId())
+                .withSessionName(testData.feedbackSessions.get(fsName).getFeedbackSessionName());
         return loginAdminToPage(editUrl, FeedbackSubmitPage.class);
     }
 

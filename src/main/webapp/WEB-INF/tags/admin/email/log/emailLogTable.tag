@@ -13,17 +13,17 @@
   <div class="table-responsive">
     <table class="table data-table" id="email-logs-table">
       <thead>
-        <tr>
-          <th><strong>Receiver</strong></th>
-          <th><strong>Subject</strong></th>
-          <th><strong>Date</strong></th>
-        </tr>
+      <tr>
+        <th><strong>Receiver</strong></th>
+        <th><strong>Subject</strong></th>
+        <th><strong>Date</strong></th>
+      </tr>
       </thead>
 
       <tbody>
-        <c:forEach items="${logs}" var="log">
-          <adminEmailLog:emailLogTableRow log="${log}" />
-        </c:forEach>
+      <c:forEach items="${logs}" var="log">
+        <adminEmailLog:emailLogTableRow log="${log}"/>
+      </c:forEach>
       </tbody>
     </table>
   </div>

@@ -8,7 +8,7 @@ public class AdminTrashEmailTable {
     private ElementTag emptyTrashButton;
 
     public AdminTrashEmailTable(int numEmailsTrash, List<AdminTrashEmailRow> rows,
-                                                     String emptyTrashBinActionUrl) {
+                                String emptyTrashBinActionUrl) {
         this.numEmailsTrash = numEmailsTrash;
         this.rows = rows;
         this.emptyTrashButton = createEmptyTrashButton(emptyTrashBinActionUrl);

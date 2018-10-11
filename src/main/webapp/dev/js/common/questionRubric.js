@@ -75,7 +75,7 @@ function moveRubricColIfPossible(questionNum, firstColIndex, isMoveLeft) {
     const rubricCellSelector = `td[class*='rubricCol-${questionNum}']`;
 
     if ((isMoveLeft && $swapCell.prev(rubricCellSelector).length === 0)
-        || (!isMoveLeft && $swapCell.next(rubricCellSelector).length === 0)) {
+            || (!isMoveLeft && $swapCell.next(rubricCellSelector).length === 0)) {
         // trying to swap left most or right most column
         return;
     }
@@ -181,14 +181,14 @@ function addRubricRow(questionNum) {
 
         // Create rubric weight cell
         const rubricWeightFragment =
-            `<div class="rubricWeights-${questionNum}">
+                `<div class="rubricWeights-${questionNum}">
                 <input type="number" class="form-control nonDestructive margin-top-10px" value="0"
                         id="rubricWeight-${questionNum}-${newRowNumber - 1}-${cols}"
                         name="rubricWeight-${newRowNumber - 1}-${cols}" step="0.01" required>
             </div>`;
 
         const rubricRowFragment =
-            `<td class="align-center rubricCol-${questionNum}-${cols}">
+                `<td class="align-center rubricCol-${questionNum}-${cols}">
                  <textarea class="form-control" rows="3" id="rubricDesc-${questionNum}-${newRowNumber - 1}-${cols}"
                          name="rubricDesc-${newRowNumber - 1}-${cols}"></textarea>
                  ${rubricWeightFragment}
@@ -198,7 +198,7 @@ function addRubricRow(questionNum) {
 
     // Create new rubric row
     const newRubricRow =
-        `<tr id="rubricRow-${questionNum}-${newRowNumber - 1}">
+            `<tr id="rubricRow-${questionNum}-${newRowNumber - 1}">
             <td>
                 <div class="col-sm-12 input-group">
                     <span class="input-group-addon btn btn-default rubricRemoveSubQuestionLink-${questionNum}"
@@ -248,7 +248,7 @@ function addRubricCol(questionNum) {
 
     // Insert header <th>
     const rubricHeaderFragment =
-        `<th class="rubricCol-${questionNum}-${newColNumber - 1}">
+            `<th class="rubricCol-${questionNum}-${newColNumber - 1}">
             <input type="text" class="col-sm-12 form-control" value=""
                     id="rubricChoice-${questionNum}-${newColNumber - 1}"
                     name="rubricChoice-${newColNumber - 1}">
@@ -266,7 +266,7 @@ function addRubricCol(questionNum) {
 
         // Create rubric weight cell
         const rubricWeightFragment =
-            `<div class="rubricWeights-${questionNum}">
+                `<div class="rubricWeights-${questionNum}">
                 <input type="number" class="form-control nonDestructive margin-top-10px" value="0"
                         id="rubricWeight-${questionNum}-${rows}-${newColNumber - 1}"
                         name="rubricWeight-${rows}-${newColNumber - 1}" step="0.01" required>
@@ -274,7 +274,7 @@ function addRubricCol(questionNum) {
 
         // Insert body <td>'s
         const rubricRowFragment =
-            `<td class="align-center rubricCol-${questionNum}-${newColNumber - 1}">
+                `<td class="align-center rubricCol-${questionNum}-${newColNumber - 1}">
                  <textarea class="form-control" rows="3" id="rubricDesc-${questionNum}-${rows}-${newColNumber - 1}"
                          name="rubricDesc-${rows}-${newColNumber - 1}"></textarea>
                  ${rubricWeightFragment}
@@ -289,7 +289,7 @@ function addRubricCol(questionNum) {
 
     // Add options row at the end
     const optionsRow =
-        `<td class="align-center rubricCol-${questionNum}-${newColNumber - 1}" data-col="${newColNumber - 1}">
+            `<td class="align-center rubricCol-${questionNum}-${newColNumber - 1}" data-col="${newColNumber - 1}">
             <div class="btn-group">
                 <button type="button" class="btn btn-default" id="rubric-move-col-left-${questionNum}-${newColNumber - 1}"
                         data-toggle="tooltip" data-placement="top" title="Move column left">
@@ -315,8 +315,8 @@ function addRubricCol(questionNum) {
     const $newColMoveLeftBtn = $(`#rubric-move-col-left-${questionNum}-${newColNumber - 1}`);
     const $newColMoveRightBtn = $(`#rubric-move-col-right-${questionNum}-${newColNumber - 1}`);
 
-    $newColMoveLeftBtn.tooltip({ container: 'body' });
-    $newColMoveRightBtn.tooltip({ container: 'body' });
+    $newColMoveLeftBtn.tooltip({container: 'body'});
+    $newColMoveRightBtn.tooltip({container: 'body'});
 
     $newColMoveLeftBtn.click(() => {
         moveRubricColIfPossible(questionNum, newColNumber - 1, true);

@@ -5,7 +5,7 @@
 <%@ tag import="teammates.common.util.Const" %>
 <%@ attribute name="courseTable" type="teammates.ui.template.CourseTable" required="true" %>
 <%@ attribute name="index" required="true" %>
-<c:set var="isNotLoaded" value="${empty courseTable.buttons}" />
+<c:set var="isNotLoaded" value="${empty courseTable.buttons}"/>
 <div class="panel panel-primary" id="course-${index}">
   <div class="panel-heading ajax_auto" <c:if test="${isNotLoaded}"> style="cursor: pointer;"</c:if>>
     <div class="row">
@@ -28,7 +28,7 @@
                     <c:forEach items="${button.nestedElements}" var="menuItem">
                       <li>
                         <a data-toggle="tooltip" data-placement="left" ${menuItem.attributesToString}>
-                          ${menuItem.content}
+                            ${menuItem.content}
                         </a>
                       </li>
                     </c:forEach>
@@ -37,7 +37,7 @@
               </c:when>
               <c:otherwise>
                 <a data-toggle="tooltip" data-placement="left" ${button.attributesToString}>
-                  ${button.content}
+                    ${button.content}
                 </a>
               </c:otherwise>
             </c:choose>
@@ -56,7 +56,7 @@
       <input type="hidden" name="index" value="${index}">
     </form>
   </c:if>
-  <jsp:doBody />
+  <jsp:doBody/>
   <div class="panel-collapse collapse">
     <div class="panel-body padding-0">
     </div>

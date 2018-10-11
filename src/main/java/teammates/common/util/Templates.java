@@ -11,9 +11,10 @@ public final class Templates {
     /**
      * Populates the HTML templates by replacing variables in the template string
      * with the given value strings.
-     * @param template The template html to be populated
+     *
+     * @param template      The template html to be populated
      * @param keyValuePairs Array of a variable, even number of key-value pairs:
-     *                   { "key1", "val1", "key2", "val2", ... }
+     *                      { "key1", "val1", "key2", "val2", ... }
      * @return The populated template
      */
     public static String populateTemplate(String template, String... keyValuePairs) {

@@ -67,35 +67,40 @@ public abstract class BaseActionTest extends BaseComponentTestCase {
         removeAndRestoreTypicalDataBundle();
     }
 
-    /** Executes the action and returns the result.
+    /**
+     * Executes the action and returns the result.
      * Assumption: The action returns a ShowPageResult.
      */
     protected ShowPageResult getShowPageResult(Action a) {
         return (ShowPageResult) a.executeAndPostProcess();
     }
 
-    /** Executes the action and returns the result.
+    /**
+     * Executes the action and returns the result.
      * Assumption: The action returns a RedirectResult.
      */
     protected RedirectResult getRedirectResult(Action a) {
         return (RedirectResult) a.executeAndPostProcess();
     }
 
-    /** Executes the action and returns the result.
+    /**
+     * Executes the action and returns the result.
      * Assumption: The action returns an AjaxResult.
      */
     protected AjaxResult getAjaxResult(Action a) {
         return (AjaxResult) a.executeAndPostProcess();
     }
 
-    /** Executes the action and returns the result.
+    /**
+     * Executes the action and returns the result.
      * Assumption: The action returns a FileDownloadResult.
      */
     protected FileDownloadResult getFileDownloadResult(Action a) {
         return (FileDownloadResult) a.executeAndPostProcess();
     }
 
-    /** Executes the action and returns the result.
+    /**
+     * Executes the action and returns the result.
      * Assumption: The action returns an ImageResult.
      */
     protected ImageResult getImageResult(Action a) {
@@ -104,7 +109,7 @@ public abstract class BaseActionTest extends BaseComponentTestCase {
 
     /**
      * Returns The {@code params} array with the {@code userId}
-     *         (together with the parameter name) inserted at the beginning.
+     * (together with the parameter name) inserted at the beginning.
      */
     protected String[] addUserIdToParams(String userId, String[] params) {
         List<String> list = new ArrayList<>();
@@ -131,7 +136,7 @@ public abstract class BaseActionTest extends BaseComponentTestCase {
     }
 
     protected String[] createValidParamsForProfile() {
-        return new String[] {
+        return new String[]{
                 Const.ParamsNames.STUDENT_SHORT_NAME, "short ",
                 Const.ParamsNames.STUDENT_PROFILE_EMAIL, "e@email.com  ",
                 Const.ParamsNames.STUDENT_PROFILE_INSTITUTION, " TEAMMATES Test Institute 5   ",
@@ -142,7 +147,7 @@ public abstract class BaseActionTest extends BaseComponentTestCase {
     }
 
     protected String[] createInvalidParamsForProfile() {
-        return new String[] {
+        return new String[]{
                 Const.ParamsNames.STUDENT_SHORT_NAME, "$$short",
                 Const.ParamsNames.STUDENT_PROFILE_EMAIL, "invalid.email",
                 Const.ParamsNames.STUDENT_PROFILE_INSTITUTION, "institute",
@@ -172,22 +177,22 @@ public abstract class BaseActionTest extends BaseComponentTestCase {
         int indexOfSessionInstructionsValue = 1 + paramList.indexOf(Const.ParamsNames.FEEDBACK_SESSION_INSTRUCTIONS);
 
         switch (order) {
-        case 1:
-            typicalCase[indexOfSessionVisibleButtonValue] = Const.INSTRUCTOR_FEEDBACK_SESSION_VISIBLE_TIME_ATOPEN;
-            typicalCase[indexOfSessionVisibleDate] = "";
-            typicalCase[indexOfSessionVisibleTime] = "0";
+            case 1:
+                typicalCase[indexOfSessionVisibleButtonValue] = Const.INSTRUCTOR_FEEDBACK_SESSION_VISIBLE_TIME_ATOPEN;
+                typicalCase[indexOfSessionVisibleDate] = "";
+                typicalCase[indexOfSessionVisibleTime] = "0";
 
-            typicalCase[indexOfResultsVisibleButtonValue] = Const.INSTRUCTOR_FEEDBACK_RESULTS_VISIBLE_TIME_CUSTOM;
-            typicalCase[indexOfSessionPublishDate] = "Thu, 08 May, 2014";
-            typicalCase[indexOfSessionPublishTime] = "2";
-            break;
-        case 2:
-            typicalCase[indexOfResultsVisibleButtonValue] = Const.INSTRUCTOR_FEEDBACK_RESULTS_VISIBLE_TIME_LATER;
-            typicalCase[indexOfSessionInstructionsValue] = "";
-            break;
-        default:
-            Assumption.fail("Incorrect order");
-            break;
+                typicalCase[indexOfResultsVisibleButtonValue] = Const.INSTRUCTOR_FEEDBACK_RESULTS_VISIBLE_TIME_CUSTOM;
+                typicalCase[indexOfSessionPublishDate] = "Thu, 08 May, 2014";
+                typicalCase[indexOfSessionPublishTime] = "2";
+                break;
+            case 2:
+                typicalCase[indexOfResultsVisibleButtonValue] = Const.INSTRUCTOR_FEEDBACK_RESULTS_VISIBLE_TIME_LATER;
+                typicalCase[indexOfSessionInstructionsValue] = "";
+                break;
+            default:
+                Assumption.fail("Incorrect order");
+                break;
         }
 
         return typicalCase;
@@ -195,7 +200,7 @@ public abstract class BaseActionTest extends BaseComponentTestCase {
 
     protected String[] createParamsForTypicalFeedbackSession(String courseId, String fsName) {
 
-        return new String[] {
+        return new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fsName,
                 Const.ParamsNames.FEEDBACK_SESSION_STARTDATE, "Wed, 01 Feb, 2012",
@@ -221,7 +226,7 @@ public abstract class BaseActionTest extends BaseComponentTestCase {
 
     protected String[] createParamsForTypicalFeedbackQuestion(String courseId, String fsName) {
 
-        return new String[] {
+        return new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fsName,
                 Const.ParamsNames.FEEDBACK_QUESTION_GIVERTYPE, FeedbackParticipantType.STUDENTS.toString(),
@@ -242,9 +247,10 @@ public abstract class BaseActionTest extends BaseComponentTestCase {
     /**
      * Modifies the value of a key in a parameter list.
      * Assumes Key is present. Use for testing.
+     *
      * @param params An array of Strings in the form {key1, value1, key2, value2,....}
-     * @param key Key to modify
-     * @param value Value to set
+     * @param key    Key to modify
+     * @param value  Value to set
      */
     protected void modifyParamValue(String[] params, String key, String value) {
         for (int i = 0; i < params.length; i += 2) {
@@ -629,6 +635,7 @@ public abstract class BaseActionTest extends BaseComponentTestCase {
      * 'low-level' tests here it tests an action once with the given parameters.
      * These methods are not aware of the user type.
      */
+
     /**
      * Verifies that the {@link Action} matching the {@code params} is
      * accessible to the logged in user.
@@ -744,7 +751,7 @@ public abstract class BaseActionTest extends BaseComponentTestCase {
     }
 
     protected static void verifyStatusMessage(StatusMessage statusMessage,
-            String expectedText, StatusMessageColor expectedColor) {
+                                              String expectedText, StatusMessageColor expectedColor) {
         assertEquals(expectedText, statusMessage.getText());
         assertEquals(expectedColor.name().toLowerCase(), statusMessage.getColor());
     }

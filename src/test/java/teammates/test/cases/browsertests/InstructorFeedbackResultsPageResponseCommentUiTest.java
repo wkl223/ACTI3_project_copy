@@ -9,7 +9,7 @@ import teammates.test.pageobjects.InstructorFeedbackResultsPage;
 
 /**
  * SUT: {@link Const.ActionURIs#INSTRUCTOR_FEEDBACK_RESULTS_PAGE},
- *      specifically for feedback response comments.
+ * specifically for feedback response comments.
  */
 public class InstructorFeedbackResultsPageResponseCommentUiTest extends BaseUiTestCase {
 
@@ -243,7 +243,7 @@ public class InstructorFeedbackResultsPageResponseCommentUiTest extends BaseUiTe
     }
 
     private void addEmptyCommentToResponseAndCheckStatusMessage(String commentModelId,
-            InstructorFeedbackResultsPage resultsPage) {
+                                                                InstructorFeedbackResultsPage resultsPage) {
         // TODO: `clickCommentModalButton` should wait for modal to open before returning
         resultsPage.clickCommentModalButton(commentModelId);
         resultsPage.addFeedbackResponseCommentInCommentModal("showResponseCommentAddForm" + commentModelId, "");
@@ -266,7 +266,7 @@ public class InstructorFeedbackResultsPageResponseCommentUiTest extends BaseUiTe
     }
 
     private void editFirstCommentOnResponseAndVerify(String commentModelId, String commentText,
-            InstructorFeedbackResultsPage resultsPage) {
+                                                     InstructorFeedbackResultsPage resultsPage) {
         String commentId = commentModelId + "-1";
         resultsPage.clickCommentModalButton(commentModelId);
         resultsPage.editFeedbackResponseCommentInOpenedCommentModal(commentId, commentText);
@@ -275,7 +275,7 @@ public class InstructorFeedbackResultsPageResponseCommentUiTest extends BaseUiTe
     }
 
     private void editFirstCommentAndVisibilityAndVerify(String commentModelId, String commentText,
-            InstructorFeedbackResultsPage resultsPage) {
+                                                        InstructorFeedbackResultsPage resultsPage) {
         String commentId = commentModelId + "-1";
         resultsPage.clickCommentModalButton(commentModelId);
         resultsPage.editFeedbackResponseCommentInOpenedCommentModal(commentId, commentText);
@@ -293,7 +293,7 @@ public class InstructorFeedbackResultsPageResponseCommentUiTest extends BaseUiTe
     }
 
     private void addEditAndDeleteTypicalCommentAndVerify(String commentModelId,
-            InstructorFeedbackResultsPage resultsPage) {
+                                                         InstructorFeedbackResultsPage resultsPage) {
         String commentId = commentModelId + "-1";
         resultsPage.clickCommentModalButton(commentModelId);
         resultsPage.addFeedbackResponseCommentInCommentModal("showResponseCommentAddForm" + commentModelId,

@@ -59,21 +59,21 @@ public class StudentProfileEditSaveActionTest extends BaseActionTest {
 
         expectedErrorMessages.add(
                 getPopulatedErrorMessage(FieldValidator.INVALID_NAME_ERROR_MESSAGE, submissionParams[1],
-                                         FieldValidator.PERSON_NAME_FIELD_NAME,
-                                         FieldValidator.REASON_START_WITH_NON_ALPHANUMERIC_CHAR,
-                                         FieldValidator.PERSON_NAME_MAX_LENGTH));
+                        FieldValidator.PERSON_NAME_FIELD_NAME,
+                        FieldValidator.REASON_START_WITH_NON_ALPHANUMERIC_CHAR,
+                        FieldValidator.PERSON_NAME_MAX_LENGTH));
         expectedErrorMessages.add(
                 getPopulatedErrorMessage(FieldValidator.EMAIL_ERROR_MESSAGE, submissionParams[3],
-                                         FieldValidator.EMAIL_FIELD_NAME,
-                                         FieldValidator.REASON_INCORRECT_FORMAT,
-                                         FieldValidator.EMAIL_MAX_LENGTH));
+                        FieldValidator.EMAIL_FIELD_NAME,
+                        FieldValidator.REASON_INCORRECT_FORMAT,
+                        FieldValidator.EMAIL_MAX_LENGTH));
 
         AssertHelper.assertContains(expectedErrorMessages, result.getStatusMessage());
 
         String expectedLogMessage = "TEAMMATESLOG|||studentProfileEditSave|||studentProfileEditSave"
-                                  + "|||true|||Student|||" + student.name + "|||" + student.googleId
-                                  + "|||" + student.email + "|||" + Const.ACTION_RESULT_FAILURE
-                                  + " : " + result.getStatusMessage() + "|||/page/studentProfileEditSave";
+                + "|||true|||Student|||" + student.name + "|||" + student.googleId
+                + "|||" + student.email + "|||" + Const.ACTION_RESULT_FAILURE
+                + " : " + result.getStatusMessage() + "|||/page/studentProfileEditSave";
         AssertHelper.assertContainsRegex(expectedLogMessage, action.getLogMessage());
 
         ______TS("Failure case: invalid parameters with attempted script injection");
@@ -173,12 +173,12 @@ public class StudentProfileEditSaveActionTest extends BaseActionTest {
                                   StudentProfileAttributes expectedProfile, boolean isMasquerade) {
         expectedProfile.modifiedDate = action.account.studentProfile.modifiedDate;
         String expectedLogMessage = "TEAMMATESLOG|||studentProfileEditSave|||studentProfileEditSave"
-                                  + "|||true|||Student" + (isMasquerade ? "(M)" : "") + "|||"
-                                  + student.name + "|||" + student.googleId + "|||" + student.email
-                                  + "|||Student Profile for <span class=\"bold\">(" + student.googleId
-                                  + ")</span> edited.<br>"
-                                  + SanitizationHelper.sanitizeForHtmlTag(expectedProfile.toString())
-                                  + "|||/page/studentProfileEditSave";
+                + "|||true|||Student" + (isMasquerade ? "(M)" : "") + "|||"
+                + student.name + "|||" + student.googleId + "|||" + student.email
+                + "|||Student Profile for <span class=\"bold\">(" + student.googleId
+                + ")</span> edited.<br>"
+                + SanitizationHelper.sanitizeForHtmlTag(expectedProfile.toString())
+                + "|||/page/studentProfileEditSave";
         AssertHelper.assertContainsRegex(expectedLogMessage, action.getLogMessage());
     }
 
@@ -203,7 +203,7 @@ public class StudentProfileEditSaveActionTest extends BaseActionTest {
     }
 
     private String[] createInvalidParamsForProfileWithScriptInjection() {
-        return new String[] {
+        return new String[]{
                 Const.ParamsNames.STUDENT_SHORT_NAME, "short%<script>alert(\"was here\");</script>",
                 Const.ParamsNames.STUDENT_PROFILE_EMAIL, "<script>alert(\"was here\");</script>",
                 Const.ParamsNames.STUDENT_PROFILE_INSTITUTION, "<script>alert(\"was here\");</script>",

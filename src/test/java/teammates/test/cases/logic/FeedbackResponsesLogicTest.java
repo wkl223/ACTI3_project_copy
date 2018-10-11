@@ -125,8 +125,8 @@ public class FeedbackResponsesLogicTest extends BaseLogicTest {
         responseToUpdate.responseMetaData = new Text("Updated Response");
 
         assertEquals(frLogic.getFeedbackResponse(responseToUpdate.feedbackQuestionId, responseToUpdate.giver,
-                                                 responseToUpdate.recipient).toString(),
-                     responseToUpdate.toString());
+                responseToUpdate.recipient).toString(),
+                responseToUpdate.toString());
 
         ______TS("failure: recipient one that is already exists");
 
@@ -168,8 +168,8 @@ public class FeedbackResponsesLogicTest extends BaseLogicTest {
         responseToUpdate.responseMetaData = new Text("Updated Response 2");
 
         assertEquals(frLogic.getFeedbackResponse(responseToUpdate.feedbackQuestionId, responseToUpdate.giver,
-                                                 responseToUpdate.recipient).toString(),
-                     responseToUpdate.toString());
+                responseToUpdate.recipient).toString(),
+                responseToUpdate.toString());
 
         ______TS("success: recipient changed to something else");
 
@@ -178,8 +178,8 @@ public class FeedbackResponsesLogicTest extends BaseLogicTest {
         frLogic.updateFeedbackResponse(responseToUpdate);
 
         assertEquals(frLogic.getFeedbackResponse(responseToUpdate.feedbackQuestionId, responseToUpdate.giver,
-                                                 responseToUpdate.recipient).toString(),
-                     responseToUpdate.toString());
+                responseToUpdate.recipient).toString(),
+                responseToUpdate.toString());
         assertNull(frLogic.getFeedbackResponse(
                 responseToUpdate.feedbackQuestionId, responseToUpdate.giver, "student2InCourse1@gmail.tmt"));
 
@@ -195,8 +195,8 @@ public class FeedbackResponsesLogicTest extends BaseLogicTest {
         frLogic.updateFeedbackResponse(responseToUpdate);
 
         assertEquals(frLogic.getFeedbackResponse(responseToUpdate.feedbackQuestionId, responseToUpdate.giver,
-                                                 responseToUpdate.recipient).toString(),
-                     responseToUpdate.toString());
+                responseToUpdate.recipient).toString(),
+                responseToUpdate.toString());
         assertNull(frLogic.getFeedbackResponse(
                 responseToUpdate.feedbackQuestionId, "student4InCourse1@gmail.tmt", "Team 1.2"));
 
@@ -214,8 +214,8 @@ public class FeedbackResponsesLogicTest extends BaseLogicTest {
             signalFailureToDetectException("Should have detected that this response does not exist");
         } catch (EntityDoesNotExistException e) {
             AssertHelper.assertContains(
-                        "Trying to update a feedback response that does not exist.",
-                        e.getMessage());
+                    "Trying to update a feedback response that does not exist.",
+                    e.getMessage());
         }
     }
 
@@ -241,9 +241,9 @@ public class FeedbackResponsesLogicTest extends BaseLogicTest {
         // Add one more non-team response
         FeedbackResponseAttributes responseToAdd =
                 new FeedbackResponseAttributes("First feedback session", "idOfTypicalCourse1",
-                                               getQuestionFromDatastore("qn1InSession1InCourse1").getId(),
-                                               FeedbackQuestionType.TEXT, studentToUpdate.email, "Section 1",
-                                               studentToUpdate.email, "Section 1", new Text("New Response to self"));
+                        getQuestionFromDatastore("qn1InSession1InCourse1").getId(),
+                        FeedbackQuestionType.TEXT, studentToUpdate.email, "Section 1",
+                        studentToUpdate.email, "Section 1", new Text("New Response to self"));
         frLogic.createFeedbackResponse(responseToAdd);
 
         // All these responses should be gone after he changes teams
@@ -264,28 +264,28 @@ public class FeedbackResponsesLogicTest extends BaseLogicTest {
         // Non-team response should remain
 
         assertEquals(frLogic.getFeedbackResponsesFromGiverForQuestion(
-                            getQuestionFromDatastore("qn1InSession1InCourse1").getId(),
-                            studentToUpdate.email).size(), 1);
+                getQuestionFromDatastore("qn1InSession1InCourse1").getId(),
+                studentToUpdate.email).size(), 1);
 
         ______TS("test updateFeedbackResponseForChangingTeam for recipient type = giver's team members including giver");
         FeedbackQuestionAttributes questionToTeamMembersAndSelf =
-                                        getQuestionFromDatastore(questionTypeBundle, "qn1InContribSession2InCourse2");
+                getQuestionFromDatastore(questionTypeBundle, "qn1InContribSession2InCourse2");
         studentToUpdate = questionTypeBundle.students.get("student2InCourse2");
         FeedbackResponseAttributes responseToBeDeleted =
                 getResponseFromDatastore(questionTypeBundle, "response1ForQ1ContribSession2Course2");
         StudentEnrollDetails studentDetails1 =
                 new StudentEnrollDetails(StudentUpdateStatus.MODIFIED, studentToUpdate.course,
-                                         studentToUpdate.email, studentToUpdate.team,
-                                         studentToUpdate.team + "tmp", studentToUpdate.section,
-                                         studentToUpdate.section + "tmp");
+                        studentToUpdate.email, studentToUpdate.team,
+                        studentToUpdate.team + "tmp", studentToUpdate.section,
+                        studentToUpdate.section + "tmp");
 
         assertNotNull(frLogic.getFeedbackResponse(questionToTeamMembersAndSelf.getId(),
-                                                  responseToBeDeleted.giver,
-                                                  responseToBeDeleted.recipient));
+                responseToBeDeleted.giver,
+                responseToBeDeleted.recipient));
         assertTrue(frLogic.updateFeedbackResponseForChangingTeam(studentDetails1, responseToBeDeleted));
         assertNull(frLogic.getFeedbackResponse(questionToTeamMembersAndSelf.getId(),
-                                               responseToBeDeleted.giver,
-                                               responseToBeDeleted.recipient));
+                responseToBeDeleted.giver,
+                responseToBeDeleted.recipient));
 
         // restore DataStore so other tests are unaffected
         restoreStudentFeedbackResponseToDatastore(responseToBeDeleted);
@@ -297,20 +297,20 @@ public class FeedbackResponsesLogicTest extends BaseLogicTest {
                 getResponseFromDatastore(questionTypeBundle, "response1ForQ1ContribSession2Course2");
         // make sure it's the last response by the student
         assertEquals(1, numResponsesFromGiverInSession(responseToBeDeleted.giver,
-                                                       responseToBeDeleted.feedbackSessionName,
-                                                       responseToBeDeleted.courseId));
+                responseToBeDeleted.feedbackSessionName,
+                responseToBeDeleted.courseId));
         StudentAttributes student = questionTypeBundle.students.get("student2InCourse2");
         StudentEnrollDetails enrollmentDetailsToTriggerDeletion =
                 new StudentEnrollDetails(StudentUpdateStatus.MODIFIED, student.course,
-                                         student.email, student.team, student.team + "tmp", student.section,
-                                         student.section + "tmp");
+                        student.email, student.team, student.team + "tmp", student.section,
+                        student.section + "tmp");
 
         int originalResponseRate = getResponseRate(responseToBeDeleted.feedbackSessionName,
-                                                   responseToBeDeleted.courseId);
+                responseToBeDeleted.courseId);
         assertTrue(frLogic.updateFeedbackResponseForChangingTeam(enrollmentDetailsToTriggerDeletion,
-                                                                 responseToBeDeleted));
+                responseToBeDeleted));
         int responseRateAfterDeletion = getResponseRate(responseToBeDeleted.feedbackSessionName,
-                                                        responseToBeDeleted.courseId);
+                responseToBeDeleted.courseId);
         assertEquals(originalResponseRate - 1, responseRateAfterDeletion);
 
         // restore DataStore so other tests are unaffected
@@ -323,20 +323,20 @@ public class FeedbackResponsesLogicTest extends BaseLogicTest {
                 getResponseFromDatastore(questionTypeBundle, "response1ForQ1S5C1");
         // make sure it's not the last response by the student
         assertTrue(1 < numResponsesFromGiverInSession(responseToBeDeleted.giver,
-                                                      responseToBeDeleted.feedbackSessionName,
-                                                      responseToBeDeleted.courseId));
+                responseToBeDeleted.feedbackSessionName,
+                responseToBeDeleted.courseId));
         StudentAttributes student = questionTypeBundle.students.get("student1InCourse1");
         StudentEnrollDetails enrollmentDetailsToTriggerDeletion =
                 new StudentEnrollDetails(StudentUpdateStatus.MODIFIED, student.course,
-                                         student.email, student.team, student.team + "tmp", student.section,
-                                         student.section + "tmp");
+                        student.email, student.team, student.team + "tmp", student.section,
+                        student.section + "tmp");
 
         int originalResponseRate = getResponseRate(responseToBeDeleted.feedbackSessionName,
-                                                   responseToBeDeleted.courseId);
+                responseToBeDeleted.courseId);
         assertTrue(frLogic.updateFeedbackResponseForChangingTeam(enrollmentDetailsToTriggerDeletion,
-                                                                 responseToBeDeleted));
+                responseToBeDeleted));
         int responseRateAfterDeletion = getResponseRate(responseToBeDeleted.feedbackSessionName,
-                                                        responseToBeDeleted.courseId);
+                responseToBeDeleted.courseId);
         assertEquals(originalResponseRate, responseRateAfterDeletion);
 
         // restore DataStore so other tests are unaffected
@@ -432,7 +432,7 @@ public class FeedbackResponsesLogicTest extends BaseLogicTest {
         FeedbackQuestionAttributes fq = getQuestionFromDatastore("qn3InSession1InCourse1");
         List<FeedbackResponseAttributes> responses =
                 frLogic.getViewableFeedbackResponsesForQuestionInSection(fq, instructor.email,
-                                                                         UserRole.INSTRUCTOR, null);
+                        UserRole.INSTRUCTOR, null);
 
         assertEquals(responses.size(), 1);
 
@@ -658,8 +658,8 @@ public class FeedbackResponsesLogicTest extends BaseLogicTest {
     private FeedbackQuestionAttributes getQuestionFromDatastore(DataBundle dataBundle, String jsonId) {
         FeedbackQuestionAttributes questionToGet = dataBundle.feedbackQuestions.get(jsonId);
         questionToGet = fqLogic.getFeedbackQuestion(questionToGet.feedbackSessionName,
-                                                    questionToGet.courseId,
-                                                    questionToGet.questionNumber);
+                questionToGet.courseId,
+                questionToGet.questionNumber);
 
         return questionToGet;
     }
@@ -670,7 +670,7 @@ public class FeedbackResponsesLogicTest extends BaseLogicTest {
 
     private FeedbackResponseAttributes getResponseFromDatastore(DataBundle dataBundle, String jsonId) {
         FeedbackResponseAttributes response =
-                                        dataBundle.feedbackResponses.get(jsonId);
+                dataBundle.feedbackResponses.get(jsonId);
 
         String qnId;
         try {

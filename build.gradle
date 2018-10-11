@@ -58,43 +58,43 @@ def objectify = "com.googlecode.objectify:objectify:5.1.22"
 def testng = "org.testng:testng:6.9.4"
 
 dependencies {
-    staticAnalysis  "com.puppycrawl.tools:checkstyle:${checkstyleVersion}",
-                    "net.sourceforge.pmd:pmd-java:${pmdVersion}",
-                    "com.google.code.findbugs:findbugs:${findbugsVersion}",
-                    "de.andrena.tools.macker:macker:1.0.1",
-                    "org.jacoco:org.jacoco.build:${jacocoVersion}"
+    staticAnalysis "com.puppycrawl.tools:checkstyle:${checkstyleVersion}",
+            "net.sourceforge.pmd:pmd-java:${pmdVersion}",
+            "com.google.code.findbugs:findbugs:${findbugsVersion}",
+            "de.andrena.tools.macker:macker:1.0.1",
+            "org.jacoco:org.jacoco.build:${jacocoVersion}"
 
     annotationProcessor objectify
 
-    compile         "com.google.appengine:appengine-api-1.0-sdk:${appengineVersion}",
-                    "com.google.appengine.tools:appengine-gcs-client:0.7",
-                    "com.google.code.gson:gson:2.8.5",
-                    "com.google.guava:guava:${guavaVersion}",
-                    objectify,
-                    "com.googlecode.owasp-java-html-sanitizer:owasp-java-html-sanitizer:20180219.1",
-                    "com.mailjet:mailjet-client:4.1.1",
-                    "com.sendgrid:sendgrid-java:4.2.1",
-                    "com.sun.jersey:jersey-client:1.19.4",
-                    "com.sun.jersey:jersey-core:1.19.4",
-                    "com.sun.jersey.contribs:jersey-multipart:1.19.4",
-                    "org.apache.taglibs:taglibs-standard-impl:1.2.5",
-                    "org.jsoup:jsoup:1.11.3"
+    compile "com.google.appengine:appengine-api-1.0-sdk:${appengineVersion}",
+            "com.google.appengine.tools:appengine-gcs-client:0.7",
+            "com.google.code.gson:gson:2.8.5",
+            "com.google.guava:guava:${guavaVersion}",
+            objectify,
+            "com.googlecode.owasp-java-html-sanitizer:owasp-java-html-sanitizer:20180219.1",
+            "com.mailjet:mailjet-client:4.1.1",
+            "com.sendgrid:sendgrid-java:4.2.1",
+            "com.sun.jersey:jersey-client:1.19.4",
+            "com.sun.jersey:jersey-core:1.19.4",
+            "com.sun.jersey.contribs:jersey-multipart:1.19.4",
+            "org.apache.taglibs:taglibs-standard-impl:1.2.5",
+            "org.jsoup:jsoup:1.11.3"
 
     testAnnotationProcessor testng
 
-    testCompile     "com.google.appengine:appengine-api-stubs:${appengineVersion}",
-                    "com.google.appengine:appengine-remote-api:${appengineVersion}",
-                    "com.google.appengine:appengine-testing:${appengineVersion}",
-                    "org.httpunit:httpunit:1.7.2",
-                    "org.seleniumhq.selenium:selenium-java:2.53.1",
-                    testng,
-                    "org.kohsuke:wordnet-random-name:1.3",
-                    // For access of Google APIs such as HTTP transport, authentication and JSON parsing
-                    "com.google.api-client:google-api-client:1.23.0",
-                    // For supporting authorization code flow locally
-                    "com.google.oauth-client:google-oauth-client-jetty:1.23.0",
-                    // For using Gmail API
-                    "com.google.apis:google-api-services-gmail:v1-rev91-1.23.0"
+    testCompile "com.google.appengine:appengine-api-stubs:${appengineVersion}",
+            "com.google.appengine:appengine-remote-api:${appengineVersion}",
+            "com.google.appengine:appengine-testing:${appengineVersion}",
+            "org.httpunit:httpunit:1.7.2",
+            "org.seleniumhq.selenium:selenium-java:2.53.1",
+            testng,
+            "org.kohsuke:wordnet-random-name:1.3",
+            // For access of Google APIs such as HTTP transport, authentication and JSON parsing
+            "com.google.api-client:google-api-client:1.23.0",
+            // For supporting authorization code flow locally
+            "com.google.oauth-client:google-oauth-client-jetty:1.23.0",
+            // For using Gmail API
+            "com.google.apis:google-api-services-gmail:v1-rev91-1.23.0"
 
 }
 
@@ -129,19 +129,20 @@ task createConfigs {
     group "Setup"
     doLast {
         def templatesToCopy = [
-            "gradle.template.properties",
-            "src/main/resources/build.template.properties",
-            "src/test/resources/test.template.properties",
-            "src/main/webapp/WEB-INF/appengine-web.template.xml"
+                "gradle.template.properties",
+                "src/main/resources/build.template.properties",
+                "src/test/resources/test.template.properties",
+                "src/main/webapp/WEB-INF/appengine-web.template.xml"
         ]
         templatesToCopy.findAll {
             !(new File(it.replace(".template", ""))).exists()
         }.each {
-            filename -> copy {
-                from filename
-                into filename.startsWith("src/") ? new File(filename).getParent() : "${projectDir}"
-                rename '(.*).template(.*)', '$1$2'
-            }
+            filename ->
+                copy {
+                    from filename
+                    into filename.startsWith("src/") ? new File(filename).getParent() : "${projectDir}"
+                    rename '(.*).template(.*)', '$1$2'
+                }
         }
     }
 }
@@ -176,7 +177,7 @@ eclipse {
     }
     classpath {
         containers "org.eclipse.buildship.core.gradleclasspathcontainer",
-                   "org.eclipse.jst.server.core.container/com.google.cloud.tools.eclipse.appengine.standard.runtimeClasspathProvider/App Engine Standard Runtime"
+                "org.eclipse.jst.server.core.container/com.google.cloud.tools.eclipse.appengine.standard.runtimeClasspathProvider/App Engine Standard Runtime"
         defaultOutputDir = file("build-eclipse/classes")
         file {
             whenMerged { cp ->
@@ -337,10 +338,10 @@ appengine {
     run {
         port = 8080
         jvmFlags = ["-Xss2m", "-Dfile.encoding=UTF-8",
-                // Absolute paths are not supported, the following is relative to the project directory
-                // These only specify the datastore/blobstore paths, but search indexes are still generated in WEB-INF/appengine-generated
-                "-Ddatastore.backing_store=../../appengine-generated/local_db.bin",
-                "-Dblobstore.backing_store=../../appengine-generated"]
+                    // Absolute paths are not supported, the following is relative to the project directory
+                    // These only specify the datastore/blobstore paths, but search indexes are still generated in WEB-INF/appengine-generated
+                    "-Ddatastore.backing_store=../../appengine-generated/local_db.bin",
+                    "-Dblobstore.backing_store=../../appengine-generated"]
     }
     deploy {
         String appengineWebXmlPath = "${projectDir}/src/main/webapp/WEB-INF/appengine-web.xml"
@@ -377,7 +378,7 @@ pmd {
 findbugs {
     toolVersion = findbugsVersion
     visitors = [
-        "FindDeadLocalStores"
+            "FindDeadLocalStores"
     ]
 }
 
@@ -630,7 +631,7 @@ task downloadFailedXml {
         def failedXml = new File(failedXmlPath)
         failedXml.getParentFile().mkdirs()
         def downloadUrl = failedXmlUrl.replace(/gist_id/, project.getProperty("gist"))
-        new URL(downloadUrl).withInputStream{i -> failedXml.withOutputStream{ it << i }}
+        new URL(downloadUrl).withInputStream { i -> failedXml.withOutputStream { it << i } }
     }
     doLast {
         println "The XML file containing the failed tests has been downloaded successfully."

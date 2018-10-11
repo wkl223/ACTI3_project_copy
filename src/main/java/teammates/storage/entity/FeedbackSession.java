@@ -74,10 +74,10 @@ public class FeedbackSession extends BaseEntity {
     private boolean isTimeStoredInUtc;
 
     private String timeZone;
-    
+
     /* Back-end attribute: used as the key to identify a pdf file in google cloud storage;
-     * a corresponding public setter created, accept a String as param */    
-    private String filePDF;
+     * a corresponding public setter created, accept a String as param */
+    private String filePdf;
 
     @Unindex
     private boolean isFollowingCourseTimeZone;
@@ -117,11 +117,11 @@ public class FeedbackSession extends BaseEntity {
     }
 
     public FeedbackSession(String feedbackSessionName, String courseId,
-            String creatorEmail, Text instructions, Instant createdTime, Instant startTime, Instant endTime,
-            Instant sessionVisibleFromTime, Instant resultsVisibleFromTime, String timeZone, long gracePeriod,
-            boolean sentOpenEmail,
-            boolean sentClosingEmail, boolean sentClosedEmail, boolean sentPublishedEmail,
-            boolean isOpeningEmailEnabled, boolean isClosingEmailEnabled, boolean isPublishedEmailEnabled) {
+                           String creatorEmail, Text instructions, Instant createdTime, Instant startTime, Instant endTime,
+                           Instant sessionVisibleFromTime, Instant resultsVisibleFromTime, String timeZone, long gracePeriod,
+                           boolean sentOpenEmail,
+                           boolean sentClosingEmail, boolean sentClosedEmail, boolean sentPublishedEmail,
+                           boolean isOpeningEmailEnabled, boolean isClosingEmailEnabled, boolean isPublishedEmailEnabled) {
         this(feedbackSessionName, courseId, creatorEmail, instructions, createdTime, startTime, endTime,
                 sessionVisibleFromTime, resultsVisibleFromTime, timeZone, gracePeriod,
                 sentOpenEmail, sentClosingEmail, sentClosedEmail, sentPublishedEmail, isOpeningEmailEnabled,
@@ -129,12 +129,12 @@ public class FeedbackSession extends BaseEntity {
     }
 
     public FeedbackSession(String feedbackSessionName, String courseId,
-            String creatorEmail, Text instructions, Instant createdTime, Instant startTime, Instant endTime,
-            Instant sessionVisibleFromTime, Instant resultsVisibleFromTime, String timeZone, long gracePeriod,
-            boolean sentOpenEmail, boolean sentClosingEmail,
-            boolean sentClosedEmail, boolean sentPublishedEmail,
-            boolean isOpeningEmailEnabled, boolean isClosingEmailEnabled, boolean isPublishedEmailEnabled,
-            Set<String> instructorList, Set<String> studentList) {
+                           String creatorEmail, Text instructions, Instant createdTime, Instant startTime, Instant endTime,
+                           Instant sessionVisibleFromTime, Instant resultsVisibleFromTime, String timeZone, long gracePeriod,
+                           boolean sentOpenEmail, boolean sentClosingEmail,
+                           boolean sentClosedEmail, boolean sentPublishedEmail,
+                           boolean isOpeningEmailEnabled, boolean isClosingEmailEnabled, boolean isPublishedEmailEnabled,
+                           Set<String> instructorList, Set<String> studentList) {
         this.feedbackSessionName = feedbackSessionName;
         this.courseId = courseId;
         this.creatorEmail = creatorEmail;
@@ -407,13 +407,13 @@ public class FeedbackSession extends BaseEntity {
                 + ", isClosingEmailEnabled=" + isClosingEmailEnabled
                 + ", isPublishedEmailEnabled=" + isPublishedEmailEnabled + "]";
     }
-    
+
     public void setFileName(String fileName) {
-        this.filePDF = fileName;
+        this.filePdf = fileName;
     }
-    
+
     public String getFileName() {
-        return this.filePDF;
+        return this.filePdf;
     }
 
 }

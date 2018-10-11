@@ -17,14 +17,12 @@ public final class FieldValidatorExtension {
      * Checks if the given string is a non-null non-empty string no longer than
      * the specified length {@code maxLength}.
      *
-     * @param fieldName
-     *            A descriptive name of the field e.g., "student name", to be
-     *            used in the return value to make the explanation more
-     *            descriptive.
-     * @param value
-     *            The string to be checked.
+     * @param fieldName A descriptive name of the field e.g., "student name", to be
+     *                  used in the return value to make the explanation more
+     *                  descriptive.
+     * @param value     The string to be checked.
      * @return An explanation of why the {@code value} is not acceptable.
-     *         Returns an empty string "" if the {@code value} is acceptable.
+     * Returns an empty string "" if the {@code value} is acceptable.
      */
     public static String getValidityInfoForSizeCappedNonEmptyString(String fieldName, int maxLength, String value) {
         Assumption.assertNotNull("Non-null value expected for " + fieldName, value);

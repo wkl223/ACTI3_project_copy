@@ -21,9 +21,9 @@ public class FeedbackResponseAttributes extends EntityAttributes<FeedbackRespons
     public String feedbackQuestionId;
     public FeedbackQuestionType feedbackQuestionType;
     /**
-    * Depending on the question giver type, {@code giver} may contain the giver's email, the team name,
-    * "anonymous", etc.
-    */
+     * Depending on the question giver type, {@code giver} may contain the giver's email, the team name,
+     * "anonymous", etc.
+     */
     public String giver;
     /**
      * Depending on the question recipient type, {@code recipient} may contain the recipient's email, the team
@@ -31,7 +31,8 @@ public class FeedbackResponseAttributes extends EntityAttributes<FeedbackRespons
      */
     public String recipient;
 
-    /** Contains the JSON formatted string that holds the information of the response details <br>
+    /**
+     * Contains the JSON formatted string that holds the information of the response details <br>
      * Don't use directly unless for storing/loading from data store <br>
      * To get the answer text use {@code getResponseDetails().getAnswerString()}
      *
@@ -49,9 +50,9 @@ public class FeedbackResponseAttributes extends EntityAttributes<FeedbackRespons
     }
 
     public FeedbackResponseAttributes(String feedbackSessionName,
-            String courseId, String feedbackQuestionId,
-            FeedbackQuestionType feedbackQuestionType, String giver, String giverSection,
-            String recipient, String recipientSection, Text responseMetaData) {
+                                      String courseId, String feedbackQuestionId,
+                                      FeedbackQuestionType feedbackQuestionType, String giver, String giverSection,
+                                      String recipient, String recipientSection, Text responseMetaData) {
         this.feedbackSessionName = feedbackSessionName;
         this.courseId = courseId;
         this.feedbackQuestionId = feedbackQuestionId;
@@ -187,6 +188,7 @@ public class FeedbackResponseAttributes extends EntityAttributes<FeedbackRespons
 
     /**
      * Retrieves the Feedback*ResponseDetails object for this response.
+     *
      * @return The Feedback*ResponseDetails object representing the response's details
      */
     public FeedbackResponseDetails getResponseDetails() {
@@ -205,8 +207,10 @@ public class FeedbackResponseAttributes extends EntityAttributes<FeedbackRespons
         return JsonUtils.fromJson(responseMetaData.getValue(), responseDetailsClass);
     }
 
-    /** This method gets the appropriate class type for the Feedback*ResponseDetails object
+    /**
+     * This method gets the appropriate class type for the Feedback*ResponseDetails object
      * for this response.
+     *
      * @return The Feedback*ResponseDetails class type appropriate for this response.
      */
     private Class<? extends FeedbackResponseDetails> getFeedbackResponseDetailsClass() {

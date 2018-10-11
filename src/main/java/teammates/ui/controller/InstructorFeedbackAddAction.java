@@ -54,7 +54,7 @@ public class InstructorFeedbackAddAction extends InstructorFeedbackAbstractActio
 
             try {
                 createTemplateFeedbackQuestions(fs.getCourseId(), fs.getFeedbackSessionName(),
-                                                fs.getCreatorEmail(), sessionTemplateType);
+                        fs.getCreatorEmail(), sessionTemplateType);
             } catch (InvalidParametersException e) {
                 // Failed to create feedback questions for specified template/feedback session type.
                 //TODO: let the user know an error has occurred? delete the feedback session?
@@ -64,12 +64,12 @@ public class InstructorFeedbackAddAction extends InstructorFeedbackAbstractActio
             statusToUser.add(new StatusMessage(Const.StatusMessages.FEEDBACK_SESSION_ADDED, StatusMessageColor.SUCCESS));
             statusToAdmin =
                     "New Feedback Session <span class=\"bold\">(" + fs.getFeedbackSessionName() + ")</span> for Course "
-                    + "<span class=\"bold\">[" + fs.getCourseId() + "]</span> created.<br>"
-                    + "<span class=\"bold\">From:</span> " + fs.getStartTime()
-                    + "<span class=\"bold\"> to</span> " + fs.getEndTime() + "<br>"
-                    + "<span class=\"bold\">Session visible from:</span> " + fs.getSessionVisibleFromTime() + "<br>"
-                    + "<span class=\"bold\">Results visible from:</span> " + fs.getResultsVisibleFromTime() + "<br><br>"
-                    + "<span class=\"bold\">Instructions:</span> " + fs.getInstructions();
+                            + "<span class=\"bold\">[" + fs.getCourseId() + "]</span> created.<br>"
+                            + "<span class=\"bold\">From:</span> " + fs.getStartTime()
+                            + "<span class=\"bold\"> to</span> " + fs.getEndTime() + "<br>"
+                            + "<span class=\"bold\">Session visible from:</span> " + fs.getSessionVisibleFromTime() + "<br>"
+                            + "<span class=\"bold\">Results visible from:</span> " + fs.getResultsVisibleFromTime() + "<br><br>"
+                            + "<span class=\"bold\">Instructions:</span> " + fs.getInstructions();
 
             //TODO: add a condition to include the status due to inconsistency problem of database
             //      (similar to the one below)
@@ -93,17 +93,17 @@ public class InstructorFeedbackAddAction extends InstructorFeedbackAbstractActio
 
         if (feedbackSessions.isEmpty()) {
             statusToUser.add(new StatusMessage(Const.StatusMessages.FEEDBACK_SESSION_ADD_DB_INCONSISTENCY,
-                                               StatusMessageColor.WARNING));
+                    StatusMessageColor.WARNING));
         }
 
         data.initWithoutHighlightedRow(courses, courseId, feedbackSessions, instructors, fs,
-                                       sessionTemplateType);
+                sessionTemplateType);
 
         return createShowPageResult(Const.ViewURIs.INSTRUCTOR_FEEDBACK_SESSIONS, data);
     }
 
     private void createTemplateFeedbackQuestions(String courseId, String feedbackSessionName,
-            String creatorEmail, String sessionTemplateType) throws InvalidParametersException {
+                                                 String creatorEmail, String sessionTemplateType) throws InvalidParametersException {
         if (sessionTemplateType == null) {
             return;
         }
@@ -131,7 +131,8 @@ public class InstructorFeedbackAddAction extends InstructorFeedbackAbstractActio
                     "${feedbackSessionName}", feedbackSessionName,
                     "${creatorEmail}", creatorEmail);
 
-            Type listType = new TypeToken<ArrayList<FeedbackQuestionAttributes>>(){}.getType();
+            Type listType = new TypeToken<ArrayList<FeedbackQuestionAttributes>>() {
+            }.getType();
             return JsonUtils.fromJson(jsonString, listType);
         }
 

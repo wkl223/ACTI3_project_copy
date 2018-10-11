@@ -30,7 +30,7 @@ public class InstructorFeedbackQuestionCopyPageActionTest extends BaseActionTest
         FeedbackSessionAttributes feedbackSessionAttributes =
                 typicalBundle.feedbackSessions.get("session1InCourse1");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, feedbackSessionAttributes.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackSessionAttributes.getFeedbackSessionName()
         };
@@ -46,7 +46,7 @@ public class InstructorFeedbackQuestionCopyPageActionTest extends BaseActionTest
 
         ______TS("failure: non-existent feedback session");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, feedbackSessionAttributes.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, "Non-existent Session Name"
         };
@@ -57,13 +57,13 @@ public class InstructorFeedbackQuestionCopyPageActionTest extends BaseActionTest
             signalFailureToDetectException();
         } catch (UnauthorizedAccessException uae) {
             assertEquals("Trying to access system using a non-existent feedback session entity",
-                         uae.getMessage());
+                    uae.getMessage());
         }
 
         ______TS("failure: unsufficient permissions");
         gaeSimulation.loginAsInstructor(typicalBundle.accounts.get("helperOfCourse1").googleId);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, feedbackSessionAttributes.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackSessionAttributes.getFeedbackSessionName()
         };
@@ -74,8 +74,8 @@ public class InstructorFeedbackQuestionCopyPageActionTest extends BaseActionTest
             signalFailureToDetectException();
         } catch (UnauthorizedAccessException uae) {
             assertEquals("Feedback session [First feedback session] is not accessible "
-                         + "to instructor [helper@course1.tmt] for privilege [canmodifysession]",
-                         uae.getMessage());
+                            + "to instructor [helper@course1.tmt] for privilege [canmodifysession]",
+                    uae.getMessage());
         }
     }
 
@@ -87,7 +87,7 @@ public class InstructorFeedbackQuestionCopyPageActionTest extends BaseActionTest
     @Override
     @Test
     protected void testAccessControl() throws Exception {
-        String[] params = new String[] {
+        String[] params = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, "First feedback session",
                 Const.ParamsNames.COURSE_ID, "idOfTypicalCourse1"
         };

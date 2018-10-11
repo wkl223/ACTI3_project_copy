@@ -57,7 +57,7 @@ function createGroupReceiverListUploadUrl() {
 
 function clearUploadGroupReceiverListInfo() {
     $('#adminEmailGroupReceiverListInput').html('<input type="file" name="emailgroupreceiverlisttoupload" '
-                                                     + 'id="adminEmailGroupReceiverList">');
+            + 'id="adminEmailGroupReceiverList">');
     $('#adminEmailGroupReceiverList').on('change paste keyup', () => {
         createGroupReceiverListUploadUrl();
     });
@@ -135,7 +135,7 @@ function submitImageUploadFormAjax() {
                     setErrorMessage(data.ajaxStatus);
                 } else if (data.isFileUploaded) {
                     const url = data.fileSrcUrl;
-                    callbackFunction(url, { alt: PLACEHOLDER_IMAGE_UPLOAD_ALT_TEXT });
+                    callbackFunction(url, {alt: PLACEHOLDER_IMAGE_UPLOAD_ALT_TEXT});
                     setStatusMessage(data.ajaxStatus, BootstrapContextualColors.SUCCESS);
                 } else {
                     setErrorMessage(data.ajaxStatus);

@@ -13,7 +13,7 @@ function scrollToPosition(scrollPos, duration) {
     if (duration === undefined || duration === null) {
         $(window).scrollTop(scrollPos);
     } else {
-        $('html, body').animate({ scrollTop: scrollPos }, duration);
+        $('html, body').animate({scrollTop: scrollPos}, duration);
     }
 }
 

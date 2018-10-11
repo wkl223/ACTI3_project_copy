@@ -13,8 +13,8 @@ import teammates.test.driver.AssertHelper;
 
 /**
  * SUT: {@link StudentsDb},
- *      {@link teammates.storage.search.StudentSearchDocument},
- *      {@link teammates.storage.search.StudentSearchQuery}.
+ * {@link teammates.storage.search.StudentSearchDocument},
+ * {@link teammates.storage.search.StudentSearchQuery}.
  */
 public class StudentSearchTest extends BaseSearchTest {
 
@@ -46,8 +46,8 @@ public class StudentSearchTest extends BaseSearchTest {
 
         assertEquals(5, bundle.numberOfResults);
         AssertHelper.assertSameContentIgnoreOrder(
-                     Arrays.asList(stu1InCourse1, stu1InCourse2, stu1InCourse3, stu1InUnregCourse, stu1InArchCourse),
-                     bundle.studentList);
+                Arrays.asList(stu1InCourse1, stu1InCourse2, stu1InCourse3, stu1InUnregCourse, stu1InArchCourse),
+                bundle.studentList);
 
         ______TS("success: search for students in whole system; query string should be case-insensitive");
 
@@ -55,16 +55,16 @@ public class StudentSearchTest extends BaseSearchTest {
 
         assertEquals(3, bundle.numberOfResults);
         AssertHelper.assertSameContentIgnoreOrder(
-                     Arrays.asList(stu2InCourse1, stu2InCourse2, stu2InUnregCourse),
-                     bundle.studentList);
+                Arrays.asList(stu2InCourse1, stu2InCourse2, stu2InUnregCourse),
+                bundle.studentList);
 
         ______TS("success: search for students; query string matches some students; results restricted "
-                 + "based on instructor's privilege");
+                + "based on instructor's privilege");
 
         List<InstructorAttributes> ins1OfCourse1 = Arrays.asList(
-                new InstructorAttributes[] { dataBundle.instructors.get("instructor1OfCourse1") });
+                new InstructorAttributes[]{dataBundle.instructors.get("instructor1OfCourse1")});
         List<InstructorAttributes> ins1OfCourse2 = Arrays.asList(
-                new InstructorAttributes[] { dataBundle.instructors.get("instructor1OfCourse2") });
+                new InstructorAttributes[]{dataBundle.instructors.get("instructor1OfCourse2")});
 
         bundle = studentsDb.search("student1", ins1OfCourse1);
 
@@ -86,7 +86,7 @@ public class StudentSearchTest extends BaseSearchTest {
         assertTrue(bundle.studentList.isEmpty());
 
         ______TS("success: search for students; deleted student without deleted document: the document "
-                 + "will be deleted during the search");
+                + "will be deleted during the search");
 
         studentsDb.deleteStudentWithoutDocument(stu1InCourse2.course, stu1InCourse2.email);
 
@@ -101,8 +101,8 @@ public class StudentSearchTest extends BaseSearchTest {
 
         assertEquals(2, bundle.numberOfResults);
         AssertHelper.assertSameContentIgnoreOrder(
-                     Arrays.asList(stu2InCourse2, stu2InUnregCourse),
-                     bundle.studentList);
+                Arrays.asList(stu2InCourse2, stu2InUnregCourse),
+                bundle.studentList);
 
     }
 

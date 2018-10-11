@@ -47,21 +47,21 @@ public class InstructorCourseEnrollSaveActionTest extends BaseActionTest {
         ______TS("Typical case: add and edit students for non-empty course");
 
         enrollString = "Section | Team | Name | Email | Comment" + System.lineSeparator()
-                       // A new student
-                       + "Section 3 \t Team 1\tJean Wong\tjean@email.tmt\tExchange student" + System.lineSeparator()
-                       // A new student with extra spaces in the team and name
-                       + "Section 3 \t Team   1\tstudent  with   extra  spaces  \t"
-                       + "studentWithExtraSpaces@gmail.tmt\t" + System.lineSeparator()
-                       // A student to be modified
-                       + "Section 2 \t Team 1.3\tstudent1 In Course1</td></div>'\"\tstudent1InCourse1@gmail.tmt\t"
-                       + "New comment added" + System.lineSeparator()
-                       // An existing student with no modification
-                       + "Section 1 \t Team 1.1</td></div>'\"\tstudent2 In Course1\tstudent2InCourse1@gmail.tmt\t"
-                       + System.lineSeparator()
-                       // An existing student, now with extra spaces, should cause no modification
-                       + "Section 1 \t Team   1.1</td></div>'\"\tstudent3  In   Course1  \tstudent3InCourse1@gmail.tmt\t";
+                // A new student
+                + "Section 3 \t Team 1\tJean Wong\tjean@email.tmt\tExchange student" + System.lineSeparator()
+                // A new student with extra spaces in the team and name
+                + "Section 3 \t Team   1\tstudent  with   extra  spaces  \t"
+                + "studentWithExtraSpaces@gmail.tmt\t" + System.lineSeparator()
+                // A student to be modified
+                + "Section 2 \t Team 1.3\tstudent1 In Course1</td></div>'\"\tstudent1InCourse1@gmail.tmt\t"
+                + "New comment added" + System.lineSeparator()
+                // An existing student with no modification
+                + "Section 1 \t Team 1.1</td></div>'\"\tstudent2 In Course1\tstudent2InCourse1@gmail.tmt\t"
+                + System.lineSeparator()
+                // An existing student, now with extra spaces, should cause no modification
+                + "Section 1 \t Team   1.1</td></div>'\"\tstudent3  In   Course1  \tstudent3InCourse1@gmail.tmt\t";
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.STUDENTS_ENROLLMENT_INFO, enrollString
         };
@@ -122,8 +122,8 @@ public class InstructorCourseEnrollSaveActionTest extends BaseActionTest {
         verifyStudentEnrollmentStatus(unmodifiedStudentWithExtraSpaces, pageData.getEnrollResultPanelList());
 
         String expectedLogSegment = "Students Enrolled in Course <span class=\"bold\">[" + courseId + "]"
-                                    + ":</span><br>"
-                                    + SanitizationHelper.sanitizeForHtml(enrollString).replace("\n", "<br>");
+                + ":</span><br>"
+                + SanitizationHelper.sanitizeForHtml(enrollString).replace("\n", "<br>");
         AssertHelper.assertContains(expectedLogSegment, enrollAction.getLogMessage());
 
         ______TS("Masquerade mode, enrollment into empty course");
@@ -139,10 +139,10 @@ public class InstructorCourseEnrollSaveActionTest extends BaseActionTest {
 
         String headerRow = "Name\tEmail\tTeam\tComment";
         String studentsInfo = "Jean Wong\tjean@email.tmt\tTeam 1\tExchange student"
-                              + System.lineSeparator() + "James Tan\tjames@email.tmt\tTeam 2\t";
+                + System.lineSeparator() + "James Tan\tjames@email.tmt\tTeam 2\t";
         enrollString = headerRow + System.lineSeparator() + studentsInfo;
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.USER_ID, instructorId,
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.STUDENTS_ENROLLMENT_INFO, enrollString
@@ -181,7 +181,7 @@ public class InstructorCourseEnrollSaveActionTest extends BaseActionTest {
         verifyStudentEnrollmentStatus(student2, pageData.getEnrollResultPanelList());
 
         expectedLogSegment = "Students Enrolled in Course <span class=\"bold\">[" + courseId + "]:</span>"
-                             + "<br>" + enrollString.replace("\n", "<br>");
+                + "<br>" + enrollString.replace("\n", "<br>");
         AssertHelper.assertContains(expectedLogSegment, enrollAction.getLogMessage());
 
         ______TS("Failure case: enrollment failed due to invalid lines");
@@ -192,10 +192,10 @@ public class InstructorCourseEnrollSaveActionTest extends BaseActionTest {
         String studentWithInvalidEmail = "Team 2\tBenjamin Tan\tinvalid.email.tmt";
         String invalidEmail = "invalid.email.tmt";
         enrollString = "Team | Name | Email" + System.lineSeparator()
-                     + studentWithoutEnoughParam + System.lineSeparator()
-                     + studentWithInvalidEmail;
+                + studentWithoutEnoughParam + System.lineSeparator()
+                + studentWithInvalidEmail;
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.STUDENTS_ENROLLMENT_INFO, enrollString
         };
@@ -205,34 +205,34 @@ public class InstructorCourseEnrollSaveActionTest extends BaseActionTest {
         assertEquals(Const.ViewURIs.INSTRUCTOR_COURSE_ENROLL, pageResult.destination);
         assertTrue(pageResult.isError);
         String expectedStatusMessage = "<p>"
-                                            + "<span class=\"bold\">Problem in line : "
-                                                + "<span class=\"invalidLine\">"
-                                                    + SanitizationHelper.sanitizeForHtml(studentWithoutEnoughParam)
-                                                + "</span>"
-                                            + "</span>"
-                                            + "<br>"
-                                            + "<span class=\"problemDetail\">&bull; "
-                                                + StudentAttributesFactory.ERROR_ENROLL_LINE_TOOFEWPARTS
-                                            + "</span>"
-                                        + "</p>"
-                                        + "<br>"
-                                        + "<p>"
-                                            + "<span class=\"bold\">Problem in line : "
-                                                + "<span class=\"invalidLine\">"
-                                                    + SanitizationHelper.sanitizeForHtml(studentWithInvalidEmail)
-                                                + "</span>"
-                                            + "</span>"
-                                            + "<br>"
-                                            + "<span class=\"problemDetail\">&bull; "
-                                                + SanitizationHelper.sanitizeForHtml(
-                                                        getPopulatedErrorMessage(
-                                                            FieldValidator.EMAIL_ERROR_MESSAGE,
-                                                            invalidEmail,
-                                                            FieldValidator.EMAIL_FIELD_NAME,
-                                                            FieldValidator.REASON_INCORRECT_FORMAT,
-                                                            FieldValidator.EMAIL_MAX_LENGTH))
-                                            + "</span>"
-                                        + "</p>";
+                + "<span class=\"bold\">Problem in line : "
+                + "<span class=\"invalidLine\">"
+                + SanitizationHelper.sanitizeForHtml(studentWithoutEnoughParam)
+                + "</span>"
+                + "</span>"
+                + "<br>"
+                + "<span class=\"problemDetail\">&bull; "
+                + StudentAttributesFactory.ERROR_ENROLL_LINE_TOOFEWPARTS
+                + "</span>"
+                + "</p>"
+                + "<br>"
+                + "<p>"
+                + "<span class=\"bold\">Problem in line : "
+                + "<span class=\"invalidLine\">"
+                + SanitizationHelper.sanitizeForHtml(studentWithInvalidEmail)
+                + "</span>"
+                + "</span>"
+                + "<br>"
+                + "<span class=\"problemDetail\">&bull; "
+                + SanitizationHelper.sanitizeForHtml(
+                getPopulatedErrorMessage(
+                        FieldValidator.EMAIL_ERROR_MESSAGE,
+                        invalidEmail,
+                        FieldValidator.EMAIL_FIELD_NAME,
+                        FieldValidator.REASON_INCORRECT_FORMAT,
+                        FieldValidator.EMAIL_MAX_LENGTH))
+                + "</span>"
+                + "</p>";
         assertEquals(expectedStatusMessage, pageResult.getStatusMessage());
         verifyNoTasksAdded(enrollAction);
 
@@ -241,7 +241,7 @@ public class InstructorCourseEnrollSaveActionTest extends BaseActionTest {
         assertEquals(enrollString, enrollPageData.getEnrollStudents());
 
         expectedLogSegment = expectedStatusMessage + "<br>Enrollment string entered by user:<br>"
-                             + enrollString.replace("\n", "<br>");
+                + enrollString.replace("\n", "<br>");
         AssertHelper.assertContains(expectedLogSegment, enrollAction.getLogMessage());
 
         ______TS("Boundary test for size limit per enrollment");
@@ -251,9 +251,9 @@ public class InstructorCourseEnrollSaveActionTest extends BaseActionTest {
         enrollStringBuilder.append("Section\tTeam\tName\tEmail");
         for (int i = 0; i < Const.SIZE_LIMIT_PER_ENROLLMENT; i++) {
             enrollStringBuilder.append(System.lineSeparator()).append("section" + i + "\tteam" + i + "\tname" + i
-                                                         + "\temail" + i + "@nonexistemail.nonexist");
+                    + "\temail" + i + "@nonexistemail.nonexist");
         }
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.STUDENTS_ENROLLMENT_INFO, enrollStringBuilder.toString()
         };
@@ -266,9 +266,9 @@ public class InstructorCourseEnrollSaveActionTest extends BaseActionTest {
         //fail to enroll, if exceed the range
         enrollStringBuilder.append(System.lineSeparator()).append(
                 "section" + Const.SIZE_LIMIT_PER_ENROLLMENT + "\tteam" + Const.SIZE_LIMIT_PER_ENROLLMENT
-                 + "\tname" + Const.SIZE_LIMIT_PER_ENROLLMENT + "\temail" + Const.SIZE_LIMIT_PER_ENROLLMENT
-                 + "@nonexistemail.nonexist");
-        submissionParams = new String[] {
+                        + "\tname" + Const.SIZE_LIMIT_PER_ENROLLMENT + "\temail" + Const.SIZE_LIMIT_PER_ENROLLMENT
+                        + "@nonexistemail.nonexist");
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.STUDENTS_ENROLLMENT_INFO, enrollStringBuilder.toString()
         };
@@ -283,7 +283,7 @@ public class InstructorCourseEnrollSaveActionTest extends BaseActionTest {
 
         enrollString = "";
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.STUDENTS_ENROLLMENT_INFO, enrollString
         };
@@ -333,7 +333,7 @@ public class InstructorCourseEnrollSaveActionTest extends BaseActionTest {
     @Override
     @Test
     protected void testAccessControl() throws Exception {
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, typicalBundle.instructors.get("instructor1OfCourse1").courseId,
                 Const.ParamsNames.STUDENTS_ENROLLMENT_INFO, ""
         };

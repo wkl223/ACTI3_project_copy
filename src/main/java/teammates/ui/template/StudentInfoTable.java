@@ -22,7 +22,7 @@ public class StudentInfoTable {
         this.courseId = student.course;
         this.courseDetailsLink = courseDetailsLink;
         this.hasSection = hasSection;
-        this.like=student.like;
+        this.like = student.like;
     }
 
     public String getName() {
@@ -57,5 +57,7 @@ public class StudentInfoTable {
         return hasSection;
     }
 
-    public int getLike(){return like;}
+    public int getLike() {
+        return like;
+    }
 }
