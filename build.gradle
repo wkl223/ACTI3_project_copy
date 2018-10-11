@@ -388,7 +388,7 @@ tasks.withType(FindBugs) {
         html.enabled = true
     }
 }
-
+/*
 task downloadStaticAnalysisTools {
     description "Downloads all static analysis tools."
     group "Static analysis"
@@ -396,7 +396,7 @@ task downloadStaticAnalysisTools {
         configurations.staticAnalysis.resolve()
     }
 }
-
+*/
 task lintMain {
     dependsOn checkstyleMain, pmdMain, findbugsMain
 }
