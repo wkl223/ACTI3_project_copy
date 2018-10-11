@@ -34,7 +34,7 @@ public class InstructorFeedbackResendPublishedEmailPageActionTest extends BaseAc
         verifyAssumptionFailure();
 
         ______TS("Typical case");
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, course.getId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fsa.getFeedbackSessionName()
         };
@@ -68,7 +68,7 @@ public class InstructorFeedbackResendPublishedEmailPageActionTest extends BaseAc
     protected void testAccessControl() throws Exception {
         CourseAttributes course = typicalBundle.courses.get("typicalCourse1");
         FeedbackSessionAttributes fsa = typicalBundle.feedbackSessions.get("closedSession");
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, course.getId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fsa.getFeedbackSessionName()
         };

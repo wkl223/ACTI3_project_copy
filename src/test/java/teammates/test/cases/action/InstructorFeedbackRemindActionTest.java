@@ -29,11 +29,11 @@ public class InstructorFeedbackRemindActionTest extends BaseActionTest {
 
         ______TS("Unsuccessful case: Not enough parameters");
         verifyAssumptionFailure();
-        String[] paramsNoCourseId = new String[] {
+        String[] paramsNoCourseId = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getSessionName(),
         };
         verifyAssumptionFailure(paramsNoCourseId);
-        String[] paramsNoFeedback = new String[] {
+        String[] paramsNoFeedback = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId()
         };
         verifyAssumptionFailure(paramsNoFeedback);
@@ -41,7 +41,7 @@ public class InstructorFeedbackRemindActionTest extends BaseActionTest {
         ______TS("Unsuccessful case: Feedback session not open, warning message generated");
 
         fs = typicalBundle.feedbackSessions.get("awaiting.session");
-        String[] paramsFeedbackSessionNotOpen = new String[] {
+        String[] paramsFeedbackSessionNotOpen = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getSessionName()
         };
@@ -55,7 +55,7 @@ public class InstructorFeedbackRemindActionTest extends BaseActionTest {
         ______TS("Successful case: Typical case");
 
         fs = typicalBundle.feedbackSessions.get("session1InCourse1");
-        String[] paramsTypical = new String[] {
+        String[] paramsTypical = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getSessionName(),
         };
@@ -80,7 +80,7 @@ public class InstructorFeedbackRemindActionTest extends BaseActionTest {
     protected void testAccessControl() throws Exception {
         FeedbackSessionAttributes session = typicalBundle.feedbackSessions.get("session1InCourse1");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, session.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, session.getFeedbackSessionName()
         };

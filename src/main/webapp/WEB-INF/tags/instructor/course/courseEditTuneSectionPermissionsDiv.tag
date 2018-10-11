@@ -7,7 +7,8 @@
 <%@ attribute name="panelIndex" required="true" %>
 <%@ attribute name="sectionRow" type="teammates.ui.template.CourseEditSectionRow" required="true" %>
 
-<div id="tuneSectionPermissionsDiv${panelIndex}ForInstructor${instructorIndex}" data-is-originally-displayed="${sectionRow.sectionSpecial}"
+<div id="tuneSectionPermissionsDiv${panelIndex}ForInstructor${instructorIndex}"
+     data-is-originally-displayed="${sectionRow.sectionSpecial}"
     <c:if test="${not sectionRow.sectionSpecial}">
       style="display: none;"
     </c:if> >
@@ -24,7 +25,7 @@
               <c:forEach items="${specialSectionSmallGroup}" var="specialSection">
                 <div class="col-sm-4">
                   <input ${specialSection.attributesToString}>
-                  ${specialSection.content}
+                    ${specialSection.content}
                 </div>
               </c:forEach>
             </div>
@@ -33,7 +34,7 @@
 
         <div class="col-sm-1">
           <a href="javascript:;" data-instructorindex="${instructorIndex}" data-panelindex="${panelIndex}"
-              class="pull-right hide-tune-section-permissions">
+             class="pull-right hide-tune-section-permissions">
             <span class="glyphicon glyphicon-trash"></span>
           </a>
         </div>
@@ -46,7 +47,8 @@
         </div>
       </div>
 
-      <input type="hidden" name="is<%=Const.ParamsNames.INSTRUCTOR_SECTION_GROUP%>${panelIndex}set" value="${sectionRow.sectionSpecial}"/>
+      <input type="hidden" name="is<%=Const.ParamsNames.INSTRUCTOR_SECTION_GROUP%>${panelIndex}set"
+             value="${sectionRow.sectionSpecial}"/>
     </div>
 
     <div class="panel-body">
@@ -70,17 +72,17 @@
       <c:choose>
         <c:when test="${sectionRow.sessionsInSectionSpecial}">
           <a class="small col-sm-5 hide-tune-session-permissions"
-              id="toggleSessionLevelInSection${sectionRow.panelIndex}ForInstructor${sectionRow.instructorIndex}"
-              data-instructorindex="${sectionRow.instructorIndex}" data-panelindex="${sectionRow.panelIndex}"
-              href="javascript:;">
+             id="toggleSessionLevelInSection${sectionRow.panelIndex}ForInstructor${sectionRow.instructorIndex}"
+             data-instructorindex="${sectionRow.instructorIndex}" data-panelindex="${sectionRow.panelIndex}"
+             href="javascript:;">
             Hide session-level permissions
           </a>
         </c:when>
         <c:otherwise>
           <a class="small col-sm-5 show-tune-session-permissions"
-              id="toggleSessionLevelInSection${sectionRow.panelIndex}ForInstructor${sectionRow.instructorIndex}"
-              data-instructorindex="${sectionRow.instructorIndex}" data-panelindex="${sectionRow.panelIndex}"
-              href="javascript:;">
+             id="toggleSessionLevelInSection${sectionRow.panelIndex}ForInstructor${sectionRow.instructorIndex}"
+             data-instructorindex="${sectionRow.instructorIndex}" data-panelindex="${sectionRow.panelIndex}"
+             href="javascript:;">
             Give different permissions for sessions in this section
           </a>
         </c:otherwise>

@@ -37,10 +37,10 @@ public class StudentHomePageData extends PageData {
         int startingSessionIdx = 0; // incremented for each session row without resetting between courses
         for (CourseDetailsBundle courseDetails : courses) {
             CourseTable courseTable = new CourseTable(courseDetails.course,
-                                                      createCourseTableLinks(courseDetails.course.getId()),
-                                                      createSessionRows(courseDetails.feedbackSessions,
-                                                                        sessionSubmissionStatusMap,
-                                                                        startingSessionIdx));
+                    createCourseTableLinks(courseDetails.course.getId()),
+                    createSessionRows(courseDetails.feedbackSessions,
+                            sessionSubmissionStatusMap,
+                            startingSessionIdx));
             startingSessionIdx += courseDetails.feedbackSessions.size();
             courseTables.add(courseTable);
         }
@@ -49,13 +49,13 @@ public class StudentHomePageData extends PageData {
     private List<ElementTag> createCourseTableLinks(String courseId) {
         List<ElementTag> links = new ArrayList<>();
         links.add(new ElementTag("View Team",
-                                 "href", getStudentCourseDetailsLink(courseId),
-                                 "title", Const.Tooltips.STUDENT_COURSE_DETAILS));
+                "href", getStudentCourseDetailsLink(courseId),
+                "title", Const.Tooltips.STUDENT_COURSE_DETAILS));
         return links;
     }
 
     private List<HomeFeedbackSessionRow> createSessionRows(List<FeedbackSessionDetailsBundle> feedbackSessions,
-            Map<FeedbackSessionAttributes, Boolean> sessionSubmissionStatusMap, int startingSessionIdx) {
+                                                           Map<FeedbackSessionAttributes, Boolean> sessionSubmissionStatusMap, int startingSessionIdx) {
         List<HomeFeedbackSessionRow> rows = new ArrayList<>();
 
         int sessionIdx = startingSessionIdx;
@@ -84,7 +84,7 @@ public class StudentHomePageData extends PageData {
     /**
      * Returns the submission status of the student for a given feedback session as a String.
      *
-     * @param session The feedback session in question.
+     * @param session      The feedback session in question.
      * @param hasSubmitted Whether the student had submitted the session or not.
      */
     private String getStudentSubmissionStatusForSession(FeedbackSessionAttributes session, boolean hasSubmitted) {
@@ -110,7 +110,7 @@ public class StudentHomePageData extends PageData {
     /**
      * Returns the hover message to explain feedback session submission status.
      *
-     * @param session The feedback session in question.
+     * @param session      The feedback session in question.
      * @param hasSubmitted Whether the student had submitted the session or not.
      */
     private String getStudentSubmissionsTooltipForSession(FeedbackSessionAttributes session, boolean hasSubmitted) {
@@ -142,7 +142,7 @@ public class StudentHomePageData extends PageData {
     /**
      * Returns the list of available actions for a specific feedback session.
      *
-     * @param fs The feedback session in question.
+     * @param fs           The feedback session in question.
      * @param hasSubmitted Whether the student had submitted the session or not.
      */
     private StudentFeedbackSessionActions getStudentFeedbackSessionActions(

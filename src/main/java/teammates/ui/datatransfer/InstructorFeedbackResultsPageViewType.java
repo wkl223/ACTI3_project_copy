@@ -20,15 +20,15 @@ public enum InstructorFeedbackResultsPageViewType {
 
     public String additionalInfoId() {
         switch (this) {
-        case GIVER_QUESTION_RECIPIENT:
-            return "giver-%s-question-%s";
-        case RECIPIENT_QUESTION_GIVER:
-            return "recipient-%s-question-%s";
-        case GIVER_RECIPIENT_QUESTION:
-        case RECIPIENT_GIVER_QUESTION:
-            return "giver-%s-recipient-%s";
-        default:
-            return "";
+            case GIVER_QUESTION_RECIPIENT:
+                return "giver-%s-question-%s";
+            case RECIPIENT_QUESTION_GIVER:
+                return "recipient-%s-question-%s";
+            case GIVER_RECIPIENT_QUESTION:
+            case RECIPIENT_GIVER_QUESTION:
+                return "giver-%s-recipient-%s";
+            default:
+                return "";
         }
     }
 

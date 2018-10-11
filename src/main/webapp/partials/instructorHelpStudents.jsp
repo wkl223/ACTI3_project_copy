@@ -15,10 +15,13 @@
           </p>
           <ol>
             <li>
-              Go to the <b>Students</b> page and click the panel heading for Course B. You will see a list of students enrolled in the course.
+              Go to the <b>Students</b> page and click the panel heading for Course B. You will see a list of students
+              enrolled in the course.
             </li>
             <li>
-              Click the <button class="btn btn-default btn-xs">View</button> button in the last column of the row corresponding to Student A.
+              Click the
+              <button class="btn btn-default btn-xs">View</button>
+              button in the last column of the row corresponding to Student A.
               A new page will open displaying the student's profile, similar to the sample profile below.
             </li>
           </ol>
@@ -102,24 +105,30 @@
           </p>
           <ul>
             <li>
-              <b>Section name</b>: the name of the section you enrolled the student in. This only appears if sections are created for the course.
+              <b>Section name</b>: the name of the section you enrolled the student in. This only appears if sections
+              are created for the course.
             </li>
             <li>
-              <b>Team name</b>: the name of the team you enrolled the student in, or <i>NA</i> if the student does not belong to a team.
+              <b>Team name</b>: the name of the team you enrolled the student in, or <i>NA</i> if the student does not
+              belong to a team.
             </li>
             <li>
-              <b>Official email address</b>: the email address that will be used to contact the student, taken from enrollment information
+              <b>Official email address</b>: the email address that will be used to contact the student, taken from
+              enrollment information
             </li>
             <li>
               <b>Comments</b>: additional student information you entered in the Comments column during enrollment
             </li>
           </ul>
           <p>
-            Below this is the <b>More Info</b> section containing a personal description given by the student, if any.<br>
-            You can press the <span class="text-muted glyphicon glyphicon-resize-full"></span> button in the top-right corner to display the information in a lightbox for better readability.
+            Below this is the <b>More Info</b> section containing a personal description given by the student, if
+            any.<br>
+            You can press the <span class="text-muted glyphicon glyphicon-resize-full"></span> button in the top-right
+            corner to display the information in a lightbox for better readability.
           </p>
           <div class="bs-example">
-            <div class="modal fade" id="studentProfileMoreInfo" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade" id="studentProfileMoreInfo" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
               <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -130,7 +139,8 @@
                     <br>
                     <%-- Note: When an element has class text-preserve-space, do not insert HTML spaces --%>
                     <p>
-                      Hi I am Alice Betsy! I am from Colorado, America. I am a programming and gaming enthusiast. Aspiring to become a Software Architect in a well reputed organization.
+                      Hi I am Alice Betsy! I am from Colorado, America. I am a programming and gaming enthusiast.
+                      Aspiring to become a Software Architect in a well reputed organization.
                     </p>
                   </div>
                   <div class="modal-footer">
@@ -147,7 +157,9 @@
                       class="text-muted pull-right glyphicon glyphicon-resize-full cursor-pointer"></span>
                     <h5>More Info </h5>
                     <%-- Note: When an element has class text-preserve-space, do not insert HTML spaces --%>
-                    <p class="text-preserve-space height-fixed-md">Hi I am Alice Betsy! I am from Colorado, America. I am a programming and gaming enthusiast. Aspiring to become a Software Architect in a well reputed organization.</p>
+                    <p class="text-preserve-space height-fixed-md">Hi I am Alice Betsy! I am from Colorado, America. I
+                      am a programming and gaming enthusiast. Aspiring to become a Software Architect in a well reputed
+                      organization.</p>
                   </div>
                 </div>
               </div>
@@ -167,20 +179,27 @@
           </p>
           <ol>
             <li>
-              Go to the <b>Students</b> page and click the panel heading for Course B. You will see a list of students enrolled in Course B.
+              Go to the <b>Students</b> page and click the panel heading for Course B. You will see a list of students
+              enrolled in Course B.
             </li>
             <li>
-              Click the <button class="btn btn-default btn-xs">Edit</button> button in the last column of the row corresponding to Student A.<br>
+              Click the
+              <button class="btn btn-default btn-xs">Edit</button>
+              button in the last column of the row corresponding to Student A.<br>
             </li>
             <li>
-              In the new page that opens, edit the relevant fields of Student A's details. The page will look similar to the example below.
+              In the new page that opens, edit the relevant fields of Student A's details. The page will look similar to
+              the example below.
             </li>
             <li>
-              Click <button class="btn btn-primary btn-s">Save Changes</button> to save your changes to Student A's details.
+              Click
+              <button class="btn btn-primary btn-s">Save Changes</button>
+              to save your changes to Student A's details.
             </li>
           </ol>
           <p>
-            Note that moving a student to a different team (i.e. changing the student's Team ID) will change the student's team in all existing sessions in the course.
+            Note that moving a student to a different team (i.e. changing the student's Team ID) will change the
+            student's team in all existing sessions in the course.
           </p>
           <div class="bs-example">
             <div class="panel panel-primary" id="studentEditProfile">
@@ -239,10 +258,13 @@
           </p>
           <ol>
             <li>
-              Go to the <b>Students</b> page and click the panel heading for Course B. You will see a list of students enrolled in the course.
+              Go to the <b>Students</b> page and click the panel heading for Course B. You will see a list of students
+              enrolled in the course.
             </li>
             <li>
-              Click <button class="btn btn-xs btn-default">All Records</button> button corresponding to Student A to access all the responses Student A has given and received.
+              Click
+              <button class="btn btn-xs btn-default">All Records</button>
+              button corresponding to Student A to access all the responses Student A has given and received.
             </li>
           </ol>
         </div>
@@ -258,7 +280,8 @@
       <div id="student-search-body" class="panel-collapse collapse">
         <div class="panel-body">
           <p>
-            You can search for students from the <b>Search</b> page. Click the <b>Search</b> tab in the navigation bar at the top of the page. You should see a search bar similar to the one below:
+            You can search for students from the <b>Search</b> page. Click the <b>Search</b> tab in the navigation bar
+            at the top of the page. You should see a search bar similar to the one below:
           </p>
           <div class="bs-example">
             <div class="well well-plain">
@@ -316,11 +339,14 @@
               </ul>
             </li>
             <li>
-              Click the <button class="btn btn-primary btn">Search</button> button.
+              Click the
+              <button class="btn btn-primary btn">Search</button>
+              button.
             </li>
           </ol>
           <p>
-            If you search for <code>alice</code>, the search results would show something like this (assuming such a student exists):
+            If you search for <code>alice</code>, the search results would show something like this (assuming such a
+            student exists):
           </p>
           <div class="bs-example">
             <div class="panel panel-primary">
@@ -370,12 +396,17 @@
                         <td><span class="highlight">alice</span>@email.com</td>
                         <td class="no-print align-center">
                           <a class="btn btn-default btn-xs" title="View details of the student"
-                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="top">View</a>
-                          <a class="btn btn-default btn-xs" title="Use this to edit the details of this student. <br>To edit multiple students in one go, you can use the enroll page: <br>Simply enroll students using the updated data and existing data will be updated accordingly"
-                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="top">Edit</a>
+                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip"
+                             data-placement="top">View</a>
+                          <a class="btn btn-default btn-xs"
+                             title="Use this to edit the details of this student. <br>To edit multiple students in one go, you can use the enroll page: <br>Simply enroll students using the updated data and existing data will be updated accordingly"
+                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip"
+                             data-placement="top">Edit</a>
                           <a class="course-student-delete-link btn btn-default btn-xs"
-                             title="Delete the student and the corresponding submissions from the course" href="" data-toggle="tooltip" data-placement="top">Delete</a>
-                          <a class="btn btn-default btn-xs" href="" title="View all data about this student" target="_blank" rel="noopener noreferrer"
+                             title="Delete the student and the corresponding submissions from the course" href=""
+                             data-toggle="tooltip" data-placement="top">Delete</a>
+                          <a class="btn btn-default btn-xs" href="" title="View all data about this student"
+                             target="_blank" rel="noopener noreferrer"
                              data-toggle="tooltip" data-placement="top">All Records</a>
                         </td>
                       </tr>
@@ -387,8 +418,10 @@
             </div>
           </div>
           <p>
-            You can search for multiple students based on the attributes mentioned above. To do so, include the terms you wish to search for in the search box separated by spaces.<br>
-            For example, if you search for <code>alice Section A Team B jack@email.com</code>, the search would result in something similar to this (assuming the corresponding data exists):
+            You can search for multiple students based on the attributes mentioned above. To do so, include the terms
+            you wish to search for in the search box separated by spaces.<br>
+            For example, if you search for <code>alice Section A Team B jack@email.com</code>, the search would result
+            in something similar to this (assuming the corresponding data exists):
           </p>
           <div class="bs-example">
             <div class="panel panel-primary">
@@ -438,12 +471,17 @@
                         <td><span class="highlight">alice</span>@email.com</td>
                         <td class="no-print align-center">
                           <a class="btn btn-default btn-xs" title="View details of the student"
-                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="top">View</a>
-                          <a class="btn btn-default btn-xs" title="Use this to edit the details of this student. <br>To edit multiple students in one go, you can use the enroll page: <br>Simply enroll students using the updated data and existing data will be updated accordingly"
-                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="top">Edit</a>
+                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip"
+                             data-placement="top">View</a>
+                          <a class="btn btn-default btn-xs"
+                             title="Use this to edit the details of this student. <br>To edit multiple students in one go, you can use the enroll page: <br>Simply enroll students using the updated data and existing data will be updated accordingly"
+                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip"
+                             data-placement="top">Edit</a>
                           <a class="course-student-delete-link btn btn-default btn-xs"
-                             title="Delete the student and the corresponding submissions from the course" href="" data-toggle="tooltip" data-placement="top">Delete</a>
-                          <a class="btn btn-default btn-xs" href="" title="View all data about this student" target="_blank" rel="noopener noreferrer"
+                             title="Delete the student and the corresponding submissions from the course" href=""
+                             data-toggle="tooltip" data-placement="top">Delete</a>
+                          <a class="btn btn-default btn-xs" href="" title="View all data about this student"
+                             target="_blank" rel="noopener noreferrer"
                              data-toggle="tooltip" data-placement="top">All Records</a>
                         </td>
                       </tr>
@@ -461,12 +499,17 @@
                         <td>jean@email.com</td>
                         <td class="no-print align-center">
                           <a class="btn btn-default btn-xs" title="View details of the student"
-                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="top">View</a>
-                          <a class="btn btn-default btn-xs" title="Use this to edit the details of this student. <br>To edit multiple students in one go, you can use the enroll page: <br>Simply enroll students using the updated data and existing data will be updated accordingly"
-                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="top">Edit</a>
+                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip"
+                             data-placement="top">View</a>
+                          <a class="btn btn-default btn-xs"
+                             title="Use this to edit the details of this student. <br>To edit multiple students in one go, you can use the enroll page: <br>Simply enroll students using the updated data and existing data will be updated accordingly"
+                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip"
+                             data-placement="top">Edit</a>
                           <a class="course-student-delete-link btn btn-default btn-xs"
-                             title="Delete the student and the corresponding submissions from the course" href="" data-toggle="tooltip" data-placement="top">Delete</a>
-                          <a class="btn btn-default btn-xs" href="" title="View all data about this student" target="_blank" rel="noopener noreferrer"
+                             title="Delete the student and the corresponding submissions from the course" href=""
+                             data-toggle="tooltip" data-placement="top">Delete</a>
+                          <a class="btn btn-default btn-xs" href="" title="View all data about this student"
+                             target="_blank" rel="noopener noreferrer"
                              data-toggle="tooltip" data-placement="top">All Records</a>
                         </td>
                       </tr>
@@ -484,12 +527,17 @@
                         <td>oliver@email.com</td>
                         <td class="no-print align-center">
                           <a class="btn btn-default btn-xs" title="View details of the student"
-                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="top">View</a>
-                          <a class="btn btn-default btn-xs" title="Use this to edit the details of this student. <br>To edit multiple students in one go, you can use the enroll page: <br>Simply enroll students using the updated data and existing data will be updated accordingly"
-                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="top">Edit</a>
+                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip"
+                             data-placement="top">View</a>
+                          <a class="btn btn-default btn-xs"
+                             title="Use this to edit the details of this student. <br>To edit multiple students in one go, you can use the enroll page: <br>Simply enroll students using the updated data and existing data will be updated accordingly"
+                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip"
+                             data-placement="top">Edit</a>
                           <a class="course-student-delete-link btn btn-default btn-xs"
-                             title="Delete the student and the corresponding submissions from the course" href="" data-toggle="tooltip" data-placement="top">Delete</a>
-                          <a class="btn btn-default btn-xs" href="" title="View all data about this student" target="_blank" rel="noopener noreferrer"
+                             title="Delete the student and the corresponding submissions from the course" href=""
+                             data-toggle="tooltip" data-placement="top">Delete</a>
+                          <a class="btn btn-default btn-xs" href="" title="View all data about this student"
+                             target="_blank" rel="noopener noreferrer"
                              data-toggle="tooltip" data-placement="top">All Records</a>
                         </td>
                       </tr>
@@ -507,12 +555,17 @@
                         <td>thora@email.com</td>
                         <td class="no-print align-center">
                           <a class="btn btn-default btn-xs" title="View details of the student"
-                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="top">View</a>
-                          <a class="btn btn-default btn-xs" title="Use this to edit the details of this student. <br>To edit multiple students in one go, you can use the enroll page: <br>Simply enroll students using the updated data and existing data will be updated accordingly"
-                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="top">Edit</a>
+                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip"
+                             data-placement="top">View</a>
+                          <a class="btn btn-default btn-xs"
+                             title="Use this to edit the details of this student. <br>To edit multiple students in one go, you can use the enroll page: <br>Simply enroll students using the updated data and existing data will be updated accordingly"
+                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip"
+                             data-placement="top">Edit</a>
                           <a class="course-student-delete-link btn btn-default btn-xs"
-                             title="Delete the student and the corresponding submissions from the course" href="" data-toggle="tooltip" data-placement="top">Delete</a>
-                          <a class="btn btn-default btn-xs" href="" title="View all data about this student" target="_blank" rel="noopener noreferrer"
+                             title="Delete the student and the corresponding submissions from the course" href=""
+                             data-toggle="tooltip" data-placement="top">Delete</a>
+                          <a class="btn btn-default btn-xs" href="" title="View all data about this student"
+                             target="_blank" rel="noopener noreferrer"
                              data-toggle="tooltip" data-placement="top">All Records</a>
                         </td>
                       </tr>
@@ -530,12 +583,17 @@
                         <td><span class="highlight">jack@email.com</span></td>
                         <td class="no-print align-center">
                           <a class="btn btn-default btn-xs" title="View details of the student"
-                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="top">View</a>
-                          <a class="btn btn-default btn-xs" title="Use this to edit the details of this student. <br>To edit multiple students in one go, you can use the enroll page: <br>Simply enroll students using the updated data and existing data will be updated accordingly"
-                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="top">Edit</a>
+                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip"
+                             data-placement="top">View</a>
+                          <a class="btn btn-default btn-xs"
+                             title="Use this to edit the details of this student. <br>To edit multiple students in one go, you can use the enroll page: <br>Simply enroll students using the updated data and existing data will be updated accordingly"
+                             href="" target="_blank" rel="noopener noreferrer" data-toggle="tooltip"
+                             data-placement="top">Edit</a>
                           <a class="course-student-delete-link btn btn-default btn-xs"
-                             title="Delete the student and the corresponding submissions from the course" href="" data-toggle="tooltip" data-placement="top">Delete</a>
-                          <a class="btn btn-default btn-xs" href="" title="View all data about this student" target="_blank" rel="noopener noreferrer"
+                             title="Delete the student and the corresponding submissions from the course" href=""
+                             data-toggle="tooltip" data-placement="top">Delete</a>
+                          <a class="btn btn-default btn-xs" href="" title="View all data about this student"
+                             target="_blank" rel="noopener noreferrer"
                              data-toggle="tooltip" data-placement="top">All Records</a>
                         </td>
                       </tr>
@@ -560,7 +618,9 @@
               On the <b>Students</b> page, filter out the selected student/students.
             </li>
             <li>
-              Click <button class="btn btn-xs btn-default">Copy Emails</button> to copy their email addresses to your clipboard
+              Click
+              <button class="btn btn-xs btn-default">Copy Emails</button>
+              to copy their email addresses to your clipboard
             </li>
             <li>
               Use your preferred email provider to email the students
@@ -579,22 +639,26 @@
       <div id="student-google-account-body" class="panel-collapse collapse">
         <div class="panel-body">
           <p>
-            Students can submit feedback and view results without having to login to TEAMMATES, unless they choose to link their Google account (optional).
+            Students can submit feedback and view results without having to login to TEAMMATES, unless they choose to
+            link their Google account (optional).
             TEAMMATES will send students a unique URL to access their feedback sessions and results.
-            However, students who link their TEAMMATES account with their Google account will be able to access a dashboard of all their sessions and results through the TEAMMATES website.
+            However, students who link their TEAMMATES account with their Google account will be able to access a
+            dashboard of all their sessions and results through the TEAMMATES website.
           </p>
         </div>
       </div>
     </div>
     <div class="panel panel-default" id="student-change-google-account">
-      <div class="panel-heading cursor-pointer" data-toggle="collapse" data-target="#student-change-google-account-body">
+      <div class="panel-heading cursor-pointer" data-toggle="collapse"
+           data-target="#student-change-google-account-body">
         <h3 class="panel-title">How do I change the Google ID associated with a student?</h3>
       </div>
       <div id="student-change-google-account-body" class="panel-collapse collapse">
         <div class="panel-body">
           <p>
             At the moment, there is no way for students to update their own Google IDs.<br>
-            Please ask the student to <a href="mailto:teammates@comp.nus.edu.sg">contact us</a> for assistance changing his/her Google ID.
+            Please ask the student to <a href="mailto:teammates@comp.nus.edu.sg">contact us</a> for assistance changing
+            his/her Google ID.
           </p>
         </div>
       </div>

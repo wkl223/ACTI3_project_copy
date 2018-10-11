@@ -23,7 +23,7 @@ public class InstructorHelpPageUiTest extends BaseUiTestCase {
     @BeforeClass
     public void classSetup() {
         helpPage = AppPage.getNewPageInstance(browser, createUrl(Const.ActionURIs.INSTRUCTOR_HELP_PAGE + ".jsp"),
-                                                InstructorHelpPage.class);
+                InstructorHelpPage.class);
     }
 
     @Test

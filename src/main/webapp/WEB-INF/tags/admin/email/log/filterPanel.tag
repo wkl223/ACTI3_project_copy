@@ -7,7 +7,7 @@
 
 <div class="well well-plain">
   <form class="form-horizontal" method="post" action="/admin/adminEmailLogPage"
-      id="activityLogFilter" role="form">
+        id="activityLogFilter" role="form">
 
     <div class="panel-heading" id="filterForm">
 
@@ -17,15 +17,15 @@
             <div class="input-group">
               <span class="input-group-btn">
                 <button class="btn btn-default"
-                    type="submit"
-                    name="search_submit">Filter</button>
+                        type="submit"
+                        name="search_submit">Filter</button>
               </span>
 
               <input type="text"
-                  class="form-control"
-                  id="filterQuery"
-                  name="filterQuery"
-                  value="${filterQuery}">
+                     class="form-control"
+                     id="filterQuery"
+                     name="filterQuery"
+                     value="${filterQuery}">
             </div>
           </div>
         </div>
@@ -86,7 +86,7 @@
                   <li>E.g. before: 13/03/15</li>
                   <li>E.g. receiver: alice@gmail.com</li>
                   <li>E.g. subject: Welcome,teammates</li>
-                  <li>E.g. info: you can click the link below </li>
+                  <li>E.g. info: you can click the link below</li>
                   <li>E.g. info: link,cs1010 (Use "," to search multiple key strings)</li>
                   <li>E.g. version: 4.15,4.16</li>
                   <li>E.g. version: 4-15,4.16 (both "." and "-" are acceptable)</li>

@@ -58,13 +58,13 @@ public class AdminActivityLogPageAction extends Action {
         String logUnixTimeMillis = getRequestParamValue("logUnixTimeMillis");
 
         boolean isLoadingLocalTimeAjax = logRoleFromAjax != null
-                                         && logGoogleIdFromAjax != null
-                                         && logUnixTimeMillis != null;
+                && logGoogleIdFromAjax != null
+                && logUnixTimeMillis != null;
 
         if (isLoadingLocalTimeAjax) {
             data.setLogLocalTime(getLocalTimeInfo(logGoogleIdFromAjax,
-                                                  logRoleFromAjax,
-                                                  logUnixTimeMillis));
+                    logRoleFromAjax,
+                    logUnixTimeMillis));
             return createAjaxResult(data);
         }
 
@@ -133,8 +133,8 @@ public class AdminActivityLogPageAction extends Action {
                                        List<ActivityLogEntry> logs, String courseId) {
         StringBuilder status = new StringBuilder(500);
         status.append("Total Logs gone through in last search: " + totalLogsSearched
-                    + "<br>Total Relevant Logs found in last search: "
-                    + String.format("%s<br>", logs.size()));
+                + "<br>Total Relevant Logs found in last search: "
+                + String.format("%s<br>", logs.size()));
 
         long earliestSearchTime = data.getFromDate();
         ActivityLogEntry earliestLogChecked = null;
@@ -196,11 +196,11 @@ public class AdminActivityLogPageAction extends Action {
 
         // the "Search More" button to continue searching from the previous fromDate
         status.append("<button class=\"btn-link\" id=\"button_older\" data-next-end-time-to-search=\""
-                      + nextEndTimeToSearch
-                      + "\">Search More</button><input id=\"ifShowAll\" type=\"hidden\" value=\""
-                      + data.getShouldShowAllLogs()
-                      + "\"/><input id=\"ifShowTestData\" type=\"hidden\" value=\""
-                      + data.getShouldShowTestData() + "\"/>");
+                + nextEndTimeToSearch
+                + "\">Search More</button><input id=\"ifShowAll\" type=\"hidden\" value=\""
+                + data.getShouldShowAllLogs()
+                + "\"/><input id=\"ifShowTestData\" type=\"hidden\" value=\""
+                + data.getShouldShowTestData() + "\"/>");
 
         String statusString = status.toString();
         data.setStatusForAjax(statusString);

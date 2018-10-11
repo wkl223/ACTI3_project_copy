@@ -147,7 +147,7 @@ public final class ActivityLogEntry {
         Builder builder =
                 new Builder(Const.ActivityLog.UNKNOWN, Const.ActivityLog.UNKNOWN, appLog.getTimeUsec() / 1000);
         String logMessage = "<span class=\"text-danger\">"
-                            + Const.ActivityLog.MESSAGE_ERROR_LOG_MESSAGE_FORMAT + "</span><br>";
+                + Const.ActivityLog.MESSAGE_ERROR_LOG_MESSAGE_FORMAT + "</span><br>";
         builder.withLogMessage(logMessage);
         return builder.build();
     }
@@ -173,8 +173,8 @@ public final class ActivityLogEntry {
 
         try {
             long actionTimeTaken = tokens.length == ActivityLogEntry.POSITION_OF_LOG_TIMETAKEN + 1
-                                 ? Long.parseLong(tokens[ActivityLogEntry.POSITION_OF_LOG_TIMETAKEN].trim())
-                                 : 0;
+                    ? Long.parseLong(tokens[ActivityLogEntry.POSITION_OF_LOG_TIMETAKEN].trim())
+                    : 0;
             builder.withActionTimeTaken(actionTimeTaken);
         } catch (NumberFormatException e) {
             log.severe(String.format(Const.ActivityLog.MESSAGE_ERROR_LOG_MESSAGE_FORMAT, Arrays.toString(tokens)));

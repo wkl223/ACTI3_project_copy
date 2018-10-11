@@ -17,7 +17,7 @@ public abstract class InstructorCourseInstructorAbstractAction extends Action {
      *
      * @param courseId   Course that the instructor is being added to.
      * @param instructor Instructor that will be added.
-     *                       This will be modified within the method.
+     *                   This will be modified within the method.
      */
     protected void updateInstructorWithSectionLevelPrivileges(String courseId, InstructorAttributes instructor) {
         List<String> sectionNames = null;
@@ -38,8 +38,8 @@ public abstract class InstructorCourseInstructorAbstractAction extends Action {
             feedbackNames.add(feedback.getFeedbackSessionName());
         }
         Map<String, List<String>> sectionNamesMap = getSectionsWithSpecialPrivilegesFromParameters(
-                                                                instructor, sectionNames,
-                                                                isSectionSpecialMappings);
+                instructor, sectionNames,
+                isSectionSpecialMappings);
         sectionNamesMap.forEach((sectionGroupName, specialSectionsInSectionGroup) -> {
             updateInstructorPrivilegesForSectionInSectionLevel(sectionGroupName,
                     specialSectionsInSectionGroup, instructor);
@@ -65,7 +65,7 @@ public abstract class InstructorCourseInstructorAbstractAction extends Action {
      * Updates course level privileges for the instructor by retrieving request parameters.
      *
      * @param instructor Instructor that will be edited.
-     *                       This will be modified within the method.
+     *                   This will be modified within the method.
      */
     protected void updateInstructorCourseLevelPrivileges(InstructorAttributes instructor) {
         boolean isModifyCourseChecked =
@@ -88,30 +88,30 @@ public abstract class InstructorCourseInstructorAbstractAction extends Action {
                 getRequestParamValue(Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION_COMMENT_IN_SECTIONS) != null;
 
         instructor.privileges.updatePrivilege(Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_COURSE,
-                                              isModifyCourseChecked);
+                isModifyCourseChecked);
         instructor.privileges.updatePrivilege(Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_INSTRUCTOR,
-                                              isModifyInstructorChecked);
+                isModifyInstructorChecked);
         instructor.privileges.updatePrivilege(Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION,
-                                              isModifySessionChecked);
+                isModifySessionChecked);
         instructor.privileges.updatePrivilege(Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_STUDENT,
-                                              isModifyStudentChecked);
+                isModifyStudentChecked);
 
         instructor.privileges.updatePrivilege(Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_STUDENT_IN_SECTIONS,
-                                              isViewStudentInSectionsChecked);
+                isViewStudentInSectionsChecked);
 
         instructor.privileges.updatePrivilege(Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_SESSION_IN_SECTIONS,
-                                              isViewSessionInSectionsChecked);
+                isViewSessionInSectionsChecked);
         instructor.privileges.updatePrivilege(Const.ParamsNames.INSTRUCTOR_PERMISSION_SUBMIT_SESSION_IN_SECTIONS,
-                                              isSubmitSessionInSectionsChecked);
+                isSubmitSessionInSectionsChecked);
         instructor.privileges.updatePrivilege(Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION_COMMENT_IN_SECTIONS,
-                                              isModifySessionInSectionsChecked);
+                isModifySessionInSectionsChecked);
     }
 
     /**
      * Removes session level privileges for the instructor under the given sections.
      *
      * @param instructor   Instructor that will be added.
-     *                         This will be modified within the method.
+     *                     This will be modified within the method.
      * @param sectionNames List of section names to be removed.
      */
     protected void removeSessionLevelPrivileges(InstructorAttributes instructor, List<String> sectionNames) {
@@ -123,10 +123,10 @@ public abstract class InstructorCourseInstructorAbstractAction extends Action {
     /**
      * Gets the sections that are special for the instructor to be added.
      *
-     * @param instructor          Instructor that will be added.
+     * @param instructor               Instructor that will be added.
      * @param sectionNames             List of section names in the course.
      * @param isSectionSpecialMappings Mapping of names of sections to boolean values indicating if they are special.
-     *                                     This will be modified within the method.
+     *                                 This will be modified within the method.
      * @return List of section group names with their associated special sections.
      */
     protected Map<String, List<String>> getSectionsWithSpecialPrivilegesFromParameters(
@@ -135,7 +135,7 @@ public abstract class InstructorCourseInstructorAbstractAction extends Action {
         HashMap<String, List<String>> specialSectionsInSectionGroups = new HashMap<>();
         if (instructor.role.equals(Const.InstructorPermissionRoleNames.INSTRUCTOR_PERMISSION_ROLE_CUSTOM)) {
             getSectionsWithSpecialPrivilegesForCustomInstructor(sectionNames, isSectionSpecialMappings,
-                                                                specialSectionsInSectionGroups);
+                    specialSectionsInSectionGroups);
         }
         return specialSectionsInSectionGroups;
     }
@@ -146,13 +146,13 @@ public abstract class InstructorCourseInstructorAbstractAction extends Action {
      *
      * @param sectionNames                   List of section names in the course.
      * @param isSectionSpecialMappings       Mapping of names of sections to boolean values indicating if they are special.
-     *                                           This will be modified within the method.
+     *                                       This will be modified within the method.
      * @param specialSectionsInSectionGroups Mapping of section group names to the special sections that they contain.
-     *                                           This will be modified within the method.
+     *                                       This will be modified within the method.
      */
     protected void getSectionsWithSpecialPrivilegesForCustomInstructor(List<String> sectionNames,
-            Map<String, Boolean> isSectionSpecialMappings,
-            Map<String, List<String>> specialSectionsInSectionGroups) {
+                                                                       Map<String, Boolean> isSectionSpecialMappings,
+                                                                       Map<String, List<String>> specialSectionsInSectionGroups) {
         for (int i = 0; i < sectionNames.size(); i++) {
             String sectionGroupIsSetStr =
                     getRequestParamValue("is" + Const.ParamsNames.INSTRUCTOR_SECTION_GROUP + i + "set");
@@ -160,13 +160,13 @@ public abstract class InstructorCourseInstructorAbstractAction extends Action {
 
             for (int j = 0; j < sectionNames.size(); j++) {
                 String sectionNameFromParam = getRequestParamValue(
-                                                     Const.ParamsNames.INSTRUCTOR_SECTION_GROUP + i
-                                                     + Const.ParamsNames.INSTRUCTOR_SECTION + j);
+                        Const.ParamsNames.INSTRUCTOR_SECTION_GROUP + i
+                                + Const.ParamsNames.INSTRUCTOR_SECTION + j);
                 boolean isSectionParamValid = sectionNameFromParam != null
-                                              && isSectionSpecialMappings.containsKey(sectionNameFromParam);
+                        && isSectionSpecialMappings.containsKey(sectionNameFromParam);
                 if (isSectionGroupSpecial && isSectionParamValid) {
                     markSectionAsSpecial(isSectionSpecialMappings, specialSectionsInSectionGroups,
-                                         i, sectionNameFromParam);
+                            i, sectionNameFromParam);
                 }
             }
         }
@@ -176,15 +176,15 @@ public abstract class InstructorCourseInstructorAbstractAction extends Action {
      * Marks {@code sectionToMark} as special in the associated mappings.
      *
      * @param isSectionSpecialMappings       Mapping of names of sections to boolean values indicating if they are special.
-     *                                           This will be modified within the method.
+     *                                       This will be modified within the method.
      * @param specialSectionsInSectionGroups Mapping of section group names to the special sections that they contain.
-     *                                           This will be modified within the method.
+     *                                       This will be modified within the method.
      * @param sectionGroupIndex              Index of the section group to be updated.
      * @param sectionToMark                  Section that will be marked as special.
      */
     protected void markSectionAsSpecial(Map<String, Boolean> isSectionSpecialMappings,
-            Map<String, List<String>> specialSectionsInSectionGroups, int sectionGroupIndex,
-            String sectionToMark) {
+                                        Map<String, List<String>> specialSectionsInSectionGroups, int sectionGroupIndex,
+                                        String sectionToMark) {
         // indicate that section group covers the section
         // and mark that this section is special
         String sectionGroupParamName = Const.ParamsNames.INSTRUCTOR_SECTION_GROUP + sectionGroupIndex;
@@ -202,23 +202,23 @@ public abstract class InstructorCourseInstructorAbstractAction extends Action {
      * @param sectionGroupName              Name of the section group.
      * @param specialSectionsInSectionGroup Sections marked as special under the section group.
      * @param instructor                    Instructor that will be edited.
-     *                                          This will be modified within the method.
+     *                                      This will be modified within the method.
      */
     protected void updateInstructorPrivilegesForSectionInSectionLevel(String sectionGroupName,
-            List<String> specialSectionsInSectionGroup, InstructorAttributes instructor) {
+                                                                      List<String> specialSectionsInSectionGroup, InstructorAttributes instructor) {
         boolean isViewStudentInSectionsChecked =
                 getRequestParamValue(Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_STUDENT_IN_SECTIONS
-                                     + sectionGroupName) != null;
+                        + sectionGroupName) != null;
 
         boolean isViewSessionInSectionsChecked =
                 getRequestParamValue(Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_SESSION_IN_SECTIONS
-                                     + sectionGroupName) != null;
+                        + sectionGroupName) != null;
         boolean isSubmitSessionInSectionsChecked =
                 getRequestParamValue(Const.ParamsNames.INSTRUCTOR_PERMISSION_SUBMIT_SESSION_IN_SECTIONS
-                                     + sectionGroupName) != null;
+                        + sectionGroupName) != null;
         boolean isModifySessionInSectionsChecked =
                 getRequestParamValue(Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION_COMMENT_IN_SECTIONS
-                                     + sectionGroupName) != null;
+                        + sectionGroupName) != null;
 
         for (String sectionName : specialSectionsInSectionGroup) {
             instructor.privileges.updatePrivilege(
@@ -244,21 +244,21 @@ public abstract class InstructorCourseInstructorAbstractAction extends Action {
      * @param specialSectionsInSectionGroup Sections marked as special under the section group.
      * @param feedbackNames                 List of feedback names under the course.
      * @param instructor                    Instructor that will be added.
-     *                                          This will be modified within the method.
+     *                                      This will be modified within the method.
      */
     protected void updateInstructorPrivilegesForSectionInSessionLevel(String sectionGroupName,
-            List<String> specialSectionsInSectionGroup, List<String> feedbackNames,
-            InstructorAttributes instructor) {
+                                                                      List<String> specialSectionsInSectionGroup, List<String> feedbackNames,
+                                                                      InstructorAttributes instructor) {
         for (String feedbackName : feedbackNames) {
             boolean isViewSessionInSectionsChecked =
                     getRequestParamValue(Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_SESSION_IN_SECTIONS
-                                         + sectionGroupName + "feedback" + feedbackName) != null;
+                            + sectionGroupName + "feedback" + feedbackName) != null;
             boolean isSubmitSessionInSectionsChecked =
                     getRequestParamValue(Const.ParamsNames.INSTRUCTOR_PERMISSION_SUBMIT_SESSION_IN_SECTIONS
-                                         + sectionGroupName + "feedback" + feedbackName) != null;
+                            + sectionGroupName + "feedback" + feedbackName) != null;
             boolean isModifySessionInSectionsChecked =
                     getRequestParamValue(Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION_COMMENT_IN_SECTIONS
-                                         + sectionGroupName + "feedback" + feedbackName) != null;
+                            + sectionGroupName + "feedback" + feedbackName) != null;
 
             for (String sectionName : specialSectionsInSectionGroup) {
                 instructor.privileges.updatePrivilege(sectionName, feedbackName,

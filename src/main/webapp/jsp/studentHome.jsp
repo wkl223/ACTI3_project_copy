@@ -9,11 +9,11 @@
   <script type="text/javascript" src="/js/studentHome.js"></script>
 </c:set>
 <ts:studentPage title="Student Home" jsIncludes="${jsIncludes}">
-  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
+  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}"/>
   <br>
   <c:forEach items="${data.courseTables}" var="courseTable">
     <home:coursePanel courseTable="${courseTable}">
-      <home:courseTable sessionRows="${courseTable.rows}" />
+      <home:courseTable sessionRows="${courseTable.rows}"/>
     </home:coursePanel>
     <br><br>
   </c:forEach>

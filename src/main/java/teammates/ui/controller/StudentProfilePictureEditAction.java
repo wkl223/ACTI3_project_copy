@@ -18,7 +18,7 @@ import teammates.common.util.StatusMessageColor;
 
 /**
  * Action: edits the profile picture based on the coordinates of
- *         the cropped photograph.
+ * the cropped photograph.
  */
 public class StudentProfilePictureEditAction extends Action {
 
@@ -49,9 +49,9 @@ public class StudentProfilePictureEditAction extends Action {
             // Happens when GCS Service is down
             isError = true;
             statusToUser.add(new StatusMessage(Const.StatusMessages.STUDENT_PROFILE_PIC_SERVICE_DOWN,
-                                               StatusMessageColor.DANGER));
+                    StatusMessageColor.DANGER));
             statusToAdmin = Const.ACTION_RESULT_FAILURE + " : Writing transformed image to file failed. Error: "
-                          + e.getMessage();
+                    + e.getMessage();
         }
 
         return createRedirectResult(Const.ActionURIs.STUDENT_PROFILE_PAGE);
@@ -69,9 +69,9 @@ public class StudentProfilePictureEditAction extends Action {
         } catch (RuntimeException re) {
             isError = true;
             statusToUser.add(new StatusMessage(Const.StatusMessages.STUDENT_PROFILE_PICTURE_EDIT_FAILED,
-                                               StatusMessageColor.DANGER));
+                    StatusMessageColor.DANGER));
             statusToAdmin = Const.ACTION_RESULT_FAILURE + " : Reading and transforming image failed."
-                          + re.getMessage();
+                    + re.getMessage();
         }
 
         return new byte[0];
@@ -125,20 +125,20 @@ public class StudentProfilePictureEditAction extends Action {
                 || rightXString.isEmpty() || bottomYString.isEmpty()) {
             isError = true;
             statusToUser.add(new StatusMessage("Given crop locations were not valid. Please try again",
-                                               StatusMessageColor.DANGER));
+                    StatusMessageColor.DANGER));
             statusToAdmin = Const.ACTION_RESULT_FAILURE + " : One or more of the given coords were empty.";
             return false;
         } else if (heightString.isEmpty() || widthString.isEmpty()) {
             isError = true;
             statusToUser.add(new StatusMessage("Given crop locations were not valid. Please try again",
-                                               StatusMessageColor.DANGER));
+                    StatusMessageColor.DANGER));
             statusToAdmin = Const.ACTION_RESULT_FAILURE + " : One or both of the image dimensions were empty.";
             return false;
         } else if (Double.parseDouble(widthString) == 0
                 || Double.parseDouble(heightString) == 0) {
             isError = true;
             statusToUser.add(new StatusMessage("Given crop locations were not valid. Please try again",
-                                               StatusMessageColor.DANGER));
+                    StatusMessageColor.DANGER));
             statusToAdmin = Const.ACTION_RESULT_FAILURE + " : One or both of the image dimensions were zero.";
             return false;
         }
@@ -161,49 +161,49 @@ public class StudentProfilePictureEditAction extends Action {
 
     private BlobKey getBlobKey() {
         Assumption.assertPostParamNotNull(Const.ParamsNames.BLOB_KEY,
-                                          getRequestParamValue(Const.ParamsNames.BLOB_KEY));
+                getRequestParamValue(Const.ParamsNames.BLOB_KEY));
         return new BlobKey(getRequestParamValue(Const.ParamsNames.BLOB_KEY));
     }
 
     private String getPictureWidth() {
         Assumption.assertPostParamNotNull(Const.ParamsNames.PROFILE_PICTURE_WIDTH,
-                                          getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_WIDTH));
+                getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_WIDTH));
         return getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_WIDTH);
     }
 
     private String getPictureHeight() {
         Assumption.assertPostParamNotNull(Const.ParamsNames.PROFILE_PICTURE_HEIGHT,
-                                          getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_HEIGHT));
+                getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_HEIGHT));
         return getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_HEIGHT);
     }
 
     private String getBottomYString() {
         Assumption.assertPostParamNotNull(Const.ParamsNames.PROFILE_PICTURE_BOTTOMY,
-                                          getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_BOTTOMY));
+                getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_BOTTOMY));
         return getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_BOTTOMY);
     }
 
     private String getRightXString() {
         Assumption.assertPostParamNotNull(Const.ParamsNames.PROFILE_PICTURE_RIGHTX,
-                                          getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_RIGHTX));
+                getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_RIGHTX));
         return getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_RIGHTX);
     }
 
     private String getTopYString() {
         Assumption.assertPostParamNotNull(Const.ParamsNames.PROFILE_PICTURE_TOPY,
-                                          getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_TOPY));
+                getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_TOPY));
         return getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_TOPY);
     }
 
     private String getLeftXString() {
         Assumption.assertPostParamNotNull(Const.ParamsNames.PROFILE_PICTURE_LEFTX,
-                                          getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_LEFTX));
+                getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_LEFTX));
         return getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_LEFTX);
     }
 
     private String getRotateString() {
         Assumption.assertPostParamNotNull(Const.ParamsNames.PROFILE_PICTURE_ROTATE,
-                                          getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_ROTATE));
+                getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_ROTATE));
         return getRequestParamValue(Const.ParamsNames.PROFILE_PICTURE_ROTATE);
     }
 }

@@ -18,7 +18,7 @@ import teammates.test.pageobjects.InstructorFeedbackResultsPage;
 
 /**
  * SUT: {@link Const.ActionURIs#INSTRUCTOR_FEEDBACK_EDIT_PAGE},
- *      specifically for multiple choice (multiple answers) questions.
+ * specifically for multiple choice (multiple answers) questions.
  */
 public class FeedbackMsqQuestionUiTest extends FeedbackQuestionUiTest {
 
@@ -435,6 +435,7 @@ public class FeedbackMsqQuestionUiTest extends FeedbackQuestionUiTest {
 
     /**
      * Assumes student is already selected.
+     *
      * @param qnNumber question number.
      */
     private void checkMinMaxSelectableRestrictionsForAllGenerateOptionSelections(int qnNumber) {

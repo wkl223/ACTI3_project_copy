@@ -192,8 +192,8 @@ $(document).ready(() => {
         }
 
         const emailWrapper = `mailto:${studentEmail}`
-                           + `?Subject=${encodeURI(subject)}`
-                           + `&body=${encodeURI(bodyHeader + bodyContent + bodyFooter)}`;
+                + `?Subject=${encodeURI(subject)}`
+                + `&body=${encodeURI(bodyHeader + bodyContent + bodyFooter)}`;
         window.location.href = emailWrapper;
     });
 });

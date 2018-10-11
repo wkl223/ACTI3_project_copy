@@ -35,8 +35,8 @@ public class InstructorFeedbackRemindAction extends Action {
 
         statusToUser.add(new StatusMessage(Const.StatusMessages.FEEDBACK_SESSION_REMINDERSSENT, StatusMessageColor.SUCCESS));
         statusToAdmin = "Email sent out to all students who have not completed "
-                      + "Feedback Session <span class=\"bold\">(" + feedbackSessionName
-                      + ")</span> " + "of Course <span class=\"bold\">[" + courseId + "]</span>";
+                + "Feedback Session <span class=\"bold\">(" + feedbackSessionName
+                + ")</span> " + "of Course <span class=\"bold\">[" + courseId + "]</span>";
 
         return createRedirectResult(nextUrl);
     }

@@ -65,7 +65,7 @@ public class StudentFeedbackResultsPageDataTest extends BaseComponentTestCase {
 
         // need to obtain questionId and responseId as methods in FeedbackSessionResultsBundle require them
         questionsWithResponses = getActualQuestionsAndResponsesWithId(
-                                        logic, questionsWithResponses);
+                logic, questionsWithResponses);
 
         pageData.setBundle(logic.getFeedbackSessionResultsForStudent(
                 question1.feedbackSessionName, question1.courseId, student.email));
@@ -79,13 +79,13 @@ public class StudentFeedbackResultsPageDataTest extends BaseComponentTestCase {
         assertNotNull(pageData.getFeedbackResultsQuestionsWithResponses());
         assertEquals(2, pageData.getFeedbackResultsQuestionsWithResponses().size());
         assertEquals("You are viewing feedback results as <span class='text-danger text-bold text-large'>"
-                      + "student1 In Course1</td></div>'\"</span>. You may submit feedback for sessions that are "
-                      + "currently open and view results without logging in. "
-                      + "To access other features you need <a href='/page/studentCourseJoinAuthentication?"
-                      + "key=" + StringHelper.encrypt(dummyKey)
-                      + "&studentemail=student1InCourse1%40gmail.tmt&courseid=idOfTypicalCourse1' class='link'>"
-                      + "to login using a Google account</a> (recommended).",
-                      pageData.getRegisterMessage());
+                        + "student1 In Course1</td></div>'\"</span>. You may submit feedback for sessions that are "
+                        + "currently open and view results without logging in. "
+                        + "To access other features you need <a href='/page/studentCourseJoinAuthentication?"
+                        + "key=" + StringHelper.encrypt(dummyKey)
+                        + "&studentemail=student1InCourse1%40gmail.tmt&courseid=idOfTypicalCourse1' class='link'>"
+                        + "to login using a Google account</a> (recommended).",
+                pageData.getRegisterMessage());
 
         assertNotNull(questionBundle1.getQuestionDetails());
         assertNotNull(questionBundle2.getQuestionDetails());
@@ -110,9 +110,9 @@ public class StudentFeedbackResultsPageDataTest extends BaseComponentTestCase {
         assertEquals("You", questionBundle1.getSelfResponseTables().get(0).getRecipientName());
         assertNotNull(questionBundle1.getSelfResponseTables().get(0).getResponses());
         assertEquals("You", questionBundle1.getSelfResponseTables().get(0).getResponses()
-                                        .get(0).getGiverName());
+                .get(0).getGiverName());
         assertEquals("Student 1 self feedback.", questionBundle1.getSelfResponseTables().get(0).getResponses()
-                                        .get(0).getAnswer());
+                .get(0).getAnswer());
 
         // test that others response table for question one does not contain any responses
         assertEquals(0, questionBundle1.getOthersResponseTables().size());
@@ -147,14 +147,14 @@ public class StudentFeedbackResultsPageDataTest extends BaseComponentTestCase {
         assertEquals("student1InUnregisteredCourse@gmail.tmt", student.email);
 
         assertEquals("You are viewing feedback results as "
-                      + "<span class='text-danger text-bold text-large'>student1 In "
-                      + "unregisteredCourse</span>. You may submit feedback for sessions that are currently open "
-                      + "and view results without logging in. To access other features you need "
-                      + "<a href='/page/studentCourseJoinAuthentication?key="
-                      + StringHelper.encrypt("regKeyForStuNotYetJoinCourse")
-                      + "&studentemail=student1InUnregisteredCourse%40gmail.tmt&courseid=idOfUnregisteredCourse' "
-                      + "class='link'>to login using a Google account</a> (recommended).",
-                      pageData.getRegisterMessage());
+                        + "<span class='text-danger text-bold text-large'>student1 In "
+                        + "unregisteredCourse</span>. You may submit feedback for sessions that are currently open "
+                        + "and view results without logging in. To access other features you need "
+                        + "<a href='/page/studentCourseJoinAuthentication?key="
+                        + StringHelper.encrypt("regKeyForStuNotYetJoinCourse")
+                        + "&studentemail=student1InUnregisteredCourse%40gmail.tmt&courseid=idOfUnregisteredCourse' "
+                        + "class='link'>to login using a Google account</a> (recommended).",
+                pageData.getRegisterMessage());
     }
 
     private Map<FeedbackQuestionAttributes, List<FeedbackResponseAttributes>> getActualQuestionsAndResponsesWithId(
@@ -163,16 +163,16 @@ public class StudentFeedbackResultsPageDataTest extends BaseComponentTestCase {
                 new LinkedHashMap<>();
         questionsWithResponses.forEach((dataBundleQuestion, dataBundleResponses) -> {
             FeedbackQuestionAttributes actualQuestion = logic.getFeedbackQuestion(
-                                                                    dataBundleQuestion.feedbackSessionName,
-                                                                    dataBundleQuestion.courseId,
-                                                                    dataBundleQuestion.questionNumber);
+                    dataBundleQuestion.feedbackSessionName,
+                    dataBundleQuestion.courseId,
+                    dataBundleQuestion.questionNumber);
 
             List<FeedbackResponseAttributes> actualResponses = new ArrayList<>();
             for (FeedbackResponseAttributes dataBundleResponse : dataBundleResponses) {
                 FeedbackResponseAttributes actualResponse = logic.getFeedbackResponse(
-                                                                    actualQuestion.getId(),
-                                                                    dataBundleResponse.giver,
-                                                                    dataBundleResponse.recipient);
+                        actualQuestion.getId(),
+                        dataBundleResponse.giver,
+                        dataBundleResponse.recipient);
                 actualResponses.add(actualResponse);
             }
             actualQuestionsWithResponses.put(actualQuestion, actualResponses);

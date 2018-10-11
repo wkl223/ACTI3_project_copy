@@ -88,14 +88,14 @@ public class StudentHomePageDataTest extends BaseTestCase {
         int index = 0;
 
         testFeedbackSession(index++, submittedRow, submittedSession,
-                            Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_SUBMITTED,
-                            Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_NOT_PUBLISHED, "Submitted", "Not Published");
+                Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_SUBMITTED,
+                Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_NOT_PUBLISHED, "Submitted", "Not Published");
         testFeedbackSession(index++, pendingRow, pendingSession,
-                            Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_PENDING,
-                            Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_NOT_PUBLISHED, "Pending", "Not Published");
+                Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_PENDING,
+                Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_NOT_PUBLISHED, "Pending", "Not Published");
         testFeedbackSession(index++, awaitingRow, awaitingSession,
-                            Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_AWAITING,
-                            Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_NOT_PUBLISHED, "Awaiting", "Not Published");
+                Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_AWAITING,
+                Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_NOT_PUBLISHED, "Awaiting", "Not Published");
     }
 
     private void testOldCourseTable(CourseDetailsBundle oldCourse, CourseTable courseTable) {
@@ -110,25 +110,25 @@ public class StudentHomePageDataTest extends BaseTestCase {
         int index = 0 + accumlativeOffset;
 
         testFeedbackSession(index++, publishedRow, publishedSession,
-                            Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_PENDING
-                                + Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_CLOSED,
-                            Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_PUBLISHED,
-                            "Closed", "Published");
+                Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_PENDING
+                        + Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_CLOSED,
+                Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_PUBLISHED,
+                "Closed", "Published");
         testFeedbackSession(index++, closedRow, closedSession,
-                            Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_PENDING
-                                + Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_CLOSED,
-                            Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_NOT_PUBLISHED,
-                            "Closed", "Not Published");
+                Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_PENDING
+                        + Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_CLOSED,
+                Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_NOT_PUBLISHED,
+                "Closed", "Not Published");
         testFeedbackSession(index++, submittedClosedRow, submittedClosedSession,
-                            Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_SUBMITTED
-                                + Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_CLOSED,
-                            Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_NOT_PUBLISHED,
-                            "Closed", "Not Published");
+                Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_SUBMITTED
+                        + Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_CLOSED,
+                Const.Tooltips.STUDENT_FEEDBACK_SESSION_STATUS_NOT_PUBLISHED,
+                "Closed", "Not Published");
     }
 
     private void testFeedbackSession(int index, HomeFeedbackSessionRow row, FeedbackSessionAttributes session,
-            String expectedSubmissionsTooltip, String expectedPublishedTooltip, String expectedSubmissionStatus,
-            String expectedPublishedStatus) {
+                                     String expectedSubmissionsTooltip, String expectedPublishedTooltip, String expectedSubmissionStatus,
+                                     String expectedPublishedStatus) {
         StudentHomeFeedbackSessionRow studentRow = (StudentHomeFeedbackSessionRow) row;
         assertEquals(session.getFeedbackSessionName(), studentRow.getName());
         assertEquals(TimeHelper.formatDateTimeForDisplay(session.getEndTime(), session.getTimeZone()),
@@ -207,7 +207,7 @@ public class StudentHomePageDataTest extends BaseTestCase {
     }
 
     private FeedbackSessionAttributes createFeedbackSession(String name,
-            int offsetStart, int offsetEnd, int offsetPublish) {
+                                                            int offsetStart, int offsetEnd, int offsetPublish) {
         return FeedbackSessionAttributes.builder(name, "", "")
                 .withStartTime(TimeHelperExtension.getInstantHoursOffsetFromNow(offsetStart))
                 .withEndTime(TimeHelperExtension.getInstantHoursOffsetFromNow(offsetEnd))

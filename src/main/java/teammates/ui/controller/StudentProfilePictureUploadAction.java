@@ -20,7 +20,7 @@ import teammates.common.util.StatusMessageColor;
 
 /**
  * Action: saves the file information of the profile picture
- *         that was just uploaded.
+ * that was just uploaded.
  */
 public class StudentProfilePictureUploadAction extends Action {
     /*
@@ -44,7 +44,7 @@ public class StudentProfilePictureUploadAction extends Action {
                 pictureKey = renameFileToGoogleId(blobInfo);
                 logic.updateStudentProfilePicture(account.googleId, pictureKey);
                 statusToUser.add(new StatusMessage(Const.StatusMessages.STUDENT_PROFILE_PICTURE_SAVED,
-                                                   StatusMessageColor.SUCCESS));
+                        StatusMessageColor.SUCCESS));
                 r.addResponseParam(Const.ParamsNames.STUDENT_PROFILE_PHOTOEDIT, "true");
             }
         } catch (BlobstoreFailureException | IOException bfe) {
@@ -80,11 +80,11 @@ public class StudentProfilePictureUploadAction extends Action {
     private BlobInfo extractProfilePictureKey() {
         try {
             Map<String, List<BlobInfo>> blobsMap = BlobstoreServiceFactory.getBlobstoreService()
-                                                                          .getBlobInfos(request);
+                    .getBlobInfos(request);
             List<BlobInfo> blobs = blobsMap.get(Const.ParamsNames.STUDENT_PROFILE_PHOTO);
             if (blobs == null || blobs.isEmpty()) {
                 statusToUser.add(new StatusMessage(Const.StatusMessages.STUDENT_PROFILE_NO_PICTURE_GIVEN,
-                                                   StatusMessageColor.DANGER));
+                        StatusMessageColor.DANGER));
                 isError = true;
                 return null;
             }
@@ -104,13 +104,13 @@ public class StudentProfilePictureUploadAction extends Action {
             deletePicture(profilePic.getBlobKey());
             isError = true;
             statusToUser.add(new StatusMessage(Const.StatusMessages.STUDENT_PROFILE_PIC_TOO_LARGE,
-                                               StatusMessageColor.DANGER));
+                    StatusMessageColor.DANGER));
             return null;
         } else if (!profilePic.getContentType().contains("image/")) {
             deletePicture(profilePic.getBlobKey());
             isError = true;
             statusToUser.add(new StatusMessage(Const.StatusMessages.STUDENT_PROFILE_NOT_A_PICTURE,
-                                               StatusMessageColor.DANGER));
+                    StatusMessageColor.DANGER));
             return null;
         }
 
@@ -125,18 +125,18 @@ public class StudentProfilePictureUploadAction extends Action {
             logic.deletePicture(blobKey);
         } catch (BlobstoreFailureException bfe) {
             statusToAdmin = Const.ACTION_RESULT_FAILURE
-                          + " : Unable to delete profile picture (possible unused picture with key: "
-                          + blobKey.getKeyString() + " || Error Message: "
-                          + bfe.getMessage() + System.lineSeparator();
+                    + " : Unable to delete profile picture (possible unused picture with key: "
+                    + blobKey.getKeyString() + " || Error Message: "
+                    + bfe.getMessage() + System.lineSeparator();
         }
     }
 
     private void updateStatusesForBlobstoreFailure() {
         statusToAdmin += Const.ACTION_RESULT_FAILURE + " : Could not delete profile picture for account ("
-                       + account.googleId + ")" + System.lineSeparator();
+                + account.googleId + ")" + System.lineSeparator();
         statusToUser.clear();
         statusToUser.add(new StatusMessage(Const.StatusMessages.STUDENT_PROFILE_PIC_SERVICE_DOWN,
-                                           StatusMessageColor.DANGER));
+                StatusMessageColor.DANGER));
     }
 
 }

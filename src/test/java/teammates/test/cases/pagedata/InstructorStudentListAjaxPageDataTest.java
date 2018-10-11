@@ -45,13 +45,13 @@ public class InstructorStudentListAjaxPageDataTest extends BaseTestCase {
     private void testSectionContent(StudentListSectionData section) {
         assertEquals(sampleSection.name, section.getSectionName());
         assertEquals(sectionPrivileges.get(sampleSection.name)
-                                      .get(Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_STUDENT_IN_SECTIONS)
-                                      .booleanValue(),
-                     section.isAllowedToViewStudentInSection());
+                        .get(Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_STUDENT_IN_SECTIONS)
+                        .booleanValue(),
+                section.isAllowedToViewStudentInSection());
         assertEquals(sectionPrivileges.get(sampleSection.name)
-                                      .get(Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_STUDENT)
-                                      .booleanValue(),
-                     section.isAllowedToModifyStudent());
+                        .get(Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_STUDENT)
+                        .booleanValue(),
+                section.isAllowedToModifyStudent());
         for (StudentListTeamData team : section.getTeams()) {
             testTeamContent(team);
         }
@@ -71,21 +71,21 @@ public class InstructorStudentListAjaxPageDataTest extends BaseTestCase {
         assertEquals(SanitizationHelper.sanitizeForJs(sampleStudent.course), student.getCourseIdForJs());
         assertEquals(photoUrl, student.getPhotoUrl());
         assertEquals(getCourseStudentDetailsLink(sampleStudent.course, sampleStudent.email, acct.googleId),
-                     student.getCourseStudentDetailsLink());
+                student.getCourseStudentDetailsLink());
         assertEquals(getCourseStudentEditLink(sampleStudent.course, sampleStudent.email, acct.googleId),
-                     student.getCourseStudentEditLink());
+                student.getCourseStudentEditLink());
         assertEquals(getCourseStudentDeleteLink(sampleStudent.course, sampleStudent.email, acct.googleId),
-                     student.getCourseStudentDeleteLink());
+                student.getCourseStudentDeleteLink());
         assertEquals(getCourseStudentRecordsLink(sampleStudent.course, sampleStudent.email, acct.googleId),
-                     student.getCourseStudentRecordsLink());
+                student.getCourseStudentRecordsLink());
     }
 
     private InstructorStudentListAjaxPageData initializeData() {
         photoUrl = "validPhotoUrl";
 
         acct = AccountAttributes.builder()
-            .withGoogleId("valid.id") // only googleId is needed
-            .build();
+                .withGoogleId("valid.id") // only googleId is needed
+                .build();
 
         sampleStudent = StudentAttributes
                 .builder("valid course", "1+1@email.com", "<script>alert(\"Valid name\");</script>")
@@ -112,27 +112,27 @@ public class InstructorStudentListAjaxPageDataTest extends BaseTestCase {
         emailPhotoUrlMapping.put(sampleStudent.email, photoUrl);
 
         return new InstructorStudentListAjaxPageData(acct, dummySessionToken, "valid course id", 1, true, sections,
-                                                     sectionPrivileges, emailPhotoUrlMapping);
+                sectionPrivileges, emailPhotoUrlMapping);
     }
 
     private String getCourseStudentDetailsLink(String course, String email, String googleId) {
         return furnishLinkWithCourseEmailAndUserId(Const.ActionURIs.INSTRUCTOR_COURSE_STUDENT_DETAILS_PAGE,
-                                                   course, email, googleId);
+                course, email, googleId);
     }
 
     private String getCourseStudentEditLink(String course, String email, String googleId) {
         return furnishLinkWithCourseEmailAndUserId(Const.ActionURIs.INSTRUCTOR_COURSE_STUDENT_DETAILS_EDIT,
-                                                   course, email, googleId);
+                course, email, googleId);
     }
 
     private String getCourseStudentDeleteLink(String course, String email, String googleId) {
         return furnishLinkWithCourseEmailAndUserId(Const.ActionURIs.INSTRUCTOR_COURSE_STUDENT_DELETE,
-                                                   course, email, googleId);
+                course, email, googleId);
     }
 
     private String getCourseStudentRecordsLink(String course, String email, String googleId) {
         return furnishLinkWithCourseEmailAndUserId(Const.ActionURIs.INSTRUCTOR_STUDENT_RECORDS_PAGE,
-                                                   course, email, googleId);
+                course, email, googleId);
     }
 
     private String furnishLinkWithCourseEmailAndUserId(String rawLink, String course, String studentEmail,

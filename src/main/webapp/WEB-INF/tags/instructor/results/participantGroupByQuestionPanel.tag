@@ -7,7 +7,8 @@
 
 <%@ taglib tagdir="/WEB-INF/tags/instructor/results" prefix="results" %>
 
-<%@ attribute name="groupByQuestionPanel" type="teammates.ui.template.InstructorFeedbackResultsGroupByQuestionPanel" required="true" %>
+<%@ attribute name="groupByQuestionPanel" type="teammates.ui.template.InstructorFeedbackResultsGroupByQuestionPanel"
+              required="true" %>
 <%@ attribute name="isShowingAll" type="java.lang.Boolean" required="true" %>
 
 <div class="panel ${not empty groupByQuestionPanel.questionTables ? 'panel-primary' : 'panel-default'}">
@@ -15,10 +16,13 @@
     ${groupByQuestionPanel.giver? 'From:' : 'To:'}
     <c:choose>
       <c:when test="${groupByQuestionPanel.emailValid}">
-        <div class="middlealign profile-pic-icon-hover inline panel-heading-text" data-link="${groupByQuestionPanel.profilePictureLink}">
+        <div class="middlealign profile-pic-icon-hover inline panel-heading-text"
+             data-link="${groupByQuestionPanel.profilePictureLink}">
           <strong>${fn:escapeXml(groupByQuestionPanel.name)}</strong>
           <img src="" alt="No Image Given" class="hidden profile-pic-icon-hidden">
-          <a <c:if test="${not empty groupByQuestionPanel.questionTables}">class="link-in-dark-bg"</c:if> href="mailto:${groupByQuestionPanel.participantIdentifier}">[${groupByQuestionPanel.participantIdentifier}]</a>
+          <a
+              <c:if test="${not empty groupByQuestionPanel.questionTables}">class="link-in-dark-bg"</c:if>
+              href="mailto:${groupByQuestionPanel.participantIdentifier}">[${groupByQuestionPanel.participantIdentifier}]</a>
         </div>
       </c:when>
       <c:otherwise>
@@ -30,7 +34,7 @@
 
     <div class="pull-right">
       <c:if test="${not empty groupByQuestionPanel.moderationButton}">
-        <results:moderationButton moderationButton="${groupByQuestionPanel.moderationButton}" />
+        <results:moderationButton moderationButton="${groupByQuestionPanel.moderationButton}"/>
       </c:if>
       &nbsp;
       <div class="display-icon" style="display:inline;">
@@ -47,7 +51,8 @@
           </c:forEach>
         </c:when>
         <c:otherwise>
-          <i>There are no responses ${groupByQuestionPanel.giver? 'given' : 'received'} by this user or you may not have the permission to see the response</i>
+          <i>There are no responses ${groupByQuestionPanel.giver? 'given' : 'received'} by this user or you may not have
+            the permission to see the response</i>
         </c:otherwise>
       </c:choose>
     </div>

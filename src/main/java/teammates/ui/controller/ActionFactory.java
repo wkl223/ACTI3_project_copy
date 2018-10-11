@@ -1,6 +1,7 @@
 package teammates.ui.controller;
 
 // CHECKSTYLE.OFF:AvoidStarImport as there would be many (>100) import lines added if we were to import all of the ActionURIs
+
 import static teammates.common.util.Const.ActionURIs.*;
 // CHECKSTYLE.ON:AvoidStarImport
 
@@ -102,6 +103,7 @@ public class ActionFactory {
         map(INSTRUCTOR_FEEDBACK_QUESTION_EDIT, InstructorFeedbackQuestionEditAction.class);
         map(INSTRUCTOR_FEEDBACK_QUESTION_VISIBILITY_MESSAGE, InstructorFeedbackQuestionVisibilityMessageAction.class);
         map(INSTRUCTOR_FEEDBACK_RESULTS_PAGE, InstructorFeedbackResultsPageAction.class);
+        map(INSTRUCTOR_FEEDBACK_UPLOAD, InstructorFeedbackResultsPageUploadAction.class);//Instructor feedback upload
         map(INSTRUCTOR_FEEDBACK_RESULTS_DOWNLOAD, InstructorFeedbackResultsDownloadAction.class);
         map(INSTRUCTOR_FEEDBACK_RESPONSE_COMMENT_ADD, InstructorFeedbackResponseCommentAddAction.class);
         map(INSTRUCTOR_FEEDBACK_RESPONSE_COMMENT_EDIT, InstructorFeedbackResponseCommentEditAction.class);
@@ -171,7 +173,7 @@ public class ActionFactory {
             return controllerClass.newInstance();
         } catch (Exception e) {
             Assumption.fail("Could not create the action for " + uri + ": "
-                            + TeammatesException.toStringWithStackTrace(e));
+                    + TeammatesException.toStringWithStackTrace(e));
             return null;
         }
 

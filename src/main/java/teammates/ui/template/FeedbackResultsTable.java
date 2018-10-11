@@ -18,13 +18,13 @@ public class FeedbackResultsTable {
 
         this.receivedResponses = new ArrayList<>();
         Map<String, List<FeedbackResponseAttributes>> received =
-                                        result.getResponsesSortedByRecipient().get(studentName);
+                result.getResponsesSortedByRecipient().get(studentName);
         int giverIndex = 0;
         if (received != null) {
             for (Map.Entry<String, List<FeedbackResponseAttributes>> entry : received.entrySet()) {
                 giverIndex++;
                 this.receivedResponses.add(new FeedbackResponsePersonRow(fbIndex, giverIndex, entry.getKey(), "giver",
-                                                                         entry.getValue(), result));
+                        entry.getValue(), result));
             }
         }
 
@@ -35,7 +35,7 @@ public class FeedbackResultsTable {
             for (Map.Entry<String, List<FeedbackResponseAttributes>> entry : given.entrySet()) {
                 recipientIndex++;
                 this.givenResponses.add(new FeedbackResponsePersonRow(fbIndex, recipientIndex, entry.getKey(), "recipient",
-                                                                      entry.getValue(), result));
+                        entry.getValue(), result));
             }
         }
     }

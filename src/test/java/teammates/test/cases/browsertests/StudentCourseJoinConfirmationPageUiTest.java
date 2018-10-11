@@ -14,8 +14,8 @@ import teammates.test.pageobjects.StudentHomePage;
 
 /**
  * SUT: {@link Const.ActionURIs#STUDENT_COURSE_JOIN},
- *      {@link Const.ActionURIs#STUDENT_COURSE_JOIN_AUTHENTICATED},
- *      {@link Const.ActionURIs#STUDENT_COURSE_JOIN_NEW}.
+ * {@link Const.ActionURIs#STUDENT_COURSE_JOIN_AUTHENTICATED},
+ * {@link Const.ActionURIs#STUDENT_COURSE_JOIN_NEW}.
  */
 public class StudentCourseJoinConfirmationPageUiTest extends BaseUiTestCase {
     private StudentCourseJoinConfirmationPage confirmationPage;
@@ -65,15 +65,15 @@ public class StudentCourseJoinConfirmationPageUiTest extends BaseUiTestCase {
         String courseName = testData.courses.get("SCJConfirmationUiT.CS2104").getName();
         String studentEmail = testData.students.get("alice.tmms@SCJConfirmationUiT.CS2104").email;
         joinLink = createUrl(Const.ActionURIs.STUDENT_COURSE_JOIN_NEW)
-                        .withRegistrationKey(getKeyFromBackDoor(courseId, studentEmail))
-                        .withCourseId(courseId)
-                        .withStudentEmail(studentEmail)
-                        .toAbsoluteString();
+                .withRegistrationKey(getKeyFromBackDoor(courseId, studentEmail))
+                .withCourseId(courseId)
+                .withStudentEmail(studentEmail)
+                .toAbsoluteString();
 
         browser.driver.get(joinLink);
         studentHomePage = AppPage.createCorrectLoginPageType(browser)
-                           .loginAsStudent(TestProperties.TEST_STUDENT1_ACCOUNT,
-                                                  TestProperties.TEST_STUDENT1_PASSWORD);
+                .loginAsStudent(TestProperties.TEST_STUDENT1_ACCOUNT,
+                        TestProperties.TEST_STUDENT1_PASSWORD);
 
         studentHomePage.waitForTextsForAllStatusMessagesToUserEquals(
                 String.format(Const.StatusMessages.STUDENT_COURSE_JOIN_SUCCESSFUL, "[" + courseId + "] " + courseName),
@@ -86,8 +86,8 @@ public class StudentCourseJoinConfirmationPageUiTest extends BaseUiTestCase {
         courseName = testData.courses.get("SCJConfirmationUiT.CS2103").getName();
         studentEmail = testData.students.get("alice.tmms@SCJConfirmationUiT.CS2103").email;
         joinLink = createUrl(Const.ActionURIs.STUDENT_COURSE_JOIN_NEW)
-                                        .withRegistrationKey(getKeyFromBackDoor(courseId, studentEmail))
-                                        .toAbsoluteString();
+                .withRegistrationKey(getKeyFromBackDoor(courseId, studentEmail))
+                .toAbsoluteString();
 
         browser.driver.get(joinLink);
         confirmationPage = AppPage.getNewPageInstance(browser, StudentCourseJoinConfirmationPage.class);
@@ -104,8 +104,8 @@ public class StudentCourseJoinConfirmationPageUiTest extends BaseUiTestCase {
         ______TS("Confirming goes to home page");
         browser.driver.get(homePageActionUrl);
         studentHomePage = AppPage.createCorrectLoginPageType(browser)
-                            .loginAsStudent(TestProperties.TEST_STUDENT1_ACCOUNT,
-                                       TestProperties.TEST_STUDENT1_PASSWORD);
+                .loginAsStudent(TestProperties.TEST_STUDENT1_ACCOUNT,
+                        TestProperties.TEST_STUDENT1_PASSWORD);
         browser.driver.get(joinLink);
         confirmationPage = AppPage.getNewPageInstance(browser, StudentCourseJoinConfirmationPage.class);
         confirmationPage.clickConfirmButton();
@@ -150,13 +150,13 @@ public class StudentCourseJoinConfirmationPageUiTest extends BaseUiTestCase {
         String courseName = testData.courses.get("SCJConfirmationUiT.CS2104").getName();
         String studentEmail = testData.students.get("alice.tmms@SCJConfirmationUiT.CS2104").email;
         joinLink = createUrl(Const.ActionURIs.STUDENT_COURSE_JOIN)
-                                        .withRegistrationKey(getKeyFromBackDoor(courseId, studentEmail))
-                                        .toAbsoluteString();
+                .withRegistrationKey(getKeyFromBackDoor(courseId, studentEmail))
+                .toAbsoluteString();
 
         browser.driver.get(joinLink);
         studentHomePage = AppPage.createCorrectLoginPageType(browser)
-                           .loginAsStudent(TestProperties.TEST_STUDENT1_ACCOUNT,
-                                                  TestProperties.TEST_STUDENT1_PASSWORD);
+                .loginAsStudent(TestProperties.TEST_STUDENT1_ACCOUNT,
+                        TestProperties.TEST_STUDENT1_PASSWORD);
         studentHomePage.waitForTextsForAllStatusMessagesToUserEquals(
                 String.format(Const.StatusMessages.STUDENT_COURSE_JOIN_SUCCESSFUL, "[" + courseId + "] " + courseName),
                 String.format(Const.StatusMessages.HINT_FOR_NO_SESSIONS_STUDENT, "[" + courseId + "] " + courseName),
@@ -168,8 +168,8 @@ public class StudentCourseJoinConfirmationPageUiTest extends BaseUiTestCase {
         courseName = testData.courses.get("SCJConfirmationUiT.CS2103").getName();
         studentEmail = testData.students.get("alice.tmms@SCJConfirmationUiT.CS2103").email;
         joinLink = createUrl(Const.ActionURIs.STUDENT_COURSE_JOIN)
-                                        .withRegistrationKey(getKeyFromBackDoor(courseId, studentEmail))
-                                        .toAbsoluteString();
+                .withRegistrationKey(getKeyFromBackDoor(courseId, studentEmail))
+                .toAbsoluteString();
 
         browser.driver.get(joinLink);
         confirmationPage = AppPage.getNewPageInstance(browser, StudentCourseJoinConfirmationPage.class);
@@ -185,8 +185,8 @@ public class StudentCourseJoinConfirmationPageUiTest extends BaseUiTestCase {
         ______TS("Confirming goes to home page");
         browser.driver.get(homePageActionUrl);
         studentHomePage = AppPage.createCorrectLoginPageType(browser)
-                            .loginAsStudent(TestProperties.TEST_STUDENT1_ACCOUNT,
-                                       TestProperties.TEST_STUDENT1_PASSWORD);
+                .loginAsStudent(TestProperties.TEST_STUDENT1_ACCOUNT,
+                        TestProperties.TEST_STUDENT1_PASSWORD);
         browser.driver.get(joinLink);
         confirmationPage = AppPage.getNewPageInstance(browser, StudentCourseJoinConfirmationPage.class);
         confirmationPage.clickConfirmButton();

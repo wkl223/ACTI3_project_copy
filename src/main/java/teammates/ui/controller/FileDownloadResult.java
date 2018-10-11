@@ -18,7 +18,7 @@ public class FileDownloadResult extends ActionResult {
     private String fileName = "";
 
     public FileDownloadResult(String destination, AccountAttributes account,
-            List<StatusMessage> status) {
+                              List<StatusMessage> status) {
         super(destination, account, status);
     }
 
@@ -48,11 +48,12 @@ public class FileDownloadResult extends ActionResult {
 
     /**
      * Suggests a filename for the content of the response to be saved as.
+     *
      * @return value of the HTTP Content-Disposition header
      */
     public String getContentDispositionHeader() {
         return "attachment; filename=\"" + getAsciiOnlyCsvFileName() + "\";"
-               + "filename*= UTF-8''" + getUrlEscapedCsvFileName();
+                + "filename*= UTF-8''" + getUrlEscapedCsvFileName();
     }
 
     private String getAsciiOnlyCsvFileName() {

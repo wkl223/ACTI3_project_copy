@@ -9,7 +9,7 @@ public class QuestionTable {
     private List<ResponseRow> responseRows;
 
     public QuestionTable(int questionNumber, String questionText,
-                             String additionalInfo, List<ResponseRow> responseRows) {
+                         String additionalInfo, List<ResponseRow> responseRows) {
         this.questionNumber = questionNumber;
         this.questionText = questionText;
         this.additionalInfo = additionalInfo;

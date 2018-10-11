@@ -146,7 +146,7 @@ public class AdminSessionsPageAction extends Action {
             isError = false;
             statusToUser.add(new StatusMessage("Currently No Ongoing Sessions", StatusMessageColor.WARNING));
             statusToAdmin = "Admin Sessions Page Load<br>"
-                          + "<span class=\"bold\"> No Ongoing Sessions</span>";
+                    + "<span class=\"bold\"> No Ongoing Sessions</span>";
 
             this.map = new HashMap<>();
             this.totalOngoingSessions = 0;
@@ -193,10 +193,10 @@ public class AdminSessionsPageAction extends Action {
         this.map = map;
         this.totalInstitutes = getTotalInstitutes(map);
         statusToAdmin = "Admin Sessions Page Load<br>"
-                      + "<span class=\"bold\">Total Ongoing Sessions:</span> "
-                      + this.totalOngoingSessions
-                      + "<span class=\"bold\">Total Opened Sessions:</span> "
-                      + this.totalOpenStatusSessions;
+                + "<span class=\"bold\">Total Ongoing Sessions:</span> "
+                + this.totalOngoingSessions
+                + "<span class=\"bold\">Total Opened Sessions:</span> "
+                + this.totalOpenStatusSessions;
 
         constructSessionToInstructorIdMap();
         return initializeDataAndCreateShowPageResult();
@@ -214,6 +214,7 @@ public class AdminSessionsPageAction extends Action {
     /**
      * This method loops through all instructors for the given course until a registered Instructor is found.
      * It returns the google id of the found instructor.
+     *
      * @return empty string if no available instructor google id is found
      */
     private String findAvailableInstructorGoogleIdForCourse(String courseId) {
@@ -271,15 +272,15 @@ public class AdminSessionsPageAction extends Action {
 
         if (condition.contentEquals("null")) {
             return startDate == null && endDate == null && startHour == null
-                   && endHour == null && startMin == null && endMin == null && timeZone == null;
+                    && endHour == null && startMin == null && endMin == null && timeZone == null;
         }
 
         if (condition.contentEquals("notNull")) {
             return startDate != null && endDate != null && startHour != null
-                   && endHour != null && startMin != null && endMin != null && timeZone != null
-                   && !startDate.trim().isEmpty() && !endDate.trim().isEmpty() && !startHour.trim().isEmpty()
-                   && !endHour.trim().isEmpty() && !startMin.trim().isEmpty()
-                   && !endMin.trim().isEmpty() && !timeZone.trim().isEmpty();
+                    && endHour != null && startMin != null && endMin != null && timeZone != null
+                    && !startDate.trim().isEmpty() && !endDate.trim().isEmpty() && !startHour.trim().isEmpty()
+                    && !endHour.trim().isEmpty() && !startMin.trim().isEmpty()
+                    && !endMin.trim().isEmpty() && !timeZone.trim().isEmpty();
         }
 
         return false;

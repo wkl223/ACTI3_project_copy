@@ -2,6 +2,7 @@ package teammates.common.util.retry;
 
 /**
  * Represents a task that can be retried.
+ *
  * @param <T> Result type.
  * @param <E> Throwable type for signalling that the task should not be retried.
  */

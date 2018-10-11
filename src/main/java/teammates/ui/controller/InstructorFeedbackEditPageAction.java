@@ -60,9 +60,9 @@ public class InstructorFeedbackEditPageAction extends Action {
         int numOfInstructors = instructorList.size();
 
         statusToAdmin = "instructorFeedbackEdit Page Load<br>"
-                        + "Editing information for Feedback Session "
-                        + "<span class=\"bold\">[" + feedbackSessionName + "]</span>"
-                        + "in Course: <span class=\"bold\">[" + courseId + "]</span>";
+                + "Editing information for Feedback Session "
+                + "<span class=\"bold\">[" + feedbackSessionName + "]</span>"
+                + "in Course: <span class=\"bold\">[" + courseId + "]</span>";
 
         InstructorFeedbackEditPageData data = new InstructorFeedbackEditPageData(account, sessionToken);
 

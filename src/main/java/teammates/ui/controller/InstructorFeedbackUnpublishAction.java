@@ -33,9 +33,9 @@ public class InstructorFeedbackUnpublishAction extends Action {
             }
 
             statusToUser.add(new StatusMessage(Const.StatusMessages.FEEDBACK_SESSION_UNPUBLISHED,
-                                               StatusMessageColor.SUCCESS));
+                    StatusMessageColor.SUCCESS));
             statusToAdmin = "Feedback Session <span class=\"bold\">(" + feedbackSessionName + ")</span> "
-                            + "for Course <span class=\"bold\">[" + courseId + "]</span> unpublished.";
+                    + "for Course <span class=\"bold\">[" + courseId + "]</span> unpublished.";
         } catch (InvalidParametersException e) {
             setStatusForException(e);
         }

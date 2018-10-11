@@ -24,12 +24,12 @@
 <ti:instructorPage title="Edit Feedback Session" jsIncludes="${jsIncludes}">
 
   <feedbacks:feedbackSessionsForm fsForm="${data.fsForm}"
-      courseName="${fn:escapeXml(data.courseDetails.course.getName())}"
-      fsEnableEdit="${data.shouldLoadInEditMode}" fsAttributes="${data.feedbackSession}"/>
+                                  courseName="${fn:escapeXml(data.courseDetails.course.getName())}"
+                                  fsEnableEdit="${data.shouldLoadInEditMode}" fsAttributes="${data.feedbackSession}"/>
 
   <br>
-  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
-  <ti:copyModal editCopyActionLink="${data.editCopyActionLink}" />
+  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}"/>
+  <ti:copyModal editCopyActionLink="${data.editCopyActionLink}"/>
 
   <c:if test="${empty data.qnForms}">
     <br>
@@ -42,7 +42,7 @@
   <input type="hidden" id="num-teams" value="${data.courseDetails.stats.teamsTotal}">
   <input type="hidden" id="num-instructors" value="${data.numOfInstructors}">
   <c:forEach items="${data.qnForms}" var="question">
-    <feedbackEdit:questionEditForm fqForm="${question}" />
+    <feedbackEdit:questionEditForm fqForm="${question}"/>
   </c:forEach>
 
   <feedbackEdit:newQuestionForm fqForm="${data.newQnForm}" nextQnNum="${fn:length(data.qnForms) + 1}"/>
@@ -50,7 +50,7 @@
 
   <br>
   <br>
-  <feedbackEdit:previewSessionForm previewForm="${data.previewForm}" />
+  <feedbackEdit:previewSessionForm previewForm="${data.previewForm}"/>
 
   <br>
   <br>

@@ -12,10 +12,10 @@
     <span class="pull-right">
       <c:forEach items="${courseTable.buttons}" var="button">
         <a class="btn btn-primary btn-xs" data-toggle="tooltip" data-placement="top" ${button.attributesToString}>
-          ${button.content}
+            ${button.content}
         </a>
       </c:forEach>
     </span>
   </div>
-  <jsp:doBody />
+  <jsp:doBody/>
 </div>

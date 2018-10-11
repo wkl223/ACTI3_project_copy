@@ -14,7 +14,6 @@ import teammates.common.util.SanitizationHelper;
  * <br> * statistics of teams, enrollments, registrations
  * <br> * Details of its feedback sessions (as {@link FeedbackSessionDetailsBundle} objects)
  * <br> * Details of its teams (as {@link TeamDetailsBundle} objects)
- *
  */
 public class CourseDetailsBundle {
     public CourseAttributes course;

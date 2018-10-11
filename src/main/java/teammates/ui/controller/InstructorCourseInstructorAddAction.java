@@ -39,8 +39,8 @@ public class InstructorCourseInstructorAddAction extends InstructorCourseInstruc
                     loggedInUser.googleId, instructorEmail, courseId);
 
             statusToUser.add(new StatusMessage(String.format(Const.StatusMessages.COURSE_INSTRUCTOR_ADDED,
-                                                             instructorName, instructorEmail),
-                                               StatusMessageColor.SUCCESS));
+                    instructorName, instructorEmail),
+                    StatusMessageColor.SUCCESS));
             statusToAdmin = "New instructor (<span class=\"bold\"> " + instructorEmail + "</span>)"
                     + " for Course <span class=\"bold\">[" + courseId + "]</span> created.<br>";
         } catch (EntityAlreadyExistsException e) {
@@ -98,12 +98,12 @@ public class InstructorCourseInstructorAddAction extends InstructorCourseInstruc
      * @param instructorRole        Role of the instructor.
      * @param isDisplayedToStudents Whether the instructor should be visible to students.
      * @param displayedName         Name to be visible to students.
-     *                                  Should not be {@code null} even if {@code isDisplayedToStudents} is false.
+     *                              Should not be {@code null} even if {@code isDisplayedToStudents} is false.
      * @return An instructor with basic info, excluding custom privileges
      */
     private InstructorAttributes createInstructorWithBasicAttributes(String courseId, String instructorName,
-            String instructorEmail, String instructorRole,
-            boolean isDisplayedToStudents, String displayedName) {
+                                                                     String instructorEmail, String instructorRole,
+                                                                     boolean isDisplayedToStudents, String displayedName) {
         String instrName = SanitizationHelper.sanitizeName(instructorName);
         String instrEmail = SanitizationHelper.sanitizeEmail(instructorEmail);
         String instrRole = SanitizationHelper.sanitizeName(instructorRole);

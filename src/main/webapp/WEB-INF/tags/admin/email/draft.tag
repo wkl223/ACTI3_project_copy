@@ -24,20 +24,20 @@
     <div class="table-responsive">
       <table class="table table-hover">
         <thead>
-          <tr>
-            <th>Action</th>
-            <th>Address Receiver</th>
-            <th>Group Receiver</th>
-            <th>Subject</th>
-            <th class="button-sort-ascending toggle-sort">
-              Date <span class="icon-sort unsorted" id="button_sort_date"></span>
-            </th>
-          </tr>
+        <tr>
+          <th>Action</th>
+          <th>Address Receiver</th>
+          <th>Group Receiver</th>
+          <th>Subject</th>
+          <th class="button-sort-ascending toggle-sort">
+            Date <span class="icon-sort unsorted" id="button_sort_date"></span>
+          </th>
+        </tr>
         </thead>
         <tbody>
-          <c:forEach items="${draftEmailTable.rows}" var="email">
-            <adminEmail:draftEmail draftEmail="${email}"/>
-          </c:forEach>
+        <c:forEach items="${draftEmailTable.rows}" var="email">
+          <adminEmail:draftEmail draftEmail="${email}"/>
+        </c:forEach>
         </tbody>
       </table>
     </div>

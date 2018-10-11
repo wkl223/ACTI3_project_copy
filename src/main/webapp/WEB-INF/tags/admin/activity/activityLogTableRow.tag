@@ -8,7 +8,8 @@
 <tr>
   <td class="${log.isActionTimeTakenModerate ? "warning"
       : log.isActionTimeTakenSlow ? "danger" : "" }">
-    <a class="log-entry" data-logtime="${log.logTime}" data-googleid="${log.userGoogleId}" data-displayedrole="${log.displayedRole}">
+    <a class="log-entry" data-logtime="${log.logTime}" data-googleid="${log.userGoogleId}"
+       data-displayedrole="${log.displayedRole}">
       ${log.displayedLogTime}
     </a>
     <p class="localTime"></p>
@@ -42,8 +43,8 @@
           <span class="glyphicon glyphicon-eye-open text-danger"></span>
         </c:if>
         <a href="${log.displayedActionUrl}"
-            class="${log.isActionFailure || log.isActionErrorReport ? "text-danger" : "" }"
-            target="_blank">
+           class="${log.isActionFailure || log.isActionErrorReport ? "text-danger" : "" }"
+           target="_blank">
           ${log.displayedActionName}
         </a>
         <small>

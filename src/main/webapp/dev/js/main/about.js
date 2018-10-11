@@ -37,7 +37,7 @@
             $div.append(
                     `<li>
                         ${contributor.image
-                                ? `<img src="${contributor.image}" alt="${displayedName}" width="120px"><br>` : ''}
+                            ? `<img src="${contributor.image}" alt="${displayedName}" width="120px"><br>` : ''}
                         ${contributor.username ? getGitHubLink(contributor.username, displayedName) : contributor.name}
                     </li>`
             );
@@ -84,7 +84,7 @@
                 $('#teammembers-past').append(
                         `<li>
                             ${teammember.image
-                                    ? `<img src="${teammember.image}" alt="${teammember.name}" width="120px"><br>` : ''}
+                                ? `<img src="${teammember.image}" alt="${teammember.name}" width="120px"><br>` : ''}
                             ${url}
                             ${listDownPastPositions(teammember.pastPositions)}
                         </li>`

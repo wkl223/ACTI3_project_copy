@@ -135,18 +135,18 @@ public class StudentProfilePage extends AppPage {
 
     public void selectGender(String gender) {
         switch (gender) {
-        case Const.GenderTypes.MALE:
-            click(genderMaleRadio);
-            break;
-        case Const.GenderTypes.FEMALE:
-            click(genderFemaleRadio);
-            break;
-        case Const.GenderTypes.OTHER:
-            click(genderOtherRadio);
-            break;
-        default:
-            fail("Given gender " + gender + " is not valid!");
-            break;
+            case Const.GenderTypes.MALE:
+                click(genderMaleRadio);
+                break;
+            case Const.GenderTypes.FEMALE:
+                click(genderFemaleRadio);
+                break;
+            case Const.GenderTypes.OTHER:
+                click(genderOtherRadio);
+                break;
+            default:
+                fail("Given gender " + gender + " is not valid!");
+                break;
         }
     }
 
@@ -185,18 +185,18 @@ public class StudentProfilePage extends AppPage {
 
     private void ensureGenderIsSelectedAs(String gender) {
         switch (gender) {
-        case Const.GenderTypes.MALE:
-            assertTrue(genderMaleRadio.isSelected());
-            break;
-        case Const.GenderTypes.FEMALE:
-            assertTrue(genderFemaleRadio.isSelected());
-            break;
-        case Const.GenderTypes.OTHER:
-            assertTrue(genderOtherRadio.isSelected());
-            break;
-        default:
-            fail("unexpected gender value given");
-            break;
+            case Const.GenderTypes.MALE:
+                assertTrue(genderMaleRadio.isSelected());
+                break;
+            case Const.GenderTypes.FEMALE:
+                assertTrue(genderFemaleRadio.isSelected());
+                break;
+            case Const.GenderTypes.OTHER:
+                assertTrue(genderOtherRadio.isSelected());
+                break;
+            default:
+                fail("unexpected gender value given");
+                break;
         }
     }
 
@@ -228,9 +228,9 @@ public class StudentProfilePage extends AppPage {
 
     public void verifyPhotoSize(int height, int width) {
         assertEquals(String.valueOf(height), browser.driver.findElement(By.id("pictureHeight"))
-                                                           .getAttribute("value"));
+                .getAttribute("value"));
         assertEquals(String.valueOf(width), browser.driver.findElement(By.id("pictureWidth"))
-                                                          .getAttribute("value"));
+                .getAttribute("value"));
     }
 
     public void verifyUploadButtonState(boolean expectedState) {

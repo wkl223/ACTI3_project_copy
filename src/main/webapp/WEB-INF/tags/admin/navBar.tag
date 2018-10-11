@@ -40,7 +40,8 @@
           <a href="<%=Const.ActionURIs.ADMIN_SESSIONS_PAGE%>">Sessions</a>
         </li>
 
-        <li <c:if test="${fn:contains(data.getClass(), 'AdminEmail')}">class="active dropdown"</c:if>
+        <li
+            <c:if test="${fn:contains(data.getClass(), 'AdminEmail')}">class="active dropdown"</c:if>
             <c:if test="${not fn:contains(data.getClass(), 'AdminEmail')}">class="dropdown"</c:if>>
           <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
             Email <span class="caret"></span>
@@ -62,8 +63,8 @@
             <span class="glyphicon glyphicon-user"></span> Logout
 
             (<span class="text-info" data-toggle="tooltip" title="${data.account.googleId}" data-placement="bottom">
-              ${data.account.truncatedGoogleId}
-            </span>)
+            ${data.account.truncatedGoogleId}
+          </span>)
           </a>
         </li>
       </ul>

@@ -13,7 +13,7 @@ import teammates.test.pageobjects.InstructorFeedbackEditPage;
 
 /**
  * SUT: {@link Const.ActionURIs#INSTRUCTOR_FEEDBACK_EDIT_PAGE},
- *      specifically for constant sum (recipients) questions.
+ * specifically for constant sum (recipients) questions.
  */
 public class FeedbackConstSumRecipientQuestionUiTest extends FeedbackQuestionUiTest {
 

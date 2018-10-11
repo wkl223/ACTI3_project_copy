@@ -60,7 +60,7 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
         gaeSimulation.loginAsInstructor(instructor.googleId);
 
         ______TS("edit existing answer");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_QUESTION_RESPONSETOTAL + "-1", "1",
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID + "-1-0", fr.getId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fr.feedbackSessionName,
@@ -92,7 +92,7 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
         verifyNoEmailsSent(editInstructorFsAction);
 
         ______TS("deleted response");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_QUESTION_RESPONSETOTAL + "-1", "1",
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID + "-1-0", fr.getId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fr.feedbackSessionName,
@@ -129,7 +129,7 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
         verifySpecifiedTasksAdded(editInstructorFsAction, Const.TaskQueue.FEEDBACK_SESSION_UPDATE_RESPONDENT_QUEUE_NAME, 1);
 
         ______TS("skipped question");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_QUESTION_RESPONSETOTAL + "-1", "1",
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fr.feedbackSessionName,
                 Const.ParamsNames.COURSE_ID, fr.courseId,
@@ -158,7 +158,7 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
         assertNull(frDb.getFeedbackResponse(fq.getId(), fr.giver, fr.recipient));
 
         ______TS("new response");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_QUESTION_RESPONSETOTAL + "-1", "1",
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fr.feedbackSessionName,
                 Const.ParamsNames.COURSE_ID, fr.courseId,
@@ -207,7 +207,7 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
         gaeSimulation.loginAsInstructor(instructor.googleId);
 
         ______TS("Unsuccessful case: test empty feedback session name parameter");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, dataBundle.feedbackResponses.get("response1ForQ1").courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_MODERATED_PERSON, moderatedInstructorEmail
         };
@@ -218,13 +218,13 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
             signalFailureToDetectException("Did not detect that parameters are null.");
         } catch (NullPostParameterException e) {
             assertEquals(String.format(Const.StatusCodes.NULL_POST_PARAMETER, Const.ParamsNames.FEEDBACK_SESSION_NAME),
-                         e.getMessage());
+                    e.getMessage());
         }
 
         ______TS("Unsuccessful case: test empty course id parameter");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME,
-                        dataBundle.feedbackResponses.get("response1ForQ1").feedbackSessionName,
+                dataBundle.feedbackResponses.get("response1ForQ1").feedbackSessionName,
                 Const.ParamsNames.FEEDBACK_SESSION_MODERATED_PERSON, moderatedInstructorEmail
         };
 
@@ -234,11 +234,11 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
             signalFailureToDetectException("Did not detect that parameters are null.");
         } catch (NullPostParameterException e) {
             assertEquals(String.format(Const.StatusCodes.NULL_POST_PARAMETER, Const.ParamsNames.COURSE_ID),
-                         e.getMessage());
+                    e.getMessage());
         }
 
         ______TS("Unsuccessful case: test no moderated student parameter");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_QUESTION_RESPONSETOTAL + "-1", "1",
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID + "-1-0", fr.getId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fr.feedbackSessionName,
@@ -255,8 +255,8 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
             signalFailureToDetectException("Did not detect that parameters are null.");
         } catch (NullPostParameterException e) {
             assertEquals(String.format(Const.StatusCodes.NULL_POST_PARAMETER,
-                                       Const.ParamsNames.FEEDBACK_SESSION_MODERATED_PERSON),
-                         e.getMessage());
+                    Const.ParamsNames.FEEDBACK_SESSION_MODERATED_PERSON),
+                    e.getMessage());
         }
     }
 
@@ -284,7 +284,7 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
 
         gaeSimulation.loginAsInstructor(instructor.googleId);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_QUESTION_RESPONSETOTAL + "-1", "1",
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID + "-1-0", fr.getId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fr.feedbackSessionName,
@@ -302,7 +302,7 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
             signalFailureToDetectException();
         } catch (UnauthorizedAccessException e) {
             assertEquals("Feedback session [First feedback session] is not accessible to "
-                         + "instructor [" + instructor.email + "] for privilege [canmodifysession]", e.getMessage());
+                    + "instructor [" + instructor.email + "] for privilege [canmodifysession]", e.getMessage());
         }
 
         ______TS("Successful case: Course Instructor edit Course Instructor");
@@ -315,7 +315,7 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
 
         gaeSimulation.loginAsInstructor(instructor.googleId);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_QUESTION_RESPONSETOTAL + "-1", "1",
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID + "-1-0", fr.getId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fr.feedbackSessionName,
@@ -359,7 +359,7 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
         gaeSimulation.loginAsInstructor(instructor.googleId);
 
         ______TS("Failure case: submit response for question in session, but should not be editable by instructor "
-                 + "(unable to see recipient)");
+                + "(unable to see recipient)");
         fq = fqDb.getFeedbackQuestion("First feedback session", "IEIFPTCourse", 4);
         assertNotNull("Feedback question not found in database", fq);
 
@@ -367,7 +367,7 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
         fr = frDb.getFeedbackResponse(fq.getId(), fr.giver, fr.recipient);
         assertNotNull("Feedback response not found in database", fr);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_QUESTION_RESPONSETOTAL + "-1", "1",
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID + "-1-0", fr.getId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fr.feedbackSessionName,
@@ -385,11 +385,11 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
             signalFailureToDetectException("Did not detect that this instructor cannot access this particular question.");
         } catch (UnauthorizedAccessException e) {
             assertEquals("Feedback session [First feedback session] question [" + fr.feedbackQuestionId + "] "
-                         + "is not accessible to instructor [" + instructor.email + "]", e.getMessage());
+                    + "is not accessible to instructor [" + instructor.email + "]", e.getMessage());
         }
 
         ______TS("Failure case: submit response for question in session, but should not be editable by instructor "
-                 + "(unable to see giver)");
+                + "(unable to see giver)");
         fq = fqDb.getFeedbackQuestion("First feedback session", "IEIFPTCourse", 5);
         assertNotNull("Feedback question not found in database", fq);
 
@@ -397,7 +397,7 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
         fr = frDb.getFeedbackResponse(fq.getId(), fr.giver, fr.recipient);
         assertNotNull("Feedback response not found in database", fr);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_QUESTION_RESPONSETOTAL + "-1", "1",
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID + "-1-0", fr.getId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fr.feedbackSessionName,
@@ -415,7 +415,7 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
             signalFailureToDetectException("Did not detect that this instructor cannot access this particular question.");
         } catch (UnauthorizedAccessException e) {
             assertEquals("Feedback session [First feedback session] question [" + fr.feedbackQuestionId + "] "
-                         + "is not accessible to instructor [" + instructor.email + "]", e.getMessage());
+                    + "is not accessible to instructor [" + instructor.email + "]", e.getMessage());
         }
     }
 
@@ -438,7 +438,7 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
         gaeSimulation.loginAsInstructor(instructor.googleId);
 
         ______TS("Success case: modifying responses in closed session");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_QUESTION_RESPONSETOTAL + "-1", "1",
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID + "-1-0", fr.getId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fr.feedbackSessionName,
@@ -494,7 +494,7 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
         String feedbackSessionName = "First feedback session";
         String moderatedInstructorEmail = "helper@course1.tmt";
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, courseId,
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackSessionName,
                 Const.ParamsNames.FEEDBACK_SESSION_MODERATED_PERSON, moderatedInstructorEmail
@@ -522,7 +522,7 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
 
         ______TS("Save new comment on response");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_QUESTION_RESPONSETOTAL + "-1", "1",
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID + "-1-0", fr.getId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fr.feedbackSessionName,
@@ -556,7 +556,7 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
 
         ______TS("Update response comment");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_QUESTION_RESPONSETOTAL + "-1", "1",
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID + "-1-0", fr.getId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fr.feedbackSessionName,
@@ -609,7 +609,7 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
 
         ______TS("Save new comment on response");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_QUESTION_RESPONSETOTAL + "-1", "1",
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID + "-1-0", fr.getId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fr.feedbackSessionName,
@@ -643,7 +643,7 @@ public class InstructorEditInstructorFeedbackSaveActionTest extends BaseActionTe
 
         ______TS("Update response comment");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.FEEDBACK_QUESTION_RESPONSETOTAL + "-1", "1",
                 Const.ParamsNames.FEEDBACK_RESPONSE_ID + "-1-0", fr.getId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fr.feedbackSessionName,

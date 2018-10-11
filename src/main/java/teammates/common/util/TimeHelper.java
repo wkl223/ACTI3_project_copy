@@ -22,7 +22,8 @@ import java.util.Map;
 import teammates.common.exception.TeammatesException;
 import teammates.common.util.Const.SystemParams;
 
-/** A helper class to hold time-related functions (e.g., converting dates to strings etc.).
+/**
+ * A helper class to hold time-related functions (e.g., converting dates to strings etc.).
  * Time zone is assumed as UTC unless specifically mentioned.
  */
 public final class TimeHelper {
@@ -277,6 +278,7 @@ public final class TimeHelper {
     /**
      * Convenience method to perform {@link #adjustLocalDateTimeForSessionsFormInputs} followed by
      * {@link #formatDateForSessionsForm} on a {@link LocalDateTime}.
+     *
      * @see #adjustAndFormatDateForSessionsFormInputs
      * @see #formatDateForSessionsForm
      */
@@ -288,6 +290,7 @@ public final class TimeHelper {
      * Returns a copy of the {@link LocalDateTime} adjusted to be compatible with the format output by
      * {@link #parseDateTimeFromSessionsForm}, i.e. either the time is 23:59, or the minute is 0 and the hour is not 0.
      * The date time is first rounded to the nearest hour, then the special case 00:00 is handled.
+     *
      * @param ldt The {@link LocalDateTime} to be adjusted for compatibility.
      * @return a copy of {@code ldt} adjusted for compatibility, or null if {@code ldt} is null.
      * @see #parseDateTimeFromSessionsForm
@@ -472,8 +475,8 @@ public final class TimeHelper {
      */
     public static String convertToStandardDuration(Long timeInMilliseconds) {
         return timeInMilliseconds == null
-             ? ""
-             : String.format("%d:%d:%d",
+                ? ""
+                : String.format("%d:%d:%d",
                 timeInMilliseconds / 60000,
                 (timeInMilliseconds % 60000) / 1000,
                 timeInMilliseconds % 1000);

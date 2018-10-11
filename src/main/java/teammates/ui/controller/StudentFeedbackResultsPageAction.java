@@ -28,7 +28,7 @@ public class StudentFeedbackResultsPageAction extends Action {
         }
 
         gateKeeper.verifyAccessible(getCurrentStudent(courseId),
-                                    logic.getFeedbackSession(feedbackSessionName, courseId));
+                logic.getFeedbackSession(feedbackSessionName, courseId));
 
         StudentFeedbackResultsPageData data = new StudentFeedbackResultsPageData(account, student, sessionToken);
 
@@ -39,7 +39,7 @@ public class StudentFeedbackResultsPageAction extends Action {
             // not covered because GateKeeper will detect this as unauthorized exception, but we can
             // leave this here as a safety net on the off cases that GateKeeper fails to catch the Exception
             throw new EntityDoesNotExistException("Feedback session " + feedbackSessionName
-                                                  + " does not exist in " + courseId + ".");
+                    + " does not exist in " + courseId + ".");
         }
 
         if (!data.getBundle().feedbackSession.isPublished()) {
@@ -48,18 +48,18 @@ public class StudentFeedbackResultsPageAction extends Action {
 
         if (data.getBundle().isStudentHasSomethingNewToSee(data.student)) {
             statusToUser.add(new StatusMessage(Const.StatusMessages.FEEDBACK_RESULTS_SOMETHINGNEW,
-                                               StatusMessageColor.INFO));
+                    StatusMessageColor.INFO));
         } else {
             statusToUser.add(new StatusMessage(Const.StatusMessages.FEEDBACK_RESULTS_NOTHINGNEW,
-                                               StatusMessageColor.WARNING));
+                    StatusMessageColor.WARNING));
         }
 
         statusToAdmin = "Show student feedback result page<br>"
-                        + "Session Name: " + feedbackSessionName + "<br>"
-                        + "Course ID: " + courseId;
+                + "Session Name: " + feedbackSessionName + "<br>"
+                + "Course ID: " + courseId;
 
         Map<FeedbackQuestionAttributes, List<FeedbackResponseAttributes>> questionsWithResponses =
-                                        data.getBundle().getQuestionResponseMapSortedByRecipient();
+                data.getBundle().getQuestionResponseMapSortedByRecipient();
         data.init(questionsWithResponses);
         return createShowPageResult(Const.ViewURIs.STUDENT_FEEDBACK_RESULTS, data);
     }

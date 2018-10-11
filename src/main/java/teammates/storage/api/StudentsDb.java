@@ -58,6 +58,7 @@ public class StudentsDb extends EntitiesDb<CourseStudent, StudentAttributes> {
 
     /**
      * Searches for students.
+     *
      * @return {@link StudentSearchResultBundle}
      */
     public StudentSearchResultBundle search(String queryString, List<InstructorAttributes> instructors) {
@@ -75,6 +76,7 @@ public class StudentsDb extends EntitiesDb<CourseStudent, StudentAttributes> {
      * This method should be used by admin only since the searching does not restrict the
      * visibility according to the logged-in user's google ID. This is used by admin to
      * search students in the whole system.
+     *
      * @return null if no result found
      */
     public StudentSearchResultBundle searchStudentsInWholeSystem(String queryString) {
@@ -119,7 +121,7 @@ public class StudentsDb extends EntitiesDb<CourseStudent, StudentAttributes> {
      * * All parameters are non-null.
      *
      * @return The data for Student with the courseId and email. Returns null if
-     *         there is no such student.
+     * there is no such student.
      */
     public StudentAttributes getStudentForEmail(String courseId, String email) {
         Assumption.assertNotNull(Const.StatusCodes.DBLEVEL_NULL_INPUT, courseId);
@@ -131,6 +133,7 @@ public class StudentsDb extends EntitiesDb<CourseStudent, StudentAttributes> {
     /**
      * Preconditions:
      * <br> * All parameters are non-null.
+     *
      * @return null if no such student is found.
      */
     public StudentAttributes getStudentForGoogleId(String courseId, String googleId) {
@@ -173,6 +176,7 @@ public class StudentsDb extends EntitiesDb<CourseStudent, StudentAttributes> {
     /**
      * Preconditions:
      * <br> * All parameters are non-null.
+     *
      * @return an empty list if no such students are found.
      */
     public List<StudentAttributes> getStudentsForGoogleId(String googleId) {
@@ -183,7 +187,8 @@ public class StudentsDb extends EntitiesDb<CourseStudent, StudentAttributes> {
 
     /**
      * Preconditions: <br>
-     *  * All parameters are non-null.
+     * * All parameters are non-null.
+     *
      * @return an empty list if no students in the course.
      */
     public List<StudentAttributes> getStudentsForCourse(String courseId) {
@@ -194,7 +199,8 @@ public class StudentsDb extends EntitiesDb<CourseStudent, StudentAttributes> {
 
     /**
      * Preconditions: <br>
-     *  * All parameters are non-null.
+     * * All parameters are non-null.
+     *
      * @return an empty list if no students in the course.
      */
     public List<StudentAttributes> getStudentsForTeam(String teamName, String courseId) {
@@ -207,6 +213,7 @@ public class StudentsDb extends EntitiesDb<CourseStudent, StudentAttributes> {
     /**
      * Preconditions: <br>
      * All parameters are non-null.
+     *
      * @return an empty list if no students in this section
      */
     public List<StudentAttributes> getStudentsForSection(String sectionName, String courseId) {
@@ -218,7 +225,8 @@ public class StudentsDb extends EntitiesDb<CourseStudent, StudentAttributes> {
 
     /**
      * Preconditions: <br>
-     *  * All parameters are non-null.
+     * * All parameters are non-null.
+     *
      * @return an empty list if no students in the course.
      */
     public List<StudentAttributes> getUnregisteredStudentsForCourse(String courseId) {
@@ -237,6 +245,7 @@ public class StudentsDb extends EntitiesDb<CourseStudent, StudentAttributes> {
 
     /**
      * This method is not scalable. Not to be used unless for admin features.
+     *
      * @return the list of all students in the database.
      */
     // TODO remove this method once all Students have been migrated to CourseStudents
@@ -252,6 +261,7 @@ public class StudentsDb extends EntitiesDb<CourseStudent, StudentAttributes> {
 
     /**
      * This method is not scalable. Not to be used unless for admin features.
+     *
      * @return the list of all students in the database.
      */
     @Deprecated
@@ -262,25 +272,26 @@ public class StudentsDb extends EntitiesDb<CourseStudent, StudentAttributes> {
     /**
      * Updates the student identified by {@code courseId} and {@code email}.
      * For the remaining parameters, the existing value is preserved
-     *   if the parameter is null (due to 'keep existing' policy)<br>
+     * if the parameter is null (due to 'keep existing' policy)<br>
      * Preconditions: <br>
      * * {@code courseId} and {@code email} are non-null and correspond to an existing student. <br>
+     *
      * @param keepUpdateTimestamp Set true to prevent changes to updatedAt. Use when updating entities with scripts.
      */
     public void updateStudent(String courseId, String email, String newName,
-                                    String newTeamName, String newSectionName, String newEmail,
-                                    String newGoogleId,
-                                    String newComments,
-                                    boolean keepUpdateTimestamp) throws InvalidParametersException,
-                                    EntityDoesNotExistException {
+                              String newTeamName, String newSectionName, String newEmail,
+                              String newGoogleId,
+                              String newComments,
+                              boolean keepUpdateTimestamp) throws InvalidParametersException,
+            EntityDoesNotExistException {
         updateStudent(courseId, email, newName, newTeamName, newSectionName,
                 newEmail, newGoogleId, newComments, true, keepUpdateTimestamp);
     }
 
     public void updateStudent(String courseId, String email, String newName,
-            String newTeamName, String newSectionName, String newEmail,
-            String newGoogleId,
-            String newComments) throws InvalidParametersException,
+                              String newTeamName, String newSectionName, String newEmail,
+                              String newGoogleId,
+                              String newComments) throws InvalidParametersException,
             EntityDoesNotExistException {
         updateStudent(courseId, email, newName, newTeamName, newSectionName,
                 newEmail, newGoogleId, newComments, true, false);
@@ -289,32 +300,33 @@ public class StudentsDb extends EntitiesDb<CourseStudent, StudentAttributes> {
     /**
      * Update student's record without searchability
      * This function is only used for testing, its purpose is to not create document if not necessary.
+     *
      * @param keepUpdateTimestamp Set true to prevent changes to updatedAt. Use when updating entities with scripts.
      */
     public void updateStudentWithoutSearchability(String courseId, String email,
-            String newName,
-            String newTeamName, String newSectionName, String newEmail,
-            String newGoogleId,
-            String newComments,
-            boolean keepUpdateTimestamp) throws InvalidParametersException,
+                                                  String newName,
+                                                  String newTeamName, String newSectionName, String newEmail,
+                                                  String newGoogleId,
+                                                  String newComments,
+                                                  boolean keepUpdateTimestamp) throws InvalidParametersException,
             EntityDoesNotExistException {
         updateStudent(courseId, email, newName, newTeamName, newSectionName,
-                                        newEmail, newGoogleId, newComments, false, keepUpdateTimestamp);
+                newEmail, newGoogleId, newComments, false, keepUpdateTimestamp);
     }
 
     public void updateStudentWithoutSearchability(String courseId, String email,
-            String newName,
-            String newTeamName, String newSectionName, String newEmail,
-            String newGoogleId,
-            String newComments) throws InvalidParametersException,
+                                                  String newName,
+                                                  String newTeamName, String newSectionName, String newEmail,
+                                                  String newGoogleId,
+                                                  String newComments) throws InvalidParametersException,
             EntityDoesNotExistException {
         updateStudent(courseId, email, newName, newTeamName, newSectionName,
                 newEmail, newGoogleId, newComments, false, false);
     }
 
     public void updateStudent(String courseId, String email, String newName,
-            String newTeamName, String newSectionName, String newEmail, String newGoogleId,
-            String newComments, boolean hasDocument, boolean keepUpdateTimestamp)
+                              String newTeamName, String newSectionName, String newEmail, String newGoogleId,
+                              String newComments, boolean hasDocument, boolean keepUpdateTimestamp)
             throws InvalidParametersException, EntityDoesNotExistException {
         Assumption.assertNotNull(Const.StatusCodes.DBLEVEL_NULL_INPUT, courseId);
         Assumption.assertNotNull(Const.StatusCodes.DBLEVEL_NULL_INPUT, email);
@@ -328,14 +340,14 @@ public class StudentsDb extends EntitiesDb<CourseStudent, StudentAttributes> {
             String lastName = StringHelper.splitName(newName)[1];
 
             if (isEmailChanged) {
-                int like =getStudentForEmail(courseId,email).like;
+                int like = getStudentForEmail(courseId, email).like;
                 CourseStudent newCourseStudent = new CourseStudent(newEmail, newName, newGoogleId, newComments,
-                                                                   courseId, newTeamName, newSectionName,like);
+                        courseId, newTeamName, newSectionName, like);
                 recreateStudentWithNewEmail(newCourseStudent, lastName, courseStudent, hasDocument,
-                                            keepUpdateTimestamp, courseId, email);
+                        keepUpdateTimestamp, courseId, email);
             } else {
                 updateStudentDetails(newName, newTeamName, newSectionName, newGoogleId,
-                                     newComments, hasDocument, keepUpdateTimestamp, courseStudent, lastName);
+                        newComments, hasDocument, keepUpdateTimestamp, courseStudent, lastName);
             }
         }
     }
@@ -364,8 +376,8 @@ public class StudentsDb extends EntitiesDb<CourseStudent, StudentAttributes> {
     }
 
     private void updateStudentDetails(String newName, String newTeamName, String newSectionName,
-            String newGoogleId, String newComments, boolean hasDocument,
-            boolean keepUpdateTimestamp, CourseStudent courseStudent, String lastName) {
+                                      String newGoogleId, String newComments, boolean hasDocument,
+                                      boolean keepUpdateTimestamp, CourseStudent courseStudent, String lastName) {
         courseStudent.setName(newName);
         courseStudent.setLastName(lastName);
         courseStudent.setComments(newComments);
@@ -389,8 +401,7 @@ public class StudentsDb extends EntitiesDb<CourseStudent, StudentAttributes> {
     /**
      * Fails silently if no such student. <br>
      * Preconditions: <br>
-     *  * All parameters are non-null.
-     *
+     * * All parameters are non-null.
      */
 
     public void deleteStudent(String courseId, String email) {
@@ -420,8 +431,7 @@ public class StudentsDb extends EntitiesDb<CourseStudent, StudentAttributes> {
     /**
      * Fails silently if no such student. <br>
      * Preconditions: <br>
-     *  * All parameters are non-null.
-     *
+     * * All parameters are non-null.
      */
 
     public void deleteStudentsForGoogleId(String googleId) {
@@ -445,8 +455,7 @@ public class StudentsDb extends EntitiesDb<CourseStudent, StudentAttributes> {
     /**
      * Fails silently if no such student or no such course. <br>
      * Preconditions: <br>
-     *  * All parameters are non-null.
-     *
+     * * All parameters are non-null.
      */
 
     public void deleteStudentsForCourse(String courseId) {

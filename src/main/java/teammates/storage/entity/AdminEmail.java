@@ -49,10 +49,9 @@ public class AdminEmail extends BaseEntity {
 
     /**
      * Instantiates a new AdminEmail.
-     * @param subject
-     *          email subject
-     * @param content
-     *          html email content
+     *
+     * @param subject email subject
+     * @param content html email content
      */
     public AdminEmail(List<String> addressReceiver, List<String> groupReceiver, String subject,
                       Text content, Instant sendDate) {

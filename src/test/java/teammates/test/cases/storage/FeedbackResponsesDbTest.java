@@ -118,9 +118,9 @@ public class FeedbackResponsesDbTest extends BaseComponentTestCase {
             signalFailureToDetectException();
         } catch (EntityAlreadyExistsException e) {
             AssertHelper.assertContains(String.format(EntitiesDb.ERROR_CREATE_ENTITY_ALREADY_EXISTS,
-                                                      fra.getEntityTypeAsString())
-                                            + fra.getIdentificationString(),
-                                        e.getMessage());
+                    fra.getEntityTypeAsString())
+                            + fra.getIdentificationString(),
+                    e.getMessage());
         }
 
         ______TS("delete - with id specified");
@@ -146,9 +146,9 @@ public class FeedbackResponsesDbTest extends BaseComponentTestCase {
         } catch (InvalidParametersException e) {
             AssertHelper.assertContains(
                     getPopulatedErrorMessage(
-                        FieldValidator.COURSE_ID_ERROR_MESSAGE, "invalid course id!",
-                        FieldValidator.COURSE_ID_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
-                        FieldValidator.COURSE_ID_MAX_LENGTH),
+                            FieldValidator.COURSE_ID_ERROR_MESSAGE, "invalid course id!",
+                            FieldValidator.COURSE_ID_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
+                            FieldValidator.COURSE_ID_MAX_LENGTH),
                     e.getLocalizedMessage());
         }
 
@@ -169,7 +169,7 @@ public class FeedbackResponsesDbTest extends BaseComponentTestCase {
         ______TS("non-existent response");
 
         assertNull(frDb.getFeedbackResponse(expected.feedbackQuestionId, "student1InCourse1@gmail.tmt",
-                                            "student3InCourse1@gmail.tmt"));
+                "student3InCourse1@gmail.tmt"));
 
         ______TS("null fqId");
 
@@ -375,7 +375,7 @@ public class FeedbackResponsesDbTest extends BaseComponentTestCase {
 
         try {
             frDb.getFeedbackResponsesForReceiverForQuestionInSection(
-                                                null, "student1InCourse1@gmail.tmt", "Section 1");
+                    null, "student1InCourse1@gmail.tmt", "Section 1");
             signalFailureToDetectException();
         } catch (AssertionError e) {
             AssertHelper.assertContains(Const.StatusCodes.DBLEVEL_NULL_INPUT, e.getLocalizedMessage());
@@ -390,7 +390,7 @@ public class FeedbackResponsesDbTest extends BaseComponentTestCase {
 
         try {
             frDb.getFeedbackResponsesForReceiverForQuestionInSection(
-                                                questionId, "student1InCourse1@gmail.tmt", null);
+                    questionId, "student1InCourse1@gmail.tmt", null);
             signalFailureToDetectException();
         } catch (AssertionError e) {
             AssertHelper.assertContains(Const.StatusCodes.DBLEVEL_NULL_INPUT, e.getLocalizedMessage());
@@ -399,12 +399,12 @@ public class FeedbackResponsesDbTest extends BaseComponentTestCase {
         ______TS("non-existent feedback question");
 
         assertTrue(frDb.getFeedbackResponsesForReceiverForQuestionInSection(
-                                "non-existent fq id", "student1InCourse1@gmail.tmt", "Section 1").isEmpty());
+                "non-existent fq id", "student1InCourse1@gmail.tmt", "Section 1").isEmpty());
 
         ______TS("non-existent receiver");
 
         assertTrue(frDb.getFeedbackResponsesForReceiverForQuestionInSection(
-                                questionId, "non-existentStudentInCourse1@gmail.tmt", "Section 1").isEmpty());
+                questionId, "non-existentStudentInCourse1@gmail.tmt", "Section 1").isEmpty());
     }
 
     @Test
@@ -512,7 +512,7 @@ public class FeedbackResponsesDbTest extends BaseComponentTestCase {
 
         try {
             frDb.getFeedbackResponsesFromGiverForQuestionInSection(
-                                            null, "student1InCourse1@gmail.tmt", "Section 1");
+                    null, "student1InCourse1@gmail.tmt", "Section 1");
             signalFailureToDetectException();
         } catch (AssertionError e) {
             AssertHelper.assertContains(Const.StatusCodes.DBLEVEL_NULL_INPUT, e.getLocalizedMessage());
@@ -527,7 +527,7 @@ public class FeedbackResponsesDbTest extends BaseComponentTestCase {
 
         try {
             frDb.getFeedbackResponsesFromGiverForQuestionInSection(
-                                            questionId, "student1InCourse1@gmail.tmt", null);
+                    questionId, "student1InCourse1@gmail.tmt", null);
             signalFailureToDetectException();
         } catch (AssertionError e) {
             AssertHelper.assertContains(Const.StatusCodes.DBLEVEL_NULL_INPUT, e.getLocalizedMessage());
@@ -536,12 +536,12 @@ public class FeedbackResponsesDbTest extends BaseComponentTestCase {
         ______TS("non-existent feedback question");
 
         assertTrue(frDb.getFeedbackResponsesFromGiverForQuestionInSection(
-                            "non-existent fq id", "student1InCourse1@gmail.tmt", "Section 1").isEmpty());
+                "non-existent fq id", "student1InCourse1@gmail.tmt", "Section 1").isEmpty());
 
         ______TS("non-existent receiver");
 
         assertTrue(frDb.getFeedbackResponsesFromGiverForQuestionInSection(
-                            questionId, "non-existentstudentInCourse1@gmail.tmt", "Section 1").isEmpty());
+                questionId, "non-existentstudentInCourse1@gmail.tmt", "Section 1").isEmpty());
     }
 
     @Test
@@ -778,9 +778,9 @@ public class FeedbackResponsesDbTest extends BaseComponentTestCase {
         } catch (InvalidParametersException e) {
             AssertHelper.assertContains(
                     getPopulatedErrorMessage(
-                        FieldValidator.COURSE_ID_ERROR_MESSAGE, "invalid course_",
-                        FieldValidator.COURSE_ID_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
-                        FieldValidator.COURSE_ID_MAX_LENGTH),
+                            FieldValidator.COURSE_ID_ERROR_MESSAGE, "invalid course_",
+                            FieldValidator.COURSE_ID_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
+                            FieldValidator.COURSE_ID_MAX_LENGTH),
                     e.getLocalizedMessage());
         }
 
@@ -804,20 +804,20 @@ public class FeedbackResponsesDbTest extends BaseComponentTestCase {
         FeedbackResponseDetails frd = modifiedResponse.getResponseDetails();
 
         Map<String, String[]> requestParameters = new HashMap<>();
-        requestParameters.put("questiontype-1", new String[] { "TEXT" });
-        requestParameters.put("responsetext-1-0", new String[] { "New answer text!" });
+        requestParameters.put("questiontype-1", new String[]{"TEXT"});
+        requestParameters.put("responsetext-1-0", new String[]{"New answer text!"});
 
         String[] answer = {"New answer text!"};
         frd = FeedbackResponseDetails.createResponseDetails(
-                    answer, FeedbackQuestionType.TEXT,
-                    null, requestParameters, 1, 0);
+                answer, FeedbackQuestionType.TEXT,
+                null, requestParameters, 1, 0);
         modifiedResponse.setResponseDetails(frd);
         frDb.updateFeedbackResponse(modifiedResponse);
 
         verifyPresentInDatastore(modifiedResponse);
         modifiedResponse = frDb.getFeedbackResponse(modifiedResponse.feedbackQuestionId,
-                                                    modifiedResponse.giver,
-                                                    modifiedResponse.recipient);
+                modifiedResponse.giver,
+                modifiedResponse.recipient);
         assertEquals("New answer text!", modifiedResponse.getResponseDetails().getAnswerString());
 
     }

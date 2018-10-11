@@ -16,11 +16,12 @@
 
     <c:if test="${not empty resendInviteButton}">
       <a ${resendInviteButton.attributesToString}>
-        ${resendInviteButton.content}
+          ${resendInviteButton.content}
       </a>
     </c:if>
 
-    <form style="display:none;" id="edit-${index}" class="editForm" action="<%=Const.ActionURIs.INSTRUCTOR_COURSE_EDIT_PAGE%>">
+    <form style="display:none;" id="edit-${index}" class="editForm"
+          action="<%=Const.ActionURIs.INSTRUCTOR_COURSE_EDIT_PAGE%>">
       <input type="hidden" name="<%=Const.ParamsNames.COURSE_ID %>" value="${instructor.courseId}">
       <input type="hidden" name="<%=Const.ParamsNames.INSTRUCTOR_EMAIL%>" value="${instructor.email}">
       <input type="hidden" name="<%=Const.ParamsNames.COURSE_EDIT_MAIN_INDEX%>" value="${index}">

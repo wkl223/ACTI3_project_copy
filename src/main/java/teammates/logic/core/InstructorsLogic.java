@@ -48,6 +48,7 @@ public final class InstructorsLogic {
 
     /**
      * Batch creates or updates documents for the given Instructors.
+     *
      * @param instructors a list of instructors to be put into documents
      */
     public void putDocuments(List<InstructorAttributes> instructors) {
@@ -56,6 +57,7 @@ public final class InstructorsLogic {
 
     /**
      * Removes document for the given Instructor.
+     *
      * @param instructor to be removed from documents
      */
     public void deleteDocument(InstructorAttributes instructor) {
@@ -66,6 +68,7 @@ public final class InstructorsLogic {
      * This method should be used by admin only since the searching does not restrict the
      * visibility according to the logged-in user's google ID. This is used by admin to
      * search instructors in the whole system.
+     *
      * @return null if no result found
      */
     public InstructorSearchResultBundle searchInstructorsInWholeSystem(String queryString) {
@@ -161,7 +164,7 @@ public final class InstructorsLogic {
     public boolean isNewInstructor(String googleId) {
         List<InstructorAttributes> instructorList = getInstructorsForGoogleId(googleId);
         return instructorList.isEmpty()
-               || instructorList.size() == 1 && coursesLogic.isSampleCourse(instructorList.get(0).courseId);
+                || instructorList.size() == 1 && coursesLogic.isSampleCourse(instructorList.get(0).courseId);
     }
 
     public void verifyInstructorExists(String instructorId)
@@ -184,6 +187,7 @@ public final class InstructorsLogic {
 
     /**
      * Update the name and email address of an instructor with the specific Google ID.
+     *
      * @param instructor InstructorAttributes object containing the details to be updated
      */
     public void updateInstructorByGoogleId(String googleId, InstructorAttributes instructor)
@@ -209,7 +213,7 @@ public final class InstructorsLogic {
     }
 
     private void verifyInstructorInDbAndCascadeEmailChange(String googleId,
-            InstructorAttributes instructor) throws EntityDoesNotExistException {
+                                                           InstructorAttributes instructor) throws EntityDoesNotExistException {
         InstructorAttributes instructorInDb = instructorsDb.getInstructorForGoogleId(instructor.courseId, googleId);
         if (instructorInDb == null) {
             throw new EntityDoesNotExistException("Instructor " + googleId
@@ -224,6 +228,7 @@ public final class InstructorsLogic {
 
     /**
      * Update the Google ID and name of an instructor with the specific email.
+     *
      * @param instructor InstructorAttributes object containing the details to be updated
      */
     public void updateInstructorByEmail(String email, InstructorAttributes instructor)

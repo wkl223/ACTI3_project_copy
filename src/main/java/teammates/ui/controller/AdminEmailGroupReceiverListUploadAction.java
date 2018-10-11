@@ -57,8 +57,8 @@ public class AdminEmailGroupReceiverListUploadAction extends Action {
             log.info("Group Receiver List Upload Failed: uploaded file is corrupted");
             statusToAdmin = "Group Receiver List Upload Failed: uploaded file is corrupted";
             data.ajaxStatus = "Group receiver list upload failed: uploaded file is corrupted. "
-                              + "Please make sure the txt file contains only email addresses "
-                              + "separated by comma";
+                    + "Please make sure the txt file contains only email addresses "
+                    + "separated by comma";
             deleteGroupReceiverListFile(blobInfo.getBlobKey());
             return createAjaxResult(data);
         }

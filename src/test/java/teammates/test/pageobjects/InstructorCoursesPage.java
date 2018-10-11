@@ -6,7 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-/** Represents the "Courses" page for Instructors. */
+/**
+ * Represents the "Courses" page for Instructors.
+ */
 public class InstructorCoursesPage extends AppPage {
     /* Explanation: This class follows the 'Page Objects Pattern' and as
      * explained in https://code.google.com/p/selenium/wiki/PageObjects
@@ -20,10 +22,10 @@ public class InstructorCoursesPage extends AppPage {
      * (see https://code.google.com/p/selenium/wiki/PageFactory) how to find
      * the element.
      */
-    @FindBy (id = "button_sortcoursename")
+    @FindBy(id = "button_sortcoursename")
     private WebElement sortByCourseNameIcon;
 
-    @FindBy (id = "button_sortcourseid")
+    @FindBy(id = "button_sortcourseid")
     private WebElement sortByCourseIdIcon;
 
     @FindBy(id = "courseid")
@@ -42,7 +44,9 @@ public class InstructorCoursesPage extends AppPage {
         super(browser);
     }
 
-    /** Used to check if the loaded page is indeed the 'Courses' page. */
+    /**
+     * Used to check if the loaded page is indeed the 'Courses' page.
+     */
     @Override
     protected boolean containsExpectedPageContents() {
         return getPageSource().contains("<h1>Add New Course</h1>");

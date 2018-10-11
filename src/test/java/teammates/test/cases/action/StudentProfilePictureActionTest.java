@@ -48,7 +48,7 @@ public class StudentProfilePictureActionTest extends BaseActionTest {
         ______TS("Failure case: no parameters given");
         gaeSimulation.loginAsStudent(account.googleId);
 
-        String[] submissionParams = new String[] {};
+        String[] submissionParams = new String[]{};
 
         StudentProfilePictureAction action = getAction(submissionParams);
         try {
@@ -74,7 +74,7 @@ public class StudentProfilePictureActionTest extends BaseActionTest {
         ______TS("Typical case: using blobkey");
         gaeSimulation.loginAsStudent(account.googleId);
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.BLOB_KEY, account.studentProfile.pictureKey
         };
         StudentProfilePictureAction action = getAction(submissionParams);
@@ -90,7 +90,7 @@ public class StudentProfilePictureActionTest extends BaseActionTest {
         ______TS("Typical case: masquerade mode");
         gaeSimulation.loginAsAdmin("admin.user");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.USER_ID, account.googleId,
                 Const.ParamsNames.BLOB_KEY, account.studentProfile.pictureKey
         };
@@ -119,7 +119,7 @@ public class StudentProfilePictureActionTest extends BaseActionTest {
 
         ______TS("Typical case: using email and course");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.STUDENT_EMAIL, StringHelper.encrypt(student.email),
                 Const.ParamsNames.COURSE_ID, StringHelper.encrypt(student.course)
         };
@@ -136,7 +136,7 @@ public class StudentProfilePictureActionTest extends BaseActionTest {
     private void testActionWithEmailAndCourseNoStudent() {
         ______TS("Failure case: student does not exist");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.STUDENT_EMAIL, StringHelper.encrypt("random-email"),
                 Const.ParamsNames.COURSE_ID, StringHelper.encrypt(student.course)
         };
@@ -185,7 +185,7 @@ public class StudentProfilePictureActionTest extends BaseActionTest {
 
         StudentAttributes student = typicalBundle.students.get("student2InUnregisteredCourse");
         assertTrue(student.googleId.isEmpty());
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.STUDENT_EMAIL, StringHelper.encrypt(student.email),
                 Const.ParamsNames.COURSE_ID, StringHelper.encrypt(student.course)
         };
@@ -197,7 +197,7 @@ public class StudentProfilePictureActionTest extends BaseActionTest {
     }
 
     private void testActionWithEmailAndCourseUnauthorisedInstructorOrStudent() {
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.STUDENT_EMAIL, StringHelper.encrypt(student.email),
                 Const.ParamsNames.COURSE_ID, StringHelper.encrypt(student.course)
         };
@@ -253,7 +253,7 @@ public class StudentProfilePictureActionTest extends BaseActionTest {
     }
 
     private void testActionWithEmailAndCourseUnauthorisedInstructorOrStudentMasquerade() {
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.STUDENT_EMAIL, StringHelper.encrypt(student.email),
                 Const.ParamsNames.COURSE_ID, StringHelper.encrypt(student.course)
         };
@@ -292,17 +292,17 @@ public class StudentProfilePictureActionTest extends BaseActionTest {
                                                              boolean isMasquerade,
                                                              String actualLogMessage) {
         String expectedLogMessage = "TEAMMATESLOG|||studentProfilePic|||studentProfilePic"
-                                  + "|||true|||Instructor" + (isMasquerade ? "(M)" : "") + "|||"
-                                  + instructor.name + "|||" + instructor.googleId + "|||" + instructor.email
-                                  + "|||Requested Profile Picture by instructor/other students|||/page/studentProfilePic";
+                + "|||true|||Instructor" + (isMasquerade ? "(M)" : "") + "|||"
+                + instructor.name + "|||" + instructor.googleId + "|||" + instructor.email
+                + "|||Requested Profile Picture by instructor/other students|||/page/studentProfilePic";
         AssertHelper.assertLogMessageEquals(expectedLogMessage, actualLogMessage);
     }
 
     private void verifyLogMessageForActionWithBlobKey(boolean isMasquerade, String actualLogMessage) {
         String expectedLogMessage = "TEAMMATESLOG|||studentProfilePic|||studentProfilePic"
-                                  + "|||true|||Student" + (isMasquerade ? "(M)" : "") + "|||"
-                                  + account.name + "|||" + account.googleId + "|||" + student.email
-                                  + "|||Requested Profile Picture by student directly|||/page/studentProfilePic";
+                + "|||true|||Student" + (isMasquerade ? "(M)" : "") + "|||"
+                + account.name + "|||" + account.googleId + "|||" + student.email
+                + "|||Requested Profile Picture by student directly|||/page/studentProfilePic";
         AssertHelper.assertLogMessageEqualsIgnoreLogId(expectedLogMessage, actualLogMessage);
     }
 

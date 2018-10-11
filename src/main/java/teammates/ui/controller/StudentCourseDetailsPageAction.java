@@ -25,12 +25,12 @@ public class StudentCourseDetailsPageAction extends Action {
         StudentCourseDetailsPageData data = new StudentCourseDetailsPageData(account, sessionToken);
 
         data.init(logic.getCourseDetails(courseId), logic.getInstructorsForCourse(courseId),
-                      logic.getStudentForGoogleId(courseId, account.googleId),
-                      logic.getTeamDetailsForStudent(logic.getStudentForGoogleId(courseId, account.googleId)));
+                logic.getStudentForGoogleId(courseId, account.googleId),
+                logic.getTeamDetailsForStudent(logic.getStudentForGoogleId(courseId, account.googleId)));
 
         statusToAdmin = "studentCourseDetails Page Load<br>"
-                        + "Viewing team details for <span class=\"bold\">[" + courseId + "] "
-                        + SanitizationHelper.sanitizeForHtml(course.getName()) + "</span>";
+                + "Viewing team details for <span class=\"bold\">[" + courseId + "] "
+                + SanitizationHelper.sanitizeForHtml(course.getName()) + "</span>";
 
         return createShowPageResult(Const.ViewURIs.STUDENT_COURSE_DETAILS, data);
     }

@@ -58,7 +58,7 @@ public class CourseEditInstructorPanel {
         distinguishSpecialAndNonSpecialSections(sectionNames, specialSectionNames, nonSpecialSectionNames);
 
         return createSpecialAndNonSpecialSectionRowsInOrder(instructorIndex, sectionNames, feedbackNames,
-                                                            specialSectionNames, nonSpecialSectionNames);
+                specialSectionNames, nonSpecialSectionNames);
     }
 
     /**
@@ -66,7 +66,7 @@ public class CourseEditInstructorPanel {
      * matching the index of the section to the section's name.
      */
     private void distinguishSpecialAndNonSpecialSections(List<String> sectionNames,
-            Map<Integer, String> specialSectionNames, Map<Integer, String> nonSpecialSectionNames) {
+                                                         Map<Integer, String> specialSectionNames, Map<Integer, String> nonSpecialSectionNames) {
         int sectionIndex = 0;
 
         for (String sectionName : sectionNames) {
@@ -105,8 +105,8 @@ public class CourseEditInstructorPanel {
             int sectionIndex = sectionNameEntry.getKey();
             String sectionName = sectionNameEntry.getValue();
             CourseEditSectionRow sectionRow = new CourseEditSectionRow(sectionName, sectionNames, sectionIndex,
-                                                                       panelIndex, instructor,
-                                                                       instructorIndex, feedbackNames);
+                    panelIndex, instructor,
+                    instructorIndex, feedbackNames);
 
             rows.add(sectionRow);
             panelIndex++;
@@ -128,8 +128,8 @@ public class CourseEditInstructorPanel {
             int sectionIndex = sectionNameEntry.getKey();
             String sectionName = sectionNameEntry.getValue();
             CourseEditSectionRow sectionRow = new CourseEditSectionRow(sectionName, sectionNames, sectionIndex,
-                                                                       panelIndex, instructor,
-                                                                       instructorIndex, feedbackNames);
+                    panelIndex, instructor,
+                    instructorIndex, feedbackNames);
 
             rows.add(sectionRow);
             panelIndex++;
@@ -216,14 +216,14 @@ public class CourseEditInstructorPanel {
         List<ElementTag> permissionInputGroup = new ArrayList<>();
 
         permissionInputGroup.add(createCheckBox("Sessions: Submit Responses and Add Comments",
-                                                Const.ParamsNames.INSTRUCTOR_PERMISSION_SUBMIT_SESSION_IN_SECTIONS));
+                Const.ParamsNames.INSTRUCTOR_PERMISSION_SUBMIT_SESSION_IN_SECTIONS));
 
         permissionInputGroup.add(createCheckBox("Sessions: View Responses and Comments",
-                                                Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_SESSION_IN_SECTIONS));
+                Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_SESSION_IN_SECTIONS));
 
         permissionInputGroup.add(createCheckBox(
-                                    "Sessions: Edit/Delete Responses/Comments by Others",
-                                    Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION_COMMENT_IN_SECTIONS));
+                "Sessions: Edit/Delete Responses/Comments by Others",
+                Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION_COMMENT_IN_SECTIONS));
 
         return permissionInputGroup;
     }
@@ -232,7 +232,7 @@ public class CourseEditInstructorPanel {
         List<ElementTag> permissionInputGroup = new ArrayList<>();
 
         permissionInputGroup.add(createCheckBox("View Students' Details",
-                                                Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_STUDENT_IN_SECTIONS));
+                Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_STUDENT_IN_SECTIONS));
 
         return permissionInputGroup;
     }
@@ -241,16 +241,16 @@ public class CourseEditInstructorPanel {
         List<ElementTag> permissionInputGroup = new ArrayList<>();
 
         permissionInputGroup.add(createCheckBox("Edit/Delete/Restore Course",
-                                                Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_COURSE));
+                Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_COURSE));
 
         permissionInputGroup.add(createCheckBox("Add/Edit/Delete Instructors",
-                                                Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_INSTRUCTOR));
+                Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_INSTRUCTOR));
 
         permissionInputGroup.add(createCheckBox("Create/Edit/Delete Sessions",
-                                                Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION));
+                Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION));
 
         permissionInputGroup.add(createCheckBox("Enroll/Edit/Delete Students",
-                                                Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_STUDENT));
+                Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_STUDENT));
 
         return permissionInputGroup;
     }

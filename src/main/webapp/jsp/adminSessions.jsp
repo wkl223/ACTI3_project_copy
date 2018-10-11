@@ -16,7 +16,7 @@
       Waiting To Open: ${data.totalWaitToOpenStatusSessions} &nbsp; &nbsp;
       Institutions: ${data.totalInstitutes} &nbsp; &nbsp;
       <br>
-      ${data.rangeStartString}&nbsp;&nbsp;
+        ${data.rangeStartString}&nbsp;&nbsp;
       <span class="glyphicon glyphicon-resize-horizontal"></span>&nbsp;&nbsp;${data.rangeEndString}
       &nbsp;${data.timeZoneAsString}
     </small>
@@ -26,9 +26,10 @@
   </h1>
   <br>
   <adminSessions:filter filter="${data.filter}"/>
-  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
+  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}"/>
   <c:forEach items="${data.institutionPanels}" var="institutionPanel" varStatus="i">
-    <adminSessions:institutionPanel institutionPanel="${institutionPanel}" tableIndex="${i.count}" showAll="${data.showAll}" />
+    <adminSessions:institutionPanel institutionPanel="${institutionPanel}" tableIndex="${i.count}"
+                                    showAll="${data.showAll}"/>
   </c:forEach>
   <a href="javascript:;" class="back-to-top-left"><span class="glyphicon glyphicon-arrow-up"></span>&nbsp;Top</a>
   <a href="javascript:;" class="back-to-top-right">Top&nbsp;<span class="glyphicon glyphicon-arrow-up"></span></a>

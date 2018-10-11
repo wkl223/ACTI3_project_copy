@@ -17,9 +17,9 @@
   <course:courseEditCourseInfo
       editCourseButton="${data.editCourseButton}"
       deleteCourseButton="${data.deleteCourseButton}"
-      course="${data.course}" />
+      course="${data.course}"/>
   <br>
-  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
+  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}"/>
   <div class="pull-right">
     <a href="/instructorHelp.jsp#course-instructor-access" class="small" target="_blank" rel="noopener noreferrer">
       <span class="glyphicon glyphicon-info-sign"></span>
@@ -28,14 +28,14 @@
   </div>
   <br>
   <br>
-  <course:courseEditInstructorList instructorPanelList="${data.instructorPanelList}" />
+  <course:courseEditInstructorList instructorPanelList="${data.instructorPanelList}"/>
   <course:courseEditAddInstructorPanel
       addInstructorButton="${data.addInstructorButton}"
       courseId="${data.course.id}"
       addInstructorPanel="${data.addInstructorPanel}"
       addInstructorCancelButton="${data.addInstructorPanel.cancelAddInstructorButton}"
   />
-  <course:courseEditInstructorRoleModal />
+  <course:courseEditInstructorRoleModal/>
   <br>
   <br>
 </ti:instructorPage>

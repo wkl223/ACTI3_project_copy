@@ -13,8 +13,8 @@
   <script type="text/javascript" src="/js/studentProfile.js"></script>
 </c:set>
 <ts:studentPage title="Student Profile" cssIncludes="${cssIncludes}" jsIncludes="${jsIncludes}">
-  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
+  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}"/>
   <br>
-  <tsp:uploadPhotoModal modal="${data.uploadPhotoModal}" sessionToken="${data.sessionToken}" />
-  <tsp:studentProfileDiv profile="${data.profileEditBox}" sessionToken="${data.sessionToken}" />
+  <tsp:uploadPhotoModal modal="${data.uploadPhotoModal}" sessionToken="${data.sessionToken}"/>
+  <tsp:studentProfileDiv profile="${data.profileEditBox}" sessionToken="${data.sessionToken}"/>
 </ts:studentPage>

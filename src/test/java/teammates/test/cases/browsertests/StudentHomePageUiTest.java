@@ -61,7 +61,7 @@ public class StudentHomePageUiTest extends BaseUiTestCase {
 
         logout();
         studentHome = getHomePage().clickStudentLogin()
-                                   .loginAsStudent(unregUserId, unregPassword);
+                .loginAsStudent(unregUserId, unregPassword);
 
         // this test uses the accounts from test.properties
         // do not do full HTML verification here as the unregistered username is not predictable
@@ -77,8 +77,8 @@ public class StudentHomePageUiTest extends BaseUiTestCase {
         ______TS("login");
 
         studentHome = getHomePage().clickStudentLogin()
-                                   .loginAsStudent(TestProperties.TEST_STUDENT1_ACCOUNT,
-                                                   TestProperties.TEST_STUDENT1_PASSWORD);
+                .loginAsStudent(TestProperties.TEST_STUDENT1_ACCOUNT,
+                        TestProperties.TEST_STUDENT1_PASSWORD);
 
         ______TS("content: multiple courses");
 
@@ -86,7 +86,7 @@ public class StudentHomePageUiTest extends BaseUiTestCase {
         studentHome.verifyHtmlMainContent("/studentHomeHTML.html");
 
         AppUrl detailsPageUrl = createUrl(Const.ActionURIs.STUDENT_HOME_PAGE)
-                             .withUserId(testData.students.get("SHomeUiT.charlie.d@SHomeUiT.CS2104").googleId);
+                .withUserId(testData.students.get("SHomeUiT.charlie.d@SHomeUiT.CS2104").googleId);
 
         StudentHomePage studentHomePage = loginAdminToPage(detailsPageUrl, StudentHomePage.class);
 
@@ -95,7 +95,7 @@ public class StudentHomePageUiTest extends BaseUiTestCase {
         ______TS("content: requires sanitization");
 
         detailsPageUrl = createUrl(Const.ActionURIs.STUDENT_HOME_PAGE)
-                            .withUserId(testData.students.get("SHomeUiT.student1InTestingSanitizationCourse").googleId);
+                .withUserId(testData.students.get("SHomeUiT.student1InTestingSanitizationCourse").googleId);
 
         studentHomePage = loginAdminToPage(detailsPageUrl, StudentHomePage.class);
 
@@ -174,7 +174,7 @@ public class StudentHomePageUiTest extends BaseUiTestCase {
     private void testLinkAndContentAfterDelete() throws Exception {
 
         AppUrl detailsPageUrl = createUrl(Const.ActionURIs.STUDENT_HOME_PAGE)
-                             .withUserId(testData.students.get("SHomeUiT.charlie.d@SHomeUiT.CS2104").googleId);
+                .withUserId(testData.students.get("SHomeUiT.charlie.d@SHomeUiT.CS2104").googleId);
 
         StudentHomePage studentHomePage = loginAdminToPage(detailsPageUrl, StudentHomePage.class);
 
@@ -189,8 +189,8 @@ public class StudentHomePageUiTest extends BaseUiTestCase {
 
     private void loginWithPersistenceProblem() {
         AppUrl homeUrl = ((AppUrl) createUrl(Const.ActionURIs.STUDENT_HOME_PAGE)
-                    .withParam(Const.ParamsNames.CHECK_PERSISTENCE_COURSE, "SHomeUiT.CS2104"))
-                    .withUserId("unreg_user");
+                .withParam(Const.ParamsNames.CHECK_PERSISTENCE_COURSE, "SHomeUiT.CS2104"))
+                .withUserId("unreg_user");
 
         studentHome = loginAdminToPage(homeUrl, StudentHomePage.class);
 

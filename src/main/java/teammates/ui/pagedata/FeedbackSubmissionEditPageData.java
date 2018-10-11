@@ -45,6 +45,7 @@ public class FeedbackSubmissionEditPageData extends PageData {
     /**
      * Generates the register message with join URL containing course ID
      * if the student is unregistered. Also loads the questions with responses.
+     *
      * @param courseId the course ID
      */
     public void init(String courseId) {
@@ -54,20 +55,21 @@ public class FeedbackSubmissionEditPageData extends PageData {
     /**
      * Generates the register message with join URL containing registration key,
      * email and course ID if the student is unregistered. Also loads the questions and responses.
-     * @param regKey the registration key
-     * @param email the email
+     *
+     * @param regKey   the registration key
+     * @param email    the email
      * @param courseId the course ID
      */
     public void init(String regKey, String email, String courseId) {
         String joinUrl = Config.getAppUrl(Const.ActionURIs.STUDENT_COURSE_JOIN_NEW)
-                                        .withRegistrationKey(regKey)
-                                        .withStudentEmail(email)
-                                        .withCourseId(courseId)
-                                        .toString();
+                .withRegistrationKey(regKey)
+                .withStudentEmail(email)
+                .withCourseId(courseId)
+                .toString();
 
         registerMessage = student == null
-                        ? ""
-                        : String.format(Const.StatusMessages.UNREGISTERED_STUDENT, student.name, joinUrl);
+                ? ""
+                : String.format(Const.StatusMessages.UNREGISTERED_STUDENT, student.name, joinUrl);
         createQuestionsWithResponses();
     }
 
@@ -178,14 +180,14 @@ public class FeedbackSubmissionEditPageData extends PageData {
         List<String> result = new ArrayList<>();
         // Add an empty option first.
         result.add("<option value=\"\" " + (currentlySelectedOption == null ? "selected>" : ">")
-                   + "</option>");
+                + "</option>");
 
         emailNamePair.forEach((key, value) -> {
             boolean isSelected = SanitizationHelper.desanitizeFromHtml(key)
-                                             .equals(currentlySelectedOption);
+                    .equals(currentlySelectedOption);
             result.add("<option value=\"" + sanitizeForHtml(key) + "\"" + (isSelected ? " selected" : "") + ">"
-                           + sanitizeForHtml(value)
-                       + "</option>"
+                    + sanitizeForHtml(value)
+                    + "</option>"
             );
         });
 
@@ -234,7 +236,7 @@ public class FeedbackSubmissionEditPageData extends PageData {
     }
 
     private List<FeedbackSubmissionEditResponse> createResponses(
-                                    FeedbackQuestionAttributes questionAttributes, int qnIndx, int numOfResponseBoxes) {
+            FeedbackQuestionAttributes questionAttributes, int qnIndx, int numOfResponseBoxes) {
         List<FeedbackSubmissionEditResponse> responses = new ArrayList<>();
         int responseIndx = 0;
         ZoneId sessionTimeZone = bundle.feedbackSession.getTimeZone();
@@ -246,7 +248,7 @@ public class FeedbackSubmissionEditPageData extends PageData {
                 continue;
             }
             List<String> recipientOptionsForQuestion = getRecipientOptionsForQuestion(
-                                                           questionAttributes.getId(), existingResponse.recipient);
+                    questionAttributes.getId(), existingResponse.recipient);
 
             String submissionFormHtml =
                     questionAttributes.getQuestionDetails().getQuestionWithExistingResponseSubmissionFormHtml(

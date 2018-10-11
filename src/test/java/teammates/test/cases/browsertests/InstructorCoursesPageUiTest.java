@@ -205,10 +205,10 @@ public class InstructorCoursesPageUiTest extends BaseUiTestCase {
         //one invalid case
         coursesPage.addCourse("", "").waitForTextsForAllStatusMessagesToUserEquals(
                 getPopulatedEmptyStringErrorMessage(FieldValidator.COURSE_ID_ERROR_MESSAGE_EMPTY_STRING,
-                    FieldValidator.COURSE_ID_FIELD_NAME, FieldValidator.COURSE_ID_MAX_LENGTH) + "\n"
-                + getPopulatedEmptyStringErrorMessage(
-                      FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE_EMPTY_STRING,
-                      FieldValidator.COURSE_NAME_FIELD_NAME, FieldValidator.COURSE_NAME_MAX_LENGTH));
+                        FieldValidator.COURSE_ID_FIELD_NAME, FieldValidator.COURSE_ID_MAX_LENGTH) + "\n"
+                        + getPopulatedEmptyStringErrorMessage(
+                        FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE_EMPTY_STRING,
+                        FieldValidator.COURSE_NAME_FIELD_NAME, FieldValidator.COURSE_NAME_MAX_LENGTH));
 
         //Checking max-length enforcement by the text boxes
         String maxLengthCourseId = StringHelperExtension.generateStringOfLength(FieldValidator.COURSE_ID_MAX_LENGTH);
@@ -216,14 +216,14 @@ public class InstructorCoursesPageUiTest extends BaseUiTestCase {
 
         assertEquals(maxLengthCourseId, coursesPage.fillCourseIdTextBox(maxLengthCourseId));
         assertEquals(longCourseId.substring(0, FieldValidator.COURSE_ID_MAX_LENGTH),
-                     coursesPage.fillCourseIdTextBox(longCourseId));
+                coursesPage.fillCourseIdTextBox(longCourseId));
 
         String maxLengthCourseName = StringHelperExtension.generateStringOfLength(FieldValidator.COURSE_NAME_MAX_LENGTH);
         String longCourseName = StringHelperExtension.generateStringOfLength(FieldValidator.COURSE_NAME_MAX_LENGTH + 1);
 
         assertEquals(maxLengthCourseName, coursesPage.fillCourseNameTextBox(maxLengthCourseName));
         assertEquals(longCourseName.substring(0, FieldValidator.COURSE_NAME_MAX_LENGTH),
-                     coursesPage.fillCourseNameTextBox(longCourseName));
+                coursesPage.fillCourseNameTextBox(longCourseName));
 
     }
 
@@ -336,7 +336,7 @@ public class InstructorCoursesPageUiTest extends BaseUiTestCase {
         String courseId = "CCAddUiTest.CS1101";
 
         InstructorAttributes instructorWithNullArchiveStatus = BackDoor.getInstructorByGoogleId(instructor1CS1101.googleId,
-                                                                                                instructor1CS1101.courseId);
+                instructor1CS1101.courseId);
 
         //this is a old instructor whose archive status is not set and is by default false
         assertFalse(instructorWithNullArchiveStatus.isArchived);
@@ -346,7 +346,7 @@ public class InstructorCoursesPageUiTest extends BaseUiTestCase {
         coursesPage.verifyHtmlMainContent("/instructorCoursesArchiveSuccessful.html");
 
         instructorWithNullArchiveStatus = BackDoor.getInstructorByGoogleId(instructor1CS1101.googleId,
-                                                                           instructor1CS1101.courseId);
+                instructor1CS1101.courseId);
 
         //after click archive button, new value will be assigned to instructor's isArchive attribute
         //after this, his own archive status for this course will not be affected by other instructors

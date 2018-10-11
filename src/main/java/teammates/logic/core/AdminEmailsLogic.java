@@ -33,6 +33,7 @@ public final class AdminEmailsLogic {
 
     /**
      * Gets an admin email by email id.
+     *
      * @return null if no matched email found
      */
     public AdminEmailAttributes getAdminEmailById(String emailId) {
@@ -42,6 +43,7 @@ public final class AdminEmailsLogic {
 
     /**
      * Gets an admin email by subject and createDate.
+     *
      * @return null if no matched email found
      */
     public AdminEmailAttributes getAdminEmail(String subject, Instant createDate) {
@@ -53,6 +55,7 @@ public final class AdminEmailsLogic {
 
     /**
      * Gets an admin email based on subject.
+     *
      * @return null if no matched email found
      */
     public AdminEmailAttributes getAdminEmailBySubject(String subject) {
@@ -95,6 +98,7 @@ public final class AdminEmailsLogic {
 
     /**
      * Gets all admin emails that have been sent and not in trash bin.
+     *
      * @return empty list if no email found
      */
     public List<AdminEmailAttributes> getSentAdminEmails() {
@@ -103,6 +107,7 @@ public final class AdminEmailsLogic {
 
     /**
      * Gets all admin email drafts that have NOT been sent and NOT in trash bin.
+     *
      * @return empty list if no email found
      */
     public List<AdminEmailAttributes> getAdminEmailDrafts() {
@@ -111,6 +116,7 @@ public final class AdminEmailsLogic {
 
     /**
      * Gets all admin emails that have been moved into trash bin.
+     *
      * @return empty list if no email found
      */
     public List<AdminEmailAttributes> getAdminEmailsInTrashBin() {
@@ -141,6 +147,7 @@ public final class AdminEmailsLogic {
 
     /**
      * Deletes files uploaded in admin email compose page.
+     *
      * @param key the GCS blobkey used to fetch the file in Google Cloud Storage
      */
     public void deleteAdminEmailUploadedFile(BlobKey key) {

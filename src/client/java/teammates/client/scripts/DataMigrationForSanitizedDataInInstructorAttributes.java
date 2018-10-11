@@ -21,7 +21,7 @@ public class DataMigrationForSanitizedDataInInstructorAttributes extends DataMig
 
     public static void main(String[] args) throws IOException {
         DataMigrationForSanitizedDataInInstructorAttributes migrator =
-                     new DataMigrationForSanitizedDataInInstructorAttributes();
+                new DataMigrationForSanitizedDataInInstructorAttributes();
         migrator.doOperationRemotely();
     }
 
@@ -78,7 +78,7 @@ public class DataMigrationForSanitizedDataInInstructorAttributes extends DataMig
     }
 
     private void updateInstructor(InstructorAttributes instructor)
-                throws InvalidParametersException, EntityDoesNotExistException {
+            throws InvalidParametersException, EntityDoesNotExistException {
 
         instructorsDb.updateInstructorByEmail(instructor);
     }

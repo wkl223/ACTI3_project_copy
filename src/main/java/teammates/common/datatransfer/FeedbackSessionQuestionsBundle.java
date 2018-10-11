@@ -23,7 +23,7 @@ public class FeedbackSessionQuestionsBundle {
 
     public FeedbackSessionQuestionsBundle(FeedbackSessionAttributes feedbackSession, Map<FeedbackQuestionAttributes,
             List<FeedbackResponseAttributes>> questionResponseBundle, Map<String, Map<String, String>> recipientList,
-            Map<String, List<FeedbackResponseCommentAttributes>> commentsForResponses, CourseRoster roster) {
+                                          Map<String, List<FeedbackResponseCommentAttributes>> commentsForResponses, CourseRoster roster) {
 
         this.feedbackSession = feedbackSession;
         this.questionResponseBundle = questionResponseBundle;
@@ -42,6 +42,7 @@ public class FeedbackSessionQuestionsBundle {
 
     /**
      * Gets the list of questions in this bundle, sorted by question number.
+     *
      * @return A {@code List} of {@code FeedackQuestionAttributes}.
      */
     public List<FeedbackQuestionAttributes> getSortedQuestions() {
@@ -55,6 +56,7 @@ public class FeedbackSessionQuestionsBundle {
 
     /**
      * Gets the question in the data bundle with id == questionId.
+     *
      * @return a FeedbackQuestionAttribute with the specified questionId
      */
     public FeedbackQuestionAttributes getQuestionAttributes(String questionId) {
@@ -72,9 +74,10 @@ public class FeedbackSessionQuestionsBundle {
 
     /**
      * Gets the recipient list for a question, sorted by the recipient's name.
+     *
      * @param feedbackQuestionId of the question
      * @return A {@code Map<String key, String value>} where {@code key} is the recipient's email
-     *         and {@code value} is the recipients name.
+     * and {@code value} is the recipients name.
      */
     public Map<String, String> getSortedRecipientList(String feedbackQuestionId) {
 

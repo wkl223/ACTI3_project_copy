@@ -48,8 +48,8 @@ public class FeedbackConstantSumQuestionDetails extends FeedbackQuestionDetails 
     }
 
     public FeedbackConstantSumQuestionDetails(String questionText,
-            List<String> constSumOptions,
-            boolean pointsPerOption, int points, boolean unevenDistribution, String distributePointsFor) {
+                                              List<String> constSumOptions,
+                                              boolean pointsPerOption, int points, boolean unevenDistribution, String distributePointsFor) {
         super(FeedbackQuestionType.CONSTSUM, questionText);
 
         this.numOfConstSumOptions = constSumOptions.size();
@@ -103,7 +103,7 @@ public class FeedbackConstantSumQuestionDetails extends FeedbackQuestionDetails 
         } else {
             String numConstSumOptionsCreatedString =
                     HttpRequestHelper.getValueFromParamMap(requestParameters,
-                                                           Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED);
+                            Const.ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED);
             Assumption.assertNotNull("Null number of choice for ConstSum", numConstSumOptionsCreatedString);
             int numConstSumOptionsCreated = Integer.parseInt(numConstSumOptionsCreatedString);
 
@@ -137,7 +137,7 @@ public class FeedbackConstantSumQuestionDetails extends FeedbackQuestionDetails 
     }
 
     private void setConstantSumQuestionDetails(boolean pointsPerOption,
-            int points, boolean unevenDistribution, String distributePointsOption) {
+                                               int points, boolean unevenDistribution, String distributePointsOption) {
 
         this.numOfConstSumOptions = 0;
         this.constSumOptions = new ArrayList<>();
@@ -196,7 +196,7 @@ public class FeedbackConstantSumQuestionDetails extends FeedbackQuestionDetails 
                                 Slots.MARGIN_LEFT, "margin-left-auto",
                                 Slots.CONSTSUM_OPTION_VISIBILITY, "",
                                 Slots.CONSTSUM_OPTION_POINT,
-                                        Integer.toString(existingConstSumResponse.getAnswerList().get(i)),
+                                Integer.toString(existingConstSumResponse.getAnswerList().get(i)),
                                 Slots.FEEDBACK_RESPONSE_TEXT, Const.ParamsNames.FEEDBACK_RESPONSE_TEXT,
                                 Slots.CONSTSUM_OPTION_VALUE, SanitizationHelper.sanitizeForHtml(constSumOptions.get(i)));
                 optionListHtml.append(optionFragment).append(System.lineSeparator());
@@ -220,24 +220,24 @@ public class FeedbackConstantSumQuestionDetails extends FeedbackQuestionDetails 
                 Slots.CONSTSUM_PARAM_POINTS, Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMPOINTS,
                 Slots.CONSTSUM_PARAM_POINTSFOREACHOPTION, Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMPOINTSFOREACHOPTION,
                 Slots.CONSTSUM_PARAM_POINTSFOREACHRECIPIENT,
-                        Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMPOINTSFOREACHRECIPIENT,
+                Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMPOINTSFOREACHRECIPIENT,
                 Slots.CONSTSUM_PARAM_DISTRIBUTE_UNEVENLY, Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMDISTRIBUTEUNEVENLY,
                 Slots.CONSTSUM_DISTRIBUTE_UNEVENLY, distributePointsFor.equals(
                         FeedbackConstantSumDistributePointsType.NONE.getDisplayedOption()) ? "" : "checked",
                 Slots.CONSTSUM_DISTRIBUTE_POINTS_OPTIONS,
-                        Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMDISTRIBUTEPOINTSOPTIONS,
+                Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMDISTRIBUTEPOINTSOPTIONS,
                 Slots.CONSTSUM_DISTRIBUTE_POINTS_FOR_VALUE, distributePointsFor,
                 Slots.CONSTSUM_DISTRIBUTE_ALL_UNEVENLY_SELECTED, distributePointsFor.equals(
                         FeedbackConstantSumDistributePointsType.DISTRIBUTE_ALL_UNEVENLY.getDisplayedOption())
-                            ? "selected" : "",
+                        ? "selected" : "",
                 Slots.CONSTSUM_DISTRIBUTE_SOME_UNEVENLY_SELECTED, distributePointsFor.equals(
                         FeedbackConstantSumDistributePointsType.DISTRIBUTE_SOME_UNEVENLY.getDisplayedOption())
-                            ? "selected" : "",
+                        ? "selected" : "",
                 Slots.CONSTSUM_DISTRIBUTE_ALL_UNEVENLY_TO_STRING,
-                        FeedbackConstantSumDistributePointsType.DISTRIBUTE_ALL_UNEVENLY.getDisplayedOption(),
+                FeedbackConstantSumDistributePointsType.DISTRIBUTE_ALL_UNEVENLY.getDisplayedOption(),
                 Slots.CONSTSUM_DISTRIBUTE_SOME_UNEVENLY_TO_STRING,
-                        FeedbackConstantSumDistributePointsType.DISTRIBUTE_SOME_UNEVENLY.getDisplayedOption()
-                );
+                FeedbackConstantSumDistributePointsType.DISTRIBUTE_SOME_UNEVENLY.getDisplayedOption()
+        );
     }
 
     @Override
@@ -294,26 +294,26 @@ public class FeedbackConstantSumQuestionDetails extends FeedbackQuestionDetails 
                 Slots.CONSTSUM_NUM_OPTION, Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMNUMOPTION,
                 Slots.CONSTSUM_PARAM_POINTS, Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMPOINTS,
                 Slots.CONSTSUM_PARAM_POINTSFOREACHOPTION,
-                        Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMPOINTSFOREACHOPTION,
+                Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMPOINTSFOREACHOPTION,
                 Slots.CONSTSUM_PARAM_POINTSFOREACHRECIPIENT,
-                        Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMPOINTSFOREACHRECIPIENT,
+                Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMPOINTSFOREACHRECIPIENT,
                 Slots.CONSTSUM_PARAM_DISTRIBUTE_UNEVENLY, Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMDISTRIBUTEUNEVENLY,
                 Slots.CONSTSUM_DISTRIBUTE_UNEVENLY, distributePointsFor.equals(
                         FeedbackConstantSumDistributePointsType.NONE.getDisplayedOption()) ? "" : "checked",
                 Slots.CONSTSUM_DISTRIBUTE_POINTS_OPTIONS,
-                        Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMDISTRIBUTEPOINTSOPTIONS,
+                Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMDISTRIBUTEPOINTSOPTIONS,
                 Slots.CONSTSUM_DISTRIBUTE_POINTS_FOR_VALUE, distributePointsFor,
                 Slots.CONSTSUM_DISTRIBUTE_ALL_UNEVENLY_SELECTED, distributePointsFor.equals(
                         FeedbackConstantSumDistributePointsType.DISTRIBUTE_ALL_UNEVENLY.getDisplayedOption())
-                            ? "selected" : "",
+                        ? "selected" : "",
                 Slots.CONSTSUM_DISTRIBUTE_SOME_UNEVENLY_SELECTED, distributePointsFor.equals(
                         FeedbackConstantSumDistributePointsType.DISTRIBUTE_SOME_UNEVENLY.getDisplayedOption())
-                            ? "selected" : "",
+                        ? "selected" : "",
                 Slots.CONSTSUM_DISTRIBUTE_ALL_UNEVENLY_TO_STRING,
-                        FeedbackConstantSumDistributePointsType.DISTRIBUTE_ALL_UNEVENLY.getDisplayedOption(),
+                FeedbackConstantSumDistributePointsType.DISTRIBUTE_ALL_UNEVENLY.getDisplayedOption(),
                 Slots.CONSTSUM_DISTRIBUTE_SOME_UNEVENLY_TO_STRING,
-                        FeedbackConstantSumDistributePointsType.DISTRIBUTE_SOME_UNEVENLY.getDisplayedOption()
-                );
+                FeedbackConstantSumDistributePointsType.DISTRIBUTE_SOME_UNEVENLY.getDisplayedOption()
+        );
     }
 
     @Override
@@ -346,36 +346,36 @@ public class FeedbackConstantSumQuestionDetails extends FeedbackQuestionDetails 
                 Slots.PER_RECIPIENT_CHECKED, distributeToRecipients && pointsPerOption ? "checked" : "",
                 Slots.OPTION_RECIPIENT_DISPLAY_NAME, distributeToRecipients ? "recipient" : "option",
                 Slots.CONSTSUM_TOOLTIP_POINTS,
-                        distributeToRecipients ? Const.Tooltips.FEEDBACK_QUESTION_CONSTSUMPOINTS_RECIPIENT
-                                               : Const.Tooltips.FEEDBACK_QUESTION_CONSTSUMPOINTS_OPTION,
+                distributeToRecipients ? Const.Tooltips.FEEDBACK_QUESTION_CONSTSUMPOINTS_RECIPIENT
+                        : Const.Tooltips.FEEDBACK_QUESTION_CONSTSUMPOINTS_OPTION,
                 Slots.CONSTSUM_TOOLTIP_POINTS_PER_OPTION,
-                        Const.Tooltips.FEEDBACK_QUESTION_CONSTSUMPOINTSFOREACHOPTION,
+                Const.Tooltips.FEEDBACK_QUESTION_CONSTSUMPOINTSFOREACHOPTION,
                 Slots.CONSTSUM_TOOLTIP_POINTS_PER_RECIPIENT,
-                        Const.Tooltips.FEEDBACK_QUESTION_CONSTSUMPOINTSFOREACHRECIPIENT,
+                Const.Tooltips.FEEDBACK_QUESTION_CONSTSUMPOINTSFOREACHRECIPIENT,
                 Slots.CONSTSUM_DISTRIBUTE_UNEVENLY, forceUnevenDistribution ? "checked" : "",
                 Slots.CONSTSUM_TO_RECIPIENTS, Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMTORECIPIENTS,
                 Slots.CONSTSUM_POINTS_PER_OPTION, Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMPOINTSPEROPTION,
                 Slots.CONSTSUM_PARAM_POINTS, Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMPOINTS,
                 Slots.CONSTSUM_PARAM_POINTSFOREACHOPTION,
-                        Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMPOINTSFOREACHOPTION,
+                Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMPOINTSFOREACHOPTION,
                 Slots.CONSTSUM_PARAM_POINTSFOREACHRECIPIENT,
-                        Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMPOINTSFOREACHRECIPIENT,
+                Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMPOINTSFOREACHRECIPIENT,
                 Slots.CONSTSUM_PARAM_DISTRIBUTE_UNEVENLY, Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMDISTRIBUTEUNEVENLY,
                 Slots.CONSTSUM_DISTRIBUTE_UNEVENLY, distributePointsFor.equals(
                         FeedbackConstantSumDistributePointsType.NONE.getDisplayedOption()) ? "" : "checked",
                 Slots.CONSTSUM_DISTRIBUTE_POINTS_OPTIONS,
-                        Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMDISTRIBUTEPOINTSOPTIONS,
+                Const.ParamsNames.FEEDBACK_QUESTION_CONSTSUMDISTRIBUTEPOINTSOPTIONS,
                 Slots.CONSTSUM_DISTRIBUTE_POINTS_FOR_VALUE, distributePointsFor,
                 Slots.CONSTSUM_DISTRIBUTE_ALL_UNEVENLY_SELECTED, distributePointsFor.equals(
                         FeedbackConstantSumDistributePointsType.DISTRIBUTE_ALL_UNEVENLY.getDisplayedOption())
-                            ? "selected" : "",
+                        ? "selected" : "",
                 Slots.CONSTSUM_DISTRIBUTE_SOME_UNEVENLY_SELECTED, distributePointsFor.equals(
                         FeedbackConstantSumDistributePointsType.DISTRIBUTE_SOME_UNEVENLY.getDisplayedOption())
-                            ? "selected" : "",
+                        ? "selected" : "",
                 Slots.CONSTSUM_DISTRIBUTE_ALL_UNEVENLY_TO_STRING,
-                        FeedbackConstantSumDistributePointsType.DISTRIBUTE_ALL_UNEVENLY.getDisplayedOption(),
+                FeedbackConstantSumDistributePointsType.DISTRIBUTE_ALL_UNEVENLY.getDisplayedOption(),
                 Slots.CONSTSUM_DISTRIBUTE_SOME_UNEVENLY_TO_STRING,
-                        FeedbackConstantSumDistributePointsType.DISTRIBUTE_SOME_UNEVENLY.getDisplayedOption()
+                FeedbackConstantSumDistributePointsType.DISTRIBUTE_SOME_UNEVENLY.getDisplayedOption()
         );
     }
 
@@ -387,13 +387,13 @@ public class FeedbackConstantSumQuestionDetails extends FeedbackQuestionDetails 
         this.constSumOptions.add("");
 
         return "<div id=\"constSumForm\">"
-                  + this.getQuestionSpecificEditFormHtml(-1)
-             + "</div>";
+                + this.getQuestionSpecificEditFormHtml(-1)
+                + "</div>";
     }
 
     @Override
     public String getQuestionAdditionalInfoHtml(int questionNumber,
-            String additionalInfoId) {
+                                                String additionalInfoId) {
         StringBuilder optionListHtml = new StringBuilder();
         String optionFragmentTemplate = FormTemplates.MSQ_ADDITIONAL_INFO_FRAGMENT;
         StringBuilder additionalInfo = new StringBuilder();
@@ -418,8 +418,8 @@ public class FeedbackConstantSumQuestionDetails extends FeedbackQuestionDetails 
         }
         //Point information
         additionalInfo.append(pointsPerOption
-                              ? "Points per " + (distributeToRecipients ? "recipient" : "option") + ": " + points
-                              : "Total points: " + points);
+                ? "Points per " + (distributeToRecipients ? "recipient" : "option") + ": " + points
+                : "Total points: " + points);
 
         return Templates.populateTemplate(
                 FormTemplates.FEEDBACK_QUESTION_ADDITIONAL_INFO,
@@ -529,7 +529,7 @@ public class FeedbackConstantSumQuestionDetails extends FeedbackQuestionDetails 
                 String recipientName = bundle.getNameForEmail(participantIdentifier);
 
                 option = SanitizationHelper.sanitizeForCsv(teamName)
-                         + "," + SanitizationHelper.sanitizeForCsv(recipientName);
+                        + "," + SanitizationHelper.sanitizeForCsv(recipientName);
             } else {
                 option = SanitizationHelper.sanitizeForCsv(key);
             }
@@ -546,16 +546,16 @@ public class FeedbackConstantSumQuestionDetails extends FeedbackQuestionDetails 
         });
 
         return (distributeToRecipients ? "Team, Recipient" : "Option")
-               + ", Average Points, Total Points, Received Points" + System.lineSeparator()
-               + fragments + System.lineSeparator();
+                + ", Average Points, Total Points, Received Points" + System.lineSeparator()
+                + fragments + System.lineSeparator();
     }
 
     /**
      * Puts recipients from an unsorted map to a sorted map.
      *
-     * @param recipientMapping      Original map containing recipients
-     * @param identifierMap         Helper map to retrieve email from name concatenated with email string
-     * @param sortedOptionPoints    Sorted map to contain recipient info, recipient concatenated with email used as key
+     * @param recipientMapping   Original map containing recipients
+     * @param identifierMap      Helper map to retrieve email from name concatenated with email string
+     * @param sortedOptionPoints Sorted map to contain recipient info, recipient concatenated with email used as key
      */
     private void putRecipientsInSortedMap(
             Map<String, List<Integer>> recipientMapping, Map<String, String> identifierMap,
@@ -573,9 +573,9 @@ public class FeedbackConstantSumQuestionDetails extends FeedbackQuestionDetails 
     /**
      * Puts options from an unsorted map to a sorted map.
      *
-     * @param optionPoints          Original mapping of option points
-     * @param optionList            List of options in question
-     * @param sortedOptionPoints    Sorted map of option points
+     * @param optionPoints       Original mapping of option points
+     * @param optionList         List of options in question
+     * @param sortedOptionPoints Sorted map of option points
      */
     private void putOptionsInSortedMap(
             Map<String, List<Integer>> optionPoints, List<String> optionList,
@@ -592,7 +592,8 @@ public class FeedbackConstantSumQuestionDetails extends FeedbackQuestionDetails 
      * From the feedback responses, generate a mapping of the option to a list of points received for that option.
      * The key of the map returned is the option name / recipient's participant identifier.
      * The values of the map are list of points received by the key.
-     * @param responses  a list of responses
+     *
+     * @param responses a list of responses
      */
     private Map<String, List<Integer>> generateOptionPointsMapping(
             List<FeedbackResponseAttributes> responses) {
@@ -707,11 +708,11 @@ public class FeedbackConstantSumQuestionDetails extends FeedbackQuestionDetails 
     public String getQuestionTypeChoiceOption() {
         // Constant sum has two options for user to select.
         return "<li data-questiontype = \"CONSTSUM_OPTION\">"
-                 + "<a href=\"javascript:;\">" + Const.FeedbackQuestionTypeNames.CONSTSUM_OPTION + "</a>"
-             + "</li>"
-             + "<li data-questiontype = \"CONSTSUM_RECIPIENT\">"
-                 + "<a href=\"javascript:;\">" + Const.FeedbackQuestionTypeNames.CONSTSUM_RECIPIENT + "</a>"
-             + "</li>";
+                + "<a href=\"javascript:;\">" + Const.FeedbackQuestionTypeNames.CONSTSUM_OPTION + "</a>"
+                + "</li>"
+                + "<li data-questiontype = \"CONSTSUM_RECIPIENT\">"
+                + "<a href=\"javascript:;\">" + Const.FeedbackQuestionTypeNames.CONSTSUM_RECIPIENT + "</a>"
+                + "</li>";
     }
 
     @Override
@@ -719,12 +720,12 @@ public class FeedbackConstantSumQuestionDetails extends FeedbackQuestionDetails 
         List<String> errors = new ArrayList<>();
         if (!distributeToRecipients && numOfConstSumOptions < Const.FeedbackQuestion.CONST_SUM_MIN_NUM_OF_OPTIONS) {
             errors.add(Const.FeedbackQuestion.CONST_SUM_ERROR_NOT_ENOUGH_OPTIONS
-                       + Const.FeedbackQuestion.CONST_SUM_MIN_NUM_OF_OPTIONS + ".");
+                    + Const.FeedbackQuestion.CONST_SUM_MIN_NUM_OF_OPTIONS + ".");
         }
 
         if (points < Const.FeedbackQuestion.CONST_SUM_MIN_NUM_OF_POINTS) {
             errors.add(Const.FeedbackQuestion.CONST_SUM_ERROR_NOT_ENOUGH_POINTS
-                       + Const.FeedbackQuestion.CONST_SUM_MIN_NUM_OF_POINTS + ".");
+                    + Const.FeedbackQuestion.CONST_SUM_MIN_NUM_OF_POINTS + ".");
         }
 
         if (!FieldValidator.areElementsUnique(constSumOptions)) {

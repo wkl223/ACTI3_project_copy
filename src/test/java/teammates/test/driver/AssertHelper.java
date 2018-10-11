@@ -41,7 +41,7 @@ public final class AssertHelper {
      * Eclipse).
      */
     public static void assertContains(List<String> substringsExpected,
-            String superstringActual) {
+                                      String superstringActual) {
         for (String substringExpected : substringsExpected) {
             if (!superstringActual.contains(substringExpected)) {
                 assertEquals(substringExpected, superstringActual);
@@ -55,7 +55,7 @@ public final class AssertHelper {
      * Eclipse).
      */
     public static void assertContains(String substringExpected,
-            String superstringActual) {
+                                      String superstringActual) {
         if (!superstringActual.contains(substringExpected)) {
             assertEquals(substringExpected, superstringActual);
         }
@@ -67,7 +67,7 @@ public final class AssertHelper {
      * Eclipse) with the specified message.
      */
     public static void assertContains(String message, String substringExpected,
-            String superstringActual) {
+                                      String superstringActual) {
         if (!superstringActual.contains(substringExpected)) {
             assertEquals(message, substringExpected, superstringActual);
         }
@@ -81,7 +81,7 @@ public final class AssertHelper {
      * tabs) and ignores the newline when comparing.
      */
     public static void assertContainsRegex(String regexExpected,
-            String stringActual) {
+                                           String stringActual) {
         if (!isContainsRegex(regexExpected, stringActual)) {
             assertEquals(regexExpected, stringActual);
         }
@@ -94,7 +94,7 @@ public final class AssertHelper {
      * (in Eclipse) with the specified message.
      */
     public static void assertContainsRegex(String message,
-            String regexExpected, String stringActual) {
+                                           String regexExpected, String stringActual) {
         if (!isContainsRegex(regexExpected, stringActual)) {
             assertEquals(message, regexExpected, stringActual);
         }
@@ -107,14 +107,14 @@ public final class AssertHelper {
      * usages as they will not pass:
      * <ol>
      * <li>Empty contents right after an HTML tag, e.g <code>&lt;p&gt;{*}&lt;/p&gt;</code> will not match
-     *     <code>&lt;p&gt;&lt;/p&gt;</code> and neither will <code>&lt;p&gt;content&lt;br&gt;{*}&lt;/p&gt;</code>
-     *     match <code>&lt;p&gt;content&lt;br&gt;&lt;/p&gt;</code>.</li>
+     * <code>&lt;p&gt;&lt;/p&gt;</code> and neither will <code>&lt;p&gt;content&lt;br&gt;{*}&lt;/p&gt;</code>
+     * match <code>&lt;p&gt;content&lt;br&gt;&lt;/p&gt;</code>.</li>
      * <li>HTML attribute-value pair without the = separator, e.g <code>&lt;div class{*}&gt;</code>
-     *     will not match <code>&lt;div class="test"&gt;</code> but <code>&lt;div class={*}&gt;</code>
-     *     or <code>&lt;div class="{*}"&gt;</code> will.</li>
+     * will not match <code>&lt;div class="test"&gt;</code> but <code>&lt;div class={*}&gt;</code>
+     * or <code>&lt;div class="{*}"&gt;</code> will.</li>
      * <li>Non-empty HTML attribute-value pairs, e.g <code>&lt;div {*}&gt;</code> will not match
-     *     <code>&lt;div class="test"&gt;</code> but will match <code>&lt;div class=""&gt;</code>.
-     *     <code>&lt;div class="{*}"&gt;</code>, however, will match both.</li>
+     * <code>&lt;div class="test"&gt;</code> but will match <code>&lt;div class=""&gt;</code>.
+     * <code>&lt;div class="{*}"&gt;</code>, however, will match both.</li>
      * </ol>
      */
     public static boolean isContainsRegex(String regexExpected, String stringActual) {
@@ -144,8 +144,8 @@ public final class AssertHelper {
         int endIndex = actualMessage.lastIndexOf(Const.ActivityLog.FIELD_SEPARATOR);
         String actualId = actualMessage.substring(endIndex + Const.ActivityLog.FIELD_SEPARATOR.length());
         assertTrue("expected actual message's id to contain " + userIdentifier
-                   + " but was " + actualId,
-                   actualId.contains(userIdentifier));
+                        + " but was " + actualId,
+                actualId.contains(userIdentifier));
     }
 
     /**
@@ -163,7 +163,7 @@ public final class AssertHelper {
      * and that the actual log message's ID contains information of the google id of admin.
      */
     public static void assertLogMessageEqualsInMasqueradeMode(String expected,
-            String actual, String adminGoogleId) {
+                                                              String actual, String adminGoogleId) {
         assertLogMessageEqualsIgnoreLogId(expected, actual);
         assertLogIdContainsUserId(actual, adminGoogleId);
     }

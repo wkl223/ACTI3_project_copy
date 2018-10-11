@@ -18,11 +18,11 @@ import teammates.storage.entity.FeedbackSession;
  *
  * <p>As a result of loading and saving entities, these changes will be made:
  * <ul>
- *     <li>Conversion of all time fields to UTC</li>
- *     <li>Conversion of the timeZone field to a ZoneId string following the course time zone;
- *         removal of the timeZoneDouble field</li>
- *     <li>Population of any missing is*EmailEnabled booleans to default value true</li>
- *     <li>Adjustment of the results visible from time TIME_REPRESENTS_NEVER -> TIME_REPRESENTS_LATER</li>
+ * <li>Conversion of all time fields to UTC</li>
+ * <li>Conversion of the timeZone field to a ZoneId string following the course time zone;
+ * removal of the timeZoneDouble field</li>
+ * <li>Population of any missing is*EmailEnabled booleans to default value true</li>
+ * <li>Adjustment of the results visible from time TIME_REPRESENTS_NEVER -> TIME_REPRESENTS_LATER</li>
  * </ul>
  * </p>
  */

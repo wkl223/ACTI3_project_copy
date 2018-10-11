@@ -77,13 +77,13 @@ public class InstructorEditInstructorFeedbackSaveAction extends FeedbackSubmissi
 
             if (questionAttributes == null) {
                 statusToUser.add(new StatusMessage("The feedback session or questions may have changed "
-                                                       + "while you were submitting. Please check your responses "
-                                                       + "to make sure they are saved correctly.",
-                                                   StatusMessageColor.WARNING));
+                        + "while you were submitting. Please check your responses "
+                        + "to make sure they are saved correctly.",
+                        StatusMessageColor.WARNING));
                 isError = true;
                 log.warning("Question not found in Feedback Session [" + feedbackSessionName + "] "
-                            + "of Course ID [" + courseId + "]."
-                            + "(deleted or invalid id passed?) id: " + questionId + " index: " + questionIndx);
+                        + "of Course ID [" + courseId + "]."
+                        + "(deleted or invalid id passed?) id: " + questionId + " index: " + questionIndx);
                 continue;
             }
 
@@ -93,7 +93,8 @@ public class InstructorEditInstructorFeedbackSaveAction extends FeedbackSubmissi
 
     /**
      * Checks the instructor's access to a particular question in the feedback session.
-     * @param instructor the instructor to be checked
+     *
+     * @param instructor         the instructor to be checked
      * @param questionAttributes the question to be checked against
      */
     private void checkSessionQuestionAccessPermission(InstructorAttributes instructor,
@@ -109,8 +110,8 @@ public class InstructorEditInstructorFeedbackSaveAction extends FeedbackSubmissi
             isError = true;
             throw new UnauthorizedAccessException(
                     "Feedback session [" + feedbackSessionName
-                    + "] question [" + questionAttributes.getId() + "] is not accessible "
-                    + "to instructor [" + instructor.email + "]");
+                            + "] question [" + questionAttributes.getId() + "] is not accessible "
+                            + "to instructor [" + instructor.email + "]");
         }
     }
 
@@ -126,6 +127,7 @@ public class InstructorEditInstructorFeedbackSaveAction extends FeedbackSubmissi
 
     /**
      * Retrieves the email of the user for the course.
+     *
      * @return the email of the user
      */
     @Override
@@ -135,6 +137,7 @@ public class InstructorEditInstructorFeedbackSaveAction extends FeedbackSubmissi
 
     /**
      * Retrieves the user's team.
+     *
      * @return the name of the user's team
      */
     @Override
@@ -144,6 +147,7 @@ public class InstructorEditInstructorFeedbackSaveAction extends FeedbackSubmissi
 
     /**
      * Retrieves the user's section for the course.
+     *
      * @return the name of the user's section
      */
     @Override
@@ -153,6 +157,7 @@ public class InstructorEditInstructorFeedbackSaveAction extends FeedbackSubmissi
 
     /**
      * Gets data bundle for the course specified.
+     *
      * @param userEmailForCourse the email of the user
      * @return FeedbackSessionQuestionsBundle object
      */
@@ -169,15 +174,16 @@ public class InstructorEditInstructorFeedbackSaveAction extends FeedbackSubmissi
     @Override
     protected void setStatusToAdmin() {
         statusToAdmin = "Instructor moderated instructor session<br>"
-                      + "Instructor: " + account.email + "<br>"
-                      + "Moderated Instructor: " + moderatedInstructor + "<br>"
-                      + "Session Name: " + feedbackSessionName + "<br>"
-                      + "Course ID: " + courseId;
+                + "Instructor: " + account.email + "<br>"
+                + "Moderated Instructor: " + moderatedInstructor + "<br>"
+                + "Session Name: " + feedbackSessionName + "<br>"
+                + "Course ID: " + courseId;
     }
 
     /**
      * Checks if the session is still open. However, since the instructor is moderating the session,
      * they can moderate it anytime. Therefore, it will be true forever.
+     *
      * @return true
      */
     @Override
@@ -188,6 +194,7 @@ public class InstructorEditInstructorFeedbackSaveAction extends FeedbackSubmissi
 
     /**
      * Creates the page to redirect.
+     *
      * @return RedirectResult object
      */
     @Override

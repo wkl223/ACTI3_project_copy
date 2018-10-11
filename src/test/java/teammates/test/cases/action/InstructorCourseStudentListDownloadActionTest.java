@@ -32,7 +32,7 @@ public class InstructorCourseStudentListDownloadActionTest extends BaseActionTes
         String[] submissionParams = {};
         verifyAssumptionFailure(submissionParams);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, course.getId()
         };
 
@@ -78,7 +78,7 @@ public class InstructorCourseStudentListDownloadActionTest extends BaseActionTes
         // look at LogicTest.testGetCourseStudentListAsCsv. the logic api to generate Csv file content is tested in LogicTest
         fileContent = r.getFileContent();
 
-        expected = new String[] {
+        expected = new String[]{
                 // CHECKSTYLE.OFF:LineLength csv lines can exceed character limit
                 "Course ID," + "\"" + course.getId() + "\"",
                 "Course Name," + "\"" + course.getName() + "\"",
@@ -113,7 +113,7 @@ public class InstructorCourseStudentListDownloadActionTest extends BaseActionTes
         // look at LogicTest.testGetCourseStudentListAsCsv. the logic api to generate Csv file content is tested in LogicTest
         fileContent = r.getFileContent();
 
-        expected = new String[] {
+        expected = new String[]{
                 // CHECKSTYLE.OFF:LineLength csv lines can exceed character limit
                 "Course ID," + "\"" + course.getId() + "\"",
                 "Course Name," + "\"" + course.getName() + "\"",
@@ -144,7 +144,7 @@ public class InstructorCourseStudentListDownloadActionTest extends BaseActionTes
     protected void testAccessControl() throws Exception {
         CourseAttributes course = typicalBundle.courses.get("typicalCourse1");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, course.getId()
         };
 

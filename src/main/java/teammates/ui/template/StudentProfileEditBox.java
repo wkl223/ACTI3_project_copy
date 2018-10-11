@@ -14,7 +14,9 @@ public class StudentProfileEditBox {
     private String email;
     private String institute;
     private String nationality;
-    /** option to select the nationality. */
+    /**
+     * option to select the nationality.
+     */
     private List<ElementTag> nationalitySelectField;
     private String legacyNationalityInstructions;
     private String gender;
@@ -37,7 +39,7 @@ public class StudentProfileEditBox {
         this.moreInfo = StringHelper.convertToEmptyStringIfNull(profile.moreInfo);
         this.googleId = googleId;
         this.pictureUrl = pictureUrl;
-        this.like=profile.like;
+        this.like = profile.like;
     }
 
     public String getName() {
@@ -88,5 +90,7 @@ public class StudentProfileEditBox {
         return legacyNationalityInstructions;
     }
 
-    public int getLike(){return like;}
+    public int getLike() {
+        return like;
+    }
 }

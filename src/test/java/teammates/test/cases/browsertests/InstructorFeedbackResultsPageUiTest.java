@@ -98,17 +98,17 @@ public class InstructorFeedbackResultsPageUiTest extends BaseUiTestCase {
         FeedbackQuestionAttributes firstQuestion = testData.feedbackQuestions.get("qn1InSession4");
         assertEquals(1, firstQuestion.questionNumber);
         FeedbackQuestionAttributes firstQuestionFromDatastore =
-                                        BackDoor.getFeedbackQuestion(firstQuestion.courseId,
-                                                                     firstQuestion.feedbackSessionName,
-                                                                     firstQuestion.questionNumber);
+                BackDoor.getFeedbackQuestion(firstQuestion.courseId,
+                        firstQuestion.feedbackSessionName,
+                        firstQuestion.questionNumber);
 
         FeedbackQuestionAttributes secondQuestion = testData.feedbackQuestions.get("qn2InSession4");
         assertEquals(2, secondQuestion.questionNumber);
         // need to retrieve question from datastore to get its questionId
         FeedbackQuestionAttributes secondQuestionFromDatastore =
-                                        BackDoor.getFeedbackQuestion(secondQuestion.courseId,
-                                                                     secondQuestion.feedbackSessionName,
-                                                                     secondQuestion.questionNumber);
+                BackDoor.getFeedbackQuestion(secondQuestion.courseId,
+                        secondQuestion.feedbackSessionName,
+                        secondQuestion.questionNumber);
         assertEquals(secondQuestion, secondQuestionFromDatastore);
         // make both questions have the same question number
         secondQuestionFromDatastore.questionNumber = 1;
@@ -120,21 +120,21 @@ public class InstructorFeedbackResultsPageUiTest extends BaseUiTestCase {
         // compare html for each question panel
         // to verify that the right responses are showing for each question
         By firstQuestionPanelResponses = By.xpath("//div[contains(@class,'panel')][.//input[@name='questionid'][@value='"
-                                             + firstQuestionFromDatastore.getId() + "']]"
-                                             + "//div[contains(@class, 'table-responsive')]");
+                + firstQuestionFromDatastore.getId() + "']]"
+                + "//div[contains(@class, 'table-responsive')]");
         resultsPage.verifyHtmlPart(firstQuestionPanelResponses,
-                                   "/instructorFeedbackResultsDuplicateQuestionNumberPanel1.html");
+                "/instructorFeedbackResultsDuplicateQuestionNumberPanel1.html");
 
         By secondQuestionPanelResponses = By.xpath("//div[contains(@class,'panel')][.//input[@name='questionid'][@value='"
-                                              + secondQuestionFromDatastore.getId() + "']]"
-                                              + "//div[contains(@class, 'table-responsive')]");
+                + secondQuestionFromDatastore.getId() + "']]"
+                + "//div[contains(@class, 'table-responsive')]");
         resultsPage.verifyHtmlPart(secondQuestionPanelResponses,
-                                   "/instructorFeedbackResultsDuplicateQuestionNumberPanel2.html");
+                "/instructorFeedbackResultsDuplicateQuestionNumberPanel2.html");
 
         ______TS("Results with sanitized data");
 
         resultsPage = loginToInstructorFeedbackResultsPage("CFResultsUiT.SanitizedTeam.instr",
-                                                           "Session with sanitized data");
+                "Session with sanitized data");
         resultsPage.loadResultQuestionPanel(1);
         resultsPage.verifyHtmlMainContent("/instructorFeedbackResultsPageWithSanitizedData.html");
 
@@ -169,7 +169,7 @@ public class InstructorFeedbackResultsPageUiTest extends BaseUiTestCase {
 
         ______TS("Typical case: test moderate responses button for instructors as givers");
         verifyModerateResponsesButton(1, "CFResultsUiT.instr@gmail.tmt", "CFResultsUiT.instr@gmail.tmt",
-                                      "CFResultsUiT.instr@gmail.tmt");
+                "CFResultsUiT.instr@gmail.tmt");
 
     }
 
@@ -252,28 +252,28 @@ public class InstructorFeedbackResultsPageUiTest extends BaseUiTestCase {
         ______TS("Typical case: test in-table sort");
 
         verifySortingOrder(By.id("button_sortFeedback"),
-                           "1 Response to Danny.",
-                           "2 Response to Benny.",
-                           "3 Response to Emily.",
-                           "4 Response to Charlie.");
+                "1 Response to Danny.",
+                "2 Response to Benny.",
+                "3 Response to Emily.",
+                "4 Response to Charlie.");
 
         verifySortingOrder(By.id("button_sortFromName"),
-                           "Alice Betsy",
-                           "Benny Charles",
-                           "Benny Charles",
-                            "Charlie Dávis");
+                "Alice Betsy",
+                "Benny Charles",
+                "Benny Charles",
+                "Charlie Dávis");
 
         verifySortingOrder(By.id("button_sortFromTeam"),
-                           "Team 1",
-                           "Team 1",
-                           "Team 2",
-                           "Team 2");
+                "Team 1",
+                "Team 1",
+                "Team 2",
+                "Team 2");
 
         verifySortingOrder(By.id("button_sortToName"),
-                           "Benny Charles",
-                           "Charlie Dávis",
-                           "Danny Engrid",
-                           "Emily");
+                "Benny Charles",
+                "Charlie Dávis",
+                "Danny Engrid",
+                "Emily");
 
         // TODO: Test sorting fully instead of partially.
         verifySortingOrder(By.id("button_sortToTeam"),
@@ -362,7 +362,7 @@ public class InstructorFeedbackResultsPageUiTest extends BaseUiTestCase {
         ______TS("Typical case: ajax for view by questions");
 
         resultsPage = loginToInstructorFeedbackResultsPageWithViewType("CFResultsUiT.instr",
-                                                                       "Open Session", true, "question");
+                "Open Session", true, "question");
 
         resultsPage.loadResultLargeScalePanel(1);
         resultsPage.verifyHtmlMainContent("/instructorFeedbackResultsAjaxByQuestion.html");
@@ -388,14 +388,14 @@ public class InstructorFeedbackResultsPageUiTest extends BaseUiTestCase {
         ______TS("Typical case: ajax for view by question for helper 1");
 
         resultsPage = loginToInstructorFeedbackResultsPageWithViewType("CFResultsUiT.helper1",
-                                                                       "Open Session", true, "question");
+                "Open Session", true, "question");
 
         resultsPage.loadResultLargeScalePanel(1);
         resultsPage.verifyHtmlMainContent("/instructorFeedbackResultsAjaxByQuestionViewForHelperOne.html");
 
         ______TS("Typical case: ajax for view by question for helper2");
         resultsPage = loginToInstructorFeedbackResultsPageWithViewType("CFResultsUiT.helper2",
-                                        "Open Session", true, "question");
+                "Open Session", true, "question");
 
         resultsPage.loadResultLargeScalePanel(1);
         resultsPage.verifyHtmlMainContent("/instructorFeedbackResultsAjaxByQuestionViewForHelperTwo.html");
@@ -403,7 +403,7 @@ public class InstructorFeedbackResultsPageUiTest extends BaseUiTestCase {
         ______TS("Typical case: ajax for view by giver > recipient > question");
 
         resultsPage = loginToInstructorFeedbackResultsPageWithViewType("CFResultsUiT.instr", "Open Session", true,
-                                                                       "giver-recipient-question");
+                "giver-recipient-question");
         resultsPage.loadResultSectionPanel(1, 2);
         resultsPage.verifyHtmlMainContent("/instructorFeedbackResultsAjaxByGRQ.html");
 
@@ -419,7 +419,7 @@ public class InstructorFeedbackResultsPageUiTest extends BaseUiTestCase {
         ______TS("Typical case: ajax for view by giver > question > recipient");
 
         resultsPage = loginToInstructorFeedbackResultsPageWithViewType("CFResultsUiT.instr", "Open Session", true,
-                                                                       "giver-question-recipient");
+                "giver-question-recipient");
         resultsPage.loadResultSectionPanel(1, 2);
         resultsPage.verifyHtmlMainContent("/instructorFeedbackResultsAjaxByGQR.html");
 
@@ -433,7 +433,7 @@ public class InstructorFeedbackResultsPageUiTest extends BaseUiTestCase {
         ______TS("Typical case: ajax for view by recipient > question > giver");
 
         resultsPage = loginToInstructorFeedbackResultsPageWithViewType("CFResultsUiT.instr", "Open Session", true,
-                                                                       "recipient-question-giver");
+                "recipient-question-giver");
         resultsPage.loadResultSectionPanel(1, 2);
         resultsPage.verifyHtmlMainContent("/instructorFeedbackResultsAjaxByRQG.html");
 
@@ -447,7 +447,7 @@ public class InstructorFeedbackResultsPageUiTest extends BaseUiTestCase {
         ______TS("Typical case: ajax for view by recipient > giver > question");
 
         resultsPage = loginToInstructorFeedbackResultsPageWithViewType("CFResultsUiT.instr", "Open Session", true,
-                                                                       "recipient-giver-question");
+                "recipient-giver-question");
         resultsPage.loadResultSectionPanel(1, 2);
         resultsPage.verifyHtmlMainContent("/instructorFeedbackResultsAjaxByRGQ.html");
 
@@ -537,7 +537,7 @@ public class InstructorFeedbackResultsPageUiTest extends BaseUiTestCase {
         resultsPage.clickInstructorPanelCollapseStudentsButton();
         resultsPage.waitForInstructorPanelStudentPanelsToCollapse();
         assertEquals("Expand Students", resultsPage.instructorPanelCollapseStudentsButton.getText());
-        resultsPage.verifySpecifiedPanelIdsAreCollapsed(new String[] { "0-2", "0-3", "0-4" });
+        resultsPage.verifySpecifiedPanelIdsAreCollapsed(new String[]{"0-2", "0-3", "0-4"});
 
         resultsPage.clickGroupByTeam();
 
@@ -552,19 +552,19 @@ public class InstructorFeedbackResultsPageUiTest extends BaseUiTestCase {
 
         assertEquals("Expand All Questions", resultsPage.collapseExpandButton.getText());
         assertEquals("Expand all panels. You can also click on the panel heading to toggle each one individually.",
-                     resultsPage.collapseExpandButton.getAttribute("data-original-title"));
+                resultsPage.collapseExpandButton.getAttribute("data-original-title"));
         resultsPage.verifyResultsHidden();
 
         resultsPage.clickCollapseExpandButtonAndWaitForPanelsToExpand();
         assertEquals("Collapse All Questions", resultsPage.collapseExpandButton.getText());
         assertEquals("Collapse all panels. You can also click on the panel heading to toggle each one individually.",
-                     resultsPage.collapseExpandButton.getAttribute("data-original-title"));
+                resultsPage.collapseExpandButton.getAttribute("data-original-title"));
         resultsPage.verifyResultsVisible();
 
         resultsPage.clickCollapseExpandButtonAndWaitForPanelsToCollapse();
         assertEquals("Expand All Questions", resultsPage.collapseExpandButton.getText());
         assertEquals("Expand all panels. You can also click on the panel heading to toggle each one individually.",
-                     resultsPage.collapseExpandButton.getAttribute("data-original-title"));
+                resultsPage.collapseExpandButton.getAttribute("data-original-title"));
         resultsPage.verifyResultsHidden();
     }
 
@@ -636,26 +636,26 @@ public class InstructorFeedbackResultsPageUiTest extends BaseUiTestCase {
         ______TS("Typical case: download report");
 
         AppUrl reportUrl = createUrl(Const.ActionURIs.INSTRUCTOR_FEEDBACK_RESULTS_DOWNLOAD)
-                                                  .withUserId("CFResultsUiT.instr")
-                                                  .withCourseId("CFResultsUiT.CS2104")
-                                                  .withSessionName("First Session");
+                .withUserId("CFResultsUiT.instr")
+                .withCourseId("CFResultsUiT.CS2104")
+                .withSessionName("First Session");
 
         resultsPage.verifyDownloadLink(reportUrl);
 
         ______TS("Typical case: download report for one question");
 
         reportUrl = createUrl(Const.ActionURIs.INSTRUCTOR_FEEDBACK_RESULTS_DOWNLOAD)
-                                                  .withUserId("CFResultsUiT.instr")
-                                                  .withCourseId("CFResultsUiT.CS2104")
-                                                  .withSessionName("First Session")
-                                                  .withQuestionNumber("2");
+                .withUserId("CFResultsUiT.instr")
+                .withCourseId("CFResultsUiT.CS2104")
+                .withSessionName("First Session")
+                .withQuestionNumber("2");
 
         resultsPage.verifyDownloadLink(reportUrl);
 
         ______TS("Typical case: download report unsuccessfully");
 
         reportUrl = createUrl(Const.ActionURIs.INSTRUCTOR_FEEDBACK_RESULTS_DOWNLOAD)
-                                              .withUserId("CFResultsUiT.instr");
+                .withUserId("CFResultsUiT.instr");
         browser.driver.get(reportUrl.toAbsoluteString());
         String afterReportDownloadUrl = browser.driver.getCurrentUrl();
         assertFalse(reportUrl.toString().equals(afterReportDownloadUrl));
@@ -663,8 +663,8 @@ public class InstructorFeedbackResultsPageUiTest extends BaseUiTestCase {
         // If admin is an instructor, expected url is InstructorHomePage
         //                 otherwise, expected url is unauthorised.jsp
         assertTrue("Expected url is InstructorHomePage or Unauthorised page, but is " + afterReportDownloadUrl,
-                   afterReportDownloadUrl.contains(Const.ActionURIs.INSTRUCTOR_HOME_PAGE)
-                   || afterReportDownloadUrl.contains(Const.ViewURIs.UNAUTHORIZED));
+                afterReportDownloadUrl.contains(Const.ActionURIs.INSTRUCTOR_HOME_PAGE)
+                        || afterReportDownloadUrl.contains(Const.ViewURIs.UNAUTHORIZED));
 
         // return to the previous page
         loginToInstructorFeedbackResultsPage("CFResultsUiT.instr", "Open Session");
@@ -684,28 +684,28 @@ public class InstructorFeedbackResultsPageUiTest extends BaseUiTestCase {
         File picture = new File("src/test/resources/images/profile_pic_updated.png");
         String pictureData = JsonUtils.toJson(FileHelper.readFileAsBytes(picture.getAbsolutePath()));
         assertEquals("Unable to upload profile picture", "[BACKDOOR_STATUS_SUCCESS]",
-                     BackDoor.uploadAndUpdateStudentProfilePicture(googleId, pictureData));
+                BackDoor.uploadAndUpdateStudentProfilePicture(googleId, pictureData));
     }
 
     private InstructorFeedbackResultsPage loginToInstructorFeedbackResultsPage(String instructorName, String fsName) {
         AppUrl resultsUrl = createUrl(Const.ActionURIs.INSTRUCTOR_FEEDBACK_RESULTS_PAGE)
-                                .withUserId(testData.instructors.get(instructorName).googleId)
-                                .withCourseId(testData.feedbackSessions.get(fsName).getCourseId())
-                                .withSessionName(testData.feedbackSessions.get(fsName).getFeedbackSessionName());
+                .withUserId(testData.instructors.get(instructorName).googleId)
+                .withCourseId(testData.feedbackSessions.get(fsName).getCourseId())
+                .withSessionName(testData.feedbackSessions.get(fsName).getFeedbackSessionName());
         return loginAdminToPage(resultsUrl, InstructorFeedbackResultsPage.class);
     }
 
     private InstructorFeedbackResultsPage
-            loginToInstructorFeedbackResultsPageWithViewType(String instructorName, String fsName,
-                                                             boolean needAjax, String viewType) {
+    loginToInstructorFeedbackResultsPageWithViewType(String instructorName, String fsName,
+                                                     boolean needAjax, String viewType) {
         AppUrl resultsUrl = createUrl(Const.ActionURIs.INSTRUCTOR_FEEDBACK_RESULTS_PAGE)
-                                .withUserId(testData.instructors.get(instructorName).googleId)
-                                .withCourseId(testData.feedbackSessions.get(fsName).getCourseId())
-                                .withSessionName(testData.feedbackSessions.get(fsName).getFeedbackSessionName());
+                .withUserId(testData.instructors.get(instructorName).googleId)
+                .withCourseId(testData.feedbackSessions.get(fsName).getCourseId())
+                .withSessionName(testData.feedbackSessions.get(fsName).getFeedbackSessionName());
 
         if (needAjax) {
             resultsUrl = resultsUrl.withParam(Const.ParamsNames.FEEDBACK_RESULTS_NEED_AJAX,
-                                        String.valueOf(needAjax));
+                    String.valueOf(needAjax));
         }
 
         if (viewType != null) {

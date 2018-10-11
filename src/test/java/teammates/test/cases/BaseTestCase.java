@@ -29,8 +29,7 @@ public class BaseTestCase {
      * Test Segment divider. Used to divide a test case into logical sections.
      * The weird name is for easy spotting.
      *
-     * @param description
-     *            of the logical section. This will be printed.
+     * @param description of the logical section. This will be printed.
      */
     // CHECKSTYLE.OFF:AbbreviationAsWordInName|MethodName the weird name is for easy spotting.
     public static void ______TS(String description) {
@@ -64,7 +63,7 @@ public class BaseTestCase {
     protected static DataBundle loadDataBundle(String pathToJsonFileParam) {
         try {
             String pathToJsonFile = (pathToJsonFileParam.startsWith("/") ? TestProperties.TEST_DATA_FOLDER : "")
-                                  + pathToJsonFileParam;
+                    + pathToJsonFileParam;
             String jsonString = FileHelper.readFile(pathToJsonFile);
             return JsonUtils.fromJson(jsonString, DataBundle.class);
         } catch (IOException e) {
@@ -86,11 +85,12 @@ public class BaseTestCase {
 
     /**
      * Invokes the method named {@code methodName} as defined in the {@code definingClass}.
-     * @param definingClass     the class which defines the method
-     * @param parameterTypes    the parameter types of the method,
-     *                          which must be passed in the same order defined in the method
-     * @param invokingObject    the object which invokes the method, can be {@code null} if the method is static
-     * @param args              the arguments to be passed to the method invocation
+     *
+     * @param definingClass  the class which defines the method
+     * @param parameterTypes the parameter types of the method,
+     *                       which must be passed in the same order defined in the method
+     * @param invokingObject the object which invokes the method, can be {@code null} if the method is static
+     * @param args           the arguments to be passed to the method invocation
      */
     protected static Object invokeMethod(Class<?> definingClass, String methodName, Class<?>[] parameterTypes,
                                          Object invokingObject, Object[] args)
@@ -110,8 +110,8 @@ public class BaseTestCase {
                                                      String fieldName, String errorReason, int maxLength)
             throws ReflectiveOperationException {
         return (String) invokeMethod(FieldValidator.class, "getPopulatedErrorMessage",
-                                     new Class<?>[] { String.class, String.class, String.class, String.class, int.class },
-                                     null, new Object[] { messageTemplate, userInput, fieldName, errorReason, maxLength });
+                new Class<?>[]{String.class, String.class, String.class, String.class, int.class},
+                null, new Object[]{messageTemplate, userInput, fieldName, errorReason, maxLength});
     }
 
     protected static String getPopulatedEmptyStringErrorMessage(String messageTemplate, String fieldName, int maxLength) {

@@ -448,12 +448,12 @@ public class InstructorFeedbackEditPage extends AppPage {
      * Returns an array of the specified rubric column values.
      * The values are organized in the array in the following manner:
      * <p>
-     *   <strong>If weights are assigned: </strong>
-     *   [rubricChoice, rubricDescription-0, rubricWeight-0, rubricDescription-1, rubricWeights-1,...]
+     * <strong>If weights are assigned: </strong>
+     * [rubricChoice, rubricDescription-0, rubricWeight-0, rubricDescription-1, rubricWeights-1,...]
      * </p>
      * <p>
-     *   <strong>If weights are not assigned: </strong>
-     *   [rubricChoice, rubricDescription-0, rubricDescription-1, ...]
+     * <strong>If weights are not assigned: </strong>
+     * [rubricChoice, rubricDescription-0, rubricDescription-1, ...]
      * </p>
      */
     public String[] getRubricColValues(int qnNumber, int choiceIndex) {
@@ -479,7 +479,8 @@ public class InstructorFeedbackEditPage extends AppPage {
      * Checks if move left button of leftmost column is disabled.
      * Checks if move right button of rightmost column is disabled.
      * Checks if all other move column buttons are enabled.
-     * @param qnNumber question number.
+     *
+     * @param qnNumber   question number.
      * @param colIndexes An array containing column indexes in the order displayed in the UI.
      */
     public void verifyRubricColumnsMovability(int qnNumber, int[] colIndexes) {
@@ -506,10 +507,11 @@ public class InstructorFeedbackEditPage extends AppPage {
      * actual values displayed. Also checks if move left/right buttons for
      * each column is properly enabled or disabled. Assumes that there are
      * at least 2 columns.
-     * @param qnNumber question number.
+     *
+     * @param qnNumber   question number.
      * @param colIndexes An array containing column indexes in the order displayed in the UI.
-     * @param columns Varargs parameter, where each parameter is {@code String[]} which denotes values
-     *         of a rubric column. Column values must be given in the order displayed in the UI.
+     * @param columns    Varargs parameter, where each parameter is {@code String[]} which denotes values
+     *                   of a rubric column. Column values must be given in the order displayed in the UI.
      */
     public void verifyRubricQuestion(int qnNumber, int[] colIndexes, String[]... columns) {
         // checking rubric column values - choice, description-0, weight-0, description-1, weight-1,....
@@ -539,9 +541,10 @@ public class InstructorFeedbackEditPage extends AppPage {
     /**
      * Fills a single rubric column of index given by
      * {@code choiceIndex}, with the values given in {@code values}.
-     * @param qnNumber question number.
+     *
+     * @param qnNumber    question number.
      * @param choiceIndex index of the column as in UI.
-     * @param values {@code String[]} which holds all column values from top to bottom.
+     * @param values      {@code String[]} which holds all column values from top to bottom.
      */
     public void fillRubricColumn(int qnNumber, int choiceIndex, String[] values) {
         fillRubricChoiceBox(values[0], qnNumber, choiceIndex);
@@ -567,10 +570,11 @@ public class InstructorFeedbackEditPage extends AppPage {
     /**
      * Fills all rubric columns with respective indexes given in
      * {@code colIndexes}, with respective values given in @{code colValues}.
-     * @param qnNumber question number.
+     *
+     * @param qnNumber   question number.
      * @param colIndexes An array containing column indexes in the order displayed in the UI.
-     * @param colValues Varargs parameter, where each parameter is {@code String[]} which denotes values
-     *         of a rubric column. Column values must be given in the order displayed in the UI.
+     * @param colValues  Varargs parameter, where each parameter is {@code String[]} which denotes values
+     *                   of a rubric column. Column values must be given in the order displayed in the UI.
      */
     public void fillAllRubricColumns(int qnNumber, int[] colIndexes, String[]... colValues) {
         Assumption.assertEquals(colIndexes.length, colValues.length);
@@ -683,6 +687,7 @@ public class InstructorFeedbackEditPage extends AppPage {
 
     /**
      * Changes the value of actionlink of the copy question button.
+     *
      * @param actionLink value to change to
      */
     public void changeActionLinkOnCopyButton(String actionLink) {
@@ -840,7 +845,7 @@ public class InstructorFeedbackEditPage extends AppPage {
 
     public String getVisibilityDropdownLabel(int qnNumber) {
         return browser.driver.findElement(By.cssSelector("#questionTable-" + qnNumber
-                                                         + " .visibility-options-dropdown button")).getText().trim();
+                + " .visibility-options-dropdown button")).getText().trim();
     }
 
     public boolean isStaticQnNumberVisible(int qnNumber) {
@@ -929,21 +934,21 @@ public class InstructorFeedbackEditPage extends AppPage {
      */
     public boolean verifyEditSessionBoxIsEnabled() {
         boolean isEditSessionEnabled = fsSaveLink.isDisplayed() && timezoneDropDown.isEnabled()
-                                       // && "Session visible from" radio buttons
-                                       && defaultSessionVisibleTimeButton.isEnabled()
-                                       && customSessionVisibleTimeButton.isEnabled()
-                                       // && "Send emails for" checkboxes
-                                       && closingSessionEmailReminderButton.isEnabled()
-                                       && publishedSessionEmailReminderButton.isEnabled();
+                // && "Session visible from" radio buttons
+                && defaultSessionVisibleTimeButton.isEnabled()
+                && customSessionVisibleTimeButton.isEnabled()
+                // && "Send emails for" checkboxes
+                && closingSessionEmailReminderButton.isEnabled()
+                && publishedSessionEmailReminderButton.isEnabled();
 
         if (isEditSessionEnabled) {
             isEditSessionEnabled = gracePeriodDropdown.isEnabled() // && Submission times inputs
-                                   && startDateBox.isEnabled() && startTimeDropdown.isEnabled()
-                                   && endDateBox.isEnabled() && endTimeDropdown.isEnabled()
-                                   // && "Responses visible from" radio buttons
-                                   && defaultResultsVisibleTimeButton.isEnabled()
-                                   && customResultsVisibleTimeButton.isEnabled()
-                                   && manualResultsVisibleTimeButton.isEnabled();
+                    && startDateBox.isEnabled() && startTimeDropdown.isEnabled()
+                    && endDateBox.isEnabled() && endTimeDropdown.isEnabled()
+                    // && "Responses visible from" radio buttons
+                    && defaultResultsVisibleTimeButton.isEnabled()
+                    && customResultsVisibleTimeButton.isEnabled()
+                    && manualResultsVisibleTimeButton.isEnabled();
         }
 
         return isEditSessionEnabled;
@@ -999,14 +1004,14 @@ public class InstructorFeedbackEditPage extends AppPage {
     public boolean isAlertClassEnabledForVisibilityOptions(int questionNo) {
         final String visibilityOptionsDivXPath =
                 "//div[@id='questionTable-" + questionNo + "']//div[@class='visibility-checkbox-delegate panel-body']"
-                + "//b[@class='visibility-title']/../..";
+                        + "//b[@class='visibility-title']/../..";
         return browser.driver.findElement(By.xpath(visibilityOptionsDivXPath))
                 .getAttribute("class").matches(".*\\balert alert-danger\\b.*");
     }
 
     public boolean areDatesOfPreviousCurrentAndNextMonthEnabled() throws ParseException {
         return areDatesOfPreviousCurrentAndNextMonthEnabled(startDateBox)
-               && areDatesOfPreviousCurrentAndNextMonthEnabled(endDateBox);
+                && areDatesOfPreviousCurrentAndNextMonthEnabled(endDateBox);
     }
 
     /**
@@ -1051,9 +1056,9 @@ public class InstructorFeedbackEditPage extends AppPage {
      * Navigate the datepicker associated with {@code dateBox} to the specified {@code date}.
      *
      * @param dateBox is a {@link WebElement} that triggers a datepicker
-     * @param date is a {@link LocalDate} that specifies the date that needs to be navigated to
+     * @param date    is a {@link LocalDate} that specifies the date that needs to be navigated to
      * @return true if navigated to the {@code date} successfully, otherwise
-     *         false
+     * false
      * @throws ParseException if the string in {@code dateBox} cannot be parsed
      */
     private boolean navigate(WebElement dateBox, LocalDate date) throws ParseException {
@@ -1132,8 +1137,8 @@ public class InstructorFeedbackEditPage extends AppPage {
     /**
      * Selects the points distribution scheme for a const sum question.
      *
-     * @param pointsOption Value of "Total" will select <i>Total number of points for all options</i> points distribution
-     *                     scheme, or "PerOption" will select <i>Number of points per option</i> points distribution scheme.
+     * @param pointsOption   Value of "Total" will select <i>Total number of points for all options</i> points distribution
+     *                       scheme, or "PerOption" will select <i>Number of points per option</i> points distribution scheme.
      * @param questionNumber question number of the const sum question.
      */
     public void selectConstSumPointsOptions(String pointsOption, int questionNumber) {
@@ -1204,7 +1209,7 @@ public class InstructorFeedbackEditPage extends AppPage {
         WebElement recipientOption =
                 browser.driver.findElement(
                         By.cssSelector("#recipienttype-" + questionNumber
-                                       + " option[value='" + recipientType + "']"));
+                                + " option[value='" + recipientType + "']"));
         return !"none".equals(recipientOption.getCssValue("display"));
     }
 
@@ -1282,7 +1287,7 @@ public class InstructorFeedbackEditPage extends AppPage {
         WebElement questionTable = browser.driver.findElement(By.id("questionTable-" + qnNumber));
         WebElement dropdownButton = questionTable.findElement(By.cssSelector(".feedback-path-dropdown > button"));
         WebElement otherOption = questionTable.findElement(
-                                     By.className("feedback-path-dropdown-option-other"));
+                By.className("feedback-path-dropdown-option-other"));
         click(dropdownButton);
         click(otherOption);
     }
@@ -1294,13 +1299,13 @@ public class InstructorFeedbackEditPage extends AppPage {
     public void editFeedbackSession(LocalDateTime startTime, LocalDateTime endTime, Text instructions, long gracePeriod) {
         // Select start date
         executeScript("$('#" + Const.ParamsNames.FEEDBACK_SESSION_STARTDATE + "')[0].value='"
-                      + TimeHelper.formatDateForSessionsForm(startTime) + "';");
+                + TimeHelper.formatDateForSessionsForm(startTime) + "';");
         selectDropdownByVisibleValue(startTimeDropdown,
                 TimeHelperExtension.convertToDisplayValueInTimeDropDown(startTime));
 
         // Select deadline date
         executeScript("$('#" + Const.ParamsNames.FEEDBACK_SESSION_ENDDATE + "')[0].value='"
-                      + TimeHelper.formatDateForSessionsForm(endTime) + "';");
+                + TimeHelper.formatDateForSessionsForm(endTime) + "';");
         selectDropdownByVisibleValue(endTimeDropdown,
                 TimeHelperExtension.convertToDisplayValueInTimeDropDown(endTime));
 
@@ -1379,7 +1384,8 @@ public class InstructorFeedbackEditPage extends AppPage {
 
     /**
      * Get the specified Mcq weight WebElement.
-     * @param qnNumber Question number
+     *
+     * @param qnNumber    Question number
      * @param choiceIndex The index of the corresponding MCQ choice
      * @return The MCQ weight WebElement for the specified choice.
      */
@@ -1578,7 +1584,8 @@ public class InstructorFeedbackEditPage extends AppPage {
 
     /**
      * Get the specified Msq weight WebElement.
-     * @param qnNumber Question number
+     *
+     * @param qnNumber    Question number
      * @param choiceIndex The index of the corresponding MSQ choice
      * @return The MSQ weight WebElement for the specified choice.
      */
@@ -1652,14 +1659,14 @@ public class InstructorFeedbackEditPage extends AppPage {
             String selectedOption = getGenerateOptionsForMsqValue(qnNumber);
 
             switch (selectedOption) {
-            case "students":
-                return getNumOfStudentsForFs();
-            case "teams":
-                return getNumOfTeamsForFs();
-            case "instructors":
-                return getNumOfInstructorsForFs();
-            default:
-                return 0;
+                case "students":
+                    return getNumOfStudentsForFs();
+                case "teams":
+                    return getNumOfTeamsForFs();
+                case "instructors":
+                    return getNumOfInstructorsForFs();
+                default:
+                    return 0;
             }
         }
 
@@ -1876,17 +1883,17 @@ public class InstructorFeedbackEditPage extends AppPage {
         String recipient = getRecipientTypeForQuestion(qnIndex);
 
         switch (recipient) {
-        case "STUDENTS":
-        case "INSTRUCTORS":
-        case "TEAMS":
-            return Integer.parseInt(browser.driver.findElement(By.id("num-" + recipient.toLowerCase()))
-                    .getAttribute("value").toString());
-        case "OWN_TEAM_MEMBERS":
-        case "OWN_TEAM_MEMBERS_INCLUDING_SELF":
-            return Integer.MAX_VALUE;
-        default:
-            // For SELF, OWN_TEAM, NONE
-            return 1;
+            case "STUDENTS":
+            case "INSTRUCTORS":
+            case "TEAMS":
+                return Integer.parseInt(browser.driver.findElement(By.id("num-" + recipient.toLowerCase()))
+                        .getAttribute("value").toString());
+            case "OWN_TEAM_MEMBERS":
+            case "OWN_TEAM_MEMBERS_INCLUDING_SELF":
+                return Integer.MAX_VALUE;
+            default:
+                // For SELF, OWN_TEAM, NONE
+                return 1;
         }
     }
 
@@ -2042,8 +2049,8 @@ public class InstructorFeedbackEditPage extends AppPage {
 
     public void clickCopyTableAtRow(int rowIndex) {
         WebElement row = browser.driver.findElement(By.id("copyTableModal"))
-                                                      .findElements(By.tagName("tr"))
-                                                      .get(rowIndex + 1);
+                .findElements(By.tagName("tr"))
+                .get(rowIndex + 1);
         click(row);
     }
 
@@ -2066,9 +2073,9 @@ public class InstructorFeedbackEditPage extends AppPage {
 
     public boolean isVisibilityDropdownOptionHidden(String optionValue, int qnNumber) {
         return browser.driver.findElement(By.id("questionTable-" + qnNumber))
-                             .findElement(By.className("visibility-options-dropdown-option"))
-                             .findElement(By.xpath("//a[@data-option-name='" + optionValue + "']/.."))
-                             .getAttribute("class").contains("hidden");
+                .findElement(By.className("visibility-options-dropdown-option"))
+                .findElement(By.xpath("//a[@data-option-name='" + optionValue + "']/.."))
+                .getAttribute("class").contains("hidden");
     }
 
     public boolean isVisibilityDropdownOptionHiddenForNewQuestion(String optionValue) {
@@ -2077,8 +2084,8 @@ public class InstructorFeedbackEditPage extends AppPage {
 
     public boolean isVisibilityDropdownSeparatorHidden(int qnNumber) {
         return browser.driver.findElement(By.id("questionTable-" + qnNumber))
-                             .findElement(By.cssSelector(".visibility-options-dropdown .divider"))
-                             .getAttribute("class").contains("hidden");
+                .findElement(By.cssSelector(".visibility-options-dropdown .divider"))
+                .getAttribute("class").contains("hidden");
     }
 
     public boolean isVisibilityDropdownSeparatorHiddenForNewQuestion() {
@@ -2128,6 +2135,7 @@ public class InstructorFeedbackEditPage extends AppPage {
 
     /**
      * Waits and verifies that the texts of user status messages in the page are equal to the expected error texts.
+     *
      * @see AppPage#waitForTextsForAllStatusMessagesToUserEquals(String, String...)
      */
     public void waitForTextsForAllStatusMessagesToUserEqualsErrorTexts(
@@ -2149,8 +2157,8 @@ public class InstructorFeedbackEditPage extends AppPage {
 
     public String getVisibilityParamShowResponsesTo(int questionNumber) {
         return browser.driver.findElement(By.id("form_editquestion-" + questionNumber))
-                             .findElement(By.cssSelector("input[name='showresponsesto']"))
-                             .getAttribute("value");
+                .findElement(By.cssSelector("input[name='showresponsesto']"))
+                .getAttribute("value");
     }
 
     public String getVisibilityParamShowResponsesToForNewQuestion() {
@@ -2159,8 +2167,8 @@ public class InstructorFeedbackEditPage extends AppPage {
 
     public String getVisibilityParamShowGiverTo(int questionNumber) {
         return browser.driver.findElement(By.id("form_editquestion-" + questionNumber))
-                             .findElement(By.cssSelector("input[name='showgiverto']"))
-                             .getAttribute("value");
+                .findElement(By.cssSelector("input[name='showgiverto']"))
+                .getAttribute("value");
     }
 
     public String getVisibilityParamShowGiverToForNewQuestion() {
@@ -2169,8 +2177,8 @@ public class InstructorFeedbackEditPage extends AppPage {
 
     public String getVisibilityParamShowRecipientTo(int questionNumber) {
         return browser.driver.findElement(By.id("form_editquestion-" + questionNumber))
-                             .findElement(By.cssSelector("input[name='showrecipientto']"))
-                             .getAttribute("value");
+                .findElement(By.cssSelector("input[name='showrecipientto']"))
+                .getAttribute("value");
     }
 
     public String getVisibilityParamShowRecipientToForNewQuestion() {
@@ -2187,7 +2195,7 @@ public class InstructorFeedbackEditPage extends AppPage {
 
     public void toggleNotSureCheck(int questionNumber) {
         click(browser.driver.findElement(By.id(Const.ParamsNames.FEEDBACK_QUESTION_CONTRIBISNOTSUREALLOWED
-                                               + "-" + questionNumber)));
+                + "-" + questionNumber)));
     }
 
     public void changeQuestionTypeInForm(int questionNumber, String newQuestionType) {
@@ -2204,7 +2212,7 @@ public class InstructorFeedbackEditPage extends AppPage {
 
     public void clickResponseVisibilityCheckBox(String checkBoxValue, int questionNumber) {
         By responseVisibilitycheckBox = By.cssSelector("#questionTable-" + questionNumber + " input[value='" + checkBoxValue
-                                                       + "'].answerCheckbox");
+                + "'].answerCheckbox");
         WebElement checkbox = browser.driver.findElement(responseVisibilitycheckBox);
         waitForElementVisibility(checkbox);
         click(checkbox);
@@ -2216,7 +2224,7 @@ public class InstructorFeedbackEditPage extends AppPage {
 
     public void clickGiverNameVisibilityCheckBox(String checkBoxValue, int questionNumber) {
         By giverNameVisibilitycheckBox = By.cssSelector("#questionTable-" + questionNumber + " input[value='" + checkBoxValue
-                                                       + "'].giverCheckbox");
+                + "'].giverCheckbox");
         WebElement checkbox = browser.driver.findElement(giverNameVisibilitycheckBox);
         waitForElementVisibility(checkbox);
         click(checkbox);
@@ -2224,7 +2232,7 @@ public class InstructorFeedbackEditPage extends AppPage {
 
     public boolean isCheckboxChecked(String checkboxClass, String checkboxValue, int questionNumber) {
         By checkboxSelector = By.cssSelector("#questionTable-" + questionNumber + " input[value='" + checkboxValue
-                                                       + "']." + checkboxClass);
+                + "']." + checkboxClass);
         WebElement checkbox = browser.driver.findElement(checkboxSelector);
         return checkbox.isSelected();
     }

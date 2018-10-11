@@ -1,15 +1,16 @@
 <html>
 <head>
-<title>
-  Student Profile
-</title>
-<link href="/favicon.png" rel="shortcut icon">
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.1.1/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.1.1/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
-<link href="/stylesheets/teammatesCommon.css" rel="stylesheet" type="text/css">
-<link href="https://cdn.jsdelivr.net/npm/guillotine@1.3.1/css/jquery.guillotine.css" rel="stylesheet" type="text/css">
+  <title>
+    Student Profile
+  </title>
+  <link href="/favicon.png" rel="shortcut icon">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.1.1/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.1.1/dist/css/bootstrap-theme.min.css" rel="stylesheet"
+        type="text/css">
+  <link href="/stylesheets/teammatesCommon.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/guillotine@1.3.1/css/jquery.guillotine.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -27,7 +28,8 @@
         </span>
       </button>
       <a class="navbar-brand" href="/">
-        <img alt="TEAMMATES[Logo] - Online Peer Feedback/Evaluation System for Student Team Projects" height="100%" src="/images/teammateslogo.png">
+        <img alt="TEAMMATES[Logo] - Online Peer Feedback/Evaluation System for Student Team Projects" height="100%"
+             src="/images/teammateslogo.png">
       </a>
     </div>
     <div class="collapse navbar-collapse" id="contentLinks">
@@ -52,7 +54,8 @@
         <li>
           <a class="nav logout" href="/logout" id="btnLogout">
             Logout (
-            <span class="text-info tool-tip-decorate" data-original-title="SHomeUiT.benny.c" data-placement="bottom" data-toggle="tooltip" title="">
+            <span class="text-info tool-tip-decorate" data-original-title="SHomeUiT.benny.c" data-placement="bottom"
+                  data-toggle="tooltip" title="">
               SHomeUiT.benny.c
             </span>
             )
@@ -97,7 +100,8 @@
                   <p class="help-block align-left">
                     Max Size: 5 MB
                   </p>
-                  <button class="btn btn-primary width-100-pc" disabled="" id="profileUploadPictureSubmit" type="button">
+                  <button class="btn btn-primary width-100-pc" disabled="" id="profileUploadPictureSubmit"
+                          type="button">
                     Upload Picture
                   </button>
                   <input name="user" type="hidden" value="SHomeUiT.benny.c">
@@ -124,38 +128,49 @@
     </h3>
     <br>
     <div class="form-group row">
-      <div class="col-xs-6 col-sm-5 col-md-3 cursor-pointer" data-original-title="Upload a profile picture" data-placement="top" data-toggle="tooltip" title="">
-        <img class="profile-pic" data-edit="false" data-target="#studentPhotoUploader" data-toggle="modal" id="profilePic" src="/images/profile_picture_default.png">
+      <div class="col-xs-6 col-sm-5 col-md-3 cursor-pointer" data-original-title="Upload a profile picture"
+           data-placement="top" data-toggle="tooltip" title="">
+        <img class="profile-pic" data-edit="false" data-target="#studentPhotoUploader" data-toggle="modal"
+             id="profilePic" src="/images/profile_picture_default.png">
       </div>
       <div class="">
-        <button class="btn btn-primary" data-target="#studentPhotoUploader" data-toggle="modal" id="uploadEditPhoto" type="button">
+        <button class="btn btn-primary" data-target="#studentPhotoUploader" data-toggle="modal" id="uploadEditPhoto"
+                type="button">
           Upload/Edit Photo
         </button>
       </div>
     </div>
     <form action="/page/studentProfileEditSave" class="form center-block" method="post" role="form">
-      <div class="form-group" data-original-title="This is the name you prefer to be called by" data-placement="top" data-toggle="tooltip" title="">
+      <div class="form-group" data-original-title="This is the name you prefer to be called by" data-placement="top"
+           data-toggle="tooltip" title="">
         <label for="studentNickname">
           The name you prefer to be called by Instructors
         </label>
-        <input class="form-control" data-actual-value="" id="studentShortname" name="studentshortname" placeholder="How the instructor should call you" type="text" value="">
+        <input class="form-control" data-actual-value="" id="studentShortname" name="studentshortname"
+               placeholder="How the instructor should call you" type="text" value="">
       </div>
-      <div class="form-group" data-original-title="This is a long term contact email" data-placement="top" data-toggle="tooltip" title="">
+      <div class="form-group" data-original-title="This is a long term contact email" data-placement="top"
+           data-toggle="tooltip" title="">
         <label for="studentEmail">
           Long term contact email
           <em class="font-weight-normal emphasis text-muted small">
             - only visible to your instructors
           </em>
         </label>
-        <input class="form-control" data-actual-value="" id="studentEmail" name="studentprofileemail" placeholder="Contact Email (for your instructors to contact you beyond graduation)" type="email" value="">
+        <input class="form-control" data-actual-value="" id="studentEmail" name="studentprofileemail"
+               placeholder="Contact Email (for your instructors to contact you beyond graduation)" type="email"
+               value="">
       </div>
-      <div class="form-group" data-original-title="This is the institution that you represent" data-placement="top" data-toggle="tooltip" title="">
+      <div class="form-group" data-original-title="This is the institution that you represent" data-placement="top"
+           data-toggle="tooltip" title="">
         <label for="studentInstitution">
           Institution
         </label>
-        <input class="form-control" data-actual-value="" id="studentInstitution" name="studentprofileinstitute" placeholder="Your Institution" type="text" value="">
+        <input class="form-control" data-actual-value="" id="studentInstitution" name="studentprofileinstitute"
+               placeholder="Your Institution" type="text" value="">
       </div>
-      <div class="form-group" data-original-title="This is your nationality" data-placement="top" data-toggle="tooltip" title="">
+      <div class="form-group" data-original-title="This is your nationality" data-placement="top" data-toggle="tooltip"
+           title="">
         <label for="studentNationality">
           Nationality
         </label>
@@ -782,11 +797,15 @@
           </label>
         </div>
       </div>
-      <div class="form-group" data-original-title="You may specify miscellaneous info about yourself e.g. links to home page, online CV, portfolio etc." data-placement="top" data-toggle="tooltip" title="">
+      <div class="form-group"
+           data-original-title="You may specify miscellaneous info about yourself e.g. links to home page, online CV, portfolio etc."
+           data-placement="top" data-toggle="tooltip" title="">
         <label for="studentNationality">
           More info about yourself
         </label>
-        <textarea class="form-control" id="studentMoreInfo" name="studentprofilemoreinfo" placeholder="You may specify miscellaneous info about yourself e.g. links to home page, online CV, portfolio etc." rows="4">
+        <textarea class="form-control" id="studentMoreInfo" name="studentprofilemoreinfo"
+                  placeholder="You may specify miscellaneous info about yourself e.g. links to home page, online CV, portfolio etc."
+                  rows="4">
         </textarea>
       </div>
       <br>

@@ -12,8 +12,8 @@ import teammates.storage.api.FeedbackResponseCommentsDb;
 
 /**
  * SUT: {@link FeedbackResponseCommentsDb},
- *      {@link teammates.storage.search.FeedbackResponseCommentSearchDocument},
- *      {@link teammates.storage.search.FeedbackResponseCommentSearchQuery}.
+ * {@link teammates.storage.search.FeedbackResponseCommentSearchDocument},
+ * {@link teammates.storage.search.FeedbackResponseCommentSearchQuery}.
  */
 public class FeedbackResponseCommentSearchTest extends BaseSearchTest {
 
@@ -92,7 +92,7 @@ public class FeedbackResponseCommentSearchTest extends BaseSearchTest {
      * @param expected the expected results for the search query.
      */
     private static void verifySearchResults(FeedbackResponseCommentSearchResultBundle actual,
-                FeedbackResponseCommentAttributes... expected) {
+                                            FeedbackResponseCommentAttributes... expected) {
         assertEquals(expected.length, actual.numberOfResults);
         assertEquals(expected.length, actual.comments.size());
         FeedbackResponseCommentAttributes.sortFeedbackResponseCommentsByCreationTime(Arrays.asList(expected));

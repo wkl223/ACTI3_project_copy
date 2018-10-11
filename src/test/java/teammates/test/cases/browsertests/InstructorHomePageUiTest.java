@@ -185,9 +185,9 @@ public class InstructorHomePageUiTest extends BaseUiTestCase {
         InstructorCourseEnrollPage enrollPage = homePage.clickCourseEnrollLink(courseId);
         enrollPage.verifyContains("Enroll Students for CHomeUiT.CS1101");
         String expectedEnrollLinkText = createUrl(Const.ActionURIs.INSTRUCTOR_COURSE_ENROLL_PAGE)
-                                        .withCourseId(courseId)
-                                        .withUserId(instructorId)
-                                        .toAbsoluteString();
+                .withCourseId(courseId)
+                .withUserId(instructorId)
+                .toAbsoluteString();
         assertEquals(expectedEnrollLinkText, browser.driver.getCurrentUrl());
         homePage.goToPreviousPage(InstructorHomePage.class);
 
@@ -195,9 +195,9 @@ public class InstructorHomePageUiTest extends BaseUiTestCase {
         InstructorCourseDetailsPage detailsPage = homePage.clickCourseViewLink(courseId);
         detailsPage.verifyContains("Course Details");
         String expectedViewLinkText = createUrl(Const.ActionURIs.INSTRUCTOR_COURSE_DETAILS_PAGE)
-                                        .withCourseId(courseId)
-                                        .withUserId(instructorId)
-                                        .toAbsoluteString();
+                .withCourseId(courseId)
+                .withUserId(instructorId)
+                .toAbsoluteString();
         assertEquals(expectedViewLinkText, browser.driver.getCurrentUrl());
         homePage.goToPreviousPage(InstructorHomePage.class);
 
@@ -205,9 +205,9 @@ public class InstructorHomePageUiTest extends BaseUiTestCase {
         InstructorCourseEditPage editPage = homePage.clickCourseEditLink(courseId);
         editPage.verifyContains("Edit Course Details");
         String expectedEditLinkText = createUrl(Const.ActionURIs.INSTRUCTOR_COURSE_EDIT_PAGE)
-                                        .withCourseId(courseId)
-                                        .withUserId(instructorId)
-                                        .toAbsoluteString();
+                .withCourseId(courseId)
+                .withUserId(instructorId)
+                .toAbsoluteString();
         assertEquals(expectedEditLinkText, browser.driver.getCurrentUrl());
         homePage.goToPreviousPage(InstructorHomePage.class);
 
@@ -215,9 +215,9 @@ public class InstructorHomePageUiTest extends BaseUiTestCase {
         InstructorFeedbackSessionsPage feedbacksPage = homePage.clickCourseAddEvaluationLink(courseId);
         feedbacksPage.verifyContains("Add New Feedback Session");
         String expectedAddSessionLinkText = createUrl(Const.ActionURIs.INSTRUCTOR_FEEDBACK_SESSIONS_PAGE)
-                                        .withUserId(instructorId)
-                                        .withCourseId(courseId)
-                                        .toAbsoluteString();
+                .withUserId(instructorId)
+                .withCourseId(courseId)
+                .toAbsoluteString();
         assertEquals(expectedAddSessionLinkText, browser.driver.getCurrentUrl());
         homePage.goToPreviousPage(InstructorHomePage.class);
 
@@ -247,7 +247,7 @@ public class InstructorHomePageUiTest extends BaseUiTestCase {
         assertFalse(reportUrl.toString().equals(afterReportDownloadUrl));
         // Verify an error page is returned due to missing parameters in URL
         assertTrue("Expected url is Unauthorised page, but is " + afterReportDownloadUrl,
-                        afterReportDownloadUrl.contains(Const.ViewURIs.UNAUTHORIZED));
+                afterReportDownloadUrl.contains(Const.ViewURIs.UNAUTHORIZED));
 
         // Redirect to the instructor home page after showing error page
         loginAsCommonInstructor();
@@ -258,16 +258,16 @@ public class InstructorHomePageUiTest extends BaseUiTestCase {
         ______TS("remind action: AWAITING feedback session");
 
         homePage.verifyUnclickable(homePage.getRemindLink(feedbackSessionAwaiting.getCourseId(),
-                                                          feedbackSessionAwaiting.getFeedbackSessionName()));
+                feedbackSessionAwaiting.getFeedbackSessionName()));
         homePage.verifyUnclickable(homePage.getRemindOptionsLink(feedbackSessionAwaiting.getCourseId(),
-                                                                 feedbackSessionAwaiting.getFeedbackSessionName()));
+                feedbackSessionAwaiting.getFeedbackSessionName()));
 
         ______TS("remind action: OPEN feedback session - outer button");
 
         homePage.clickAndCancel(homePage.getRemindLink(feedbackSessionOpen.getCourseId(),
-                                                       feedbackSessionOpen.getFeedbackSessionName()));
+                feedbackSessionOpen.getFeedbackSessionName()));
         homePage.clickAndConfirm(homePage.getRemindLink(feedbackSessionOpen.getCourseId(),
-                                                        feedbackSessionOpen.getFeedbackSessionName()));
+                feedbackSessionOpen.getFeedbackSessionName()));
 
         homePage.waitForPageToLoad();
         homePage.waitForTextsForAllStatusMessagesToUserEquals(Const.StatusMessages.FEEDBACK_SESSION_REMINDERSSENT);
@@ -276,10 +276,10 @@ public class InstructorHomePageUiTest extends BaseUiTestCase {
 
         homePage.clickRemindOptionsLink(feedbackSessionOpen.getCourseId(), feedbackSessionOpen.getFeedbackSessionName());
         homePage.clickAndCancel(homePage.getRemindInnerLink(feedbackSessionOpen.getCourseId(),
-                                                            feedbackSessionOpen.getFeedbackSessionName()));
+                feedbackSessionOpen.getFeedbackSessionName()));
         homePage.clickRemindOptionsLink(feedbackSessionOpen.getCourseId(), feedbackSessionOpen.getFeedbackSessionName());
         homePage.clickAndConfirm(homePage.getRemindInnerLink(feedbackSessionOpen.getCourseId(),
-                                                             feedbackSessionOpen.getFeedbackSessionName()));
+                feedbackSessionOpen.getFeedbackSessionName()));
         homePage.waitForPageToLoad();
         homePage.waitForTextsForAllStatusMessagesToUserEquals(Const.StatusMessages.FEEDBACK_SESSION_REMINDERSSENT);
 
@@ -287,19 +287,19 @@ public class InstructorHomePageUiTest extends BaseUiTestCase {
 
         homePage.clickRemindOptionsLink(feedbackSessionOpen.getCourseId(), feedbackSessionOpen.getFeedbackSessionName());
         homePage.clickRemindParticularUsersLink(feedbackSessionOpen.getCourseId(),
-                                                feedbackSessionOpen.getFeedbackSessionName());
+                feedbackSessionOpen.getFeedbackSessionName());
         homePage.cancelRemindParticularUsersForm();
 
         homePage.clickRemindOptionsLink(feedbackSessionOpen.getCourseId(), feedbackSessionOpen.getFeedbackSessionName());
         homePage.clickRemindParticularUsersLink(feedbackSessionOpen.getCourseId(),
-                                                feedbackSessionOpen.getFeedbackSessionName());
+                feedbackSessionOpen.getFeedbackSessionName());
         homePage.waitForAjaxLoaderGifToDisappear();
         homePage.submitRemindParticularUsersForm();
         homePage.waitForPageToLoad();
         homePage.waitForTextsForAllStatusMessagesToUserEquals(Const.StatusMessages.FEEDBACK_SESSION_REMINDERSEMPTYRECIPIENT);
         homePage.clickRemindOptionsLink(feedbackSessionOpen.getCourseId(), feedbackSessionOpen.getFeedbackSessionName());
         homePage.clickRemindParticularUsersLink(feedbackSessionOpen.getCourseId(),
-                                                feedbackSessionOpen.getFeedbackSessionName());
+                feedbackSessionOpen.getFeedbackSessionName());
         homePage.waitForAjaxLoaderGifToDisappear();
         homePage.fillRemindParticularUsersForm();
         homePage.submitRemindParticularUsersForm();
@@ -344,9 +344,9 @@ public class InstructorHomePageUiTest extends BaseUiTestCase {
         ______TS("remind action: PUBLISHED feedback session");
 
         homePage.verifyUnclickable(homePage.getRemindLink(feedbackSessionPublished.getCourseId(),
-                                                          feedbackSessionPublished.getFeedbackSessionName()));
+                feedbackSessionPublished.getFeedbackSessionName()));
         homePage.verifyUnclickable(homePage.getRemindOptionsLink(feedbackSessionPublished.getCourseId(),
-                                                                 feedbackSessionPublished.getFeedbackSessionName()));
+                feedbackSessionPublished.getFeedbackSessionName()));
 
     }
 
@@ -354,33 +354,33 @@ public class InstructorHomePageUiTest extends BaseUiTestCase {
         ______TS("publish action: AWAITING feedback session");
 
         homePage.verifyUnclickable(homePage.getSessionResultsOptionsCaretElement(feedbackSessionAwaiting.getCourseId(),
-                                                           feedbackSessionAwaiting.getFeedbackSessionName()));
+                feedbackSessionAwaiting.getFeedbackSessionName()));
 
         ______TS("publish action: OPEN feedback session");
 
         homePage.clickAndCancel(homePage.getPublishLink(feedbackSessionOpen.getCourseId(),
-                                                        feedbackSessionOpen.getFeedbackSessionName()));
+                feedbackSessionOpen.getFeedbackSessionName()));
 
         ______TS("publish action: CLOSED feedback session");
 
         homePage.clickAndCancel(homePage.getPublishLink(feedbackSessionClosed.getCourseId(),
-                                                        feedbackSessionClosed.getFeedbackSessionName()));
+                feedbackSessionClosed.getFeedbackSessionName()));
 
         ______TS("unpublish action: PUBLISHED feedback session");
         homePage.clickFeedbackSessionUnpublishLink(feedbackSessionPublished.getCourseId(),
-                                                   feedbackSessionPublished.getFeedbackSessionName());
+                feedbackSessionPublished.getFeedbackSessionName());
         homePage.waitForPageToLoad();
         homePage.waitForTextsForAllStatusMessagesToUserEquals(Const.StatusMessages.FEEDBACK_SESSION_UNPUBLISHED);
         assertFalse(BackDoor.getFeedbackSession(feedbackSessionPublished.getCourseId(),
-                                                feedbackSessionPublished.getFeedbackSessionName()).isPublished());
+                feedbackSessionPublished.getFeedbackSessionName()).isPublished());
 
         ______TS("publish action: PUBLISHED feedback session");
         homePage.clickFeedbackSessionPublishLink(feedbackSessionPublished.getCourseId(),
-                                                 feedbackSessionPublished.getFeedbackSessionName());
+                feedbackSessionPublished.getFeedbackSessionName());
         homePage.waitForPageToLoad();
         homePage.waitForTextsForAllStatusMessagesToUserEquals(Const.StatusMessages.FEEDBACK_SESSION_PUBLISHED);
         assertTrue(BackDoor.getFeedbackSession(feedbackSessionPublished.getCourseId(),
-                                               feedbackSessionPublished.getFeedbackSessionName()).isPublished());
+                feedbackSessionPublished.getFeedbackSessionName()).isPublished());
 
         ______TS("resend link action: PUBLISHED feedback session");
         // Test that the resend published link button exists for this published session
@@ -487,7 +487,7 @@ public class InstructorHomePageUiTest extends BaseUiTestCase {
         homePage.getFsCopyModal().clickSubmitButton();
 
         String error = String.format(Const.StatusMessages.FEEDBACK_SESSION_COPY_ALREADYEXISTS,
-                                     feedbackSessionName, courseId);
+                feedbackSessionName, courseId);
         homePage.getFsCopyModal().waitForFormSubmissionErrorMessagePresence();
         assertTrue(homePage.getFsCopyModal().isFormSubmissionStatusMessageVisible());
         homePage.getFsCopyModal().verifyStatusMessage(error);
@@ -507,9 +507,9 @@ public class InstructorHomePageUiTest extends BaseUiTestCase {
 
         homePage.getFsCopyModal().verifyStatusMessage(
                 getPopulatedErrorMessage(
-                    FieldValidator.INVALID_NAME_ERROR_MESSAGE, invalidFeedbackSessionName,
-                    FieldValidator.FEEDBACK_SESSION_NAME_FIELD_NAME,
-                    FieldValidator.REASON_CONTAINS_INVALID_CHAR));
+                        FieldValidator.INVALID_NAME_ERROR_MESSAGE, invalidFeedbackSessionName,
+                        FieldValidator.FEEDBACK_SESSION_NAME_FIELD_NAME,
+                        FieldValidator.REASON_CONTAINS_INVALID_CHAR));
         homePage.getFsCopyModal().clickCloseButton();
 
         ______TS("Successful case: Home Page");
@@ -603,15 +603,15 @@ public class InstructorHomePageUiTest extends BaseUiTestCase {
 
     private void loginAsInstructor(String googleId) {
         AppUrl editUrl = createUrl(Const.ActionURIs.INSTRUCTOR_HOME_PAGE)
-                    .withUserId(googleId);
+                .withUserId(googleId);
 
         homePage = loginAdminToPage(editUrl, InstructorHomePage.class);
     }
 
     private void loginWithPersistenceProblem() {
         AppUrl homeUrl = ((AppUrl) createUrl(Const.ActionURIs.INSTRUCTOR_HOME_PAGE)
-                    .withParam(Const.ParamsNames.CHECK_PERSISTENCE_COURSE, "something"))
-                    .withUserId("unreg_user");
+                .withParam(Const.ParamsNames.CHECK_PERSISTENCE_COURSE, "something"))
+                .withUserId("unreg_user");
 
         homePage = loginAdminToPage(homeUrl, InstructorHomePage.class);
 

@@ -38,7 +38,7 @@ public class FeedbackSessionUnpublishedEmailWorkerAction extends AutomatedAction
         FeedbackSessionAttributes session = logic.getFeedbackSession(feedbackSessionName, courseId);
         if (session == null) {
             log.severe("Feedback session object for feedback session name: " + feedbackSessionName
-                       + " for course: " + courseId + " could not be fetched.");
+                    + " for course: " + courseId + " could not be fetched.");
             return;
         }
         List<EmailWrapper> emailsToBeSent =

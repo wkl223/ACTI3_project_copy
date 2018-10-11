@@ -79,13 +79,13 @@ public class StudentCourseJoinAuthenticatedAction extends CourseJoinAuthenticate
         String courseDisplayText = "[" + course.getId() + "] " + SanitizationHelper.sanitizeForHtml(course.getName());
 
         statusToUser.add(new StatusMessage(String.format(Const.StatusMessages.STUDENT_COURSE_JOIN_SUCCESSFUL,
-                                                           courseDisplayText), StatusMessageColor.SUCCESS));
+                courseDisplayText), StatusMessageColor.SUCCESS));
 
         List<FeedbackSessionAttributes> fsa =
                 logic.getFeedbackSessionsForUserInCourse(getStudent().course, getStudent().email);
         if (fsa.isEmpty()) {
             statusToUser.add(new StatusMessage(String.format(Const.StatusMessages.HINT_FOR_NO_SESSIONS_STUDENT,
-                                                               courseDisplayText), StatusMessageColor.INFO));
+                    courseDisplayText), StatusMessageColor.INFO));
 
             StudentProfileAttributes spa = logic.getStudentProfile(account.googleId);
 

@@ -1,14 +1,15 @@
 <html>
 <head>
-<title>
-  Search [Instructor]
-</title>
-<link href="/favicon.png" rel="shortcut icon">
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.1.1/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.1.1/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
-<link href="/stylesheets/teammatesCommon.css" rel="stylesheet" type="text/css">
+  <title>
+    Search [Instructor]
+  </title>
+  <link href="/favicon.png" rel="shortcut icon">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.1.1/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.1.1/dist/css/bootstrap-theme.min.css" rel="stylesheet"
+        type="text/css">
+  <link href="/stylesheets/teammatesCommon.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -26,33 +27,39 @@
         </span>
       </button>
       <a class="navbar-brand" href="/">
-        <img alt="TEAMMATES[Logo] - Online Peer Feedback/Evaluation System for Student Team Projects" height="100%" src="/images/teammateslogo.png">
+        <img alt="TEAMMATES[Logo] - Online Peer Feedback/Evaluation System for Student Team Projects" height="100%"
+             src="/images/teammateslogo.png">
       </a>
     </div>
     <div class="collapse navbar-collapse" id="contentLinks">
       <ul class="nav navbar-nav">
         <li>
-          <a class="nav home" data-link="instructorHome" href="/page/instructorHomePage?user=searchUI.idOfInstructor1OfCourse1">
+          <a class="nav home" data-link="instructorHome"
+             href="/page/instructorHomePage?user=searchUI.idOfInstructor1OfCourse1">
             Home
           </a>
         </li>
         <li>
-          <a class="nav courses" data-link="instructorCourse" href="/page/instructorCoursesPage?user=searchUI.idOfInstructor1OfCourse1">
+          <a class="nav courses" data-link="instructorCourse"
+             href="/page/instructorCoursesPage?user=searchUI.idOfInstructor1OfCourse1">
             Courses
           </a>
         </li>
         <li>
-          <a class="nav evaluations" data-link="instructorEval" href="/page/instructorFeedbackSessionsPage?user=searchUI.idOfInstructor1OfCourse1">
+          <a class="nav evaluations" data-link="instructorEval"
+             href="/page/instructorFeedbackSessionsPage?user=searchUI.idOfInstructor1OfCourse1">
             Sessions
           </a>
         </li>
         <li>
-          <a class="nav students" data-link="instructorStudent" href="/page/instructorStudentListPage?user=searchUI.idOfInstructor1OfCourse1">
+          <a class="nav students" data-link="instructorStudent"
+             href="/page/instructorStudentListPage?user=searchUI.idOfInstructor1OfCourse1">
             Students
           </a>
         </li>
         <li class="active">
-          <a class="nav search" data-link="instructorSearch" href="/page/instructorSearchPage?user=searchUI.idOfInstructor1OfCourse1">
+          <a class="nav search" data-link="instructorSearch"
+             href="/page/instructorSearchPage?user=searchUI.idOfInstructor1OfCourse1">
             Search
           </a>
         </li>
@@ -66,7 +73,8 @@
         <li>
           <a class="nav logout" href="/logout" id="btnLogout">
             Logout (
-            <span class="text-info tool-tip-decorate" data-original-title="searchUI.idOfInstructor1OfCourse1" data-placement="bottom" data-toggle="tooltip" title="">
+            <span class="text-info tool-tip-decorate" data-original-title="searchUI.idOfInstructor1OfCourse1"
+                  data-placement="bottom" data-toggle="tooltip" title="">
               searchUI.idOfInstruc...
             </span>
             )
@@ -88,7 +96,8 @@
       <div class="well well-plain">
         <div class="form-group">
           <div class="input-group">
-            <input class="form-control" id="searchBox" name="searchkey" placeholder="Your search keyword" title="Search for comment" type="text" value="">
+            <input class="form-control" id="searchBox" name="searchkey" placeholder="Your search keyword"
+                   title="Search for comment" type="text" value="">
             <span class="input-group-btn">
               <button class="btn btn-primary" id="buttonSearch" type="submit" value="Search">
                 Search
@@ -100,7 +109,9 @@
         <div class="form-group">
           <ul class="list-inline">
             <li>
-              <span class="glyphicon glyphicon-info-sign" data-original-title="Tick the checkboxes to limit your search to certain categories" data-toggle="tooltip" title="">
+              <span class="glyphicon glyphicon-info-sign"
+                    data-original-title="Tick the checkboxes to limit your search to certain categories"
+                    data-toggle="tooltip" title="">
               </span>
             </li>
             <li>
@@ -110,7 +121,8 @@
               </label>
             </li>
             <li>
-              <input id="search-feedback-sessions-data-check" name="searchfeedbacksessiondata" type="checkbox" value="true">
+              <input id="search-feedback-sessions-data-check" name="searchfeedbacksessiondata" type="checkbox"
+                     value="true">
               <label for="search-feedback-sessions-data-check">
                 Questions, responses, comments on responses
               </label>

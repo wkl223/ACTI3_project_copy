@@ -15,10 +15,10 @@ function isDate(date) {
 }
 
 /**
-* Function to test if param is a numerical value
-* @param num
-* @returns boolean
-*/
+ * Function to test if param is a numerical value
+ * @param num
+ * @returns boolean
+ */
 function isNumber(num) {
     return (typeof num === 'string' || typeof num === 'number') && !Number.isNaN(num - 0) && num !== '';
 }
@@ -37,10 +37,10 @@ function isWithinView(element) {
     // makes the viewport size slightly larger to account for rounding errors
     const tolerance = 0.25;
     return (
-        rect.top >= 0 - tolerance // below the top of viewport
-        && rect.left >= 0 - tolerance // within the left of viewport
-        && rect.right <= $viewport.width() + tolerance // within the right of viewport
-        && rect.bottom <= $viewport.height() + tolerance // above the bottom of viewport
+            rect.top >= 0 - tolerance // below the top of viewport
+            && rect.left >= 0 - tolerance // within the left of viewport
+            && rect.right <= $viewport.width() + tolerance // within the right of viewport
+            && rect.bottom <= $viewport.height() + tolerance // above the bottom of viewport
     );
 }
 
@@ -51,7 +51,7 @@ function isWithinView(element) {
  * @param {string} options.id the id to extract from
  * @return {string} the suffix that uniquely identifies an element among elements with the same prefix
  */
-function extractIdSuffixFromId({ idPrefix, id } = {}) {
+function extractIdSuffixFromId({idPrefix, id} = {}) {
     return new RegExp(`${idPrefix}-(.*)`).exec(id)[1];
 }
 

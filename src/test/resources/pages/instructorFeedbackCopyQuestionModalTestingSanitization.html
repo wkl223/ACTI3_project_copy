@@ -1,4 +1,5 @@
-<div aria-hidden="false" aria-labelledby="copyModalTitle" class="modal fade in" id="copyModal" role="dialog" style="display: block;" tabindex="-1">
+<div aria-hidden="false" aria-labelledby="copyModalTitle" class="modal fade in" id="copyModal" role="dialog"
+     style="display: block;" tabindex="-1">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -18,53 +19,54 @@
         <form action="/page/instructorFeedbackQuestionCopy" class="form" id="copyModalForm" method="post" role="form">
           <table class="table-responsive table table-hover table-bordered margin-0" id="copyTableModal">
             <thead class="fill-primary">
-              <tr>
-                <th style="width:30px;">
-                   
-                </th>
-                <th class="button-sort-ascending toggle-sort" id="button_sortid" style="width:100px">
-                  Course ID
-                  <span class="icon-sort sorted-ascending">
+            <tr>
+              <th style="width:30px;">
+                 
+              </th>
+              <th class="button-sort-ascending toggle-sort" id="button_sortid" style="width:100px">
+                Course ID
+                <span class="icon-sort sorted-ascending">
                   </span>
-                </th>
-                <th class="button-sort-none toggle-sort" id="button_sortfsname" style="width:17%;">
-                  Session Name
-                  <span class="icon-sort unsorted">
+              </th>
+              <th class="button-sort-none toggle-sort" id="button_sortfsname" style="width:17%;">
+                Session Name
+                <span class="icon-sort unsorted">
                   </span>
-                </th>
-                <th class="button-sort-none toggle-sort" id="button_sortfqtype">
-                  Question Type
-                  <span class="icon-sort unsorted">
+              </th>
+              <th class="button-sort-none toggle-sort" id="button_sortfqtype">
+                Question Type
+                <span class="icon-sort unsorted">
                   </span>
-                </th>
-                <th class="button-sort-none toggle-sort" id="button_sortfqtext">
-                  Question Text
-                  <span class="icon-sort unsorted">
+              </th>
+              <th class="button-sort-none toggle-sort" id="button_sortfqtext">
+                Question Text
+                <span class="icon-sort unsorted">
                   </span>
-                </th>
-              </tr>
+              </th>
+            </tr>
             </thead>
             <tbody>
-              <tr style="cursor:pointer;">
-                <td>
-                  <input type="checkbox">
-                </td>
-                <td>
-                  CFeedbackEditUiT.idOfTSCourse
-                </td>
-                <td>
-                  Normal feedback session name
-                </td>
-                <td>
-                  Essay question
-                </td>
-                <td>
-                  Testing quotation marks '" Testing unclosed tags &lt;/td&gt;&lt;/div&gt; Testing script injection &lt;script&gt; alert('hello'); &lt;/script&gt;
-                </td>
-                <input type="hidden" value="${question.id}">
-                <input class="courseid" type="hidden" value="CFeedbackEditUiT.idOfTSCourse">
-                <input class="fsname" type="hidden" value="Normal feedback session name">
-              </tr>
+            <tr style="cursor:pointer;">
+              <td>
+                <input type="checkbox">
+              </td>
+              <td>
+                CFeedbackEditUiT.idOfTSCourse
+              </td>
+              <td>
+                Normal feedback session name
+              </td>
+              <td>
+                Essay question
+              </td>
+              <td>
+                Testing quotation marks '" Testing unclosed tags &lt;/td&gt;&lt;/div&gt; Testing script injection &lt;script&gt;
+                alert('hello'); &lt;/script&gt;
+              </td>
+              <input type="hidden" value="${question.id}">
+              <input class="courseid" type="hidden" value="CFeedbackEditUiT.idOfTSCourse">
+              <input class="fsname" type="hidden" value="Normal feedback session name">
+            </tr>
             </tbody>
           </table>
           <input name="fsname" type="hidden" value="Normal feedback session name">

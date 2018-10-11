@@ -11,7 +11,7 @@ public class AdminAccountDetailsStudentCourseListTableRow {
     private String sessionToken;
 
     public AdminAccountDetailsStudentCourseListTableRow(String googleId, CourseAttributes courseDetails,
-            String sessionToken) {
+                                                        String sessionToken) {
         this.googleId = googleId;
         this.courseDetails = courseDetails;
         this.sessionToken = sessionToken;
@@ -30,7 +30,7 @@ public class AdminAccountDetailsStudentCourseListTableRow {
         String content = "<span class=\"glyphicon glyphicon-trash\"></span>Remove From Course";
         String href = getAdminDeleteStudentFromCourseLink();
         return new ElementTag(content, "id", "student_" + courseDetails.getId(), "class",
-                              "btn btn-danger btn-sm", "href", href);
+                "btn btn-danger btn-sm", "href", href);
     }
 
     private String getAdminDeleteStudentFromCourseLink() {

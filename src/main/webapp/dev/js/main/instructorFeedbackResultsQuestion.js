@@ -71,7 +71,7 @@ $(document).ready(() => {
                 if (typeof appendedQuestion === 'undefined') {
                     $panelBody.removeClass('padding-0');
                     $panelBody.html('There are too many responses for this question. '
-                                    + 'Please view the responses one section at a time.');
+                            + 'Please view the responses one section at a time.');
                 } else {
                     if (appendedQuestion.indexOf('resultStatistics') === -1) {
                         $panelBody.removeClass('padding-0');

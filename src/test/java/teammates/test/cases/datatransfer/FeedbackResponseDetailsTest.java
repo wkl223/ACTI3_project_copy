@@ -26,10 +26,10 @@ import teammates.test.cases.BaseTestCase;
 
 /**
  * SUT: {@link FeedbackResponseDetails},
- *      {@link FeedbackTextResponseDetails},
- *      {@link FeedbackMcqResponseDetails},
- *      {@link FeedbackMsqResponseDetails},
- *      {@link FeedbackNumericalScaleResponseDetails}.
+ * {@link FeedbackTextResponseDetails},
+ * {@link FeedbackMcqResponseDetails},
+ * {@link FeedbackMsqResponseDetails},
+ * {@link FeedbackNumericalScaleResponseDetails}.
  */
 public class FeedbackResponseDetailsTest extends BaseTestCase {
     @Test
@@ -38,12 +38,12 @@ public class FeedbackResponseDetailsTest extends BaseTestCase {
         ______TS("TEXT Response");
         FeedbackTextQuestionDetails textQuestionDetails = new FeedbackTextQuestionDetails();
         HashMap<String, String[]> requestParameters = new HashMap<>();
-        requestParameters.put("questiontype-1", new String[] { "TEXT" });
-        requestParameters.put("responsetext-1-0", new String[] { "text answer" });
+        requestParameters.put("questiontype-1", new String[]{"TEXT"});
+        requestParameters.put("responsetext-1-0", new String[]{"text answer"});
 
         FeedbackResponseDetails responseDetails =
                 FeedbackResponseDetails.createResponseDetails(
-                        new String[] { "text answer" },
+                        new String[]{"text answer"},
                         FeedbackQuestionType.TEXT,
                         textQuestionDetails, requestParameters, 1, 0);
 
@@ -54,12 +54,12 @@ public class FeedbackResponseDetailsTest extends BaseTestCase {
 
         ______TS("MCQ Response: other disabled");
         FeedbackMcqQuestionDetails mcqQuestionDetails = new FeedbackMcqQuestionDetails();
-        requestParameters.put("questiontype-2", new String[] { "MCQ" });
-        requestParameters.put("responsetext-2-0", new String[] { "mcq option" });
+        requestParameters.put("questiontype-2", new String[]{"MCQ"});
+        requestParameters.put("responsetext-2-0", new String[]{"mcq option"});
 
         responseDetails =
                 FeedbackResponseDetails.createResponseDetails(
-                        new String[] { "mcq option" },
+                        new String[]{"mcq option"},
                         FeedbackQuestionType.MCQ,
                         mcqQuestionDetails, requestParameters, 2, 0);
 
@@ -70,13 +70,13 @@ public class FeedbackResponseDetailsTest extends BaseTestCase {
 
         ______TS("MCQ Response: other enabled, other option not selected");
         FeedbackMcqQuestionDetails mcqQuestionDetailsWithOtherOptionOtherNotSelected = new FeedbackMcqQuestionDetails();
-        requestParameters.put("questiontype-3", new String[] { "MCQ" });
-        requestParameters.put("responsetext-3-0", new String[] { "an answer" });
-        requestParameters.put("mcqIsOtherOptionAnswer-3-0", new String[] { "0" });
+        requestParameters.put("questiontype-3", new String[]{"MCQ"});
+        requestParameters.put("responsetext-3-0", new String[]{"an answer"});
+        requestParameters.put("mcqIsOtherOptionAnswer-3-0", new String[]{"0"});
 
         responseDetails =
                 FeedbackResponseDetails.createResponseDetails(
-                        new String[] { "an answer" },
+                        new String[]{"an answer"},
                         FeedbackQuestionType.MCQ,
                         mcqQuestionDetailsWithOtherOptionOtherNotSelected, requestParameters, 3, 0);
 
@@ -88,13 +88,13 @@ public class FeedbackResponseDetailsTest extends BaseTestCase {
 
         ______TS("MCQ Response: other enabled, other option selected");
         FeedbackMcqQuestionDetails mcqQuestionDetailsWithOtherOptionOtherSelected = new FeedbackMcqQuestionDetails();
-        requestParameters.put("questiontype-4", new String[] { "MCQ" });
-        requestParameters.put("responsetext-4-0", new String[] { "my answer" });
-        requestParameters.put("mcqIsOtherOptionAnswer-4-0", new String[] { "1" });
+        requestParameters.put("questiontype-4", new String[]{"MCQ"});
+        requestParameters.put("responsetext-4-0", new String[]{"my answer"});
+        requestParameters.put("mcqIsOtherOptionAnswer-4-0", new String[]{"1"});
 
         responseDetails =
                 FeedbackResponseDetails.createResponseDetails(
-                        new String[] { "my answer" },
+                        new String[]{"my answer"},
                         FeedbackQuestionType.MCQ,
                         mcqQuestionDetailsWithOtherOptionOtherSelected, requestParameters, 4, 0);
 
@@ -106,12 +106,12 @@ public class FeedbackResponseDetailsTest extends BaseTestCase {
 
         ______TS("MSQ Response: other disabled");
         FeedbackMsqQuestionDetails msqQuestionDetails = new FeedbackMsqQuestionDetails();
-        requestParameters.put("questiontype-5", new String[] { "MSQ" });
-        requestParameters.put("responsetext-5-0", new String[] { "msq option 1", "msq option 2", "msq option 3" });
+        requestParameters.put("questiontype-5", new String[]{"MSQ"});
+        requestParameters.put("responsetext-5-0", new String[]{"msq option 1", "msq option 2", "msq option 3"});
 
         responseDetails =
                 FeedbackResponseDetails.createResponseDetails(
-                        new String[] { "msq option 1", "msq option 2", "msq option 3" },
+                        new String[]{"msq option 1", "msq option 2", "msq option 3"},
                         FeedbackQuestionType.MSQ,
                         msqQuestionDetails, requestParameters, 5, 0);
 
@@ -122,13 +122,13 @@ public class FeedbackResponseDetailsTest extends BaseTestCase {
 
         ______TS("MSQ Response: other disabled, other option not selected");
         msqQuestionDetails = new FeedbackMsqQuestionDetails();
-        requestParameters.put("questiontype-6", new String[] { "MSQ" });
-        requestParameters.put("responsetext-6-0", new String[] { "msq option 1", "msq option 2", "msq option 3" });
-        requestParameters.put("msqIsOtherOptionAnswer-6-0", new String[] { "0" });
+        requestParameters.put("questiontype-6", new String[]{"MSQ"});
+        requestParameters.put("responsetext-6-0", new String[]{"msq option 1", "msq option 2", "msq option 3"});
+        requestParameters.put("msqIsOtherOptionAnswer-6-0", new String[]{"0"});
 
         responseDetails =
                 FeedbackResponseDetails.createResponseDetails(
-                        new String[] { "msq option 1", "msq option 2", "msq option 3" },
+                        new String[]{"msq option 1", "msq option 2", "msq option 3"},
                         FeedbackQuestionType.MSQ,
                         msqQuestionDetails, requestParameters, 6, 0);
 
@@ -140,15 +140,15 @@ public class FeedbackResponseDetailsTest extends BaseTestCase {
 
         ______TS("MSQ Response: other disabled, other option selected");
         msqQuestionDetails = new FeedbackMsqQuestionDetails();
-        requestParameters.put("questiontype-7", new String[] { "MSQ" });
-        requestParameters.put("responsetext-7-0", new String[] {
+        requestParameters.put("questiontype-7", new String[]{"MSQ"});
+        requestParameters.put("responsetext-7-0", new String[]{
                 "msq option 1", "msq option 2", "msq option 3", "other answer"
         });
-        requestParameters.put("msqIsOtherOptionAnswer-7-0", new String[] { "1" });
+        requestParameters.put("msqIsOtherOptionAnswer-7-0", new String[]{"1"});
 
         responseDetails =
                 FeedbackResponseDetails.createResponseDetails(
-                        new String[] { "msq option 1", "msq option 2", "msq option 3", "other answer" },
+                        new String[]{"msq option 1", "msq option 2", "msq option 3", "other answer"},
                         FeedbackQuestionType.MSQ,
                         msqQuestionDetails, requestParameters, 7, 0);
 
@@ -163,14 +163,14 @@ public class FeedbackResponseDetailsTest extends BaseTestCase {
         FeedbackNumericalScaleQuestionDetails numericalScaleQuestionDetails = new FeedbackNumericalScaleQuestionDetails();
         numericalScaleQuestionDetails.setMaxScale(5);
         numericalScaleQuestionDetails.setMinScale(-5);
-        requestParameters.put("questiontype-6", new String[] { "NUMSCALE" });
-        requestParameters.put("responsetext-6-0", new String[] { "-3.5" });
-        requestParameters.put("numscalemin-6-0", new String[] { "-5" });
-        requestParameters.put("numscalemax-6-0", new String[] { "5" });
+        requestParameters.put("questiontype-6", new String[]{"NUMSCALE"});
+        requestParameters.put("responsetext-6-0", new String[]{"-3.5"});
+        requestParameters.put("numscalemin-6-0", new String[]{"-5"});
+        requestParameters.put("numscalemax-6-0", new String[]{"5"});
 
         responseDetails =
                 FeedbackResponseDetails.createResponseDetails(
-                        new String[] { "-3.5" },
+                        new String[]{"-3.5"},
                         FeedbackQuestionType.NUMSCALE,
                         numericalScaleQuestionDetails, requestParameters, 6, 0);
 
@@ -180,12 +180,12 @@ public class FeedbackResponseDetailsTest extends BaseTestCase {
         requestParameters.clear();
 
         ______TS("NUMSCALE Response: wrong format");
-        requestParameters.put("questiontype-6", new String[] { "NUMSCALE" });
-        requestParameters.put("responsetext-6-0", new String[] { "-0.5.3" });
+        requestParameters.put("questiontype-6", new String[]{"NUMSCALE"});
+        requestParameters.put("responsetext-6-0", new String[]{"-0.5.3"});
 
         responseDetails =
                 FeedbackResponseDetails.createResponseDetails(
-                        new String[] { "-0.5.3" },
+                        new String[]{"-0.5.3"},
                         FeedbackQuestionType.NUMSCALE,
                         numericalScaleQuestionDetails, requestParameters, 6, 0);
 
@@ -205,15 +205,15 @@ public class FeedbackResponseDetailsTest extends BaseTestCase {
         String distributePointsOption = "None";
         FeedbackConstantSumQuestionDetails constantSumQuestionDetails =
                 new FeedbackConstantSumQuestionDetails(questionText, constSumOptions,
-                                                       isPointsPerOption, points,
-                                                        shouldForceUevenDistribution, distributePointsOption);
+                        isPointsPerOption, points,
+                        shouldForceUevenDistribution, distributePointsOption);
 
-        requestParameters.put("questiontype-7", new String[] { "CONSTSUM" });
-        requestParameters.put("responsetext-7-0", new String[] { "20", "80" });
+        requestParameters.put("questiontype-7", new String[]{"CONSTSUM"});
+        requestParameters.put("responsetext-7-0", new String[]{"20", "80"});
 
         responseDetails =
                 FeedbackResponseDetails.createResponseDetails(
-                        new String[] { "20", "80" },
+                        new String[]{"20", "80"},
                         FeedbackQuestionType.CONSTSUM,
                         constantSumQuestionDetails, requestParameters, 7, 0);
 
@@ -227,12 +227,12 @@ public class FeedbackResponseDetailsTest extends BaseTestCase {
         FeedbackContributionQuestionDetails contribQuestionDetails =
                 new FeedbackContributionQuestionDetails(questionText);
 
-        requestParameters.put("questiontype-8", new String[] { "CONTRIB" });
-        requestParameters.put("responsetext-8-0", new String[] { "100" });
+        requestParameters.put("questiontype-8", new String[]{"CONTRIB"});
+        requestParameters.put("responsetext-8-0", new String[]{"100"});
 
         responseDetails =
                 FeedbackResponseDetails.createResponseDetails(
-                        new String[] { "100" },
+                        new String[]{"100"},
                         FeedbackQuestionType.CONTRIB,
                         contribQuestionDetails, requestParameters, 8, 0);
 
@@ -246,12 +246,12 @@ public class FeedbackResponseDetailsTest extends BaseTestCase {
         FeedbackRubricQuestionDetails rubricQuestionDetails =
                 new FeedbackRubricQuestionDetails(questionText);
 
-        requestParameters.put("questiontype-9", new String[] { "RUBRIC" });
-        requestParameters.put("responsetext-9-0", new String[] { "0-0,1-0" });
+        requestParameters.put("questiontype-9", new String[]{"RUBRIC"});
+        requestParameters.put("responsetext-9-0", new String[]{"0-0,1-0"});
 
         responseDetails =
                 FeedbackResponseDetails.createResponseDetails(
-                        new String[] { "0-0,1-0" },
+                        new String[]{"0-0,1-0"},
                         FeedbackQuestionType.RUBRIC,
                         rubricQuestionDetails, requestParameters, 9, 0);
 
@@ -268,12 +268,12 @@ public class FeedbackResponseDetailsTest extends BaseTestCase {
         rubricQuestionDetails.setNumOfRubricSubQuestions(rubricQuestionDetails.getNumOfRubricSubQuestions() + 1);
         rubricQuestionDetails.getRubricSubQuestions().add("sub-qn2");
 
-        requestParameters.put("questiontype-9", new String[] { "RUBRIC" });
-        requestParameters.put("responsetext-9-0", new String[] { "0-0,1-0" });
+        requestParameters.put("questiontype-9", new String[]{"RUBRIC"});
+        requestParameters.put("responsetext-9-0", new String[]{"0-0,1-0"});
 
         responseDetails =
                 FeedbackResponseDetails.createResponseDetails(
-                        new String[] { "0-0,1-0" },
+                        new String[]{"0-0,1-0"},
                         FeedbackQuestionType.RUBRIC,
                         rubricQuestionDetails, requestParameters, 9, 0);
 

@@ -67,19 +67,29 @@ public abstract class AppPage {
     private static final int VERIFICATION_RETRY_COUNT = 5;
     private static final int VERIFICATION_RETRY_DELAY_IN_MS = 1000;
 
-    /** Browser instance the page is loaded into. */
+    /**
+     * Browser instance the page is loaded into.
+     */
     protected Browser browser;
 
-    /** Use for retrying due to persistence delays. */
+    /**
+     * Use for retrying due to persistence delays.
+     */
     protected RetryManager persistenceRetryManager = new RetryManager(TestProperties.PERSISTENCE_RETRY_PERIOD_IN_S / 2);
 
-    /** Use for retrying due to transient UI issues. */
+    /**
+     * Use for retrying due to transient UI issues.
+     */
     protected RetryManager uiRetryManager = new RetryManager((TestProperties.TEST_TIMEOUT + 1) / 2);
 
-    /** Firefox change handler for handling when `change` events are not fired in Firefox. */
+    /**
+     * Firefox change handler for handling when `change` events are not fired in Firefox.
+     */
     private final FirefoxChangeHandler firefoxChangeHandler;
 
-    /** Handler for tracking the state of a JQuery AJAX request. */
+    /**
+     * Handler for tracking the state of a JQuery AJAX request.
+     */
     private final JQueryAjaxHandler jQueryAjaxHandler;
 
     // These are elements common to most pages in our app
@@ -273,6 +283,7 @@ public abstract class AppPage {
 
     /**
      * {@code locator} is mapped to an actual {@link WebElement}.
+     *
      * @param locator used to find the element
      * @see AppPage#waitForElementStaleness(WebElement)
      */
@@ -282,9 +293,10 @@ public abstract class AppPage {
 
     /**
      * Waits until an element is no longer attached to the DOM or the timeout expires.
+     *
      * @param element the WebElement
      * @throws org.openqa.selenium.TimeoutException if the timeout defined in
-     * {@link TestProperties#TEST_TIMEOUT} expires
+     *                                              {@link TestProperties#TEST_TIMEOUT} expires
      * @see org.openqa.selenium.support.ui.FluentWait#until(com.google.common.base.Function)
      */
     public void waitForElementStaleness(WebElement element) {
@@ -293,10 +305,11 @@ public abstract class AppPage {
 
     /**
      * Waits until an element belongs to the class or the timeout expires.
-     * @param element the WebElement
+     *
+     * @param element      the WebElement
      * @param elementClass the class that the element must belong to
      * @throws org.openqa.selenium.TimeoutException if the timeout defined in
-     * {@link TestProperties#TEST_TIMEOUT} expires
+     *                                              {@link TestProperties#TEST_TIMEOUT} expires
      * @see org.openqa.selenium.support.ui.FluentWait#until(com.google.common.base.Function)
      */
     void waitForElementToBeMemberOfClass(WebElement element, String elementClass) {
@@ -325,6 +338,7 @@ public abstract class AppPage {
     /**
      * Waits until scrolling on the page is complete. Note: The detection of whether the page is scrolling is coupled to our
      * own implementation of scrolling {@code (scrollTo.js)} and is not a true detection.
+     *
      * @throws org.openqa.selenium.TimeoutException if the timeout defined in {@link TestProperties#TEST_TIMEOUT} expires
      */
     void waitForScrollingToComplete() {
@@ -483,7 +497,8 @@ public abstract class AppPage {
         return javascriptExecutor.executeScript(script, args);
     }
 
-    /** Equivalent to pressing the 'back' button of the browser. <br>
+    /**
+     * Equivalent to pressing the 'back' button of the browser. <br>
      * Fails if the page content does not match content expected in a page of
      * the type indicated by the parameter {@code typeOfPreviousPage}.
      */
@@ -495,6 +510,7 @@ public abstract class AppPage {
 
     /**
      * Equivalent to clicking the 'Courses' tab on the top menu of the page.
+     *
      * @return the loaded page.
      */
     public InstructorCoursesPage loadCoursesTab() {
@@ -505,6 +521,7 @@ public abstract class AppPage {
 
     /**
      * Equivalent to clicking the 'Students' tab on the top menu of the page.
+     *
      * @return the loaded page.
      */
     public InstructorStudentListPage loadStudentsTab() {
@@ -515,6 +532,7 @@ public abstract class AppPage {
 
     /**
      * Equivalent to clicking the 'Home' tab on the top menu of the page.
+     *
      * @return the loaded page.
      */
     public InstructorHomePage loadInstructorHomeTab() {
@@ -525,6 +543,7 @@ public abstract class AppPage {
 
     /**
      * Equivalent to clicking the 'Help' tab on the top menu of the page.
+     *
      * @return the loaded page.
      */
     public InstructorHelpPage loadInstructorHelpTab() {
@@ -536,6 +555,7 @@ public abstract class AppPage {
 
     /**
      * Equivalent of clicking the 'Profile' tab on the top menu of the page.
+     *
      * @return the loaded page
      */
     public StudentProfilePage loadProfileTab() {
@@ -546,6 +566,7 @@ public abstract class AppPage {
 
     /**
      * Equivalent of student clicking the 'Home' tab on the top menu of the page.
+     *
      * @return the loaded page
      */
     public StudentHomePage loadStudentHomeTab() {
@@ -556,6 +577,7 @@ public abstract class AppPage {
 
     /**
      * Equivalent of clicking the 'Help' tab on the top menu of the page.
+     *
      * @return the loaded page
      */
     public StudentHelpPage loadStudentHelpTab() {
@@ -601,8 +623,7 @@ public abstract class AppPage {
      */
     private void clearAndSendKeys(WebElement element, CharSequence... keysToSend) {
         Map<String, Object> result = clearWithoutEvents(element);
-        @SuppressWarnings("unchecked")
-        final Map<String, String> errors = (Map<String, String>) result.get("errors");
+        @SuppressWarnings("unchecked") final Map<String, String> errors = (Map<String, String>) result.get("errors");
         if (errors != null) {
             throw new InvalidElementStateException(errors.get("detail"));
         }
@@ -631,8 +652,7 @@ public abstract class AppPage {
                     "Element is stale but should have been caught earlier by element.isEnabled().");
         }
 
-        @SuppressWarnings("unchecked")
-        final Map<String, Object> result = (Map<String, Object>) executeScript(
+        @SuppressWarnings("unchecked") final Map<String, Object> result = (Map<String, Object>) executeScript(
                 "const element = arguments[0];"
                         + "if (element.nodeName === 'INPUT' || element.nodeName === 'TEXTAREA') {"
                         + "   if (element.readOnly) {"
@@ -737,8 +757,8 @@ public abstract class AppPage {
 
     protected String getRichTextEditorContent(String id) {
         return (String) executeScript("  if (typeof tinyMCE !== 'undefined') {"
-                                      + "    return tinyMCE.get('" + id + "').getContent();"
-                                      + "}");
+                + "    return tinyMCE.get('" + id + "').getContent();"
+                + "}");
     }
 
     protected void fillFileBox(RemoteWebElement fileBoxElement, String fileName) {
@@ -796,7 +816,6 @@ public abstract class AppPage {
      * Selects the option by visible text and returns whether the dropdown value has changed.
      *
      * @throws AssertionError if the selected option is not the one we wanted to select
-     *
      * @see Select#selectByVisibleText(String)
      */
     boolean selectDropdownByVisibleValue(WebElement element, String text) {
@@ -833,7 +852,6 @@ public abstract class AppPage {
      * Selects the option by value and returns whether the dropdown value has changed.
      *
      * @throws AssertionError if the selected option is not the one we wanted to select
-     *
      * @see Select#selectByValue(String)
      */
     boolean selectDropdownByActualValue(WebElement element, String value) {
@@ -873,6 +891,7 @@ public abstract class AppPage {
 
     /**
      * Returns a list containing the texts of the user status messages in the page.
+     *
      * @see WebElement#getText()
      */
     public List<String> getTextsForAllStatusMessagesToUser() {
@@ -886,7 +905,7 @@ public abstract class AppPage {
 
     /**
      * Returns the value of the cell located at {@code (row, column)}
-     *         from the first table (which is of type {@code class=table}) in the page.
+     * from the first table (which is of type {@code class=table}) in the page.
      */
     public String getCellValueFromDataTable(int row, int column) {
         return getCellValueFromDataTable(0, row, column);
@@ -894,7 +913,7 @@ public abstract class AppPage {
 
     /**
      * Returns the value of the cell located at {@code (row, column)}
-     *         from the nth(0-index-based) table (which is of type {@code class=table}) in the page.
+     * from the nth(0-index-based) table (which is of type {@code class=table}) in the page.
      */
     public String getCellValueFromDataTable(int tableNum, int row, int column) {
         WebElement tableElement = browser.driver.findElements(By.className("table")).get(tableNum);
@@ -905,7 +924,7 @@ public abstract class AppPage {
 
     /**
      * Returns the value of the header located at {@code (row, column)}
-     *         from the nth(0-index-based) table (which is of type {@code class=table}) in the page.
+     * from the nth(0-index-based) table (which is of type {@code class=table}) in the page.
      */
     public String getHeaderValueFromDataTable(int tableNum, int row, int column) {
         WebElement tableElement = browser.driver.findElements(By.className("table")).get(tableNum);
@@ -916,7 +935,7 @@ public abstract class AppPage {
 
     /**
      * Returns the number of rows from the nth(0-index-based) table
-     *         (which is of type {@code class=table}) in the page.
+     * (which is of type {@code class=table}) in the page.
      */
     public int getNumberOfRowsFromDataTable(int tableNum) {
         WebElement tableElement = browser.driver.findElements(By.className("table")).get(tableNum);
@@ -925,7 +944,7 @@ public abstract class AppPage {
 
     /**
      * Returns the number of columns from the header in the table
-     *         (which is of type {@code class=table}) in the page.
+     * (which is of type {@code class=table}) in the page.
      */
     public int getNumberOfColumnsFromDataTable(int tableNum) {
         WebElement tableElement = browser.driver.findElements(By.className("table")).get(tableNum);
@@ -935,7 +954,7 @@ public abstract class AppPage {
 
     /**
      * Returns the id of the table
-     *         (which is of type {@code class=table}) in the page.
+     * (which is of type {@code class=table}) in the page.
      */
     public String getDataTableId(int tableNum) {
         WebElement tableElement = browser.driver.findElements(By.className("table")).get(tableNum);
@@ -950,6 +969,7 @@ public abstract class AppPage {
     /**
      * Clicks the element and clicks 'Yes' in the follow up dialog box.
      * Fails if there is no dialog box.
+     *
      * @return the resulting page.
      */
     public AppPage clickAndConfirm(WebElement elementToClick) {
@@ -983,7 +1003,7 @@ public abstract class AppPage {
 
     /**
      * Returns True if the page contains some basic elements expected in a page of the
-     *         specific type. e.g., the top heading.
+     * specific type. e.g., the top heading.
      */
     protected abstract boolean containsExpectedPageContents();
 
@@ -1024,6 +1044,7 @@ public abstract class AppPage {
 
     /**
      * Returns true if the expected condition is evaluated to true immediately.
+     *
      * @see ExpectedConditions
      */
     private boolean isExpectedCondition(ExpectedCondition<?> expectedCondition) {
@@ -1041,6 +1062,7 @@ public abstract class AppPage {
 
     /**
      * Returns true if the element is invisible or stale as defined in the WebDriver specification.
+     *
      * @param locator used to find the element
      */
     public boolean isElementInvisibleOrStale(By locator) {
@@ -1050,10 +1072,8 @@ public abstract class AppPage {
     /**
      * Returns true if there exists an element with the given id and class name.
      *
-     * @param elementId
-     *            Id of the element
-     * @param targetClass
-     *            className
+     * @param elementId   Id of the element
+     * @param targetClass className
      */
     public boolean isElementHasClass(String elementId, String targetClass) {
         List<WebElement> elementsMatched =
@@ -1095,6 +1115,7 @@ public abstract class AppPage {
 
     /**
      * Checks if the midpoint of an element is covered by any other element.
+     *
      * @return true if element is covered, false otherwise.
      */
     public boolean isElementCovered(WebElement element) {
@@ -1144,9 +1165,9 @@ public abstract class AppPage {
      * Verifies that the currently loaded page has the same HTML content as
      * the content given in the file at {@code filePath}. <br>
      * The HTML is checked for logical equivalence, not text equivalence.
-     * @param filePath
-     *         If this starts with "/" (e.g., "/expected.html"), the
-     *         folder is assumed to be {@link TestProperties#TEST_PAGES_FOLDER}.
+     *
+     * @param filePath If this starts with "/" (e.g., "/expected.html"), the
+     *                 folder is assumed to be {@link TestProperties#TEST_PAGES_FOLDER}.
      * @return The page (for chaining method calls).
      */
     public AppPage verifyHtml(String filePath) throws IOException {
@@ -1157,9 +1178,9 @@ public abstract class AppPage {
      * Verifies that element specified in currently loaded page has the same HTML content as
      * the content given in the file at {@code filePath}. <br>
      * The HTML is checked for logical equivalence, not text equivalence.
-     * @param filePathParam
-     *         If this starts with "/" (e.g., "/expected.html"), the
-     *         folder is assumed to be {@link TestProperties#TEST_PAGES_FOLDER}.
+     *
+     * @param filePathParam If this starts with "/" (e.g., "/expected.html"), the
+     *                      folder is assumed to be {@link TestProperties#TEST_PAGES_FOLDER}.
      * @return The page (for chaining method calls).
      */
     public AppPage verifyHtmlPart(By by, String filePathParam) throws IOException {
@@ -1198,7 +1219,7 @@ public abstract class AppPage {
     private String getPageSource(By by) {
         waitForAjaxLoaderGifToDisappear();
         String actual = by == null ? browser.driver.findElement(By.tagName("html")).getAttribute("innerHTML")
-                                   : browser.driver.findElement(by).getAttribute("outerHTML");
+                : browser.driver.findElement(by).getAttribute("outerHTML");
         return HtmlHelper.processPageSourceForHtmlComparison(actual);
     }
 
@@ -1222,9 +1243,9 @@ public abstract class AppPage {
      * loaded page has the same HTML content as
      * the content given in the file at {@code filePath}. <br>
      * The HTML is checked for logical equivalence, not text equivalence.
-     * @param filePath
-     *         If this starts with "/" (e.g., "/expected.html"), the
-     *         folder is assumed to be {@link TestProperties#TEST_PAGES_FOLDER}.
+     *
+     * @param filePath If this starts with "/" (e.g., "/expected.html"), the
+     *                 folder is assumed to be {@link TestProperties#TEST_PAGES_FOLDER}.
      * @return The page (for chaining method calls).
      */
     public AppPage verifyHtmlMainContent(String filePath) throws IOException {
@@ -1386,6 +1407,7 @@ public abstract class AppPage {
     /**
      * Clicks a button (can be inside or outside the modal) that dismisses the modal and waits for the modal to be hidden.
      * The caller must ensure the button is in the modal or a timeout will occur while waiting for the modal to be hidden.
+     *
      * @param dismissModalButton a button that dismisses the modal
      */
     public void clickDismissModalButtonAndWaitForModalHidden(WebElement dismissModalButton) {
@@ -1580,7 +1602,6 @@ public abstract class AppPage {
          * The hook allows detection of the event required for {@link FirefoxChangeHandler#fireChangeEventIfNotFired}.
          *
          * @param element the element for which the hook will track whether the event is fired on the element
-         *
          * @throws IllegalStateException if there is already a hook in the document
          */
         private void addChangeEventHook(WebElement element) {
@@ -1593,11 +1614,11 @@ public abstract class AppPage {
 
             executeScript(
                     "const seleniumArguments = arguments;"
-                    + "seleniumArguments[0].addEventListener(seleniumArguments[1], function onchange() {"
-                    + "    this.removeEventListener(seleniumArguments[1], onchange);"
-                    + "    document.body.setAttribute(seleniumArguments[2], true);"
-                    + "});"
-                    + "document.body.setAttribute(seleniumArguments[2], false);",
+                            + "seleniumArguments[0].addEventListener(seleniumArguments[1], function onchange() {"
+                            + "    this.removeEventListener(seleniumArguments[1], onchange);"
+                            + "    document.body.setAttribute(seleniumArguments[2], true);"
+                            + "});"
+                            + "document.body.setAttribute(seleniumArguments[2], false);",
                     element, CHANGE_EVENT, HOOK_ATTRIBUTE);
         }
 
@@ -1610,9 +1631,7 @@ public abstract class AppPage {
          * events should not be fired manually so this method is to be avoided if possible.
          *
          * @param element the element for which the change event will be fired if it is not fired.
-         *
          * @throws IllegalStateException if `change` event hook is not added
-         *
          * @see FirefoxChangeHandler#isChangeEventNotFired()
          */
         private void fireChangeEventIfNotFired(WebElement element) {
@@ -1687,7 +1706,7 @@ public abstract class AppPage {
      * Verifies the comment text.
      *
      * @param commentRowIdSuffix suffix id of comment delete button
-     * @param commentText comment text to be verified
+     * @param commentText        comment text to be verified
      */
     public void verifyCommentRowContent(String commentRowIdSuffix, String commentText) {
         waitForTextContainedInElementPresence(By.id("plainCommentText" + commentRowIdSuffix), commentText);

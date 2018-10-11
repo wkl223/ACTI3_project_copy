@@ -73,7 +73,7 @@ public final class Assumption {
      * AssertionFailedError is thrown with the given message.
      */
     public static void assertEquals(String message, Object expected,
-            Object actual) {
+                                    Object actual) {
         if (expected == null && actual == null) {
             return;
         }
@@ -97,7 +97,7 @@ public final class Assumption {
      * Asserts that two Strings are equal.
      */
     public static void assertEquals(String message, String expected,
-            String actual) {
+                                    String actual) {
         if (expected == null && actual == null) {
             return;
         }
@@ -122,7 +122,7 @@ public final class Assumption {
      * value is infinity then the delta value is ignored.
      */
     public static void assertEquals(String message, double expected,
-            double actual, double delta) {
+                                    double actual, double delta) {
         if (Double.compare(expected, actual) == 0) {
             return;
         }
@@ -146,7 +146,7 @@ public final class Assumption {
      * expected value is infinity then the delta value is ignored.
      */
     public static void assertEquals(String message, float expected,
-            float actual, float delta) {
+                                    float actual, float delta) {
         if (Float.compare(expected, actual) == 0) {
             return;
         }
@@ -184,7 +184,7 @@ public final class Assumption {
      * AssertionFailedError is thrown with the given message.
      */
     public static void assertEquals(String message, boolean expected,
-            boolean actual) {
+                                    boolean actual) {
         assertEquals(message, Boolean.valueOf(expected),
                 Boolean.valueOf(actual));
     }
@@ -323,7 +323,7 @@ public final class Assumption {
     // PMD.CompareObjectsWithEquals is suppressed as assertNotSame is checking if
     // the expected and actual are the different objects (not just equal to each other)
     public static void assertNotSame(String message, Object expected,
-            Object actual) {
+                                     Object actual) {
         if (expected == actual) {
             failSame(message);
         }
@@ -346,7 +346,7 @@ public final class Assumption {
     }
 
     public static void failNotSame(String message, Object expected,
-            Object actual) {
+                                   Object actual) {
         String formatted = "";
         if (message != null) {
             formatted = message + " ";
@@ -355,7 +355,7 @@ public final class Assumption {
     }
 
     public static void failNotEquals(String message, Object expected,
-            Object actual) {
+                                     Object actual) {
         fail(format(message, expected, actual));
     }
 

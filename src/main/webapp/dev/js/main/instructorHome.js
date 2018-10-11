@@ -124,7 +124,7 @@ $(document).ready(() => {
         const $clickedLink = $(event.currentTarget);
 
         const messageText = `Are you sure you want to archive ${$clickedLink.data('courseId')}? `
-            + 'This action can be reverted by going to the "courses" tab and unarchiving the desired course(s).';
+                + 'This action can be reverted by going to the "courses" tab and unarchiving the desired course(s).';
         const okCallback = function () {
             window.location = $clickedLink.attr('href');
         };

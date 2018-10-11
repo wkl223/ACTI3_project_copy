@@ -37,7 +37,7 @@ public class InstructorFeedbackEditPageActionTest extends BaseActionTest {
 
         feedbackSessionAttributes = typicalBundle.feedbackSessions.get("session1InCourse1");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, feedbackSessionAttributes.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, feedbackSessionAttributes.getFeedbackSessionName(),
                 Const.ParamsNames.FEEDBACK_SESSION_ENABLE_EDIT, "true"
@@ -54,17 +54,17 @@ public class InstructorFeedbackEditPageActionTest extends BaseActionTest {
 
         expectedString =
                 "TEAMMATESLOG|||instructorFeedbackEditPage|||instructorFeedbackEditPage|||true|||"
-                + "Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
-                + "instr1@course1.tmt|||instructorFeedbackEdit "
-                + "Page Load<br>Editing information for Feedback Session "
-                + "<span class=\"bold\">[" + feedbackSessionAttributes.getFeedbackSessionName() + "]</span>"
-                + "in Course: <span class=\"bold\">[idOfTypicalCourse1]</span>"
-                + "|||/page/instructorFeedbackEditPage";
+                        + "Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
+                        + "instr1@course1.tmt|||instructorFeedbackEdit "
+                        + "Page Load<br>Editing information for Feedback Session "
+                        + "<span class=\"bold\">[" + feedbackSessionAttributes.getFeedbackSessionName() + "]</span>"
+                        + "in Course: <span class=\"bold\">[idOfTypicalCourse1]</span>"
+                        + "|||/page/instructorFeedbackEditPage";
         AssertHelper.assertLogMessageEquals(expectedString, instructorFeedbackEditPageAction.getLogMessage());
 
         ______TS("failure 1: non-existent feedback session");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, feedbackSessionAttributes.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, "randomName for Session123",
                 Const.ParamsNames.FEEDBACK_SESSION_ENABLE_EDIT, "true"
@@ -76,7 +76,7 @@ public class InstructorFeedbackEditPageActionTest extends BaseActionTest {
             signalFailureToDetectException();
         } catch (UnauthorizedAccessException uae) {
             assertEquals("Trying to access system using a non-existent feedback session entity",
-                         uae.getMessage());
+                    uae.getMessage());
         }
     }
 
@@ -90,7 +90,7 @@ public class InstructorFeedbackEditPageActionTest extends BaseActionTest {
     protected void testAccessControl() throws Exception {
         FeedbackSessionAttributes fs = typicalBundle.feedbackSessions.get("session1InCourse1");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.FEEDBACK_SESSION_ENABLE_EDIT, "true"

@@ -28,7 +28,7 @@ public class InstructorCourseStudentDetailsEditPageAction extends Action {
 
         if (student == null) {
             statusToUser.add(new StatusMessage(Const.StatusMessages.STUDENT_NOT_FOUND_FOR_EDIT,
-                                               StatusMessageColor.DANGER));
+                    StatusMessageColor.DANGER));
             isError = true;
             return createRedirectResult(Const.ActionURIs.INSTRUCTOR_HOME_PAGE);
         }
@@ -41,8 +41,8 @@ public class InstructorCourseStudentDetailsEditPageAction extends Action {
                         isOpenOrPublishedEmailSentForTheCourse);
 
         statusToAdmin = "instructorCourseStudentEdit Page Load<br>"
-                        + "Editing Student <span class=\"bold\">" + studentEmail + "'s</span> details "
-                        + "in Course <span class=\"bold\">[" + courseId + "]</span>";
+                + "Editing Student <span class=\"bold\">" + studentEmail + "'s</span> details "
+                + "in Course <span class=\"bold\">[" + courseId + "]</span>";
 
         return createShowPageResult(Const.ViewURIs.INSTRUCTOR_COURSE_STUDENT_EDIT, data);
 

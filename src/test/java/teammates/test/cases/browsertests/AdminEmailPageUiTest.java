@@ -15,9 +15,9 @@ import teammates.test.pageobjects.AdminEmailPage;
 
 /**
  * SUT: {@link Const.ActionURIs#ADMIN_EMAIL_COMPOSE_PAGE},
- *      {@link Const.ActionURIs#ADMIN_EMAIL_SENT_PAGE},
- *      {@link Const.ActionURIs#ADMIN_EMAIL_DRAFT_PAGE},
- *      {@link Const.ActionURIs#ADMIN_EMAIL_TRASH_PAGE}.
+ * {@link Const.ActionURIs#ADMIN_EMAIL_SENT_PAGE},
+ * {@link Const.ActionURIs#ADMIN_EMAIL_DRAFT_PAGE},
+ * {@link Const.ActionURIs#ADMIN_EMAIL_TRASH_PAGE}.
  */
 public class AdminEmailPageUiTest extends BaseUiTestCase {
 
@@ -42,7 +42,7 @@ public class AdminEmailPageUiTest extends BaseUiTestCase {
         ______TS("email compose page");
 
         emailPage = loginAdminToPage(
-                        createUrl(Const.ActionURIs.ADMIN_EMAIL_COMPOSE_PAGE), AdminEmailPage.class);
+                createUrl(Const.ActionURIs.ADMIN_EMAIL_COMPOSE_PAGE), AdminEmailPage.class);
         assertTrue(isEmailComposeElementsPresent());
 
         ______TS("send email - no recipient");
@@ -173,26 +173,26 @@ public class AdminEmailPageUiTest extends BaseUiTestCase {
 
     private boolean isEmailComposeElementsPresent() {
         return emailPage.isElementPresent(By.id("addressReceiverEmails"))
-            && emailPage.isElementPresent(By.name("emailsubject"))
-            && emailPage.isElementPresent(By.className("mce-tinymce"))
-            && emailPage.isElementPresent(By.id("adminEmailBox"))
-            && emailPage.isElementPresent(By.id("composeSubmitButton"))
-            && emailPage.isElementPresent(By.id("composeSaveButton"));
+                && emailPage.isElementPresent(By.name("emailsubject"))
+                && emailPage.isElementPresent(By.className("mce-tinymce"))
+                && emailPage.isElementPresent(By.id("adminEmailBox"))
+                && emailPage.isElementPresent(By.id("composeSubmitButton"))
+                && emailPage.isElementPresent(By.id("composeSaveButton"));
     }
 
     private boolean hasStatusMessageRecipientEmailFormatError(String recipientName) throws Exception {
         return emailPage.getTextsForAllStatusMessagesToUser().contains(
                 getPopulatedErrorMessage(
-                    FieldValidator.EMAIL_ERROR_MESSAGE, recipientName,
-                    FieldValidator.EMAIL_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
-                    FieldValidator.EMAIL_MAX_LENGTH));
+                        FieldValidator.EMAIL_ERROR_MESSAGE, recipientName,
+                        FieldValidator.EMAIL_FIELD_NAME, FieldValidator.REASON_INCORRECT_FORMAT,
+                        FieldValidator.EMAIL_MAX_LENGTH));
     }
 
     private boolean hasStatusMessageNoSubject() throws Exception {
         return emailPage.getTextsForAllStatusMessagesToUser().contains(
                 getPopulatedEmptyStringErrorMessage(
-                    FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE_EMPTY_STRING,
-                    FieldValidator.EMAIL_SUBJECT_FIELD_NAME, FieldValidator.EMAIL_SUBJECT_MAX_LENGTH));
+                        FieldValidator.SIZE_CAPPED_NON_EMPTY_STRING_ERROR_MESSAGE_EMPTY_STRING,
+                        FieldValidator.EMAIL_SUBJECT_FIELD_NAME, FieldValidator.EMAIL_SUBJECT_MAX_LENGTH));
     }
 
     private boolean hasErrorMessage() {
@@ -224,8 +224,8 @@ public class AdminEmailPageUiTest extends BaseUiTestCase {
      */
     private boolean isEmailTrashDataDisplayCorrect() {
         return emailPage.isElementPresent(By.className("table"))
-            && isEmptyTrashButtonPresent()
-            && isEmailTableHeaderCorrect();
+                && isEmptyTrashButtonPresent()
+                && isEmailTableHeaderCorrect();
     }
 
     private boolean isEmailTableHeaderCorrect() {
@@ -236,10 +236,10 @@ public class AdminEmailPageUiTest extends BaseUiTestCase {
         }
 
         List<String> expectedSessionTableHeaders = Arrays.asList("Action",
-                                                                 "Address Receiver",
-                                                                 "Group Receiver",
-                                                                 "Subject",
-                                                                 "Date");
+                "Address Receiver",
+                "Group Receiver",
+                "Subject",
+                "Date");
         List<String> actualSessionTableHeaders = new ArrayList<>();
 
         for (int i = 0; i < numColumns; i++) {

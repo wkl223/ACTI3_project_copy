@@ -67,18 +67,18 @@ public final class InstructorPrivileges {
         PRIVILEGES_CUSTOM.put(Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION_COMMENT_IN_SECTIONS, false);
     }
 
-    private static final String[] COURSE_LEVEL_ONLY_LIST = new String[] {
+    private static final String[] COURSE_LEVEL_ONLY_LIST = new String[]{
             Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_COURSE,
             Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_INSTRUCTOR,
             Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION,
             Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_STUDENT
     };
 
-    private static final String[] SECTION_LEVEL_ONLY_LIST = new String[] {
+    private static final String[] SECTION_LEVEL_ONLY_LIST = new String[]{
             Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_STUDENT_IN_SECTIONS,
     };
 
-    private static final String[] SESSION_LEVEL_ONLY_LIST = new String[] {
+    private static final String[] SESSION_LEVEL_ONLY_LIST = new String[]{
             Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_SESSION_IN_SECTIONS,
             Const.ParamsNames.INSTRUCTOR_PERMISSION_SUBMIT_SESSION_IN_SECTIONS,
             Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION_COMMENT_IN_SECTIONS
@@ -104,24 +104,24 @@ public final class InstructorPrivileges {
     public InstructorPrivileges(String instrRole) {
         this();
         switch (instrRole) {
-        case Const.InstructorPermissionRoleNames.INSTRUCTOR_PERMISSION_ROLE_COOWNER:
-            setDefaultPrivilegesForCoowner();
-            break;
-        case Const.InstructorPermissionRoleNames.INSTRUCTOR_PERMISSION_ROLE_MANAGER:
-            setDefaultPrivilegesForManager();
-            break;
-        case Const.InstructorPermissionRoleNames.INSTRUCTOR_PERMISSION_ROLE_OBSERVER:
-            setDefaultPrivilegesForObserver();
-            break;
-        case Const.InstructorPermissionRoleNames.INSTRUCTOR_PERMISSION_ROLE_TUTOR:
-            setDefaultPrivilegesForTutor();
-            break;
-        case Const.InstructorPermissionRoleNames.INSTRUCTOR_PERMISSION_ROLE_CUSTOM:
-            setDefaultPrivilegesForCustom();
-            break;
-        default:
-            setDefaultPrivilegesForCustom();
-            break;
+            case Const.InstructorPermissionRoleNames.INSTRUCTOR_PERMISSION_ROLE_COOWNER:
+                setDefaultPrivilegesForCoowner();
+                break;
+            case Const.InstructorPermissionRoleNames.INSTRUCTOR_PERMISSION_ROLE_MANAGER:
+                setDefaultPrivilegesForManager();
+                break;
+            case Const.InstructorPermissionRoleNames.INSTRUCTOR_PERMISSION_ROLE_OBSERVER:
+                setDefaultPrivilegesForObserver();
+                break;
+            case Const.InstructorPermissionRoleNames.INSTRUCTOR_PERMISSION_ROLE_TUTOR:
+                setDefaultPrivilegesForTutor();
+                break;
+            case Const.InstructorPermissionRoleNames.INSTRUCTOR_PERMISSION_ROLE_CUSTOM:
+                setDefaultPrivilegesForCustom();
+                break;
+            default:
+                setDefaultPrivilegesForCustom();
+                break;
         }
     }
 
@@ -189,7 +189,7 @@ public final class InstructorPrivileges {
                 isAllowedInSectionLevel(sectionName, Const.ParamsNames.INSTRUCTOR_PERMISSION_SUBMIT_SESSION_IN_SECTIONS));
         privileges.put(Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION_COMMENT_IN_SECTIONS,
                 isAllowedInSectionLevel(sectionName,
-                                        Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION_COMMENT_IN_SECTIONS));
+                        Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_SESSION_COMMENT_IN_SECTIONS));
 
         return privileges;
     }
@@ -227,7 +227,7 @@ public final class InstructorPrivileges {
             return;
         }
         this.sectionLevel.computeIfAbsent(sectionName, key -> new LinkedHashMap<>())
-                         .put(privilegeName, isAllowed);
+                .put(privilegeName, isAllowed);
     }
 
     private void updatePrivilegeInSessionLevel(String sectionName, String sessionName,
@@ -237,7 +237,7 @@ public final class InstructorPrivileges {
         }
         verifyExistenceOfsectionName(sectionName);
         this.sessionLevel.get(sectionName).computeIfAbsent(sessionName, key -> new LinkedHashMap<>())
-                                          .put(privilegeName, isAllowed);
+                .put(privilegeName, isAllowed);
     }
 
     public void updatePrivileges(String sectionName, Map<String, Boolean> privileges) {
@@ -360,7 +360,7 @@ public final class InstructorPrivileges {
      */
     public boolean isSessionInSectionSpecial(String sectionName, String sessionName) {
         return this.sessionLevel.containsKey(sectionName)
-               && this.sessionLevel.get(sectionName).containsKey(sessionName);
+                && this.sessionLevel.get(sectionName).containsKey(sessionName);
     }
 
     /**
@@ -494,8 +494,8 @@ public final class InstructorPrivileges {
 
         InstructorPrivileges rhs = (InstructorPrivileges) another;
         return this.getCourseLevelPrivileges().equals(rhs.getCourseLevelPrivileges())
-               && this.getSectionLevelPrivileges().equals(rhs.getSectionLevelPrivileges())
-               && this.getSessionLevelPrivileges().equals(rhs.getSessionLevelPrivileges());
+                && this.getSectionLevelPrivileges().equals(rhs.getSectionLevelPrivileges())
+                && this.getSessionLevelPrivileges().equals(rhs.getSessionLevelPrivileges());
     }
 
     @Override

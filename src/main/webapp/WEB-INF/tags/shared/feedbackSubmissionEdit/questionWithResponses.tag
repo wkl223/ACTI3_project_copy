@@ -1,10 +1,11 @@
 <%@ tag trimDirectiveWhitespaces="true" %>
 <%@ tag description="feedbackSubmissionEdit.jsp - Display question with responses" pageEncoding="UTF-8" %>
-<%@ tag import="teammates.common.util.Const"%>
+<%@ tag import="teammates.common.util.Const" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib tagdir="/WEB-INF/tags/shared/feedbackSubmissionEdit" prefix="feedbackSubmissionEdit" %>
 
-<%@ attribute name="questionWithResponses" type="teammates.ui.template.StudentFeedbackSubmissionEditQuestionsWithResponses" required="true" %>
+<%@ attribute name="questionWithResponses"
+              type="teammates.ui.template.StudentFeedbackSubmissionEditQuestionsWithResponses" required="true" %>
 <%@ attribute name="isShowRealQuestionNumber" type="java.lang.Boolean" required="true" %>
 <%@ attribute name="isSessionOpenForSubmission" type="java.lang.Boolean" required="true" %>
 <%@ attribute name="moderatedPersonEmail" required="true" %>
@@ -12,16 +13,18 @@
 <c:set var="isRecipientNameHidden" value="${questionWithResponses.question.recipientNameHidden}"/>
 
 <input type="hidden" name="<%= Const.ParamsNames.FEEDBACK_QUESTION_TYPE %>-${questionWithResponses.question.qnIndx}"
-    value="${questionWithResponses.question.questionType}">
+       value="${questionWithResponses.question.questionType}">
 
 <input type="hidden" name="<%= Const.ParamsNames.FEEDBACK_QUESTION_ID %>-${questionWithResponses.question.qnIndx}"
-    value="${questionWithResponses.question.questionId}">
+       value="${questionWithResponses.question.questionId}">
 
-<input type="hidden" name="<%= Const.ParamsNames.FEEDBACK_QUESTION_RESPONSETOTAL %>-${questionWithResponses.question.qnIndx}"
-    value="${questionWithResponses.numOfResponseBoxes}">
+<input type="hidden"
+       name="<%= Const.ParamsNames.FEEDBACK_QUESTION_RESPONSETOTAL %>-${questionWithResponses.question.qnIndx}"
+       value="${questionWithResponses.numOfResponseBoxes}">
 
 <div class="form-horizontal">
-  <div class="panel panel-primary"<c:if test="${questionWithResponses.question.moderatedQuestion}"> id="moderated-question"</c:if>>
+  <div class="panel panel-primary"<c:if
+      test="${questionWithResponses.question.moderatedQuestion}"> id="moderated-question"</c:if>>
 
     <div class="panel-heading">
       Question ${isShowRealQuestionNumber ? questionWithResponses.question.questionNumber : questionWithResponses.question.qnIndx}:
@@ -34,7 +37,9 @@
       <c:if test="${not empty questionWithResponses.question.questionDescription}">
         <div class="panel panel-default">
           <div class="panel-body">
-            <b>More details:</b><br><hr>${questionWithResponses.question.questionDescription}
+            <b>More details:</b><br>
+            <hr>
+              ${questionWithResponses.question.questionDescription}
           </div>
         </div>
 
@@ -77,8 +82,10 @@
       </c:if>
 
       <c:forEach items="${questionWithResponses.responses}" var="response">
-        <feedbackSubmissionEdit:response response="${response}" isSessionOpenForSubmission="${isSessionOpenForSubmission}"
-            questionWithResponses="${questionWithResponses}" moderatedPersonEmail="${moderatedPersonEmail}"/>
+        <feedbackSubmissionEdit:response response="${response}"
+                                         isSessionOpenForSubmission="${isSessionOpenForSubmission}"
+                                         questionWithResponses="${questionWithResponses}"
+                                         moderatedPersonEmail="${moderatedPersonEmail}"/>
       </c:forEach>
     </div>
   </div>

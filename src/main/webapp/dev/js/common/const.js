@@ -8,7 +8,7 @@ const Const = {
         UNREGISTERED_STUDENT: {
             header: 'Register for TEAMMATES',
             text: 'You have to register using a google account in order to access this page. '
-                  + 'Would you like to proceed and register?',
+                    + 'Would you like to proceed and register?',
         },
     },
     StatusMessages: {

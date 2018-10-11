@@ -27,7 +27,7 @@ public class AdminEmailLogPageData extends PageData {
     private QueryParameters q;
 
     public AdminEmailLogPageData(AccountAttributes account, String sessionToken, String filterQuery,
-            boolean shouldShowAll) {
+                                 boolean shouldShowAll) {
         super(account, sessionToken);
         this.filterQuery = filterQuery;
         this.shouldShowAll = shouldShowAll;
@@ -165,9 +165,9 @@ public class AdminEmailLogPageData extends PageData {
         }
 
         String[] tokens = query.replaceAll(" and ", "|")
-                               .replaceAll(", ", ",")
-                               .replaceAll(": ", ":")
-                               .split("\\|", -1);
+                .replaceAll(", ", ",")
+                .replaceAll(": ", ":")
+                .split("\\|", -1);
 
         for (String token : tokens) {
             String[] pair = token.split(":", -1);

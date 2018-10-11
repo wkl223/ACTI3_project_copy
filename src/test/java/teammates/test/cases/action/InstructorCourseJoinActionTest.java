@@ -39,7 +39,7 @@ public class InstructorCourseJoinActionTest extends BaseActionTest {
 
         ______TS("Invalid key, redirect for confirmation again");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.REGKEY, invalidEncryptedKey
         };
 
@@ -63,7 +63,7 @@ public class InstructorCourseJoinActionTest extends BaseActionTest {
 
         ______TS("Already registered instructor, redirect straight to authentication page");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.REGKEY, StringHelper.encrypt(instructor.key)
         };
 
@@ -107,7 +107,7 @@ public class InstructorCourseJoinActionTest extends BaseActionTest {
 
         gaeSimulation.loginUser(instructor.googleId);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.REGKEY, StringHelper.encrypt(newInstructor.key)
         };
 
@@ -155,7 +155,7 @@ public class InstructorCourseJoinActionTest extends BaseActionTest {
     @Test
     protected void testAccessControl() throws Exception {
         String invalidEncryptedKey = StringHelper.encrypt("invalidKey");
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.REGKEY, invalidEncryptedKey
         };
 

@@ -103,7 +103,7 @@ public class InstructorCourseEditPage extends AppPage {
      * Instructor display name will not be edited if instructor is not displayed to other students.
      */
     public void editInstructor(int instrNum, String name, String email,
-            Boolean isDisplayedToStudents, String displayName, String role) {
+                               Boolean isDisplayedToStudents, String displayName, String role) {
         clickEditInstructorLink(instrNum);
 
         editInstructorName(instrNum, name);
@@ -209,7 +209,7 @@ public class InstructorCourseEditPage extends AppPage {
         WebElement editInstructorEmailTextBox = getEmailField(instrNum);
 
         boolean isNotEditable = !editInstructorNameTextBox.isEnabled()
-                                && !editInstructorEmailTextBox.isEnabled();
+                && !editInstructorEmailTextBox.isEnabled();
 
         assertTrue(isNotEditable);
     }
@@ -239,7 +239,7 @@ public class InstructorCourseEditPage extends AppPage {
      * Otherwise, it is verified that the display name field's placeholder is shown as expected.
      */
     public void verifyInstructorDetails(int instrNum, String newName, String newEmail,
-            boolean newIsDisplayedToStudents, String newDisplayName, String newRole) {
+                                        boolean newIsDisplayedToStudents, String newDisplayName, String newRole) {
         assertEquals(newName, getInstructorName(instrNum));
         assertEquals(newEmail, getInstructorEmail(instrNum));
         assertEquals(newIsDisplayedToStudents, getInstructorDisplayedToStudents(instrNum));
@@ -289,7 +289,7 @@ public class InstructorCourseEditPage extends AppPage {
         WebElement viewLink =
                 browser.driver.findElement(
                         By.cssSelector("#accessControlEditDivForInstr" + instrNum
-                                       + " > div.form-group > div.col-sm-9 > a:nth-child(" + cssLinkNum + ")"));
+                                + " > div.form-group > div.col-sm-9 > a:nth-child(" + cssLinkNum + ")"));
 
         click(viewLink);
         waitForPageToLoad();
@@ -308,14 +308,14 @@ public class InstructorCourseEditPage extends AppPage {
 
     public boolean isPrivilegeCheckboxInModalChecked(String privilege) {
         By selector = By.cssSelector("#tunePermissionsDivForInstructorAll input[type='checkbox'][name='"
-                                     + privilege + "']");
+                + privilege + "']");
         WebElement checkbox = browser.driver.findElement(selector);
         return checkbox.isSelected();
     }
 
     public boolean isPrivilegeCheckboxInPermissionDivChecked(int instructorIndex, String privilege) {
         By selector = By.cssSelector("#tunePermissionsDivForInstructor" + instructorIndex
-                                     + " input[type='checkbox'][name='" + privilege + "']");
+                + " input[type='checkbox'][name='" + privilege + "']");
         WebElement checkbox = browser.driver.findElement(selector);
         return checkbox.isSelected();
     }
@@ -362,7 +362,7 @@ public class InstructorCourseEditPage extends AppPage {
 
     public boolean isTuneSessionPermissionsDivVisible(int instrNum, int sectionLevelIndex) {
         String sessionPermissionsDivId = "tuneSessionPermissionsDiv" + sectionLevelIndex
-                                         + "ForInstructor" + instrNum;
+                + "ForInstructor" + instrNum;
         return isElementVisible(By.id(sessionPermissionsDivId));
     }
 
@@ -398,11 +398,11 @@ public class InstructorCourseEditPage extends AppPage {
         WebElement instructorForm = browser.driver.findElement(By.id("formAddInstructor"));
 
         WebElement viewDetailsLink = instructorForm.findElement(By.xpath(
-                                            "//a[contains(@class, 'view-role-details')][@data-role='" + role + "']"));
+                "//a[contains(@class, 'view-role-details')][@data-role='" + role + "']"));
         click(viewDetailsLink);
 
         WebElement viewDetailsModal = browser.driver.findElement(By.cssSelector(
-                                            "div#tunePermissionsDivForInstructorAll"));
+                "div#tunePermissionsDivForInstructorAll"));
         waitForElementVisibility(viewDetailsModal);
 
         if ("display: block;".equals(viewDetailsModal.getAttribute("style"))) {
@@ -451,6 +451,7 @@ public class InstructorCourseEditPage extends AppPage {
 
     /**
      * Click the delete instructor button at position {@code instrNum} and click "Yes" in the follow up dialog.
+     *
      * @param instrNum is the position of the instructor (e.g. 1, 2, 3, ...)
      */
     public void clickDeleteInstructorLinkAndConfirm(int instrNum) {
@@ -461,6 +462,7 @@ public class InstructorCourseEditPage extends AppPage {
 
     /**
      * Click the delete instructor button at position {@code instrNum} and click "No" in the follow up dialog.
+     *
      * @param instrNum is the position of the instructor (e.g. 1, 2, 3, ...)
      */
     public void clickDeleteInstructorLinkAndCancel(int instrNum) {
@@ -470,6 +472,7 @@ public class InstructorCourseEditPage extends AppPage {
 
     /**
      * Checks if the course edit form is enabled.
+     *
      * @return true if the course edit form is enabled
      */
     public boolean isCourseEditFormEnabled() {
@@ -518,8 +521,8 @@ public class InstructorCourseEditPage extends AppPage {
 
     public WebElement getDisplayedToStudentCheckBox(int instrNum) {
         return browser.driver.findElement(By.cssSelector("#instructorTable" + instrNum + " input[name='"
-                                                         + Const.ParamsNames.INSTRUCTOR_IS_DISPLAYED_TO_STUDENT
-                                                         + "']"));
+                + Const.ParamsNames.INSTRUCTOR_IS_DISPLAYED_TO_STUDENT
+                + "']"));
     }
 
     public WebElement getDisplayNameField(int instrNum) {
@@ -558,7 +561,7 @@ public class InstructorCourseEditPage extends AppPage {
     public WebElement getCourseLevelPanel(int instrNum) {
         String permissionDivId = "tunePermissionsDivForInstructor" + instrNum;
         return browser.driver.findElement(By.id(permissionDivId))
-                             .findElement(By.cssSelector("div.form-group>div>div.panel"));
+                .findElement(By.cssSelector("div.form-group>div>div.panel"));
     }
 
     public WebElement getAddSectionLevelPrivilegesLink(int instrNum) {
@@ -578,7 +581,7 @@ public class InstructorCourseEditPage extends AppPage {
     private WebElement getSectionSelectionCheckBox(int instrNum, int sectionLevelIndex, int sectionNum) {
         WebElement sectionPanel = getSectionLevelPanel(instrNum, sectionLevelIndex);
         String cssSelector = "input[name='" + Const.ParamsNames.INSTRUCTOR_SECTION_GROUP
-                             + sectionLevelIndex + Const.ParamsNames.INSTRUCTOR_SECTION + sectionNum + "']";
+                + sectionLevelIndex + Const.ParamsNames.INSTRUCTOR_SECTION + sectionNum + "']";
         return sectionPanel.findElement(By.cssSelector(cssSelector));
     }
 
@@ -598,7 +601,7 @@ public class InstructorCourseEditPage extends AppPage {
     }
 
     private WebElement getSessionLevelTableCheckbox(int instrNum, int sectionLevelIndex,
-                                                 int sessionIndex, int checkBoxIndex) {
+                                                    int sessionIndex, int checkBoxIndex) {
         WebElement sessionLevelTableRow = getSessionLevelTableRow(instrNum, sectionLevelIndex, sessionIndex);
         return sessionLevelTableRow.findElements(By.cssSelector("input[type='checkbox']")).get(checkBoxIndex);
     }

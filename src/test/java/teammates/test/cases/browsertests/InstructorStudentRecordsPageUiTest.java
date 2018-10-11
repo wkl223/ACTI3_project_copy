@@ -138,7 +138,7 @@ public class InstructorStudentRecordsPageUiTest extends BaseUiTestCase {
         viewPage.editFeedbackResponseComment("-RGQ-1-1-1-1",
                 "First edited comment to Alice about feedback to Benny from different Instructor");
         viewPage.verifyCommentRowContent("-RGQ-1-1-1-1", "First edited comment to Alice about feedback to Benny from "
-                + "different Instructor",
+                        + "different Instructor",
                 "Teammates Test");
         viewPage.verifyHtmlMainContent("/instructorStudentRecordsPageEditedCommentOfDifferentInstructor.html");
 
@@ -164,9 +164,9 @@ public class InstructorStudentRecordsPageUiTest extends BaseUiTestCase {
 
     private InstructorStudentRecordsPage getStudentRecordsPage() {
         AppUrl viewPageUrl = createUrl(Const.ActionURIs.INSTRUCTOR_STUDENT_RECORDS_PAGE)
-                           .withUserId(instructorId)
-                           .withCourseId(courseId)
-                           .withStudentEmail(studentEmail);
+                .withUserId(instructorId)
+                .withCourseId(courseId)
+                .withStudentEmail(studentEmail);
         return loginAdminToPage(viewPageUrl, InstructorStudentRecordsPage.class);
     }
 

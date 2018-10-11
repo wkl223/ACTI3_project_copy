@@ -9,13 +9,14 @@
 
 <tr id="${student.id}" class="studentRow">
   <%-- Institute --%>
-  <td>${empty student.institute ? "" : fn:escapeXml(student.institute)}</td> <%-- also checks if it is null --%>
+  <td>${empty student.institute ? "" : fn:escapeXml(student.institute)}</td>
+  <%-- also checks if it is null --%>
 
   <%-- Course [Section] (Team) --%>
   <c:choose>
     <c:when test="${not empty student.courseName}">
       <td data-toggle="tooltip" data-placement="top" title="${fn:escapeXml(fn:escapeXml(student.courseName))}">
-        ${student.courseId}<br><c:out value="${student.section}"/><br><c:out value="${student.team}"/>
+          ${student.courseId}<br><c:out value="${student.section}"/><br><c:out value="${student.team}"/>
       </td>
     </c:when>
     <c:otherwise>
@@ -27,7 +28,8 @@
   <c:choose>
     <c:when test="${not empty student.links.detailsPageLink}">
       <td>
-        <a class="detailsPageLink" href="${student.links.detailsPageLink}" target="_blank" rel="noopener noreferrer"><c:out value="${student.name}"/></a>
+        <a class="detailsPageLink" href="${student.links.detailsPageLink}" target="_blank"
+           rel="noopener noreferrer"><c:out value="${student.name}"/></a>
       </td>
     </c:when>
     <c:otherwise>
@@ -51,7 +53,7 @@
     <c:if test="${not empty student.viewRecentActionsId}">
       <form method="post" target="_blank" action="<%=Const.ActionURIs.ADMIN_ACTIVITY_LOG_PAGE%>">
         <button type="submit" id="${student.viewRecentActionsId}_recentActions"
-            class="btn btn-link btn-xs recentActionButton">
+                class="btn btn-link btn-xs recentActionButton">
 
           <span class="glyphicon glyphicon-zoom-in"></span>View Recent Actions
         </button>
@@ -64,8 +66,9 @@
     <%-- Reset Google ID --%>
     <c:if test="${not empty student.googleId}">
       <button type="button" id="${student.googleId}_resetGoogleId"
-          data-courseid="${student.courseId}" data-studentemail="${student.email}" data-googleid="${student.googleId}"
-          class="btn btn-link btn-xs resetGoogleIdButton">
+              data-courseid="${student.courseId}" data-studentemail="${student.email}"
+              data-googleid="${student.googleId}"
+              class="btn btn-link btn-xs resetGoogleIdButton">
 
         <span class="glyphicon glyphicon-refresh"></span>Reset Google Id
       </button>

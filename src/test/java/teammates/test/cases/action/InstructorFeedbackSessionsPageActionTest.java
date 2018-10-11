@@ -26,7 +26,7 @@ public class InstructorFeedbackSessionsPageActionTest extends BaseActionTest {
     public void testExecuteAndPostProcess() throws Exception {
         String instructorId = typicalBundle.instructors.get("instructor1OfCourse1").googleId;
         String adminUserId = "admin.user";
-        String[] submissionParams = new String[] {Const.ParamsNames.IS_USING_AJAX, "true"};
+        String[] submissionParams = new String[]{Const.ParamsNames.IS_USING_AJAX, "true"};
 
         InstructorAttributes instructor1ofCourse1 = typicalBundle.instructors.get("instructor1OfCourse1");
 
@@ -55,15 +55,15 @@ public class InstructorFeedbackSessionsPageActionTest extends BaseActionTest {
 
         String expectedLogMessage =
                 "TEAMMATESLOG|||instructorFeedbackSessionsPage|||instructorFeedbackSessionsPage|||"
-                + "true|||Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
-                + "instr1@course1.tmt|||Number of feedback sessions: 6|||/page/instructorFeedbackSessionsPage";
+                        + "true|||Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
+                        + "instr1@course1.tmt|||Number of feedback sessions: 6|||/page/instructorFeedbackSessionsPage";
         AssertHelper.assertLogMessageEquals(expectedLogMessage, a.getLogMessage());
 
         ______TS("0 sessions");
 
         FeedbackSessionsLogic.inst().deleteFeedbackSessionsForCourseCascade(instructor1ofCourse1.courseId);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor1ofCourse1.courseId,
                 Const.ParamsNames.IS_USING_AJAX, "true"
         };
@@ -71,7 +71,7 @@ public class InstructorFeedbackSessionsPageActionTest extends BaseActionTest {
         r = getShowPageResult(a);
 
         assertEquals(getPageResultDestination(Const.ViewURIs.INSTRUCTOR_FEEDBACK_SESSIONS, false,
-                     "idOfInstructor1OfCourse1"), r.getDestinationWithParams());
+                "idOfInstructor1OfCourse1"), r.getDestinationWithParams());
         assertEquals(Const.StatusMessages.FEEDBACK_SESSION_EMPTY, r.getStatusMessage());
         assertFalse(r.isError);
 
@@ -84,8 +84,8 @@ public class InstructorFeedbackSessionsPageActionTest extends BaseActionTest {
 
         expectedLogMessage =
                 "TEAMMATESLOG|||instructorFeedbackSessionsPage|||instructorFeedbackSessionsPage|||"
-                + "true|||Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
-                + "instr1@course1.tmt|||Number of feedback sessions: 0|||/page/instructorFeedbackSessionsPage";
+                        + "true|||Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
+                        + "instr1@course1.tmt|||Number of feedback sessions: 0|||/page/instructorFeedbackSessionsPage";
         AssertHelper.assertLogMessageEquals(expectedLogMessage, a.getLogMessage());
 
         ______TS("Masquerade mode, 0 courses");
@@ -95,16 +95,16 @@ public class InstructorFeedbackSessionsPageActionTest extends BaseActionTest {
         CoursesLogic.inst().deleteCourseCascade(instructor1ofCourse1.courseId);
         CoursesLogic.inst().deleteCourseCascade("new-course");
 
-        submissionParams = new String[] {Const.ParamsNames.IS_USING_AJAX, "true"};
+        submissionParams = new String[]{Const.ParamsNames.IS_USING_AJAX, "true"};
         a = getAction(addUserIdToParams(instructorId, submissionParams));
         r = getShowPageResult(a);
 
         assertEquals(getPageResultDestination(Const.ViewURIs.INSTRUCTOR_FEEDBACK_SESSIONS, false,
-                     "idOfInstructor1OfCourse1"), r.getDestinationWithParams());
+                "idOfInstructor1OfCourse1"), r.getDestinationWithParams());
         assertEquals("You have not created any courses yet, or you have no active courses. "
-                     + "Go <a href=\"/page/instructorCoursesPage?user=idOfInstructor1OfCourse1\">here</a> "
-                     + "to create or unarchive a course.",
-                     r.getStatusMessage());
+                        + "Go <a href=\"/page/instructorCoursesPage?user=idOfInstructor1OfCourse1\">here</a> "
+                        + "to create or unarchive a course.",
+                r.getStatusMessage());
         assertFalse(r.isError);
 
         pageData = (InstructorFeedbackSessionsPageData) r.data;
@@ -115,8 +115,8 @@ public class InstructorFeedbackSessionsPageActionTest extends BaseActionTest {
 
         expectedLogMessage =
                 "TEAMMATESLOG|||instructorFeedbackSessionsPage|||instructorFeedbackSessionsPage|||true|||"
-                + "Instructor(M)|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
-                + "instr1@course1.tmt|||Number of feedback sessions: 0|||/page/instructorFeedbackSessionsPage";
+                        + "Instructor(M)|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
+                        + "instr1@course1.tmt|||Number of feedback sessions: 0|||/page/instructorFeedbackSessionsPage";
         AssertHelper.assertLogMessageEqualsInMasqueradeMode(expectedLogMessage, a.getLogMessage(), adminUserId);
     }
 
@@ -128,7 +128,7 @@ public class InstructorFeedbackSessionsPageActionTest extends BaseActionTest {
     @Override
     @Test
     protected void testAccessControl() throws Exception {
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID,
                 typicalBundle.instructors.get("instructor1OfCourse1").courseId
         };

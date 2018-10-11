@@ -34,7 +34,7 @@ public class StudentProfilePageActionTest extends BaseActionTest {
     private void testActionSuccess(AccountAttributes student, String caseDescription) {
         gaeSimulation.loginAsStudent(student.googleId);
         ______TS(caseDescription);
-        String[] submissionParams = new String[] {};
+        String[] submissionParams = new String[]{};
         StudentProfileEditPageAction action = getAction(submissionParams);
         ShowPageResult result = getShowPageResult(action);
 
@@ -51,7 +51,7 @@ public class StudentProfilePageActionTest extends BaseActionTest {
     private void testActionInMasquerade(AccountAttributes student) {
         gaeSimulation.loginAsAdmin("admin.user");
         ______TS("Typical case: masquerade mode");
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.STUDENT_PROFILE_PHOTOEDIT, "false",
                 Const.ParamsNames.USER_ID, student.googleId
         };
@@ -76,7 +76,7 @@ public class StudentProfilePageActionTest extends BaseActionTest {
     // -------------------------------------------------------------------------------------------------------
 
     private void verifyAccountsAreSame(AccountAttributes student,
-            ShowPageResult result) {
+                                       ShowPageResult result) {
         PageData data = result.data;
         student.studentProfile.modifiedDate = data.account.studentProfile.modifiedDate;
         student.createdAt = data.account.createdAt;
@@ -84,13 +84,13 @@ public class StudentProfilePageActionTest extends BaseActionTest {
     }
 
     private void verifyLogMessage(AccountAttributes student,
-            StudentProfileEditPageAction action, boolean isMasquerade) {
+                                  StudentProfileEditPageAction action, boolean isMasquerade) {
         String expectedLogMessage = "TEAMMATESLOG|||studentProfileEditPage|||studentProfileEditPage"
-                                  + "|||true|||Student" + (isMasquerade ? "(M)" : "") + "|||"
-                                  + student.name + "|||" + student.googleId + "|||" + student.email
-                                  + "|||studentProfile Page Load <br> Profile: "
-                                  + student.googleId
-                                  + "|||/page/studentProfileEditPage";
+                + "|||true|||Student" + (isMasquerade ? "(M)" : "") + "|||"
+                + student.name + "|||" + student.googleId + "|||" + student.email
+                + "|||studentProfile Page Load <br> Profile: "
+                + student.googleId
+                + "|||/page/studentProfileEditPage";
         AssertHelper.assertLogMessageEqualsIgnoreLogId(expectedLogMessage, action.getLogMessage());
     }
 
@@ -102,7 +102,7 @@ public class StudentProfilePageActionTest extends BaseActionTest {
     @Override
     @Test
     protected void testAccessControl() throws Exception {
-        String[] submissionParams = new String[] {};
+        String[] submissionParams = new String[]{};
         verifyAnyRegisteredUserCanAccess(submissionParams);
     }
 

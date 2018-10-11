@@ -28,7 +28,7 @@ public class StudentCourseJoinEmailWorkerActionTest extends BaseAutomatedActionT
 
         ______TS("typical case: new student joining");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 ParamsNames.COURSE_ID, course1.getId(),
                 ParamsNames.STUDENT_EMAIL, stu1InCourse1.email,
                 ParamsNames.IS_STUDENT_REJOINING, "false"
@@ -41,13 +41,13 @@ public class StudentCourseJoinEmailWorkerActionTest extends BaseAutomatedActionT
 
         EmailWrapper email = action.getEmailSender().getEmailsSent().get(0);
         assertEquals(String.format(EmailType.STUDENT_COURSE_JOIN.getSubject(), course1.getName(),
-                                   course1.getId()),
-                     email.getSubject());
+                course1.getId()),
+                email.getSubject());
         assertEquals(stu1InCourse1.email, email.getRecipient());
 
         ______TS("typical case: old student rejoining (after google id reset)");
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 ParamsNames.COURSE_ID, course1.getId(),
                 ParamsNames.STUDENT_EMAIL, stu1InCourse1.email,
                 ParamsNames.IS_STUDENT_REJOINING, "true"
@@ -60,8 +60,8 @@ public class StudentCourseJoinEmailWorkerActionTest extends BaseAutomatedActionT
 
         email = action.getEmailSender().getEmailsSent().get(0);
         assertEquals(String.format(EmailType.STUDENT_COURSE_REJOIN_AFTER_GOOGLE_ID_RESET.getSubject(),
-                                   course1.getName(), course1.getId()),
-                     email.getSubject());
+                course1.getName(), course1.getId()),
+                email.getSubject());
         assertEquals(stu1InCourse1.email, email.getRecipient());
     }
 

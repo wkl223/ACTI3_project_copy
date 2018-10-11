@@ -8,17 +8,17 @@
   <script type="text/javascript" src="/js/instructorHome.js"></script>
 </c:set>
 <ti:instructorPage title="Home" jsIncludes="${jsIncludes}">
-  <home:search />
+  <home:search/>
   <br>
-  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
-  <ti:remindParticularStudentsModal remindParticularStudentsLink="${data.remindParticularStudentsLink}" />
-  <ti:resendPublishedEmailModal sessionResendPublishedEmailLink="${data.sessionResendPublishedEmailLink}" />
+  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}"/>
+  <ti:remindParticularStudentsModal remindParticularStudentsLink="${data.remindParticularStudentsLink}"/>
+  <ti:resendPublishedEmailModal sessionResendPublishedEmailLink="${data.sessionResendPublishedEmailLink}"/>
   <c:if test="${data.account.instructor}">
     <home:sort isSortButtonsDisabled="${data.sortingDisabled}"/>
     <br>
     <c:forEach items="${data.courseTables}" var="courseTable" varStatus="i">
-      <home:coursePanel courseTable="${courseTable}" index="${i.index}" />
+      <home:coursePanel courseTable="${courseTable}" index="${i.index}"/>
     </c:forEach>
-    <ti:copyModal editCopyActionLink="${data.editCopyActionLink}" />
+    <ti:copyModal editCopyActionLink="${data.editCopyActionLink}"/>
   </c:if>
 </ti:instructorPage>

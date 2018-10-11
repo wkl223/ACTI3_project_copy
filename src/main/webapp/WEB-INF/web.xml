@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-        version="3.1">
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
 
     <filter>
         <filter-name>ObjectifyFilter</filter-name>
@@ -97,20 +97,20 @@
         <servlet-class>teammates.ui.controller.PublicImageServlet</servlet-class>
     </servlet>
 
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>PublicImageServlet</servlet-name>
         <url-pattern>/public/publicEmailImageServe</url-pattern>
         <url-pattern>/public/publicImageServe</url-pattern>
     </servlet-mapping>
 
     <security-constraint>
-      <web-resource-collection>
-          <web-resource-name>AllPage</web-resource-name>
-        <url-pattern>/page/*</url-pattern>
-      </web-resource-collection>
-      <user-data-constraint>
-        <transport-guarantee>CONFIDENTIAL</transport-guarantee>
-      </user-data-constraint>
+        <web-resource-collection>
+            <web-resource-name>AllPage</web-resource-name>
+            <url-pattern>/page/*</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
     </security-constraint>
     <security-constraint>
         <web-resource-collection>
@@ -137,7 +137,7 @@
         </auth-constraint>
         <user-data-constraint>
             <transport-guarantee>CONFIDENTIAL</transport-guarantee>
-          </user-data-constraint>
+        </user-data-constraint>
     </security-constraint>
     <security-constraint>
         <web-resource-collection>
@@ -150,7 +150,7 @@
         </auth-constraint>
         <user-data-constraint>
             <transport-guarantee>CONFIDENTIAL</transport-guarantee>
-          </user-data-constraint>
+        </user-data-constraint>
     </security-constraint>
     <security-constraint>
         <web-resource-collection>
@@ -171,7 +171,7 @@
             <description>Partial pages should not be accessed</description>
             <url-pattern>/partials/*</url-pattern>
         </web-resource-collection>
-        <auth-constraint />
+        <auth-constraint/>
         <user-data-constraint>
             <transport-guarantee>NONE</transport-guarantee>
         </user-data-constraint>

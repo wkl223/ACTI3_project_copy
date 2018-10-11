@@ -20,9 +20,9 @@
   </div>
   <table class="table">
     <tbody>
-      <c:forEach items="${responseTable.responses}" var="response">
-        <feedbackResults:response response="${response}"/>
-      </c:forEach>
+    <c:forEach items="${responseTable.responses}" var="response">
+      <feedbackResults:response response="${response}"/>
+    </c:forEach>
     </tbody>
   </table>
 </div>

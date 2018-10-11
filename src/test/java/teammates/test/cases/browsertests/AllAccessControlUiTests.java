@@ -76,7 +76,7 @@ public class AllAccessControlUiTests extends BaseUiTestCase {
         loginStudent(TestProperties.TEST_UNREG_ACCOUNT, TestProperties.TEST_UNREG_PASSWORD);
 
         verifyRedirectToWelcomeStrangerPage(createUrl(Const.ActionURIs.STUDENT_HOME_PAGE),
-                                            TestProperties.TEST_UNREG_ACCOUNT);
+                TestProperties.TEST_UNREG_ACCOUNT);
 
         ______TS("instructor pages");
 

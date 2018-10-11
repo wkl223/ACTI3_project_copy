@@ -97,11 +97,11 @@ public class InstructorFeedbackResponseCommentEditAction extends InstructorFeedb
 
         if (!data.isError) {
             statusToAdmin += "InstructorFeedbackResponseCommentEditAction:<br>"
-                           + "Editing feedback response comment: " + feedbackResponseComment.getId() + "<br>"
-                           + "in course/feedback session: " + feedbackResponseComment.courseId + "/"
-                           + feedbackResponseComment.feedbackSessionName + "<br>"
-                           + "by: " + feedbackResponseComment.commentGiver + "<br>"
-                           + "comment text: " + feedbackResponseComment.commentText.getValue();
+                    + "Editing feedback response comment: " + feedbackResponseComment.getId() + "<br>"
+                    + "in course/feedback session: " + feedbackResponseComment.courseId + "/"
+                    + feedbackResponseComment.feedbackSessionName + "<br>"
+                    + "by: " + feedbackResponseComment.commentGiver + "<br>"
+                    + "comment text: " + feedbackResponseComment.commentText.getValue();
 
             String commentGiverName = logic.getInstructorForEmail(courseId, frc.commentGiver).name;
             String commentEditorName = instructor.name;

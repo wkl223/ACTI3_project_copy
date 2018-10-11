@@ -2,7 +2,7 @@
 <%@ tag description="Student Message of the day" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ tag import="teammates.common.util.Config" %>
-<c:set var="motdUrl" value="<%= Config.STUDENT_MOTD_URL %>" />
+<c:set var="motdUrl" value="<%= Config.STUDENT_MOTD_URL %>"/>
 <c:if test="${not empty motdUrl}">
   <div id="student-motd-wrapper">
     <input type="hidden" id="motd-url" value="<c:out value="${motdUrl}" />">
@@ -25,7 +25,7 @@
               </div>
               <div class="row">
                 <div class="col-sm-12" id="student-motd">
-                  <%-- Message of the day loads here --%>
+                    <%-- Message of the day loads here --%>
                 </div>
               </div>
             </div>

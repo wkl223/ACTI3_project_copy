@@ -14,77 +14,127 @@ import teammates.common.util.Url;
  */
 public final class TestProperties {
 
-    /** The directory where HTML files for testing pages are stored. */
+    /**
+     * The directory where HTML files for testing pages are stored.
+     */
     public static final String TEST_PAGES_FOLDER = "src/test/resources/pages";
 
-    /** The directory where HTML files for testing email contents are stored. */
+    /**
+     * The directory where HTML files for testing email contents are stored.
+     */
     public static final String TEST_EMAILS_FOLDER = "src/test/resources/emails";
 
-    /** The directory where JSON files used to create data bundles are stored. */
+    /**
+     * The directory where JSON files used to create data bundles are stored.
+     */
     public static final String TEST_DATA_FOLDER = "src/test/resources/data";
 
-    /** The value of "test.app.url" in test.properties file. */
+    /**
+     * The value of "test.app.url" in test.properties file.
+     */
     public static final String TEAMMATES_URL;
 
-    /** The version number of the application under test. */
+    /**
+     * The version number of the application under test.
+     */
     public static final String TEAMMATES_VERSION;
 
-    /** The Google ID of the test instructor account. */
+    /**
+     * The Google ID of the test instructor account.
+     */
     public static final String TEST_INSTRUCTOR_ACCOUNT;
 
-    /** The password of the test instructor account. */
+    /**
+     * The password of the test instructor account.
+     */
     public static final String TEST_INSTRUCTOR_PASSWORD;
 
-    /** The Google ID of the first test student account. */
+    /**
+     * The Google ID of the first test student account.
+     */
     public static final String TEST_STUDENT1_ACCOUNT;
 
-    /** The password of the first test student account. */
+    /**
+     * The password of the first test student account.
+     */
     public static final String TEST_STUDENT1_PASSWORD;
 
-    /** The Google ID of the second test student account. */
+    /**
+     * The Google ID of the second test student account.
+     */
     public static final String TEST_STUDENT2_ACCOUNT;
 
-    /** The password of the second test student account. */
+    /**
+     * The password of the second test student account.
+     */
     public static final String TEST_STUDENT2_PASSWORD;
 
-    /** The Google ID of the test admin account. */
+    /**
+     * The Google ID of the test admin account.
+     */
     public static final String TEST_ADMIN_ACCOUNT;
 
-    /** The password of the test admin account. */
+    /**
+     * The password of the test admin account.
+     */
     public static final String TEST_ADMIN_PASSWORD;
 
-    /** The Google ID of the test unregistered account. */
+    /**
+     * The Google ID of the test unregistered account.
+     */
     public static final String TEST_UNREG_ACCOUNT;
 
-    /** The password of the test unregistered account. */
+    /**
+     * The password of the test unregistered account.
+     */
     public static final String TEST_UNREG_PASSWORD;
 
-    /** The value of "test.backdoor" in test.properties file. */
+    /**
+     * The value of "test.backdoor" in test.properties file.
+     */
     public static final String BACKDOOR_KEY;
 
-    /** The value of "test.selenium.browser" in test.properties file. */
+    /**
+     * The value of "test.selenium.browser" in test.properties file.
+     */
     public static final String BROWSER;
-    /** One of the allowed values of "test.selenium.browser" in test.properties file. */
+    /**
+     * One of the allowed values of "test.selenium.browser" in test.properties file.
+     */
     public static final String BROWSER_CHROME = "chrome";
-    /** One of the allowed values of "test.selenium.browser" in test.properties file. */
+    /**
+     * One of the allowed values of "test.selenium.browser" in test.properties file.
+     */
     public static final String BROWSER_FIREFOX = "firefox";
 
-    /** The value of "test.firefox.path" in test.properties file. */
+    /**
+     * The value of "test.firefox.path" in test.properties file.
+     */
     public static final String FIREFOX_PATH;
 
-    /** The value of "test.chromedriver.path" in test.properties file. */
+    /**
+     * The value of "test.chromedriver.path" in test.properties file.
+     */
     public static final String CHROMEDRIVER_PATH;
 
-    /** The value of "test.timeout" in test.properties file. */
+    /**
+     * The value of "test.timeout" in test.properties file.
+     */
     public static final int TEST_TIMEOUT;
 
-    /** The value of "test.godmode.enabled" in test.properties file. */
+    /**
+     * The value of "test.godmode.enabled" in test.properties file.
+     */
     public static final boolean IS_GODMODE_ENABLED;
 
-    /** Maximum period for verification retries due to persistence delays. */
+    /**
+     * Maximum period for verification retries due to persistence delays.
+     */
     public static final int PERSISTENCE_RETRY_PERIOD_IN_S = 128;
 
-    /** The directory where credentials used in Gmail API are stored. */
+    /**
+     * The directory where credentials used in Gmail API are stored.
+     */
     static final String TEST_GMAIL_API_FOLDER = "src/test/resources/gmail-api";
 
     static {

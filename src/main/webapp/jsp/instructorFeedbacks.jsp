@@ -15,20 +15,20 @@
 
   <c:if test="${!data.usingAjax}">
     <feedbacks:feedbackSessionsForm courseAttributes="${data.courseAttributes}" fsForm="${data.newFsForm}"/>
-    <feedbacks:loadSessionsTableByAjaxForm fsList="${data.fsList}" />
+    <feedbacks:loadSessionsTableByAjaxForm fsList="${data.fsList}"/>
   </c:if>
   <br>
-  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
+  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}"/>
   <br>
   <div id="sessionList" class="align-center">
     <c:if test="${data.usingAjax}">
-      <feedbacks:feedbackSessionsTable fsList = "${data.fsList}" />
+      <feedbacks:feedbackSessionsTable fsList="${data.fsList}"/>
     </c:if>
   </div>
 
-  <ti:remindParticularStudentsModal remindParticularStudentsLink="${data.remindParticularStudentsLink}" />
-  <feedbacks:copyFromModal copyFromModal="${data.copyFromModal}" />
-  <ti:copyModal editCopyActionLink="${data.editCopyActionLink}" />
-  <ti:resendPublishedEmailModal sessionResendPublishedEmailLink="${data.sessionResendPublishedEmailLink}" />
+  <ti:remindParticularStudentsModal remindParticularStudentsLink="${data.remindParticularStudentsLink}"/>
+  <feedbacks:copyFromModal copyFromModal="${data.copyFromModal}"/>
+  <ti:copyModal editCopyActionLink="${data.editCopyActionLink}"/>
+  <ti:resendPublishedEmailModal sessionResendPublishedEmailLink="${data.sessionResendPublishedEmailLink}"/>
 
 </ti:instructorPage>

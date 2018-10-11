@@ -9,7 +9,7 @@ public class AdminDraftEmailRow {
     private String date;
 
     public AdminDraftEmailRow(String emailId, AdminEmailActions actions, String addressReceiver,
-                                    String groupReceiver, String subject, String date) {
+                              String groupReceiver, String subject, String date) {
         this.emailId = emailId;
         this.actions = actions;
         this.addressReceiver = addressReceiver;

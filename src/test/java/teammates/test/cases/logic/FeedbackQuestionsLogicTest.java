@@ -300,7 +300,7 @@ public class FeedbackQuestionsLogicTest extends BaseLogicTest {
 
         FeedbackQuestionAttributes copiedQuestion =
                 fqLogic.copyFeedbackQuestion(question1.getId(), question1.feedbackSessionName, question1.courseId,
-                                             instructor2OfCourse1.email);
+                        instructor2OfCourse1.email);
 
         FeedbackQuestionDetails question1Details = question1.getQuestionDetails();
         FeedbackQuestionDetails copiedQuestionDetails = copiedQuestion.getQuestionDetails();
@@ -386,8 +386,8 @@ public class FeedbackQuestionsLogicTest extends BaseLogicTest {
             signalFailureToDetectException("Expected InvalidParametersException not caught.");
         } catch (InvalidParametersException e) {
             assertEquals(e.getMessage(), String.format(FieldValidator.PARTICIPANT_TYPE_TEAM_ERROR_MESSAGE,
-                                                       questionToUpdate.recipientType.toDisplayRecipientName(),
-                                                       questionToUpdate.giverType.toDisplayGiverName()));
+                    questionToUpdate.recipientType.toDisplayRecipientName(),
+                    questionToUpdate.giverType.toDisplayGiverName()));
         }
     }
 
@@ -437,7 +437,7 @@ public class FeedbackQuestionsLogicTest extends BaseLogicTest {
         expectedQuestions.add(getQuestionFromDatastore("qn5InSession1InCourse1"));
         actualQuestions =
                 fqLogic.getFeedbackQuestionsForInstructor("First feedback session", "idOfTypicalCourse1",
-                                                          "instructor1@course1.tmt");
+                        "instructor1@course1.tmt");
 
         assertEquals(actualQuestions, expectedQuestions);
 
@@ -447,7 +447,7 @@ public class FeedbackQuestionsLogicTest extends BaseLogicTest {
         expectedQuestions.add(getQuestionFromDatastore("qn4InSession1InCourse1"));
         actualQuestions =
                 fqLogic.getFeedbackQuestionsForInstructor("First feedback session", "idOfTypicalCourse1",
-                                                          "instructor2@course1.tmt");
+                        "instructor2@course1.tmt");
 
         assertEquals(actualQuestions, expectedQuestions);
 
@@ -459,7 +459,7 @@ public class FeedbackQuestionsLogicTest extends BaseLogicTest {
 
         actualQuestions =
                 fqLogic.getFeedbackQuestionsForInstructor("Instructor feedback session", "idOfTypicalCourse2",
-                                                          "instructor1@course2.tmt");
+                        "instructor1@course2.tmt");
 
         assertEquals(actualQuestions, expectedQuestions);
 
@@ -474,7 +474,7 @@ public class FeedbackQuestionsLogicTest extends BaseLogicTest {
 
         actualQuestions =
                 fqLogic.getFeedbackQuestionsForInstructor("Instructor feedback session", "idOfTypicalCourse2",
-                                                          "instructor2@course2.tmt");
+                        "instructor2@course2.tmt");
 
         assertEquals(actualQuestions, expectedQuestions);
 
@@ -483,7 +483,7 @@ public class FeedbackQuestionsLogicTest extends BaseLogicTest {
         expectedQuestions = new ArrayList<>();
         actualQuestions =
                 fqLogic.getFeedbackQuestionsForInstructor("Instructor feedback session", "idOfTypicalCourse2",
-                                                          "iwc@yahoo.tmt");
+                        "iwc@yahoo.tmt");
 
         assertEquals(actualQuestions, expectedQuestions);
 
@@ -491,7 +491,7 @@ public class FeedbackQuestionsLogicTest extends BaseLogicTest {
 
         try {
             fqLogic.getFeedbackQuestionsForInstructor("Instructor feedback session", "idOfTypicalCourse1",
-                                                      "instructor1@course1.tmt");
+                    "instructor1@course1.tmt");
             signalFailureToDetectException("Allowed to get questions for a feedback session that does not exist.");
         } catch (EntityDoesNotExistException e) {
             assertEquals(e.getMessage(), "Trying to get questions for a feedback session that does not exist.");
@@ -523,7 +523,7 @@ public class FeedbackQuestionsLogicTest extends BaseLogicTest {
         expectedQuestions.add(getQuestionFromDatastore("qn1InSession1InCourse1"));
         expectedQuestions.add(getQuestionFromDatastore("qn2InSession1InCourse1"));
         actualQuestions =
-                    fqLogic.getFeedbackQuestionsForStudents("First feedback session", "idOfTypicalCourse1");
+                fqLogic.getFeedbackQuestionsForStudents("First feedback session", "idOfTypicalCourse1");
 
         assertEquals(actualQuestions, expectedQuestions);
 
@@ -533,7 +533,7 @@ public class FeedbackQuestionsLogicTest extends BaseLogicTest {
         expectedQuestions.add(getQuestionFromDatastore("team.feedback"));
         expectedQuestions.add(getQuestionFromDatastore("team.members.feedback"));
         actualQuestions =
-                    fqLogic.getFeedbackQuestionsForStudents("Second feedback session", "idOfTypicalCourse1");
+                fqLogic.getFeedbackQuestionsForStudents("Second feedback session", "idOfTypicalCourse1");
 
         assertEquals(actualQuestions, expectedQuestions);
 

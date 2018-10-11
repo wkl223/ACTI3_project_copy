@@ -8,22 +8,22 @@ import org.openqa.selenium.support.FindBy;
 
 public class InstructorCourseStudentDetailsEditPage extends AppPage {
 
-    @FindBy (id = "studentname")
+    @FindBy(id = "studentname")
     private WebElement studentNameTextbox;
 
-    @FindBy (id = "teamname")
+    @FindBy(id = "teamname")
     private WebElement teamNameTextbox;
 
-    @FindBy (id = "newstudentemail")
+    @FindBy(id = "newstudentemail")
     private WebElement studentEmailTextbox;
 
-    @FindBy (id = "studentemail")
+    @FindBy(id = "studentemail")
     private WebElement studentEmailTextboxOriginal;
 
-    @FindBy (id = "comments")
+    @FindBy(id = "comments")
     private WebElement commentsTextbox;
 
-    @FindBy (id = "button_submit")
+    @FindBy(id = "button_submit")
     private WebElement submitButton;
 
     public InstructorCourseStudentDetailsEditPage(Browser browser) {

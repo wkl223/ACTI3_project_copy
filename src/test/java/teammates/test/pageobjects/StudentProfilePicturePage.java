@@ -20,7 +20,7 @@ public class StudentProfilePicturePage extends AppPage {
 
     public void verifyHasPicture() {
         assertEquals(SanitizationHelper.sanitizeForHtml(browser.driver.findElement(By.tagName("img")).getAttribute("src")),
-                     SanitizationHelper.sanitizeForHtml(browser.driver.getCurrentUrl()));
+                SanitizationHelper.sanitizeForHtml(browser.driver.getCurrentUrl()));
     }
 
 }

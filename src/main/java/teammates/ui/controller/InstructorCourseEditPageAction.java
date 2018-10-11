@@ -51,12 +51,12 @@ public class InstructorCourseEditPageAction extends Action {
         }
 
         InstructorCourseEditPageData data = new InstructorCourseEditPageData(account, sessionToken, courseToEdit,
-                                                                             instructorList, instructor,
-                                                                             instructorToShowIndex,
-                                                                             sectionNames, feedbackNames);
+                instructorList, instructor,
+                instructorToShowIndex,
+                sectionNames, feedbackNames);
 
         statusToAdmin = "instructorCourseEdit Page Load<br>"
-                        + "Editing information for Course <span class=\"bold\">[" + courseId + "]</span>";
+                + "Editing information for Course <span class=\"bold\">[" + courseId + "]</span>";
 
         return createShowPageResult(Const.ViewURIs.INSTRUCTOR_COURSE_EDIT, data);
     }

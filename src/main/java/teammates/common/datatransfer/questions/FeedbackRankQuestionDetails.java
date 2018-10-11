@@ -48,9 +48,9 @@ public abstract class FeedbackRankQuestionDetails extends FeedbackQuestionDetail
 
     @Override
     public abstract String getQuestionWithExistingResponseSubmissionFormHtml(
-                        boolean sessionIsOpen, int qnIdx, int responseIdx, String courseId,
-                        int totalNumRecipients,
-                        FeedbackResponseDetails existingResponseDetails, StudentAttributes student);
+            boolean sessionIsOpen, int qnIdx, int responseIdx, String courseId,
+            int totalNumRecipients,
+            FeedbackResponseDetails existingResponseDetails, StudentAttributes student);
 
     @Override
     public abstract String getQuestionWithoutExistingResponseSubmissionFormHtml(
@@ -67,7 +67,7 @@ public abstract class FeedbackRankQuestionDetails extends FeedbackQuestionDetail
             Map<String, List<Integer>> optionRanks,
             String optionReceivingRanks, int rankReceived) {
         optionRanks.computeIfAbsent(optionReceivingRanks, key -> new ArrayList<>())
-                   .add(rankReceived);
+                .add(rankReceived);
     }
 
     /**
@@ -112,13 +112,14 @@ public abstract class FeedbackRankQuestionDetails extends FeedbackQuestionDetail
      * For a single set of ranking (options / feedback responses),
      * fix ties by assigning the MIN value of the ordering to all the tied options
      * e.g. the normalised ranks of the set of ranks (1,4,1,4) is (1,3,1,3)
-     * @param rankOfOption  a map containing the original unfiltered answer for each options
-     * @param options  a list of options
+     *
+     * @param rankOfOption a map containing the original unfiltered answer for each options
+     * @param options      a list of options
      * @return a map of the option to the normalised rank of the response
      */
     protected <K> Map<K, Integer> obtainMappingToNormalisedRanksForRanking(
-                                                        Map<K, Integer> rankOfOption,
-                                                        List<K> options) {
+            Map<K, Integer> rankOfOption,
+            List<K> options) {
         Map<K, Integer> normalisedRankForSingleSetOfRankings = new HashMap<>();
 
         // group the options/feedback response by its rank
@@ -131,7 +132,7 @@ public abstract class FeedbackRankQuestionDetails extends FeedbackQuestionDetail
             }
 
             rankToAnswersMap.computeIfAbsent(rankGiven, key -> new ArrayList<>())
-                            .add(answer);
+                    .add(answer);
         }
 
         // every answer in the same group is given the same rank
@@ -153,6 +154,7 @@ public abstract class FeedbackRankQuestionDetails extends FeedbackQuestionDetail
      * E.g. A and B received (1,2) and C received (1,2,3),
      * so A and B have the average rank of 1.5 and C's average rank is 2
      * After normalization, the overall rank of A, B and C will be 1, 1 and 3
+     *
      * @param recipientRanks is a map
      *                       with key being the recipient identifier and the value the list of ranks of the recipient
      * @return a map of recipients/options with their corresponding overall rank after normalization

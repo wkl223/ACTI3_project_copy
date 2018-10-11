@@ -39,6 +39,7 @@ public class InstructorHomePageData extends PageData {
     /**
      * Retrieves the link to submit the request to remind particular students.
      * Also contains home page link to return after the action.
+     *
      * @return form submit action link
      */
     public String getRemindParticularStudentsLink() {
@@ -48,6 +49,7 @@ public class InstructorHomePageData extends PageData {
     /**
      * Retrieves the link to submit the request for resending the session published email.
      * Also contains home page link to return to after the action.
+     *
      * @return form submit action link
      */
     public String getSessionResendPublishedEmailLink() {
@@ -57,6 +59,7 @@ public class InstructorHomePageData extends PageData {
     /**
      * Retrieves the link to submit the request for copy of session.
      * Also contains home page link to return after the action.
+     *
      * @return form submit action link
      */
     public String getEditCopyActionLink() {

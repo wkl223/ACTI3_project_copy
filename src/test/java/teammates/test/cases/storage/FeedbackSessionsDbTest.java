@@ -66,9 +66,9 @@ public class FeedbackSessionsDbTest extends BaseComponentTestCase {
             signalFailureToDetectException();
         } catch (EntityAlreadyExistsException e) {
             AssertHelper.assertContains(String.format(EntitiesDb.ERROR_CREATE_ENTITY_ALREADY_EXISTS,
-                                                      fsa.getEntityTypeAsString())
-                                            + fsa.getIdentificationString(),
-                                        e.getMessage());
+                    fsa.getEntityTypeAsString())
+                            + fsa.getIdentificationString(),
+                    e.getMessage());
         }
 
         fsDb.deleteEntity(fsa);
@@ -150,11 +150,11 @@ public class FeedbackSessionsDbTest extends BaseComponentTestCase {
 
         String expected =
                 dataBundle.feedbackSessions.get("session1InCourse1").toString() + System.lineSeparator()
-                + dataBundle.feedbackSessions.get("session2InCourse1").toString() + System.lineSeparator()
-                + dataBundle.feedbackSessions.get("empty.session").toString() + System.lineSeparator()
-                + dataBundle.feedbackSessions.get("awaiting.session").toString() + System.lineSeparator()
-                + dataBundle.feedbackSessions.get("closedSession").toString() + System.lineSeparator()
-                + dataBundle.feedbackSessions.get("gracePeriodSession").toString() + System.lineSeparator();
+                        + dataBundle.feedbackSessions.get("session2InCourse1").toString() + System.lineSeparator()
+                        + dataBundle.feedbackSessions.get("empty.session").toString() + System.lineSeparator()
+                        + dataBundle.feedbackSessions.get("awaiting.session").toString() + System.lineSeparator()
+                        + dataBundle.feedbackSessions.get("closedSession").toString() + System.lineSeparator()
+                        + dataBundle.feedbackSessions.get("gracePeriodSession").toString() + System.lineSeparator();
 
         for (FeedbackSessionAttributes session : sessions) {
             AssertHelper.assertContains(session.toString(), expected);
@@ -257,7 +257,7 @@ public class FeedbackSessionsDbTest extends BaseComponentTestCase {
         } catch (InvalidParametersException e) {
             assertEquals(
                     String.format(TIME_FRAME_ERROR_MESSAGE, SESSION_END_TIME_FIELD_NAME,
-                                  SESSION_START_TIME_FIELD_NAME),
+                            SESSION_START_TIME_FIELD_NAME),
                     e.getLocalizedMessage());
         }
         ______TS("feedback session does not exist");

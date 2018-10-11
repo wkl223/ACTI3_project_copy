@@ -44,7 +44,7 @@ public class InstructorCourseDetailsPageData extends PageData {
         String courseId = sanitizeForJs(courseDetails.course.getId());
         String href = sanitizeForJs(getInstructorCourseRemindLink(courseDetails.course.getId()));
         courseRemindButton = createButton(null, "btn btn-primary", "button_remind", href,
-                                          Const.Tooltips.COURSE_REMIND, "tooltip", courseId, isDisabled);
+                Const.Tooltips.COURSE_REMIND, "tooltip", courseId, isDisabled);
 
         String hrefDeleteStudents = sanitizeForJs(getInstructorCourseStudentDeleteAllLink(courseId));
         courseDeleteAllButton = createButton(null, "btn btn-danger course-student-delete-all-link", "button-delete-all",
@@ -57,14 +57,14 @@ public class InstructorCourseDetailsPageData extends PageData {
                 for (StudentAttributes student : teamDetails.students) {
                     String studentPhotoUrl = student.getPublicProfilePictureUrl();
                     studentPhotoUrl = Url.addParamToUrl(studentPhotoUrl,
-                                                    Const.ParamsNames.USER_ID, account.googleId);
+                            Const.ParamsNames.USER_ID, account.googleId);
                     emailPhotoUrlMapping.put(student.email, studentPhotoUrl);
                 }
             }
             boolean isAllowedToViewStudentInSection = currentInstructor.isAllowedForPrivilege(section.name,
-                                            Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_STUDENT_IN_SECTIONS);
+                    Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_STUDENT_IN_SECTIONS);
             boolean isAllowedToModifyStudent = currentInstructor.isAllowedForPrivilege(section.name,
-                                            Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_STUDENT);
+                    Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_STUDENT);
             this.sections.add(new StudentListSectionData(section, isAllowedToViewStudentInSection,
                     isAllowedToModifyStudent, emailPhotoUrlMapping, account.googleId, getSessionToken(),
                     Const.PageNames.INSTRUCTOR_COURSE_DETAILS_PAGE));
@@ -114,7 +114,7 @@ public class InstructorCourseDetailsPageData extends PageData {
     }
 
     private ElementTag createButton(String content, String buttonClass, String id, String href,
-            String title, String dataToggle, String dataCourseId, boolean isDisabled) {
+                                    String title, String dataToggle, String dataCourseId, boolean isDisabled) {
         ElementTag button = new ElementTag(content);
 
         if (buttonClass != null) {

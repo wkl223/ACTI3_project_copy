@@ -30,18 +30,18 @@ public class InstructorFeedbackResendPublishedEmailActionTest extends BaseAction
         gaeSimulation.loginAsInstructor(instructor1ofCourse1.googleId);
 
         ______TS("Unsuccessful case: Not enough parameters");
-        String[] paramsNoCourseId = new String[] {
+        String[] paramsNoCourseId = new String[]{
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getSessionName(),
         };
         verifyAssumptionFailure(paramsNoCourseId);
-        String[] paramsNoFeedback = new String[] {
+        String[] paramsNoFeedback = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId()
         };
         verifyAssumptionFailure(paramsNoFeedback);
 
         ______TS("Unsuccessful case: No user to email, warning message generated");
 
-        String[] paramsNoUserToEmail = new String[] {
+        String[] paramsNoUserToEmail = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getSessionName(),
         };
@@ -55,7 +55,7 @@ public class InstructorFeedbackResendPublishedEmailActionTest extends BaseAction
         ______TS("Unsuccessful case: Feedback session not published, warning message generated");
 
         fs = typicalBundle.feedbackSessions.get("session1InCourse1");
-        String[] paramsFeedbackSessionNotPublshed = new String[] {
+        String[] paramsFeedbackSessionNotPublshed = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getSessionName(),
                 Const.ParamsNames.SUBMISSION_RESEND_PUBLISHED_EMAIL_USER_LIST, studentToEmail.getEmail()
@@ -70,7 +70,7 @@ public class InstructorFeedbackResendPublishedEmailActionTest extends BaseAction
         ______TS("Successful case: Typical case");
 
         fs = typicalBundle.feedbackSessions.get("closedSession");
-        String[] paramsTypical = new String[] {
+        String[] paramsTypical = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getSessionName(),
                 Const.ParamsNames.SUBMISSION_RESEND_PUBLISHED_EMAIL_USER_LIST, studentToEmail.getEmail()
@@ -97,7 +97,7 @@ public class InstructorFeedbackResendPublishedEmailActionTest extends BaseAction
     protected void testAccessControl() throws Exception {
         FeedbackSessionAttributes fs = typicalBundle.feedbackSessions.get("closedSession");
         StudentAttributes studentNotSubmitFeedback = typicalBundle.students.get("student1InCourse1");
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, fs.getCourseId(),
                 Const.ParamsNames.FEEDBACK_SESSION_NAME, fs.getFeedbackSessionName(),
                 Const.ParamsNames.SUBMISSION_RESEND_PUBLISHED_EMAIL_USER_LIST, studentNotSubmitFeedback.getEmail()

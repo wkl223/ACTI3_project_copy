@@ -27,7 +27,9 @@
               <div class="col-lg-8">
                 <p class="form-control-static">
                   Third Session
-                  <a data-original-title="Edit feedback session details" data-placement="top" data-toggle="tooltip" href="/page/instructorFeedbackEditPage?courseid=CFResultsUiT.CS2104&fsname=Third+Session&editsessiondetails=true&user=CFResultsUiT.instr" id="edit_icon_button">
+                  <a data-original-title="Edit feedback session details" data-placement="top" data-toggle="tooltip"
+                     href="/page/instructorFeedbackEditPage?courseid=CFResultsUiT.CS2104&fsname=Third+Session&editsessiondetails=true&user=CFResultsUiT.instr"
+                     id="edit_icon_button">
                     <span class="glyphicon glyphicon-edit">
                     </span>
                   </a>
@@ -66,7 +68,8 @@
               <div class="col-md-12">
                 <form action="/page/instructorFeedbackResultsDownload" method="post">
                   <div id="feedbackDataButtons">
-                    <input class="btn btn-primary btn-block" id="button_download" name="fruploaddownloadbtn" type="submit" value="Download Results">
+                    <input class="btn btn-primary btn-block" id="button_download" name="fruploaddownloadbtn"
+                           type="submit" value="Download Results">
                   </div>
                   <input name="user" type="hidden" value="CFResultsUiT.instr">
                   <input name="fsname" type="hidden" value="Third Session">
@@ -77,7 +80,11 @@
                 </form>
                 <br>
                 <div>
-                  <a class="btn btn-primary btn-block session-unpublish-for-test" data-fsname="Third Session" data-original-title="Make responses no longer visible" data-placement="top" data-sending-published-email="true" data-toggle="tooltip" href="/page/instructorFeedbackUnpublish?courseid=CFResultsUiT.CS2104&fsname=Third+Session&next=%2Fpage%2FinstructorFeedbackSessionsPage&user=CFResultsUiT.instr&token=${sessionToken}" title="">
+                  <a class="btn btn-primary btn-block session-unpublish-for-test" data-fsname="Third Session"
+                     data-original-title="Make responses no longer visible" data-placement="top"
+                     data-sending-published-email="true" data-toggle="tooltip"
+                     href="/page/instructorFeedbackUnpublish?courseid=CFResultsUiT.CS2104&fsname=Third+Session&next=%2Fpage%2FinstructorFeedbackSessionsPage&user=CFResultsUiT.instr&token=${sessionToken}"
+                     title="">
                     Unpublish Results
                   </a>
                 </div>
@@ -166,7 +173,9 @@
   <div aria-hidden="true" aria-labelledby="remindModal" class="modal fade" id="remindModal" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
-        <form action="/page/instructorFeedbackRemindParticularStudents?next=%2Fpage%2FinstructorFeedbackResultsPage%3Fuser%3DCFResultsUiT.instr%26courseid%3DCFResultsUiT.CS2104%26fsname%3DThird%2BSession&token=${sessionToken}" method="post" name="form_remind_list" role="form">
+        <form
+            action="/page/instructorFeedbackRemindParticularStudents?next=%2Fpage%2FinstructorFeedbackResultsPage%3Fuser%3DCFResultsUiT.instr%26courseid%3DCFResultsUiT.CS2104%26fsname%3DThird%2BSession&token=${sessionToken}"
+            method="post" name="form_remind_list" role="form">
           <div class="modal-header">
             <button aria-hidden="true" class="close" data-dismiss="modal" type="button">
               ×
@@ -205,7 +214,8 @@
   </div>
   <div class="panel panel-default">
     <div class="panel-heading" data-target="#panelBodyCollapse-1" id="panelHeading-1" style="cursor: pointer;">
-      <form action="/page/instructorFeedbackResultsPage" class="responseRateForm" id="responseRate" style="display:none;">
+      <form action="/page/instructorFeedbackResultsPage" class="responseRateForm" id="responseRate"
+            style="display:none;">
         <input name="courseid" type="hidden" value="CFResultsUiT.CS2104">
         <input name="fsname" type="hidden" value="Third Session">
         <input name="user" type="hidden" value="CFResultsUiT.instr">
@@ -213,8 +223,12 @@
       </form>
       <div class="display-icon pull-right">
         <div class="remind-no-response">
-          <span class="tool-tip-decorate" data-original-title="Send e-mails to remind students and instructors who have not submitted their feedbacks to do so" data-placement="top" data-toggle="tooltip" title="">
-            <a class="btn btn-default btn-xs btn-tm-actions remind-btn-no-response" data-actionlink="/page/instructorFeedbackRemindParticularStudentsPage?user=CFResultsUiT.instr&courseid=CFResultsUiT.CS2104&fsname=Third+Session&token=${sessionToken}" data-target="#remindModal" data-toggle="modal" href="javascript:;">
+          <span class="tool-tip-decorate"
+                data-original-title="Send e-mails to remind students and instructors who have not submitted their feedbacks to do so"
+                data-placement="top" data-toggle="tooltip" title="">
+            <a class="btn btn-default btn-xs btn-tm-actions remind-btn-no-response"
+               data-actionlink="/page/instructorFeedbackRemindParticularStudentsPage?user=CFResultsUiT.instr&courseid=CFResultsUiT.CS2104&fsname=Third+Session&token=${sessionToken}"
+               data-target="#remindModal" data-toggle="modal" href="javascript:;">
               Remind All
             </a>
           </span>

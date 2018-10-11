@@ -38,7 +38,7 @@ public class InstructorCourseDetailsPageAction extends Action {
             data.setStudentListHtmlTableAsString(StringHelper.csvToHtmlTable(courseStudentListAsCsv));
 
             statusToAdmin = "instructorCourseDetails Page Ajax Html table Load<br>"
-                            + "Viewing Student List Table for Course <span class=\"bold\">[" + courseId + "]</span>";
+                    + "Viewing Student List Table for Course <span class=\"bold\">[" + courseId + "]</span>";
 
             return createAjaxResult(data);
         }
@@ -50,12 +50,12 @@ public class InstructorCourseDetailsPageAction extends Action {
 
         if (courseDetails.getStats().getStudentsTotal() == 0) {
             String message = String.format(Const.StatusMessages.INSTRUCTOR_COURSE_EMPTY,
-                                           data.getInstructorCourseEnrollLink(courseId));
+                    data.getInstructorCourseEnrollLink(courseId));
             statusToUser.add(new StatusMessage(message, StatusMessageColor.WARNING));
         }
 
         statusToAdmin = "instructorCourseDetails Page Load<br>"
-                        + "Viewing Course Details for Course <span class=\"bold\">[" + courseId + "]</span>";
+                + "Viewing Course Details for Course <span class=\"bold\">[" + courseId + "]</span>";
 
         return createShowPageResult(Const.ViewURIs.INSTRUCTOR_COURSE_DETAILS, data);
     }

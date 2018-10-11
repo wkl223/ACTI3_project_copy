@@ -23,7 +23,7 @@ public class InstructorCopyFsToModal extends AppPage {
 
     /**
      * Returns true if the modal for copying feedback sessions to multiple courses,
-     *         identified by its html id, is present, otherwise false.
+     * identified by its html id, is present, otherwise false.
      */
     public static boolean isPresentOnPage(Browser browser) {
         return !browser.driver.findElements(By.id("fsCopyModal")).isEmpty();
@@ -44,6 +44,7 @@ public class InstructorCopyFsToModal extends AppPage {
 
     /**
      * Populates the fields of the form by using the provided name, and selecting every course.
+     *
      * @param newFsName feedback session name of the new session
      */
     public void fillFormWithAllCoursesSelected(String newFsName) {

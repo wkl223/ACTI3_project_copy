@@ -101,7 +101,8 @@ public final class DataBundleRegenerator {
         regenerateGenericJson(file);
         String jsonString = FileHelper.readFile(file.getCanonicalPath());
         List<FeedbackQuestionAttributes> template =
-                JsonUtils.fromJson(jsonString, new TypeToken<List<FeedbackQuestionAttributes>>(){}.getType());
+                JsonUtils.fromJson(jsonString, new TypeToken<List<FeedbackQuestionAttributes>>() {
+                }.getType());
         for (FeedbackQuestionAttributes question : template) {
             fixQuestion(question);
         }

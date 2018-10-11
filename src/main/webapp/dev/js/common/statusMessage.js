@@ -49,7 +49,7 @@ function appendNewStatusMessage(message, bootstrapContextualColor) {
     const $statusMessagesDivToUser = $(DIV_STATUS_MESSAGE);
     $statusMessagesDivToUser.append(buildNewStatusMessageDiv(message, bootstrapContextualColor));
     $statusMessagesDivToUser.show();
-    scrollToElement($statusMessagesDivToUser[0], { offset: -window.innerHeight / 2 });
+    scrollToElement($statusMessagesDivToUser[0], {offset: -window.innerHeight / 2});
 }
 
 /**
@@ -65,7 +65,7 @@ function setStatusMessage(message, bootstrapContextualColor) {
     }
     const $statusMessageDivToUser = populateStatusMessageDiv(message, bootstrapContextualColor);
     $statusMessageDivToUser.show();
-    scrollToElement($statusMessageDivToUser[0], { offset: -window.innerHeight / 2 });
+    scrollToElement($statusMessageDivToUser[0], {offset: -window.innerHeight / 2});
 }
 
 /**

@@ -242,8 +242,8 @@ public class FeedbackSessionAttributes extends EntityAttributes<FeedbackSession>
         // is open for only 24 hours.
         // Hence we do not send a reminder e-mail for feedback session.
         return now.isAfter(startTime)
-               && difference.compareTo(Duration.ofHours(hours - 1)) >= 0
-               && difference.compareTo(Duration.ofHours(hours)) < 0;
+                && difference.compareTo(Duration.ofHours(hours - 1)) >= 0
+                && difference.compareTo(Duration.ofHours(hours)) < 0;
     }
 
     /**
@@ -291,7 +291,7 @@ public class FeedbackSessionAttributes extends EntityAttributes<FeedbackSession>
 
     /**
      * Returns {@code true} if the session is visible; {@code false} if not.
-     *         Does not care if the session has started or not.
+     * Does not care if the session has started or not.
      */
     public boolean isVisible() {
         Instant visibleTime = this.sessionVisibleFromTime;
@@ -306,7 +306,7 @@ public class FeedbackSessionAttributes extends EntityAttributes<FeedbackSession>
 
     /**
      * Returns {@code true} if the results of the feedback session is visible; {@code false} if not.
-     *         Does not care if the session has ended or not.
+     * Does not care if the session has ended or not.
      */
     public boolean isPublished() {
         Instant publishTime = this.resultsVisibleFromTime;
@@ -330,7 +330,7 @@ public class FeedbackSessionAttributes extends EntityAttributes<FeedbackSession>
      */
     public boolean isManuallyPublished() {
         return resultsVisibleFromTime.equals(Const.TIME_REPRESENTS_LATER)
-               || resultsVisibleFromTime.equals(Const.TIME_REPRESENTS_NOW);
+                || resultsVisibleFromTime.equals(Const.TIME_REPRESENTS_NOW);
     }
 
     public boolean isCreator(String instructorEmail) {
@@ -345,18 +345,18 @@ public class FeedbackSessionAttributes extends EntityAttributes<FeedbackSession>
     @Override
     public String toString() {
         return "FeedbackSessionAttributes [feedbackSessionName="
-               + feedbackSessionName + ", courseId=" + courseId
-               + ", creatorEmail=" + creatorEmail + ", instructions=" + instructions
-               + ", startTime=" + startTime
-               + ", endTime=" + endTime + ", sessionVisibleFromTime="
-               + sessionVisibleFromTime + ", resultsVisibleFromTime="
-               + resultsVisibleFromTime + ", timeZone=" + timeZone
-               + ", gracePeriod=" + getGracePeriodMinutes() + "min"
-               + ", sentOpenEmail=" + sentOpenEmail
-               + ", sentPublishedEmail=" + sentPublishedEmail
-               + ", isOpeningEmailEnabled=" + isOpeningEmailEnabled
-               + ", isClosingEmailEnabled=" + isClosingEmailEnabled
-               + ", isPublishedEmailEnabled=" + isPublishedEmailEnabled + "]";
+                + feedbackSessionName + ", courseId=" + courseId
+                + ", creatorEmail=" + creatorEmail + ", instructions=" + instructions
+                + ", startTime=" + startTime
+                + ", endTime=" + endTime + ", sessionVisibleFromTime="
+                + sessionVisibleFromTime + ", resultsVisibleFromTime="
+                + resultsVisibleFromTime + ", timeZone=" + timeZone
+                + ", gracePeriod=" + getGracePeriodMinutes() + "min"
+                + ", sentOpenEmail=" + sentOpenEmail
+                + ", sentPublishedEmail=" + sentPublishedEmail
+                + ", isOpeningEmailEnabled=" + isOpeningEmailEnabled
+                + ", isClosingEmailEnabled=" + isClosingEmailEnabled
+                + ", isPublishedEmailEnabled=" + isPublishedEmailEnabled + "]";
     }
 
     /**

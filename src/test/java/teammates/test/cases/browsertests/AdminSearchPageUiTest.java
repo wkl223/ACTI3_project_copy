@@ -133,7 +133,7 @@ public class AdminSearchPageUiTest extends BaseUiTestCase {
 
     private boolean isSearchPanelPresent() {
         return searchPage.isElementPresent(By.id("filterQuery"))
-            && searchPage.isElementPresent(By.id("searchButton"));
+                && searchPage.isElementPresent(By.id("searchButton"));
     }
 
     /**
@@ -164,44 +164,44 @@ public class AdminSearchPageUiTest extends BaseUiTestCase {
         int numColumns = searchPage.getNumberOfColumnsFromDataTable(tableNum);
 
         switch (searchPage.getDataTableId(tableNum)) {
-        // Instructor table
-        case "search_table_instructor":
-            if (numColumns != ADMIN_SEARCH_INSTRUCTOR_TABLE_NUM_COLUMNS) {
+            // Instructor table
+            case "search_table_instructor":
+                if (numColumns != ADMIN_SEARCH_INSTRUCTOR_TABLE_NUM_COLUMNS) {
+                    return false;
+                }
+                expectedSearchTableHeaders = Arrays.asList("Course",
+                        "Name",
+                        "Google ID",
+                        "Institute",
+                        "Options");
+                actualSessionTableHeaders = new ArrayList<>();
+
+                for (int i = 0; i < numColumns; i++) {
+                    actualSessionTableHeaders.add(searchPage.getHeaderValueFromDataTable(tableNum, 0, i));
+                }
+
+                break;
+
+            // Student table
+            case "search_table":
+                if (numColumns != ADMIN_SEARCH_STUDENT_TABLE_NUM_COLUMNS) {
+                    return false;
+                }
+                expectedSearchTableHeaders = Arrays.asList("Institute",
+                        "Course[Section](Team)",
+                        "Name",
+                        "Google ID[Details]",
+                        "Comments",
+                        "Options");
+                actualSessionTableHeaders = new ArrayList<>();
+                for (int i = 0; i < numColumns; i++) {
+                    actualSessionTableHeaders.add(searchPage.getHeaderValueFromDataTable(tableNum, 0, i));
+                }
+
+                break;
+
+            default:
                 return false;
-            }
-            expectedSearchTableHeaders = Arrays.asList("Course",
-                                                       "Name",
-                                                       "Google ID",
-                                                       "Institute",
-                                                       "Options");
-            actualSessionTableHeaders = new ArrayList<>();
-
-            for (int i = 0; i < numColumns; i++) {
-                actualSessionTableHeaders.add(searchPage.getHeaderValueFromDataTable(tableNum, 0, i));
-            }
-
-            break;
-
-        // Student table
-        case "search_table":
-            if (numColumns != ADMIN_SEARCH_STUDENT_TABLE_NUM_COLUMNS) {
-                return false;
-            }
-            expectedSearchTableHeaders = Arrays.asList("Institute",
-                                                       "Course[Section](Team)",
-                                                       "Name",
-                                                       "Google ID[Details]",
-                                                       "Comments",
-                                                       "Options");
-            actualSessionTableHeaders = new ArrayList<>();
-            for (int i = 0; i < numColumns; i++) {
-                actualSessionTableHeaders.add(searchPage.getHeaderValueFromDataTable(tableNum, 0, i));
-            }
-
-            break;
-
-        default:
-            return false;
         }
 
         return actualSessionTableHeaders.equals(expectedSearchTableHeaders);
@@ -210,14 +210,12 @@ public class AdminSearchPageUiTest extends BaseUiTestCase {
     /**
      * Returns true if the student is displayed correctly in the student table.
      *
-     * @param student
-     *            the student to be displayed
-     * @param instructorToMasquaradeAs
-     *            a registered instructor with co-owner privileges or the
-     *            privilege to modify instructors
+     * @param student                  the student to be displayed
+     * @param instructorToMasquaradeAs a registered instructor with co-owner privileges or the
+     *                                 privilege to modify instructors
      */
     private void assertStudentRowDisplayed(StudentAttributes student, InstructorAttributes instructorToMasquaradeAs,
-                                              CourseAttributes course) {
+                                           CourseAttributes course) {
 
         WebElement studentRow = searchPage.getStudentRow(student);
 
@@ -229,10 +227,8 @@ public class AdminSearchPageUiTest extends BaseUiTestCase {
      * Returns true if the {@code student}'s course, section, team, name,
      * googleId and comment are displayed correctly.
      *
-     * @param studentRow
-     *            a row of the student table
-     * @param student
-     *            the student to be displayed
+     * @param studentRow a row of the student table
+     * @param student    the student to be displayed
      */
     private void assertStudentContentCorrect(WebElement studentRow, StudentAttributes student, CourseAttributes course) {
 
@@ -243,8 +239,8 @@ public class AdminSearchPageUiTest extends BaseUiTestCase {
         String actualComment = studentRow.findElement(By.xpath("td[5]")).getText();
 
         String expectedDetails = student.course + "\n"
-                                 + (student.section == null ? Const.DEFAULT_SECTION : student.section) + "\n"
-                                 + student.team;
+                + (student.section == null ? Const.DEFAULT_SECTION : student.section) + "\n"
+                + student.team;
         // courseName resides in tooltip and is expected to be sanitized in the attribute
         // adjustments made based on differences in sanitization used in fn:escapeXml
         String expectedCourseName = sanitizeWithFnEscapeXml(course.getName());
@@ -263,13 +259,10 @@ public class AdminSearchPageUiTest extends BaseUiTestCase {
      * Returns true if the links associated with the {@code student}'s name and
      * googleId (if he/she is registered) are correct.
      *
-     * @param studentRow
-     *            a row of the student table
-     * @param student
-     *            the student to be displayed
-     * @param instructorToMasquaradeAs
-     *            a registered instructor with co-owner privileges or the
-     *            privilege to modify instructors
+     * @param studentRow               a row of the student table
+     * @param student                  the student to be displayed
+     * @param instructorToMasquaradeAs a registered instructor with co-owner privileges or the
+     *                                 privilege to modify instructors
      */
     private boolean isStudentLinkCorrect(WebElement studentRow,
                                          StudentAttributes student,
@@ -277,20 +270,20 @@ public class AdminSearchPageUiTest extends BaseUiTestCase {
 
         String actualNameLink = studentRow.findElement(By.xpath("td[3]/a")).getAttribute("href");
         String expectedNameLink = createUrl(Const.ActionURIs.INSTRUCTOR_STUDENT_RECORDS_PAGE)
-                                  .withCourseId(student.course)
-                                  .withStudentEmail(student.email)
-                                  .withUserId(instructorToMasquaradeAs.googleId)
-                                  .toAbsoluteString();
+                .withCourseId(student.course)
+                .withStudentEmail(student.email)
+                .withUserId(instructorToMasquaradeAs.googleId)
+                .toAbsoluteString();
 
         if (student.isRegistered()) {
 
             String actualGoogleIdLink = studentRow.findElement(By.xpath("td[4]/a")).getAttribute("href");
             String expectedGoogleIdLink = createUrl(Const.ActionURIs.STUDENT_HOME_PAGE)
-                                          .withUserId(student.googleId)
-                                          .toAbsoluteString();
+                    .withUserId(student.googleId)
+                    .toAbsoluteString();
 
             return actualNameLink.equals(expectedNameLink)
-                   && actualGoogleIdLink.equals(expectedGoogleIdLink);
+                    && actualGoogleIdLink.equals(expectedGoogleIdLink);
 
         }
         return actualNameLink.equals(expectedNameLink);
@@ -299,7 +292,7 @@ public class AdminSearchPageUiTest extends BaseUiTestCase {
     /**
      * Returns true if the instructor is displayed correctly in the instructor table.
      *
-     * @param instructor                  the instructor to be displayed
+     * @param instructor the instructor to be displayed
      */
     private void assertInstructorRowDisplayed(InstructorAttributes instructor, CourseAttributes course) {
 

@@ -385,8 +385,8 @@ $(document).ready(() => {
         clearTimeout(copyEmailPopoverTimeout);
         const $copyEmailButton = $(this);
         const tips = 'Emails now are copied. If it doesn\'t work, you can also use <kbd>Ctrl + C</kbd> to COPY.<br>'
-                   + 'You may use <kbd>Ctrl + V</kbd> to PASTE to your email client. <br>'
-                   + '<small class="text-muted">This message will disappear in 10 seconds</small>';
+                + 'You may use <kbd>Ctrl + V</kbd> to PASTE to your email client. <br>'
+                + '<small class="text-muted">This message will disappear in 10 seconds</small>';
 
         $copyEmailButton
                 .popover('destroy')

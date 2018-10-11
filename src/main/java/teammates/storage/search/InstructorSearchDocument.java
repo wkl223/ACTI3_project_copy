@@ -45,20 +45,20 @@ public class InstructorSearchDocument extends SearchDocument {
         // produce searchableText for this instructor document:
         // contains courseId, courseName, instructorName, instructorEmail, instructorGoogleId, instructorRole, displayedName
         String searchableText = instructor.courseId + delim
-                                + (course == null ? "" : course.getName()) + delim
-                                + instructor.name + delim
-                                + instructor.email + delim
-                                + (instructor.googleId == null ? "" : instructor.googleId) + delim
-                                + instructor.role + delim
-                                + instructor.displayedName;
+                + (course == null ? "" : course.getName()) + delim
+                + instructor.name + delim
+                + instructor.email + delim
+                + (instructor.googleId == null ? "" : instructor.googleId) + delim
+                + instructor.role + delim
+                + instructor.displayedName;
 
         return Document.newBuilder()
                 // searchableText is used to match the query string
                 .addField(Field.newBuilder().setName(Const.SearchDocumentField.SEARCHABLE_TEXT)
-                                            .setText(searchableText))
+                        .setText(searchableText))
                 // attribute field is used to convert a doc back to attribute
                 .addField(Field.newBuilder().setName(Const.SearchDocumentField.INSTRUCTOR_ATTRIBUTE)
-                                            .setText(JsonUtils.toJson(instructor)))
+                        .setText(JsonUtils.toJson(instructor)))
                 .setId(StringHelper.encrypt(instructor.key))
                 .build();
     }

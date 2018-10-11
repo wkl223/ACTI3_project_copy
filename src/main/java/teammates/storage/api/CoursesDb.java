@@ -50,6 +50,7 @@ public class CoursesDb extends EntitiesDb<Course, CourseAttributes> {
     /**
      * Preconditions: <br>
      * * All parameters are non-null.
+     *
      * @return Null if not found.
      */
     public CourseAttributes getCourse(String courseId) {
@@ -81,7 +82,7 @@ public class CoursesDb extends EntitiesDb<Course, CourseAttributes> {
      * * {@code courseToUpdate} is non-null.<br>
      */
     public void updateCourse(CourseAttributes courseToUpdate) throws InvalidParametersException,
-                                                                     EntityDoesNotExistException {
+            EntityDoesNotExistException {
         Assumption.assertNotNull(Const.StatusCodes.DBLEVEL_NULL_INPUT, courseToUpdate);
 
         courseToUpdate.sanitizeForSaving();
@@ -107,7 +108,7 @@ public class CoursesDb extends EntitiesDb<Course, CourseAttributes> {
      * Permanently deletes the course from the Datastore.
      *
      * <p>Note: This is a non-cascade delete.<br>
-     *   <br> Fails silently if there is no such object.
+     * <br> Fails silently if there is no such object.
      * <br> Preconditions:
      * <br> * {@code courseId} is not null.
      */

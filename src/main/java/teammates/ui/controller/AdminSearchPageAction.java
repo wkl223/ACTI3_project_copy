@@ -63,11 +63,11 @@ public class AdminSearchPageAction extends Action {
         data = putInstructorCourseJoinLinkIntoMap(data.instructorResultBundle.instructorList, data);
 
         data = putCourseNameIntoMap(data.studentResultBundle.studentList,
-                                    data.instructorResultBundle.instructorList,
-                                    data);
+                data.instructorResultBundle.instructorList,
+                data);
 
         int numOfResults = data.studentResultBundle.numberOfResults
-                           + data.instructorResultBundle.numberOfResults;
+                + data.instructorResultBundle.numberOfResults;
 
         if (numOfResults > 0) {
             statusToUser.add(new StatusMessage("Total results found: " + numOfResults, StatusMessageColor.INFO));
@@ -120,10 +120,10 @@ public class AdminSearchPageAction extends Action {
 
             if (!googleIdOfAlreadyRegisteredInstructor.isEmpty()) {
                 String joinLinkWithoutInstitute = Config.getAppUrl(Const.ActionURIs.INSTRUCTOR_COURSE_JOIN)
-                                                .withRegistrationKey(StringHelper.encrypt(instructor.key))
-                                                .toAbsoluteString();
+                        .withRegistrationKey(StringHelper.encrypt(instructor.key))
+                        .toAbsoluteString();
                 data.instructorCourseJoinLinkMap.put(instructor.getIdentificationString(),
-                                                     joinLinkWithoutInstitute);
+                        joinLinkWithoutInstitute);
             }
 
         }
@@ -137,7 +137,7 @@ public class AdminSearchPageAction extends Action {
 
             if (tempCourseIdToInstituteMap.get(instructor.courseId) != null) {
                 data.instructorInstituteMap.put(instructor.getIdentificationString(),
-                                                tempCourseIdToInstituteMap.get(instructor.courseId));
+                        tempCourseIdToInstituteMap.get(instructor.courseId));
                 continue;
             }
 
@@ -167,8 +167,8 @@ public class AdminSearchPageAction extends Action {
             }
 
             String curLink = Url.addParamToUrl(Const.ActionURIs.INSTRUCTOR_HOME_PAGE,
-                                                        Const.ParamsNames.USER_ID,
-                                                        instructor.googleId);
+                    Const.ParamsNames.USER_ID,
+                    instructor.googleId);
 
             data.instructorHomePageLinkMap.put(instructor.googleId, curLink);
         }
@@ -181,7 +181,7 @@ public class AdminSearchPageAction extends Action {
 
             if (tempCourseIdToInstituteMap.get(student.course) != null) {
                 data.studentInstituteMap.put(student.getIdentificationString(),
-                                             tempCourseIdToInstituteMap.get(student.course));
+                        tempCourseIdToInstituteMap.get(student.course));
                 continue;
             }
 
@@ -211,8 +211,8 @@ public class AdminSearchPageAction extends Action {
             }
 
             String curLink = Url.addParamToUrl(Const.ActionURIs.STUDENT_HOME_PAGE,
-                                                        Const.ParamsNames.USER_ID,
-                                                        student.googleId);
+                    Const.ParamsNames.USER_ID,
+                    student.googleId);
 
             data.studentIdToHomePageLinkMap.put(student.googleId, curLink);
         }
@@ -230,8 +230,8 @@ public class AdminSearchPageAction extends Action {
             }
 
             String curLink = Url.addParamToUrl(Const.ActionURIs.INSTRUCTOR_STUDENT_RECORDS_PAGE,
-                                                        Const.ParamsNames.COURSE_ID,
-                                                        student.course);
+                    Const.ParamsNames.COURSE_ID,
+                    student.course);
             curLink = Url.addParamToUrl(curLink, Const.ParamsNames.STUDENT_EMAIL, student.email);
             String availableGoogleId = findAvailableInstructorGoogleIdForCourse(student.course);
 
@@ -249,10 +249,9 @@ public class AdminSearchPageAction extends Action {
      * If there is no such instructor, finds the googleId of a registered
      * instructor with the privilege to modify instructors.
      *
-     * @param courseId
-     *            the ID of the course
+     * @param courseId the ID of the course
      * @return the googleId of a suitable instructor if found, otherwise an
-     *         empty string
+     * empty string
      */
     private String findAvailableInstructorGoogleIdForCourse(String courseId) {
 
@@ -309,11 +308,11 @@ public class AdminSearchPageAction extends Action {
                                                                StudentAttributes student) {
 
         String submitUrl = Config.getAppUrl(Const.ActionURIs.STUDENT_FEEDBACK_SUBMISSION_EDIT_PAGE)
-                               .withCourseId(student.course)
-                               .withSessionName(fsa.getFeedbackSessionName())
-                               .withRegistrationKey(StringHelper.encrypt(student.key))
-                               .withStudentEmail(student.email)
-                               .toAbsoluteString();
+                .withCourseId(student.course)
+                .withSessionName(fsa.getFeedbackSessionName())
+                .withRegistrationKey(StringHelper.encrypt(student.key))
+                .withStudentEmail(student.email)
+                .toAbsoluteString();
 
         String openCloseDateFragment = generateOpenCloseDateInfo(fsa.getStartTimeString(), fsa.getEndTimeString());
 
@@ -343,11 +342,11 @@ public class AdminSearchPageAction extends Action {
         }
 
         String viewResultUrl = Config.getAppUrl(Const.ActionURIs.STUDENT_FEEDBACK_RESULTS_PAGE)
-                                   .withCourseId(student.course)
-                                   .withSessionName(fsa.getFeedbackSessionName())
-                                   .withRegistrationKey(StringHelper.encrypt(student.key))
-                                   .withStudentEmail(student.email)
-                                   .toAbsoluteString();
+                .withCourseId(student.course)
+                .withSessionName(fsa.getFeedbackSessionName())
+                .withRegistrationKey(StringHelper.encrypt(student.key))
+                .withStudentEmail(student.email)
+                .toAbsoluteString();
 
         if (fsa.isPublished()) {
             if (data.studentPublishedFeedbackSessionLinksMap.get(student.getIdentificationString()) == null) {

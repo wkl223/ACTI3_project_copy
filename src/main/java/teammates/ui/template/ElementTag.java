@@ -21,6 +21,7 @@ public class ElementTag {
      * Constructs an element tag.
      * The first element is used as the content if there are an odd number of elements passed in.
      * Otherwise, it is treated as a self-closing tag and has null for content.
+     *
      * @param attributePairs Sets of attribute names and values; includes content as the first variable if any.
      */
     public ElementTag(String... attributePairs) {
@@ -49,6 +50,7 @@ public class ElementTag {
 
     /**
      * Associates the specified value to the specified attribute name.
+     *
      * @return the previous value associated with attributeName or null if it had none
      */
     public String setAttribute(String attributeName, String attributeValue) {
@@ -57,6 +59,7 @@ public class ElementTag {
 
     /**
      * Removes the mapping for the specified attribute name.
+     *
      * @return the previous value associated with attributeName or null if it had none
      */
     public String removeAttribute(String attributeName) {
@@ -77,8 +80,8 @@ public class ElementTag {
 
     /**
      * Returns all attributes joined into a string for HTML purposes with a space in front;
-     *         attribute added if and only if it has a non-null value,
-     *         empty strings will still be treated as empty strings.
+     * attribute added if and only if it has a non-null value,
+     * empty strings will still be treated as empty strings.
      */
     public String getAttributesToString() {
         if (attributes == null || attributes.isEmpty()) {

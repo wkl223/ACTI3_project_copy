@@ -17,7 +17,7 @@ import teammates.test.pageobjects.InstructorFeedbackResultsPage;
 
 /**
  * SUT: {@link Const.ActionURIs#INSTRUCTOR_FEEDBACK_EDIT_PAGE},
- *      specifically for multiple choice (single answer) questions.
+ * specifically for multiple choice (single answer) questions.
  */
 public class FeedbackMcqQuestionUiTest extends FeedbackQuestionUiTest {
 

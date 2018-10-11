@@ -23,7 +23,7 @@ public class StudentAttributesFactory {
     public static final String ERROR_ENROLL_LINE_EMPTY = "Enroll line was empty" + Const.HTML_BR_TAG;
     public static final String ERROR_ENROLL_LINE_TOOFEWPARTS =
             "Enroll line had fewer than the minimally expected "
-            + MIN_FIELD_COUNT + " columns (Team, Name and Email)" + Const.HTML_BR_TAG;
+                    + MIN_FIELD_COUNT + " columns (Team, Name and Email)" + Const.HTML_BR_TAG;
 
     public static final int FIRST_COLUMN_INDEX = 0;
     public static final int SECOND_COLUMN_INDEX = 1;
@@ -86,8 +86,8 @@ public class StudentAttributesFactory {
         String[] columns = splitLineIntoColumns(enrollLine);
 
         boolean hasMissingFields = columns.length <= teamColumnIndex
-                                   || columns.length <= nameColumnIndex
-                                   || columns.length <= emailColumnIndex;
+                || columns.length <= nameColumnIndex
+                || columns.length <= emailColumnIndex;
 
         if (hasMissingFields) {
             throw new EnrollException(ERROR_ENROLL_LINE_TOOFEWPARTS);

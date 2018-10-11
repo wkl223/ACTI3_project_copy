@@ -31,7 +31,7 @@ public class AdminEmailTrashAction extends Action {
         if (emailId == null || emailId.isEmpty()) {
             statusToAdmin = "Invalid parameter : email id cannot be null or empty";
             statusToUser.add(new StatusMessage("Invalid parameter : email id cannot be null or empty",
-                                               StatusMessageColor.DANGER));
+                    StatusMessageColor.DANGER));
             return createRedirectResult(redirect);
         }
 

@@ -9,12 +9,12 @@
   <script type="text/javascript" src="/js/instructorCourseStudentDetails.js"></script>
 </c:set>
 <ti:instructorPage title="${fn:escapeXml(data.studentInfoTable.name)}" jsIncludes="${jsIncludes}">
-  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
+  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}"/>
   <c:if test="${not empty data.studentProfile}">
     <csd:studentProfile student="${data.studentProfile}"/>
   </c:if>
-  <csd:studentInformationTable studentInfoTable="${data.studentInfoTable}" />
+  <csd:studentInformationTable studentInfoTable="${data.studentInfoTable}"/>
   <c:if test="${not empty data.studentProfile}">
-    <ti:moreInfo student="${data.studentProfile}" />
+    <ti:moreInfo student="${data.studentProfile}"/>
   </c:if>
 </ti:instructorPage>

@@ -16,9 +16,9 @@ public class InstructorFeedbackResultsSecondaryParticipantPanelBody {
     private List<InstructorFeedbackResultsResponsePanel> responsePanels;
 
     public InstructorFeedbackResultsSecondaryParticipantPanelBody(
-                                    String secondaryParticipantIdentifier,
-                                    String secondaryParticipantDisplayableName,
-                                    List<InstructorFeedbackResultsResponsePanel> responsePanels) {
+            String secondaryParticipantIdentifier,
+            String secondaryParticipantDisplayableName,
+            List<InstructorFeedbackResultsResponsePanel> responsePanels) {
         this.secondaryParticipantIdentifier = secondaryParticipantIdentifier;
         this.secondaryParticipantDisplayableName = secondaryParticipantDisplayableName;
         this.responsePanels = responsePanels;

@@ -28,7 +28,7 @@ public class StudentCourseDetailsPageUiTest extends BaseUiTestCase {
 
         //without teammates
         verifyContent("SCDetailsUiT.CS2104", "SCDetailsUiT.charlie",
-                      "/studentCourseDetailsWithoutTeammatesHTML.html", false);
+                "/studentCourseDetailsWithoutTeammatesHTML.html", false);
 
         ______TS("content: data requiring sanitization");
 
@@ -46,8 +46,8 @@ public class StudentCourseDetailsPageUiTest extends BaseUiTestCase {
     private void verifyContent(String courseObjectId, String studentObjectId, String filePath,
                                boolean isFullPageChecked) throws Exception {
         AppUrl detailsPageUrl = createUrl(Const.ActionURIs.STUDENT_COURSE_DETAILS_PAGE)
-                                .withUserId(testData.students.get(studentObjectId).googleId)
-                                .withCourseId(testData.courses.get(courseObjectId).getId());
+                .withUserId(testData.students.get(studentObjectId).googleId)
+                .withCourseId(testData.courses.get(courseObjectId).getId());
         StudentCourseDetailsPage detailsPage = loginAdminToPage(detailsPageUrl, StudentCourseDetailsPage.class);
         if (isFullPageChecked) {
             detailsPage.verifyHtml(filePath);

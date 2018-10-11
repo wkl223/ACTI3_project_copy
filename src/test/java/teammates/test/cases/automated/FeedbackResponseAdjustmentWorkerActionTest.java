@@ -57,13 +57,13 @@ public class FeedbackResponseAdjustmentWorkerActionTest extends BaseAutomatedAct
 
         StudentEnrollDetails enrollDetails =
                 new StudentEnrollDetails(StudentUpdateStatus.MODIFIED, student.course, student.email,
-                                         oldTeam, newTeam, oldSection, newSection);
+                        oldTeam, newTeam, oldSection, newSection);
         List<StudentEnrollDetails> enrollList = new ArrayList<>();
         enrollList.add(enrollDetails);
 
         studentsLogic.updateStudentCascadeWithSubmissionAdjustmentScheduled(student.email, student, false);
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 ParamsNames.COURSE_ID, student.course,
                 ParamsNames.FEEDBACK_SESSION_NAME, session.getFeedbackSessionName(),
                 ParamsNames.ENROLLMENT_DETAILS, JsonUtils.toJson(enrollList)
@@ -84,7 +84,7 @@ public class FeedbackResponseAdjustmentWorkerActionTest extends BaseAutomatedAct
     }
 
     private List<FeedbackResponseAttributes> getAllResponsesForStudentForSession(StudentAttributes student,
-            String feedbackSessionName) {
+                                                                                 String feedbackSessionName) {
         List<FeedbackResponseAttributes> returnList = new ArrayList<>();
         List<FeedbackResponseAttributes> allResponseOfStudent = getAllTeamResponsesForStudent(student);
 

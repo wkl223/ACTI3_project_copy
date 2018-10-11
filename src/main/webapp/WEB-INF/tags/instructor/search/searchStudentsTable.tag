@@ -11,7 +11,8 @@
   </div>
 
   <div class="panel-body padding-0">
-    <ti:studentList courseId="${studentTable.courseId}" courseIndex="${courseIdx}" hasSection="${studentTable.hasSection}"
-        sections="${studentTable.sections}" fromStudentListPage="${false}" />
+    <ti:studentList courseId="${studentTable.courseId}" courseIndex="${courseIdx}"
+                    hasSection="${studentTable.hasSection}"
+                    sections="${studentTable.sections}" fromStudentListPage="${false}"/>
   </div>
 </div>

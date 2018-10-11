@@ -20,7 +20,7 @@ public class StudentProfilePictureAction extends Action {
     protected ActionResult execute() throws EntityDoesNotExistException {
         boolean isRequestFromStudent = getRequestParamValue(Const.ParamsNames.BLOB_KEY) != null;
         boolean isRequestFromInstructorOrOtherStudent =
-                                        getRequestParamValue(Const.ParamsNames.STUDENT_EMAIL) != null;
+                getRequestParamValue(Const.ParamsNames.STUDENT_EMAIL) != null;
 
         if (!isRequestFromStudent && !isRequestFromInstructorOrOtherStudent) {
             Assumption.fail("expected blob-key, or student email with courseId");

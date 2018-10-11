@@ -39,13 +39,13 @@ public class StudentCourseDetailsPageActionTest extends BaseActionTest {
         String idOfCourseOfStudent = student1InCourse1.course;
         gaeSimulation.loginAsStudent(student1InCourse1.googleId);
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, idOfCourseOfStudent
         };
 
         ______TS("Invalid parameters");
         // parameters missing.
-        verifyAssumptionFailure(new String[] {});
+        verifyAssumptionFailure(new String[]{});
 
         ______TS("Typical case, student in the same course");
         StudentCourseDetailsPageAction pageAction = getAction(submissionParams);
@@ -65,7 +65,7 @@ public class StudentCourseDetailsPageActionTest extends BaseActionTest {
         assertEquals(student1InCourse1.team, pageData.getStudentCourseDetailsPanel().getStudentTeam());
 
         List<StudentAttributes> expectedStudentsList = StudentsLogic.inst().getStudentsForTeam(
-                                                                    student1InCourse1.team, student1InCourse1.course);
+                student1InCourse1.team, student1InCourse1.course);
 
         List<StudentAttributes> actualStudentsList = pageData.getStudentCourseDetailsPanel().getTeammates();
 
@@ -75,21 +75,21 @@ public class StudentCourseDetailsPageActionTest extends BaseActionTest {
         // above comparison method failed, so use the one below
 
         List<InstructorAttributes> expectedInstructorsList = InstructorsLogic.inst()
-                                                                .getInstructorsForCourse(student1InCourse1.course);
+                .getInstructorsForCourse(student1InCourse1.course);
         List<InstructorAttributes> actualInstructorsList = pageData.getStudentCourseDetailsPanel().getInstructors();
 
         AssertHelper.assertSameContentIgnoreOrder(expectedInstructorsList, actualInstructorsList);
 
         String expectedLogMessage = "TEAMMATESLOG|||studentCourseDetailsPage|||studentCourseDetailsPage|||true|||"
-                                    + "Student|||Student 1 in course 1|||student1InCourse1|||"
-                                    + "student1InCourse1@gmail.tmt|||studentCourseDetails Page Load<br>"
-                                    + "Viewing team details for <span class=\"bold\">[idOfTypicalCourse1] "
-                                    + "Typical Course 1 with 2 Evals</span>|||/page/studentCourseDetailsPage";
+                + "Student|||Student 1 in course 1|||student1InCourse1|||"
+                + "student1InCourse1@gmail.tmt|||studentCourseDetails Page Load<br>"
+                + "Viewing team details for <span class=\"bold\">[idOfTypicalCourse1] "
+                + "Typical Course 1 with 2 Evals</span>|||/page/studentCourseDetailsPage";
 
         AssertHelper.assertLogMessageEquals(expectedLogMessage, pageAction.getLogMessage());
 
         ______TS("Typical case, the student is not in the course");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, "idOfTypicalCourse2"
         };
 
@@ -104,17 +104,17 @@ public class StudentCourseDetailsPageActionTest extends BaseActionTest {
         assertEquals("You are not registered in the course idOfTypicalCourse2", redirectResult.getStatusMessage());
 
         expectedLogMessage = "TEAMMATESLOG|||studentCourseDetailsPage|||studentCourseDetailsPage|||true|||"
-                             + "Student|||Student 1 in course 1|||student1InCourse1|||"
-                             + "student1InCourse1@gmail.tmt|||studentCourseDetails Page Load<br>"
-                             + "Viewing team details for <span class=\"bold\">[idOfTypicalCourse1] "
-                             + "Typical Course 1 with 2 Evals</span>|||/page/studentCourseDetailsPage";
+                + "Student|||Student 1 in course 1|||student1InCourse1|||"
+                + "student1InCourse1@gmail.tmt|||studentCourseDetails Page Load<br>"
+                + "Viewing team details for <span class=\"bold\">[idOfTypicalCourse1] "
+                + "Typical Course 1 with 2 Evals</span>|||/page/studentCourseDetailsPage";
 
         AssertHelper.assertLogMessageEquals(expectedLogMessage, pageAction.getLogMessage());
 
         ______TS("Typical case, student contains data requiring sanitization");
         StudentAttributes studentTestingSanitization = typicalBundle.students.get("student1InTestingSanitizationCourse");
         gaeSimulation.loginAsStudent(studentTestingSanitization.googleId);
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, studentTestingSanitization.course
         };
 
@@ -123,7 +123,7 @@ public class StudentCourseDetailsPageActionTest extends BaseActionTest {
 
         assertEquals(Const.ViewURIs.STUDENT_COURSE_DETAILS
                         + "?error=false&user=" + studentTestingSanitization.googleId,
-                     pageResult.getDestinationWithParams());
+                pageResult.getDestinationWithParams());
         assertFalse(pageResult.isError);
         assertEquals("", pageResult.getStatusMessage());
 
@@ -157,7 +157,7 @@ public class StudentCourseDetailsPageActionTest extends BaseActionTest {
 
         gaeSimulation.logoutUser();
         gaeSimulation.loginAsStudent(typicalBundle.accounts.get("student2InCourse1").googleId);
-        String[] submissionParam = new String[] {
+        String[] submissionParam = new String[]{
                 Const.ParamsNames.COURSE_ID, student1.course
         };
 
@@ -208,7 +208,7 @@ public class StudentCourseDetailsPageActionTest extends BaseActionTest {
         String idOfCourseOfStudent = typicalBundle.students
                 .get("student1InCourse1").course;
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, idOfCourseOfStudent
         };
 
@@ -217,7 +217,7 @@ public class StudentCourseDetailsPageActionTest extends BaseActionTest {
         verifyUnaccessibleWithoutLogin(submissionParams);
 
         idOfCourseOfStudent = typicalBundle.students.get("student2InCourse1").course;
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, idOfCourseOfStudent
         };
 

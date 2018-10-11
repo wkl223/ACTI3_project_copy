@@ -12,17 +12,18 @@
 
 <ta:adminPage title="Instructor Account Details" jsIncludes="${jsIncludes}">
   <accounts:accountDetailsForInstructorPanel accountInformation="${data.accountInformation}"/>
-  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}" />
+  <t:statusMessage statusMessagesToUser="${data.statusMessagesToUser}"/>
 
   <div class="page-header">
     <h2>
-      Instructor For <small class="course-count rightalign bold">${fn:length(data.instructorCourseListTable)} Courses</small>
+      Instructor For
+      <small class="course-count rightalign bold">${fn:length(data.instructorCourseListTable)} Courses</small>
     </h2>
   </div>
 
   <c:choose>
     <c:when test="${not empty data.instructorCourseListTable}">
-      <accounts:courseListForInstructorTable instructorCourseListTable="${data.instructorCourseListTable}" />
+      <accounts:courseListForInstructorTable instructorCourseListTable="${data.instructorCourseListTable}"/>
     </c:when>
     <c:otherwise>
       <div class="alert alert-warning">
@@ -34,13 +35,14 @@
 
   <div class="page-header">
     <h2>
-      Student For <small class="course-count rightalign bold">${fn:length(data.studentCourseListTable)} Courses</small>
+      Student For
+      <small class="course-count rightalign bold">${fn:length(data.studentCourseListTable)} Courses</small>
     </h2>
   </div>
 
   <c:choose>
     <c:when test="${not empty data.studentCourseListTable}">
-      <accounts:courseListForStudentTable studentCourseListTable="${data.studentCourseListTable}" />
+      <accounts:courseListForStudentTable studentCourseListTable="${data.studentCourseListTable}"/>
     </c:when>
     <c:otherwise>
       <div class="alert alert-warning">

@@ -53,14 +53,14 @@ public class InstructorFeedbackSessionsPageAction extends InstructorFeedbackAbst
 
         if (courses.isEmpty()) {
             statusToUser.add(new StatusMessage(Const.StatusMessages.COURSE_EMPTY_IN_INSTRUCTOR_FEEDBACKS
-                                                       .replace("${user}", "?user=" + account.googleId),
-                                               StatusMessageColor.WARNING));
+                    .replace("${user}", "?user=" + account.googleId),
+                    StatusMessageColor.WARNING));
         }
 
         statusToAdmin = "Number of feedback sessions: " + existingFeedbackSessions.size();
 
         data.initWithoutDefaultFormValues(courses, courseIdForNewSession, existingFeedbackSessions,
-                                        instructors, feedbackSessionToHighlight);
+                instructors, feedbackSessionToHighlight);
 
         return createShowPageResult(Const.ViewURIs.INSTRUCTOR_FEEDBACK_SESSIONS, data);
     }

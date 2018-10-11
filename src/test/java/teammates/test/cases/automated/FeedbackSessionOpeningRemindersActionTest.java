@@ -72,12 +72,12 @@ public class FeedbackSessionOpeningRemindersActionTest extends BaseAutomatedActi
             Map<String, String[]> paramMap = task.getParamMap();
             try {
                 assertEquals(String.format(EmailType.FEEDBACK_OPENING.getSubject(), courseName,
-                                           session1.getSessionName()),
-                             paramMap.get(ParamsNames.EMAIL_SUBJECT)[0]);
+                        session1.getSessionName()),
+                        paramMap.get(ParamsNames.EMAIL_SUBJECT)[0]);
             } catch (AssertionError ae) {
                 assertEquals(String.format(EmailType.FEEDBACK_OPENING.getSubject(), courseName,
-                                           session2.getSessionName()),
-                             paramMap.get(ParamsNames.EMAIL_SUBJECT)[0]);
+                        session2.getSessionName()),
+                        paramMap.get(ParamsNames.EMAIL_SUBJECT)[0]);
             }
         }
 

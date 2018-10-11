@@ -71,8 +71,8 @@ public class EmailWrapper {
 
     public String getInfoForLogging() {
         return "[Email sent]to=" + getRecipient()
-               + "|from=" + getSenderEmail()
-               + "|subject=" + getSubject();
+                + "|from=" + getSenderEmail()
+                + "|subject=" + getSubject();
     }
 
 }

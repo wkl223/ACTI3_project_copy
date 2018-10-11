@@ -9,7 +9,7 @@ import teammates.test.pageobjects.InstructorFeedbackEditPage;
 
 /**
  * SUT: {@link Const.ActionURIs#INSTRUCTOR_FEEDBACK_EDIT_PAGE},
- *      specifically for numerical scale questions.
+ * specifically for numerical scale questions.
  */
 public class FeedbackNumScaleQuestionUiTest extends FeedbackQuestionUiTest {
     private InstructorFeedbackEditPage feedbackEditPage;
@@ -104,8 +104,8 @@ public class FeedbackNumScaleQuestionUiTest extends FeedbackQuestionUiTest {
         feedbackEditPage.fillMaxNumScaleBoxForNewQuestion("5555");
 
         assertEquals("[Based on the above settings, acceptable responses are: 1, 1.001, 1.002, ..., "
-                             + "5554.998, 5554.999, 5555]",
-                     feedbackEditPage.getNumScalePossibleValuesStringForNewQuestion());
+                        + "5554.998, 5554.999, 5555]",
+                feedbackEditPage.getNumScalePossibleValuesStringForNewQuestion());
 
         ______TS("more than three dp step rounding test");
 
@@ -113,8 +113,8 @@ public class FeedbackNumScaleQuestionUiTest extends FeedbackQuestionUiTest {
         feedbackEditPage.fillStepNumScaleBoxForNewQuestion("1.00123456789");
 
         assertEquals("[Based on the above settings, acceptable responses are: 1, 2.001, 3.002, ..., "
-                             + "999.998, 1000.999, 1002]",
-                     feedbackEditPage.getNumScalePossibleValuesStringForNewQuestion());
+                        + "999.998, 1000.999, 1002]",
+                feedbackEditPage.getNumScalePossibleValuesStringForNewQuestion());
 
         ______TS("NUMSCALE: min >= max test");
         //Tests javascript that automatically makes max = min+1 when max is <= min.

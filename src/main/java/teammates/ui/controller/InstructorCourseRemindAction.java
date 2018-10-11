@@ -61,13 +61,13 @@ public class InstructorCourseRemindAction extends Action {
             StudentAttributes studentData = logic.getStudentForEmail(courseId, studentEmail);
             if (studentData == null) {
                 throw new EntityDoesNotExistException("Student with email " + studentEmail + " does not exist "
-                                                      + "in course " + courseId + "!");
+                        + "in course " + courseId + "!");
             }
             emailDataMap.put(studentEmail,
-                             new JoinEmailData(studentData.getName(), extractStudentRegistrationKey(studentData)));
+                    new JoinEmailData(studentData.getName(), extractStudentRegistrationKey(studentData)));
 
             statusToUser.add(new StatusMessage(Const.StatusMessages.COURSE_REMINDER_SENT_TO + studentEmail,
-                                               StatusMessageColor.SUCCESS));
+                    StatusMessageColor.SUCCESS));
 
             boolean isRequestedFromCourseDetailsPage =
                     Const.PageNames.INSTRUCTOR_COURSE_DETAILS_PAGE.equals(previousPage);
@@ -81,14 +81,14 @@ public class InstructorCourseRemindAction extends Action {
             InstructorAttributes instructorData = logic.getInstructorForEmail(courseId, instructorEmail);
             if (instructorData == null) {
                 throw new EntityDoesNotExistException("Instructor with email " + instructorEmail + " does not exist "
-                                                      + "in course " + courseId + "!");
+                        + "in course " + courseId + "!");
             }
 
             emailDataMap.put(instructorEmail,
                     new JoinEmailData(instructorData.getName(), StringHelper.encrypt(instructorData.key)));
 
             statusToUser.add(new StatusMessage(Const.StatusMessages.COURSE_REMINDER_SENT_TO + instructorEmail,
-                                               StatusMessageColor.SUCCESS));
+                    StatusMessageColor.SUCCESS));
             redirectUrl = Const.ActionURIs.INSTRUCTOR_COURSE_EDIT_PAGE;
         } else {
             List<StudentAttributes> studentDataList = logic.getUnregisteredStudentsForCourse(courseId);
@@ -115,12 +115,12 @@ public class InstructorCourseRemindAction extends Action {
     private String generateStatusToAdmin(Map<String, JoinEmailData> emailDataMap, String courseId) {
         StringBuilder statusToAdmin = new StringBuilder(200);
         statusToAdmin.append("Registration Key sent to the following users in Course <span class=\"bold\">[")
-                     .append(courseId)
-                     .append("]</span>:<br>");
+                .append(courseId)
+                .append("]</span>:<br>");
 
         emailDataMap.forEach((userEmail, joinEmailData) -> statusToAdmin.append(joinEmailData.userName)
-                         .append("<span class=\"bold\"> (").append(userEmail).append(")</span>.<br>")
-                         .append(joinEmailData.regKey).append("<br>"));
+                .append("<span class=\"bold\"> (").append(userEmail).append(")</span>.<br>")
+                .append(joinEmailData.regKey).append("<br>"));
 
         return statusToAdmin.toString();
     }

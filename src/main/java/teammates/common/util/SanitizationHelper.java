@@ -24,23 +24,23 @@ public final class SanitizationHelper {
 
     private static PolicyFactory richTextPolicy =
             new HtmlPolicyBuilder()
-                .allowStandardUrlProtocols()
-                .allowAttributes("title").globally()
-                .allowAttributes("href").onElements("a")
-                .allowAttributes("src").onElements("img")
-                .allowAttributes("align")
+                    .allowStandardUrlProtocols()
+                    .allowAttributes("title").globally()
+                    .allowAttributes("href").onElements("a")
+                    .allowAttributes("src").onElements("img")
+                    .allowAttributes("align")
                     .matching(true, "center", "left", "right", "justify", "char")
                     .onElements("p")
-                .allowAttributes("colspan", "rowspan").onElements("td", "th")
-                .allowAttributes("cellspacing").onElements("table")
-                .allowElements(
-                    "a", "p", "div", "i", "b", "em", "blockquote", "tt", "strong", "hr",
-                    "br", "ul", "ol", "li", "h1", "h2", "h3", "h4", "h5", "h6", "img", "span",
-                    "table", "tr", "td", "th", "tbody", "tfoot", "thead", "caption", "colgroup",
-                    "sup", "sub", "code")
-                .allowElements("quote", "ecode")
-                .allowStyling()
-                .toFactory();
+                    .allowAttributes("colspan", "rowspan").onElements("td", "th")
+                    .allowAttributes("cellspacing").onElements("table")
+                    .allowElements(
+                            "a", "p", "div", "i", "b", "em", "blockquote", "tt", "strong", "hr",
+                            "br", "ul", "ol", "li", "h1", "h2", "h3", "h4", "h5", "h6", "img", "span",
+                            "table", "tr", "td", "th", "tbody", "tfoot", "thead", "caption", "colgroup",
+                            "sup", "sub", "code")
+                    .allowElements("quote", "ecode")
+                    .allowStyling()
+                    .toFactory();
     private static final Logger log = Logger.getLogger();
 
     private SanitizationHelper() {
@@ -114,9 +114,9 @@ public final class SanitizationHelper {
         }
         return SanitizationHelper.sanitizeForHtml(
                 str.replace("\\", "\\\\")
-                .replace("\"", "\\\"")
-                .replace("'", "\\'")
-                .replace("#", "\\#"));
+                        .replace("\"", "\\\"")
+                        .replace("'", "\\'")
+                        .replace("#", "\\#"));
     }
 
     /**
@@ -133,6 +133,7 @@ public final class SanitizationHelper {
     /**
      * Sanitizes the {@link Text} with rich-text.
      * Removes disallowed elements based on defined policy.
+     *
      * @return A new sanitized {@link Text} or null if the input was null.
      */
     public static Text sanitizeForRichText(Text text) {
@@ -187,11 +188,11 @@ public final class SanitizationHelper {
         }
 
         return sanitizedString.replace("&lt;", "<")
-                              .replace("&gt;", ">")
-                              .replace("&quot;", "\"")
-                              .replace("&#x2f;", "/")
-                              .replace("&#39;", "'")
-                              .replace("&amp;", "&");
+                .replace("&gt;", ">")
+                .replace("&quot;", "\"")
+                .replace("&#x2f;", "/")
+                .replace("&#39;", "'")
+                .replace("&amp;", "&");
     }
 
     /**
@@ -229,7 +230,7 @@ public final class SanitizationHelper {
             return URLEncoder.encode(uri, Const.SystemParams.ENCODING);
         } catch (UnsupportedEncodingException wontHappen) {
             log.warning("Unexpected UnsupportedEncodingException in "
-                        + "SanitizationHelper.sanitizeForUri(" + uri + ", " + Const.SystemParams.ENCODING + ")");
+                    + "SanitizationHelper.sanitizeForUri(" + uri + ", " + Const.SystemParams.ENCODING + ")");
             return uri;
         }
     }
@@ -239,11 +240,11 @@ public final class SanitizationHelper {
      * The following characters will be sanitized:
      * <ul>
      * <li>&, to prevent the parameters of the next URL from being considered as
-     *     part of the original URL</li>
+     * part of the original URL</li>
      * <li>%2B (encoded +), to prevent Google from decoding it back to +,
-     *     which is used to encode whitespace in some cases</li>
+     * which is used to encode whitespace in some cases</li>
      * <li>%23 (encoded #), to prevent Google from decoding it back to #,
-     *     which is used to traverse the HTML document to a certain id</li>
+     * which is used to traverse the HTML document to a certain id</li>
      * </ul>
      *
      * @return the sanitized url or null (if the parameter was null).
@@ -259,6 +260,7 @@ public final class SanitizationHelper {
      * Recovers the URL from sanitization due to {@link SanitizationHelper#sanitizeForNextUrl}.
      * In addition, any un-encoded whitespace (they may be there due to Google's
      * behind-the-screen decoding process) will be encoded again to +.
+     *
      * @return the unsanitized url or null (if the parameter was null).
      */
     public static String desanitizeFromNextUrl(String sanitizedUrl) {
@@ -266,9 +268,9 @@ public final class SanitizationHelper {
             return null;
         }
         return sanitizedUrl.replace("${amp}", "&")
-                           .replace("${plus}", "%2B")
-                           .replace("${hash}", "%23")
-                           .replace(" ", "+");
+                .replace("${plus}", "%2B")
+                .replace("${hash}", "%23")
+                .replace(" ", "+");
     }
 
     /**
@@ -309,7 +311,7 @@ public final class SanitizationHelper {
     public static List<String> sanitizeListForCsv(List<String> strList) {
 
         return strList.stream().map(string -> sanitizeForCsv(string))
-                               .collect(Collectors.toList());
+                .collect(Collectors.toList());
 
     }
 
@@ -332,8 +334,8 @@ public final class SanitizationHelper {
         // currentPos iterates one position beyond text length to include last chain
         for (int currentPos = 0; currentPos <= textLength; currentPos++) {
             boolean isChainBroken = currentPos >= textLength
-                                    || isSingleQuotationChain && text.charAt(currentPos) != '\''
-                                    || !isSingleQuotationChain && text.charAt(currentPos) == '\'';
+                    || isSingleQuotationChain && text.charAt(currentPos) != '\''
+                    || !isSingleQuotationChain && text.charAt(currentPos) == '\'';
             if (isChainBroken && startOfChain < currentPos) {
                 // format text.substring(startOfChain, currentPos) and append to result
                 char wrapper = isSingleQuotationChain ? '\"' : '\'';
@@ -357,7 +359,7 @@ public final class SanitizationHelper {
      * and contains at least one of their sanitized equivalents or the sanitized equivalent of '&'.
      *
      * <p>Eg. "No special characters", "{@code <p>&quot;with quotes&quot;</p>}" are considered to be not sanitized.<br>
-     *     "{@code &lt;p&gt; a p tag &lt;&#x2f;p&gt;}" is considered to be sanitized.
+     * "{@code &lt;p&gt; a p tag &lt;&#x2f;p&gt;}" is considered to be sanitized.
      * </p>
      */
     public static boolean isSanitizedHtml(String string) {

@@ -64,7 +64,7 @@ public final class HttpRequestHelper {
     public static String printRequestParameters(HttpServletRequest request) {
         StringBuilder requestParameters = new StringBuilder();
         requestParameters.append('{');
-        for (Enumeration<?> f = request.getParameterNames(); f.hasMoreElements();) {
+        for (Enumeration<?> f = request.getParameterNames(); f.hasMoreElements(); ) {
             String param = f.nextElement().toString();
             requestParameters.append(param).append("::");
             String[] parameterValues = request.getParameterValues(param);

@@ -44,7 +44,7 @@ public class CourseAttributes extends EntityAttributes<Course> implements Compar
      * </ul>
      *
      * @param courseId Id of the course.
-     * @param name Name of the course.
+     * @param name     Name of the course.
      * @param timeZone Time zone of the course.
      * @return a {@code Builder} object that can be used to construct a {@code CourseAttributes} object
      */
@@ -144,7 +144,7 @@ public class CourseAttributes extends EntityAttributes<Course> implements Compar
     @Override
     public String toString() {
         return "[" + CourseAttributes.class.getSimpleName() + "] id: " + getId() + " name: " + getName()
-               + " timeZone: " + getTimeZone();
+                + " timeZone: " + getTimeZone();
     }
 
     @Override

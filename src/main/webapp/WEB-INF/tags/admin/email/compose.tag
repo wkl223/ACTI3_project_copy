@@ -17,15 +17,16 @@
     To :
     <div class="row">
       <div class="col-md-11">
-        <input id="addressReceiverEmails" type="text" class="form-control" name="<%=Const.ParamsNames.ADMIN_EMAIL_ADDRESS_RECEIVERS%>"
-            placeholder="example1@email.com,example2@email.com..."
-            maxlength="500"
-            value="${(not empty emailToEdit) and (not empty emailToEdit.addressReceiver) ? emailToEdit.firstAddressReceiver : ''}">
+        <input id="addressReceiverEmails" type="text" class="form-control"
+               name="<%=Const.ParamsNames.ADMIN_EMAIL_ADDRESS_RECEIVERS%>"
+               placeholder="example1@email.com,example2@email.com..."
+               maxlength="500"
+               value="${(not empty emailToEdit) and (not empty emailToEdit.addressReceiver) ? emailToEdit.firstAddressReceiver : ''}">
 
         <input style="${(not empty emailToEdit) and (not empty emailToEdit.groupReceiver) ? '' : 'display:none;'}"
-            id="groupReceiverListFileKey" type="text" class="form-control"
-            name="<%=Const.ParamsNames.ADMIN_EMAIL_GROUP_RECEIVER_LIST_FILE_KEY%>"
-            value="${(not empty emailToEdit) and (not empty emailToEdit.groupReceiver) ? emailToEdit.firstGroupReceiver : ''}">
+               id="groupReceiverListFileKey" type="text" class="form-control"
+               name="<%=Const.ParamsNames.ADMIN_EMAIL_GROUP_RECEIVER_LIST_FILE_KEY%>"
+               value="${(not empty emailToEdit) and (not empty emailToEdit.groupReceiver) ? emailToEdit.firstGroupReceiver : ''}">
       </div>
       <div class="col-md-1 border-left-gray">
         <button type="button" class="btn btn-info" id="adminEmailGroupReceiverListUploadButton">
@@ -36,7 +37,7 @@
     <br>
     Subject :
     <input type="text" class="form-control" name="<%=Const.ParamsNames.ADMIN_EMAIL_SUBJECT%>"
-        value="${not empty emailToEdit ? emailToEdit.subject : ''}">
+           value="${not empty emailToEdit ? emailToEdit.subject : ''}">
     <br>
     <p>
       <textarea cols="80" id="adminEmailBox" name="<%=Const.ParamsNames.ADMIN_EMAIL_CONTENT%>" rows="10">
@@ -62,7 +63,7 @@
 
   <div style="display: none;">
     <form id="adminEmailFileForm" action=""
-        method="POST" enctype="multipart/form-data">
+          method="POST" enctype="multipart/form-data">
       <span id="adminEmailFileInput">
       <input
           type="file"
@@ -71,7 +72,8 @@
       </span>
     </form>
 
-    <div id="documentBaseUrl"><%=Config.APP_URL%></div>
+    <div id="documentBaseUrl"><%=Config.APP_URL%>
+    </div>
   </div>
 
 </div>

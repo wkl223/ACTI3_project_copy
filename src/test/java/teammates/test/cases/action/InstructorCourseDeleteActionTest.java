@@ -35,7 +35,7 @@ public class InstructorCourseDeleteActionTest extends BaseActionTest {
 
         ______TS("Typical case, 2 courses, redirect to homepage");
         CoursesLogic.inst().createCourseAndInstructor(instructorId, "icdct.tpa.id1", "New course", "UTC");
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, instructor1OfCourse1.courseId,
                 Const.ParamsNames.NEXT_URL, Const.ActionURIs.INSTRUCTOR_HOME_PAGE
         };
@@ -56,9 +56,9 @@ public class InstructorCourseDeleteActionTest extends BaseActionTest {
         assertEquals("icdct.tpa.id1", courseList.get(0).getId());
 
         String expectedLogMessage = "TEAMMATESLOG|||instructorCourseDelete|||instructorCourseDelete|||true|||"
-                                    + "Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
-                                    + "instr1@course1.tmt|||Course moved to recycle bin: idOfTypicalCourse1|||"
-                                    + "/page/instructorCourseDelete";
+                + "Instructor|||Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||"
+                + "instr1@course1.tmt|||Course moved to recycle bin: idOfTypicalCourse1|||"
+                + "/page/instructorCourseDelete";
         AssertHelper.assertLogMessageEquals(expectedLogMessage, deleteAction.getLogMessage());
 
         ______TS("Masquerade mode, delete last course, redirect to Courses page");
@@ -66,7 +66,7 @@ public class InstructorCourseDeleteActionTest extends BaseActionTest {
         String adminUserId = "admin.user";
         gaeSimulation.loginAsAdmin(adminUserId);
 
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, "icdct.tpa.id1",
                 Const.ParamsNames.NEXT_URL, Const.ActionURIs.INSTRUCTOR_COURSES_PAGE
         };
@@ -74,7 +74,7 @@ public class InstructorCourseDeleteActionTest extends BaseActionTest {
         redirectResult = getRedirectResult(deleteAction);
 
         assertEquals(getPageResultDestination(Const.ActionURIs.INSTRUCTOR_COURSES_PAGE, false, "idOfInstructor1OfCourse1"),
-                     redirectResult.getDestinationWithParams());
+                redirectResult.getDestinationWithParams());
         assertFalse(redirectResult.isError);
         assertEquals("The course icdct.tpa.id1 has been deleted. You can restore it from the deleted courses table below.",
                 redirectResult.getStatusMessage());
@@ -83,21 +83,21 @@ public class InstructorCourseDeleteActionTest extends BaseActionTest {
         assertEquals(0, courseList.size());
 
         expectedLogMessage = "TEAMMATESLOG|||instructorCourseDelete|||instructorCourseDelete|||true|||Instructor(M)|||"
-                             + "Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||instr1@course1.tmt|||"
-                             + "Course moved to recycle bin: icdct.tpa.id1|||/page/instructorCourseDelete";
+                + "Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||instr1@course1.tmt|||"
+                + "Course moved to recycle bin: icdct.tpa.id1|||/page/instructorCourseDelete";
         AssertHelper.assertLogMessageEqualsInMasqueradeMode(expectedLogMessage, deleteAction.getLogMessage(), adminUserId);
 
         ______TS("Masquerade mode, delete last course, no next URL, redirect to Courses page");
 
         CoursesLogic.inst().createCourseAndInstructor(instructorId, "icdct.tpa.id2", "New course", "UTC");
-        submissionParams = new String[] {
+        submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, "icdct.tpa.id2",
         };
         deleteAction = getAction(addUserIdToParams(instructorId, submissionParams));
         redirectResult = getRedirectResult(deleteAction);
 
         assertEquals(getPageResultDestination(Const.ActionURIs.INSTRUCTOR_COURSES_PAGE, false, "idOfInstructor1OfCourse1"),
-                     redirectResult.getDestinationWithParams());
+                redirectResult.getDestinationWithParams());
         assertFalse(redirectResult.isError);
         assertEquals("The course icdct.tpa.id2 has been deleted. You can restore it from the deleted courses table below.",
                 redirectResult.getStatusMessage());
@@ -106,8 +106,8 @@ public class InstructorCourseDeleteActionTest extends BaseActionTest {
         assertEquals(0, courseList.size());
 
         expectedLogMessage = "TEAMMATESLOG|||instructorCourseDelete|||instructorCourseDelete|||true|||Instructor(M)|||"
-                             + "Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||instr1@course1.tmt|||"
-                             + "Course moved to recycle bin: icdct.tpa.id2|||/page/instructorCourseDelete";
+                + "Instructor 1 of Course 1|||idOfInstructor1OfCourse1|||instr1@course1.tmt|||"
+                + "Course moved to recycle bin: icdct.tpa.id2|||/page/instructorCourseDelete";
         AssertHelper.assertLogMessageEqualsInMasqueradeMode(expectedLogMessage, deleteAction.getLogMessage(), adminUserId);
 
     }
@@ -124,7 +124,7 @@ public class InstructorCourseDeleteActionTest extends BaseActionTest {
                 typicalBundle.instructors.get("instructor1OfCourse1").googleId,
                 "icdat.owncourse", "New course", "UTC");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, "icdat.owncourse"
         };
 

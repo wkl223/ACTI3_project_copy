@@ -17,7 +17,7 @@ public class InstructorCourseArchiveAction extends Action {
         boolean isArchive = Boolean.parseBoolean(archiveStatus);
 
         gateKeeper.verifyAccessible(logic.getInstructorForGoogleId(idOfCourseToArchive, account.googleId),
-                                    logic.getCourse(idOfCourseToArchive));
+                logic.getCourse(idOfCourseToArchive));
 
         try {
 
@@ -26,15 +26,15 @@ public class InstructorCourseArchiveAction extends Action {
             if (isArchive) {
                 if (isRedirectedToHomePage()) {
                     statusToUser.add(new StatusMessage(String.format(Const.StatusMessages.COURSE_ARCHIVED_FROM_HOMEPAGE,
-                                                                       idOfCourseToArchive), StatusMessageColor.SUCCESS));
+                            idOfCourseToArchive), StatusMessageColor.SUCCESS));
                 } else {
                     statusToUser.add(new StatusMessage(String.format(Const.StatusMessages.COURSE_ARCHIVED,
-                                                                       idOfCourseToArchive), StatusMessageColor.SUCCESS));
+                            idOfCourseToArchive), StatusMessageColor.SUCCESS));
                 }
                 statusToAdmin = "Course archived: " + idOfCourseToArchive;
             } else {
                 statusToUser.add(new StatusMessage(String.format(Const.StatusMessages.COURSE_UNARCHIVED,
-                                                                       idOfCourseToArchive), StatusMessageColor.SUCCESS));
+                        idOfCourseToArchive), StatusMessageColor.SUCCESS));
                 statusToAdmin = "Course unarchived: " + idOfCourseToArchive;
             }
         } catch (Exception e) {

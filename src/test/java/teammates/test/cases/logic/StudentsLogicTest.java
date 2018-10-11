@@ -282,8 +282,8 @@ public class StudentsLogicTest extends BaseLogicTest {
             studentsLogic.validateSectionsAndTeams(studentList, courseId);
         } catch (EnrollException e) {
             assertEquals(String.format(Const.StatusMessages.TEAM_INVALID_SECTION_EDIT, "Team 1.1</td></div>'\"")
-                             + "Please use the enroll page to edit multiple students",
-                         e.getMessage());
+                            + "Please use the enroll page to edit multiple students",
+                    e.getMessage());
         }
     }
 
@@ -337,7 +337,7 @@ public class StudentsLogicTest extends BaseLogicTest {
             signalFailureToDetectException();
         } catch (EntityDoesNotExistException e) {
             assertEquals(EntitiesDb.ERROR_UPDATE_NON_EXISTENT_STUDENT
-                    + student4InCourse1.course + "/" + "non-existent@email",
+                            + student4InCourse1.course + "/" + "non-existent@email",
                     e.getMessage());
         }
 
@@ -367,9 +367,9 @@ public class StudentsLogicTest extends BaseLogicTest {
         ArrayList<StudentEnrollDetails> enrollmentList = new ArrayList<>();
         StudentEnrollDetails studentDetails1 =
                 new StudentEnrollDetails(StudentUpdateStatus.MODIFIED,
-                                         course1Id, student1InCourse1.email, student1InCourse1.team,
-                                         student1InCourse1.team + "tmp", student1InCourse1.section,
-                                         student1InCourse1.section + "tmp");
+                        course1Id, student1InCourse1.email, student1InCourse1.team,
+                        student1InCourse1.team + "tmp", student1InCourse1.section,
+                        student1InCourse1.section + "tmp");
         enrollmentList.add(studentDetails1);
 
         FeedbackResponseAttributes feedbackResponse1InBundle = dataBundle.feedbackResponses.get("response1ForQ2S2C1");
@@ -377,12 +377,12 @@ public class StudentsLogicTest extends BaseLogicTest {
         FeedbackQuestionsLogic fqLogic = FeedbackQuestionsLogic.inst();
         FeedbackQuestionAttributes feedbackQuestionInDb =
                 fqLogic.getFeedbackQuestion(feedbackResponse1InBundle.feedbackSessionName,
-                                            feedbackResponse1InBundle.courseId,
-                                            Integer.parseInt(feedbackResponse1InBundle.feedbackQuestionId));
+                        feedbackResponse1InBundle.courseId,
+                        Integer.parseInt(feedbackResponse1InBundle.feedbackQuestionId));
         FeedbackResponseAttributes responseBefore =
                 frLogic.getFeedbackResponse(feedbackQuestionInDb.getId(),
-                                            feedbackResponse1InBundle.giver,
-                                            feedbackResponse1InBundle.recipient);
+                        feedbackResponse1InBundle.giver,
+                        feedbackResponse1InBundle.recipient);
 
         studentsLogic.adjustFeedbackResponseForEnrollments(enrollmentList, responseBefore);
 
@@ -397,9 +397,9 @@ public class StudentsLogicTest extends BaseLogicTest {
         enrollmentList = new ArrayList<>();
         studentDetails1 =
                 new StudentEnrollDetails(StudentUpdateStatus.UNMODIFIED, course1Id,
-                                         student1InCourse1.email, student1InCourse1.team,
-                                         student1InCourse1.team + "tmp", student1InCourse1.section,
-                                         student1InCourse1.section + "tmp");
+                        student1InCourse1.email, student1InCourse1.team,
+                        student1InCourse1.team + "tmp", student1InCourse1.section,
+                        student1InCourse1.section + "tmp");
         enrollmentList.add(studentDetails1);
 
         feedbackQuestionInDb = fqLogic.getFeedbackQuestion(feedbackResponse1InBundle.feedbackSessionName,
@@ -420,9 +420,9 @@ public class StudentsLogicTest extends BaseLogicTest {
 
         studentDetails1 =
                 new StudentEnrollDetails(StudentUpdateStatus.MODIFIED, course1Id,
-                                         student2InCourse1.email, student1InCourse1.team,
-                                         student1InCourse1.team + "tmp", student1InCourse1.section,
-                                         student1InCourse1.section + "tmp");
+                        student2InCourse1.email, student1InCourse1.team,
+                        student1InCourse1.team + "tmp", student1InCourse1.section,
+                        student1InCourse1.section + "tmp");
         enrollmentList = new ArrayList<>();
         enrollmentList.add(studentDetails1);
 
@@ -475,47 +475,47 @@ public class StudentsLogicTest extends BaseLogicTest {
         StudentAttributesFactory saf = new StudentAttributesFactory(headerLine);
         expectedInvalidInfoList.clear();
         info = StringHelper.toString(
-                    SanitizationHelper.sanitizeForHtml(
+                SanitizationHelper.sanitizeForHtml(
                         saf.makeStudent(lineWithInvalidTeamName, courseId).getInvalidityInfo()),
-                    "<br>" + Const.StatusMessages.ENROLL_LINES_PROBLEM_DETAIL_PREFIX + " ");
+                "<br>" + Const.StatusMessages.ENROLL_LINES_PROBLEM_DETAIL_PREFIX + " ");
         expectedInvalidInfoList.add(
                 String.format(Const.StatusMessages.ENROLL_LINES_PROBLEM, lineWithInvalidTeamName, info));
 
         info = StringHelper.toString(
-                    SanitizationHelper.sanitizeForHtml(
+                SanitizationHelper.sanitizeForHtml(
                         saf.makeStudent(lineWithInvalidStudentName, courseId).getInvalidityInfo()),
-                    "<br>" + Const.StatusMessages.ENROLL_LINES_PROBLEM_DETAIL_PREFIX + " ");
+                "<br>" + Const.StatusMessages.ENROLL_LINES_PROBLEM_DETAIL_PREFIX + " ");
         expectedInvalidInfoList.add(
                 String.format(Const.StatusMessages.ENROLL_LINES_PROBLEM, lineWithInvalidStudentName, info));
 
         info = StringHelper.toString(
-                    SanitizationHelper.sanitizeForHtml(
+                SanitizationHelper.sanitizeForHtml(
                         saf.makeStudent(lineWithInvalidEmail, courseId).getInvalidityInfo()),
-                    "<br>" + Const.StatusMessages.ENROLL_LINES_PROBLEM_DETAIL_PREFIX + " ");
+                "<br>" + Const.StatusMessages.ENROLL_LINES_PROBLEM_DETAIL_PREFIX + " ");
         expectedInvalidInfoList.add(
                 String.format(Const.StatusMessages.ENROLL_LINES_PROBLEM, lineWithInvalidEmail, info));
 
         info = StringHelper.toString(
-                    SanitizationHelper.sanitizeForHtml(
+                SanitizationHelper.sanitizeForHtml(
                         saf.makeStudent(lineWithInvalidStudentNameAndEmail, courseId).getInvalidityInfo()),
-                    "<br>" + Const.StatusMessages.ENROLL_LINES_PROBLEM_DETAIL_PREFIX + " ");
+                "<br>" + Const.StatusMessages.ENROLL_LINES_PROBLEM_DETAIL_PREFIX + " ");
         expectedInvalidInfoList.add(
                 String.format(Const.StatusMessages.ENROLL_LINES_PROBLEM, lineWithInvalidStudentNameAndEmail, info));
 
         info = StringHelper.toString(
-                    SanitizationHelper.sanitizeForHtml(
+                SanitizationHelper.sanitizeForHtml(
                         saf.makeStudent(lineWithInvalidTeamNameAndEmail, courseId).getInvalidityInfo()),
-                    "<br>" + Const.StatusMessages.ENROLL_LINES_PROBLEM_DETAIL_PREFIX + " ");
+                "<br>" + Const.StatusMessages.ENROLL_LINES_PROBLEM_DETAIL_PREFIX + " ");
         expectedInvalidInfoList.add(
                 String.format(Const.StatusMessages.ENROLL_LINES_PROBLEM, lineWithInvalidTeamNameAndEmail, info));
 
         info = StringHelper.toString(
-                    SanitizationHelper.sanitizeForHtml(
+                SanitizationHelper.sanitizeForHtml(
                         saf.makeStudent(lineWithInvalidTeamNameAndStudentNameAndEmail, courseId).getInvalidityInfo()),
-                    "<br>" + Const.StatusMessages.ENROLL_LINES_PROBLEM_DETAIL_PREFIX + " ");
+                "<br>" + Const.StatusMessages.ENROLL_LINES_PROBLEM_DETAIL_PREFIX + " ");
         expectedInvalidInfoList.add(
                 String.format(Const.StatusMessages.ENROLL_LINES_PROBLEM,
-                              lineWithInvalidTeamNameAndStudentNameAndEmail, info));
+                        lineWithInvalidTeamNameAndStudentNameAndEmail, info));
 
         expectedInvalidInfoString = StringHelper.toString(expectedInvalidInfoList, "<br>");
         assertEquals(expectedInvalidInfoString, invalidInfoString);
@@ -607,24 +607,24 @@ public class StudentsLogicTest extends BaseLogicTest {
         expectedInvalidInfoList.clear();
 
         info = StringHelper.toString(
-                    SanitizationHelper.sanitizeForHtml(
+                SanitizationHelper.sanitizeForHtml(
                         saf.makeStudent(lineWithInvalidTeamName, courseId).getInvalidityInfo()),
-                    "<br>" + Const.StatusMessages.ENROLL_LINES_PROBLEM_DETAIL_PREFIX + " ");
+                "<br>" + Const.StatusMessages.ENROLL_LINES_PROBLEM_DETAIL_PREFIX + " ");
         expectedInvalidInfoList.add(
                 String.format(Const.StatusMessages.ENROLL_LINES_PROBLEM, lineWithInvalidTeamName, info));
 
         info = StringHelper.toString(
-                    SanitizationHelper.sanitizeForHtml(
+                SanitizationHelper.sanitizeForHtml(
                         saf.makeStudent(lineWithInvalidTeamNameAndStudentNameAndEmail, courseId).getInvalidityInfo()),
-                    "<br>" + Const.StatusMessages.ENROLL_LINES_PROBLEM_DETAIL_PREFIX + " ");
+                "<br>" + Const.StatusMessages.ENROLL_LINES_PROBLEM_DETAIL_PREFIX + " ");
         expectedInvalidInfoList.add(
                 String.format(Const.StatusMessages.ENROLL_LINES_PROBLEM,
-                              lineWithInvalidTeamNameAndStudentNameAndEmail, info));
+                        lineWithInvalidTeamNameAndStudentNameAndEmail, info));
 
         info = StringHelper.toString(
-                    SanitizationHelper.sanitizeForHtml(
+                SanitizationHelper.sanitizeForHtml(
                         saf.makeStudent(lineWithTeamNameEmpty, courseId).getInvalidityInfo()),
-                    "<br>" + Const.StatusMessages.ENROLL_LINES_PROBLEM_DETAIL_PREFIX + " ");
+                "<br>" + Const.StatusMessages.ENROLL_LINES_PROBLEM_DETAIL_PREFIX + " ");
         expectedInvalidInfoList.add(
                 String.format(Const.StatusMessages.ENROLL_LINES_PROBLEM, lineWithTeamNameEmpty, info));
 
@@ -712,11 +712,11 @@ public class StudentsLogicTest extends BaseLogicTest {
         // Test enroll result
         line0 = "t1|n1|e1@g|c1";
         verifyEnrollmentResultForStudent(saf.makeStudent(line0, courseIdForEnrollTest),
-                                         enrollResults.studentList.get(0), StudentUpdateStatus.NEW);
+                enrollResults.studentList.get(0), StudentUpdateStatus.NEW);
         verifyEnrollmentResultForStudent(saf.makeStudent(line1, courseIdForEnrollTest),
-                                         enrollResults.studentList.get(1), StudentUpdateStatus.NEW);
+                enrollResults.studentList.get(1), StudentUpdateStatus.NEW);
         verifyEnrollmentResultForStudent(saf.makeStudent(line4, courseIdForEnrollTest),
-                                         enrollResults.studentList.get(4), StudentUpdateStatus.NEW);
+                enrollResults.studentList.get(4), StudentUpdateStatus.NEW);
 
         CourseDetailsBundle courseDetails = coursesLogic.getCourseSummary(courseIdForEnrollTest);
         assertEquals(5, courseDetails.stats.unregisteredTotal);
@@ -734,17 +734,17 @@ public class StudentsLogicTest extends BaseLogicTest {
         assertEquals(6, enrollResults.studentList.size());
         assertEquals(6, studentsLogic.getStudentsForCourse(courseIdForEnrollTest).size());
         verifyEnrollmentResultForStudent(saf.makeStudent(line0, courseIdForEnrollTest),
-                                         enrollResults.studentList.get(0), StudentUpdateStatus.UNMODIFIED);
+                enrollResults.studentList.get(0), StudentUpdateStatus.UNMODIFIED);
         verifyEnrollmentResultForStudent(saf.makeStudent(modifiedLine2, courseIdForEnrollTest),
-                                         enrollResults.studentList.get(1), StudentUpdateStatus.MODIFIED);
+                enrollResults.studentList.get(1), StudentUpdateStatus.MODIFIED);
         verifyEnrollmentResultForStudent(saf.makeStudent(line1, courseIdForEnrollTest),
-                                         enrollResults.studentList.get(2), StudentUpdateStatus.UNMODIFIED);
+                enrollResults.studentList.get(2), StudentUpdateStatus.UNMODIFIED);
         verifyEnrollmentResultForStudent(saf.makeStudent(line5, courseIdForEnrollTest),
-                                         enrollResults.studentList.get(3), StudentUpdateStatus.NEW);
+                enrollResults.studentList.get(3), StudentUpdateStatus.NEW);
         assertEquals(StudentUpdateStatus.NOT_IN_ENROLL_LIST,
-                     enrollResults.studentList.get(4).updateStatus);
+                enrollResults.studentList.get(4).updateStatus);
         assertEquals(StudentUpdateStatus.NOT_IN_ENROLL_LIST,
-                     enrollResults.studentList.get(5).updateStatus);
+                enrollResults.studentList.get(5).updateStatus);
 
         ______TS("includes an incorrect line");
 
@@ -869,7 +869,7 @@ public class StudentsLogicTest extends BaseLogicTest {
 
         StudentAttributes student1InCourse1 = dataBundle.students.get("student1InCourse1");
         assertEquals(student1InCourse1.googleId,
-                     studentsLogic.getStudentForEmail(course1Id, student1InCourse1.email).googleId);
+                studentsLogic.getStudentForEmail(course1Id, student1InCourse1.email).googleId);
     }
 
     private void testGetStudentForRegistrationKey() {
@@ -1055,7 +1055,7 @@ public class StudentsLogicTest extends BaseLogicTest {
             signalFailureToDetectException();
         } catch (EntityDoesNotExistException e) {
             String expectedErrorMsg = "Student does not exist: "
-                                      + "[" + student1InCourse1.course + "/" + nonExistStudentEmail + "]";
+                    + "[" + student1InCourse1.course + "/" + nonExistStudentEmail + "]";
             assertEquals(expectedErrorMsg, e.getMessage());
         }
 
@@ -1124,19 +1124,19 @@ public class StudentsLogicTest extends BaseLogicTest {
         StudentAttributes student2InCourse1 = dataBundle.students.get("student2InCourse1");
         String nonExistStudentEmail = "nonExist@google.tmt";
         assertFalse(studentsLogic.isStudentsInSameTeam(course1.getId(), nonExistStudentEmail,
-                                                       student2InCourse1.email));
+                student2InCourse1.email));
 
         ______TS("students of different teams");
 
         StudentAttributes student5InCourse1 = dataBundle.students.get("student5InCourse1");
         assertFalse(studentsLogic.isStudentsInSameTeam(course1.getId(), student2InCourse1.email,
-                                                       student5InCourse1.email));
+                student5InCourse1.email));
 
         ______TS("students of different teams");
 
         StudentAttributes student1InCourse1 = dataBundle.students.get("student1InCourse1");
         assertTrue(studentsLogic.isStudentsInSameTeam(course1.getId(), student2InCourse1.email,
-                                                      student1InCourse1.email));
+                student1InCourse1.email));
 
     }
 
@@ -1173,8 +1173,8 @@ public class StudentsLogicTest extends BaseLogicTest {
 
     private static StudentEnrollDetails enrollStudent(StudentAttributes student) throws Exception {
         return (StudentEnrollDetails) invokeMethod(StudentsLogic.class, "enrollStudent",
-                                                   new Class<?>[] { StudentAttributes.class, Boolean.class },
-                                                   StudentsLogic.inst(), new Object[] { student, false });
+                new Class<?>[]{StudentAttributes.class, Boolean.class},
+                StudentsLogic.inst(), new Object[]{student, false});
     }
 
     @AfterClass
@@ -1194,10 +1194,10 @@ public class StudentsLogicTest extends BaseLogicTest {
     private void verifyEnrollmentResultForStudent(StudentAttributes expectedStudent,
                                                   StudentAttributes enrollmentResult, StudentUpdateStatus status) {
         String errorMessage = "mismatch! \n expected:\n"
-                            + JsonUtils.toJson(expectedStudent)
-                            + "\n actual \n"
-                            + JsonUtils.toJson(enrollmentResult);
+                + JsonUtils.toJson(expectedStudent)
+                + "\n actual \n"
+                + JsonUtils.toJson(enrollmentResult);
         assertTrue(errorMessage, enrollmentResult.isEnrollInfoSameAs(expectedStudent)
-                                 && enrollmentResult.updateStatus == status);
+                && enrollmentResult.updateStatus == status);
     }
 }

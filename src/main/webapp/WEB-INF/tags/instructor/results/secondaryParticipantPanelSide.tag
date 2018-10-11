@@ -7,8 +7,10 @@
 
 <%@ taglib tagdir="/WEB-INF/tags/instructor/results" prefix="results" %>
 
-<%@ attribute name="secondaryParticipantPanelBody" type="teammates.ui.template.InstructorFeedbackResultsSecondaryParticipantPanelBody" required="true" %>
-<%@ attribute name="primaryParticipantPanel" type="teammates.ui.template.InstructorFeedbackResultsGroupByParticipantPanel" required="true" %>
+<%@ attribute name="secondaryParticipantPanelBody"
+              type="teammates.ui.template.InstructorFeedbackResultsSecondaryParticipantPanelBody" required="true" %>
+<%@ attribute name="primaryParticipantPanel"
+              type="teammates.ui.template.InstructorFeedbackResultsGroupByParticipantPanel" required="true" %>
 
 <div class="col-md-2">
   <div class="col-md-12 tablet-margin-10px tablet-no-padding">
@@ -16,7 +18,8 @@
 
     <c:choose>
       <c:when test="${not empty secondaryParticipantPanelBody.profilePictureLink}">
-        <div class="tablet-bottom-align profile-pic-icon-hover inline-block" data-link="${secondaryParticipantPanelBody.profilePictureLink}">
+        <div class="tablet-bottom-align profile-pic-icon-hover inline-block"
+             data-link="${secondaryParticipantPanelBody.profilePictureLink}">
           <strong>${fn:escapeXml(secondaryParticipantPanelBody.secondaryParticipantDisplayableName)}</strong>
           <img src="" alt="No Image Given" class="hidden profile-pic-icon-hidden">
         </div>
@@ -32,8 +35,9 @@
     ${primaryParticipantPanel.giver ? 'From' : 'To' }:
     <c:choose>
       <c:when test="${primaryParticipantPanel.emailValid}">
-        <div class="tablet-bottom-align profile-pic-icon-hover inline-block" data-link="${primaryParticipantPanel.profilePictureLink}">
-          ${fn:escapeXml(primaryParticipantPanel.name)}
+        <div class="tablet-bottom-align profile-pic-icon-hover inline-block"
+             data-link="${primaryParticipantPanel.profilePictureLink}">
+            ${fn:escapeXml(primaryParticipantPanel.name)}
           <img src="" alt="No Image Given" class="hidden profile-pic-icon-hidden">
         </div>
       </c:when>

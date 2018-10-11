@@ -29,14 +29,14 @@ public class FeedbackMsqResponseDetails extends FeedbackResponseDetails {
     }
 
     public void extractResponseDetails(FeedbackQuestionType questionType,
-                                    FeedbackQuestionDetails questionDetails, String[] answer,
-                                    Map<String, String[]> requestParameters, int questionIndx,
-                                    int responseIndx) {
+                                       FeedbackQuestionDetails questionDetails, String[] answer,
+                                       Map<String, String[]> requestParameters, int questionIndx,
+                                       int responseIndx) {
 
         // "1" if other is selected, "0" if other is not selected, null if other is disabled by the instructor
         String isOtherOptionAnswer = HttpRequestHelper.getValueFromParamMap(
-                                        requestParameters, Const.ParamsNames.FEEDBACK_QUESTION_MSQ_ISOTHEROPTIONANSWER
-                                        + "-" + questionIndx + "-" + responseIndx);
+                requestParameters, Const.ParamsNames.FEEDBACK_QUESTION_MSQ_ISOTHEROPTIONANSWER
+                        + "-" + questionIndx + "-" + responseIndx);
 
         if ("1".equals(isOtherOptionAnswer)) {
             isOther = true;

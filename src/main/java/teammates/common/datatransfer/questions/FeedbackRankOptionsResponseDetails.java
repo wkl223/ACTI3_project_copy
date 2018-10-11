@@ -114,13 +114,13 @@ public class FeedbackRankOptionsResponseDetails extends FeedbackRankResponseDeta
     }
 
     private SortedMap<Integer, List<String>> generateMapOfRanksToOptions(
-                                    FeedbackRankOptionsQuestionDetails rankQuestion) {
+            FeedbackRankOptionsQuestionDetails rankQuestion) {
         SortedMap<Integer, List<String>> orderedOptions = new TreeMap<>();
         for (int i = 0; i < answers.size(); i++) {
             String option = rankQuestion.options.get(i);
             Integer answer = answers.get(i);
             orderedOptions.computeIfAbsent(answer, key -> new ArrayList<>())
-                          .add(option);
+                    .add(option);
         }
         return orderedOptions;
     }
@@ -129,8 +129,8 @@ public class FeedbackRankOptionsResponseDetails extends FeedbackRankResponseDeta
         this.answers = answers;
 
         Assumption.assertEquals("Rank question: number of responses does not match number of options. "
-                                        + answers.size() + "/" + options.size(),
-                                answers.size(), options.size());
+                        + answers.size() + "/" + options.size(),
+                answers.size(), options.size());
 
     }
 

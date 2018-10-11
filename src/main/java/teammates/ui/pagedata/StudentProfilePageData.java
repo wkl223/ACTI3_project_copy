@@ -9,7 +9,7 @@ import teammates.ui.template.StudentProfileUploadPhotoModal;
 
 public class StudentProfilePageData extends PageData {
 
-private StudentProfile studentProfile;
+    private StudentProfile studentProfile;
     private StudentProfileEditBox profileEditBox;
     private StudentProfileUploadPhotoModal uploadPhotoModal;
 
@@ -21,6 +21,7 @@ private StudentProfile studentProfile;
             this.studentProfile = new StudentProfile(account.name, studentProfile, pictureUrl);
         }
     }
+
     public StudentProfilePageData(AccountAttributes account, String sessionToken, String isEditingPhoto) {
         super(account, sessionToken);
         StudentProfileAttributes profile = account.studentProfile;

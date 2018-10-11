@@ -220,7 +220,9 @@ public class FeedbackQuestionAttributes extends EntityAttributes<FeedbackQuestio
         return feedbackQuestionId;
     }
 
-    /** NOTE: Only use this to match and search for the ID of a known existing question entity. */
+    /**
+     * NOTE: Only use this to match and search for the ID of a known existing question entity.
+     */
     public void setId(String id) {
         this.feedbackQuestionId = id;
     }
@@ -228,30 +230,30 @@ public class FeedbackQuestionAttributes extends EntityAttributes<FeedbackQuestio
     @Override
     public FeedbackQuestion toEntity() {
         return new FeedbackQuestion(feedbackSessionName, courseId, creatorEmail,
-                                    questionMetaData, questionDescription, questionNumber, questionType, giverType,
-                                    recipientType, numberOfEntitiesToGiveFeedbackTo,
-                                    showResponsesTo, showGiverNameTo, showRecipientNameTo);
+                questionMetaData, questionDescription, questionNumber, questionType, giverType,
+                recipientType, numberOfEntitiesToGiveFeedbackTo,
+                showResponsesTo, showGiverNameTo, showRecipientNameTo);
     }
 
     @Override
     public String toString() {
         return "FeedbackQuestionAttributes [feedbackSessionName="
-               + feedbackSessionName + ", courseId=" + courseId
-               + ", creatorEmail=" + creatorEmail + ", questionText="
-               + questionMetaData + ", questionDescription=" + questionDescription
-               + ", questionNumber=" + questionNumber
-               + ", questionType=" + questionType + ", giverType=" + giverType
-               + ", recipientType=" + recipientType
-               + ", numberOfEntitiesToGiveFeedbackTo="
-               + numberOfEntitiesToGiveFeedbackTo + ", showResponsesTo="
-               + showResponsesTo + ", showGiverNameTo=" + showGiverNameTo
-               + ", showRecipientNameTo=" + showRecipientNameTo + "]";
+                + feedbackSessionName + ", courseId=" + courseId
+                + ", creatorEmail=" + creatorEmail + ", questionText="
+                + questionMetaData + ", questionDescription=" + questionDescription
+                + ", questionNumber=" + questionNumber
+                + ", questionType=" + questionType + ", giverType=" + giverType
+                + ", recipientType=" + recipientType
+                + ", numberOfEntitiesToGiveFeedbackTo="
+                + numberOfEntitiesToGiveFeedbackTo + ", showResponsesTo="
+                + showResponsesTo + ", showGiverNameTo=" + showGiverNameTo
+                + ", showRecipientNameTo=" + showRecipientNameTo + "]";
     }
 
     @Override
     public String getIdentificationString() {
         return this.questionNumber + ". " + this.questionMetaData.toString() + "/"
-               + this.feedbackSessionName + "/" + this.courseId;
+                + this.feedbackSessionName + "/" + this.courseId;
     }
 
     @Override
@@ -291,8 +293,8 @@ public class FeedbackQuestionAttributes extends EntityAttributes<FeedbackQuestio
         errors.addAll(validator.getValidityInfoForFeedbackParticipantType(giverType, recipientType));
 
         errors.addAll(validator.getValidityInfoForFeedbackResponseVisibility(showResponsesTo,
-                                                                             showGiverNameTo,
-                                                                             showRecipientNameTo));
+                showGiverNameTo,
+                showRecipientNameTo));
 
         return errors;
     }
@@ -377,19 +379,19 @@ public class FeedbackQuestionAttributes extends EntityAttributes<FeedbackQuestio
 
     public boolean isGiverAStudent() {
         return giverType == FeedbackParticipantType.SELF
-               || giverType == FeedbackParticipantType.STUDENTS;
+                || giverType == FeedbackParticipantType.STUDENTS;
     }
 
     public boolean isRecipientNameHidden() {
         return recipientType == FeedbackParticipantType.NONE
-               || recipientType == FeedbackParticipantType.SELF;
+                || recipientType == FeedbackParticipantType.SELF;
     }
 
     public boolean isRecipientAStudent() {
         return recipientType == FeedbackParticipantType.SELF
-               || recipientType == FeedbackParticipantType.STUDENTS
-               || recipientType == FeedbackParticipantType.OWN_TEAM_MEMBERS
-               || recipientType == FeedbackParticipantType.OWN_TEAM_MEMBERS_INCLUDING_SELF;
+                || recipientType == FeedbackParticipantType.STUDENTS
+                || recipientType == FeedbackParticipantType.OWN_TEAM_MEMBERS
+                || recipientType == FeedbackParticipantType.OWN_TEAM_MEMBERS_INCLUDING_SELF;
     }
 
     public boolean isRecipientInstructor() {
@@ -614,29 +616,29 @@ public class FeedbackQuestionAttributes extends EntityAttributes<FeedbackQuestio
 
         if (recipientType != null) {
             switch (recipientType) {
-            case NONE:
-                optionsToRemove.add(FeedbackParticipantType.RECEIVER);
-                optionsToRemove.add(FeedbackParticipantType.RECEIVER_TEAM_MEMBERS);
-                break;
-            case TEAMS:
-            case INSTRUCTORS:
-            case OWN_TEAM:
-            case OWN_TEAM_MEMBERS:
-                optionsToRemove.add(FeedbackParticipantType.RECEIVER_TEAM_MEMBERS);
-                break;
-            default:
-                break;
+                case NONE:
+                    optionsToRemove.add(FeedbackParticipantType.RECEIVER);
+                    optionsToRemove.add(FeedbackParticipantType.RECEIVER_TEAM_MEMBERS);
+                    break;
+                case TEAMS:
+                case INSTRUCTORS:
+                case OWN_TEAM:
+                case OWN_TEAM_MEMBERS:
+                    optionsToRemove.add(FeedbackParticipantType.RECEIVER_TEAM_MEMBERS);
+                    break;
+                default:
+                    break;
             }
         }
 
         if (giverType != null) {
             switch (giverType) {
-            case TEAMS:
-            case INSTRUCTORS:
-                optionsToRemove.add(FeedbackParticipantType.OWN_TEAM_MEMBERS);
-                break;
-            default:
-                break;
+                case TEAMS:
+                case INSTRUCTORS:
+                    optionsToRemove.add(FeedbackParticipantType.OWN_TEAM_MEMBERS);
+                    break;
+                default:
+                    break;
             }
         }
 

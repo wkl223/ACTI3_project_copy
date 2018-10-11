@@ -84,11 +84,11 @@ public class AdminSessionsPageUiTest extends BaseUiTestCase {
             return false;
         }
         List<String> expectedSessionTableHeaders = Arrays.asList("Status",
-                                                               "[Course ID] Session Name  ",
-                                                               "Response Rate",
-                                                               "Start Time ",
-                                                               "End Time ",
-                                                               "Creator");
+                "[Course ID] Session Name  ",
+                "Response Rate",
+                "Start Time ",
+                "End Time ",
+                "Creator");
         List<String> actualSessionTableHeaders = new ArrayList<>();
         for (int i = 0; i < numColumns; i++) {
             actualSessionTableHeaders.add(sessionsPage.getHeaderValueFromDataTable(tableNum, 0, i));

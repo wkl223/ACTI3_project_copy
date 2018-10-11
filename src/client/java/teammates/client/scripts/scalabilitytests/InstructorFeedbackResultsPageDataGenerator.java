@@ -29,7 +29,8 @@ public class InstructorFeedbackResultsPageDataGenerator {
     private EmptyObject feedbackResponseComments = new EmptyObject();
     private EmptyObject profiles = new EmptyObject();
 
-    class EmptyObject {}
+    class EmptyObject {
+    }
 
     class Account {
         private String email = "CFResultsScT.instr@gmail.tmt";
@@ -63,9 +64,9 @@ public class InstructorFeedbackResultsPageDataGenerator {
         private int questionNumber;
         private String questionType = "TEXT";
         private String recipientType = "STUDENTS";
-        private String[] showGiverNameTo = new String[] {"INSTRUCTORS", "OWN_TEAM_MEMBERS"};
-        private String[] showRecipientNameTo = new String[] {"INSTRUCTORS", "RECEIVER"};
-        private String[] showResponsesTo = new String[] {"INSTRUCTORS", "RECEIVER", "STUDENTS", "OWN_TEAM_MEMBERS"};
+        private String[] showGiverNameTo = new String[]{"INSTRUCTORS", "OWN_TEAM_MEMBERS"};
+        private String[] showRecipientNameTo = new String[]{"INSTRUCTORS", "RECEIVER"};
+        private String[] showResponsesTo = new String[]{"INSTRUCTORS", "RECEIVER", "STUDENTS", "OWN_TEAM_MEMBERS"};
 
         Question(int num) {
             this.questionNumber = num;
@@ -197,8 +198,8 @@ public class InstructorFeedbackResultsPageDataGenerator {
             for (int questionNum : questionNums) {
                 try (Writer writer = new FileWriter(
                         folderPath
-                        + "InstructorFeedbackResultsPageScaleTest-" + studentNum
-                        + "Students" + questionNum + "Questions.json")) {
+                                + "InstructorFeedbackResultsPageScaleTest-" + studentNum
+                                + "Students" + questionNum + "Questions.json")) {
                     gson.toJson(new InstructorFeedbackResultsPageDataGenerator(questionNum, studentNum), writer);
                 }
             }

@@ -10,10 +10,10 @@ import teammates.common.util.Const;
 import teammates.test.driver.TestProperties;
 
 public class AdminEmailPage extends AppPage {
-    @FindBy (id = "adminEmailGroupReceiverListUploadBox")
+    @FindBy(id = "adminEmailGroupReceiverListUploadBox")
     private WebElement groupReceiverListUploadBox;
 
-    @FindBy (id = "adminEmailGroupReceiverList")
+    @FindBy(id = "adminEmailGroupReceiverList")
     private WebElement inputFieldForGroupList;
 
     public AdminEmailPage(Browser browser) {
@@ -32,6 +32,7 @@ public class AdminEmailPage extends AppPage {
 
     /**
      * Makes the groupReceiverListUploadBox visible, uploads file and makes it invisible again.
+     *
      * @param fileName to be uploaded
      */
     public void inputGroupRecipient(String fileName) {

@@ -258,9 +258,9 @@ public class InstructorPrivilegesTest extends BaseTestCase {
         String sessionId = "sessionId";
 
         privileges.updatePrivilege(sectionId, sessionId,
-                                   Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_SESSION_IN_SECTIONS, false);
+                Const.ParamsNames.INSTRUCTOR_PERMISSION_VIEW_SESSION_IN_SECTIONS, false);
         privileges.updatePrivilege(sectionId, sessionId,
-                                   Const.ParamsNames.INSTRUCTOR_PERMISSION_SUBMIT_SESSION_IN_SECTIONS, false);
+                Const.ParamsNames.INSTRUCTOR_PERMISSION_SUBMIT_SESSION_IN_SECTIONS, false);
         assertEquals(1, privileges.getSessionLevelPrivileges().size());
         assertTrue(privileges.getSessionLevelPrivileges().containsKey(sectionId));
         assertEquals(1, privileges.getSessionLevelPrivileges().get(sectionId).size());

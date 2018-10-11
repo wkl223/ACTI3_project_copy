@@ -42,7 +42,7 @@ public class FeedbackSessionClosedRemindersActionTest extends BaseAutomatedActio
         verifyNoTasksAdded(action);
 
         ______TS("1 session closed recently, 1 session closed recently with disabled closed reminder, "
-                 + "1 session closed recently but still in grace period");
+                + "1 session closed recently but still in grace period");
 
         // Session is closed recently
 
@@ -83,8 +83,8 @@ public class FeedbackSessionClosedRemindersActionTest extends BaseAutomatedActio
         for (TaskWrapper task : tasksAdded) {
             Map<String, String[]> paramMap = task.getParamMap();
             assertEquals(String.format(EmailType.FEEDBACK_CLOSED.getSubject(), courseName,
-                                       session1.getSessionName()),
-                         paramMap.get(ParamsNames.EMAIL_SUBJECT)[0]);
+                    session1.getSessionName()),
+                    paramMap.get(ParamsNames.EMAIL_SUBJECT)[0]);
         }
 
         ______TS("1 session closed recently with closed emails sent");

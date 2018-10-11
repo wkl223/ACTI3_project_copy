@@ -260,6 +260,7 @@ function duplicateQuestion(questionNum) {
     $(`#form_editquestion-${questionNum}`).submit();
     return false;
 }
+
 /**
  * Disables the editing of feedback session details.
  */
@@ -311,7 +312,7 @@ function bindFeedbackSessionEditFormSubmission() {
                 clearStatusMessages();
             },
             success(result) {
-                const { statusMessagesToUser, resolvedTimeFields, hasError } = result;
+                const {statusMessagesToUser, resolvedTimeFields, hasError} = result;
 
                 for (let i = 0; i < statusMessagesToUser.length; i += 1) {
                     const statusMessageToUser = statusMessagesToUser[i];
@@ -462,7 +463,7 @@ function enableEditFS() {
  */
 function backupQuestion(questionNum) {
     questionsBeforeEdit[questionNum] = questionsBeforeEdit[questionNum]
-                                       || $(`#questionTable-${questionNum} > .panel-body`).html();
+            || $(`#questionTable-${questionNum} > .panel-body`).html();
 }
 
 /**
@@ -760,90 +761,90 @@ function prepareQuestionForm(type) {
     hideAllNewQuestionForms();
 
     switch (type) {
-    case 'TEXT':
-        $('#questionTypeHeader').html(FEEDBACK_QUESTION_TYPENAME_TEXT);
+        case 'TEXT':
+            $('#questionTypeHeader').html(FEEDBACK_QUESTION_TYPENAME_TEXT);
 
-        $('#textForm').show();
-        break;
-    case 'MCQ':
-        $(`#${ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED}-${NEW_QUESTION}`).val(2);
-        $('#questionTypeHeader').html(FEEDBACK_QUESTION_TYPENAME_MCQ);
+            $('#textForm').show();
+            break;
+        case 'MCQ':
+            $(`#${ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED}-${NEW_QUESTION}`).val(2);
+            $('#questionTypeHeader').html(FEEDBACK_QUESTION_TYPENAME_MCQ);
 
-        $('#mcqForm').show();
-        break;
-    case 'MSQ':
-        $(`#${ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED}-${NEW_QUESTION}`).val(2);
-        $('#questionTypeHeader').html(FEEDBACK_QUESTION_TYPENAME_MSQ);
+            $('#mcqForm').show();
+            break;
+        case 'MSQ':
+            $(`#${ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED}-${NEW_QUESTION}`).val(2);
+            $('#questionTypeHeader').html(FEEDBACK_QUESTION_TYPENAME_MSQ);
 
-        $('#msqForm').show();
-        break;
-    case 'NUMSCALE':
-        $('#questionTypeHeader').html(FEEDBACK_QUESTION_TYPENAME_NUMSCALE);
+            $('#msqForm').show();
+            break;
+        case 'NUMSCALE':
+            $('#questionTypeHeader').html(FEEDBACK_QUESTION_TYPENAME_NUMSCALE);
 
-        $('#numScaleForm').show();
-        $(`#${ParamsNames.FEEDBACK_QUESTION_TEXT}`).attr(
-                'placeholder', 'e.g. Rate the class from 1 (very bad) to 5 (excellent)');
-        break;
-    case 'CONSTSUM_OPTION':
-        $(`#${ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED}-${NEW_QUESTION}`).val(2);
-        $(`#${ParamsNames.FEEDBACK_QUESTION_CONSTSUMTORECIPIENTS}-${NEW_QUESTION}`).val('false');
-        $(`#constSumOption_Recipient-${NEW_QUESTION}`).hide();
-        $(`#constSumOption_Option-${NEW_QUESTION}`).show();
-        showConstSumOptionTable(NEW_QUESTION);
-        $('#questionTypeHeader').html(FEEDBACK_QUESTION_TYPENAME_CONSTSUM_OPTION);
+            $('#numScaleForm').show();
+            $(`#${ParamsNames.FEEDBACK_QUESTION_TEXT}`).attr(
+                    'placeholder', 'e.g. Rate the class from 1 (very bad) to 5 (excellent)');
+            break;
+        case 'CONSTSUM_OPTION':
+            $(`#${ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED}-${NEW_QUESTION}`).val(2);
+            $(`#${ParamsNames.FEEDBACK_QUESTION_CONSTSUMTORECIPIENTS}-${NEW_QUESTION}`).val('false');
+            $(`#constSumOption_Recipient-${NEW_QUESTION}`).hide();
+            $(`#constSumOption_Option-${NEW_QUESTION}`).show();
+            showConstSumOptionTable(NEW_QUESTION);
+            $('#questionTypeHeader').html(FEEDBACK_QUESTION_TYPENAME_CONSTSUM_OPTION);
 
-        $('#constSumForm').show();
-        $(`#constSumPointsTotal-${NEW_QUESTION}`).prop('checked', true);
-        break;
-    case 'CONSTSUM_RECIPIENT': {
-        const optionText = $(`#constSum_labelText-${NEW_QUESTION}`).text();
-        const tooltipText = $(`#constSum_tooltipText-${NEW_QUESTION}`).attr('data-original-title');
+            $('#constSumForm').show();
+            $(`#constSumPointsTotal-${NEW_QUESTION}`).prop('checked', true);
+            break;
+        case 'CONSTSUM_RECIPIENT': {
+            const optionText = $(`#constSum_labelText-${NEW_QUESTION}`).text();
+            const tooltipText = $(`#constSum_tooltipText-${NEW_QUESTION}`).attr('data-original-title');
 
-        $(`#${ParamsNames.FEEDBACK_QUESTION_CONSTSUMTORECIPIENTS}-${NEW_QUESTION}`).val('true');
-        $(`#constSumOption_Option-${NEW_QUESTION}`).hide();
-        $(`#constSumOption_Recipient-${NEW_QUESTION}`).show();
-        hideConstSumOptionTable(NEW_QUESTION);
-        $('#questionTypeHeader').html(FEEDBACK_QUESTION_TYPENAME_CONSTSUM_RECIPIENT);
+            $(`#${ParamsNames.FEEDBACK_QUESTION_CONSTSUMTORECIPIENTS}-${NEW_QUESTION}`).val('true');
+            $(`#constSumOption_Option-${NEW_QUESTION}`).hide();
+            $(`#constSumOption_Recipient-${NEW_QUESTION}`).show();
+            hideConstSumOptionTable(NEW_QUESTION);
+            $('#questionTypeHeader').html(FEEDBACK_QUESTION_TYPENAME_CONSTSUM_RECIPIENT);
 
-        $('#constSumForm').show();
-        $(`#constSumPointsTotal-${NEW_QUESTION}`).prop('checked', true);
-        $(`#constSum_labelText-${NEW_QUESTION}`).text(optionText.replace('option', 'recipient'));
-        $(`#constSum_tooltipText-${NEW_QUESTION}`).attr('data-original-title', tooltipText.replace('option', 'recipient'));
-        break;
-    }
-    case 'CONTRIB':
-        $('#questionTypeHeader').html(FEEDBACK_QUESTION_TYPENAME_CONTRIB);
+            $('#constSumForm').show();
+            $(`#constSumPointsTotal-${NEW_QUESTION}`).prop('checked', true);
+            $(`#constSum_labelText-${NEW_QUESTION}`).text(optionText.replace('option', 'recipient'));
+            $(`#constSum_tooltipText-${NEW_QUESTION}`).attr('data-original-title', tooltipText.replace('option', 'recipient'));
+            break;
+        }
+        case 'CONTRIB':
+            $('#questionTypeHeader').html(FEEDBACK_QUESTION_TYPENAME_CONTRIB);
 
-        $('#contribForm').show();
-        fixContribQnGiverRecipient(NEW_QUESTION);
-        setContribQnVisibilityFormat(NEW_QUESTION);
-        setDefaultContribQnVisibilityIfNeeded(NEW_QUESTION);
-        break;
-    case 'RUBRIC':
-        $('#questionTypeHeader').html(FEEDBACK_QUESTION_TYPENAME_RUBRIC);
+            $('#contribForm').show();
+            fixContribQnGiverRecipient(NEW_QUESTION);
+            setContribQnVisibilityFormat(NEW_QUESTION);
+            setDefaultContribQnVisibilityIfNeeded(NEW_QUESTION);
+            break;
+        case 'RUBRIC':
+            $('#questionTypeHeader').html(FEEDBACK_QUESTION_TYPENAME_RUBRIC);
 
-        $('#rubricForm').show();
-        break;
-    case 'RANK_OPTIONS':
-        $(`#${ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED}-${NEW_QUESTION}`).val(2);
-        $(`#${ParamsNames.FEEDBACK_QUESTION_RANKTORECIPIENTS}-${NEW_QUESTION}`).val('false');
-        $(`#rankOption_Recipient-${NEW_QUESTION}`).hide();
-        showRankOptionTable(NEW_QUESTION);
-        $('#questionTypeHeader').html(FEEDBACK_QUESTION_TYPENAME_RANK_OPTION);
+            $('#rubricForm').show();
+            break;
+        case 'RANK_OPTIONS':
+            $(`#${ParamsNames.FEEDBACK_QUESTION_NUMBEROFCHOICECREATED}-${NEW_QUESTION}`).val(2);
+            $(`#${ParamsNames.FEEDBACK_QUESTION_RANKTORECIPIENTS}-${NEW_QUESTION}`).val('false');
+            $(`#rankOption_Recipient-${NEW_QUESTION}`).hide();
+            showRankOptionTable(NEW_QUESTION);
+            $('#questionTypeHeader').html(FEEDBACK_QUESTION_TYPENAME_RANK_OPTION);
 
-        $('#rankOptionsForm').show();
-        break;
-    case 'RANK_RECIPIENTS':
-        $(`#${ParamsNames.FEEDBACK_QUESTION_RANKTORECIPIENTS}-${NEW_QUESTION}`).val('true');
-        $(`#rankOption_Option-${NEW_QUESTION}`).hide();
-        hideRankOptionTable(NEW_QUESTION);
-        $('#questionTypeHeader').html(FEEDBACK_QUESTION_TYPENAME_RANK_RECIPIENT);
+            $('#rankOptionsForm').show();
+            break;
+        case 'RANK_RECIPIENTS':
+            $(`#${ParamsNames.FEEDBACK_QUESTION_RANKTORECIPIENTS}-${NEW_QUESTION}`).val('true');
+            $(`#rankOption_Option-${NEW_QUESTION}`).hide();
+            hideRankOptionTable(NEW_QUESTION);
+            $('#questionTypeHeader').html(FEEDBACK_QUESTION_TYPENAME_RANK_RECIPIENT);
 
-        $('#rankRecipientsForm').show();
-        break;
-    default:
-        // do nothing if the question type is not recognized, which should not happen
-        break;
+            $('#rankRecipientsForm').show();
+            break;
+        default:
+            // do nothing if the question type is not recognized, which should not happen
+            break;
     }
 }
 
@@ -961,7 +962,7 @@ function setupQuestionCopyModal() {
                 $questionCopyStatusMessage.removeClass('alert alert-danger');
                 $questionCopyStatusMessage.html(
                         'Loading possible questions to copy. Please wait ...<br>'
-                      + "<img class='margin-center-horizontal' src='/images/ajax-loader.gif'/>");
+                        + "<img class='margin-center-horizontal' src='/images/ajax-loader.gif'/>");
             },
             error() {
                 $questionCopyStatusMessage.html(
@@ -1066,27 +1067,27 @@ function hideInvalidRecipientTypeOptions($giverSelect) {
         hideOption($recipientSelect, 'NONE');
     }
     switch (giverType) {
-    case 'STUDENTS':
-        // all recipientType options enabled
-        // except for 'SELF' and 'NONE' options in 'RANK_RECIPIENTS' questions
-        break;
-    case 'SELF':
-    case 'INSTRUCTORS':
-        hideOption($recipientSelect, 'OWN_TEAM_MEMBERS');
-        hideOption($recipientSelect, 'OWN_TEAM_MEMBERS_INCLUDING_SELF');
-        if (recipientType === 'OWN_TEAM_MEMBERS' || recipientType === 'OWN_TEAM_MEMBERS_INCLUDING_SELF') {
-            setRecipientSelectToFirstVisibleOption($recipientSelect);
-        }
-        break;
-    case 'TEAMS':
-        hideOption($recipientSelect, 'OWN_TEAM');
-        hideOption($recipientSelect, 'OWN_TEAM_MEMBERS');
-        if (recipientType === 'OWN_TEAM' || recipientType === 'OWN_TEAM_MEMBERS') {
-            setRecipientSelectToFirstVisibleOption($recipientSelect);
-        }
-        break;
-    default:
-        throw new Error('Unexpected giverType');
+        case 'STUDENTS':
+            // all recipientType options enabled
+            // except for 'SELF' and 'NONE' options in 'RANK_RECIPIENTS' questions
+            break;
+        case 'SELF':
+        case 'INSTRUCTORS':
+            hideOption($recipientSelect, 'OWN_TEAM_MEMBERS');
+            hideOption($recipientSelect, 'OWN_TEAM_MEMBERS_INCLUDING_SELF');
+            if (recipientType === 'OWN_TEAM_MEMBERS' || recipientType === 'OWN_TEAM_MEMBERS_INCLUDING_SELF') {
+                setRecipientSelectToFirstVisibleOption($recipientSelect);
+            }
+            break;
+        case 'TEAMS':
+            hideOption($recipientSelect, 'OWN_TEAM');
+            hideOption($recipientSelect, 'OWN_TEAM_MEMBERS');
+            if (recipientType === 'OWN_TEAM' || recipientType === 'OWN_TEAM_MEMBERS') {
+                setRecipientSelectToFirstVisibleOption($recipientSelect);
+            }
+            break;
+        default:
+            throw new Error('Unexpected giverType');
     }
 }
 
@@ -1122,7 +1123,7 @@ function showNewQuestionFrame(type) {
 
     $('#addNewQuestionTable').hide();
     $('#empty_message').hide();
-    scrollToElement($(`#questionTable-${NEW_QUESTION}`)[0], { duration: 1000 });
+    scrollToElement($(`#questionTable-${NEW_QUESTION}`)[0], {duration: 1000});
 
     getVisibilityMessage($(`#questionTable-${NEW_QUESTION}`));
 }

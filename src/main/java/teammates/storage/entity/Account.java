@@ -44,22 +44,16 @@ public class Account extends BaseEntity {
     /**
      * Instantiates a new account.
      *
-     * @param googleId
-     *            the Google ID of the user.
-     * @param name
-     *            The name of the user.
-     * @param isInstructor
-     *            Does this account has instructor privileges?
-     * @param email
-     *            The official email of the user.
-     * @param institute
-     *            The university/school/institute e.g., "Abrons State University, Alaska"
-     * @param studentProfile
-     *            It is a StudentProfile object that contains all the attributes
-     *            of a student profile
+     * @param googleId       the Google ID of the user.
+     * @param name           The name of the user.
+     * @param isInstructor   Does this account has instructor privileges?
+     * @param email          The official email of the user.
+     * @param institute      The university/school/institute e.g., "Abrons State University, Alaska"
+     * @param studentProfile It is a StudentProfile object that contains all the attributes
+     *                       of a student profile
      */
     public Account(String googleId, String name, boolean isInstructor,
-            String email, String institute, StudentProfile studentProfile) {
+                   String email, String institute, StudentProfile studentProfile) {
         this.setGoogleId(googleId);
         this.setName(name);
         this.setIsInstructor(isInstructor);
@@ -70,7 +64,7 @@ public class Account extends BaseEntity {
     }
 
     public Account(String googleId, String name, boolean isInstructor,
-            String email, String institute) {
+                   String email, String institute) {
         this(googleId, name, isInstructor, email, institute, new StudentProfile(googleId));
     }
 

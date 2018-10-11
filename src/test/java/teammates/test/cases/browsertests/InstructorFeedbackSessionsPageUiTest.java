@@ -37,7 +37,9 @@ public class InstructorFeedbackSessionsPageUiTest extends BaseUiTestCase {
     private InstructorFeedbackSessionsPage feedbackPage;
     private String idOfInstructorWithSessions;
     private CourseAttributes course;
-    /** This contains data for the new feedback session to be created during testing. */
+    /**
+     * This contains data for the new feedback session to be created during testing.
+     */
     private FeedbackSessionAttributes newSession;
 
     @Override
@@ -162,19 +164,19 @@ public class InstructorFeedbackSessionsPageUiTest extends BaseUiTestCase {
 
         feedbackPage.clickEditUncommonSettingsSendEmailsButton();
         feedbackPage.verifyHtmlPart(uncommonSettingsSection,
-                                    "/instructorFeedbackUncommonSettingsSendEmails.html");
+                "/instructorFeedbackUncommonSettingsSendEmails.html");
         feedbackPage.clickEditUncommonSettingsSessionResponsesVisibleButton();
         feedbackPage.verifyHtmlPart(uncommonSettingsSection,
-                                    "/instructorFeedbackUncommonSettings.html");
+                "/instructorFeedbackUncommonSettings.html");
 
         feedbackPage.reloadPage();
 
         feedbackPage.clickEditUncommonSettingsSessionResponsesVisibleButton();
         feedbackPage.verifyHtmlPart(uncommonSettingsSection,
-                                    "/instructorFeedbackUncommonSettingsSessionResponsesVisibility.html");
+                "/instructorFeedbackUncommonSettingsSessionResponsesVisibility.html");
         feedbackPage.clickEditUncommonSettingsSendEmailsButton();
         feedbackPage.verifyHtmlPart(uncommonSettingsSection,
-                                    "/instructorFeedbackUncommonSettings.html");
+                "/instructorFeedbackUncommonSettings.html");
 
         ______TS("success case: defaults: visible when open, manual publish");
 
@@ -232,7 +234,7 @@ public class InstructorFeedbackSessionsPageUiTest extends BaseUiTestCase {
 
         //Remove added session to prevent state leaks.
         assertEquals("[BACKDOOR_STATUS_SUCCESS]",
-                     BackDoor.deleteFeedbackSession(templateSessionName, newSession.getCourseId()));
+                BackDoor.deleteFeedbackSession(templateSessionName, newSession.getCourseId()));
 
         ______TS("success case: Add a session with DST time zone and gap start time");
 
@@ -306,7 +308,7 @@ public class InstructorFeedbackSessionsPageUiTest extends BaseUiTestCase {
         newSession.setTimeZone(course.getTimeZone());
 
         ______TS("success case: closed session, custom session visible time, publish follows visible,"
-                 + " only open email, empty instructions");
+                + " only open email, empty instructions");
 
         feedbackPage = getFeedbackPageForInstructor(idOfInstructorWithSessions);
 
@@ -508,9 +510,9 @@ public class InstructorFeedbackSessionsPageUiTest extends BaseUiTestCase {
         feedbackPage.copyFeedbackSession("(New Session ##)", newSession.getCourseId());
         feedbackPage.waitForTextsForAllStatusMessagesToUserEquals(
                 "\"(New Session ##)\" is not acceptable to TEAMMATES as a/an feedback session name because "
-                + "it starts with a non-alphanumeric character. "
-                + "A/An feedback session name must start with an alphanumeric character, "
-                + "and cannot contain any vertical bar (|) or percent sign (%).");
+                        + "it starts with a non-alphanumeric character. "
+                        + "A/An feedback session name must start with an alphanumeric character, "
+                        + "and cannot contain any vertical bar (|) or percent sign (%).");
 
         feedbackPage.goToPreviousPage(InstructorFeedbackSessionsPage.class);
     }
@@ -540,7 +542,7 @@ public class InstructorFeedbackSessionsPageUiTest extends BaseUiTestCase {
         feedbackPage.getFsCopyToModal().clickSubmitButton();
 
         String error = String.format(Const.StatusMessages.FEEDBACK_SESSION_COPY_ALREADYEXISTS,
-                                     feedbackSessionName, courseId);
+                feedbackSessionName, courseId);
 
         feedbackPage.getFsCopyToModal().waitForFormSubmissionErrorMessagePresence();
         assertTrue(feedbackPage.getFsCopyToModal().isFormSubmissionStatusMessageVisible());
@@ -560,9 +562,9 @@ public class InstructorFeedbackSessionsPageUiTest extends BaseUiTestCase {
         assertTrue(feedbackPage.getFsCopyToModal().isFormSubmissionStatusMessageVisible());
         feedbackPage.getFsCopyToModal().verifyStatusMessage(
                 "\"Invalid name | for feedback session\" is not acceptable to TEAMMATES as a/an "
-                + "feedback session name because it contains invalid characters. "
-                + "A/An feedback session name must start with an alphanumeric character, "
-                + "and cannot contain any vertical bar (|) or percent sign (%).");
+                        + "feedback session name because it contains invalid characters. "
+                        + "A/An feedback session name must start with an alphanumeric character, "
+                        + "and cannot contain any vertical bar (|) or percent sign (%).");
 
         feedbackPage.getFsCopyToModal().clickCloseButton();
 
@@ -589,7 +591,7 @@ public class InstructorFeedbackSessionsPageUiTest extends BaseUiTestCase {
         feedbackPage = getFeedbackPageForInstructor(idOfInstructorWithSessions);
         feedbackPage.clickAndCancel(feedbackPage.getDeleteLink(courseId, sessionName));
         assertNotNull("session should not have been deleted",
-                      BackDoor.getFeedbackSession(courseId, sessionName));
+                BackDoor.getFeedbackSession(courseId, sessionName));
 
         feedbackPage.clickAndConfirm(feedbackPage.getDeleteLink(courseId, sessionName));
         feedbackPage.verifyHtmlMainContent("/instructorFeedbackDeleteSuccessful.html");

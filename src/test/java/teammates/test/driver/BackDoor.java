@@ -258,7 +258,8 @@ public final class BackDoor {
         Map<String, String> params = createParamMap(BackDoorOperation.OPERATION_GET_STUDENTS_AS_JSON);
         params.put(BackDoorOperation.PARAMETER_COURSE_ID, courseId);
         String studentsJson = makePostRequest(params);
-        return JsonUtils.fromJson(studentsJson, new TypeToken<List<StudentAttributes>>(){}.getType());
+        return JsonUtils.fromJson(studentsJson, new TypeToken<List<StudentAttributes>>() {
+        }.getType());
     }
 
     /**
@@ -389,28 +390,30 @@ public final class BackDoor {
      * Gets a list of feedback response data for particular recipient from the datastore.
      */
     public static List<FeedbackResponseAttributes>
-            getFeedbackResponsesForReceiverForCourse(String courseId, String recipientEmail) {
+    getFeedbackResponsesForReceiverForCourse(String courseId, String recipientEmail) {
         Map<String, String> params =
                 createParamMap(BackDoorOperation.OPERATION_GET_FEEDBACK_RESPONSES_FOR_RECEIVER_AS_JSON);
         params.put(BackDoorOperation.PARAMETER_COURSE_ID, courseId);
         params.put(BackDoorOperation.PARAMETER_RECIPIENT, recipientEmail);
         String feedbackResponsesJson = makePostRequest(params);
         return JsonUtils.fromJson(feedbackResponsesJson,
-                                  new TypeToken<List<FeedbackResponseAttributes>>(){}.getType());
+                new TypeToken<List<FeedbackResponseAttributes>>() {
+                }.getType());
     }
 
     /**
      * Gets a list of feedback response data for particular giver from the datastore.
      */
     public static List<FeedbackResponseAttributes>
-            getFeedbackResponsesFromGiverForCourse(String courseId, String giverEmail) {
+    getFeedbackResponsesFromGiverForCourse(String courseId, String giverEmail) {
         Map<String, String> params =
                 createParamMap(BackDoorOperation.OPERATION_GET_FEEDBACK_RESPONSES_FOR_GIVER_AS_JSON);
         params.put(BackDoorOperation.PARAMETER_COURSE_ID, courseId);
         params.put(BackDoorOperation.PARAMETER_GIVER_EMAIL, giverEmail);
         String feedbackResponsesJson = makePostRequest(params);
         return JsonUtils.fromJson(feedbackResponsesJson,
-                                  new TypeToken<List<FeedbackResponseAttributes>>(){}.getType());
+                new TypeToken<List<FeedbackResponseAttributes>>() {
+                }.getType());
     }
 
     /**
@@ -450,7 +453,7 @@ public final class BackDoor {
         conn.setReadTimeout(10000);
         StringBuilder sb = new StringBuilder();
         try (InputStreamReader isr = new InputStreamReader(conn.getInputStream(), Const.SystemParams.ENCODING);
-                BufferedReader rd = new BufferedReader(isr)) {
+             BufferedReader rd = new BufferedReader(isr)) {
             String line;
             while ((line = rd.readLine()) != null) {
                 sb.append(line);

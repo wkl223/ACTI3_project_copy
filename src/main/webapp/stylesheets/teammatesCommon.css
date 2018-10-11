@@ -19,8 +19,6 @@ mark {
     cursor: pointer;
 }
 
-
-
 /*
 Apply to alert to override Bootstrap's default 3d alerts
 */
@@ -1353,12 +1351,9 @@ Default to alert color for visibility titles used within an alert context.
     vertical-align: middle;
 }
 
-
 /* /////////////////////////////////////////////////////////
 /////////////////////// Login dropdown //////////////////////
 ///////////////////////////////////////////////////////// */
-
-
 
 .dropdown {
     position: relative;
@@ -1370,7 +1365,7 @@ Default to alert color for visibility titles used within an alert context.
     position: absolute;
     background-color: #696969;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -1380,13 +1375,17 @@ Default to alert color for visibility titles used within an alert context.
     display: block;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
-
-
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
 
 /* /////////////////////////////////////////////////////////
 ////////////////// Dropdowns with Submenus /////////////////

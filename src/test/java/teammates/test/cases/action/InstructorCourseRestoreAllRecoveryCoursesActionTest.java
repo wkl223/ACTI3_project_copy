@@ -84,7 +84,7 @@ public class InstructorCourseRestoreAllRecoveryCoursesActionTest extends BaseAct
                 typicalBundle.instructors.get("instructor1OfCourse3").googleId,
                 "icdat.owncourse", "New course", "UTC");
 
-        String[] submissionParams = new String[] {
+        String[] submissionParams = new String[]{
                 Const.ParamsNames.COURSE_ID, "icdat.owncourse"
         };
 

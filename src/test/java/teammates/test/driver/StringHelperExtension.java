@@ -17,6 +17,7 @@ public final class StringHelperExtension {
 
     /**
      * Generates an arbitrary string of given length.
+     *
      * @param length of string to be be generated
      * @return generated string
      */
@@ -26,6 +27,7 @@ public final class StringHelperExtension {
 
     /**
      * Generates a salt (random alphanumeric string) of given length.
+     *
      * @param length of salt to be be generated
      * @return generated salt
      */

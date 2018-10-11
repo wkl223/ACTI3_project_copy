@@ -12,22 +12,24 @@
 </c:set>
 
 <ta:adminPage title="Admin Activity Log" jsIncludes="${jsIncludes}">
-  <activity:filterPanel excludedLogRequestURIs="${data.excludedLogRequestUris}" actionListAsHtml="${data.actionListAsHtml}"
-      shouldShowAllLogs="${data.shouldShowAllLogs}" shouldShowTestData="${data.shouldShowTestData}" filterQuery="${data.filterQuery}"
-      queryKeywordsForInfo="${data.queryKeywordsForInfo}"/>
+  <activity:filterPanel excludedLogRequestURIs="${data.excludedLogRequestUris}"
+                        actionListAsHtml="${data.actionListAsHtml}"
+                        shouldShowAllLogs="${data.shouldShowAllLogs}" shouldShowTestData="${data.shouldShowTestData}"
+                        filterQuery="${data.filterQuery}"
+                        queryKeywordsForInfo="${data.queryKeywordsForInfo}"/>
 
   <c:if test="${not empty data.queryMessage}">
     <div class="alert alert-danger" id="queryMessage">
       <span class="glyphicon glyphicon-warning-sign"></span>
-      ${data.queryMessage}
+        ${data.queryMessage}
     </div>
   </c:if>
 
   <br> <br>
 
-  <activity:activityLogTable logs="${data.logs}" />
+  <activity:activityLogTable logs="${data.logs}"/>
 
-  <t:statusMessage doNotFocusToStatus="${true}" statusMessagesToUser="${data.statusMessagesToUser}" />
+  <t:statusMessage doNotFocusToStatus="${true}" statusMessagesToUser="${data.statusMessagesToUser}"/>
 
   <br>
 

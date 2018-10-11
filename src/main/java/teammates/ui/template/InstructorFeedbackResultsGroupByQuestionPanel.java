@@ -13,16 +13,16 @@ public class InstructorFeedbackResultsGroupByQuestionPanel extends InstructorFee
     private List<InstructorFeedbackResultsQuestionTable> questionTables;
 
     public InstructorFeedbackResultsGroupByQuestionPanel(List<InstructorFeedbackResultsQuestionTable> questionTables,
-                                    String profilePictureLink,
-                                    boolean isGiver, String participantIdentifier, String participantName,
-                                    InstructorFeedbackResultsModerationButton moderationButton) {
+                                                         String profilePictureLink,
+                                                         boolean isGiver, String participantIdentifier, String participantName,
+                                                         InstructorFeedbackResultsModerationButton moderationButton) {
         this.participantIdentifier = participantIdentifier;
         this.name = participantName;
         this.isGiver = isGiver;
 
         this.isEmailValid = new FieldValidator()
-                                    .getInvalidityInfoForEmail(participantIdentifier)
-                                    .isEmpty();
+                .getInvalidityInfoForEmail(participantIdentifier)
+                .isEmpty();
         this.profilePictureLink = profilePictureLink;
 
         this.questionTables = questionTables;
@@ -36,9 +36,9 @@ public class InstructorFeedbackResultsGroupByQuestionPanel extends InstructorFee
      * Constructs a GroupByQuestionPanel without a moderation button.
      */
     public InstructorFeedbackResultsGroupByQuestionPanel(
-                                    List<InstructorFeedbackResultsQuestionTable> questionTables,
-                                    String profilePictureLink,
-                                    boolean isGroupedByGiver, String participantIdentifier, String participantName) {
+            List<InstructorFeedbackResultsQuestionTable> questionTables,
+            String profilePictureLink,
+            boolean isGroupedByGiver, String participantIdentifier, String participantName) {
         this(questionTables, profilePictureLink, isGroupedByGiver,
                 participantIdentifier, participantName, null);
     }
@@ -47,11 +47,11 @@ public class InstructorFeedbackResultsGroupByQuestionPanel extends InstructorFee
      * Constructs a GroupByQuestionPanel with a moderation button.
      */
     public InstructorFeedbackResultsGroupByQuestionPanel(
-                                    String participantIdentifier, String participantName,
-                                    List<InstructorFeedbackResultsQuestionTable> questionTables,
-                                    String profilePictureLink,
-                                    boolean isGroupedByGiver,
-                                    InstructorFeedbackResultsModerationButton moderationButton) {
+            String participantIdentifier, String participantName,
+            List<InstructorFeedbackResultsQuestionTable> questionTables,
+            String profilePictureLink,
+            boolean isGroupedByGiver,
+            InstructorFeedbackResultsModerationButton moderationButton) {
         this(questionTables, profilePictureLink, isGroupedByGiver, participantIdentifier,
                 participantName, moderationButton);
     }

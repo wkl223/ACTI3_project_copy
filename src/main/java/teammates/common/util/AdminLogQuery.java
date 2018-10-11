@@ -83,6 +83,7 @@ public class AdminLogQuery {
 
     /**
      * Moves the time period to query logs to the next period in the past with a length of timeInMillis.
+     *
      * @param timeInMillis the length of the next period in milliseconds.
      */
     public void moveTimePeriodBackward(long timeInMillis) {

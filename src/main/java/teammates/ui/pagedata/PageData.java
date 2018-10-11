@@ -35,8 +35,10 @@ import teammates.ui.template.InstructorFeedbackSessionActions;
  */
 public class PageData {
 
-    /** The user for whom the pages are displayed (i.e. the 'nominal user').
-     *  May not be the logged in user (under masquerade mode) */
+    /**
+     * The user for whom the pages are displayed (i.e. the 'nominal user').
+     * May not be the logged in user (under masquerade mode)
+     */
     public AccountAttributes account;
     public StudentAttributes student;
 
@@ -132,8 +134,8 @@ public class PageData {
             return "";
         }
         return "Previously entered value was " + SanitizationHelper.sanitizeForHtml(existingNationality) + ". "
-               + "This is not a valid nationality; "
-               + "please choose a valid nationality from the dropdown list before saving.";
+                + "This is not a valid nationality; "
+                + "please choose a valid nationality from the dropdown list before saving.";
     }
 
     /**
@@ -160,7 +162,7 @@ public class PageData {
         ArrayList<ElementTag> result = new ArrayList<>();
         for (int i = 0; i <= 30; i += 5) {
             ElementTag option = createOption(i + " mins", String.valueOf(i),
-                                            isGracePeriodToBeSelected(existingGracePeriod, i));
+                    isGracePeriodToBeSelected(existingGracePeriod, i));
             result.add(option);
         }
         return result;
@@ -174,7 +176,7 @@ public class PageData {
         List<ElementTag> result = new ArrayList<>();
         for (int i = 1; i <= 24; i++) {
             ElementTag option = createOption(String.format("%04dH", i * 100 - (i == 24 ? 41 : 0)),
-                                             String.valueOf(i), isTimeToBeSelected(timeToShowAsSelected, i));
+                    String.valueOf(i), isTimeToBeSelected(timeToShowAsSelected, i));
             result.add(option);
         }
         return result;
@@ -188,6 +190,7 @@ public class PageData {
      * Returns the status of the student, whether he has joined the course.
      * This is based on googleId, if it's null or empty, then we assume he
      * has not joined the course yet.
+     *
      * @return "Yet to Join" or "Joined"
      */
     public String getStudentStatus(StudentAttributes student) {
@@ -342,6 +345,7 @@ public class PageData {
     /**
      * Retrieves the link to submit the request for copy of session.
      * Appends the return url to the link.
+     *
      * @param returnUrl the url to return to after submitting the request
      * @return submit link with return url appended to it
      */
@@ -357,9 +361,9 @@ public class PageData {
         String link = Const.ActionURIs.INSTRUCTOR_COURSE_DELETE;
         link = Url.addParamToUrl(link, Const.ParamsNames.COURSE_ID, courseId);
         link = Url.addParamToUrl(link,
-                                 Const.ParamsNames.NEXT_URL,
-                                 isHome ? Const.ActionURIs.INSTRUCTOR_HOME_PAGE
-                                        : Const.ActionURIs.INSTRUCTOR_COURSES_PAGE);
+                Const.ParamsNames.NEXT_URL,
+                isHome ? Const.ActionURIs.INSTRUCTOR_HOME_PAGE
+                        : Const.ActionURIs.INSTRUCTOR_COURSES_PAGE);
         link = addUserIdToUrl(link);
         link = addSessionTokenToUrl(link);
         return link;
@@ -370,9 +374,9 @@ public class PageData {
         link = Url.addParamToUrl(link, Const.ParamsNames.COURSE_ID, courseId);
         link = Url.addParamToUrl(link, Const.ParamsNames.COURSE_ARCHIVE_STATUS, Boolean.toString(archiveStatus));
         link = Url.addParamToUrl(link,
-                                 Const.ParamsNames.NEXT_URL,
-                                 isHome ? Const.ActionURIs.INSTRUCTOR_HOME_PAGE
-                                        : Const.ActionURIs.INSTRUCTOR_COURSES_PAGE);
+                Const.ParamsNames.NEXT_URL,
+                isHome ? Const.ActionURIs.INSTRUCTOR_HOME_PAGE
+                        : Const.ActionURIs.INSTRUCTOR_COURSES_PAGE);
         link = addUserIdToUrl(link);
         link = addSessionTokenToUrl(link);
         return link;
@@ -431,9 +435,10 @@ public class PageData {
 
     /**
      * Retrieves the link to submit request to delete the session.
-     * @param courseId course ID
+     *
+     * @param courseId            course ID
      * @param feedbackSessionName the session name
-     * @param returnUrl the url of the page to return to after the delete
+     * @param returnUrl           the url of the page to return to after the delete
      * @return the link to submit request to delete the session with return page link
      */
     public String getInstructorFeedbackDeleteLink(String courseId, String feedbackSessionName, String returnUrl) {
@@ -484,9 +489,10 @@ public class PageData {
     /**
      * Retrieves the link to submit the request for remind student
      * Appends the return url to the link.
-     * @param courseId the course ID
+     *
+     * @param courseId            the course ID
      * @param feedbackSessionName the name of the feedback session
-     * @param returnUrl the url to return to after submitting the request
+     * @param returnUrl           the url to return to after submitting the request
      * @return submit link with return url appended to it
      */
     public String getInstructorFeedbackRemindLink(String courseId, String feedbackSessionName, String returnUrl) {
@@ -502,7 +508,8 @@ public class PageData {
 
     /**
      * Retrieves the link to load remind modal.
-     * @param courseId the course ID
+     *
+     * @param courseId            the course ID
      * @param feedbackSessionName the name of the feedback session
      * @return the link to load remind modal
      */
@@ -516,6 +523,7 @@ public class PageData {
 
     /**
      * Retrieves the link to submit the request to remind a particular student(s).
+     *
      * @param returnUrl the url to return to after submitting the request
      * @return submit link with return url appended to it
      */
@@ -540,7 +548,8 @@ public class PageData {
 
     /**
      * Retrieves the link to load data for the resend session published email modal.
-     * @param courseId the course ID
+     *
+     * @param courseId            the course ID
      * @param feedbackSessionName the name of the feedback session
      * @return the link to load data for the modal
      */
@@ -554,6 +563,7 @@ public class PageData {
 
     /**
      * Retrieves the link to submit the request for resending the session published email.
+     *
      * @param returnUrl the url to return to after submitting the request
      * @return submit link with return url appended to it
      */
@@ -717,12 +727,9 @@ public class PageData {
     /**
      * Returns the links of actions available for a specific session.
      *
-     * @param session
-     *         The feedback session details
-     * @param returnUrl
-     *         The return URL after performing the action.
-     * @param instructor
-     *         The Instructor details
+     * @param session    The feedback session details
+     * @param returnUrl  The return URL after performing the action.
+     * @param instructor The Instructor details
      */
     public InstructorFeedbackSessionActions getInstructorFeedbackSessionActions(FeedbackSessionAttributes session,
                                                                                 String returnUrl,
@@ -802,8 +809,8 @@ public class PageData {
             return Const.SystemParams.DEFAULT_PROFILE_PICTURE_PATH;
         }
         return Const.ActionURIs.STUDENT_PROFILE_PICTURE + "?"
-               + Const.ParamsNames.BLOB_KEY + "=" + pictureKey + "&"
-               + Const.ParamsNames.USER_ID + "=" + account.googleId;
+                + Const.ParamsNames.BLOB_KEY + "=" + pictureKey + "&"
+                + Const.ParamsNames.USER_ID + "=" + account.googleId;
     }
 
     public String getRecipientNames(Set<String> recipients, String courseId, String studentEmail, CourseRoster roster) {
@@ -837,6 +844,7 @@ public class PageData {
 
     /**
      * Sets the list of status messages.
+     *
      * @param statusMessagesToUser a list of status messages that is to be displayed to the user
      */
     public void setStatusMessagesToUser(List<StatusMessage> statusMessagesToUser) {
@@ -845,6 +853,7 @@ public class PageData {
 
     /**
      * Gets the list of status messages.
+     *
      * @return a list of status messages that is to be displayed to the user
      */
     public List<StatusMessage> getStatusMessagesToUser() {
@@ -854,17 +863,17 @@ public class PageData {
     /**
      * Builds template that will be used by feedbackParticipant/Instructor to add comments to responses.
      *
-     * @param question question of response
-     * @param responseId id of response (can be empty)
-     * @param giverName name of person/team giving comment (empty for feedback participant comments)
-     * @param recipientName name of person/team receiving comment (empty for feedback participant comments)
-     * @param timezone Time zone
+     * @param question                         question of response
+     * @param responseId                       id of response (can be empty)
+     * @param giverName                        name of person/team giving comment (empty for feedback participant comments)
+     * @param recipientName                    name of person/team receiving comment (empty for feedback participant comments)
+     * @param timezone                         Time zone
      * @param isCommentFromFeedbackParticipant true if comment giver is feedback participant
      * @return Feedback response comment add form template
      */
     public FeedbackResponseCommentRow buildFeedbackResponseCommentFormForAdding(FeedbackQuestionAttributes question,
-            String responseId, String giverName, String recipientName, ZoneId timezone,
-            boolean isCommentFromFeedbackParticipant) {
+                                                                                String responseId, String giverName, String recipientName, ZoneId timezone,
+                                                                                boolean isCommentFromFeedbackParticipant) {
         FeedbackResponseCommentAttributes frca = FeedbackResponseCommentAttributes
                 .builder(question.courseId, question.feedbackSessionName, "", new Text(""))
                 .withFeedbackResponseId(responseId)
@@ -926,38 +935,38 @@ public class PageData {
     // TODO investigate and fix the differences between question.isResponseVisibleTo and this method
     protected boolean isResponseVisibleTo(FeedbackParticipantType participantType, FeedbackQuestionAttributes question) {
         switch (participantType) {
-        case GIVER:
-            return question.isResponseVisibleTo(FeedbackParticipantType.GIVER);
-        case INSTRUCTORS:
-            return question.isResponseVisibleTo(FeedbackParticipantType.INSTRUCTORS);
-        case OWN_TEAM_MEMBERS:
-            return question.giverType != FeedbackParticipantType.INSTRUCTORS
-                    && question.giverType != FeedbackParticipantType.SELF
-                    && question.isResponseVisibleTo(FeedbackParticipantType.OWN_TEAM_MEMBERS);
-        case RECEIVER:
-            return question.recipientType != FeedbackParticipantType.SELF
-                    && question.recipientType != FeedbackParticipantType.NONE
-                    && question.isResponseVisibleTo(FeedbackParticipantType.RECEIVER);
-        case RECEIVER_TEAM_MEMBERS:
-            return question.recipientType != FeedbackParticipantType.INSTRUCTORS
-                    && question.recipientType != FeedbackParticipantType.SELF
-                    && question.recipientType != FeedbackParticipantType.NONE
-                    && question.isResponseVisibleTo(FeedbackParticipantType.RECEIVER_TEAM_MEMBERS);
-        case STUDENTS:
-            return question.isResponseVisibleTo(FeedbackParticipantType.STUDENTS);
-        default:
-            Assumption.fail("Invalid participant type");
-            return false;
+            case GIVER:
+                return question.isResponseVisibleTo(FeedbackParticipantType.GIVER);
+            case INSTRUCTORS:
+                return question.isResponseVisibleTo(FeedbackParticipantType.INSTRUCTORS);
+            case OWN_TEAM_MEMBERS:
+                return question.giverType != FeedbackParticipantType.INSTRUCTORS
+                        && question.giverType != FeedbackParticipantType.SELF
+                        && question.isResponseVisibleTo(FeedbackParticipantType.OWN_TEAM_MEMBERS);
+            case RECEIVER:
+                return question.recipientType != FeedbackParticipantType.SELF
+                        && question.recipientType != FeedbackParticipantType.NONE
+                        && question.isResponseVisibleTo(FeedbackParticipantType.RECEIVER);
+            case RECEIVER_TEAM_MEMBERS:
+                return question.recipientType != FeedbackParticipantType.INSTRUCTORS
+                        && question.recipientType != FeedbackParticipantType.SELF
+                        && question.recipientType != FeedbackParticipantType.NONE
+                        && question.isResponseVisibleTo(FeedbackParticipantType.RECEIVER_TEAM_MEMBERS);
+            case STUDENTS:
+                return question.isResponseVisibleTo(FeedbackParticipantType.STUDENTS);
+            default:
+                Assumption.fail("Invalid participant type");
+                return false;
         }
     }
 
     /**
      * Builds comment row for feedback participant comment.
      *
-     * @param questionAttributes question associated with comment
+     * @param questionAttributes   question associated with comment
      * @param commentsForResponses map where key is response id and value is list of comments on that response
-     * @param responseId response id of response associated with comment
-     * @param isEditDeleteEnabled true if comment can be edited or deleted
+     * @param responseId           response id of response associated with comment
+     * @param isEditDeleteEnabled  true if comment can be edited or deleted
      * @return
      */
     public FeedbackResponseCommentRow buildFeedbackParticipantResponseCommentRow(

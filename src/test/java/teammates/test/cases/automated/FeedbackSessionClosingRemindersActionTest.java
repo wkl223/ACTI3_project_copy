@@ -41,7 +41,7 @@ public class FeedbackSessionClosingRemindersActionTest extends BaseAutomatedActi
         verifyNoTasksAdded(action);
 
         ______TS("1 session closing soon, 1 session closing soon with disabled closing reminder, "
-                 + "1 session closing soon but not yet opened");
+                + "1 session closing soon but not yet opened");
 
         // Modify session to close in 24 hours
 
@@ -82,8 +82,8 @@ public class FeedbackSessionClosingRemindersActionTest extends BaseAutomatedActi
         for (TaskWrapper task : tasksAdded) {
             Map<String, String[]> paramMap = task.getParamMap();
             assertEquals(String.format(EmailType.FEEDBACK_CLOSING.getSubject(), courseName,
-                                       session1.getSessionName()),
-                         paramMap.get(ParamsNames.EMAIL_SUBJECT)[0]);
+                    session1.getSessionName()),
+                    paramMap.get(ParamsNames.EMAIL_SUBJECT)[0]);
         }
 
         ______TS("1 session closing soon with emails sent");

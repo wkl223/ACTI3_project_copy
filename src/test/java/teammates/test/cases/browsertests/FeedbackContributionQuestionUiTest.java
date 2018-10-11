@@ -9,7 +9,7 @@ import teammates.test.pageobjects.InstructorFeedbackEditPage;
 
 /**
  * SUT: {@link Const.ActionURIs#INSTRUCTOR_FEEDBACK_EDIT_PAGE},
- *      specifically for contribution questions.
+ * specifically for contribution questions.
  */
 public class FeedbackContributionQuestionUiTest extends FeedbackQuestionUiTest {
     private InstructorFeedbackEditPage feedbackEditPage;

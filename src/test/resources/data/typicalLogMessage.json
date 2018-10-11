@@ -7,11 +7,9 @@
     "TEAMMATESLOG|||servlet3|||action1|||true|||Student|||Name2|||id1@google.com.sg|||email2@email.com|||keyword2, keyword3|||url1|||id04|||50",
     "TEAMMATESLOG|||servlet3|||action2|||true|||Instructor|||Name2|||idOfInstructor1OfCourse1|||email2@email.com|||keyword1|||url2|||id05|||51",
     "TEAMMATESLOG|||servlet4|||action1|||true|||Student|||Name3|||id3@google.tmt|||email3@email.tmt|||keyword3|||url1|||id06|||120",
-
     "TEAMMATESLOG|||feedbackSessionStatsPage|||excludeUri|||true|||Admin|||Name1|||id1@google.com|||email1@email.com|||keyword1 keyword2, keyword3|||/page/feedbackSessionStatsPage|||id07|||60",
     "TEAMMATESLOG|||compileLogs|||excludeUri|||true|||Admin|||Name1|||id1@google.com|||email1@email.com|||keyword1 keyword2, keyword3|||/auto/compileLogs|||id08",
     "TEAMMATESLOG|||adminActivityLogPage|||adminActivityLogPage|||true|||Admin|||Name1|||id1@google.com|||email1@email.com|||keyword1 keyword2, keyword3|||url1|||id09|||70",
-
     "Not Desired Format"
   ],
   [
@@ -19,16 +17,13 @@
     "TEAMMATESLOG|||servlet1|||action2|||true|||Admin|||Name1|||id1@google.com|||email1@email.com|||keyword2|||url2|||id11|||50",
     "TEAMMATESLOG|||servlet3|||action1|||true|||Student|||Name2|||idOfInstructor1OfCourse1|||email2@email.com|||keyword2, keyword3|||url1|||id12",
     "TEAMMATESLOG|||servlet2|||action2|||true|||Instructor|||Name2|||id3@google.tmt|||email2@email.tmt|||keyword1|||url2|||id13|||100",
-
     "TEAMMATESLOG|||feedbackSessionStatsPage|||excludeUri|||true|||Admin|||Name1|||id1@google.com|||email1@email.com|||keyword1 keyword2, keyword3|||/page/feedbackSessionStatsPage|||id14|||60",
-
     "Not Desired Format"
   ],
   [
     "TEAMMATESLOG|||servlet3|||action1|||true|||Student|||Name2|||idOfInstructor1OfCourse1|||email2@email.com|||keyword2, keyword3|||url1|||id20|||50",
     "TEAMMATESLOG|||servlet2|||action2|||true|||Instructor|||Name2|||idOfInstructor1OfCourse1|||email2@email.com|||keyword1|||url2|||id21|||100",
     "TEAMMATESLOG|||servlet3|||action1|||true|||Unregistered|||Name3|||id3@google.tmt|||email3@email.tmt|||keyword3|||url1|||id22|||120",
-
     "TEAMMATESLOG|||compileLogs|||excludeUri|||true|||Admin|||Name1|||id1@google.com|||email1@email.com|||keyword1 keyword2, keyword3|||/auto/compileLogs|||id23"
   ],
   [

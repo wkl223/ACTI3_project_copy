@@ -9,7 +9,7 @@
 <div>
   <table id="email-logs-table">
     <c:forEach items="${data.logs}" var="log">
-      <adminEmailLog:emailLogTableRow log="${log}" />
+      <adminEmailLog:emailLogTableRow log="${log}"/>
     </c:forEach>
   </table>
 

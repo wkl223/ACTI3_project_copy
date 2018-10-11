@@ -22,15 +22,15 @@ public class InstructorCourseEditSaveAction extends Action {
 
         InstructorAttributes instructor = logic.getInstructorForGoogleId(courseId, account.googleId);
         gateKeeper.verifyAccessible(instructor, logic.getCourse(courseId),
-                                    Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_COURSE);
+                Const.ParamsNames.INSTRUCTOR_PERMISSION_MODIFY_COURSE);
 
         try {
             logic.updateCourse(courseId, courseName, courseTimeZone);
 
             statusToUser.add(new StatusMessage(Const.StatusMessages.COURSE_EDITED, StatusMessageColor.SUCCESS));
             statusToAdmin = "Updated Course <span class=\"bold\">[" + courseId + "]</span> details:<br>"
-                            + "Name: " + courseName + "<br>"
-                            + "Time zone: " + courseTimeZone;
+                    + "Name: " + courseName + "<br>"
+                    + "Time zone: " + courseTimeZone;
 
         } catch (InvalidParametersException e) {
             setStatusForException(e);

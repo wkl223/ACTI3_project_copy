@@ -20,7 +20,7 @@ public class FeedbackMcqResponseDetails extends FeedbackResponseDetails {
 
     @Override
     public void extractResponseDetails(FeedbackQuestionType questionType,
-            FeedbackQuestionDetails questionDetails, String[] answer) {
+                                       FeedbackQuestionDetails questionDetails, String[] answer) {
         /*
          * answer[0] contains the answer given by the student, answer[1] is "1"
          * if "other" is selected by the student, "0" if "other" is not
@@ -38,9 +38,9 @@ public class FeedbackMcqResponseDetails extends FeedbackResponseDetails {
     }
 
     public void extractResponseDetails(FeedbackQuestionType questionType,
-                                    FeedbackQuestionDetails questionDetails, String[] rawAnswer,
-                                    Map<String, String[]> requestParameters, int questionIndx,
-                                    int responseIndx) {
+                                       FeedbackQuestionDetails questionDetails, String[] rawAnswer,
+                                       Map<String, String[]> requestParameters, int questionIndx,
+                                       int responseIndx) {
 
         String[] answer = appendOtherOptionFlagToAnswer(rawAnswer, requestParameters, questionIndx, responseIndx);
         /*
@@ -86,10 +86,10 @@ public class FeedbackMcqResponseDetails extends FeedbackResponseDetails {
     }
 
     private String[] appendOtherOptionFlagToAnswer(String[] answer, Map<String, String[]> requestParameters,
-                                    int questionIndx, int responseIndx) {
+                                                   int questionIndx, int responseIndx) {
         String isOtherOptionAnswer = HttpRequestHelper.getValueFromParamMap(
-                                        requestParameters, Const.ParamsNames.FEEDBACK_QUESTION_MCQ_ISOTHEROPTIONANSWER
-                                                           + "-" + questionIndx + "-" + responseIndx);
+                requestParameters, Const.ParamsNames.FEEDBACK_QUESTION_MCQ_ISOTHEROPTIONANSWER
+                        + "-" + questionIndx + "-" + responseIndx);
         if (answer != null) {
             String[] answerWithOtherOptionFlag = new String[answer.length + 1];
 

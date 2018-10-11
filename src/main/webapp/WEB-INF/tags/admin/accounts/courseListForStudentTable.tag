@@ -10,22 +10,22 @@
 
   <table class="table table-striped data-table">
     <thead>
-      <tr>
-        <th width="70%">Course</th>
-        <th>Options</th>
-      </tr>
+    <tr>
+      <th width="70%">Course</th>
+      <th>Options</th>
+    </tr>
     </thead>
     <tbody>
-      <c:forEach items="${studentCourseListTable}" var="row">
-        <tr>
-          <td>[${row.courseDetails.id}] ${row.courseDetails.name}</td>
-          <td>
-            <a ${row.removeFromCourseButton.attributesToString}>
+    <c:forEach items="${studentCourseListTable}" var="row">
+      <tr>
+        <td>[${row.courseDetails.id}] ${row.courseDetails.name}</td>
+        <td>
+          <a ${row.removeFromCourseButton.attributesToString}>
               ${row.removeFromCourseButton.content}
-            </a>
-          </td>
-        </tr>
-      </c:forEach>
+          </a>
+        </td>
+      </tr>
+    </c:forEach>
     </tbody>
   </table>
 </div>

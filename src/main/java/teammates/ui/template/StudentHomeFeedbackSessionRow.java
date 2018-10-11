@@ -7,8 +7,8 @@ public class StudentHomeFeedbackSessionRow extends HomeFeedbackSessionRow {
     private int index;
 
     public StudentHomeFeedbackSessionRow(String name, String submissionsTooltip, String publishedTooltip,
-            String submissionStatus, String publishedStatus, String endTime, String endTimeIso8601Utc,
-            StudentFeedbackSessionActions actions, int index) {
+                                         String submissionStatus, String publishedStatus, String endTime, String endTimeIso8601Utc,
+                                         StudentFeedbackSessionActions actions, int index) {
         super(name, submissionsTooltip, publishedTooltip, submissionStatus, publishedStatus);
         this.endTime = endTime;
         this.endTimeIso8601Utc = endTimeIso8601Utc;
