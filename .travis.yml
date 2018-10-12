@@ -61,3 +61,8 @@ after_failure:
 after_success:
 - ./gradlew jacocoReport
 - bash <(curl -s https://codecov.io/bash)
+
+deploy:
+        provider: gae
+        keyfile: Acti3-teammate-SEPT-3aa8b787ba11.json
+        project: acti3-teammate-sept
