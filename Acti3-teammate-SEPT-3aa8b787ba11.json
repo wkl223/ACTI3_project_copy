@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "acti3-teammate-sept",
+  "private_key_id": "3aa8b787ba11820ad3bc30154ec9d1c1c01f55ba",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCgfS/fb9fn508h\ncgUrf7r6rRnDqJy5Tlkyc2SbEvLSyfmHAc9/dnaEBzUfs0VYbYkSDAblKF8broa3\nzjjYEZ+dwqzp/w9rC7rYosRRv03p4kVvHWCP6iXXxv6sL5a7OOkpPfFk98KC5GcP\n4hE/Nazs481AUZWi6NJgl3cAR9TZpWaEbEaac/DeIPolFXrBvOQj8y95rFvBUfRx\nQC/Dn4Ro/Uqk/66Abh4gWkbxvHiwaKTc6g5HYh7Lf0G+eImjOeaWeJ6wJcu3OjBw\nVgkecW+t+wGlaR3BlNpN+1xFAKK6P67DCqvP+UR/AN/5q+kdqnAkb+WJcR9Nd/AN\nIIu+ohe/AgMBAAECggEAOInhw6VzOo+SoQW6LIjjJky1Nui/zch8Q/nDB561TO06\nqwVIRG9HcVvYq0JMu8pa77Cs/S4r02S4sShFflk3EizzHbxtghivyoINB3+Nw0ej\njnGbAxhKHKpOLfrV7z8tZQodcKSYMeSlKkNKMCqIsSvPs0kKnknHU6AInGCx67p6\nbT1eYGuk7gCJ32nha1ejgYMRNGbZ5PE7t5spxXWXrKgLH68gVUQ6B08CmI4nmCIP\nlfaPLC8dBzUTrj8lmyD0OZEr0EIHMPcSpHaYy3WqqdIvTZSDUd/9LoCw7/k6KKrG\nrTbJCsU0Ly+KGNDvMjf1N9S/yxanNkMlBwrzekwvgQKBgQDRreGryrXMnsJMtncj\n5u195VQYXEl9UL2ONsJC3DlSXe95f12h9YSJ0Ceae4rK758VcUgcOKP3Xm5YAvwt\nXOLJjHouIapVEahxYtb2FZdnSiOlCk/3g9kz6QZ/aOcwN4j+Z4sTlHbFTLx1HvfJ\neonZu5Gj6lsXz3AtJTpeyYYnQwKBgQDD8WvIyOPexiOwzartD8E4McZx3W4Qg/ig\nrNgIkprq4KgTaXd4iRZ4r+XsbBLO29LglZw2JuOpktSmop4GeQGcH8FaAof6ErHR\nMqZP3N8cFoa3nm07Gr81Zu57dI7Hd9ZGWyv3TlWfynEy4MpjX0cuGJG1eIRaBXSQ\nlh07n8eP1QKBgED0Sqp7O2JN9Abrp3C5wuxzNF/vhtyJPI9nqzonGqLHcr4ClLDt\na8d9cidLCi3fmTp9Q0dqzHB/ElO1aQVsdtzU5ayQxUFhHPszEUBeY+6davlffnJA\np/KKx3aEusmXCps03EKOhVSNdvwZQc1qZnXKw00x9lIj8q4pkDF44FQdAoGBAKsx\ng/ViJ00dGlO/7YW/jRZ2zqXvS9mcJB7lxL4AsN9jtxV2wQ4L4BlDvYPJjMk04FKe\nBGR/p8shYS/RxnVrRc/NItZsfbcsnDVlpk8Cb+APglZtUYwhO0wCCXzNgm2eMxU3\nVPt2cnLwoeRM6CbYOM16Y9wEVsZ8G7KzpQjR+b6dAoGBAIWhY2p0NqOj66gcsmTU\nL5xKIgCd//kawWGXsf1OQNWM7+CBh+Pch6rqKHAyeG1m7brnqILmFtT31qUdYccl\ngXnOittS45zoq0QZklVegzoc9+bs6EpFRTuf5G7Trq2XltsyI/QkEnNN4ln9/Y66\n9He9TNfzrMzzujG+oPF7lESw\n-----END PRIVATE KEY-----\n",
+  "client_email": "acti3-239@acti3-teammate-sept.iam.gserviceaccount.com",
+  "client_id": "112119411274107213461",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/acti3-239%40acti3-teammate-sept.iam.gserviceaccount.com"
+}
