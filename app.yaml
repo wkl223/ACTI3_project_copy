@@ -1,0 +1,7 @@
+runtime: java8
+env: standard
+runtime_config:
+        jdk: openjdk8
+handlers:
+        - url: ./src/main/webapp/
+          script: home.app
