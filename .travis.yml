@@ -61,10 +61,10 @@ after_failure:
 
 after_success:
 - ./gradlew jacocoReport
-- bash <(curl -s https://codecov.io/bash)
+  #- bash <(curl -s https://codecov.io/bash)
 
 before_deploy:
-        - cd src/main/webapp
+        - cd src/main/webapp/
 deploy:
         provider: gae
         keyfile: Acti3-teammate-SEPT-3aa8b787ba11.json
