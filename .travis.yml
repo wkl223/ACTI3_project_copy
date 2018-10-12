@@ -61,7 +61,7 @@ after_failure:
 
 after_success:
 - ./gradlew jacocoReport
-  #- bash <(curl -s https://codecov.io/bash)
+#- bash <(curl -s https://codecov.io/bash)
 - npm run build 
 
 before_deploy:
@@ -70,4 +70,4 @@ deploy:
         provider: gae
         keyfile: Acti3-teammate-SEPT-3aa8b787ba11.json
         project: acti3-teammate-sept
-	skip_cleanup: true
+skip_cleanup: true
