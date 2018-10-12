@@ -62,7 +62,7 @@ after_failure:
 after_success:
 - ./gradlew jacocoReport
   #- bash <(curl -s https://codecov.io/bash)
-- npm run build
+- npm run build 
 
 before_deploy:
         - cd src/main/webapp/
