@@ -1,0 +1,67 @@
+.classpath
+.project
+.git
+.gcloudignore
+.gitignore
+.DS_Store
+.settings
+*.orig
+*.class
+*.jar
+gradle.properties
+build.properties
+test.properties
+report
+appengine-generated
+*.ext
+appengine-web.xml
+chromedriver*
+*.bin
+*.bak
+*.db
+*.md.html
+libs/
+src/main/webapp/js
+src/main/webapp/test/*.js
+node_modules/
+npm-debug.log
+package-lock.json
+
+.launches
+test-output/*
+src/test/current testng.xml
+src/main/webapp/WEB-INF/classes
+src/client/java/teammates/client/scripts/scalabilitytests/data/
+*.exe
+
+### Gradle ###
+.gradle
+build/
+bin/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+
+# Cache of project
+.gradletasknamecache
+
+build-eclipse/
+.checkstyle
+.eclipse-pmd
+.tern-project
+
+### IntelliJ ###
+# Ignore the folder where project settings are stored as IDE is not assumed
+/.idea/
+*.iml
+/out/
+
+### Stylelint ###
+/.stylelintrc.yml
+
+### Gmail API Credentials ###
+/src/test/resources/gmail-api/

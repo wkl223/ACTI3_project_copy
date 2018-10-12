@@ -15,8 +15,8 @@ sudo: required
 dist: trusty
 
 
-#addons:
-#  firefox: "46.0"
+addons:
+  firefox: "46.0"
 
 before_install:
 - |
