@@ -66,7 +66,6 @@ after_success:
 
 before_deploy:
         - cd src/main/webapp/
-        - cp appengine-web.xml WEB-INF/
 deploy:
         provider: gae
         keyfile: Acti3-teammate-SEPT-3aa8b787ba11.json
