@@ -1,0 +1,6 @@
+runtime: java
+env: standard
+
+handlers:
+        - url: ./*
+          script: teammate
