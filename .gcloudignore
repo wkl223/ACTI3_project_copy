@@ -21,6 +21,7 @@ chromedriver*
 *.db
 *.md.html
 libs/
+google-cloud-sdk/*
 src/main/webapp/js
 src/main/webapp/test/*.js
 node_modules/

@@ -1,6 +1,7 @@
-runtime: java
+runtime: java8
 env: standard
-
+runtime_config:
+        jdk: openjdk8
 handlers:
         - url: ./*
           script: teammate
